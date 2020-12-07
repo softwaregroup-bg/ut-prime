@@ -1,7 +1,7 @@
 {
   "name": "ut-front-devextreme",
   "description": "ut-front-devextreme's component library",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "ISC",
   "publishConfig": {
     "registry": "https://nexus.softwaregroup.com/repository/npm-internal"
@@ -62,8 +62,7 @@
     "prop-types": "^15.7.2",
     "tslib": "^2.0.3"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.12.8",
     "@babel/core": "^7.12.9",
