@@ -5,5 +5,5 @@ export interface I${componentName}Props extends HTMLAttributes<HTMLButtonElement
     className?: string;
 }
 `,
-    extension: '.types.ts',
+    extension: '.types.ts'
 });

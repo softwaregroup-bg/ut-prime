@@ -19,6 +19,8 @@ dev
 dist
 node_modules
 npm-debug.*
+package-lock.json
+yarn.lock
 .scannerwork
 
 # Build files

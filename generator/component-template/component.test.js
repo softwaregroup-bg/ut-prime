@@ -22,5 +22,5 @@ describe('<${componentName} />', () => {
     });
 });
 `,
-    extension: '.test.tsx',
+    extension: '.test.tsx'
 });

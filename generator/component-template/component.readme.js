@@ -16,8 +16,7 @@ import ${componentName} from 'ut-front-devextreme/core/${componentName}';
 | propName  | propType | defaultValue | isRequired |
 | --------- | -------- | ------------ | ---------- |
 | className | string   |              | no         |
-
 `,
     fileName: 'README',
-    extension: '.md',
+    extension: '.md'
 });

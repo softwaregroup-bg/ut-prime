@@ -10,10 +10,10 @@ import ${componentName} from './index';
 export default {
     title: '${componentName}',
     component: ${componentName},
-    decorators: [withReadme(README)],
+    decorators: [withReadme(README)]
 };
 
 export const Basic: React.FC<{}> = () => <${componentName} onClick={action('clicked')}>Hello ${componentName}</${componentName}>;
 `,
-    extension: '.stories.tsx',
+    extension: '.stories.tsx'
 });

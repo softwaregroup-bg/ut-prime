@@ -11,5 +11,5 @@ const ${componentName}: React.FC<I${componentName}Props> = ({ className, ...rest
 
 export default ${componentName};
 `,
-    extension: '.tsx',
+    extension: '.tsx'
 });

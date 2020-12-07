@@ -2,11 +2,11 @@ const presets = [
     [
         '@babel/preset-env',
         {
-            modules: false,
-        },
+            modules: false
+        }
     ],
     '@babel/preset-typescript',
-    '@babel/preset-react',
+    '@babel/preset-react'
 ];
 
 const plugins = ['@babel/plugin-proposal-class-properties'];
@@ -21,11 +21,11 @@ module.exports = {
                     '@babel/preset-env',
                     {
                         targets: {
-                            node: 'current',
-                        },
-                    },
-                ],
-            ],
-        },
-    },
+                            node: 'current'
+                        }
+                    }
+                ]
+            ]
+        }
+    }
 };

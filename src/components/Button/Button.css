@@ -1,0 +1,130 @@
+.btn {
+    text-transform: uppercase;
+    font-family: OpenSans;
+    font-size: 14px;
+    color: #FFFFFF;
+    border-radius: 2px;
+    border: 0px;
+    font-weight: 600;
+}
+
+.btn:focus {
+    outline: #014c8c;
+    outline: 1px dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+}
+
+.btnNormal {
+    width: 146px;
+    height: 46px;
+}
+
+.btnSmall {
+    font-size: 11px;
+    line-height: 11px;
+    padding: 8px 10px;
+}
+
+.btnFullWidth {
+    width: 100%;
+}
+
+.btn:disabled {
+    background-color: #F2F2F2;
+    cursor: pointer;
+}
+
+.btn:disabled:hover {
+    background-color: #F2F2F2;
+    cursor: pointer;
+}
+
+.btnGreen {
+    background-color: #7EC241;
+}
+
+.btnGreen:hover {
+    background-color: #72A73F;
+}
+
+.btnPink {
+    background-color: #0074ba;
+}
+
+.btnPink:hover {
+    background-color: #0067a6;
+}
+
+.btnGrey {
+    background-color: #D2D5D6;
+}
+
+.btnGrey:hover {
+    background-color: #777E7D;
+}
+
+.btnGreyDark {
+    background-color: #4D525A;
+}
+
+.btnGreyDark:hover {
+    background-color: #384044;
+}
+
+.btnClose {
+    width: 15px;
+    height: 15px;
+    color: transparent;
+    overflow: hidden;
+    padding: 0px;
+}
+
+.btnClose:hover {
+    width: 15px;
+    height: 15px;
+    color: transparent;
+    overflow: hidden;
+    padding: 0px;
+}
+
+.btnClosePage {
+    width: 40px;
+    height: 31px;
+    color: transparent;
+    overflow: hidden;
+}
+
+.btnClosePage:hover {
+    font-weight: normal;
+}
+
+.btnValidateFile {
+    padding-left: 30px;
+    padding-right: 10px;
+    background-color: #FFFFFF;
+    border: 1px solid #7EC241;
+    color: #7EC241;
+}
+
+.btnValidateFile:hover {
+    background-color: #72A73F;
+    color: #FFFFFF;
+}
+
+.btnRejectFile {
+    padding-left: 30px;
+    padding-right: 10px;
+    background-color: #FFFFFF;
+    border: 1px solid #EA4949;
+    color: #EA4949;
+}
+
+.btnRejectFile:hover {
+    background-color: #EA4949;
+    color: #FFFFFF;
+}
+
+.btnCustom {
+    background: none;
+    border: none;
+}

@@ -1,7 +1,6 @@
 /* eslint-disable no-process-exit */
 /* eslint-disable no-console */
 
-require('colors');
 const fs = require('fs');
 const templates = require('./component-template');
 
@@ -30,4 +29,4 @@ generatedTemplates.forEach((template) => {
     fs.writeFileSync(`${componentDirectory}/${fileName}${template.extension}`, template.content);
 });
 
-console.log('Successfully created component under: ' + componentDirectory.green);
+console.log('Successfully created component under: ' + componentDirectory);

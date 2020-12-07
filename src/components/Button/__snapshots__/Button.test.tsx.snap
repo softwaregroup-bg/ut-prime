@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> renders component without break 1`] = `
+<button
+  class=""
+  data-testid="Button"
+  tabindex="0"
+  type="button"
+/>
+`;

@@ -6,7 +6,7 @@ module.exports = (componentName) => ({
   border: none;
   cursor: pointer;
   font-weight: 500;
-}    
+}
 `,
-    extension: '.css',
+    extension: '.css'
 });

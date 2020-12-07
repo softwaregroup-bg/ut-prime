@@ -13,5 +13,5 @@ module.exports = [
     componentTests,
     componentStyles,
     componentIndex,
-    componentReadme,
+    componentReadme
 ];
