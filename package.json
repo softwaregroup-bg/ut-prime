@@ -22,7 +22,6 @@
   "scripts": {
     "build": "rollup -c",
     "start": "rollup -c -w",
-    "prepare": "npm run build",
     "lint:fix": "ut-lint . --fix",
     "jest": "jest",
     "test:watch": "jest --watch",
