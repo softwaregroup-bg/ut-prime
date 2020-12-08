@@ -1,3 +1,12 @@
+## [1.0.4](https://git.softwaregroup.com/ut5/ut-front-devextreme/compare/v1.0.3...v1.0.4) (2020-12-08)
+
+
+### Bug Fixes
+
+* build warnings ([5231231](https://git.softwaregroup.com/ut5/ut-front-devextreme/commit/52312316b3860554d2376791099199013120076e))
+
+
+
 ## [1.0.3](https://git.softwaregroup.com/ut5/ut-front-devextreme/compare/v1.0.2...v1.0.3) (2020-12-08)
 
 
