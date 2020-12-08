@@ -32,7 +32,7 @@
     "release": "npm run build && ut-release",
     "changelog": "ut-changelog",
     "check": "ut-check",
-    "cover": "ut-cover-parallel",
+    "cover": "jest",
     "lint-js": "ut-lint-js .",
     "lint-sql": "ut-lint-sql",
     "postpublish": "ut-postpublish",
@@ -102,6 +102,6 @@
     "storybook-readme": "^5.0.9",
     "tap": "^14.11.0",
     "typescript": "4.1.2",
-    "ut-tools": "^6.35.0"
+    "ut-tools": "^6.35.1"
   }
 }
