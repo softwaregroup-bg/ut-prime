@@ -1,3 +1,7 @@
+## [1.0.3](https://git.softwaregroup.com/ut5/ut-front-devextreme/compare/v1.0.2...v1.0.3) (2020-12-08)
+
+
+
 ## [1.0.2](https://git.softwaregroup.com/ut5/ut-front-devextreme/compare/v1.0.1...v1.0.2) (2020-12-08)
 
 
