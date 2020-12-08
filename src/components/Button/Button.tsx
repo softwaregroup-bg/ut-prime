@@ -8,7 +8,7 @@ const Button: React.FC<IButtonProps> = ({ className, children, button, sizeType,
     function getStyle(name) {
         // todo theming
         // return (this.context.implementationStyle && this.context.implementationStyle[name]) || style[name];
-        style[name];
+        return style[name];
     }
 
     let sizeTypeClass;

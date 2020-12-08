@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "rootDir": "./src/components",
     "declaration": true,
     "declarationDir": "core",
     "module": "esnext",
