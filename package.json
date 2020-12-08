@@ -1,8 +1,8 @@
 {
   "name": "ut-front-devextreme",
   "description": "ut-front-devextreme's component library",
-  "version": "0.0.2",
-  "license": "ISC",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
   "publishConfig": {
     "registry": "https://nexus.softwaregroup.com/repository/npm-internal"
   },
