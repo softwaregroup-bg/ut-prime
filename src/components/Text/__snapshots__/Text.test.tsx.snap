@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Text /> render equals snapshot 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  <span>
+    text
+  </span>
+</div>
+`;

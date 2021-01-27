@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ErrorPopup /> render equals snapshot 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  <div
+    class="dx-overlay dx-popup dx-widget dx-visibility-change-handler"
+  >
+    <div
+      class="dx-overlay-content dx-popup-fullscreen-width dx-popup-normal"
+      style="min-width: 540px; width: auto; height: auto;"
+      tabindex="0"
+    >
+      <div
+        class="dx-popup-content"
+      />
+    </div>
+  </div>
+</div>
+`;

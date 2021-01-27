@@ -5,6 +5,7 @@
         "clsx",
         "devextreme",
         "iban",
-        "mobi"
+        "mobi",
+        "testid"
     ]
 }

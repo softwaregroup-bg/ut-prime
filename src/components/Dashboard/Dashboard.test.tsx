@@ -1,22 +1,11 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
 
+import { render } from '../test';
 import Dashboard from './index';
 
 describe('<Dashboard />', () => {
-    it('renders component without break', () => {
-        const { getByTestId } = render(<Dashboard data-testid="Dashboard" />);
-
-        expect(getByTestId('Dashboard')).toMatchSnapshot();
-    });
-
-    it('triggers sent onClick function', () => {
-        const onClick = jest.fn();
-
-        const { getByTestId } = render(<button data-testid="Dashboard" onClick={onClick} />);
-
-        fireEvent.click(getByTestId('Dashboard'));
-
-        expect(onClick).toHaveBeenCalledTimes(1);
+    it('render equals snapshot', () => {
+        const { getByTestId } = render(<Dashboard tabName='tab' pageText='page' />);
+        expect(getByTestId('ut-front-test')).toMatchSnapshot();
     });
 });

@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Gate /> render equals snapshot 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  <div
+    class="Gate-gate-1"
+  >
+    <div
+      class="Loader-loaderContainer-3"
+    >
+      <div
+        class="Loader-overlay-4"
+      />
+      <div
+        class="Loader-loader-5"
+      />
+      <div
+        class="Loader-message-6"
+      >
+        <span>
+          Loading...
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

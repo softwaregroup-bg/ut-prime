@@ -4,7 +4,7 @@ import { render, fireEvent } from '@testing-library/react';
 import Button from './index';
 
 describe('<Button />', () => {
-    it('renders component without break', () => {
+    it('render equals snapshot', () => {
         const { getByTestId } = render(<Button data-testid="Button" />);
 
         expect(getByTestId('Button')).toMatchSnapshot();

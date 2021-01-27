@@ -1,22 +1,12 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
 
+import { render } from '../test';
 import ErrorPopup from './index';
+import reducer from './reducer';
 
 describe('<ErrorPopup />', () => {
-    it('renders component without break', () => {
-        const { getByTestId } = render(<ErrorPopup data-testid="ErrorPopup" />);
-
-        expect(getByTestId('ErrorPopup')).toMatchSnapshot();
-    });
-
-    it('triggers sent onClick function', () => {
-        const onClick = jest.fn();
-
-        const { getByTestId } = render(<button data-testid="ErrorPopup" onClick={onClick} />);
-
-        fireEvent.click(getByTestId('ErrorPopup'));
-
-        expect(onClick).toHaveBeenCalledTimes(1);
+    it('render equals snapshot', () => {
+        const { getByTestId } = render(<ErrorPopup />, {errorPopup: {open: true}}, reducer);
+        expect(getByTestId('ut-front-test')).toMatchSnapshot();
     });
 });

@@ -1,22 +1,19 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import immutable from 'immutable';
 
+import { render } from '../test';
 import Loader from './index';
 
 describe('<Loader />', () => {
-    it('renders component without break', () => {
-        const { getByTestId } = render(<Loader data-testid="Loader" />);
-
-        expect(getByTestId('Loader')).toMatchSnapshot();
-    });
-
-    it('triggers sent onClick function', () => {
-        const onClick = jest.fn();
-
-        const { getByTestId } = render(<button data-testid="Loader" onClick={onClick} />);
-
-        fireEvent.click(getByTestId('Loader'));
-
-        expect(onClick).toHaveBeenCalledTimes(1);
+    it('render equals snapshot', () => {
+        const {
+            getByTestId
+        } = render(<Loader />, {
+            preloadWindow: immutable.fromJS({
+                open: true,
+                message: 'Loading...'
+            })
+        });
+        expect(getByTestId('ut-front-test')).toMatchSnapshot();
     });
 });

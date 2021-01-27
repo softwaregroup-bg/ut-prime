@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Button /> renders component without break 1`] = `
+exports[`<Button /> render equals snapshot 1`] = `
 <button
-  class=""
+  class="Button-btn-1 Button-btnNormal-3 Button-btnGreen-8"
   data-testid="Button"
   tabindex="0"
   type="button"

@@ -1,23 +1,20 @@
 module.exports = (componentName) => ({
     content: `import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { fireEvent } from '@testing-library/react';
 
+import { render } from '../test';
 import ${componentName} from './index';
 
 describe('<${componentName} />', () => {
-    it('renders component without break', () => {
-        const { getByTestId } = render(<${componentName} data-testid="${componentName}" />);
-
-        expect(getByTestId('${componentName}')).toMatchSnapshot();
+    it('render equals snapshot', () => {
+        const { getByTestId } = render(<${componentName} />);
+        expect(getByTestId('ut-front-test')).toMatchSnapshot();
     });
 
     it('triggers sent onClick function', () => {
         const onClick = jest.fn();
-
-        const { getByTestId } = render(<button data-testid="${componentName}" onClick={onClick} />);
-
+        const { getByTestId } = render(<${componentName} onClick={onClick} />);
         fireEvent.click(getByTestId('${componentName}'));
-
         expect(onClick).toHaveBeenCalledTimes(1);
     });
 });

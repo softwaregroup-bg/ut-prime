@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Dashboard /> render equals snapshot 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  <div
+    class="Dashboard-h100pr-1"
+  >
+    <div
+      class="Dashboard-background-2"
+    >
+      <div
+        class="Dashboard-marginTop-3"
+      >
+        <div
+          class="Dashboard-dashboardText-6"
+        >
+          Administration
+           Dashboard
+        </div>
+        <div
+          class="Dashboard-dashboardBg-4 Dashboard-dashboardImg-5"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

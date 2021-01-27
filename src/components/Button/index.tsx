@@ -3,23 +3,17 @@ import clsx from 'clsx';
 
 import { Styled, StyledType } from './Button.types';
 
-const Button: StyledType = ({ className: style, children, button, sizeType, fullWidth = false, ...props }) => {
-    function getStyle(name) {
-        // todo theming
-        // return (this.context.implementationStyle && this.context.implementationStyle[name]) || style[name];
-        return style[name];
-    }
-
+const Button: StyledType = ({ classes, children, button, sizeType, fullWidth = false, ...props }) => {
     let sizeTypeClass;
 
     switch (sizeType) {
         case 'small':
-            sizeTypeClass = getStyle('btnSmall');
+            sizeTypeClass = classes.btnSmall;
             break;
         default:
-            sizeTypeClass = getStyle('btnNormal');
+            sizeTypeClass = classes.btnNormal;
     }
-    const fullWidthClass = fullWidth ? getStyle('btnFullWidth') : null;
+    const fullWidthClass = fullWidth ? classes.btnFullWidth : null;
     let typeClass;
     switch (button) {
         case 'add':
@@ -27,45 +21,44 @@ const Button: StyledType = ({ className: style, children, button, sizeType, full
         case 'save':
         case 'send':
         case 'validate':
-            typeClass = getStyle('btnGreen');
+            typeClass = classes.btnGreen;
             break;
         case 'back':
         case 'cancel':
         case 'reset':
         case 'retake':
-            typeClass = getStyle('btnGrey');
+            typeClass = classes.btnGrey;
             break;
         case 'connection':
         case 'next':
-            typeClass = getStyle('btnPink');
+            typeClass = classes.btnPink;
             break;
         case 'end':
-            typeClass = getStyle('btnGreyDark');
+            typeClass = classes.btnGreyDark;
             break;
         case 'validate-file':
-            typeClass = getStyle('btnValidateFile');
+            typeClass = classes.btnValidateFile;
             break;
         case 'reject-file':
-            typeClass = getStyle('btnRejectFile');
+            typeClass = classes.btnRejectFile;
             break;
         case 'close':
-            typeClass = getStyle('btnClose');
+            typeClass = classes.btnClose;
             break;
         case 'close-page':
-            typeClass = getStyle('btnClosePage');
+            typeClass = classes.btnClosePage;
             break;
         case 'custom':
-            typeClass = getStyle('btnCustom');
+            typeClass = classes.btnCustom;
             break;
         default:
-            typeClass = getStyle('btnGreen');
+            typeClass = classes.btnGreen;
     }
-    let classes = clsx(getStyle('btn'), sizeTypeClass, typeClass, fullWidthClass);
     if (button === 'custom') {
         classes = typeClass;
     }
     return (
-        <button type='button' className={classes} tabIndex={0} {...props}>{children}</button>
+        <button type='button' className={clsx(classes.btn, sizeTypeClass, typeClass, fullWidthClass)} tabIndex={0} {...props}>{children}</button>
     );
 };
 
