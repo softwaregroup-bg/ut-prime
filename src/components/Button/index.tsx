@@ -1,10 +1,9 @@
 import React from 'react';
-import classnames from 'classnames';
+import clsx from 'clsx';
 
-import { IButtonProps } from './Button.types';
-import style from './Button.css';
+import { Styled, StyledType } from './Button.types';
 
-const Button: React.FC<IButtonProps> = ({ className, children, button, sizeType, fullWidth = false, ...props }) => {
+const Button: StyledType = ({ className: style, children, button, sizeType, fullWidth = false, ...props }) => {
     function getStyle(name) {
         // todo theming
         // return (this.context.implementationStyle && this.context.implementationStyle[name]) || style[name];
@@ -61,7 +60,7 @@ const Button: React.FC<IButtonProps> = ({ className, children, button, sizeType,
         default:
             typeClass = getStyle('btnGreen');
     }
-    let classes = classnames(getStyle('btn'), sizeTypeClass, typeClass, fullWidthClass);
+    let classes = clsx(getStyle('btn'), sizeTypeClass, typeClass, fullWidthClass);
     if (button === 'custom') {
         classes = typeClass;
     }
@@ -70,4 +69,4 @@ const Button: React.FC<IButtonProps> = ({ className, children, button, sizeType,
     );
 };
 
-export default Button;
+export default Styled(Button);

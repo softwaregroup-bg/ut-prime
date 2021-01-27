@@ -1,7 +1,6 @@
 import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import external from 'rollup-plugin-peer-deps-external';
-import postcss from 'rollup-plugin-postcss';
 import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
 import url from '@rollup/plugin-url';
@@ -14,6 +13,7 @@ function build() {
         output: [
             {
                 preserveModules: true,
+                preserveModulesRoot: 'src/components',
                 dir: 'core',
                 format: 'cjs',
                 exports: 'auto'
@@ -27,7 +27,6 @@ function build() {
             }),
             resolve(),
             commonjs(),
-            postcss({extract: true, modules: true}),
             typescript(),
             url(),
             copy({
