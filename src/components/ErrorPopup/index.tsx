@@ -5,7 +5,7 @@ import { Popup } from 'devextreme-react/popup';
 import { Button } from 'devextreme-react/button';
 
 import Text from '../Text';
-import { logout } from '../login/actions';
+import { logout } from '../Login/actions';
 
 import { Styled, StyledType } from './ErrorPopup.types';
 
