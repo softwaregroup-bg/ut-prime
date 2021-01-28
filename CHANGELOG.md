@@ -1,3 +1,17 @@
+# [1.1.0](https://git.softwaregroup.com/ut5/ut-front-devextreme/compare/v1.0.4...v1.1.0) (2021-01-28)
+
+
+### Bug Fixes
+
+* button styles ([ffc8817](https://git.softwaregroup.com/ut5/ut-front-devextreme/commit/ffc8817adc5bb9ab365be6f982a1d3ccca89201f))
+
+
+### Features
+
+* add core portal components ([700942c](https://git.softwaregroup.com/ut5/ut-front-devextreme/commit/700942c3d0658a0781064ffa0f5a6467398fe5c7))
+
+
+
 ## [1.0.4](https://git.softwaregroup.com/ut5/ut-front-devextreme/compare/v1.0.3...v1.0.4) (2020-12-08)
 
 
