@@ -1,10 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Button /> render equals snapshot 1`] = `
-<button
-  class="Button-btn-1 Button-btnNormal-3 Button-btnGreen-8"
-  data-testid="Button"
-  tabindex="0"
-  type="button"
-/>
+<div
+  data-testid="ut-front-test"
+>
+  <button
+    class="Button-btn-1 Button-btnNormal-2 Button-btnGreen-5"
+    tabindex="0"
+    type="button"
+  />
+</div>
 `;
