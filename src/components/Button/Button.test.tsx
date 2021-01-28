@@ -5,7 +5,7 @@ import Button from './index';
 
 describe('<Button />', () => {
     it('render equals snapshot', () => {
-        const { getByTestId } = render(<Button data-testid="Button" />);
+        const { getByTestId } = render(<Button />);
 
         expect(getByTestId('Button')).toMatchSnapshot();
     });
@@ -13,7 +13,7 @@ describe('<Button />', () => {
     it('triggers sent onClick function', () => {
         const onClick = jest.fn();
 
-        const { getByTestId } = render(<button data-testid="Button" onClick={onClick} />);
+        const { getByTestId } = render(<Button onClick={onClick} />);
 
         fireEvent.click(getByTestId('Button'));
 
