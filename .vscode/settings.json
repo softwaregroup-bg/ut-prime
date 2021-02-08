@@ -6,6 +6,7 @@
         "devextreme",
         "iban",
         "mobi",
+        "submenu",
         "testid"
     ]
 }

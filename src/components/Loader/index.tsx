@@ -6,7 +6,7 @@ import Text from '../Text';
 
 import { Styled, StyledType } from './Loader.types';
 
-const Loader: StyledType = ({ classes, className, loadInfo = { message: 'Loading, please wait...' } }) => {
+const Loader: StyledType = ({ classes, className, loadInfo = { message: 'Loading, please wait...', open: false } }) => {
     return (
         loadInfo && loadInfo.open && <div className={clsx(classes.loaderContainer, className)}>
             <div className={classes.overlay} />

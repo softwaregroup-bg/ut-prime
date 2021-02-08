@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Portal /> render equals snapshot 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  <div
+    class="dx-box-flex dx-box dx-widget dx-visibility-change-handler dx-collection"
+    style="display: flex; flex-direction: column; width: 100%; justify-content: flex-start; align-items: stretch; height: 768px;"
+  >
+    <div
+      class="dx-item dx-box-item"
+      style="display: flex; max-height: none; min-height: 0px; flex-basis: 59px; flex-shrink: 1;"
+    >
+      <div
+        class="dx-item-content dx-box-item-content"
+        style="width: auto; height: auto; display: flex; flex-basis: 0px; flex-grow: 1; flex-direction: column;"
+      />
+    </div>
+    <div
+      class="dx-item dx-box-item"
+      style="display: flex; max-height: none; min-height: 0px; flex-basis: 40px; flex-shrink: 1;"
+    >
+      <div
+        class="dx-item-content dx-box-item-content"
+        style="width: auto; height: auto; display: flex; flex-basis: 0px; flex-grow: 1; flex-direction: column;"
+      />
+    </div>
+    <div
+      class="dx-item dx-box-item"
+      style="display: flex; max-height: none; min-height: 0px; flex-basis: 0px; flex-grow: 1; flex-shrink: 1;"
+    >
+      <div
+        class="dx-item-content dx-box-item-content"
+        style="width: auto; height: auto; display: flex; flex-basis: 0px; flex-grow: 1; flex-direction: column;"
+      />
+    </div>
+  </div>
+</div>
+`;

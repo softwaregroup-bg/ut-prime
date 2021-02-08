@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Async /> render equals snapshot: loaded 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  <div>
+    resolved
+  </div>
+</div>
+`;
+
+exports[`<Async /> render equals snapshot: loading 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  <div>
+    Loading...
+  </div>
+</div>
+`;

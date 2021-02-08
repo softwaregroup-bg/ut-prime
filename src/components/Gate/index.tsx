@@ -4,7 +4,7 @@ import { useParams, Redirect } from 'react-router-dom';
 
 import { cookieCheck, logout } from '../Login/actions';
 import Loader from '../Loader';
-import Context from '../Context';
+import Context from '../Text/context';
 
 import { Styled, StyledType } from './Gate.types';
 
@@ -58,7 +58,6 @@ export default connect(
         cookieChecked: login.get('cookieChecked'),
         isLogout: login.get('isLogout'),
         authenticated: login.get('authenticated'),
-        gateLoaded: login.get('gateLoaded'),
         result: login.get('result')
     }),
     { cookieCheck, fetchTranslations, logout }

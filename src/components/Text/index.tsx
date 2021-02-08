@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-import Context from '../Context';
+import Context from './context';
 
 import { StyledType } from './Text.types';
 
