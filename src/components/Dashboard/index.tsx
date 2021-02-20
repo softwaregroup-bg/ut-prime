@@ -2,7 +2,6 @@ import React from 'react';
 import clsx from 'clsx';
 import { useTheme } from '@material-ui/core/styles';
 
-import AddTab from '../AddTab';
 import { Portal } from '../Theme';
 
 import { Styled, StyledType } from './Dashboard.types';
@@ -12,7 +11,6 @@ const Dashboard: StyledType = ({ classes, className, ...props }) => {
     const theme = {...classes, ...ut.classes};
 
     return <div className={clsx(theme.h100pr, className)}>
-        <AddTab pathname='/' title={props.tabName || 'Dashboard'} />
         <div className={theme.background}>
             <div className={theme.marginTop}>
                 {props.children}

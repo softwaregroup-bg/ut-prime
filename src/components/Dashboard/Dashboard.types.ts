@@ -4,7 +4,6 @@ import React from 'react';
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     className?: string;
     tabName: string;
-    pageText: string;
 }
 
 const styles = createStyles({

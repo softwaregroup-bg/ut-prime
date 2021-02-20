@@ -28,7 +28,7 @@ function applyTemplate(template, params) {
 }
 
 const Text: StyledType = ({ params, prefix, children }) => {
-    if (typeof children !== 'string') return <>children</>;
+    if (typeof children !== 'string') return <>{children}</>;
     let template = children;
     const {translate, language} = useContext(Context);
     if (typeof translate === 'function') {

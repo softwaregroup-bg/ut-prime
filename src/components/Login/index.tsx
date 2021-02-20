@@ -4,12 +4,11 @@ import clsx from 'clsx';
 import { Redirect } from 'react-router-dom';
 import Form, { Item } from 'devextreme-react/form';
 
-import { closeAllTabs } from '../AddTab/actions';
 import Text from '../Text';
 import { Validator } from '../lib/validator';
 
 import { Styled, StyledType } from './Login.types';
-import { cookieCheck, identityCheck, bioScan } from './actions';
+import { identityCheck } from './actions';
 
 const inputTypes = {
     username: {
@@ -269,5 +268,5 @@ export default connect(
             authenticated: login.get('authenticated')
         };
     },
-    { cookieCheck, identityCheck, bioScan, closeAllTabs }
+    { identityCheck }
 )(Styled(Login));

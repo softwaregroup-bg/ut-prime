@@ -1,6 +1,7 @@
 import React from 'react';
 import { withReadme } from 'storybook-readme';
-import { action } from '@storybook/addon-actions';
+
+import Wrap from '../test/wrap';
 
 // @ts-ignore: md file and not a module
 import README from './README.md';
@@ -12,4 +13,6 @@ export default {
     decorators: [withReadme(README)]
 };
 
-export const Basic: React.FC<{}> = () => <AddTab onClick={action('clicked')}>Hello AddTab</AddTab>;
+export const Basic: React.FC<{}> = () => <Wrap>
+    <AddTab />
+</Wrap>;

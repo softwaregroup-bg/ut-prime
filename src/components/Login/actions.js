@@ -1,4 +1,7 @@
-import {LOGIN, BIO_LOGIN, COOKIE_CHECK, LOGOUT} from 'ut-front-react/containers/LoginForm/actionTypes';
+export const LOGIN = Symbol('LOGIN');
+export const BIO_LOGIN = Symbol('BIO_LOGIN');
+export const COOKIE_CHECK = Symbol('COOKIE_CHECK');
+export const LOGOUT = Symbol('LOGOUT');
 
 const getTimezone = () => {
     const offset = (new Date()).getTimezoneOffset();

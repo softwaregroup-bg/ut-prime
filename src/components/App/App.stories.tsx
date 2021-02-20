@@ -1,6 +1,6 @@
 import React from 'react';
 import { withReadme } from 'storybook-readme';
-import { action } from '@storybook/addon-actions';
+import {createStore} from 'redux';
 
 // @ts-ignore: md file and not a module
 import README from './README.md';
@@ -12,4 +12,34 @@ export default {
     decorators: [withReadme(README)]
 };
 
-export const Basic: React.FC<{}> = () => <App onClick={action('clicked')}>Hello App</App>;
+const state = {
+    login: {
+        get: item => ({
+            cookieChecked: true,
+            authenticated: true,
+            result: {
+                getIn: () => {}
+            }
+        }[item])
+    },
+    tabMenu: {
+        tabs: []
+    }
+};
+
+export const Basic: React.FC<{}> = ({children}) => {
+    const store = createStore(() => state);
+    return <App
+        menu={[]}
+        portalName='test app'
+        showTab={() => {}}
+        store={store}
+        theme={{
+            ut: {
+                classes: {}
+            }
+        }}
+    >
+        {children}
+    </App>;
+};

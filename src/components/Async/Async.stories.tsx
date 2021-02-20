@@ -1,6 +1,5 @@
 import React from 'react';
 import { withReadme } from 'storybook-readme';
-import { action } from '@storybook/addon-actions';
 
 // @ts-ignore: md file and not a module
 import README from './README.md';
@@ -12,4 +11,9 @@ export default {
     decorators: [withReadme(README)]
 };
 
-export const Basic: React.FC<{}> = () => <Async onClick={action('clicked')}>Hello Async</Async>;
+const Loaded = () => <div>async component loaded</div>;
+const Delay = () => new Promise<React.FC>((resolve, reject) => {
+    setTimeout(() => resolve(Loaded), 1000);
+});
+
+export const Basic: React.FC<{}> = () => <Async component={Delay} />;

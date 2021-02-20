@@ -32,9 +32,9 @@ const Pages: StyledType = ({ tabs }) =>
                     .filter(tab => tab.component)
                     .map(tab =>
                         <Route
-                            key={tab.pathname}
+                            key={tab.path}
                             strict
-                            path={tab.pathname}
+                            path={tab.path}
                             render={() => <Async component={tab.component} />}
                         />
                     )

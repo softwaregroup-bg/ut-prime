@@ -11,7 +11,6 @@ export interface Props extends React.HTMLAttributes<HTMLButtonElement> {
 const styles = createStyles({
     btn: {
         textTransform: 'uppercase',
-        fontFamily: 'OpenSans',
         fontSize: 14,
         color: '#FFFFFF',
         borderRadius: 2,

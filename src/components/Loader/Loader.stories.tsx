@@ -1,6 +1,7 @@
 import React from 'react';
 import { withReadme } from 'storybook-readme';
-import { action } from '@storybook/addon-actions';
+
+import Wrap from '../test/wrap';
 
 // @ts-ignore: md file and not a module
 import README from './README.md';
@@ -12,4 +13,12 @@ export default {
     decorators: [withReadme(README)]
 };
 
-export const Basic: React.FC<{}> = () => <Loader onClick={action('clicked')}>Hello Loader</Loader>;
+const state = {
+    preloadWindow: {
+        toJS: () => ({open: true})
+    }
+};
+
+export const Basic: React.FC<{}> = () => <Wrap state={state}>
+    <Loader>Hello Loader</Loader>
+</Wrap>;

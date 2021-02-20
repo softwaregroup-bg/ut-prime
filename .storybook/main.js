@@ -1,12 +1,34 @@
 module.exports = {
-  stories: ['../src/**/**/*.stories.tsx'],
-  addons: [
-    '@storybook/preset-create-react-app', // TODO check if we need this, as it causes warnings during npm install
-    'storybook-readme',
-    '@storybook/addon-actions',
-    '@storybook/addon-links',
-    '@storybook/addon-viewport',
-    '@storybook/addon-a11y',
-    '@storybook/addon-storysource',
-  ],
+    webpackFinal: (config) => {
+        config.module.rules.forEach(rule => {
+            if (rule.exclude && rule.exclude.toString() === '/node_modules/') {
+                rule.exclude = /node_modules[\\/](?!(impl|ut)-)/i;
+            }
+        });
+        config.plugins.forEach(plugin => {
+            if (plugin?.options?.exclude?.toString().startsWith('/node_modules/')) {
+                plugin.options.exclude = /node_modules[\\/](?!(impl|ut)-)/i;
+            }
+        });
+        config.watchOptions = {
+            ignored: /node_modules[\\/](?!(impl|ut)-)/
+        }
+        return config;
+    },
+    reactOptions: {
+        fastRefresh: true
+    },
+    typescript: {
+        check: false,
+        reactDocgen: false,
+    },
+    stories: ['../src/**/*.stories.tsx'],
+    addons: [
+        'storybook-readme',
+        '@storybook/addon-actions',
+        '@storybook/addon-links',
+        '@storybook/addon-viewport',
+        '@storybook/addon-a11y',
+        '@storybook/addon-storysource',
+    ],
 };

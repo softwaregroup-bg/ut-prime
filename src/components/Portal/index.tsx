@@ -1,15 +1,12 @@
 import React from 'react';
 import Box, {Item} from 'devextreme-react/box';
 import { connect } from 'react-redux';
+import TabPanel from 'devextreme-react/tab-panel';
 
 import Menu from 'devextreme-react/menu';
 
-// import Header from 'ut-front-react/components/HeaderNew';
-import { logout } from 'ut-front-react/containers/LoginForm/actions';
-import TabMenu from 'ut-front-react/containers/TabMenu';
-
-import Pages from '../Pages';
 import Context from '../Context';
+import Async from '../Async';
 import Text from '../Text';
 
 import { Styled, StyledType } from './Portal.types';
@@ -39,7 +36,9 @@ function useWindowSize() {
     return windowSize;
 }
 
-const Portal: StyledType = ({ classes, login, logout, children, tabMenu }) => {
+const ItemComponent = ({data}) => <Async component={data.component} />;
+
+const Portal: StyledType = ({ classes, login, children, tabMenu }) => {
     const size = useWindowSize();
     const loginResult = login.get('result');
     if (!loginResult) return null;
@@ -74,20 +73,13 @@ const Portal: StyledType = ({ classes, login, logout, children, tabMenu }) => {
                         </Item>
                     </Box>
                 </div>
-                {/* <Header
-                    currentLocation={location.pathname}
-                    personInfo={loginResult && loginResult.toJS()}
-                    logout={logout}
-                    replaceWithBrakes
-                    tabset={menu}
-                    headerText={portalName}
-                /> */}
-            </Item>
-            <Item baseSize={40}>
-                <TabMenu defaultLocation='/' {...tabMenu} />
             </Item>
             <Item ratio={1}>
-                <Pages tabs={tabMenu.tabs} />
+                <TabPanel
+                    height='100%'
+                    dataSource={tabMenu.tabs}
+                    itemComponent={ItemComponent}
+                />
                 {children}
             </Item>
         </Box>
@@ -95,6 +87,5 @@ const Portal: StyledType = ({ classes, login, logout, children, tabMenu }) => {
 };
 
 export default connect(
-    ({login, tabMenu}) => ({login, tabMenu}),
-    {logout}
+    ({login, tabMenu}) => ({login, tabMenu})
 )(Styled(Portal));

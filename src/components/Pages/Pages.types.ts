@@ -4,7 +4,7 @@ import {asyncComponent} from '../Async/Async.types';
 
 export type tabs = {
     component: asyncComponent,
-    pathname: string
+    path: string
 }[]
 
 export interface Props {

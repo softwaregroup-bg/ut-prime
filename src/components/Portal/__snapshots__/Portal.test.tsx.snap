@@ -19,15 +19,6 @@ exports[`<Portal /> render equals snapshot 1`] = `
     </div>
     <div
       class="dx-item dx-box-item"
-      style="display: flex; max-height: none; min-height: 0px; flex-basis: 40px; flex-shrink: 1;"
-    >
-      <div
-        class="dx-item-content dx-box-item-content"
-        style="width: auto; height: auto; display: flex; flex-basis: 0px; flex-grow: 1; flex-direction: column;"
-      />
-    </div>
-    <div
-      class="dx-item dx-box-item"
       style="display: flex; max-height: none; min-height: 0px; flex-basis: 0px; flex-grow: 1; flex-shrink: 1;"
     >
       <div
