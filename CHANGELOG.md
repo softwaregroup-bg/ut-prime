@@ -1,3 +1,12 @@
+# [1.2.0](https://git.softwaregroup.com/ut5/ut-front-devextreme/compare/v1.1.1...v1.2.0) (2021-02-20)
+
+
+### Features
+
+* app ([0a432ba](https://git.softwaregroup.com/ut5/ut-front-devextreme/commit/0a432baa96fd93b945a5431a73fd39fc37153ed3))
+
+
+
 ## [1.1.1](https://git.softwaregroup.com/ut5/ut-front-devextreme/compare/v1.1.0...v1.1.1) (2021-01-28)
 
 
