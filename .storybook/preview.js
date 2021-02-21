@@ -10,6 +10,7 @@ addDecorator(addReadme);
 
 /* General options for storybook */
 addParameters({
+  layout: 'fullscreen',
   /* Options for storybook-readme plugin */
   readme: {
     codeTheme: 'github',

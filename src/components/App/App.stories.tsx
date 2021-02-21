@@ -1,6 +1,7 @@
 import React from 'react';
 import { withReadme } from 'storybook-readme';
-import {createStore} from 'redux';
+
+import store from '../test/store';
 
 // @ts-ignore: md file and not a module
 import README from './README.md';
@@ -21,19 +22,13 @@ const state = {
                 getIn: () => {}
             }
         }[item])
-    },
-    tabMenu: {
-        tabs: []
     }
 };
 
 export const Basic: React.FC<{}> = ({children}) => {
-    const store = createStore(() => state);
     return <App
-        menu={[]}
         portalName='test app'
-        showTab={() => {}}
-        store={store}
+        store={store(state)}
         theme={{
             ut: {
                 classes: {}

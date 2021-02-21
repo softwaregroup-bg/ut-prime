@@ -13,9 +13,7 @@ describe('<App />', () => {
         }));
         const { getByTestId } = render(
             <App
-                menu={[]}
                 portalName='test'
-                showTab={() => {}}
                 store={store}
                 theme={{
                     ut: {

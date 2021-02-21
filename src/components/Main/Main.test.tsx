@@ -19,11 +19,7 @@ describe('<Main />', () => {
         const { getByTestId } = render(
             <Provider store={store}>
                 <Context.Provider
-                    value={{
-                        menu: [],
-                        portalName: 'test',
-                        showTab: () => { }
-                    }}
+                    value={{portalName: 'test'}}
                 >
                     <Router history={history}>
                         <Route component={Main} />

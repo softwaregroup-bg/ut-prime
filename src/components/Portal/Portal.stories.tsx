@@ -1,6 +1,5 @@
 import React from 'react';
 import { withReadme } from 'storybook-readme';
-import { action } from '@storybook/addon-actions';
 
 import Wrap from '../test/wrap';
 
@@ -24,7 +23,7 @@ const state = {
             }
         }[item])
     },
-    tabMenu: {
+    portal: {
         tabs: [{
             title: 'Tab 1',
             path: '/tab1',
@@ -38,5 +37,5 @@ const state = {
 };
 
 export const Basic: React.FC<{}> = () => <Wrap state={state}>
-    <Portal onClick={action('clicked')} />
+    <Portal logout={() => {}} />
 </Wrap>;

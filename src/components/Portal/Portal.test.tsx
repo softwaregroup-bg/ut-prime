@@ -14,14 +14,11 @@ describe('<Portal />', () => {
                         result: true
                     }[name];
                 }
-            },
-            tabMenu: {
-                tabs: []
             }
         }));
         const { getByTestId } = render(
             <Provider store={store}>
-                <Portal />
+                <Portal logout={() => {}}/>
             </Provider>
         );
         expect(getByTestId('ut-front-test')).toMatchSnapshot();

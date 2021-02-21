@@ -1,13 +1,15 @@
 import React from 'react';
 import Box, {Item} from 'devextreme-react/box';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import TabPanel from 'devextreme-react/tab-panel';
+import immutable from 'immutable';
 
 import Menu from 'devextreme-react/menu';
 
 import Context from '../Context';
 import Async from '../Async';
 import Text from '../Text';
+import {tabs as tabsType} from '../Pages/Pages.types';
 
 import { Styled, StyledType } from './Portal.types';
 
@@ -38,12 +40,34 @@ function useWindowSize() {
 
 const ItemComponent = ({data}) => <Async component={data.component} />;
 
-const Portal: StyledType = ({ classes, login, children, tabMenu }) => {
+const TitleComponent = ({data, index}) => {
+    const dispatch = useDispatch();
+    return (
+        <>
+            <span>
+                {data.title}
+            </span>
+            <i
+                className="dx-icon dx-icon-close"
+                onClick={() => dispatch({
+                    type: 'front.tab.close',
+                    index
+                })}
+            />
+        </>
+    );
+};
+
+const Portal: StyledType = ({ classes, children }) => {
+    const {tabs = [], menu = []}: {tabs: tabsType, menu: []} = useSelector(state => state.portal || {});
+    const login: Map<string, immutable.Map<string, {}>> = useSelector(state => state.login);
+    const dispatch = useDispatch();
     const size = useWindowSize();
-    const loginResult = login.get('result');
+    const loginResult = login && login.get('result');
     if (!loginResult) return null;
-    const {portalName, menu, showTab} = React.useContext(Context);
-    const handleClick = ({itemData}) => itemData.page && showTab({
+    const {portalName} = React.useContext(Context);
+    const handleClick = ({itemData}) => itemData.page && dispatch({
+        type: 'front.tab.show',
         component: itemData.page,
         title: itemData.title,
         path: '/' + itemData.page.name
@@ -77,7 +101,8 @@ const Portal: StyledType = ({ classes, login, children, tabMenu }) => {
             <Item ratio={1}>
                 <TabPanel
                     height='100%'
-                    dataSource={tabMenu.tabs}
+                    dataSource={tabs}
+                    itemTitleComponent={TitleComponent}
                     itemComponent={ItemComponent}
                 />
                 {children}
@@ -86,6 +111,4 @@ const Portal: StyledType = ({ classes, login, children, tabMenu }) => {
     );
 };
 
-export default connect(
-    ({login, tabMenu}) => ({login, tabMenu})
-)(Styled(Portal));
+export default Styled(Portal);

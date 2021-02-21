@@ -29,7 +29,7 @@ const state = {
             }
         }[item])
     },
-    tabMenu: {
+    portal: {
         tabs: [{
             title: 'Tab 1',
             path: '/tab1',

@@ -1,17 +1,10 @@
 import {WithStyles, withStyles, createStyles} from '@material-ui/core/styles';
 import React from 'react';
-import immutable from 'immutable';
 
 import logo from '../images/logo.png';
-import {tabs} from '../Pages/Pages.types';
 
 export interface Props {
-    login: Map<string, immutable.Map<string, {}>>,
-    logout: () => void,
-    headerText: string,
-    tabMenu: {
-        tabs: tabs
-    }
+    logout: () => void
 }
 
 const styles = createStyles({

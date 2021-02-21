@@ -6,7 +6,8 @@ import {createHashHistory, createMemoryHistory} from 'history';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import 'devextreme/dist/css/dx.common.css';
-import 'devextreme/dist/css/dx.light.css';
+import 'devextreme/dist/css/dx.material.blue.light.css';
+// import 'devextreme/dist/css/dx.material.blue.dark.css';
 
 import LoginPage from '../Login';
 import Main from '../Main';
@@ -15,11 +16,11 @@ import Context from '../Context';
 import { StyledType } from './App.types';
 import PageNotFound from './PageNotFound';
 
-const App: StyledType = ({menu, store, theme, portalName, showTab}) =>
+const App: StyledType = ({store, theme, portalName}) =>
     <Provider store={store}>
         <ThemeProvider theme={createMuiTheme(theme)}>
             <CssBaseline />
-            <Context.Provider value={{menu, portalName, showTab}}>
+            <Context.Provider value={{portalName}}>
                 <Router history={(typeof window !== 'undefined') ? createHashHistory() : createMemoryHistory()}>
                     <Switch>
                         <Route path='/login' component={LoginPage} />
