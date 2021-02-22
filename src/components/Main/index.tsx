@@ -14,7 +14,7 @@ const Main: StyledType = () => <Gate>
         <Route
             component={
                 ({location}) => <div style={{height: '100%'}}>
-                    <Portal location={location} />
+                    <Portal />
                     <Loader />
                     <ErrorPopup />
                 </div>

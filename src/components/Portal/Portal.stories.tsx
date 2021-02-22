@@ -37,5 +37,5 @@ const state = {
 };
 
 export const Basic: React.FC<{}> = () => <Wrap state={state}>
-    <Portal logout={() => {}} />
+    <Portal />
 </Wrap>;

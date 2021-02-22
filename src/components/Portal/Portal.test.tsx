@@ -18,7 +18,7 @@ describe('<Portal />', () => {
         }));
         const { getByTestId } = render(
             <Provider store={store}>
-                <Portal logout={() => {}}/>
+                <Portal />
             </Provider>
         );
         expect(getByTestId('ut-front-test')).toMatchSnapshot();

@@ -4,7 +4,6 @@ import React from 'react';
 import logo from '../images/logo.png';
 
 export interface Props {
-    logout: () => void
 }
 
 const styles = createStyles({
