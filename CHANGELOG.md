@@ -1,3 +1,17 @@
+# [1.3.0](https://git.softwaregroup.com/ut5/ut-front-devextreme/compare/v1.2.0...v1.3.0) (2021-02-22)
+
+
+### Bug Fixes
+
+* remove unused component ([7b8d748](https://git.softwaregroup.com/ut5/ut-front-devextreme/commit/7b8d7488a0f6c5271b630e2bd1a5c5daee19b754))
+
+
+### Features
+
+* showtab ([3c8003c](https://git.softwaregroup.com/ut5/ut-front-devextreme/commit/3c8003c3df7930a473826b63e1168ffe0e5d0d3f))
+
+
+
 # [1.2.0](https://git.softwaregroup.com/ut5/ut-front-devextreme/compare/v1.1.1...v1.2.0) (2021-02-20)
 
 
