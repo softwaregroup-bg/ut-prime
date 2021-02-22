@@ -14,7 +14,6 @@ export { default as Gate } from './Gate';
 export { default as Loader } from './Loader';
 export { default as Login } from './Login';
 export { default as Main } from './Main';
-export { default as Pages } from './Pages';
 export { default as Portal } from './Portal';
 export { default as Text } from './Text';
 export {useToggle, useAsync};

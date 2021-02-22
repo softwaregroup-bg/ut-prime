@@ -9,7 +9,6 @@ import Menu from 'devextreme-react/menu';
 import Context from '../Context';
 import Async from '../Async';
 import Text from '../Text';
-import {tabs as tabsType} from '../Pages/Pages.types';
 
 import { Styled, StyledType } from './Portal.types';
 
@@ -59,7 +58,7 @@ const TitleComponent = ({data, index}) => {
 };
 
 const Portal: StyledType = ({ classes, children }) => {
-    const {tabs = [], menu = []}: {tabs: tabsType, menu: []} = useSelector(state => state.portal || {});
+    const {tabs = [], menu = []} = useSelector(state => state.portal || {});
     const login: Map<string, immutable.Map<string, {}>> = useSelector(state => state.login);
     const dispatch = useDispatch();
     const size = useWindowSize();
