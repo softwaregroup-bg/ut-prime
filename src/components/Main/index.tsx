@@ -13,7 +13,7 @@ const Main: StyledType = () => <Gate>
     <Switch>
         <Route
             component={
-                ({location}) => <div style={{height: '100%'}}>
+                () => <div style={{height: '100%'}}>
                     <Portal />
                     <Loader />
                     <Error />

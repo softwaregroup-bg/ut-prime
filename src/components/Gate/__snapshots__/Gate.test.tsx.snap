@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Gate /> render equals snapshot 1`] = `
+exports[`<Gate /> render equals snapshot: Loading 1`] = `
 <div
   data-testid="ut-front-test"
 >
@@ -24,6 +24,18 @@ exports[`<Gate /> render equals snapshot 1`] = `
         </span>
       </div>
     </div>
+  </div>
+</div>
+`;
+
+exports[`<Gate /> render equals snapshot: Ready 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  <div
+    class="Gate-gate-1"
+  >
+    ready
   </div>
 </div>
 `;

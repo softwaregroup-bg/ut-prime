@@ -4,7 +4,7 @@ module.exports = {
     collectCoverage: true,
     collectCoverageFrom: [
         'src/**/*.{ts,tsx}',
-        '!*.stories.tsx'
+        '!src/**/*.stories.tsx'
     ],
     coverageDirectory: 'coverage',
     coverageReporters: ['lcov', 'cobertura', 'text'],
