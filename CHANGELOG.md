@@ -1,3 +1,12 @@
+# [1.4.0](https://git.softwaregroup.com/ut5/ut-front-devextreme/compare/v1.3.0...v1.4.0) (2021-02-23)
+
+
+### Features
+
+* reducers ([ffb4dc4](https://git.softwaregroup.com/ut5/ut-front-devextreme/commit/ffb4dc406bf0f1509b92267e682a077072c94355))
+
+
+
 # [1.3.0](https://git.softwaregroup.com/ut5/ut-front-devextreme/compare/v1.2.0...v1.3.0) (2021-02-22)
 
 
