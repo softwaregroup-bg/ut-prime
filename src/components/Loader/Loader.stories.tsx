@@ -14,8 +14,8 @@ export default {
 };
 
 const state = {
-    preloadWindow: {
-        toJS: () => ({open: true})
+    loader: {
+        toJS: () => ({open: true, message: 'loading ...'})
     }
 };
 

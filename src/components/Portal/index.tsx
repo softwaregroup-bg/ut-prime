@@ -2,7 +2,6 @@ import React from 'react';
 import Box, {Item} from 'devextreme-react/box';
 import { useSelector, useDispatch } from 'react-redux';
 import TabPanel from 'devextreme-react/tab-panel';
-import immutable from 'immutable';
 
 import Menu from 'devextreme-react/menu';
 
@@ -10,6 +9,7 @@ import Context from '../Context';
 import Async from '../Async';
 import Text from '../Text';
 
+import Title from './Title';
 import { Styled, StyledType } from './Portal.types';
 
 // https://usehooks.com/useWindowSize/
@@ -39,31 +39,10 @@ function useWindowSize() {
 
 const ItemComponent = ({data}) => <Async component={data.component} />;
 
-const TitleComponent = ({data, index}) => {
-    const dispatch = useDispatch();
-    return (
-        <>
-            <span>
-                {data.title}
-            </span>
-            <i
-                className="dx-icon dx-icon-close"
-                onClick={() => dispatch({
-                    type: 'front.tab.close',
-                    index
-                })}
-            />
-        </>
-    );
-};
-
 const Portal: StyledType = ({ classes, children }) => {
     const {tabs = [], menu = []} = useSelector(state => state.portal || {});
-    const login: Map<string, immutable.Map<string, {}>> = useSelector(state => state.login);
     const dispatch = useDispatch();
     const size = useWindowSize();
-    const loginResult = login && login.get('result');
-    if (!loginResult) return null;
     const {portalName} = React.useContext(Context);
     const handleClick = ({itemData}) => itemData.page && dispatch({
         type: 'front.tab.show',
@@ -101,7 +80,7 @@ const Portal: StyledType = ({ classes, children }) => {
                 <TabPanel
                     height='100%'
                     dataSource={tabs}
-                    itemTitleComponent={TitleComponent}
+                    itemTitleComponent={Title}
                     itemComponent={ItemComponent}
                 />
                 {children}

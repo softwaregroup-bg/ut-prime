@@ -3,5 +3,9 @@
 exports[`<Main /> render equals snapshot 1`] = `
 <div
   data-testid="ut-front-test"
-/>
+>
+  <div
+    class="Gate-gate-1"
+  />
+</div>
 `;

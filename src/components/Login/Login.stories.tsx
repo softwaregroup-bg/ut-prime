@@ -14,9 +14,7 @@ export default {
 };
 
 const state = {
-    login: {
-        get: () => false
-    }
+    login: false
 };
 
 export const Basic: React.FC<{}> = () => <Wrap state={state}>

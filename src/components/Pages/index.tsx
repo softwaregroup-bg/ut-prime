@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Route, Switch } from 'react-router';
-import './style.css';
 
 import Async from '../Async';
 

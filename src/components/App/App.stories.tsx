@@ -13,22 +13,10 @@ export default {
     decorators: [withReadme(README)]
 };
 
-const state = {
-    login: {
-        get: item => ({
-            cookieChecked: true,
-            authenticated: true,
-            result: {
-                getIn: () => {}
-            }
-        }[item])
-    }
-};
-
 export const Basic: React.FC<{}> = ({children}) => {
     return <App
         portalName='test app'
-        store={store(state)}
+        store={store()}
         theme={{
             ut: {
                 classes: {}

@@ -5,14 +5,20 @@ import Wrap from '../test/wrap';
 
 // @ts-ignore: md file and not a module
 import README from './README.md';
-import Pages from './index';
+import Error from './index';
 
 export default {
-    title: 'Pages',
-    component: Pages,
+    title: 'Error',
+    component: Error,
     decorators: [withReadme(README)]
 };
 
-export const Basic: React.FC<{}> = () => <Wrap>
-    <Pages tabs={[]} />
+const state = {
+    error: {
+        open: true
+    }
+};
+
+export const Basic: React.FC<{}> = () => <Wrap state={state}>
+    <Error message='Error message'/>
 </Wrap>;

@@ -8,7 +8,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     authenticated: boolean;
     result: any;
     logout: () => void;
-    cookieCheck: ({appId: string}) => void;
+    cookieCheck: ({appId: string}) => {result?: {}, error?: {}};
     fetchTranslations: (params: {languageId: number, dictName: string[]}) => Promise<any>;
 }
 

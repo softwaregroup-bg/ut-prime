@@ -3,14 +3,14 @@
 ## How to use
 
 ```jsx
-import ErrorPopup from 'ut-front-devextreme/core/ErrorPopup';
+import Error from 'ut-front-devextreme/core/Error';
 
-<ErrorPopup onClick={handlerOnClick}>Hello ErrorPopup</ErrorPopup>;
+<Error>Error message</Error>;
 ```
 
 ## Props
 
-- **className** - class applied to root `ErrorPopup` html element.
+- **className** - class applied to root `Error` html element.
 
 | propName  | propType | defaultValue | isRequired |
 | --------- | -------- | ------------ | ---------- |

@@ -8,16 +8,16 @@ describe('<Gate />', () => {
     it('render equals snapshot', () => {
         const {
             getByTestId
-        } = render(<Gate />, {
-            login: immutable.fromJS({
-                cookieChecked: true,
-                authenticated: true
-            }),
-            preloadWindow: immutable.fromJS({
-                open: true,
-                message: 'Loading...'
-            })
-        });
+        } = render(
+            <Gate />, {
+                login: {},
+                loader: immutable.fromJS({
+                    open: true,
+                    message: 'Loading...'
+                })
+            },
+            true
+        );
         expect(getByTestId('ut-front-test')).toMatchSnapshot();
     });
 });

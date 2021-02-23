@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import { useParams, Redirect } from 'react-router-dom';
 
 import { cookieCheck, logout } from '../Login/actions';
@@ -14,12 +14,14 @@ const fetchTranslations = params => ({
     params
 });
 
-const Gate: StyledType = ({ classes, children, cookieCheck, cookieChecked, isLogout, authenticated, logout, result, fetchTranslations }) => {
+const Gate: StyledType = ({ classes, children, cookieCheck, logout, fetchTranslations }) => {
     const [loaded, setLoaded] = useState(null);
+    const [cookieChecked, setCookieChecked] = useState(false);
+    const login = useSelector(state => state.login || false);
 
     async function load() {
         // setPermissions(result.get('permission.get').toJS());
-        const language = result.getIn(['language', 'languageId']);
+        const language = login?.language?.languageId;
         const translations = await fetchTranslations({
             languageId: language,
             dictName: ['text', 'actionConfirmation']
@@ -34,15 +36,21 @@ const Gate: StyledType = ({ classes, children, cookieCheck, cookieChecked, isLog
         });
     }
 
-    useEffect(() => {
-        if (!loaded && result) load();
-    }, [loaded, result]);
+    const {appId} = useParams();
 
-    if (!cookieChecked && !isLogout) {
-        const { appId } = useParams();
-        cookieCheck({ appId });
+    async function check() {
+        await cookieCheck({ appId });
+        setCookieChecked(true);
+    }
+
+    useEffect(() => {
+        if (!cookieChecked && !login) check();
+        if (!loaded && login) load();
+    }, [cookieChecked, login, loaded]);
+
+    if (!cookieChecked && !login) {
         return <Loader />;
-    } else if (authenticated) {
+    } else if (login) {
         return (
             <div className={classes.gate}>
                 {loaded ? <Context.Provider value={loaded}>{children}</Context.Provider> : <Loader />}
@@ -54,11 +62,6 @@ const Gate: StyledType = ({ classes, children, cookieCheck, cookieChecked, isLog
 };
 
 export default connect(
-    ({ login }) => ({
-        cookieChecked: login.get('cookieChecked'),
-        isLogout: login.get('isLogout'),
-        authenticated: login.get('authenticated'),
-        result: login.get('result')
-    }),
+    null,
     { cookieCheck, fetchTranslations, logout }
 )(Styled(Gate));

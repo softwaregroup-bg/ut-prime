@@ -3,7 +3,7 @@ import {Route, Switch} from 'react-router';
 import {hot} from 'react-hot-loader';
 
 import Loader from '../Loader';
-import ErrorPopup from '../ErrorPopup';
+import Error from '../Error';
 import Gate from '../Gate';
 import Portal from '../Portal';
 
@@ -16,7 +16,7 @@ const Main: StyledType = () => <Gate>
                 ({location}) => <div style={{height: '100%'}}>
                     <Portal />
                     <Loader />
-                    <ErrorPopup />
+                    <Error />
                 </div>
             }
         />

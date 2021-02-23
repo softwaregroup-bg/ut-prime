@@ -1,5 +1,4 @@
 import React from 'react';
-import immutable from 'immutable';
 
 import { render } from '../test';
 import Login from './index';
@@ -14,10 +13,8 @@ describe('<Login />', () => {
         const {
             getByTestId
         } = render(<Login />, {
-            login: immutable.fromJS({
-                authenticated: false
-            })
-        });
+            login: false
+        }, true);
         expect(getByTestId('ut-front-test')).toMatchSnapshot();
     });
 });

@@ -7,11 +7,11 @@ import { Button } from 'devextreme-react/button';
 import Text from '../Text';
 import { logout } from '../Login/actions';
 
-import { Styled, StyledType } from './ErrorPopup.types';
+import { Styled, StyledType } from './Error.types';
 
 const close = () => ({type: 'error.close'});
 
-const ErrorPopup: StyledType = ({ classes, open, message, close, title, type, logout }) => {
+const Error: StyledType = ({ classes, open, message, close, title, type, logout }) => {
     let handleClose = close;
     let showCloseButton = true;
     let actionButtons;
@@ -57,6 +57,6 @@ const ErrorPopup: StyledType = ({ classes, open, message, close, title, type, lo
 };
 
 export default connect(
-    state => state.errorPopup,
+    state => state.error,
     {close, logout}
-)(Styled(ErrorPopup));
+)(Styled(Error));

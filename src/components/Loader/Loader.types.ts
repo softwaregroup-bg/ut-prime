@@ -3,10 +3,6 @@ import React from 'react';
 
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     className?: string;
-    loadInfo: {
-        message: string,
-        open: boolean
-    }
 }
 
 const styles = createStyles({

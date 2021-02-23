@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import clsx from 'clsx';
 import { Redirect } from 'react-router-dom';
 import Form, { Item } from 'devextreme-react/form';
@@ -195,7 +195,6 @@ const initialState: State = {
 };
 
 const Login: StyledType = ({
-    authenticated,
     identityCheck,
     classes: {
         loginContainer,
@@ -210,9 +209,10 @@ const Login: StyledType = ({
         formContainer
     }
 }) => {
-    if (authenticated) return <Redirect to='/' />;
+    const authenticated = useSelector(state => state.login);
 
     const [{ title, error, inputs, buttonLabel }, dispatch] = React.useReducer(reducer, initialState);
+    if (authenticated) return <Redirect to='/' />;
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -263,10 +263,6 @@ const Login: StyledType = ({
 };
 
 export default connect(
-    ({ login }) => {
-        return {
-            authenticated: login.get('authenticated')
-        };
-    },
+    null,
     { identityCheck }
 )(Styled(Login));

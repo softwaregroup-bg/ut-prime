@@ -9,7 +9,7 @@ describe('<Loader />', () => {
         const {
             getByTestId
         } = render(<Loader />, {
-            preloadWindow: immutable.fromJS({
+            loader: immutable.fromJS({
                 open: true,
                 message: 'Loading...'
             })

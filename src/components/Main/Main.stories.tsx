@@ -14,10 +14,10 @@ export default {
 };
 
 const state = {
-    preloadWindow: {
+    loader: {
         toJS: () => ({open: false})
     },
-    errorPopup: {
+    error: {
         open: false
     },
     login: {
