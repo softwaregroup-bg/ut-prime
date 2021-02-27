@@ -1,3 +1,12 @@
+## [1.4.2](https://git.softwaregroup.com/ut5/ut-front-devextreme/compare/v1.4.1...v1.4.2) (2021-02-27)
+
+
+### Bug Fixes
+
+* tabs handling ([f080666](https://git.softwaregroup.com/ut5/ut-front-devextreme/commit/f0806662c281c46e95d5a26e27084eed25fb5cad))
+
+
+
 ## [1.4.1](https://git.softwaregroup.com/ut5/ut-front-devextreme/compare/v1.4.0...v1.4.1) (2021-02-23)
 
 
