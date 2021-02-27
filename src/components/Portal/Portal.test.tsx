@@ -19,7 +19,9 @@ describe('<Portal />', () => {
         const { getByTestId } = render(
             <Provider store={store}>
                 <Portal />
-            </Provider>
+            </Provider>,
+            {},
+            true
         );
         expect(getByTestId('ut-front-test')).toMatchSnapshot();
     });

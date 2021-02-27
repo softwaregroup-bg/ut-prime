@@ -23,9 +23,15 @@ const App: StyledType = ({store, theme, portalName}) =>
             <Context.Provider value={{portalName}}>
                 <Router history={(typeof window !== 'undefined') ? createHashHistory() : createMemoryHistory()}>
                     <Switch>
-                        <Route path='/login' component={LoginPage} />
-                        <Route path='/sso/:appId/:ssoOrigin/login' component={LoginPage} />
-                        <Route component={Main} />
+                        <Route path='/login'>
+                            <LoginPage />
+                        </Route>
+                        <Route path='/sso/:appId/:ssoOrigin/login'>
+                            <LoginPage />
+                        </Route>
+                        <Route>
+                            <Main />
+                        </Route>
                         <Route path='*' component={PageNotFound} />
                     </Switch>
                 </Router>

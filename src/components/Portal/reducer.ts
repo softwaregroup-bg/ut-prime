@@ -1,4 +1,10 @@
 const handlers = {
+    'front.tab.switch'(state, {tabIndex}) {
+        return {
+            ...state,
+            tabIndex
+        };
+    },
     'front.tab.show'(state, {title, path, component}) {
         return {
             ...state,
@@ -6,16 +12,24 @@ const handlers = {
                 title: title,
                 path: path,
                 component
-            }]
+            }],
+            tabIndex: state?.tabs?.length
         };
     },
-    'front.tab.close'(state, {index}) {
+    'front.tab.close'({tabIndex = 0, tabs = [], ...state}, {data}) {
+        const index = tabs.indexOf(data);
+        if (index < 0) return {tabIndex, tabs, ...state};
         return {
             ...state,
             tabs: (items => {
                 items.splice(index, 1);
                 return items;
-            })([...(state.tabs || [])])
+            })([...tabs]),
+            tabIndex: [
+                tabIndex,
+                index >= tabs.length - 1 ? tabs.length - 2 : tabIndex,
+                tabIndex - 1
+            ][Math.sign(tabIndex - index) + 1]
         };
     }
 };

@@ -2,6 +2,7 @@ import React from 'react';
 import Box, {Item} from 'devextreme-react/box';
 import { useSelector, useDispatch } from 'react-redux';
 import TabPanel from 'devextreme-react/tab-panel';
+import { useLocation } from 'react-router-dom';
 
 import Menu from 'devextreme-react/menu';
 
@@ -37,19 +38,32 @@ function useWindowSize() {
     return windowSize;
 }
 
-const ItemComponent = ({data}) => <Async component={data.component} />;
+const ItemComponent = ({component}) => <Async component={component} />;
 
 const Portal: StyledType = ({ classes, children }) => {
-    const {tabs = [], menu = []} = useSelector(state => state.portal || {});
+    const {tabs = [], menu = [], tabIndex = 0} = useSelector(state => state.portal || {});
     const dispatch = useDispatch();
+    const location = useLocation();
     const size = useWindowSize();
     const {portalName} = React.useContext(Context);
-    const handleClick = ({itemData}) => itemData.page && dispatch({
+    const handleClick = React.useCallback(({itemData}) => itemData.page && dispatch({
         type: 'front.tab.show',
         component: itemData.page,
         title: itemData.title,
         path: '/' + itemData.page.name
-    });
+    }), [dispatch]);
+    const handleTabSelect = React.useCallback(({name, value}) => {
+        (name === 'selectedIndex') && dispatch({
+            type: 'front.tab.switch',
+            tabIndex: value
+        });
+    }, [dispatch]);
+    if (location.pathname !== '/' && !tabs.find(tab => tab.path === location.pathname)) {
+        dispatch({
+            type: 'front.route.find',
+            path: location.pathname
+        });
+    }
     return (
         <Box direction='col' width='100%' height={size.height}>
             <Item baseSize={59}>
@@ -80,8 +94,11 @@ const Portal: StyledType = ({ classes, children }) => {
                 <TabPanel
                     height='100%'
                     dataSource={tabs}
+                    selectedIndex={tabIndex}
                     itemTitleComponent={Title}
-                    itemComponent={ItemComponent}
+                    repaintChangesOnly
+                    itemRender={ItemComponent}
+                    onOptionChanged={handleTabSelect}
                 />
                 {children}
             </Item>

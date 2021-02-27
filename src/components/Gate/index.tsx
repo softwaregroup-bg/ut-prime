@@ -6,6 +6,7 @@ import { cookieCheck, logout } from '../Login/actions';
 import Loader from '../Loader';
 import Context from '../Text/context';
 
+import Permission from './Permission';
 import { Styled, StyledType } from './Gate.types';
 
 const fetchTranslations = params => ({
@@ -53,7 +54,11 @@ const Gate: StyledType = ({ classes, children, cookieCheck, logout, fetchTransla
     } else if (login) {
         return (
             <div className={classes.gate}>
-                {loaded ? <Context.Provider value={loaded}>{children}</Context.Provider> : <Loader />}
+                {loaded ? <Context.Provider value={loaded}>
+                    <Permission>
+                        {children}
+                    </Permission>
+                </Context.Provider> : <Loader />}
             </div>
         );
     } else {

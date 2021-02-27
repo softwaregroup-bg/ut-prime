@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-const Title = ({data, index}) => {
+const Title = ({data}) => {
     const dispatch = useDispatch();
     return (
         <>
@@ -19,7 +19,7 @@ const Title = ({data, index}) => {
                 }}
                 onClick={() => dispatch({
                     type: 'front.tab.close',
-                    index
+                    data
                 })}
             />
         </>
