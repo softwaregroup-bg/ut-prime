@@ -14,7 +14,8 @@ export function render(children: React.ReactNode, initialStore: Store = {}, rout
             portalName: 'Administration'
         }
     });
-    const provider = <Provider store={store(initialStore)}>
+    const history = (typeof window !== 'undefined') ? createHashHistory() : createMemoryHistory();
+    const provider = <Provider store={store(initialStore, history)}>
         <ThemeProvider theme={theme}>
             <div data-testid="ut-front-test">
                 {children}
@@ -22,7 +23,6 @@ export function render(children: React.ReactNode, initialStore: Store = {}, rout
         </ThemeProvider>
     </Provider>;
     if (router) {
-        const history = (typeof window !== 'undefined') ? createHashHistory() : createMemoryHistory();
         return testRender(<Router history={history}>{provider}</Router>);
     }
     return testRender(provider);

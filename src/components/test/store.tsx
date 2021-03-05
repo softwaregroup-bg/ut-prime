@@ -1,11 +1,11 @@
 import React from 'react';
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Store } from 'react-redux';
 import merge from 'ut-function.merge';
-import portal from '../Portal/reducer';
-import error from '../Error/reducer';
-import loader from '../Loader/reducer';
-import login from '../Login/reducer';
+import {connectRouter, routerMiddleware} from 'connected-react-router';
+
+import middleware from '../middleware';
+import * as reducers from '../reducers';
 
 const defaultState: Store = {
     error: {},
@@ -18,14 +18,20 @@ const defaultState: Store = {
             title: 'Main',
             items: [{
                 title: 'Page 1',
-                page: () => () => 'page 1 component'
+                component: function page1() {
+                    return () => 'page 1 component';
+                }
             }, {
                 title: 'Page 2',
-                page: () => () => 'page 2 component'
+                component: function page2() {
+                    return () => 'page 2 component';
+                }
             }]
         }, {
             title: 'Page 3',
-            page: () => () => 'page 3 component'
+            component: function page3() {
+                return () => 'page 3 component';
+            }
         }],
         tabs: [{
             title: 'Dashboard',
@@ -35,6 +41,13 @@ const defaultState: Store = {
     }
 };
 
-export default (state = {}) => {
-    return createStore(combineReducers({portal, error, loader, login}), merge({}, defaultState, state));
+function store(state = {}, history): Store<{}> {
+    return createStore(combineReducers({
+        router: connectRouter(history),
+        ...reducers
+    }), merge({}, defaultState, state),
+    applyMiddleware(middleware, routerMiddleware(history))
+    );
 };
+
+export default store;

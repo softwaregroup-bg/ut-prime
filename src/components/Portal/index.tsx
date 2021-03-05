@@ -2,7 +2,7 @@ import React from 'react';
 import Box, {Item} from 'devextreme-react/box';
 import { useSelector, useDispatch } from 'react-redux';
 import TabPanel from 'devextreme-react/tab-panel';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 
 import Menu from 'devextreme-react/menu';
 
@@ -38,29 +38,26 @@ function useWindowSize() {
     return windowSize;
 }
 
-const ItemComponent = ({component}) => <Async component={component} />;
+const ItemComponent = ({component, params}) => <Async component={component} params={params} />;
 
 const Portal: StyledType = ({ classes, children }) => {
-    const {tabs = [], menu = [], tabIndex = 0} = useSelector(state => state.portal || {});
+    const {tabs = [], menu = []} = useSelector(state => state.portal || {});
     const dispatch = useDispatch();
     const location = useLocation();
+    const history = useHistory();
     const size = useWindowSize();
     const {portalName} = React.useContext(Context);
-    const handleClick = React.useCallback(({itemData}) => itemData.page && dispatch({
-        type: 'front.tab.show',
-        component: itemData.page,
-        title: itemData.title,
-        path: '/' + itemData.page.name
-    }), [dispatch]);
-    const handleTabSelect = React.useCallback(({name, value}) => {
-        (name === 'selectedIndex') && dispatch({
-            type: 'front.tab.switch',
-            tabIndex: value
-        });
+    const handleClick = React.useCallback(({itemData: {component, title}}) => {
+        if (component) dispatch({type: 'front.tab.show', component, title});
     }, [dispatch]);
+    const found = tabs.findIndex(tab => tab.path === location.pathname);
+    const tabIndex = found >= 0 ? found : undefined;
+    const handleTabSelect = React.useCallback(({name, value}) => {
+        if (name === 'selectedIndex') history.push(tabs[value].path);
+    }, [tabs]);
     if (location.pathname !== '/' && !tabs.find(tab => tab.path === location.pathname)) {
         dispatch({
-            type: 'front.route.find',
+            type: 'portal.route.find',
             path: location.pathname
         });
     }
@@ -99,6 +96,7 @@ const Portal: StyledType = ({ classes, children }) => {
                     repaintChangesOnly
                     itemRender={ItemComponent}
                     onOptionChanged={handleTabSelect}
+                    noDataText=''
                 />
                 {children}
             </Item>

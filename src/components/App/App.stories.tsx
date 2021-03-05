@@ -1,5 +1,6 @@
 import React from 'react';
 import { withReadme } from 'storybook-readme';
+import {createHashHistory, createMemoryHistory} from 'history';
 
 import store from '../test/store';
 
@@ -14,14 +15,16 @@ export default {
 };
 
 export const Basic: React.FC<{}> = ({children}) => {
+    const history = (typeof window !== 'undefined') ? createHashHistory() : createMemoryHistory();
     return <App
         portalName='test app'
-        store={store()}
+        store={store(undefined, history)}
         theme={{
             ut: {
                 classes: {}
             }
         }}
+        history={history}
     >
         {children}
     </App>;

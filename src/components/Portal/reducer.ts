@@ -1,35 +1,26 @@
 const handlers = {
-    'front.tab.switch'(state, {tabIndex}) {
-        return {
-            ...state,
-            tabIndex
-        };
-    },
-    'front.tab.show'(state, {title, path, component}) {
+    'front.tab.show'(state, {title, path, component, params}) {
+        if (state.tabs && state.tabs.find(tab => tab.path === path)) return state;
         return {
             ...state,
             tabs: [...(state.tabs || []), {
-                title: title,
-                path: path,
-                component
-            }],
-            tabIndex: state?.tabs?.length
+                title,
+                path,
+                component,
+                params
+            }]
         };
     },
-    'front.tab.close'({tabIndex = 0, tabs = [], ...state}, {data}) {
-        const index = tabs.indexOf(data);
-        if (index < 0) return {tabIndex, tabs, ...state};
+    'front.tab.close'({tabs = [], ...state}, action) {
+        const index = tabs.indexOf(action.data);
+        if (index < 0) return {tabs, ...state};
+        action.push = tabs?.[index >= tabs.length - 1 ? index - 1 : index + 1]?.path;
         return {
             ...state,
             tabs: (items => {
                 items.splice(index, 1);
                 return items;
-            })([...tabs]),
-            tabIndex: [
-                tabIndex,
-                index >= tabs.length - 1 ? tabs.length - 2 : tabIndex,
-                tabIndex - 1
-            ][Math.sign(tabIndex - index) + 1]
+            })([...tabs])
         };
     }
 };

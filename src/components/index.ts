@@ -2,8 +2,9 @@ import * as dx from './dx';
 import * as mui from './mui';
 import * as hooks from './hooks';
 import * as reducers from './reducers';
+import middleware from './middleware';
 
-export {dx, mui, hooks, reducers};
+export {dx, mui, hooks, reducers, middleware};
 
 export { default as App } from './App';
 export { default as Async } from './Async';

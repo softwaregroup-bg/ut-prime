@@ -21,7 +21,7 @@ export default function Wrap({
     });
     const history = (typeof window !== 'undefined') ? createHashHistory() : createMemoryHistory();
     return (
-        <Provider store={store(state)}>
+        <Provider store={store(state, history)}>
             <ThemeProvider theme={theme}>
                 <CssBaseline />
                 <Context.Provider value={{portalName}}>
