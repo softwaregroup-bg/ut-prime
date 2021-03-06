@@ -1,3 +1,12 @@
+# [1.5.0](https://git.softwaregroup.com/ut5/ut-front-devextreme/compare/v1.4.2...v1.5.0) (2021-03-06)
+
+
+### Features
+
+* tabs history ([671dc9f](https://git.softwaregroup.com/ut5/ut-front-devextreme/commit/671dc9f82479212645097144b70e9994b8d6fed5))
+
+
+
 ## [1.4.2](https://git.softwaregroup.com/ut5/ut-front-devextreme/compare/v1.4.1...v1.4.2) (2021-02-27)
 
 
