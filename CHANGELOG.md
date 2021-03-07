@@ -1,3 +1,12 @@
+# [1.6.0](https://git.softwaregroup.com/ut5/ut-front-devextreme/compare/v1.5.0...v1.6.0) (2021-03-07)
+
+
+### Features
+
+* store ([9a19f47](https://git.softwaregroup.com/ut5/ut-front-devextreme/commit/9a19f4794abc8391dc42a1b77ffae570f8e10d40))
+
+
+
 # [1.5.0](https://git.softwaregroup.com/ut5/ut-front-devextreme/compare/v1.4.2...v1.5.0) (2021-03-06)
 
 
