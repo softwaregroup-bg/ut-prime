@@ -1,24 +1,21 @@
 import React from 'react';
 import { render, waitFor } from '@testing-library/react';
-import {createHashHistory, createMemoryHistory} from 'history';
 
-import store from '../test/store';
 import App from './index';
+import state from '../test/state';
 
 describe('<App />', () => {
     it('render equals snapshot', async() => {
-        const history = (typeof window !== 'undefined') ? createHashHistory() : createMemoryHistory();
         const { getByTestId } = render(
             <div data-testid="ut-front-test">
                 <App
                     portalName='test'
-                    store={store(undefined, history)}
+                    state={state}
                     theme={{
                         ut: {
                             classes: {}
                         }
                     }}
-                    history={history}
                 />
             </div>
         );

@@ -70,6 +70,8 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0",
     "tslib": "^2.0.3"
   },
   "dependencies": {},
@@ -122,6 +124,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.1",
     "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0",
     "rollup": "^2.34.1",
     "rollup-plugin-copy": "^3.3.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",

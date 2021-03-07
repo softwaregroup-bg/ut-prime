@@ -1,29 +1,25 @@
 import React from 'react';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import { Provider, Store } from 'react-redux';
 import { render as testRender } from '@testing-library/react';
-import {Router} from 'react-router';
-import {createHashHistory, createMemoryHistory} from 'history';
+import merge from 'ut-function.merge';
 
-import store from './store';
+import Store from '../Store';
+import {State} from '../Store/Store.types';
+import defaultState from './state';
 
-export function render(children: React.ReactNode, initialStore: Store = {}, router = false) {
+export function render(children: React.ReactNode, initialStore: State = {}) {
     const theme = createMuiTheme({}, {
         ut: {
             classes: {},
             portalName: 'Administration'
         }
     });
-    const history = (typeof window !== 'undefined') ? createHashHistory() : createMemoryHistory();
-    const provider = <Provider store={store(initialStore, history)}>
+    const store = <Store state={merge({}, defaultState, initialStore)}>
         <ThemeProvider theme={theme}>
             <div data-testid="ut-front-test">
                 {children}
             </div>
         </ThemeProvider>
-    </Provider>;
-    if (router) {
-        return testRender(<Router history={history}>{provider}</Router>);
-    }
-    return testRender(provider);
+    </Store>;
+    return testRender(store);
 }

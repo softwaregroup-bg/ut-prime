@@ -1,18 +1,16 @@
 import {ThemeOptions} from '@material-ui/core/styles';
 import React from 'react';
-import {Store} from 'redux';
-import {History} from 'history';
+import { Props as StoreProps } from '../Store/Store.types';
+
 export interface utTheme extends ThemeOptions {
     ut: {
         classes: {}
     }
 }
 
-export interface Props extends React.HTMLAttributes<HTMLDivElement> {
+export interface Props extends StoreProps, React.HTMLAttributes<HTMLDivElement> {
     theme: utTheme,
-    portalName: string,
-    store: Store,
-    history: History
+    portalName: string
 }
 
 export type StyledType = React.FC<Props>

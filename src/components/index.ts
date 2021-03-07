@@ -1,10 +1,8 @@
 import * as dx from './dx';
 import * as mui from './mui';
 import * as hooks from './hooks';
-import * as reducers from './reducers';
-import middleware from './middleware';
 
-export {dx, mui, hooks, reducers, middleware};
+export {dx, mui, hooks};
 
 export { default as App } from './App';
 export { default as Async } from './Async';
@@ -16,4 +14,5 @@ export { default as Loader } from './Loader';
 export { default as Login } from './Login';
 export { default as Main } from './Main';
 export { default as Portal } from './Portal';
+export { default as Store } from './Store';
 export { default as Text } from './Text';
