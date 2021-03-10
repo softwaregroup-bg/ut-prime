@@ -1,3 +1,12 @@
+## [1.6.1](https://git.softwaregroup.com/ut5/ut-front-devextreme/compare/v1.6.0...v1.6.1) (2021-03-10)
+
+
+### Bug Fixes
+
+* improve handling of tab title and path ([406bd8d](https://git.softwaregroup.com/ut5/ut-front-devextreme/commit/406bd8d14fff1aeba741eb655986aebdd149a415))
+
+
+
 # [1.6.0](https://git.softwaregroup.com/ut5/ut-front-devextreme/compare/v1.5.0...v1.6.0) (2021-03-07)
 
 
