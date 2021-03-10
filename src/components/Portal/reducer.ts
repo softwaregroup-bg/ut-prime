@@ -1,12 +1,12 @@
 const handlers = {
-    'front.tab.show'(state, {title, path, component, params}) {
+    'front.tab.show'(state, {title, path, Component, params}) {
         if (state.tabs && state.tabs.find(tab => tab.path === path)) return state;
         return {
             ...state,
             tabs: [...(state.tabs || []), {
                 title,
                 path,
-                component,
+                Component,
                 params
             }]
         };

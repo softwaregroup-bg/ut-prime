@@ -39,7 +39,7 @@ const Store: StoreComponent = ({middleware = [], reducers, state, children, onDi
             ...reducers
         }),
         state,
-        composeEnhancers(applyMiddleware(thunk, frontMiddleware, ...middleware, routerMiddleware(history)))
+        composeEnhancers(applyMiddleware(thunk, ...middleware, frontMiddleware, routerMiddleware(history)))
     );
     if (onDispatcher) onDispatcher(action => store.dispatch(action));
     return (

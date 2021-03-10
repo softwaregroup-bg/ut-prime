@@ -27,11 +27,11 @@ const state = {
         tabs: [{
             title: 'Tab 1',
             path: '/tab1',
-            component: () => function Component() { return <div>tab 1 body</div>; }
+            Component() { return <div>tab 1 body</div>; }
         }, {
             title: 'Tab 2',
             path: '/tab2',
-            component: () => function Component() { return <div>tab 2 body</div>; }
+            Component() { return <div>tab 2 body</div>; }
         }]
     }
 };

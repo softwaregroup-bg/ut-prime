@@ -7,7 +7,6 @@ import { useLocation, useHistory } from 'react-router-dom';
 import Menu from 'devextreme-react/menu';
 
 import Context from '../Context';
-import Async from '../Async';
 import Text from '../Text';
 
 import Title from './Title';
@@ -38,7 +37,7 @@ function useWindowSize() {
     return windowSize;
 }
 
-const ItemComponent = ({component, params}) => <Async component={component} params={params} />;
+const ItemComponent = ({Component, params}) => <Component {...params} />;
 
 const Portal: StyledType = ({ classes, children }) => {
     const {tabs = [], menu = []} = useSelector(state => state.portal || {});
@@ -47,8 +46,8 @@ const Portal: StyledType = ({ classes, children }) => {
     const history = useHistory();
     const size = useWindowSize();
     const {portalName} = React.useContext(Context);
-    const handleClick = React.useCallback(({itemData: {component, title}}) => {
-        if (component) dispatch({type: 'front.tab.show', component, title});
+    const handleClick = React.useCallback(({itemData: {component}}) => {
+        if (component) dispatch({type: 'front.tab.show', component});
     }, [dispatch]);
     const found = tabs.findIndex(tab => tab.path === location.pathname);
     const tabIndex = found >= 0 ? found : undefined;
