@@ -1,3 +1,12 @@
+## [1.6.3](https://git.softwaregroup.com/ut5/ut-front-devextreme/compare/v1.6.2...v1.6.3) (2021-03-14)
+
+
+### Bug Fixes
+
+* include tslib ([4c8580b](https://git.softwaregroup.com/ut5/ut-front-devextreme/commit/4c8580b52a44ed44c39bee521333d0d34589054e))
+
+
+
 ## [1.6.2](https://git.softwaregroup.com/ut5/ut-front-devextreme/compare/v1.6.1...v1.6.2) (2021-03-14)
 
 
