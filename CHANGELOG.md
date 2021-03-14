@@ -1,3 +1,7 @@
+## [1.6.2](https://git.softwaregroup.com/ut5/ut-front-devextreme/compare/v1.6.1...v1.6.2) (2021-03-14)
+
+
+
 ## [1.6.1](https://git.softwaregroup.com/ut5/ut-front-devextreme/compare/v1.6.0...v1.6.1) (2021-03-10)
 
 
