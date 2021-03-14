@@ -36,7 +36,6 @@ const styles = createStyles({
         width: 480,
         padding: '30px 95px 55px',
         border: '1px solid #E9E9E9',
-        backgroundColor: '#FFFFFF',
         boxShadow: '0 1px 5px 0 rgba(85,89,102, 0.25)'
     },
     formContainer: {
@@ -46,7 +45,6 @@ const styles = createStyles({
         height: '100%'
     },
     loginTitle: {
-        color: '#626262',
         textAlign: 'center',
         marginBottom: 30,
         fontSize: 16

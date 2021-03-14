@@ -11,8 +11,6 @@ const styles = createStyles({
         position: 'relative',
         height: '59px',
         borderBottom: '1px solid #CCCBCB',
-        background: '#fff',
-        color: '#373a3c',
         boxShadow: '0px 2px 3px 0px rgba(222, 222, 222, 1)',
         cursor: 'default'
     },

@@ -6,8 +6,8 @@ import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import {MuiPickersUtilsProvider} from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
 import 'devextreme/dist/css/dx.common.css';
-import 'devextreme/dist/css/dx.material.blue.light.css';
-// import 'devextreme/dist/css/dx.material.blue.dark.css';
+// import 'devextreme/dist/css/dx.material.blue.light.css';
+import 'devextreme/dist/css/dx.material.blue.dark.css';
 
 import LoginPage from '../Login';
 import Main from '../Main';
