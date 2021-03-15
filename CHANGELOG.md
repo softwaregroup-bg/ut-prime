@@ -1,3 +1,12 @@
+## [1.6.4](https://git.softwaregroup.com/ut5/ut-front-devextreme/compare/v1.6.3...v1.6.4) (2021-03-15)
+
+
+### Bug Fixes
+
+* login store ([d1c7f2c](https://git.softwaregroup.com/ut5/ut-front-devextreme/commit/d1c7f2c5b6d6d6c7f81c25d12c07fcdaed37aadb))
+
+
+
 ## [1.6.3](https://git.softwaregroup.com/ut5/ut-front-devextreme/compare/v1.6.2...v1.6.3) (2021-03-14)
 
 
