@@ -1,3 +1,12 @@
+# [1.7.0](https://git.softwaregroup.com/ut5/ut-front-devextreme/compare/v1.6.4...v1.7.0) (2021-03-16)
+
+
+### Features
+
+* simplified menu ([1604549](https://git.softwaregroup.com/ut5/ut-front-devextreme/commit/1604549d8490e8b5484607f3fed8792619d32a1a))
+
+
+
 ## [1.6.4](https://git.softwaregroup.com/ut5/ut-front-devextreme/compare/v1.6.3...v1.6.4) (2021-03-15)
 
 
