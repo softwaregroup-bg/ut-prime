@@ -16,5 +16,5 @@ export default {
 export const Basic: React.FC<{}> = () => <Wrap>
     <Dashboard tabName='Dashboard'>
         Dashboard body
-    </Dashboard>;
+    </Dashboard>
 </Wrap>;

@@ -19,6 +19,9 @@ export const Basic: React.FC<{}> = ({children}) => {
         theme={{
             ut: {
                 classes: {}
+            },
+            palette: {
+                type: 'dark'
             }
         }}
     >

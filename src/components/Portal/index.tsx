@@ -46,8 +46,8 @@ const Portal: StyledType = ({ classes, children }) => {
     const history = useHistory();
     const size = useWindowSize();
     const {portalName} = React.useContext(Context);
-    const handleClick = React.useCallback(({itemData: {component}}) => {
-        if (component) dispatch({type: 'front.tab.show', component});
+    const handleClick = React.useCallback(({itemData}) => {
+        if (itemData.component || itemData.tab) dispatch({type: 'front.tab.show', ...itemData});
     }, [dispatch]);
     const found = tabs.findIndex(tab => tab.path === location.pathname);
     const tabIndex = found >= 0 ? found : undefined;

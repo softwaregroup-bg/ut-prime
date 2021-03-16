@@ -12,7 +12,11 @@ export default function Wrap({
     state = {},
     portalName = 'Storybook'
 }) {
-    const theme = createMuiTheme({}, {
+    const theme = createMuiTheme({
+        palette: {
+            type: 'dark'
+        }
+    }, {
         ut: {
             classes: {},
             portalName: 'Administration'
