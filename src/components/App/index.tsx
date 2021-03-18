@@ -18,7 +18,7 @@ import { StyledType } from './App.types';
 import PageNotFound from './PageNotFound';
 
 const App: StyledType = ({middleware, reducers, theme, portalName, state, onDispatcher}) => {
-    theme?.palette?.type === 'dark' ? dark.use() : light.use();
+    theme?.palette?.type === 'dark' ? dark?.use?.() : light?.use?.();
     return (
         <Store {...{middleware, reducers, state, onDispatcher}}>
             <ThemeProvider theme={createMuiTheme(theme)}>

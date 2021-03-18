@@ -11,7 +11,7 @@ exports[`<Login /> render equals snapshot 1`] = `
       class="Login-loginLogo-2 Login-loginPageHeader-3"
     />
     <div
-      class="Login-loginForm-5"
+      class="MuiBox-root MuiBox-root-12 Login-loginForm-5"
     >
       <div
         class="Login-loginTitle-8"
