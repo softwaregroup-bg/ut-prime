@@ -1,3 +1,12 @@
+# [1.8.0](https://git.softwaregroup.com/ut5/ut-front-devextreme/compare/v1.7.0...v1.8.0) (2021-03-18)
+
+
+### Features
+
+* support dark mode ([acffac4](https://git.softwaregroup.com/ut5/ut-front-devextreme/commit/acffac4702d63d1a88d89c8ca258c907047fcb61))
+
+
+
 # [1.7.0](https://git.softwaregroup.com/ut5/ut-front-devextreme/compare/v1.6.4...v1.7.0) (2021-03-16)
 
 
