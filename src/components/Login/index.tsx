@@ -9,6 +9,7 @@ import { Validator } from '../lib/validator';
 
 import { Styled, StyledType } from './Login.types';
 import { identityCheck } from './actions';
+import { Box } from '@material-ui/core';
 
 const inputTypes = {
     username: {
@@ -228,7 +229,7 @@ const Login: StyledType = ({
 
     return (<div className={loginContainer}>
         <div className={clsx(loginLogo, loginPageHeader)} />
-        <div className={loginForm}>
+        <Box className={loginForm} boxShadow={3} bgcolor='background.paper' borderColor='divider'>
             {title && <div className={loginTitle}><Text>{title}</Text></div>}
             {error && <div className={formError}>
                 <div className={errorIcon} />
@@ -256,7 +257,7 @@ const Login: StyledType = ({
                     <Item itemType='button' buttonOptions={{ text: buttonLabel, type: 'success', useSubmitBehavior: true }} />
                 </Form>
             </form>
-        </div>
+        </Box>
         <div className={clsx(loginLogo, loginPageFooter)} />
     </div>
     );

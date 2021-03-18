@@ -35,8 +35,8 @@ const styles = createStyles({
         boxSizing: 'border-box',
         width: 480,
         padding: '30px 95px 55px',
-        border: '1px solid #E9E9E9',
-        boxShadow: '0 1px 5px 0 rgba(85,89,102, 0.25)'
+        borderWidth: 1,
+        borderType: 'solid'
     },
     formContainer: {
         width: '100%'
