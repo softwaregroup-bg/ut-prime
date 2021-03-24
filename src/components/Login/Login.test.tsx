@@ -14,7 +14,7 @@ describe('<Login />', () => {
             getByTestId
         } = render(<Login />, {
             login: false
-        }, true);
+        });
         expect(getByTestId('ut-front-test')).toMatchSnapshot();
     });
 });

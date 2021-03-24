@@ -20,8 +20,7 @@ describe('<Portal />', () => {
             <Provider store={store}>
                 <Portal />
             </Provider>,
-            {},
-            true
+            {}
         );
         expect(getByTestId('ut-front-test')).toMatchSnapshot();
     });

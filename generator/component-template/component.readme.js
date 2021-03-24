@@ -1,12 +1,12 @@
 module.exports = (componentName) => ({
-    content: `# Button
+    content: `# ${componentName}
 
 ## How to use
 
 \`\`\`jsx
 import ${componentName} from 'ut-front-devextreme/core/${componentName}';
 
-<${componentName} onClick={handlerOnClick}>Hello ${componentName}</${componentName}>;
+<${componentName} className='name' />;
 \`\`\`
 
 ## Props

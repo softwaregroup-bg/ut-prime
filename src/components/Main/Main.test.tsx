@@ -8,8 +8,7 @@ describe('<Main />', () => {
     it('render equals snapshot', async() => {
         const { getByTestId } = render(
             <Main />,
-            {},
-            true
+            {}
         );
         await waitFor(() => expect(getByTestId('ut-front-test').querySelector('div.dx-box')).toBeTruthy());
         expect(getByTestId('ut-front-test')).toMatchSnapshot();

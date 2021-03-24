@@ -1,0 +1,253 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Explorer /> render equals snapshot 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  <div
+    class="dx-box-flex dx-box dx-widget dx-visibility-change-handler dx-collection"
+    style="display: flex; flex-direction: column; height: 100%; justify-content: flex-start; align-items: stretch;"
+  >
+    <div
+      class="dx-item dx-box-item"
+      style="display: flex; max-height: none; min-height: 0px; flex-basis: 76px; flex-shrink: 1;"
+    >
+      <div
+        class="dx-item-content dx-box-item-content"
+        style="width: auto; height: auto; display: flex; flex-basis: 0px; flex-grow: 1; flex-direction: column;"
+      >
+        <div
+          class="dx-toolbar dx-widget dx-visibility-change-handler dx-collection"
+          role="toolbar"
+        >
+          <div
+            class="dx-toolbar-items-container"
+          >
+            <div
+              class="dx-toolbar-before"
+            >
+              <div
+                class="dx-item dx-toolbar-item dx-toolbar-button"
+              >
+                <div
+                  class="dx-item-content dx-toolbar-item-content"
+                >
+                  <div
+                    aria-label="menu"
+                    class="dx-button dx-button-normal dx-button-mode-contained dx-widget dx-button-has-icon"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      class="dx-button-content"
+                    >
+                      <i
+                        class="dx-icon dx-icon-menu"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="dx-toolbar-center"
+            />
+            <div
+              class="dx-toolbar-after"
+            >
+              <div
+                class="dx-item dx-toolbar-item dx-toolbar-button"
+              >
+                <div
+                  class="dx-item-content dx-toolbar-item-content"
+                >
+                  <div
+                    aria-label="menu"
+                    class="dx-button dx-button-normal dx-button-mode-contained dx-widget dx-button-has-icon"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      class="dx-button-content"
+                    >
+                      <i
+                        class="dx-icon dx-icon-menu"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="dx-item dx-box-item"
+      style="display: flex; max-height: none; min-height: 0px; flex-basis: 0px; flex-grow: 1; flex-shrink: 1;"
+    >
+      <div
+        class="dx-item-content dx-box-item-content"
+        style="width: auto; height: auto; display: flex; flex-basis: 0px; flex-grow: 1; flex-direction: column;"
+      >
+        <div
+          class="dx-drawer dx-widget dx-visibility-change-handler dx-drawer-opened dx-drawer-shrink dx-drawer-slide dx-drawer-left"
+        >
+          <div
+            class="dx-drawer-wrapper"
+          >
+            <div
+              class="dx-drawer-panel-content"
+            />
+            <div
+              class="dx-drawer-content"
+            >
+              <div
+                class="dx-drawer-shader dx-state-invisible"
+              />
+              <div
+                class="dx-drawer dx-widget dx-visibility-change-handler dx-drawer-opened dx-drawer-shrink dx-drawer-slide dx-drawer-right"
+              >
+                <div
+                  class="dx-drawer-wrapper"
+                >
+                  <div
+                    class="dx-drawer-content"
+                  >
+                    <div
+                      class="dx-drawer-shader dx-state-invisible"
+                    />
+                    <div
+                      class="dx-widget dx-visibility-change-handler"
+                      role="presentation"
+                      style="height: 100%;"
+                    >
+                      <div
+                        aria-label="Data grid"
+                        class="dx-datagrid dx-gridbase-container dx-datagrid-borders"
+                        role="grid"
+                      >
+                        <div
+                          class="dx-hidden"
+                        />
+                        <div
+                          class="dx-hidden"
+                        />
+                        <div
+                          class="dx-hidden"
+                        />
+                        <div
+                          class="dx-hidden"
+                        />
+                        <div
+                          class="dx-datagrid-headers dx-datagrid-nowrap"
+                          role="presentation"
+                        >
+                          <div
+                            class="dx-datagrid-content dx-datagrid-scroll-container"
+                            role="presentation"
+                          >
+                            <table
+                              class="dx-datagrid-table dx-datagrid-table-fixed"
+                              role="presentation"
+                            >
+                              <colgroup>
+                                <col
+                                  style="width: auto;"
+                                />
+                                <col />
+                                <col />
+                              </colgroup>
+                              <tbody
+                                role="presentation"
+                              />
+                            </table>
+                          </div>
+                        </div>
+                        <div
+                          class="dx-datagrid-rowsview dx-datagrid-nowrap dx-empty"
+                          role="presentation"
+                          tabindex="0"
+                        >
+                          <div
+                            class="dx-datagrid-content"
+                          >
+                            <table
+                              class="dx-datagrid-table dx-datagrid-table-fixed dx-select-checkboxes-hidden"
+                              role="presentation"
+                            >
+                              <colgroup>
+                                <col
+                                  style="width: auto;"
+                                />
+                                <col />
+                                <col />
+                              </colgroup>
+                              <tbody
+                                role="presentation"
+                              >
+                                <tr
+                                  class="dx-row dx-freespace-row dx-column-lines"
+                                  role="presentation"
+                                >
+                                  <td
+                                    class="dx-command-select"
+                                    style="text-align: center;"
+                                  />
+                                  <td
+                                    style="text-align: left;"
+                                  />
+                                  <td
+                                    style="text-align: left;"
+                                  />
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                        <div
+                          class="dx-overlay dx-widget dx-state-invisible dx-visibility-change-handler dx-loadpanel"
+                        >
+                          <div
+                            aria-hidden="true"
+                            class="dx-overlay-content"
+                            style="width: 200px; height: 90px;"
+                          />
+                        </div>
+                        <div
+                          class="dx-hidden"
+                        />
+                        <div />
+                        <div
+                          class="dx-hidden"
+                        />
+                        <div
+                          class="dx-hidden"
+                        />
+                        <div
+                          class="dx-datagrid-drag-header dx-datagrid-text-content dx-widget dx-state-invisible"
+                        />
+                        <div
+                          class="dx-context-menu dx-has-context-menu dx-widget dx-visibility-change-handler dx-collection dx-datagrid"
+                          role="presentation"
+                        />
+                        <div
+                          class="dx-header-filter-menu"
+                        />
+                        <div />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="dx-drawer-panel-content"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,9 +1,14 @@
-module.exports = () => ({
-    content: `import {WithStyles, withStyles, createStyles} from '@material-ui/core/styles';
+import {WithStyles, withStyles, createStyles} from '@material-ui/core/styles';
 import React from 'react';
 
 export interface Props {
+    keyField: string;
+    field: string;
+    title: string;
+    resultSet: string;
+    fetch: (params: {}) => Promise<{}>;
     className?: string;
+    parentField?: string;
 }
 
 const styles = createStyles({
@@ -13,6 +18,3 @@ const styles = createStyles({
 
 export const Styled = withStyles(styles);
 export type StyledType = React.FC<Props & WithStyles<typeof styles>>
-`,
-    extension: '.types.ts'
-});

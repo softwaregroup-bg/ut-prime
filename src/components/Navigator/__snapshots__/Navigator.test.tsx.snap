@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Navigator /> render equals snapshot 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  <div
+    class="Navigator-component-1 dx-widget dx-visibility-change-handler dx-treelist"
+    id="employees"
+    role="presentation"
+    style="height: 100%;"
+  >
+    <div
+      aria-label="Tree list"
+      class="dx-treelist-container dx-gridbase-container"
+      role="treegrid"
+    >
+      <div
+        class="dx-hidden"
+      />
+      <div
+        class="dx-hidden"
+      />
+      <div
+        class="dx-hidden"
+      />
+      <div
+        class="dx-hidden"
+      />
+      <div
+        class="dx-treelist-headers dx-treelist-nowrap"
+        role="presentation"
+      >
+        <div
+          class="dx-treelist-content dx-treelist-scroll-container"
+          role="presentation"
+        >
+          <table
+            class="dx-treelist-table dx-treelist-table-fixed"
+            role="presentation"
+          >
+            <colgroup>
+              <col />
+            </colgroup>
+            <tbody
+              role="presentation"
+            />
+          </table>
+        </div>
+      </div>
+      <div
+        class="dx-treelist-rowsview dx-treelist-nowrap dx-empty"
+        role="presentation"
+        tabindex="0"
+      >
+        <div
+          class="dx-treelist-content"
+        >
+          <table
+            class="dx-treelist-table dx-treelist-table-fixed"
+            role="presentation"
+          >
+            <colgroup>
+              <col />
+            </colgroup>
+            <tbody
+              role="presentation"
+            >
+              <tr
+                class="dx-row dx-freespace-row dx-column-lines"
+                role="presentation"
+              >
+                <td
+                  style="text-align: left;"
+                />
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div
+        class="dx-overlay dx-widget dx-state-invisible dx-visibility-change-handler dx-loadpanel"
+      >
+        <div
+          aria-hidden="true"
+          class="dx-overlay-content"
+          style="width: 200px; height: 90px;"
+        />
+      </div>
+      <div />
+      <div
+        class="dx-hidden"
+      />
+      <div
+        class="dx-hidden"
+      />
+      <div
+        class="dx-treelist-drag-header dx-treelist-text-content dx-widget dx-state-invisible"
+      />
+      <div
+        class="dx-context-menu dx-has-context-menu dx-widget dx-visibility-change-handler dx-collection dx-treelist-container"
+        role="presentation"
+      />
+      <div
+        class="dx-header-filter-menu"
+      />
+      <div />
+    </div>
+  </div>
+</div>
+`;
