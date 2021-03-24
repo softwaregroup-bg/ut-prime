@@ -1,3 +1,12 @@
+# [1.9.0](https://git.softwaregroup.com/ut5/ut-front-devextreme/compare/v1.8.0...v1.9.0) (2021-03-24)
+
+
+### Features
+
+* add Explorer and Navigator ([2d02e54](https://git.softwaregroup.com/ut5/ut-front-devextreme/commit/2d02e542007932de363a24f97fbb38d919850892))
+
+
+
 # [1.8.0](https://git.softwaregroup.com/ut5/ut-front-devextreme/compare/v1.7.0...v1.8.0) (2021-03-18)
 
 
