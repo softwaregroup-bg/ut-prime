@@ -1,3 +1,12 @@
+## [1.9.1](https://git.softwaregroup.com/ut5/ut-front-devextreme/compare/v1.9.0...v1.9.1) (2021-03-25)
+
+
+### Bug Fixes
+
+* make resultset optional ([6fbba33](https://git.softwaregroup.com/ut5/ut-front-devextreme/commit/6fbba33b74590cb98afa1b60b4205ecd03bb8b0c))
+
+
+
 # [1.9.0](https://git.softwaregroup.com/ut5/ut-front-devextreme/compare/v1.8.0...v1.9.0) (2021-03-24)
 
 
