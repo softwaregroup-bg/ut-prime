@@ -8,7 +8,7 @@ interface column {
 
 export interface Props {
     keyField: string;
-    resultSet: string;
+    resultSet?: string;
     fields: column[];
     fetch: (params: {}) => Promise<{}>;
     className?: string;

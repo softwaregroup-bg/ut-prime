@@ -22,7 +22,7 @@ const Explorer: StyledType = ({
     const organizations = React.useMemo(() => new DataSource({
         store: new CustomStore({
             key: keyField,
-            load: async() => (await fetch({}))[resultSet]
+            load: async() => resultSet ? (await fetch({}))[resultSet] : await fetch({})
         })
     }), [fetch]);
     const [current, setCurrent] = React.useState({});
