@@ -1,3 +1,12 @@
+## [1.9.2](https://git.softwaregroup.com/ut5/ut-front-devextreme/compare/v1.9.1...v1.9.2) (2021-03-29)
+
+
+### Bug Fixes
+
+* disable broken sourcemaps ([fd3bd3f](https://git.softwaregroup.com/ut5/ut-front-devextreme/commit/fd3bd3f77c89ad6d3571660bfcd09067efee743f))
+
+
+
 ## [1.9.1](https://git.softwaregroup.com/ut5/ut-front-devextreme/compare/v1.9.0...v1.9.1) (2021-03-25)
 
 
