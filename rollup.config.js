@@ -13,7 +13,7 @@ function build() {
         output: [
             {
                 preserveModules: true,
-                sourcemap: true,
+                // sourcemap: true,
                 preserveModulesRoot: 'src/components',
                 dir: 'core',
                 format: 'cjs',
