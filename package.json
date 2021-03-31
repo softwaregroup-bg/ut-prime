@@ -3,12 +3,9 @@
   "description": "ut-front-devextreme's component library",
   "version": "1.9.3",
   "license": "UNLICENSED",
-  "publishConfig": {
-    "registry": "https://nexus.softwaregroup.com/repository/npm-internal"
-  },
   "repository": {
     "type": "git",
-    "url": "git@git.softwaregroup.com:ut5/ut-front-devextreme.git"
+    "url": "git@github.com:softwaregroup-bg/ut-front-devextreme.git"
   },
   "main": "./core/index.js",
   "types": "./core/index.d.ts",
@@ -46,7 +43,7 @@
     "pretest": "ut-pretest",
     "preversion": "ut-preversion",
     "test": "jest",
-    "version": "npm run build-storybook && ut-version",
+    "version": "npm run build-storybook && npm run chromatic && ut-version",
     "jenkins": "ut-jenkins",
     "gitlab": "ut-gitlab"
   },
