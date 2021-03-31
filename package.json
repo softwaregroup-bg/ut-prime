@@ -1,8 +1,8 @@
 {
   "name": "ut-front-devextreme",
-  "description": "ut-front-devextreme's component library",
+  "description": "UT higher order components",
   "version": "1.9.3",
-  "license": "UNLICENSED",
+  "license": "Apache-2.0",
   "repository": {
     "type": "git",
     "url": "git@github.com:softwaregroup-bg/ut-front-devextreme.git"
