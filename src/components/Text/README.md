@@ -1,17 +1,20 @@
-# Button
+# Text
+
+Component to show text, that can be optionally translated to other languages.
 
 ## How to use
 
 ```jsx
 import Text from 'ut-front-devextreme/core/Text';
 
-<Text onClick={handlerOnClick}>Hello Text</Text>;
+<Text>Text content, which can be translated</Text>
 ```
+
+The component will look for а language and а translation
+function in the React Context and use them
+to translate the embedded text.
 
 ## Props
 
-- **className** - class applied to root `Text` html element.
-
 | propName  | propType | defaultValue | isRequired |
 | --------- | -------- | ------------ | ---------- |
-| className | string   |              | no         |

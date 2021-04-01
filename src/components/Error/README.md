@@ -1,17 +1,18 @@
-# Button
+# Error
 
-## How to use
+Shows modal error message.
 
-```jsx
-import Error from 'ut-front-devextreme/core/Error';
-
-<Error>Error message</Error>;
-```
+Do not use it directly, as it is connected
+to the Redux state.
 
 ## Props
 
-- **className** - class applied to root `Error` html element.
+- **open** - Set it to true to make the message visible.
+- **title** - Message dialog title.
+- **message** - Error message to be shown.
 
 | propName  | propType | defaultValue | isRequired |
 | --------- | -------- | ------------ | ---------- |
-| className | string   |              | no         |
+| open      | boolean  |              | yes        |
+| title     | string   |              | yes        |
+| message   | string   |              | yes        |

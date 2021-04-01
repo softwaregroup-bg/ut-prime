@@ -23,7 +23,7 @@
     "jest": "jest",
     "test:watch": "jest --watch",
     "storybook": "start-storybook -p 6006 --ci",
-    "build-storybook": "build-storybook -o .lint/storybook",
+    "build-storybook": "build-storybook --quiet -o .lint/storybook",
     "chromatic": "chromatic -d .lint/storybook --exit-zero-on-changes",
     "generate:component": "node ./generator/component",
     "lint": "ut-lint .",

@@ -1,17 +1,6 @@
-# Button
+# Gate
 
-## How to use
+Internal component, no do not use it directly
 
-```jsx
-import Gate from 'ut-front-devextreme/core/Gate';
-
-<Gate onClick={handlerOnClick}>Hello Gate</Gate>;
-```
-
-## Props
-
-- **className** - class applied to root `Gate` html element.
-
-| propName  | propType | defaultValue | isRequired |
-| --------- | -------- | ------------ | ---------- |
-| className | string   |              | no         |
+It is used to check login state and perform initial
+fetching of data.

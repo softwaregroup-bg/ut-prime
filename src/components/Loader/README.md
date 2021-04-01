@@ -1,17 +1,6 @@
-# Button
+# Loader
 
-## How to use
+Internal component, no do not use it directly
 
-```jsx
-import Loader from 'ut-front-devextreme/core/Loader';
-
-<Loader onClick={handlerOnClick}>Hello Loader</Loader>;
-```
-
-## Props
-
-- **className** - class applied to root `Loader` html element.
-
-| propName  | propType | defaultValue | isRequired |
-| --------- | -------- | ------------ | ---------- |
-| className | string   |              | no         |
+It is used to check an animated loader during data
+fetching.

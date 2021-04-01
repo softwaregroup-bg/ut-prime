@@ -1,11 +1,14 @@
-# Button
+# Async
+
+Renders a component returned by an async function.
+Alternative to React.Suspense and React.lazy.
 
 ## How to use
 
 ```jsx
 import Async from 'ut-front-devextreme/core/Async';
 
-<Async onClick={handlerOnClick}>Hello Async</Async>;
+<Async component={asyncFn} />;
 ```
 
 ## Props
@@ -14,4 +17,4 @@ import Async from 'ut-front-devextreme/core/Async';
 
 | propName  | propType | defaultValue | isRequired |
 | --------- | -------- | ------------ | ---------- |
-| className | string   |              | no         |
+| component | function |              | yes         |
