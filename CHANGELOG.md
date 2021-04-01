@@ -1,3 +1,7 @@
+## [1.9.5](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.9.4...v1.9.5) (2021-04-01)
+
+
+
 ## [1.9.4](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.9.3...v1.9.4) (2021-03-31)
 
 
