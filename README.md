@@ -46,7 +46,6 @@ the project links below.
 ## Project links
 
 - [Continuous Integration (Jenkins)](https://jenkins.softwaregroup.com/view/ut/view/master/job/ut/job/ut-front-devextreme/)
-  [![Build Status](https://jenkins.softwaregroup.com/buildStatus/icon?job=ut/ut-front-devextreme/master)](https://jenkins.softwaregroup.com/view/master/job/ut5/job/ut-front-devextreme/job/master/)
 - [Static Code Analysis (SonarQube)](https://sonar.softwaregroup.com/dashboard?id=ut-front-devextreme%3Aorigin%2Fmaster)
 - [Component library storybook (Chromatic)](https://www.chromatic.com/library?appId=6064dffb57787f0021be7b17)
 
