@@ -1,11 +1,11 @@
-import {WithStyles, withStyles, createStyles} from '@material-ui/core/styles';
+import {WithStyles, withStyles, createStyles, Theme} from '@material-ui/core/styles';
 import React from 'react';
 
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     className?: string;
 }
 
-const styles = createStyles({
+const styles = (theme: Theme) => createStyles({
     '@keyframes rotate': {
         from: {
             transform: 'rotate(0deg)',
@@ -41,7 +41,7 @@ const styles = createStyles({
         left: '0',
         height: '100%',
         width: '100%',
-        backgroundColor: '#f2f2f2',
+        backgroundColor: theme.palette.background.default,
         opacity: 0.7
     },
     loader: {
