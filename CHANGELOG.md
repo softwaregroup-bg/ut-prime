@@ -1,3 +1,12 @@
+## [1.9.8](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.9.7...v1.9.8) (2021-04-05)
+
+
+### Bug Fixes
+
+* loader theming ([63a012f](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/63a012fce2c76906ad775f379293ce3ed0e0c9a4))
+
+
+
 ## [1.9.7](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.9.6...v1.9.7) (2021-04-02)
 
 
