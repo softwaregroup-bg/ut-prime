@@ -1,3 +1,12 @@
+# [1.10.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.9.9...v1.10.0) (2021-04-17)
+
+
+### Features
+
+* permissions & logout ([978b6db](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/978b6db0c959147d8f3f745b2414b7c4686e1815))
+
+
+
 ## [1.9.9](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.9.8...v1.9.9) (2021-04-06)
 
 
