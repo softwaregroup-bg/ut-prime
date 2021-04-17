@@ -1,10 +1,22 @@
 import React from 'react';
 import {State} from '../Store/Store.types';
+import Immutable from 'immutable';
 
 const defaultState: State = {
     error: {},
     loader: {},
-    login: {},
+    login: Immutable.fromJS({
+        profile: {
+            initials: 'SA'
+        },
+        result: {
+            'permission.get': [{
+                actionId: 'granted'
+            }, {
+                actionId: 'page%'
+            }]
+        }
+    }),
     portal: {
         menu: [{
             title: ' 🏠 '
@@ -27,11 +39,29 @@ const defaultState: State = {
             }]
         }, {
             title: 'Page 3',
-            permission: 'page3',
+            permission: ['page3', 'granted'],
             path: '/page3',
             component: () => function Page3() {
                 return 'page 3 component';
             }
+        }, {
+            title: 'Page 3 denied',
+            permission: ['page3', 'denied'],
+            path: '/page3',
+            component: () => function Page3() {
+                return 'page 3 component';
+            }
+        }, {
+            title: 'Granted',
+            permission: 'granted'
+        }, {
+            title: 'Denied',
+            permission: 'denied'
+        }],
+        rightMenuItems: [{
+            title: 'Help'
+        }, {
+            title: 'Profile'
         }],
         tabs: [{
             title: 'Dashboard',

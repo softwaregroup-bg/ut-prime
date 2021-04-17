@@ -20,15 +20,6 @@ const state = {
     error: {
         open: false
     },
-    login: {
-        get: item => ({
-            cookieChecked: true,
-            authenticated: true,
-            result: {
-                getIn: () => {}
-            }
-        }[item])
-    },
     portal: {
         tabs: [{
             title: 'Tab 1',

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { connect, useSelector } from 'react-redux';
 import { useParams, Redirect } from 'react-router-dom';
 
-import { cookieCheck, logout } from '../Login/actions';
+import { cookieCheck } from '../Login/actions';
 import Loader from '../Loader';
 import Context from '../Text/context';
 
@@ -15,7 +15,7 @@ const fetchTranslations = params => ({
     params
 });
 
-const Gate: StyledType = ({ classes, children, cookieCheck, logout, fetchTranslations }) => {
+const Gate: StyledType = ({ classes, children, cookieCheck, fetchTranslations }) => {
     const [loaded, setLoaded] = useState(null);
     const [cookieChecked, setCookieChecked] = useState(false);
     const login = useSelector(state => state.login || false);
@@ -45,8 +45,13 @@ const Gate: StyledType = ({ classes, children, cookieCheck, logout, fetchTransla
     }
 
     useEffect(() => {
-        if (!cookieChecked && !login) check();
-        if (!loaded && login) load();
+        if (!cookieChecked && !login) {
+            check();
+        } else if (!loaded && login) {
+            load();
+        } else if (loaded && !login) {
+            setLoaded(false);
+        }
     }, [cookieChecked, login, loaded]);
 
     if (!cookieChecked && !login) {
@@ -68,5 +73,5 @@ const Gate: StyledType = ({ classes, children, cookieCheck, logout, fetchTransla
 
 export default connect(
     null,
-    { cookieCheck, fetchTranslations, logout }
+    { cookieCheck, fetchTranslations }
 )(Styled(Gate));
