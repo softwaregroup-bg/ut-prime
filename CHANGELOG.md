@@ -1,3 +1,12 @@
+# [1.11.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.10.0...v1.11.0) (2021-04-29)
+
+
+### Features
+
+* switch to primereact ([bbfb86a](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/bbfb86af1b705a184c795deaabc5b99391fdcb45))
+
+
+
 # [1.10.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.9.9...v1.10.0) (2021-04-17)
 
 
