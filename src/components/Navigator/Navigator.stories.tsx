@@ -23,7 +23,7 @@ export const Basic: React.FC<{}> = () => <Wrap state={state}>
                 items: [...Array(50).keys()].map(number => ({
                     id: number,
                     name: `Item ${number}`,
-                    parents: number > 10 ? number % 10 : undefined
+                    parents: number >= 10 ? number % 10 : undefined
                 }))
             })}
             keyField='id'

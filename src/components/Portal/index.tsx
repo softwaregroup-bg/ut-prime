@@ -1,18 +1,16 @@
 import React from 'react';
-import Box, {Item} from 'devextreme-react/box';
 import { useSelector, useDispatch } from 'react-redux';
-import TabPanel from 'devextreme-react/tab-panel';
 import { useLocation, useHistory } from 'react-router-dom';
 import Immutable from 'immutable';
 
-import Menu from 'devextreme-react/menu';
+import { Menubar } from 'primereact/menubar';
+import { TabView, TabPanel } from 'primereact/tabview';
 
 import Context from '../Context';
 import Text from '../Text';
 import {logout} from '../Login/actions';
 import permissionCheck from '../lib/permission';
 
-import Title from './Title';
 import { Styled, StyledType } from './Portal.types';
 
 // https://usehooks.com/useWindowSize/
@@ -40,14 +38,12 @@ function useWindowSize() {
     return windowSize;
 }
 
-const ItemComponent = ({Component, params}) => <Component {...params} />;
-
 const Portal: StyledType = ({ classes, children }) => {
     const {
         tabs = [],
-        menu = [],
-        rightMenu = [],
-        rightMenuItems = []
+        menu,
+        rightMenu,
+        rightMenuItems
     } = useSelector(({portal}) => portal || {});
     const login = useSelector(({login}) => login);
     const initials = Immutable.getIn(login, ['profile', 'initials'], 'N/A');
@@ -57,25 +53,47 @@ const Portal: StyledType = ({ classes, children }) => {
     const history = useHistory();
     const size = useWindowSize();
     const {portalName} = React.useContext(Context);
-    const handleClick = React.useCallback(({itemData}) => {
-        if (itemData.component || itemData.tab) {
-            dispatch({type: 'front.tab.show', ...itemData});
-        } else if (itemData.action) {
-            dispatch(itemData.action());
+    const command = React.useCallback(({item}) => {
+        if (item.component || item.tab) {
+            dispatch({type: 'front.tab.show', ...item});
+        } else if (item.action) {
+            dispatch(item.action());
         }
     }, [dispatch]);
     const found = tabs.findIndex(tab => tab.path === location.pathname);
     const tabIndex = found >= 0 ? found : undefined;
-    const handleTabSelect = React.useCallback(({name, value}) => {
-        if (name === 'selectedIndex') history.push(tabs[value].path);
+    const handleTabSelect = React.useCallback(event => {
+        if (event?.originalEvent?.target?.classList?.contains('pi-times')) {
+            dispatch({
+                type: 'front.tab.close',
+                data: tabs[event.index]
+            });
+        } else {
+            history.push(tabs[event.index].path);
+        }
     }, [tabs]);
 
-    const menuEnabled = React.useMemo(() => {
-        const filterMenu = items => items
-            .filter(permissions ? permissionCheck(permissions.toJS()) : Boolean)
-            .map(item => item.items ? {...item, items: filterMenu(item.items)} : item);
-        return filterMenu(menu);
-    }, [menu, permissions]);
+    const filterMenu = items => items
+        .filter(permissions ? permissionCheck(permissions.toJS()) : Boolean)
+        .map(({title, items, ...item}) => ({
+            title,
+            label: title,
+            ...items ? {items: filterMenu(items)} : {command},
+            ...item
+        }));
+    const menuEnabled = React.useMemo(() => filterMenu(menu || []), [menu, permissions]);
+    const rightEnabled = React.useMemo(() => filterMenu(rightMenu || [{
+        title: initials,
+        icon: 'user',
+        items: [
+            ...(rightMenuItems || []),
+            {
+                beginGroup: true,
+                title: 'Logout',
+                action: logout
+            }
+        ]
+    }]), [rightMenu, rightMenuItems, permissions]);
 
     if (location.pathname !== '/' && !tabs.find(tab => tab.path === location.pathname)) {
         dispatch({
@@ -84,70 +102,26 @@ const Portal: StyledType = ({ classes, children }) => {
         });
     }
     return (
-        <Box direction='col' width='100%' height={size.height}>
-            <Item baseSize={59}>
-                <div className={classes.headerContainer}>
-                    <Box direction='row' height='100%' crossAlign='center'>
-                        <Item baseSize={46}>
-                            <div className={classes.headerLogo}></div>
-                        </Item>
-                        <Item baseSize='auto'>
-                            <div className={classes.headerTitle}>
-                                <Text>{portalName}</Text>
-                            </div>
-                        </Item>
-                        <Item ratio={1}>
-                            <Menu dataSource={menuEnabled}
-                                displayExpr='title'
-                                showFirstSubmenuMode='onClick'
-                                orientation='horizontal'
-                                submenuDirection='auto'
-                                hideSubmenuOnMouseLeave={false}
-                                onItemClick={handleClick}
-                            />
-                        </Item>
-                        <Item baseSize='auto'>
-                            <Menu
-                                dataSource={
-                                    rightMenu.length ? rightMenu : [{
-                                        title: initials,
-                                        icon: 'user',
-                                        items: [
-                                            ...rightMenuItems,
-                                            {
-                                                beginGroup: true,
-                                                title: 'Logout',
-                                                action: logout
-                                            }
-                                        ]
-                                    }]
-                                }
-                                displayExpr='title'
-                                showFirstSubmenuMode='onClick'
-                                orientation='horizontal'
-                                submenuDirection='auto'
-                                hideSubmenuOnMouseLeave={false}
-                                onItemClick={handleClick}
-                            />
-                        </Item>
-                        <Item baseSize={10}></Item>
-                    </Box>
+        <div className='p-d-flex p-flex-column' style={{height: size.height}}>
+            <div className={classes.headerContainer}>
+                <div className='p-d-flex p-ai-center'>
+                    <div className={classes.headerLogo}></div>
+                    <div className={classes.headerTitle}>
+                        <Text>{portalName}</Text>
+                    </div>
+                    <Menubar model={menuEnabled} style={{border: 0, flexGrow: 1}}/>
+                    <Menubar model={rightEnabled} style={{border: 0}}/>
                 </div>
-            </Item>
-            <Item ratio={1}>
-                <TabPanel
-                    height='100%'
-                    dataSource={tabs}
-                    selectedIndex={tabIndex}
-                    itemTitleComponent={Title}
-                    repaintChangesOnly
-                    itemRender={ItemComponent}
-                    onOptionChanged={handleTabSelect}
-                    noDataText=''
-                />
-                {children}
-            </Item>
-        </Box>
+            </div>
+            <TabView activeIndex={tabIndex} onTabChange={handleTabSelect} className={classes.tabs}>
+                {tabs.map(({title, path, Component, params}) =>
+                    <TabPanel key={path} header={<>{title}&nbsp;&nbsp;</>} rightIcon='pi pi-times'>
+                        <Component {...params}/>
+                    </TabPanel>
+                )}
+            </TabView>
+            {children}
+        </div>
     );
 };
 

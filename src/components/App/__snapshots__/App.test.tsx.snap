@@ -8,43 +8,310 @@ exports[`<App /> render equals snapshot 1`] = `
     class="Gate-gate-1"
   >
     <div
-      style="height: 100%;"
+      class="p-card"
+      style="height: 100%; border-radius: 0;"
     >
       <div
-        class="dx-box-flex dx-box dx-widget dx-visibility-change-handler dx-collection"
-        style="display: flex; flex-direction: column; width: 100%; justify-content: flex-start; align-items: stretch; height: 768px;"
+        class="p-d-flex p-flex-column"
+        style="height: 768px;"
       >
         <div
-          class="dx-item dx-box-item"
-          style="display: flex; max-height: none; min-height: 0px; flex-basis: 59px; flex-shrink: 1;"
+          class="Portal-headerContainer-7"
         >
           <div
-            class="dx-item-content dx-box-item-content"
-            style="width: auto; height: auto; display: flex; flex-basis: 0px; flex-grow: 1; flex-direction: column;"
-          />
+            class="p-d-flex p-ai-center"
+          >
+            <div
+              class="Portal-headerLogo-9"
+            />
+            <div
+              class="Portal-headerTitle-8"
+            >
+              <span>
+                test
+              </span>
+            </div>
+            <div
+              class="p-menubar p-component"
+              style="border: 0px; flex-grow: 1;"
+            >
+              <a
+                class="p-menubar-button"
+                href="#"
+                role="button"
+                tabindex="0"
+              >
+                <i
+                  class="pi pi-bars"
+                />
+              </a>
+              <ul
+                class="p-menubar-root-list"
+                role="menubar"
+              >
+                <li
+                  class="p-menuitem"
+                  role="none"
+                >
+                  <a
+                    aria-haspopup="false"
+                    class="p-menuitem-link"
+                    href="#"
+                    role="menuitem"
+                  >
+                    <span
+                      class="p-menuitem-text"
+                    >
+                       🏠 
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="p-menuitem"
+                  role="none"
+                >
+                  <a
+                    aria-haspopup="true"
+                    class="p-menuitem-link"
+                    href="#"
+                    role="menuitem"
+                  >
+                    <span
+                      class="p-menuitem-text"
+                    >
+                      Main
+                    </span>
+                    <span
+                      class="p-submenu-icon pi pi-angle-down"
+                    />
+                  </a>
+                  <ul
+                    class="p-submenu-list"
+                    role="menu"
+                  >
+                    <li
+                      class="p-menuitem"
+                      role="none"
+                    >
+                      <a
+                        aria-haspopup="false"
+                        class="p-menuitem-link"
+                        href="#"
+                        role="menuitem"
+                      >
+                        <span
+                          class="p-menuitem-text"
+                        >
+                          Page 1
+                        </span>
+                      </a>
+                    </li>
+                    <li
+                      class="p-menuitem"
+                      role="none"
+                    >
+                      <a
+                        aria-haspopup="false"
+                        class="p-menuitem-link"
+                        href="#"
+                        role="menuitem"
+                      >
+                        <span
+                          class="p-menuitem-text"
+                        >
+                          Page 2
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li
+                  class="p-menuitem"
+                  role="none"
+                >
+                  <a
+                    aria-haspopup="false"
+                    class="p-menuitem-link"
+                    href="#"
+                    role="menuitem"
+                  >
+                    <span
+                      class="p-menuitem-text"
+                    >
+                      Page 3
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="p-menuitem"
+                  role="none"
+                >
+                  <a
+                    aria-haspopup="false"
+                    class="p-menuitem-link"
+                    href="#"
+                    role="menuitem"
+                  >
+                    <span
+                      class="p-menuitem-text"
+                    >
+                      Granted
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div
+              class="p-menubar p-component"
+              style="border: 0px;"
+            >
+              <a
+                class="p-menubar-button"
+                href="#"
+                role="button"
+                tabindex="0"
+              >
+                <i
+                  class="pi pi-bars"
+                />
+              </a>
+              <ul
+                class="p-menubar-root-list"
+                role="menubar"
+              >
+                <li
+                  class="p-menuitem"
+                  role="none"
+                >
+                  <a
+                    aria-haspopup="true"
+                    class="p-menuitem-link"
+                    href="#"
+                    role="menuitem"
+                  >
+                    <span
+                      class="p-menuitem-icon user"
+                    />
+                    <span
+                      class="p-menuitem-text"
+                    >
+                      SA
+                    </span>
+                    <span
+                      class="p-submenu-icon pi pi-angle-down"
+                    />
+                  </a>
+                  <ul
+                    class="p-submenu-list"
+                    role="menu"
+                  >
+                    <li
+                      class="p-menuitem"
+                      role="none"
+                    >
+                      <a
+                        aria-haspopup="false"
+                        class="p-menuitem-link"
+                        href="#"
+                        role="menuitem"
+                      >
+                        <span
+                          class="p-menuitem-text"
+                        >
+                          Help
+                        </span>
+                      </a>
+                    </li>
+                    <li
+                      class="p-menuitem"
+                      role="none"
+                    >
+                      <a
+                        aria-haspopup="false"
+                        class="p-menuitem-link"
+                        href="#"
+                        role="menuitem"
+                      >
+                        <span
+                          class="p-menuitem-text"
+                        >
+                          Profile
+                        </span>
+                      </a>
+                    </li>
+                    <li
+                      class="p-menuitem"
+                      role="none"
+                    >
+                      <a
+                        aria-haspopup="false"
+                        class="p-menuitem-link"
+                        href="#"
+                        role="menuitem"
+                      >
+                        <span
+                          class="p-menuitem-text"
+                        >
+                          Logout
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
         <div
-          class="dx-item dx-box-item"
-          style="display: flex; max-height: none; min-height: 0px; flex-basis: 0px; flex-grow: 1; flex-shrink: 1;"
+          class="p-tabview p-component Portal-tabs-10"
         >
+          <ul
+            class="p-tabview-nav"
+            role="tablist"
+          >
+            <li
+              class="p-unselectable-text p-tabview-selected p-highlight"
+              role="presentation"
+            >
+              <a
+                aria-controls="pr_id_2_content_0"
+                aria-selected="true"
+                class="p-tabview-nav-link"
+                id="pr_id_2_header_0"
+                role="tab"
+                tabindex="0"
+              >
+                <span
+                  class="p-tabview-title"
+                >
+                  Dashboard
+                    
+                </span>
+                <i
+                  class="pi pi-times"
+                />
+              </a>
+            </li>
+            <li
+              class="p-tabview-ink-bar"
+              style="left: 0px;"
+            />
+          </ul>
           <div
-            class="dx-item-content dx-box-item-content"
-            style="width: auto; height: auto; display: flex; flex-basis: 0px; flex-grow: 1; flex-direction: column;"
-          />
-        </div>
-      </div>
-      <div
-        class="dx-overlay dx-popup dx-widget dx-state-invisible dx-visibility-change-handler"
-      >
-        <div
-          aria-hidden="true"
-          class="dx-overlay-content dx-popup-fullscreen-width dx-popup-normal"
-          style="min-width: 540px; width: auto; height: auto;"
-          tabindex="0"
-        >
-          <div
-            class="dx-popup-content"
-          />
+            class="p-tabview-panels"
+          >
+            <div
+              aria-hidden="false"
+              aria-labelledby="pr_id_2_header_0"
+              class="p-tabview-panel"
+              id="pr_id_2_content_0"
+              role="tabpanel"
+            >
+              <div>
+                dashboard content
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

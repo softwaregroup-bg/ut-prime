@@ -5,9 +5,11 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import {MuiPickersUtilsProvider} from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
-import 'devextreme/dist/css/dx.common.css';
-import light from 'devextreme/dist/css/dx.material.blue.light.css';
-import dark from 'devextreme/dist/css/dx.material.blue.dark.css';
+import 'primereact/resources/primereact.min.css';
+import 'primeflex/primeflex.css';
+import 'primeicons/primeicons.css';
+import light from 'primereact/resources/themes/md-light-indigo/theme.css';
+import dark from 'primereact/resources/themes/md-dark-indigo/theme.css';
 
 import LoginPage from '../Login';
 import Main from '../Main';

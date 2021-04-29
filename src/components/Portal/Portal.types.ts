@@ -7,8 +7,13 @@ export interface Props {
 }
 
 const styles = createStyles({
+    '@global': {
+        html: {
+            fontSize: 14
+        }
+    },
     headerContainer: {
-        height: '59px',
+        zIndex: 2,
         cursor: 'default'
     },
     headerTitle: {
@@ -25,6 +30,20 @@ const styles = createStyles({
         background: `url(${logo})`,
         backgroundSize: 'contain',
         cursor: 'pointer'
+    },
+    tabs: {
+        display: 'flex',
+        flexDirection: 'column',
+        flexGrow: 1,
+        '& .p-tabview-panels': {
+            padding: 0,
+            flexGrow: 1,
+            display: 'flex',
+            flexDirection: 'column'
+        },
+        '& .p-tabview-panel': {
+            flexGrow: 1
+        }
     }
 });
 

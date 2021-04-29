@@ -23,126 +23,29 @@ exports[`<Login /> render equals snapshot 1`] = `
       
       <form
         autocomplete="off"
-        class="Login-formContainer-6"
+        class="p-fluid Login-formContainer-6"
       >
         <div
-          class="dx-form dx-widget dx-visibility-change-handler"
-          role="form"
+          class="p-field p-float-label"
         >
-          <div
-            class="dx-layout-manager dx-widget dx-layout-manager-one-col"
-          >
-            <div
-              class="dx-widget dx-collection dx-responsivebox-screen-xs dx-responsivebox"
-              style="width: 100%; height: 100%;"
-            >
-              <div
-                class="dx-box-flex dx-box dx-widget dx-visibility-change-handler dx-collection"
-                style="display: flex; flex-direction: column; width: 100%; height: 100%; justify-content: flex-start; align-items: stretch;"
-              >
-                <div
-                  class="dx-item dx-box-item"
-                  style="display: flex; max-height: auto; min-height: auto; flex-basis: auto; flex-grow: 1; flex-shrink: 1;"
-                >
-                  <div
-                    class="dx-item-content dx-box-item-content dx-single-column-item-content dx-root-simple-item"
-                    style="width: auto; height: auto; display: flex; flex-basis: 0px; flex-grow: 1; flex-direction: column;"
-                  >
-                    <div
-                      class="dx-first-row dx-first-col dx-last-col dx-field-item dx-col-0 dx-field-item-optional dx-flex-layout dx-label-v-align"
-                    >
-                      <label
-                        class="dx-field-item-label dx-field-item-label-location-top"
-                        for="test-id"
-                      >
-                        <span
-                          class="dx-field-item-label-content"
-                        >
-                          <span
-                            class="dx-field-item-label-text"
-                          >
-                            Username:
-                          </span>
-                        </span>
-                      </label>
-                      <div
-                        class="dx-field-item-content dx-field-item-content-location-bottom"
-                      >
-                        <div
-                          class="dx-show-invalid-badge dx-textbox dx-texteditor dx-editor-outlined dx-texteditor-empty dx-widget"
-                        >
-                          <div
-                            class="dx-texteditor-container"
-                          >
-                            <div
-                              class="dx-texteditor-input-container"
-                            >
-                              <input
-                                aria-required="false"
-                                autocomplete="off"
-                                class="dx-texteditor-input"
-                                id="test-id"
-                                name="username"
-                                role="textbox"
-                                tabindex="0"
-                                type="text"
-                              />
-                              <div
-                                class="dx-placeholder"
-                                data-dx_placeholder=""
-                              />
-                            </div>
-                            <div
-                              class="dx-texteditor-buttons-container"
-                            >
-                              <div />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="dx-item dx-box-item"
-                  style="display: flex; max-height: auto; min-height: auto; flex-basis: auto; flex-grow: 1; flex-shrink: 1;"
-                >
-                  <div
-                    class="dx-item-content dx-box-item-content dx-single-column-item-content"
-                    style="width: auto; height: auto; display: flex; flex-basis: 0px; flex-grow: 1; flex-direction: column; justify-content: flex-start;"
-                  >
-                    <div
-                      class="dx-first-col dx-last-col dx-last-row dx-field-button-item dx-field-item dx-col-0"
-                      style="text-align: right;"
-                    >
-                      <div
-                        aria-label="Next"
-                        class="dx-button dx-button-success dx-button-mode-contained dx-widget dx-button-has-text"
-                        role="button"
-                        tabindex="0"
-                      >
-                        <div
-                          class="dx-button-content"
-                        >
-                          <span
-                            class="dx-button-text"
-                          >
-                            Next
-                          </span>
-                          <input
-                            class="dx-button-submit-input"
-                            tabindex="-1"
-                            type="submit"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <input
+            class="p-inputtext p-component"
+            name="username"
+          />
+          <label>
+            Username
+          </label>
         </div>
+        <button
+          class="p-button p-component"
+          type="submit"
+        >
+          <span
+            class="p-button-label p-c"
+          >
+            Next
+          </span>
+        </button>
       </form>
     </div>
     <div

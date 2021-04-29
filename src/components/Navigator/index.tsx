@@ -1,8 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import DataSource from 'devextreme/data/data_source';
-import CustomStore from 'devextreme/data/custom_store';
-import TreeList, {Column} from 'devextreme-react/tree-list';
+import { Tree } from 'primereact/tree';
 
 import {
     Styled,
@@ -19,29 +17,41 @@ const Navigator: StyledType = ({
     parentField = 'parents',
     resultSet
 }) => {
-    const tree = React.useMemo(() => new DataSource({
-        store: new CustomStore({
-            key: keyField,
-            load: async() => (await fetch({}))[resultSet]
-        })
-    }), [fetch]);
+    const [{items, expanded}, setItems] = React.useState({items: [], expanded: {}});
+    const nodeTemplate = React.useCallback(node => <span>{node[field]}</span>, [field]);
+    const [selectedNodeKey, setSelectedNodeKey] = React.useState(null);
+    const setTree = result => {
+        const children = result.reduce((prev, item) => ({
+            ...prev,
+            [item[parentField]]: (prev[item[parentField]] || []).concat(item)
+        }), {});
+        result.forEach(item => Object.assign(item, {
+            key: item[keyField],
+            children: children[item[keyField]]
+        }));
+        const items = result.filter(item => item[keyField] in children);
+        setItems({
+            items,
+            expanded: items.reduce((prev, {key}) => ({...prev, [key]: true}), {})
+        });
+    };
+    React.useEffect(() => {
+        async function load() {
+            setTree(resultSet ? (await fetch({}))[resultSet] : await fetch({}));
+        }
+        load();
+    }, [fetch]);
     return (
-        <TreeList
-            height='100%'
+        items.length ? <Tree
+            style={{border: 0, padding: 0}}
             className={clsx(classes.component, className)}
-            id="employees"
-            dataSource={tree}
-            focusedRowEnabled={true}
-            defaultExpandedRowKeys={[null]}
-            showRowLines={false}
-            showBorders={false}
-            columnAutoWidth={true}
-            rootValue={null}
-            keyExpr={keyField}
-            parentIdExpr={parentField}
-        >
-            <Column dataField={field} caption={title} />
-        </TreeList>
+            value={items}
+            nodeTemplate={nodeTemplate}
+            selectionMode='single'
+            selectionKeys={selectedNodeKey}
+            expandedKeys={expanded}
+            onSelectionChange={e => setSelectedNodeKey(e.value)}
+        /> : null
     );
 };
 

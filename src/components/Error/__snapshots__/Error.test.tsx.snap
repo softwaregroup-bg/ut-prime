@@ -2,20 +2,63 @@
 
 exports[`<Error /> render equals snapshot 1`] = `
 <div
-  data-testid="ut-front-test"
+  aria-describedby="pr_id_2_content"
+  aria-labelledby="pr_id_2_header"
+  aria-modal="true"
+  class="p-dialog p-component p-dialog-enter p-dialog-enter-active"
+  id="pr_id_2"
+  pr_id_1=""
+  role="dialog"
+  style="width: 30vw;"
 >
   <div
-    class="dx-overlay dx-popup dx-widget dx-visibility-change-handler"
+    class="p-dialog-header"
   >
+    <span
+      class="p-dialog-title"
+      id="pr_id_2_header"
+    />
     <div
-      class="dx-overlay-content dx-popup-fullscreen-width dx-popup-normal"
-      style="min-width: 540px; width: auto; height: auto;"
-      tabindex="0"
+      class="p-dialog-header-icons"
     >
-      <div
-        class="dx-popup-content"
-      />
+      <button
+        aria-label="Close"
+        class="p-dialog-header-icon p-dialog-header-close p-link"
+        type="button"
+      >
+        <span
+          class="p-dialog-header-close-icon pi pi-times"
+        />
+      </button>
     </div>
   </div>
+  <div
+    class="p-dialog-content"
+    id="pr_id_2_content"
+  >
+    <div
+      class="Error-errorIconWrap-1 Error-errorIcon-2"
+    />
+    <div
+      class="Error-errorMessageWrap-3"
+    />
+    <div
+      class="Error-errorButtonWrap-4"
+    >
+      <button
+        class="p-button p-component"
+      >
+        <span
+          class="p-button-label p-c"
+        >
+          Close
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="p-resizable-handle"
+    style="z-index: 90;"
+  />
 </div>
 `;

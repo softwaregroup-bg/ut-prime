@@ -3,11 +3,18 @@
         "Unmount",
         "arpa",
         "clsx",
+        "confirmdialog",
+        "datatable",
         "devextreme",
-        "transpiled",
         "iban",
+        "inputtext",
         "mobi",
+        "primeflex",
+        "primeicons",
+        "primereact",
         "submenu",
-        "testid"
+        "tabview",
+        "testid",
+        "transpiled"
     ]
 }

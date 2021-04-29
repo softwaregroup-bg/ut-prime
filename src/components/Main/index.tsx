@@ -1,5 +1,4 @@
 import React from 'react';
-import {hot} from 'react-hot-loader';
 
 import Loader from '../Loader';
 import Error from '../Error';
@@ -9,11 +8,11 @@ import Portal from '../Portal';
 import { StyledType } from './Main.types';
 
 const Main: StyledType = () => <Gate>
-    <div style={{height: '100%'}}>
+    <div className='p-card' style={{height: '100%', borderRadius: 0}}>
         <Portal />
         <Loader />
         <Error />
     </div>
 </Gate>;
 
-export default hot(module)(Main);
+export default Main;

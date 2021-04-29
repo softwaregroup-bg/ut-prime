@@ -2,8 +2,8 @@ import {WithStyles, withStyles, createStyles} from '@material-ui/core/styles';
 import React from 'react';
 
 interface column {
-    dataField: string;
-    caption: string;
+    field: string;
+    title: string;
 }
 
 export interface Props {

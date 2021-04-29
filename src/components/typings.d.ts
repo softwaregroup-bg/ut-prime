@@ -12,3 +12,6 @@ declare module "*.png" {
 
 declare module "@material-ui/*"
 declare module "devextreme-react/*"
+declare module "primereact/*"
+declare module "primeflex/*"
+declare module "primeicons/*"

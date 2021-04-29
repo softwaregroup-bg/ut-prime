@@ -1,8 +1,8 @@
 import React from 'react';
 import clsx from 'clsx';
 import { connect } from 'react-redux';
-import { Popup } from 'devextreme-react/popup';
-import { Button } from 'devextreme-react/button';
+import { Dialog } from 'primereact/dialog';
+import { Button } from 'primereact/button';
 
 import Text from '../Text';
 import { logout } from '../Login/actions';
@@ -11,39 +11,26 @@ import { Styled, StyledType } from './Error.types';
 
 const close = () => ({type: 'error.close'});
 
-const Error: StyledType = ({ classes, open, message, close, title, type, logout }) => {
+const Error: StyledType = ({ classes, open, message, close, title: header, type, logout }) => {
     let handleClose = close;
-    let showCloseButton = true;
+    let closable = true;
     let actionButtons;
 
     if (type === 'identity.invalidCredentials') {
         handleClose = logout;
-        showCloseButton = false;
-        actionButtons = <Button
-            width={120}
-            text="Login"
-            type="default"
-            stylingMode="contained"
-            onClick={handleClose}
-        />;
+        closable = false;
+        actionButtons = <Button label="Login" onClick={handleClose} />;
     } else {
-        actionButtons = <Button
-            width={120}
-            text="Close"
-            type="default"
-            stylingMode="contained"
-            onClick={handleClose}
-        />;
+        actionButtons = <Button label="Close" onClick={handleClose} />;
     }
 
     return (
-        <Popup
+        <Dialog
             visible={open}
-            minWidth={540}
-            width='auto'
-            height='auto'
-            onHidden={handleClose}
-            {...{showCloseButton, title}}
+            onHide={handleClose}
+            breakpoints={{'960px': '75vw', '640px': '95vw'}}
+            style={{width: '30vw'}}
+            {...{closable, header}}
         >
             <div className={clsx(classes.errorIconWrap, classes.errorIcon)} />
             <div className={classes.errorMessageWrap}>
@@ -52,7 +39,7 @@ const Error: StyledType = ({ classes, open, message, close, title, type, logout 
             <div className={classes.errorButtonWrap}>
                 {actionButtons}
             </div>
-        </Popup>
+        </Dialog>
     );
 };
 

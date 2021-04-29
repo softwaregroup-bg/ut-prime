@@ -17,17 +17,17 @@ describe('<Explorer />', () => {
             keyField='id'
             resultSet='items'
             fields={[{
-                dataField: 'name',
-                caption: 'Name'
+                field: 'name',
+                title: 'Name'
             }, {
-                dataField: 'size',
-                caption: 'Size'
+                field: 'size',
+                title: 'Size'
             }]}
             details={{
                 name: 'Name'
             }}
         />);
-        await waitFor(() => expect(getByTestId('ut-front-test').querySelector('tr.dx-row')).toBeTruthy());
+        await waitFor(() => expect(getByTestId('ut-front-test').querySelector('tr.p-selectable-row')).toBeTruthy());
         expect(getByTestId('ut-front-test')).toMatchSnapshot();
     });
 });

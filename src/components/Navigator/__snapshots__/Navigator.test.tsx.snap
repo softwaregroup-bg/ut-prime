@@ -5,107 +5,1520 @@ exports[`<Navigator /> render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="Navigator-component-1 dx-widget dx-visibility-change-handler dx-treelist"
-    id="employees"
-    role="presentation"
-    style="height: 100%;"
+    class="p-tree p-component Navigator-component-1 p-tree-selectable"
+    style="border: 0px; padding: 0px;"
   >
     <div
-      aria-label="Tree list"
-      class="dx-treelist-container dx-gridbase-container"
-      role="treegrid"
+      class="p-tree-header"
+    />
+    <ul
+      class="p-tree-container"
+      role="tree"
     >
-      <div
-        class="dx-hidden"
-      />
-      <div
-        class="dx-hidden"
-      />
-      <div
-        class="dx-hidden"
-      />
-      <div
-        class="dx-hidden"
-      />
-      <div
-        class="dx-treelist-headers dx-treelist-nowrap"
-        role="presentation"
+      <li
+        class="p-treenode"
       >
         <div
-          class="dx-treelist-content dx-treelist-scroll-container"
-          role="presentation"
+          aria-expanded="true"
+          aria-posinset="1"
+          aria-selected="false"
+          class="p-treenode-content p-treenode-selectable"
+          role="treeitem"
+          tabindex="0"
         >
-          <table
-            class="dx-treelist-table dx-treelist-table-fixed"
-            role="presentation"
+          <button
+            class="p-tree-toggler p-link"
+            tabindex="-1"
+            type="button"
           >
-            <colgroup>
-              <col />
-            </colgroup>
-            <tbody
-              role="presentation"
+            <span
+              class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
             />
-          </table>
-        </div>
-      </div>
-      <div
-        class="dx-treelist-rowsview dx-treelist-nowrap dx-empty"
-        role="presentation"
-        tabindex="0"
-      >
-        <div
-          class="dx-treelist-content"
-        >
-          <table
-            class="dx-treelist-table dx-treelist-table-fixed"
-            role="presentation"
+          </button>
+          <span
+            class="p-treenode-label"
           >
-            <colgroup>
-              <col />
-            </colgroup>
-            <tbody
-              role="presentation"
-            >
-              <tr
-                class="dx-row dx-freespace-row dx-column-lines"
-                role="presentation"
-              >
-                <td
-                  style="text-align: left;"
-                />
-              </tr>
-            </tbody>
-          </table>
+            <span>
+              Item 0
+            </span>
+          </span>
         </div>
-      </div>
-      <div
-        class="dx-overlay dx-widget dx-state-invisible dx-visibility-change-handler dx-loadpanel"
+        <ul
+          class="p-treenode-children"
+          role="group"
+        >
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="1"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 10
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="2"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 20
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="3"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 30
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="4"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 40
+                </span>
+              </span>
+            </div>
+          </li>
+        </ul>
+      </li>
+      <li
+        class="p-treenode"
       >
         <div
-          aria-hidden="true"
-          class="dx-overlay-content"
-          style="width: 200px; height: 90px;"
-        />
-      </div>
-      <div />
-      <div
-        class="dx-hidden"
-      />
-      <div
-        class="dx-hidden"
-      />
-      <div
-        class="dx-treelist-drag-header dx-treelist-text-content dx-widget dx-state-invisible"
-      />
-      <div
-        class="dx-context-menu dx-has-context-menu dx-widget dx-visibility-change-handler dx-collection dx-treelist-container"
-        role="presentation"
-      />
-      <div
-        class="dx-header-filter-menu"
-      />
-      <div />
-    </div>
+          aria-expanded="true"
+          aria-posinset="2"
+          aria-selected="false"
+          class="p-treenode-content p-treenode-selectable"
+          role="treeitem"
+          tabindex="0"
+        >
+          <button
+            class="p-tree-toggler p-link"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
+            />
+          </button>
+          <span
+            class="p-treenode-label"
+          >
+            <span>
+              Item 1
+            </span>
+          </span>
+        </div>
+        <ul
+          class="p-treenode-children"
+          role="group"
+        >
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="1"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 11
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="2"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 21
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="3"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 31
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="4"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 41
+                </span>
+              </span>
+            </div>
+          </li>
+        </ul>
+      </li>
+      <li
+        class="p-treenode"
+      >
+        <div
+          aria-expanded="true"
+          aria-posinset="3"
+          aria-selected="false"
+          class="p-treenode-content p-treenode-selectable"
+          role="treeitem"
+          tabindex="0"
+        >
+          <button
+            class="p-tree-toggler p-link"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
+            />
+          </button>
+          <span
+            class="p-treenode-label"
+          >
+            <span>
+              Item 2
+            </span>
+          </span>
+        </div>
+        <ul
+          class="p-treenode-children"
+          role="group"
+        >
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="1"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 12
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="2"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 22
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="3"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 32
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="4"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 42
+                </span>
+              </span>
+            </div>
+          </li>
+        </ul>
+      </li>
+      <li
+        class="p-treenode"
+      >
+        <div
+          aria-expanded="true"
+          aria-posinset="4"
+          aria-selected="false"
+          class="p-treenode-content p-treenode-selectable"
+          role="treeitem"
+          tabindex="0"
+        >
+          <button
+            class="p-tree-toggler p-link"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
+            />
+          </button>
+          <span
+            class="p-treenode-label"
+          >
+            <span>
+              Item 3
+            </span>
+          </span>
+        </div>
+        <ul
+          class="p-treenode-children"
+          role="group"
+        >
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="1"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 13
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="2"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 23
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="3"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 33
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="4"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 43
+                </span>
+              </span>
+            </div>
+          </li>
+        </ul>
+      </li>
+      <li
+        class="p-treenode"
+      >
+        <div
+          aria-expanded="true"
+          aria-posinset="5"
+          aria-selected="false"
+          class="p-treenode-content p-treenode-selectable"
+          role="treeitem"
+          tabindex="0"
+        >
+          <button
+            class="p-tree-toggler p-link"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
+            />
+          </button>
+          <span
+            class="p-treenode-label"
+          >
+            <span>
+              Item 4
+            </span>
+          </span>
+        </div>
+        <ul
+          class="p-treenode-children"
+          role="group"
+        >
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="1"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 14
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="2"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 24
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="3"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 34
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="4"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 44
+                </span>
+              </span>
+            </div>
+          </li>
+        </ul>
+      </li>
+      <li
+        class="p-treenode"
+      >
+        <div
+          aria-expanded="true"
+          aria-posinset="6"
+          aria-selected="false"
+          class="p-treenode-content p-treenode-selectable"
+          role="treeitem"
+          tabindex="0"
+        >
+          <button
+            class="p-tree-toggler p-link"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
+            />
+          </button>
+          <span
+            class="p-treenode-label"
+          >
+            <span>
+              Item 5
+            </span>
+          </span>
+        </div>
+        <ul
+          class="p-treenode-children"
+          role="group"
+        >
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="1"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 15
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="2"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 25
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="3"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 35
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="4"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 45
+                </span>
+              </span>
+            </div>
+          </li>
+        </ul>
+      </li>
+      <li
+        class="p-treenode"
+      >
+        <div
+          aria-expanded="true"
+          aria-posinset="7"
+          aria-selected="false"
+          class="p-treenode-content p-treenode-selectable"
+          role="treeitem"
+          tabindex="0"
+        >
+          <button
+            class="p-tree-toggler p-link"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
+            />
+          </button>
+          <span
+            class="p-treenode-label"
+          >
+            <span>
+              Item 6
+            </span>
+          </span>
+        </div>
+        <ul
+          class="p-treenode-children"
+          role="group"
+        >
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="1"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 16
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="2"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 26
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="3"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 36
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="4"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 46
+                </span>
+              </span>
+            </div>
+          </li>
+        </ul>
+      </li>
+      <li
+        class="p-treenode"
+      >
+        <div
+          aria-expanded="true"
+          aria-posinset="8"
+          aria-selected="false"
+          class="p-treenode-content p-treenode-selectable"
+          role="treeitem"
+          tabindex="0"
+        >
+          <button
+            class="p-tree-toggler p-link"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
+            />
+          </button>
+          <span
+            class="p-treenode-label"
+          >
+            <span>
+              Item 7
+            </span>
+          </span>
+        </div>
+        <ul
+          class="p-treenode-children"
+          role="group"
+        >
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="1"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 17
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="2"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 27
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="3"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 37
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="4"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 47
+                </span>
+              </span>
+            </div>
+          </li>
+        </ul>
+      </li>
+      <li
+        class="p-treenode"
+      >
+        <div
+          aria-expanded="true"
+          aria-posinset="9"
+          aria-selected="false"
+          class="p-treenode-content p-treenode-selectable"
+          role="treeitem"
+          tabindex="0"
+        >
+          <button
+            class="p-tree-toggler p-link"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
+            />
+          </button>
+          <span
+            class="p-treenode-label"
+          >
+            <span>
+              Item 8
+            </span>
+          </span>
+        </div>
+        <ul
+          class="p-treenode-children"
+          role="group"
+        >
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="1"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 18
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="2"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 28
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="3"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 38
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="4"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 48
+                </span>
+              </span>
+            </div>
+          </li>
+        </ul>
+      </li>
+      <li
+        class="p-treenode"
+      >
+        <div
+          aria-expanded="true"
+          aria-posinset="10"
+          aria-selected="false"
+          class="p-treenode-content p-treenode-selectable"
+          role="treeitem"
+          tabindex="0"
+        >
+          <button
+            class="p-tree-toggler p-link"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
+            />
+          </button>
+          <span
+            class="p-treenode-label"
+          >
+            <span>
+              Item 9
+            </span>
+          </span>
+        </div>
+        <ul
+          class="p-treenode-children"
+          role="group"
+        >
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="1"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 19
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="2"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 29
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="3"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 39
+                </span>
+              </span>
+            </div>
+          </li>
+          <li
+            class="p-treenode p-treenode-leaf"
+          >
+            <div
+              aria-expanded="false"
+              aria-posinset="4"
+              aria-selected="false"
+              class="p-treenode-content p-treenode-selectable"
+              role="treeitem"
+              tabindex="0"
+            >
+              <button
+                class="p-tree-toggler p-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
+                />
+              </button>
+              <span
+                class="p-treenode-label"
+              >
+                <span>
+                  Item 49
+                </span>
+              </span>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <div
+      class="p-tree-footer"
+    />
   </div>
 </div>
 `;

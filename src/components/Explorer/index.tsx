@@ -1,13 +1,13 @@
 import React from 'react';
-import DataGrid, {Selection} from 'devextreme-react/data-grid';
-import Box, { Item } from 'devextreme-react/box';
-import DataSource from 'devextreme/data/data_source';
-import CustomStore from 'devextreme/data/custom_store';
-import Toolbar from 'devextreme-react/toolbar';
-import Drawer from 'devextreme-react/drawer';
+import { Splitter, SplitterPanel } from 'primereact/splitter';
+import { DataTable } from 'primereact/datatable';
+import { Column } from 'primereact/column';
+import { Toolbar } from 'primereact/toolbar';
+import { Button } from 'primereact/button';
 
 import { Styled, StyledType } from './Explorer.types';
 import useToggle from '../hooks/useToggle';
+import clsx from 'clsx';
 
 const Explorer: StyledType = ({
     classes,
@@ -19,14 +19,15 @@ const Explorer: StyledType = ({
     children,
     details
 }) => {
-    const organizations = React.useMemo(() => new DataSource({
-        store: new CustomStore({
-            key: keyField,
-            load: async() => resultSet ? (await fetch({}))[resultSet] : await fetch({})
-        })
-    }), [fetch]);
+    const [items, setItems] = React.useState([]);
+    React.useEffect(() => {
+        async function load() {
+            setItems(resultSet ? (await fetch({}))[resultSet] : await fetch({}));
+        }
+        load();
+    }, []);
+    const [selectedItems, setSelectedItems] = React.useState(null);
     const [current, setCurrent] = React.useState({});
-    const handleRowFocused = React.useCallback(({row}) => setCurrent(row.data), [setCurrent]);
     const Details = () =>
         <div style={{ width: '200px' }}>{
             Object.entries(details).map(([name, value], index) =>
@@ -39,65 +40,35 @@ const Explorer: StyledType = ({
 
     const [navigationOpened, navigationToggle] = useToggle(true);
     const [detailsOpened, detailsToggle] = useToggle(true);
-    const navigation = React.useCallback(
-        () => <div style={{ width: '200px' }}>{children}</div>,
-        [children]
-    );
 
     return (
-        <Box direction='col' height='100%' className={className}>
-            <Item baseSize={76}>
-                <Toolbar
-                    items={[{
-                        widget: 'dxButton',
-                        location: 'before',
-                        options: {
-                            icon: 'menu',
-                            onClick: navigationToggle
-                        }
-                    }, {
-                        widget: 'dxButton',
-                        location: 'after',
-                        options: {
-                            icon: 'menu',
-                            onClick: detailsToggle
-                        }
-                    }]}
-                />
-            </Item>
-            <Item ratio={1}>
-                <Drawer
-                    opened={navigationOpened}
-                    openedStateMode='shrink'
-                    position='left'
-                    revealMode='slide'
-                    component={navigation}
-                >
-                    <Drawer
-                        opened={detailsOpened}
-                        openedStateMode='shrink'
-                        position='right'
-                        revealMode='slide'
-                        component={Details}
-                    >
-                        <DataGrid
-                            height='100%'
-                            focusedRowEnabled
-                            onFocusedRowChanged={handleRowFocused}
-                            dataSource={organizations}
-                            defaultColumns={fields}
-                            showBorders={true}
+        <div className={clsx('p-d-flex', 'p-flex-column', className)} style={{height: '100%'}} >
+            <Toolbar
+                left={<><Button icon="pi pi-bars" className="p-mr-2" onClick={navigationToggle}/></>}
+                right={<><Button icon="pi pi-bars" className="p-mr-2" onClick={detailsToggle}/></>}
+            />
+            <Splitter style={{flexGrow: 1}}>
+                {[
+                    navigationOpened && <SplitterPanel key='nav' size={15}>{children}</SplitterPanel>,
+                    <SplitterPanel key='items' size={75}>
+                        <DataTable
+                            autoLayout
+                            rows={10}
+                            paginator
+                            dataKey={keyField}
+                            value={items}
+                            selection={selectedItems}
+                            onSelectionChange={e => setSelectedItems(e.value)}
+                            onRowSelect={e => setCurrent(e.data)}
                         >
-                            <Selection
-                                mode='multiple'
-                                selectAllMode='page'
-                                showCheckBoxesMode='onClick'
-                            />
-                        </DataGrid>
-                    </Drawer>
-                </Drawer>
-            </Item>
-        </Box>
+                            <Column selectionMode="multiple" style={{width: '3em'}}/>
+                            {fields.map(({field, title}) => <Column key={field} field={field} header={title} />)}
+                        </DataTable>
+                    </SplitterPanel>,
+                    detailsOpened && <SplitterPanel key='details' size={10}>{Details()}</SplitterPanel>
+                ].filter(Boolean)}
+            </Splitter>
+        </div>
     );
 };
 

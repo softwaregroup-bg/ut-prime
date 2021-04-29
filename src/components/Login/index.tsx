@@ -2,7 +2,9 @@ import React from 'react';
 import { connect, useSelector } from 'react-redux';
 import clsx from 'clsx';
 import { Redirect } from 'react-router-dom';
-import Form, { Item } from 'devextreme-react/form';
+import { Password } from 'primereact/password';
+import { InputText } from 'primereact/inputtext';
+import { Button } from 'primereact/button';
 
 import Text from '../Text';
 import { Validator } from '../lib/validator';
@@ -235,27 +237,18 @@ const Login: StyledType = ({
                 <div className={errorIcon} />
                 <div className={errorMessage}>{error}</div>
             </div>}
-            <form className={formContainer} onSubmit={handleSubmit} autoComplete='off'>
-                <Form labelLocation='top'>
-                    {inputs.map(({ name, type, label, disabled }) => <Item
-                        key={name}
-                        dataField={name}
-                        title={label}
-                        disabled={disabled}
-                        {...{
-                            password: {
-                                editorType: 'dxTextBox',
-                                editorOptions: {
-                                    mode: 'password'
-                                }
-                            },
-                            text: {
-                                editorType: 'dxTextBox'
-                            }
-                        }[type]}
-                    />).filter(Boolean)}
-                    <Item itemType='button' buttonOptions={{ text: buttonLabel, type: 'success', useSubmitBehavior: true }} />
-                </Form>
+            <form className={clsx('p-fluid', formContainer)} onSubmit={handleSubmit} autoComplete='off'>
+                {inputs.map(({ name, type, label, disabled }) =>
+                    <div key={name} className='p-field p-float-label'>
+                        {
+                            type === 'text'
+                                ? <InputText name={name} disabled={disabled}/>
+                                : type === 'password' ? <Password name={name} disabled={disabled}/> : undefined
+                        }
+                        <label>{label}</label>
+                    </div>
+                ).filter(Boolean)}
+                <Button label={buttonLabel} type='submit'/>
             </form>
         </Box>
         <div className={clsx(loginLogo, loginPageFooter)} />

@@ -17,7 +17,7 @@ const state = {
 };
 
 export const Basic: React.FC<{}> = () => <Wrap state={state}>
-    <div style={{height: 500}}>
+    <div style={{height: 500, display: 'flex', flexDirection: 'column'}}>
         <Explorer
             fetch={() => Promise.resolve({
                 items: [...Array(50).keys()].map(number => ({
@@ -29,11 +29,11 @@ export const Basic: React.FC<{}> = () => <Wrap state={state}>
             keyField='id'
             resultSet='items'
             fields={[{
-                dataField: 'name',
-                caption: 'Name'
+                field: 'name',
+                title: 'Name'
             }, {
-                dataField: 'size',
-                caption: 'Size'
+                field: 'size',
+                title: 'Size'
             }]}
             details={{
                 name: 'Name'

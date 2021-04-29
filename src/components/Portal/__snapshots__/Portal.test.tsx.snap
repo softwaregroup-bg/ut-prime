@@ -5,25 +5,125 @@ exports[`<Portal /> render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="dx-box-flex dx-box dx-widget dx-visibility-change-handler dx-collection"
-    style="display: flex; flex-direction: column; width: 100%; justify-content: flex-start; align-items: stretch; height: 768px;"
+    class="p-d-flex p-flex-column"
+    style="height: 768px;"
   >
     <div
-      class="dx-item dx-box-item"
-      style="display: flex; max-height: none; min-height: 0px; flex-basis: 59px; flex-shrink: 1;"
+      class="Portal-headerContainer-1"
     >
       <div
-        class="dx-item-content dx-box-item-content"
-        style="width: auto; height: auto; display: flex; flex-basis: 0px; flex-grow: 1; flex-direction: column;"
-      />
+        class="p-d-flex p-ai-center"
+      >
+        <div
+          class="Portal-headerLogo-3"
+        />
+        <div
+          class="Portal-headerTitle-2"
+        >
+          <span>
+            Administration Portal
+          </span>
+        </div>
+        <div
+          class="p-menubar p-component"
+          style="border: 0px; flex-grow: 1;"
+        >
+          <a
+            class="p-menubar-button"
+            href="#"
+            role="button"
+            tabindex="0"
+          >
+            <i
+              class="pi pi-bars"
+            />
+          </a>
+          <ul
+            class="p-menubar-root-list"
+            role="menubar"
+          />
+        </div>
+        <div
+          class="p-menubar p-component"
+          style="border: 0px;"
+        >
+          <a
+            class="p-menubar-button"
+            href="#"
+            role="button"
+            tabindex="0"
+          >
+            <i
+              class="pi pi-bars"
+            />
+          </a>
+          <ul
+            class="p-menubar-root-list"
+            role="menubar"
+          >
+            <li
+              class="p-menuitem"
+              role="none"
+            >
+              <a
+                aria-haspopup="true"
+                class="p-menuitem-link"
+                href="#"
+                role="menuitem"
+              >
+                <span
+                  class="p-menuitem-icon user"
+                />
+                <span
+                  class="p-menuitem-text"
+                >
+                  N/A
+                </span>
+                <span
+                  class="p-submenu-icon pi pi-angle-down"
+                />
+              </a>
+              <ul
+                class="p-submenu-list"
+                role="menu"
+              >
+                <li
+                  class="p-menuitem"
+                  role="none"
+                >
+                  <a
+                    aria-haspopup="false"
+                    class="p-menuitem-link"
+                    href="#"
+                    role="menuitem"
+                  >
+                    <span
+                      class="p-menuitem-text"
+                    >
+                      Logout
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
     <div
-      class="dx-item dx-box-item"
-      style="display: flex; max-height: none; min-height: 0px; flex-basis: 0px; flex-grow: 1; flex-shrink: 1;"
+      class="p-tabview p-component Portal-tabs-4"
     >
+      <ul
+        class="p-tabview-nav"
+        role="tablist"
+      >
+        <li
+          class="p-tabview-ink-bar"
+          style="width: 0px;"
+        />
+      </ul>
       <div
-        class="dx-item-content dx-box-item-content"
-        style="width: auto; height: auto; display: flex; flex-basis: 0px; flex-grow: 1; flex-direction: column;"
+        class="p-tabview-panels"
       />
     </div>
   </div>

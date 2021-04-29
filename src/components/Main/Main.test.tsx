@@ -10,7 +10,7 @@ describe('<Main />', () => {
             <Main />,
             {}
         );
-        await waitFor(() => expect(getByTestId('ut-front-test').querySelector('div.dx-box')).toBeTruthy());
+        await waitFor(() => expect(getByTestId('ut-front-test').querySelector('div.p-tabview')).toBeTruthy());
         expect(getByTestId('ut-front-test')).toMatchSnapshot();
     });
 });

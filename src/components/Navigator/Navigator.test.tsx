@@ -11,7 +11,7 @@ describe('<Navigator />', () => {
                 items: [...Array(50).keys()].map(number => ({
                     id: number,
                     name: `Item ${number}`,
-                    parents: number > 10 ? number % 10 : undefined
+                    parents: number >= 10 ? number % 10 : undefined
                 }))
             })}
             keyField='id'
@@ -19,7 +19,7 @@ describe('<Navigator />', () => {
             field='name'
             title='Name'
         />);
-        await waitFor(() => expect(getByTestId('ut-front-test').querySelector('div.dx-treelist-text-content')).toBeTruthy());
+        await waitFor(() => expect(getByTestId('ut-front-test').querySelector('span.p-treenode-label')).toBeTruthy());
         expect(getByTestId('ut-front-test')).toMatchSnapshot();
     });
 });
