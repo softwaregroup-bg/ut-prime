@@ -4,6 +4,21 @@ import React from 'react';
 interface column {
     field: string;
     title: string;
+    action?: ({
+        id: any,
+        current: {},
+        selected: []
+    }) => void;
+}
+
+interface action {
+    title: string;
+    enabled: string | boolean;
+    action: ({
+        id: any,
+        current: {},
+        selected: []
+    }) => void;
 }
 
 export interface Props {
@@ -13,6 +28,8 @@ export interface Props {
     fetch: (params: {}) => Promise<{}>;
     className?: string;
     details: {};
+    actions?: action[];
+    filter?: {};
 }
 
 const styles = createStyles({

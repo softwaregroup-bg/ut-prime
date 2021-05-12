@@ -6,6 +6,7 @@ import Wrap from '../test/wrap';
 // @ts-ignore: md file and not a module
 import README from './README.md';
 import Portal from './index';
+import Explorer from '../Explorer';
 
 export default {
     title: 'Portal',
@@ -18,7 +19,33 @@ const state = {
         tabs: [{
             title: 'Tab 1',
             path: '/tab1',
-            Component() { return <div>tab 1 body</div>; }
+            Component() {
+                return (
+                    <Explorer
+                        fetch={() => Promise.resolve({
+                            items: [...Array(50).keys()].map(number => ({
+                                id: number,
+                                name: `Item ${number}`,
+                                size: number * 10
+                            }))
+                        })}
+                        keyField='id'
+                        resultSet='items'
+                        fields={[{
+                            field: 'name',
+                            title: 'Name'
+                        }, {
+                            field: 'size',
+                            title: 'Size'
+                        }]}
+                        details={{
+                            name: 'Name'
+                        }}
+                    >
+                        <div>Navigation component</div>
+                    </Explorer>
+                );
+            }
         }, {
             title: 'Tab 2',
             path: '/tab2',

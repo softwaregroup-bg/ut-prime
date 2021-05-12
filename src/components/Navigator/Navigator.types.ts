@@ -9,6 +9,7 @@ export interface Props {
     fetch: (params: {}) => Promise<{}>;
     className?: string;
     parentField?: string;
+    onSelect?: (key: any) => void;
 }
 
 const styles = createStyles({

@@ -589,20 +589,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
       >
         <div
           style="width: 200px;"
-        >
-          <div
-            class="Explorer-details-1"
-          >
-            <div
-              class="Explorer-detailsLabel-2"
-            >
-              Name
-            </div>
-            <div
-              class="Explorer-detailsValue-3"
-            />
-          </div>
-        </div>
+        />
       </div>
     </div>
   </div>

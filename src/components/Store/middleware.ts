@@ -4,11 +4,11 @@ export default store => next => async action => {
     switch (action.type) {
         case 'front.tab.show': {
             const {title, component} = action.tab ? await action.tab({}) : action;
+            const id = action?.params?.id;
             if (!action.path) {
-                const id = action?.params?.id;
-                action.path = '/' + action.tab.name.split('/').pop() + (id ? '/' + id : '');
+                action.path = '/' + action.tab.name.split('/').pop() + (component.length ? '/' + id : '');
             }
-            const result = next({...action, title, Component: await component()});
+            const result = next({...action, title, Component: await component({id})});
             next(push(action.path));
             return result;
         }
