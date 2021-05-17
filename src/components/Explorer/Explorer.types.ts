@@ -13,7 +13,7 @@ interface column {
 
 interface action {
     title: string;
-    enabled: string | boolean;
+    enabled?: string | boolean;
     action: ({
         id: any,
         current: {},
