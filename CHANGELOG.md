@@ -1,3 +1,13 @@
+# [1.12.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.11.0...v1.12.0) (2021-05-17)
+
+
+### Features
+
+* explorer and navigator actions [UTCORE-121] ([2a10e72](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/2a10e7260d20fbf7d85374b3005169656e677bee))
+* initial form handling [UTCORE-121] ([b704a84](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/b704a844e3d16180c24092fa3555a7daf6346eb4))
+
+
+
 # [1.11.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.10.0...v1.11.0) (2021-04-29)
 
 
