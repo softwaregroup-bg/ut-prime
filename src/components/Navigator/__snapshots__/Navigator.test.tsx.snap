@@ -35,12 +35,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
             />
           </button>
-          <span
-            class="p-treenode-label"
-          >
-            <span>
-              Item 0
-            </span>
+          <span>
+            Item 0
           </span>
         </div>
         <ul
@@ -51,7 +47,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="1"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -67,12 +62,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 10
-                </span>
+              <span>
+                Item 10
               </span>
             </div>
           </li>
@@ -80,7 +71,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="2"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -96,12 +86,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 20
-                </span>
+              <span>
+                Item 20
               </span>
             </div>
           </li>
@@ -109,7 +95,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="3"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -125,12 +110,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 30
-                </span>
+              <span>
+                Item 30
               </span>
             </div>
           </li>
@@ -138,7 +119,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="4"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -154,12 +134,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 40
-                </span>
+              <span>
+                Item 40
               </span>
             </div>
           </li>
@@ -185,12 +161,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
             />
           </button>
-          <span
-            class="p-treenode-label"
-          >
-            <span>
-              Item 1
-            </span>
+          <span>
+            Item 1
           </span>
         </div>
         <ul
@@ -201,7 +173,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="1"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -217,12 +188,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 11
-                </span>
+              <span>
+                Item 11
               </span>
             </div>
           </li>
@@ -230,7 +197,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="2"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -246,12 +212,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 21
-                </span>
+              <span>
+                Item 21
               </span>
             </div>
           </li>
@@ -259,7 +221,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="3"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -275,12 +236,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 31
-                </span>
+              <span>
+                Item 31
               </span>
             </div>
           </li>
@@ -288,7 +245,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="4"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -304,12 +260,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 41
-                </span>
+              <span>
+                Item 41
               </span>
             </div>
           </li>
@@ -335,12 +287,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
             />
           </button>
-          <span
-            class="p-treenode-label"
-          >
-            <span>
-              Item 2
-            </span>
+          <span>
+            Item 2
           </span>
         </div>
         <ul
@@ -351,7 +299,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="1"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -367,12 +314,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 12
-                </span>
+              <span>
+                Item 12
               </span>
             </div>
           </li>
@@ -380,7 +323,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="2"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -396,12 +338,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 22
-                </span>
+              <span>
+                Item 22
               </span>
             </div>
           </li>
@@ -409,7 +347,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="3"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -425,12 +362,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 32
-                </span>
+              <span>
+                Item 32
               </span>
             </div>
           </li>
@@ -438,7 +371,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="4"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -454,12 +386,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 42
-                </span>
+              <span>
+                Item 42
               </span>
             </div>
           </li>
@@ -485,12 +413,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
             />
           </button>
-          <span
-            class="p-treenode-label"
-          >
-            <span>
-              Item 3
-            </span>
+          <span>
+            Item 3
           </span>
         </div>
         <ul
@@ -501,7 +425,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="1"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -517,12 +440,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 13
-                </span>
+              <span>
+                Item 13
               </span>
             </div>
           </li>
@@ -530,7 +449,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="2"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -546,12 +464,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 23
-                </span>
+              <span>
+                Item 23
               </span>
             </div>
           </li>
@@ -559,7 +473,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="3"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -575,12 +488,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 33
-                </span>
+              <span>
+                Item 33
               </span>
             </div>
           </li>
@@ -588,7 +497,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="4"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -604,12 +512,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 43
-                </span>
+              <span>
+                Item 43
               </span>
             </div>
           </li>
@@ -635,12 +539,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
             />
           </button>
-          <span
-            class="p-treenode-label"
-          >
-            <span>
-              Item 4
-            </span>
+          <span>
+            Item 4
           </span>
         </div>
         <ul
@@ -651,7 +551,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="1"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -667,12 +566,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 14
-                </span>
+              <span>
+                Item 14
               </span>
             </div>
           </li>
@@ -680,7 +575,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="2"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -696,12 +590,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 24
-                </span>
+              <span>
+                Item 24
               </span>
             </div>
           </li>
@@ -709,7 +599,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="3"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -725,12 +614,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 34
-                </span>
+              <span>
+                Item 34
               </span>
             </div>
           </li>
@@ -738,7 +623,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="4"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -754,12 +638,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 44
-                </span>
+              <span>
+                Item 44
               </span>
             </div>
           </li>
@@ -785,12 +665,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
             />
           </button>
-          <span
-            class="p-treenode-label"
-          >
-            <span>
-              Item 5
-            </span>
+          <span>
+            Item 5
           </span>
         </div>
         <ul
@@ -801,7 +677,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="1"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -817,12 +692,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 15
-                </span>
+              <span>
+                Item 15
               </span>
             </div>
           </li>
@@ -830,7 +701,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="2"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -846,12 +716,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 25
-                </span>
+              <span>
+                Item 25
               </span>
             </div>
           </li>
@@ -859,7 +725,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="3"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -875,12 +740,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 35
-                </span>
+              <span>
+                Item 35
               </span>
             </div>
           </li>
@@ -888,7 +749,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="4"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -904,12 +764,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 45
-                </span>
+              <span>
+                Item 45
               </span>
             </div>
           </li>
@@ -935,12 +791,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
             />
           </button>
-          <span
-            class="p-treenode-label"
-          >
-            <span>
-              Item 6
-            </span>
+          <span>
+            Item 6
           </span>
         </div>
         <ul
@@ -951,7 +803,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="1"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -967,12 +818,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 16
-                </span>
+              <span>
+                Item 16
               </span>
             </div>
           </li>
@@ -980,7 +827,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="2"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -996,12 +842,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 26
-                </span>
+              <span>
+                Item 26
               </span>
             </div>
           </li>
@@ -1009,7 +851,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="3"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -1025,12 +866,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 36
-                </span>
+              <span>
+                Item 36
               </span>
             </div>
           </li>
@@ -1038,7 +875,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="4"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -1054,12 +890,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 46
-                </span>
+              <span>
+                Item 46
               </span>
             </div>
           </li>
@@ -1085,12 +917,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
             />
           </button>
-          <span
-            class="p-treenode-label"
-          >
-            <span>
-              Item 7
-            </span>
+          <span>
+            Item 7
           </span>
         </div>
         <ul
@@ -1101,7 +929,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="1"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -1117,12 +944,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 17
-                </span>
+              <span>
+                Item 17
               </span>
             </div>
           </li>
@@ -1130,7 +953,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="2"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -1146,12 +968,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 27
-                </span>
+              <span>
+                Item 27
               </span>
             </div>
           </li>
@@ -1159,7 +977,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="3"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -1175,12 +992,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 37
-                </span>
+              <span>
+                Item 37
               </span>
             </div>
           </li>
@@ -1188,7 +1001,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="4"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -1204,12 +1016,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 47
-                </span>
+              <span>
+                Item 47
               </span>
             </div>
           </li>
@@ -1235,12 +1043,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
             />
           </button>
-          <span
-            class="p-treenode-label"
-          >
-            <span>
-              Item 8
-            </span>
+          <span>
+            Item 8
           </span>
         </div>
         <ul
@@ -1251,7 +1055,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="1"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -1267,12 +1070,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 18
-                </span>
+              <span>
+                Item 18
               </span>
             </div>
           </li>
@@ -1280,7 +1079,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="2"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -1296,12 +1094,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 28
-                </span>
+              <span>
+                Item 28
               </span>
             </div>
           </li>
@@ -1309,7 +1103,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="3"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -1325,12 +1118,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 38
-                </span>
+              <span>
+                Item 38
               </span>
             </div>
           </li>
@@ -1338,7 +1127,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="4"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -1354,12 +1142,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 48
-                </span>
+              <span>
+                Item 48
               </span>
             </div>
           </li>
@@ -1385,12 +1169,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
             />
           </button>
-          <span
-            class="p-treenode-label"
-          >
-            <span>
-              Item 9
-            </span>
+          <span>
+            Item 9
           </span>
         </div>
         <ul
@@ -1401,7 +1181,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="1"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -1417,12 +1196,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 19
-                </span>
+              <span>
+                Item 19
               </span>
             </div>
           </li>
@@ -1430,7 +1205,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="2"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -1446,12 +1220,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 29
-                </span>
+              <span>
+                Item 29
               </span>
             </div>
           </li>
@@ -1459,7 +1229,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="3"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -1475,12 +1244,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 39
-                </span>
+              <span>
+                Item 39
               </span>
             </div>
           </li>
@@ -1488,7 +1253,6 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             class="p-treenode p-treenode-leaf"
           >
             <div
-              aria-expanded="false"
               aria-posinset="4"
               aria-selected="false"
               class="p-treenode-content p-treenode-selectable"
@@ -1504,12 +1268,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span
-                class="p-treenode-label"
-              >
-                <span>
-                  Item 49
-                </span>
+              <span>
+                Item 49
               </span>
             </div>
           </li>

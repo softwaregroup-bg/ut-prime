@@ -19,7 +19,7 @@ describe('<Navigator />', () => {
             field='name'
             title='Name'
         />);
-        await waitFor(() => expect(getByTestId('ut-front-test').querySelector('span.p-treenode-label')).toBeTruthy());
+        await waitFor(() => expect(getByTestId('ut-front-test').querySelector('div.p-treenode-content')).toBeTruthy());
         expect(getByTestId('ut-front-test')).toMatchSnapshot();
     });
 });

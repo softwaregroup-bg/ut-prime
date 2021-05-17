@@ -82,7 +82,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                   role="row"
                 >
                   <th
-                    class="p-selection-column"
+                    class="p-sortable-disabled p-selection-column"
                     role="columnheader"
                     style="width: 3em;"
                   >
@@ -104,7 +104,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                     </div>
                   </th>
                   <th
-                    class=""
+                    class="p-sortable-disabled"
                     role="columnheader"
                   >
                     <span
@@ -114,7 +114,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                     </span>
                   </th>
                   <th
-                    class=""
+                    class="p-sortable-disabled"
                     role="columnheader"
                   >
                     <span
