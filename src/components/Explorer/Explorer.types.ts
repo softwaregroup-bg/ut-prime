@@ -13,6 +13,7 @@ interface column {
 
 interface action {
     title: string;
+    permission?: string;
     enabled?: string | boolean;
     action: ({
         id: any,
