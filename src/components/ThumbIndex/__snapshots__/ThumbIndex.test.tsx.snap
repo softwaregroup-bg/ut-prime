@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ThumbIndex /> render equals snapshot 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  <div
+    class="p-d-flex p-flex-row"
+  >
+    <div
+      class="p-listbox p-component"
+      style="border: 0px;"
+    >
+      <div
+        class="p-listbox-list-wrapper"
+      >
+        <ul
+          aria-multiselectable="false"
+          class="p-listbox-list"
+          role="listbox"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Editor /> render equals snapshot 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  <div>
+    <form
+      class="p-fluid"
+    >
+      <button
+        class="p-button p-component p-mt-2"
+        type="submit"
+      >
+        <span
+          class="p-button-label p-c"
+        >
+          Submit
+        </span>
+      </button>
+    </form>
+  </div>
+</div>
+`;
