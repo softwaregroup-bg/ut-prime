@@ -1,3 +1,12 @@
+# [1.13.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.12.1...v1.13.0) (2021-05-21)
+
+
+### Features
+
+* add Editor and ThumbIndex [UTCORE-121] ([382315e](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/382315ed21e99013383404b31e0c20170e5578f3))
+
+
+
 ## [1.12.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.12.0...v1.12.1) (2021-05-17)
 
 
