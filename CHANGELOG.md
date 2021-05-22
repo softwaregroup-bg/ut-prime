@@ -1,3 +1,17 @@
+# [1.14.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.13.0...v1.14.0) (2021-05-22)
+
+
+### Bug Fixes
+
+* wrap prime [UTCORE-121] ([1c44072](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/1c44072e11d9c3ffaf6f89eba7b795dd20b7892c))
+
+
+### Features
+
+* external submit [UTCORE-121] ([f626b5a](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/f626b5a94a393c2267549ee8b7fbf440e6143093))
+
+
+
 # [1.13.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.12.1...v1.13.0) (2021-05-21)
 
 
