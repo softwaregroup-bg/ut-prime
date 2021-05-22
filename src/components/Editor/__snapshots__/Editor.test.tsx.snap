@@ -7,18 +7,7 @@ exports[`<Editor /> render equals snapshot 1`] = `
   <div>
     <form
       class="p-fluid"
-    >
-      <button
-        class="p-button p-component p-mt-2"
-        type="submit"
-      >
-        <span
-          class="p-button-label p-c"
-        >
-          Submit
-        </span>
-      </button>
-    </form>
+    />
   </div>
 </div>
 `;

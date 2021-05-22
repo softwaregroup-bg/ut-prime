@@ -22,6 +22,9 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     cards: Cards[];
     schema?: Schema;
     onSubmit: (form: {}) => void;
+    trigger: {
+        current: (event: {}) => void
+    }
 }
 
 const styles = createStyles({

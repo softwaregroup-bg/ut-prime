@@ -8,7 +8,7 @@ import Wrap from '../test/wrap';
 import README from './README.md';
 import ThumbIndex from './index';
 import Editor from '../Editor';
-import {Toast} from '../prime';
+import {Toast, Toolbar, Button} from '../prime';
 
 export default {
     title: 'ThumbIndex',
@@ -140,19 +140,22 @@ const cards = [
 export const Basic: React.FC<{}> = () => {
     const [filter, setFilter] = React.useState(index?.[0]?.items?.[0].filter || []);
     const toast = React.useRef(null);
+    const trigger = React.useRef(null);
     return (
         <Wrap state={state}>
             <Toast ref={toast} />
+            <Toolbar right={<Button icon='pi pi-save' onClick={() => trigger?.current?.()}/>}/>
             <ThumbIndex index={index} onFilter={setFilter}>
                 <Editor
                     style={{flexGrow: 3}}
                     fields={fields}
                     cards={cards.filter(({id}) => filter && filter.includes(id))}
-                    onSubmit={form => toast.current.show({
+                    onSubmit={formData => toast.current.show({
                         severity: 'success',
                         summary: 'Submit',
-                        detail: <pre>{JSON.stringify(form, null, 2)}</pre>
+                        detail: <pre>{JSON.stringify(formData, null, 2)}</pre>
                     })}
+                    trigger={trigger}
                     schema={schema}
                 />
             </ThumbIndex>

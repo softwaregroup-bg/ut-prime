@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Card, InputText, Dropdown, InputMask, Calendar } from '../prime';
+import { Card, InputText, Dropdown, InputMask, Calendar } from '../prime';
 
 import { Styled, StyledType } from './Editor.types';
 import useForm from '../hooks/useForm';
@@ -15,15 +15,17 @@ function element(field, {type = 'string', ...props} = {}) {
     return <Element {...field} {...props}/>;
 }
 
-const Editor: StyledType = ({ classes, className, fields, cards, schema, onSubmit, ...rest }) => {
+const Editor: StyledType = ({ classes, className, fields, cards, schema, onSubmit, trigger, ...rest }) => {
     const {handleSubmit, control, formState: {errors}} = useForm({resolver: joiResolver(schema)});
     const getFormErrorMessage = (name) => {
         return errors[name] && <small className="p-error">{errors[name].message}</small>;
     };
+    React.useEffect(() => {
+        if (trigger) trigger.current = handleSubmit(onSubmit);
+    }, [trigger, handleSubmit, onSubmit]);
     return (
         <div {...rest}>
             <form onSubmit={handleSubmit(onSubmit)} className="p-fluid">
-                <Button type="submit" label="Submit" className="p-mt-2" />
                 {(cards || []).map(({id, title}) =>
                     <Card title={title} key={id} className="p-m-2">
                         {fields.filter(({card}) => id === card).map(({name, title, editor}) =>
