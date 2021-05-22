@@ -1,8 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import { connect } from 'react-redux';
-import { Dialog } from 'primereact/dialog';
-import { Button } from 'primereact/button';
+import { Dialog, Button } from '../prime';
 
 import Text from '../Text';
 import { logout } from '../Login/actions';

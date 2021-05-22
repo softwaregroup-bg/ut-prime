@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import { Tree } from 'primereact/tree';
+import { Tree } from '../prime';
 
 import {
     Styled,

@@ -2,9 +2,7 @@ import React from 'react';
 import { connect, useSelector } from 'react-redux';
 import clsx from 'clsx';
 import { Redirect } from 'react-router-dom';
-import { Password } from 'primereact/password';
-import { InputText } from 'primereact/inputtext';
-import { Button } from 'primereact/button';
+import { Password, InputText, Button } from '../prime';
 
 import Text from '../Text';
 import { Validator } from '../lib/validator';

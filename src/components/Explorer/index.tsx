@@ -1,9 +1,5 @@
 import React from 'react';
-import { Splitter, SplitterPanel } from 'primereact/splitter';
-import { DataTable } from 'primereact/datatable';
-import { Column } from 'primereact/column';
-import { Toolbar } from 'primereact/toolbar';
-import { Button } from 'primereact/button';
+import { DataTable, Column, Button, Toolbar, Splitter, SplitterPanel } from '../prime';
 
 import { Styled, StyledType } from './Explorer.types';
 import useToggle from '../hooks/useToggle';

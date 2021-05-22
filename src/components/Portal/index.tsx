@@ -3,9 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useLocation, useHistory } from 'react-router-dom';
 import Immutable from 'immutable';
 
-import { Menubar } from 'primereact/menubar';
-import { TabView, TabPanel } from 'primereact/tabview';
-
+import { Menubar, TabView, TabPanel } from '../prime';
 import Context from '../Context';
 import Text from '../Text';
 import {logout} from '../Login/actions';
