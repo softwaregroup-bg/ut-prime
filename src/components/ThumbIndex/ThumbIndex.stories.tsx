@@ -23,7 +23,6 @@ const index = [{
     icon: 'pi pi-user',
     items: [{
         label: 'Main',
-        expanded: true,
         filter: ['main', 'reg', 'financial'],
         items: [
             {label: 'Identification'},
@@ -64,18 +63,29 @@ const currencyEditor = {
 };
 
 const fields = [
-    {card: 'main', name: 'identifierType', title: 'Identifier type *', editor: identifierTypeEditor},
-    {card: 'main', name: 'identifier', title: 'Identifier *'},
+    {card: 'main', name: 'identifierType', title: 'Identifier type *', editor: identifierTypeEditor, validation: Joi.number().integer().required().label('Identifier type')},
+    {card: 'main', name: 'identifier', title: 'Identifier *', validation: Joi.string().required()},
     {card: 'main', name: 'clientNumber', title: 'Client number'},
     {card: 'main', name: 'legalStatus', title: 'Legal status'},
     {card: 'reg', name: 'regDocType', title: 'Document type'},
-    {card: 'reg', name: 'regDocNum', title: 'Document number'},
+    {
+        card: 'reg',
+        name: 'regDocNum',
+        title: 'Document number',
+        validation: Joi.string()
+            .when('regDocType', {
+                is: [Joi.string(), Joi.number()],
+                then: Joi.required(),
+                otherwise: Joi.allow('')
+            })
+            .label('Document number')
+    },
     {card: 'reg', name: 'regIssuer', title: 'Issuer'},
     {card: 'reg', name: 'regCountry', title: 'Country'},
-    {card: 'reg', name: 'regStart', title: 'Issuing date', editor: {type: 'date'}},
-    {card: 'reg', name: 'regEnd', title: 'Valid until', editor: {type: 'date'}},
-    {card: 'financial', name: 'capital', title: 'Issued Capital'},
-    {card: 'financial', name: 'capitalCurrency', title: 'Issued Capital currency', editor: currencyEditor},
+    {card: 'reg', name: 'regStart', title: 'Issuing date', editor: {type: 'date', mask: '99/99/9999'}, validation: Joi.date()},
+    {card: 'reg', name: 'regEnd', title: 'Valid until', editor: {type: 'date', mask: '99/99/9999'}, validation: Joi.date()},
+    {card: 'financial', name: 'capital', title: 'Issued Capital', editor: {type: 'currency'}, validation: Joi.number()},
+    {card: 'financial', name: 'capitalCurrency', title: 'Issued Capital currency', editor: currencyEditor, validation: Joi.number().integer()},
     {card: 'financial', name: 'capitalDate', title: 'Issued on'},
     {card: 'financial', name: 'capitalCountry', title: 'Capital country'},
     {card: 'financial', name: 'ownerNationality', title: 'Capital owner nationality'},
@@ -90,47 +100,12 @@ const fields = [
     {card: 'email', name: 'emailAddress', title: 'Email address'},
     {card: 'person', name: 'personName', title: 'Name'},
     {card: 'person', name: 'personPosition', title: 'Position'}
-
 ];
 
-const schema = Joi.object({
-    identifierType: Joi.number().integer().required(),
-    identifier: Joi.string().required(),
-    clientNumber: Joi.string().allow(''),
-    legalStatus: Joi.string().allow(''),
-    regDocType: Joi.string().allow(''),
-    regDocNum: Joi.string()
-        .when('regDocType', {
-            is: [Joi.string(), Joi.number()],
-            then: Joi.required(),
-            otherwise: Joi.allow('')
-        }),
-    regIssuer: Joi.string().allow(''),
-    regCountry: Joi.string().allow(''),
-    regStart: Joi.string().allow(''),
-    regEnd: Joi.string().allow(''),
-    capital: Joi.string().allow(''),
-    capitalCurrency: Joi.number().integer(),
-    capitalDate: Joi.string().allow(''),
-    capitalCountry: Joi.string().allow(''),
-    ownerNationality: Joi.string().allow(''),
-    addressCountry: Joi.string().allow(''),
-    addressCity: Joi.string().allow(''),
-    addressZip: Joi.string().allow(''),
-    addressStreet: Joi.string().allow(''),
-    phoneType: Joi.string().allow(''),
-    phoneCountry: Joi.string().allow(''),
-    phoneNumber: Joi.string().allow(''),
-    emailType: Joi.string().allow(''),
-    emailAddress: Joi.string().allow(''),
-    personName: Joi.string().allow(''),
-    personPosition: Joi.string().allow('')
-});
-
 const cards = [
-    {id: 'main', title: 'Main data'},
-    {id: 'reg', title: 'Registration'},
-    {id: 'financial', title: 'Financial data'},
+    {id: 'main', title: 'Main data', className: 'p-lg-6 p-xl-4'},
+    {id: 'reg', title: 'Registration', className: 'p-lg-6 p-xl-4'},
+    {id: 'financial', title: 'Financial data', className: 'p-lg-6 p-xl-4'},
     {id: 'address', title: 'Address'},
     {id: 'phone', title: 'Phone'},
     {id: 'email', title: 'E-mail'},
@@ -147,7 +122,7 @@ export const Basic: React.FC<{}> = () => {
             <Toolbar right={<Button icon='pi pi-save' onClick={() => trigger?.current?.()}/>}/>
             <ThumbIndex index={index} onFilter={setFilter}>
                 <Editor
-                    style={{flexGrow: 3}}
+                    style={{flexGrow: 3, overflowY: 'auto', height: '100%'}}
                     fields={fields}
                     cards={cards.filter(({id}) => filter && filter.includes(id))}
                     onSubmit={formData => toast.current.show({
@@ -156,7 +131,6 @@ export const Basic: React.FC<{}> = () => {
                         detail: <pre>{JSON.stringify(formData, null, 2)}</pre>
                     })}
                     trigger={trigger}
-                    schema={schema}
                 />
             </ThumbIndex>
         </Wrap>

@@ -6,7 +6,7 @@ exports[`<Editor /> render equals snapshot 1`] = `
 >
   <div>
     <form
-      class="p-fluid"
+      class="p-grid p-m-2"
     />
   </div>
 </div>
