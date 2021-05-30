@@ -1,3 +1,12 @@
+# [1.15.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.14.1...v1.15.0) (2021-05-30)
+
+
+### Features
+
+* added DataTable filtering via fetch prop, [UTCORE-121] ([#1](https://github.com/softwaregroup-bg/ut-front-devextreme/issues/1)) ([f74297e](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/f74297e4661b6951b09903288e5e3f999dd1d6b0))
+
+
+
 ## [1.14.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.14.0...v1.14.1) (2021-05-24)
 
 
