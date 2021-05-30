@@ -4,6 +4,7 @@ import { DataTable, Column, Button, Toolbar, Splitter, SplitterPanel } from '../
 import { Styled, StyledType } from './Explorer.types';
 import useToggle from '../hooks/useToggle';
 import clsx from 'clsx';
+import { InputText } from 'primereact/inputtext';
 
 const Explorer: StyledType = ({
     classes,
@@ -17,6 +18,7 @@ const Explorer: StyledType = ({
     actions,
     filter
 }) => {
+    const [filterData, setFilters] = React.useState({...filter});
     const [items, setItems] = React.useState([]);
     const [selected, setSelected] = React.useState(null);
     const [current, setCurrent] = React.useState(null);
@@ -46,11 +48,11 @@ const Explorer: StyledType = ({
             if (!fetch) {
                 setItems([]);
             } else {
-                setItems(resultSet ? (await fetch(filter || {}))[resultSet] : await fetch(filter || {}));
+                setItems(resultSet ? (await fetch(filterData || {}))[resultSet] : await fetch(filterData || {}));
             }
         }
         load();
-    }, [fetch, filter]);
+    }, [fetch, filterData]);
     const Details = () =>
         <div style={{ width: '200px' }}>{
             current && Object.entries(details).map(([name, value], index) =>
@@ -60,10 +62,18 @@ const Explorer: StyledType = ({
                 </div>
             )
         }</div>;
-
     const [navigationOpened, navigationToggle] = useToggle(true);
     const [detailsOpened, detailsToggle] = useToggle(true);
-
+    const InputTextField = (field, title) =>
+        <InputText
+            type="text"
+            value={filterData[field]}
+            onChange={event => {
+                const value = event.target.value;
+                setFilters(prev => ({...prev, [field]: value}));
+            }}
+            placeholder={`Filter by ${title}`}
+        />;
     return (
         <div className={clsx('p-d-flex', 'p-flex-column', className)} style={{height: '100%'}} >
             <Toolbar
@@ -94,7 +104,7 @@ const Explorer: StyledType = ({
                             onRowSelect={e => setCurrent(e.data)}
                         >
                             <Column selectionMode="multiple" style={{width: '3em'}}/>
-                            {fields.map(({field, title, action}) => <Column
+                            {fields.map(({field, title, filter, action}) => <Column
                                 key={field}
                                 field={field}
                                 header={title}
@@ -108,6 +118,8 @@ const Explorer: StyledType = ({
                                         selected: [row]
                                     })}
                                 />)}
+                                filter={!!filter}
+                                filterElement={InputTextField(field, title)}
                             />)}
                         </DataTable>
                     </SplitterPanel>,

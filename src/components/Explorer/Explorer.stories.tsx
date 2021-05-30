@@ -1,6 +1,5 @@
 import React from 'react';
 import { withReadme } from 'storybook-readme';
-
 import Wrap from '../test/wrap';
 
 // @ts-ignore: md file and not a module
@@ -15,29 +14,38 @@ export default {
 
 const state = {
 };
-
+const filteredItems = (filters) => {
+    return Object.entries(filters).reduce((items, [key, value]) => {
+        return items.filter(i => {
+            return i[key] === value || (typeof value === 'string' && i[key].toString().startsWith(value));
+        });
+    }, [...Array(50).keys()].map(number => ({
+        id: number,
+        name: `Item ${number}`,
+        size: number * 10
+    })));
+};
 export const Basic: React.FC<{}> = () => <Wrap state={state}>
     <div style={{height: 500, display: 'flex', flexDirection: 'column'}}>
         <Explorer
-            fetch={() => Promise.resolve({
-                items: [...Array(50).keys()].map(number => ({
-                    id: number,
-                    name: `Item ${number}`,
-                    size: number * 10
-                }))
+            fetch={(filters) => Promise.resolve({
+                items: filteredItems(filters)
             })}
             keyField='id'
             resultSet='items'
             fields={[{
                 field: 'name',
-                title: 'Name'
+                title: 'Name',
+                filter: true
             }, {
                 field: 'size',
-                title: 'Size'
+                title: 'Size',
+                filter: true
             }]}
             details={{
                 name: 'Name'
             }}
+            filter={{}}
         >
             <div>Navigation component</div>
         </Explorer>

@@ -89,19 +89,6 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                     <span
                       class="p-column-title"
                     />
-                    <div
-                      class="p-checkbox p-component"
-                    >
-                      <div
-                        class="p-checkbox-box p-component p-clickable"
-                        role="checkbox"
-                        tabindex="0"
-                      >
-                        <span
-                          class="p-checkbox-icon p-clickable"
-                        />
-                      </div>
-                    </div>
                   </th>
                   <th
                     class="p-sortable-disabled"
@@ -123,6 +110,44 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                       Size
                     </span>
                   </th>
+                </tr>
+                <tr
+                  role="row"
+                >
+                  <th
+                    class="p-filter-column"
+                    role="columnheader"
+                    style="width: 3em;"
+                  >
+                    <div
+                      class="p-checkbox p-component"
+                    >
+                      <div
+                        class="p-checkbox-box p-component p-clickable"
+                        role="checkbox"
+                        tabindex="0"
+                      >
+                        <span
+                          class="p-checkbox-icon p-clickable"
+                        />
+                      </div>
+                    </div>
+                  </th>
+                  <th
+                    class="p-filter-column"
+                    role="columnheader"
+                  >
+                    <input
+                      class="p-inputtext p-component"
+                      placeholder="Filter by Name"
+                      type="text"
+                      value=""
+                    />
+                  </th>
+                  <th
+                    class="p-filter-column"
+                    role="columnheader"
+                  />
                 </tr>
               </thead>
               <tbody

@@ -4,6 +4,7 @@ import React from 'react';
 interface column {
     field: string;
     title: string;
+    filter?: boolean;
     action?: ({
         id: any,
         current: {},

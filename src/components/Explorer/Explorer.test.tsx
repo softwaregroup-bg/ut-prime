@@ -18,7 +18,8 @@ describe('<Explorer />', () => {
             resultSet='items'
             fields={[{
                 field: 'name',
-                title: 'Name'
+                title: 'Name',
+                filter: true
             }, {
                 field: 'size',
                 title: 'Size'
