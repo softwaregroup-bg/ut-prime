@@ -18,7 +18,7 @@ const Explorer: StyledType = ({
     actions,
     filter
 }) => {
-    const [filterData, setFilters] = React.useState({...filter});
+    const [tableFilter, setFilters] = React.useState({...filter});
     const [items, setItems] = React.useState([]);
     const [selected, setSelected] = React.useState(null);
     const [current, setCurrent] = React.useState(null);
@@ -48,11 +48,12 @@ const Explorer: StyledType = ({
             if (!fetch) {
                 setItems([]);
             } else {
-                setItems(resultSet ? (await fetch(filterData || {}))[resultSet] : await fetch(filterData || {}));
+                const items = await fetch({...tableFilter, ...filter});
+                setItems(resultSet ? items[resultSet] : items);
             }
         }
         load();
-    }, [fetch, filterData]);
+    }, [fetch, tableFilter, filter]);
     const Details = () =>
         <div style={{ width: '200px' }}>{
             current && Object.entries(details).map(([name, value], index) =>
@@ -67,7 +68,7 @@ const Explorer: StyledType = ({
     const InputTextField = (field, title) =>
         <InputText
             type="text"
-            value={filterData[field]}
+            value={tableFilter[field]}
             onChange={event => {
                 const value = event.target.value;
                 setFilters(prev => ({...prev, [field]: value}));
