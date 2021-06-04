@@ -1,3 +1,12 @@
+## [1.15.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.15.0...v1.15.1) (2021-06-04)
+
+
+### Bug Fixes
+
+* merge filters [UTCORE-121] ([5470b07](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/5470b07e6b6bb040119d71064046b45e1f0320ae))
+
+
+
 # [1.15.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.14.1...v1.15.0) (2021-05-30)
 
 
