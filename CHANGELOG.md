@@ -1,3 +1,12 @@
+# [1.16.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.15.1...v1.16.0) (2021-06-05)
+
+
+### Features
+
+* editable datatable field ([494151d](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/494151d2efc187904a110f5a824df555ce0facd6))
+
+
+
 ## [1.15.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.15.0...v1.15.1) (2021-06-04)
 
 
