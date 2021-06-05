@@ -25,7 +25,8 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     onSubmit: (form: {}) => void;
     trigger: {
         current: (event: {}) => void
-    }
+    };
+    get: (params?: {}) => Promise<{}>;
 }
 
 const styles = createStyles({
