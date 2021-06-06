@@ -21,7 +21,7 @@ function Currency({onChange, ref, ...props}) {
         />
     );
 }
-function Table({onChange, columns, value, dataKey = 'id', ref}) {
+const Table = React.forwardRef<{}, any>(({onChange, columns, value, dataKey = 'id'}, ref) => {
     if (typeof ref === 'function') ref(React.useState({})[0]);
     const cellEditor = React.useCallback((props, field) => <InputText
         type="text"
@@ -65,7 +65,8 @@ function Table({onChange, columns, value, dataKey = 'id', ref}) {
             <Column rowEditor headerStyle={{ width: '7rem' }} bodyStyle={{ textAlign: 'center' }}></Column>
         </DataTable>
     );
-}
+});
+
 function element(field: { onChange: (...event: any[]) => void; onBlur: () => void; value: any; name: string; ref: RefCallBack; className: string; }, {type = 'string', ...props} = {}) {
     const Element: React.ElementType = {
         dropdown: Dropdown,
@@ -78,8 +79,8 @@ function element(field: { onChange: (...event: any[]) => void; onBlur: () => voi
 }
 
 const Editor: StyledType = ({ classes, className, fields, cards, onSubmit, trigger, get, ...rest }) => {
-    const schema = fields.reduce(
-        (schema, {name, title, validation = Joi.string().allow('')}) => schema.append({[name]: validation.label(title)}),
+    const schema = Object.entries(fields).reduce(
+        (schema, [name, {title, validation = Joi.string().allow('')}]) => schema.append({[name]: validation.label(title)}),
         Joi.object()
     );
     const {handleSubmit, reset, control, formState: {errors}} = useForm({resolver: joiResolver(schema)});
@@ -95,19 +96,19 @@ const Editor: StyledType = ({ classes, className, fields, cards, onSubmit, trigg
     return (
         <div {...rest}>
             <form onSubmit={handleSubmit(onSubmit)} className="p-grid p-m-2">
-                {(cards || []).map(({id, title, className}) =>
+                {Object.entries(cards || {}).map(([id, {title, className, fields: names = []}]) =>
                     <div key={id} className={clsx('p-col-12', className || 'p-xl-6')}>
                         <Card title={title} key={id} className='p-fluid'>
-                            {fields.filter(({card}) => id === card).map(({name, title, editor}) =>
+                            {names.map(name =>
                                 <div className="p-field p-grid" key={name}>
                                     <label className="p-col-12 p-md-4">
-                                        {title}
+                                        {fields[name].title}
                                     </label>
                                     <div className="p-col-12 p-md-8">
                                         <Controller
                                             control={control}
                                             name={name}
-                                            render={({field}) => element({className: clsx({ 'p-invalid': errors[name] }), ...field}, editor)}
+                                            render={({field}) => element({className: clsx({ 'p-invalid': errors[name] }), ...field}, fields[name].editor)}
                                         />
                                     </div>
                                     {getFormErrorMessage(name)}
