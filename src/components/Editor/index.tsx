@@ -21,7 +21,8 @@ function Currency({onChange, ref, ...props}) {
         />
     );
 }
-function Table({onChange, columns, value, dataKey = 'id'}) {
+function Table({onChange, columns, value, dataKey = 'id', ref}) {
+    if (typeof ref === 'function') ref(React.useState({})[0]);
     const cellEditor = React.useCallback((props, field) => <InputText
         type="text"
         value={props.rowData[field]}
