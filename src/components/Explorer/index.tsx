@@ -80,19 +80,19 @@ const Explorer: StyledType = ({
             <Toolbar
                 left={
                     <>
-                        <Button icon="pi pi-bars" className="p-mr-2" onClick={navigationToggle}/>
+                        {children && <Button icon="pi pi-bars" className="p-mr-2" onClick={navigationToggle}/>}
+                        {buttons}
                     </>
                 }
                 right={
                     <>
-                        {buttons}
                         <Button icon="pi pi-bars" className="p-mr-2" onClick={detailsToggle}/>
                     </>
                 }
             />
             <Splitter style={{flexGrow: 1}}>
                 {[
-                    navigationOpened && <SplitterPanel key='nav' size={15}>{children}</SplitterPanel>,
+                    children && navigationOpened && <SplitterPanel key='nav' size={15}>{children}</SplitterPanel>,
                     <SplitterPanel key='items' size={75}>
                         <DataTable
                             autoLayout
