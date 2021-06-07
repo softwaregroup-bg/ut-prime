@@ -1,3 +1,12 @@
+## [1.16.3](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.16.2...v1.16.3) (2021-06-07)
+
+
+### Bug Fixes
+
+* navigator is optional [UTCORE-121] ([b7394e0](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/b7394e09dbe8872e4cc27d7df6089c6fb6a8aef6))
+
+
+
 ## [1.16.2](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.16.1...v1.16.2) (2021-06-06)
 
 
