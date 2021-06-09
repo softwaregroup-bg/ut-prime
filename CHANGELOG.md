@@ -1,3 +1,12 @@
+# [1.18.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.17.1...v1.18.0) (2021-06-09)
+
+
+### Features
+
+* adding and removing table rows ([#3](https://github.com/softwaregroup-bg/ut-front-devextreme/issues/3)) ([898ff27](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/898ff27cb0fb62c9a2ac63b9e3caf25a9b61dd6f))
+
+
+
 ## [1.17.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.17.0...v1.17.1) (2021-06-09)
 
 
