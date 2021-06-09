@@ -17,9 +17,10 @@ const compare = ({field, dir, smaller = {ASC: -1, DESC: 1}[dir]}) => function co
 };
 
 export const fetchItems = filters => {
-    const items = filteredItems(filters.items).sort(compare(filters.orderBy));
+    let items = filteredItems(filters.items);
+    if (Array.isArray(filters.orderBy) && filters.orderBy.length) items = items.sort(compare(filters.orderBy[0]));
     return Promise.resolve({
-        items: items.slice(filters.paging.pageNumber * filters.paging.pageSize, (filters.paging.pageNumber + 1) * filters.paging.pageSize),
+        items: items.slice((filters.paging.pageNumber - 1) * filters.paging.pageSize, filters.paging.pageNumber * filters.paging.pageSize),
         pagination: {
             recordsTotal: items.length
         }

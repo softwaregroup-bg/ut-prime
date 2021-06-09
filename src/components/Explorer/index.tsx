@@ -69,13 +69,17 @@ const Explorer: StyledType = ({
                 try {
                     const items = await fetch({
                         [resultSet || 'filterBy']: {...Object.entries(tableFilter.filters).reduce((prev, [name, {value}]) => ({...prev, [name]: value}), {}), ...filter},
-                        orderBy: {
-                            field: tableFilter.sortField,
-                            dir: {[-1]: 'DESC', 1: 'ASC'}[tableFilter.sortOrder]
+                        ...tableFilter.sortField && {
+                            orderBy: [{
+                                field: tableFilter.sortField,
+                                dir: {[-1]: 'DESC', 1: 'ASC'}[tableFilter.sortOrder]
+                            }]
                         },
-                        paging: {
-                            pageSize,
-                            pageNumber: Math.floor(tableFilter.first / pageSize)
+                        ...pageSize && {
+                            paging: {
+                                pageSize,
+                                pageNumber: Math.floor(tableFilter.first / pageSize) + 1
+                            }
                         }
                     });
                     const records = resultSet ? items[resultSet] : items;

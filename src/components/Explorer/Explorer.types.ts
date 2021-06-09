@@ -33,7 +33,7 @@ export interface Props {
         orderBy: {
             field: string,
             dir: string
-        },
+        }[],
         paging: {
             pageSize: number,
             pageNumber: number
