@@ -2,12 +2,13 @@ import React from 'react';
 import clsx from 'clsx';
 import Joi from 'joi';
 
-import { Card, InputText, DataTable, Column, Dropdown, InputMask, InputNumber, Calendar } from '../prime';
+import { Card, InputText, Dropdown, InputMask, InputNumber, Calendar } from '../prime';
 import { Styled, StyledType } from './Editor.types';
 import useForm from '../hooks/useForm';
 import Controller from '../Controller';
 import { joiResolver } from '@hookform/resolvers/joi';
 import { RefCallBack } from 'react-hook-form';
+import {Table} from './Table';
 
 function Currency({onChange, ref, ...props}) {
     return (
@@ -21,51 +22,6 @@ function Currency({onChange, ref, ...props}) {
         />
     );
 }
-const Table = React.forwardRef<{}, any>(({onChange, columns, value, dataKey = 'id'}, ref) => {
-    if (typeof ref === 'function') ref(React.useState({})[0]);
-    const cellEditor = React.useCallback((props, field) => <InputText
-        type="text"
-        value={props.rowData[field]}
-        onChange={({target: {value}}) => {
-            const updatedValue = [...props.value];
-            updatedValue[props.rowIndex][props.field] = value;
-            onChange(updatedValue);
-        }}
-        id={`${props.rowData.id}`}
-    />, [onChange]);
-    const [original, setOriginal] = React.useState({index: null, value: null});
-
-    const init = React.useCallback(({index}) => {
-        setOriginal({index, value: {...value[index]}});
-    }, [value, setOriginal]);
-
-    const cancel = React.useCallback(() => {
-        const restored = [...value];
-        restored[original.index] = original.value;
-        onChange(restored);
-    }, [value, onChange]);
-
-    return (
-        <DataTable
-            value={value}
-            editMode="row"
-            dataKey={dataKey}
-            className="editable-cells-table"
-            onRowEditInit={init}
-            onRowEditCancel={cancel}
-        >
-            {
-                (columns || []).map(({ field, header }) => <Column
-                    key={field}
-                    field={field}
-                    header={header}
-                    editor={props => cellEditor(props, field)}
-                />)
-            }
-            <Column rowEditor headerStyle={{ width: '7rem' }} bodyStyle={{ textAlign: 'center' }}></Column>
-        </DataTable>
-    );
-});
 
 function element(field: { onChange: (...event: any[]) => void; onBlur: () => void; value: any; name: string; ref: RefCallBack; className: string; }, {type = 'string', ...props} = {}) {
     const Element: React.ElementType = {
@@ -80,7 +36,7 @@ function element(field: { onChange: (...event: any[]) => void; onBlur: () => voi
 
 const Editor: StyledType = ({ classes, className, fields, cards, onSubmit, trigger, get, ...rest }) => {
     const schema = Object.entries(fields).reduce(
-        (schema, [name, {title, validation = Joi.string().allow('')}]) => schema.append({[name]: validation.label(title)}),
+        (schema, [name, {title, validation = Joi.string().min(0).allow('', null).default('label')}]) => schema.append({[name]: validation.label(title || name)}),
         Joi.object()
     );
     const {handleSubmit, reset, control, formState: {errors}} = useForm({resolver: joiResolver(schema)});
@@ -101,10 +57,10 @@ const Editor: StyledType = ({ classes, className, fields, cards, onSubmit, trigg
                         <Card title={title} key={id} className='p-fluid'>
                             {names.map(name =>
                                 <div className="p-field p-grid" key={name}>
-                                    <label className="p-col-12 p-md-4">
+                                    {fields[name].title ? <label className={clsx(fields[name].title ? `p-col-12 ${className || 'p-md-4'}` : '')}>
                                         {fields[name].title}
-                                    </label>
-                                    <div className="p-col-12 p-md-8">
+                                    </label> : null}
+                                    <div className={clsx(fields[name].title ? `p-col-12 ${className || 'p-md-8'}` : 'p-col-12')}>
                                         <Controller
                                             control={control}
                                             name={name}

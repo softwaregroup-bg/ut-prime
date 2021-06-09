@@ -23,12 +23,12 @@ const data = {
     identifierType: 1,
     identifier: 'id-123',
     phone: [
-        {type: 'home', countryCode: '+359', phoneNumber: '123'},
-        {type: 'work', countryCode: '+359', phoneNumber: '456'}
+        {id: 1, type: 'home', countryCode: '+359', phoneNumber: '123'},
+        {id: 2, type: 'work', countryCode: '+359', phoneNumber: '456'}
     ],
     email: [
-        {type: 'home', emailAddress: 'name@example.com'},
-        {type: 'work', emailAddress: 'office@example.com'}
+        { id: 1, type: 'home', emailAddress: 'name@example.com'},
+        {id: 2, type: 'work', emailAddress: 'office@example.com'}
     ]
 };
 
@@ -74,7 +74,6 @@ const currencyEditor = {
         {value: 2, label: 'EUR'}
     ]
 };
-
 const phoneEditor = {
     type: 'table',
     columns: [
@@ -121,8 +120,8 @@ const fields = {
     addressCity: {title: 'City'},
     addressZip: {title: 'Post code'},
     addressStreet: {title: 'Street'},
-    phone: {title: 'Phone', editor: phoneEditor, validation: Joi.any()},
-    email: {title: 'Email', editor: emailEditor, validation: Joi.any()},
+    phone: {title: '', editor: phoneEditor, validation: Joi.any()},
+    email: {title: '', editor: emailEditor, validation: Joi.any()},
     personName: {title: 'Name'},
     personPosition: {title: 'Position'}
 };
