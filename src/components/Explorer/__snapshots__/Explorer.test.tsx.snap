@@ -66,14 +66,19 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                     />
                   </th>
                   <th
-                    class="p-sortable-disabled"
+                    aria-sort="none"
+                    class="p-sortable-column"
                     role="columnheader"
+                    tabindex="0"
                   >
                     <span
                       class="p-column-title"
                     >
                       Name
                     </span>
+                    <span
+                      class="p-sortable-column-icon pi pi-fw pi-sort-alt"
+                    />
                   </th>
                   <th
                     class="p-sortable-disabled"
@@ -113,8 +118,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                     role="columnheader"
                   >
                     <input
-                      class="p-inputtext p-component"
-                      placeholder="Filter by Name"
+                      class="p-inputtext p-component p-column-filter"
                       type="text"
                       value=""
                     />

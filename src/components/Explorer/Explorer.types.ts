@@ -5,6 +5,7 @@ interface column {
     field: string;
     title: string;
     filter?: boolean;
+    sort?: boolean;
     action?: ({
         id: any,
         current: {},
@@ -27,11 +28,26 @@ export interface Props {
     keyField: string;
     resultSet?: string;
     fields: column[];
-    fetch: (params: {}) => Promise<{}>;
+    fetch: (params: {
+        [resultSet: string]: {},
+        orderBy: {
+            field: string,
+            dir: string
+        },
+        paging: {
+            pageSize: number,
+            pageNumber: number
+        }
+    }) => Promise<{
+        pagination?: {
+            recordsTotal: number
+        }
+    }>;
     className?: string;
     details: {};
     actions?: action[];
     filter?: {};
+    pageSize?: number
 }
 
 const styles = createStyles({

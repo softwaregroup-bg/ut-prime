@@ -4,7 +4,18 @@ import { DataTable, Column, Button, Toolbar, Splitter, SplitterPanel } from '../
 import { Styled, StyledType } from './Explorer.types';
 import useToggle from '../hooks/useToggle';
 import clsx from 'clsx';
-import { InputText } from 'primereact/inputtext';
+interface TableFilter {
+    filters?: {
+        [name: string]: {
+            value: any;
+            matchMode: any;
+        }
+    },
+    sortField?: string,
+    sortOrder?: -1 | 1,
+    first: number,
+    page: number
+}
 
 const Explorer: StyledType = ({
     classes,
@@ -16,12 +27,18 @@ const Explorer: StyledType = ({
     children,
     details,
     actions,
-    filter
+    filter,
+    pageSize = 10
 }) => {
-    const [tableFilter, setFilters] = React.useState({...filter});
-    const [items, setItems] = React.useState([]);
+    const [tableFilter, setFilters] = React.useState<TableFilter>({
+        filters: {},
+        first: 0,
+        page: 1
+    });
+    const [[items, totalRecords], setItems] = React.useState([[], 0]);
     const [selected, setSelected] = React.useState(null);
     const [current, setCurrent] = React.useState(null);
+    const [loading, setLoading] = React.useState(false);
     const isEnabled = enabled => {
         if (typeof enabled !== 'string') return !!enabled;
         switch (enabled) {
@@ -46,10 +63,32 @@ const Explorer: StyledType = ({
     React.useEffect(() => {
         async function load() {
             if (!fetch) {
-                setItems([]);
+                setItems([[], 0]);
             } else {
-                const items = await fetch({...tableFilter, ...filter});
-                setItems(resultSet ? items[resultSet] : items);
+                setLoading(true);
+                try {
+                    const items = await fetch({
+                        [resultSet || 'filterBy']: {...Object.entries(tableFilter.filters).reduce((prev, [name, {value}]) => ({...prev, [name]: value}), {}), ...filter},
+                        orderBy: {
+                            field: tableFilter.sortField,
+                            dir: {[-1]: 'DESC', 1: 'ASC'}[tableFilter.sortOrder]
+                        },
+                        paging: {
+                            pageSize,
+                            pageNumber: Math.floor(tableFilter.first / pageSize)
+                        }
+                    });
+                    const records = resultSet ? items[resultSet] : items;
+                    let total = items.pagination && items.pagination.recordsTotal;
+                    if (total == null) {
+                        total = (records && records.length) || 0;
+                        if (total === pageSize) total++;
+                        total = tableFilter.first + total;
+                    }
+                    setItems([records, total]);
+                } finally {
+                    setLoading(false);
+                }
             }
         }
         load();
@@ -65,16 +104,9 @@ const Explorer: StyledType = ({
         }</div>;
     const [navigationOpened, navigationToggle] = useToggle(true);
     const [detailsOpened, detailsToggle] = useToggle(true);
-    const InputTextField = (field, title) =>
-        <InputText
-            type="text"
-            value={tableFilter[field]}
-            onChange={event => {
-                const value = event.target.value;
-                setFilters(prev => ({...prev, [field]: value}));
-            }}
-            placeholder={`Filter by ${title}`}
-        />;
+    const handleFilterPageSort = React.useCallback(event => {
+        setFilters(prev => ({...prev, ...event}));
+    }, []);
     return (
         <div className={clsx('p-d-flex', 'p-flex-column', className)} style={{height: '100%'}} >
             <Toolbar
@@ -96,8 +128,18 @@ const Explorer: StyledType = ({
                     <SplitterPanel key='items' size={75}>
                         <DataTable
                             autoLayout
-                            rows={10}
+                            lazy
+                            rows={pageSize}
+                            totalRecords={totalRecords}
                             paginator
+                            first={tableFilter.first}
+                            sortField={tableFilter.sortField}
+                            sortOrder={tableFilter.sortOrder}
+                            filters={tableFilter.filters}
+                            onPage={handleFilterPageSort}
+                            onSort={handleFilterPageSort}
+                            onFilter={handleFilterPageSort}
+                            loading={loading}
                             dataKey={keyField}
                             value={items}
                             selection={selected}
@@ -105,7 +147,7 @@ const Explorer: StyledType = ({
                             onRowSelect={e => setCurrent(e.data)}
                         >
                             <Column selectionMode="multiple" style={{width: '3em'}}/>
-                            {fields.map(({field, title, filter, action}) => <Column
+                            {fields.map(({field, title, filter, sort, action}) => <Column
                                 key={field}
                                 field={field}
                                 header={title}
@@ -120,7 +162,7 @@ const Explorer: StyledType = ({
                                     })}
                                 />)}
                                 filter={!!filter}
-                                filterElement={InputTextField(field, title)}
+                                sortable={!!sort}
                             />)}
                         </DataTable>
                     </SplitterPanel>,
