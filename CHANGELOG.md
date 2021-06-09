@@ -1,3 +1,12 @@
+## [1.17.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.17.0...v1.17.1) (2021-06-09)
+
+
+### Bug Fixes
+
+* paging and sorting [UTCORE-121] ([5da5281](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/5da52817e271fcc672da8beb8983f6644feb335e))
+
+
+
 # [1.17.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.16.3...v1.17.0) (2021-06-09)
 
 
