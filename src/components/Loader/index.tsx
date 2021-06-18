@@ -6,13 +6,13 @@ import Text from '../Text';
 
 import { Styled, StyledType } from './Loader.types';
 
-const Loader: StyledType = ({ classes, className }) => {
+const Loader: StyledType = ({ classes, className, message, open }) => {
     const loader = useSelector(state => state?.loader?.toJS?.());
     return (
-        loader && loader.open && <div className={clsx(classes.loaderContainer, className)}>
+        ((loader && loader.open) || open) && <div className={clsx(classes.loaderContainer, className)}>
             <div className={classes.overlay} />
             <div className={clsx(classes.loader, className)} />
-            <div className={classes.message}><Text>{loader.message}</Text></div>
+            <div className={classes.message}><Text>{message || loader.message}</Text></div>
         </div>
     ) || null;
 };

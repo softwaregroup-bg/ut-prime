@@ -19,7 +19,7 @@ import Store from '../Store';
 import { StyledType } from './App.types';
 import PageNotFound from './PageNotFound';
 
-const App: StyledType = ({middleware, reducers, theme, portalName, state, onDispatcher}) => {
+const App: StyledType = ({middleware, reducers, theme, portalName, state, onDispatcher, loginPage}) => {
     theme?.palette?.type === 'dark' ? dark?.use?.() : light?.use?.();
     return (
         <Store {...{middleware, reducers, state, onDispatcher}}>
@@ -35,7 +35,7 @@ const App: StyledType = ({middleware, reducers, theme, portalName, state, onDisp
                                 <LoginPage />
                             </Route>
                             <Route>
-                                <Main />
+                                <Main loginPage={loginPage}/>
                             </Route>
                             <Route path='*' component={PageNotFound} />
                         </Switch>

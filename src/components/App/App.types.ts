@@ -10,7 +10,8 @@ export interface utTheme extends ThemeOptions {
 
 export interface Props extends StoreProps, React.HTMLAttributes<HTMLDivElement> {
     theme: utTheme,
-    portalName: string
+    portalName: string,
+    loginPage?: string
 }
 
 export type StyledType = React.FC<Props>

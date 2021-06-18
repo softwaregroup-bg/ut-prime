@@ -241,7 +241,7 @@ const Login: StyledType = ({
                         {
                             type === 'text'
                                 ? <InputText name={name} disabled={disabled}/>
-                                : type === 'password' ? <Password name={name} disabled={disabled}/> : undefined
+                                : type === 'password' ? <Password name={name} disabled={disabled} feedback={false}/> : undefined
                         }
                         <label>{label}</label>
                     </div>

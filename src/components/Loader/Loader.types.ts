@@ -3,6 +3,8 @@ import React from 'react';
 
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     className?: string;
+    message?: string;
+    open?: boolean;
 }
 
 const styles = (theme: Theme) => createStyles({

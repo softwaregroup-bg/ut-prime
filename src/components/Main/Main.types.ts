@@ -1,6 +1,5 @@
 import React from 'react';
 
-export interface Props extends React.HTMLAttributes<HTMLDivElement> {
-}
+import {Props} from '../Gate/Gate.types';
 
 export type StyledType = React.FC<Props>

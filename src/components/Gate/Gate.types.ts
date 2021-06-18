@@ -2,14 +2,9 @@ import {WithStyles, withStyles, createStyles} from '@material-ui/core/styles';
 import React from 'react';
 
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
-    cookieChecked: boolean;
-    gateLoaded: boolean;
-    isLogout: boolean;
-    authenticated: boolean;
-    result: any;
-    logout: () => void;
-    cookieCheck: ({appId: string}) => {result?: {}, error?: {}};
-    fetchTranslations: (params: {languageId: number, dictName: string[]}) => Promise<any>;
+    loginPage?: string,
+    cookieCheck?: ({appId: string}) => {result?: {}, error?: {}};
+    fetchTranslations?: (params: {languageId: number, dictName: string[]}) => Promise<any>;
 }
 
 const styles = createStyles({

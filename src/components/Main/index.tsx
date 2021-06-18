@@ -7,7 +7,7 @@ import Portal from '../Portal';
 
 import { StyledType } from './Main.types';
 
-const Main: StyledType = () => <Gate>
+const Main: StyledType = props => <Gate {...props}>
     <div className='p-card' style={{height: '100%', borderRadius: 0}}>
         <Portal />
         <Loader />
