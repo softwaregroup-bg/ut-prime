@@ -1,3 +1,12 @@
+# [1.19.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.18.0...v1.19.0) (2021-06-18)
+
+
+### Features
+
+* configureable login page [UTCORE-121] ([178e3f4](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/178e3f48517c3cf18003e945d04bd0d28771a7c1))
+
+
+
 # [1.18.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.17.1...v1.18.0) (2021-06-09)
 
 
