@@ -14,7 +14,7 @@ exports[`<Error /> render equals snapshot 1`] = `
   <div
     class="p-dialog-header"
   >
-    <span
+    <div
       class="p-dialog-title"
       id="pr_id_2_header"
     />

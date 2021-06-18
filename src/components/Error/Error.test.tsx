@@ -7,7 +7,7 @@ import Error from './index';
 describe('<Error />', () => {
     it('render equals snapshot', async() => {
         const { getByRole } = render(<Error />, {error: {open: true}});
-        await waitFor(() => expect(getByRole('dialog').querySelector('span.p-dialog-title')).toBeTruthy());
+        await waitFor(() => expect(getByRole('dialog').querySelector('div.p-dialog-title')).toBeTruthy());
         expect(getByRole('dialog')).toMatchSnapshot();
     });
 });
