@@ -143,7 +143,7 @@
     "tslib": "^2.0.3",
     "typescript": "4.1.2",
     "ut-function.merge": "^1.5.5",
-    "ut-tools": "^6.36.1",
+    "ut-tools": "^6.38.1",
     "uuid": "3.3.2"
   }
 }
