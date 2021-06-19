@@ -1,3 +1,12 @@
+## [1.19.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.19.0...v1.19.1) (2021-06-19)
+
+
+### Bug Fixes
+
+* editor layout [UTCORE-121] ([9d1a209](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/9d1a209a7b88124c7760b8241a7ddd1790f21179))
+
+
+
 # [1.19.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.18.0...v1.19.0) (2021-06-18)
 
 
