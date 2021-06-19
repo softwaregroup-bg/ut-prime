@@ -57,10 +57,10 @@ const Editor: StyledType = ({ classes, className, fields, cards, onSubmit, trigg
                         <Card title={title} key={id} className='p-fluid'>
                             {names.map(name =>
                                 <div className="p-field p-grid" key={name}>
-                                    {fields[name].title ? <label className={clsx(fields[name].title ? `p-col-12 ${className || 'p-md-4'}` : '')}>
+                                    {fields[name].title ? <label className='p-col-12 p-md-4'>
                                         {fields[name].title}
                                     </label> : null}
-                                    <div className={clsx(fields[name].title ? `p-col-12 ${className || 'p-md-8'}` : 'p-col-12')}>
+                                    <div className={clsx(fields[name].title ? 'p-col-12 p-md-8' : 'p-col-12')}>
                                         <Controller
                                             control={control}
                                             name={name}
