@@ -17,11 +17,15 @@ interface TableFilter {
     page: number
 }
 
+const flexGrow = {flexGrow: 1};
+const selectionWidth = {width: '3em'};
+
 const Explorer: StyledType = ({
     classes,
     className,
     keyField,
     fetch,
+    subscribe,
     fields,
     resultSet,
     children,
@@ -35,10 +39,19 @@ const Explorer: StyledType = ({
         first: 0,
         page: 1
     });
-    const [[items, totalRecords], setItems] = React.useState([[], 0]);
+    const handleFilterPageSort = React.useCallback(event => setFilters(prev => ({...prev, ...event})), []);
+
     const [selected, setSelected] = React.useState(null);
+    const handleSelectionChange = React.useCallback(e => setSelected(e.value), []);
+
     const [current, setCurrent] = React.useState(null);
+    const handleRowSelect = React.useCallback(e => setCurrent(e.data), []);
+
+    const [navigationOpened, navigationToggle] = useToggle(true);
+    const [detailsOpened, detailsToggle] = useToggle(true);
+
     const [loading, setLoading] = React.useState(false);
+    const [[items, totalRecords], setItems] = React.useState([[], 0]);
     const isEnabled = enabled => {
         if (typeof enabled !== 'string') return !!enabled;
         switch (enabled) {
@@ -96,37 +109,56 @@ const Explorer: StyledType = ({
             }
         }
         load();
-    }, [fetch, tableFilter, filter]);
-    const Details = () =>
-        <div style={{ width: '200px' }}>{
-            current && Object.entries(details).map(([name, value], index) =>
-                <div className={classes.details} key={index}>
-                    <div className={classes.detailsLabel}>{value}</div>
-                    <div className={classes.detailsValue}>{current[name]}</div>
-                </div>
-            )
-        }</div>;
-    const [navigationOpened, navigationToggle] = useToggle(true);
-    const [detailsOpened, detailsToggle] = useToggle(true);
-    const handleFilterPageSort = React.useCallback(event => {
-        setFilters(prev => ({...prev, ...event}));
-    }, []);
+        if (subscribe) {
+            return subscribe(rows => {
+                setItems(([items, totalRecords]) => [(Array.isArray(rows) || !keyField) ? rows : items.map(item => {
+                    const update = rows[item[keyField]];
+                    return update ? {...item, ...update} : item;
+                }), totalRecords]);
+            });
+        }
+    }, [fetch, tableFilter, filter, subscribe]);
+    const detailsPanel = React.useMemo(() => detailsOpened &&
+        <SplitterPanel key='details' size={10}>
+            <div style={{ width: '200px' }}>{
+                current && Object.entries(details).map(([name, value], index) =>
+                    <div className={classes.details} key={index}>
+                        <div className={classes.detailsLabel}>{value}</div>
+                        <div className={classes.detailsValue}>{current[name]}</div>
+                    </div>
+                )
+            }</div>
+        </SplitterPanel>, [current, details, detailsOpened]);
+    const columns = React.useMemo(() => fields.map(({field, title, filter, sort, action}) => <Column
+        key={field}
+        field={field}
+        header={title}
+        body={action && (row => <Button
+            label={row[field]}
+            style={{padding: 0, minWidth: 'inherit'}}
+            className='p-button-link'
+            onClick={() => action({
+                id: row && row[keyField],
+                current: row,
+                selected: [row]
+            })}
+        />)}
+        filter={!!filter}
+        sortable={!!sort}
+    />), [fields]);
     return (
         <div className={clsx('p-d-flex', 'p-flex-column', className)} style={{height: '100%'}} >
             <Toolbar
-                left={
+                left={React.useMemo(() =>
                     <>
                         {children && <Button icon="pi pi-bars" className="p-mr-2" onClick={navigationToggle}/>}
                         {buttons}
-                    </>
+                    </>, [navigationToggle])
                 }
-                right={
-                    <>
-                        <Button icon="pi pi-bars" className="p-mr-2" onClick={detailsToggle}/>
-                    </>
+                right={React.useMemo(() => <Button icon="pi pi-bars" className="p-mr-2" onClick={detailsToggle}/>, [detailsToggle])
                 }
             />
-            <Splitter style={{flexGrow: 1}}>
+            <Splitter style={flexGrow}>
                 {[
                     children && navigationOpened && <SplitterPanel key='nav' size={15}>{children}</SplitterPanel>,
                     <SplitterPanel key='items' size={75}>
@@ -147,30 +179,14 @@ const Explorer: StyledType = ({
                             dataKey={keyField}
                             value={items}
                             selection={selected}
-                            onSelectionChange={e => setSelected(e.value)}
-                            onRowSelect={e => setCurrent(e.data)}
+                            onSelectionChange={handleSelectionChange}
+                            onRowSelect={handleRowSelect}
                         >
-                            <Column selectionMode="multiple" style={{width: '3em'}}/>
-                            {fields.map(({field, title, filter, sort, action}) => <Column
-                                key={field}
-                                field={field}
-                                header={title}
-                                body={action && (row => <Button
-                                    label={row[field]}
-                                    style={{padding: 0, minWidth: 'inherit'}}
-                                    className='p-button-link'
-                                    onClick={() => action({
-                                        id: row && row[keyField],
-                                        current: row,
-                                        selected: [row]
-                                    })}
-                                />)}
-                                filter={!!filter}
-                                sortable={!!sort}
-                            />)}
+                            <Column selectionMode="multiple" style={selectionWidth}/>
+                            {columns}
                         </DataTable>
                     </SplitterPanel>,
-                    detailsOpened && <SplitterPanel key='details' size={10}>{Details()}</SplitterPanel>
+                    detailsPanel
                 ].filter(Boolean)}
             </Splitter>
         </div>

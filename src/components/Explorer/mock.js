@@ -26,3 +26,11 @@ export const fetchItems = filters => {
         }
     });
 };
+
+export const updateItems = update => {
+    let size = 0;
+    const handle = setInterval(() => {
+        update({0: {size: size++}});
+    }, 1000);
+    return () => clearInterval(handle);
+};

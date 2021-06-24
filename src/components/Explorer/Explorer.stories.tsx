@@ -5,7 +5,7 @@ import Wrap from '../test/wrap';
 // @ts-ignore: md file and not a module
 import README from './README.md';
 import Explorer from './index';
-import {fetchItems} from './mock';
+import {fetchItems, updateItems} from './mock';
 
 export default {
     title: 'Explorer',
@@ -32,6 +32,7 @@ export const Basic: React.FC<{}> = () => <Wrap state={state}>
                 filter: true,
                 sort: true
             }]}
+            subscribe={updateItems}
             details={{
                 name: 'Name'
             }}

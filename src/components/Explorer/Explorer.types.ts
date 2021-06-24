@@ -43,6 +43,7 @@ export interface Props {
             recordsTotal: number
         }
     }>;
+    subscribe?: (callback: (rows: any) => void) => () => void;
     className?: string;
     details: {};
     actions?: action[];
