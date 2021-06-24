@@ -19,7 +19,7 @@ const Gate: StyledType = ({ classes, children, cookieCheck, fetchTranslations, l
     const [loaded, setLoaded] = useState(null);
     const [cookieChecked, setCookieChecked] = useState(false);
     const login = useSelector(state => state.login || false);
-    const loginAbsolute = loginPage && (loginPage.startsWith('http://') || loginPage.startsWith('https://'));
+    const loginHash = loginPage && loginPage.startsWith('#');
 
     async function load() {
         // setPermissions(result.get('permission.get').toJS());
@@ -50,8 +50,12 @@ const Gate: StyledType = ({ classes, children, cookieCheck, fetchTranslations, l
             check();
         } else if (!loaded && login) {
             load();
-        } else if (loginAbsolute && !login) {
-            window.location.href = loginPage;
+        } else if (!loginHash && !login) {
+            if (loginPage.startsWith('http://') || loginPage.startsWith('https://')) {
+                window.location.href = loginPage;
+            } else {
+                window.location.pathname = loginPage;
+            }
         } else if (loaded && !login) {
             setLoaded(false);
         }
@@ -69,10 +73,10 @@ const Gate: StyledType = ({ classes, children, cookieCheck, fetchTranslations, l
                 </Context.Provider> : <Loader />}
             </div>
         );
-    } else if (loginAbsolute) {
+    } else if (!loginHash) {
         return <Loader open message='Redirecting to the login page...' />;
     } else {
-        return <Redirect to={loginPage || '/login'} />;
+        return <Redirect to={loginPage.substr(1) || '/login'} />;
     }
 };
 
