@@ -1,3 +1,18 @@
+# [1.20.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.19.1...v1.20.0) (2021-06-24)
+
+
+### Bug Fixes
+
+* handle key=0 [UTCORE-121] ([f90c9cb](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/f90c9cb2cf435f3367f74459b82eb3079d163598))
+
+
+### Features
+
+* same host login page [UTCORE-121] ([251cc79](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/251cc793da006988bf8b77535a6c2f176609b355))
+* **Explorer:** subscribe for changes [UTCORE-121] ([36d6268](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/36d62680c976a004da3e449319ba80a3c46aa798))
+
+
+
 ## [1.19.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.19.0...v1.19.1) (2021-06-19)
 
 
