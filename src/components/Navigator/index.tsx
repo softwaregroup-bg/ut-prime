@@ -31,7 +31,7 @@ const Navigator: StyledType = ({
             [item[parentField]]: (prev[item[parentField]] || []).concat(item)
         }) : prev, {});
         result.forEach(item => Object.assign(item, {
-            key: item[keyField],
+            key: String(item[keyField]),
             children: children[item[keyField]]
         }));
         const items = result.filter(item => item[parentField] == null);
