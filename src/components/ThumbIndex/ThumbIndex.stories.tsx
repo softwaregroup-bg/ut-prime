@@ -36,7 +36,7 @@ const index = [{
     icon: 'pi pi-user',
     items: [{
         label: 'Main',
-        filter: ['main', 'reg', 'financial'],
+        cards: ['main', 'reg', 'financial', 'invalid'],
         items: [
             {label: 'Identification'},
             {label: 'Registration'},
@@ -44,7 +44,7 @@ const index = [{
         ]
     }, {
         label: 'Contacts',
-        filter: ['address', 'phone', 'email', 'person'],
+        cards: ['address', 'phone', 'email', 'person'],
         items: [
             {label: 'Address'},
             {label: 'Phone & Mail'},
@@ -137,10 +137,9 @@ const cards = {
 };
 
 export const Basic: React.FC<{}> = () => {
-    const [filter, setFilter] = React.useState(index?.[0]?.items?.[0].filter || []);
+    const [filter, setFilter] = React.useState(index?.[0]?.items?.[0]);
     const toast = React.useRef(null);
     const trigger = React.useRef(null);
-    const get = React.useCallback(() => Promise.resolve(data), [data]);
     const submit = React.useCallback(formData => toast.current.show({
         severity: 'success',
         summary: 'Submit',
@@ -149,17 +148,18 @@ export const Basic: React.FC<{}> = () => {
     return (
         <Wrap state={state}>
             <Toast ref={toast} />
-            <Toolbar right={<Button icon='pi pi-save' onClick={() => trigger?.current?.()}/>}/>
-            <ThumbIndex index={index} onFilter={setFilter}>
+            <Toolbar left={<Button icon='pi pi-save' onClick={() => trigger?.current?.()}/>}/>
+            <div className='p-grid' style={{overflowX: 'hidden', width: '100%'}}>
+                <ThumbIndex index={index} onFilter={setFilter}/>
                 <Editor
-                    style={{flexGrow: 3, overflowY: 'auto', height: '100%'}}
                     fields={fields}
-                    cards={filter.reduce((filtered, name) => ({...filtered, [name]: cards[name]}), {})}
+                    cards={cards}
+                    layout={filter?.cards || []}
                     onSubmit={submit}
                     trigger={trigger}
-                    get={get}
+                    value={data}
                 />
-            </ThumbIndex>
+            </div>
         </Wrap>
     );
 };

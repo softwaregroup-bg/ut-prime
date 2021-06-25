@@ -5,7 +5,7 @@ exports[`<ThumbIndex /> render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="p-d-flex p-flex-row"
+    class="p-d-flex p-flex-row p-lg-2"
   >
     <div
       class="p-listbox p-component"

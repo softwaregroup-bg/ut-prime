@@ -7,11 +7,11 @@ import { Styled, StyledType } from './ThumbIndex.types';
 const ThumbIndex: StyledType = ({ classes, className, index, children, onFilter, ...rest }) => {
     const [selectedList, setList] = React.useState(index[0]);
     const handleListChange = React.useCallback(({value}) => {
-        setList({...value});
-        onFilter(value?.items?.[0].filter || []);
-    }, [setList]);
+        setList(value);
+        onFilter(value?.items?.[0]);
+    }, [onFilter]);
     const model = React.useMemo(() => {
-        const command = ({item}) => onFilter && onFilter(item.filter);
+        const command = ({item}) => onFilter && onFilter(item);
         const result = (selectedList?.items || []).map((item, index) => ({
             ...item,
             command,
@@ -21,7 +21,7 @@ const ThumbIndex: StyledType = ({ classes, className, index, children, onFilter,
         return result;
     }, [onFilter, selectedList]);
     return (
-        <div className={clsx('p-d-flex', 'p-flex-row', className)} {...rest}>
+        <div className={clsx('p-d-flex p-flex-row p-lg-2', className)} {...rest}>
             <ListBox
                 value={selectedList}
                 options={index}

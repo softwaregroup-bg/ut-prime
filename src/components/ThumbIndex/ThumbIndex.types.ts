@@ -9,7 +9,7 @@ interface Item extends MenuItem {
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     className?: string;
     index: Item[];
-    onFilter: (filter: string[]) => void
+    onFilter: (filter: any) => void
 }
 
 const styles = createStyles({
