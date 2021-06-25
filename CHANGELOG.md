@@ -1,3 +1,12 @@
+## [1.21.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.21.0...v1.21.1) (2021-06-25)
+
+
+### Bug Fixes
+
+* searchparams handling [UTCORE-121] ([11e7558](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/11e75587f666b1e818ae0928e967fee049117f63))
+
+
+
 # [1.21.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.20.0...v1.21.0) (2021-06-25)
 
 
