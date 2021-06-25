@@ -72,7 +72,7 @@ const Explorer: StyledType = ({
             disabled={!isEnabled(enabled)}
             className="p-mr-2"
         />
-    ), [keyField, current, selected]);
+    ), [keyField, actions, current, selected]);
     React.useEffect(() => {
         async function load() {
             if (!fetch) {
@@ -153,7 +153,7 @@ const Explorer: StyledType = ({
                     <>
                         {children && <Button icon="pi pi-bars" className="p-mr-2" onClick={navigationToggle}/>}
                         {buttons}
-                    </>, [navigationToggle])
+                    </>, [navigationToggle, buttons])
                 }
                 right={React.useMemo(() => <Button icon="pi pi-bars" className="p-mr-2" onClick={detailsToggle}/>, [detailsToggle])
                 }
