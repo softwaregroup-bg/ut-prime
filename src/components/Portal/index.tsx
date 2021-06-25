@@ -93,10 +93,10 @@ const Portal: StyledType = ({ classes, children }) => {
         ]
     }]), [rightMenu, rightMenuItems, permissions]);
 
-    if (location.pathname !== '/' && !tabs.find(tab => tab.path === location.pathname)) {
+    if (location.pathname !== '/' && !tabs.find(tab => tab.path === location.pathname + location.search)) {
         dispatch({
             type: 'portal.route.find',
-            path: location.pathname
+            path: location.pathname + location.search
         });
     }
     return (
