@@ -58,7 +58,7 @@ const Portal: StyledType = ({ classes, children }) => {
             dispatch(item.action());
         }
     }, [dispatch]);
-    const found = tabs.findIndex(tab => tab.path === location.pathname);
+    const found = tabs.findIndex(tab => tab.path === (location.pathname + location.search));
     const tabIndex = found >= 0 ? found : undefined;
     const handleTabSelect = React.useCallback(event => {
         if (event?.originalEvent?.target?.classList?.contains('pi-times')) {

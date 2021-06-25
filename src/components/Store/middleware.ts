@@ -4,11 +4,17 @@ export default store => next => async action => {
     switch (action.type) {
         case 'front.tab.show': {
             const {title, component} = action.tab ? await action.tab({}) : action;
-            const id = action?.params?.id;
+            const {id, ...params} = action?.params || {};
             if (!action.path) {
-                action.path = '/' + action.tab.name.split('/').pop() + (component.length ? '/' + id : '');
+                let query;
+                if (Object.keys(params).length) {
+                    query = new URLSearchParams(params);
+                    query.sort();
+                    query = '?' + query.toString();
+                } else query = '';
+                action.path = '/' + action.tab.name.split('/').pop() + ((id != null) ? '/' + id : '') + query;
             }
-            const result = next({...action, title, Component: await component({id})});
+            const result = next({...action, title, Component: await component(action?.params || {})});
             next(push(action.path));
             return result;
         }
