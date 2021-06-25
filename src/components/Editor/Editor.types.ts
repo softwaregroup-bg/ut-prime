@@ -23,15 +23,16 @@ interface Cards {
     [name: string]: Card
 }
 
-export interface Props extends React.HTMLAttributes<HTMLDivElement> {
+export interface Props extends React.HTMLAttributes<HTMLFormElement> {
     className?: string;
     fields: Fields;
     cards: Cards;
+    layout?: string[];
     onSubmit: (form: {}) => void;
-    trigger: {
+    trigger?: {
         current: (event: {}) => void
     };
-    get: (params?: {}) => Promise<{}>;
+    value?: any;
 }
 
 const styles = createStyles({

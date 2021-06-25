@@ -4,10 +4,8 @@ exports[`<Editor /> render equals snapshot 1`] = `
 <div
   data-testid="ut-front-test"
 >
-  <div>
-    <form
-      class="p-grid p-m-2"
-    />
-  </div>
+  <form
+    class="p-grid p-col p-mt-2"
+  />
 </div>
 `;

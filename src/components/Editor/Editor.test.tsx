@@ -5,7 +5,14 @@ import Editor from './index';
 
 describe('<Editor />', () => {
     it('render equals snapshot', () => {
-        const { getByTestId } = render(<Editor fields={[]} cards={[]} onSubmit={data => {}}/>);
+        const { getByTestId } = render(
+            <Editor
+                fields={{}}
+                cards={{}}
+                value={{}}
+                onSubmit={data => {}}
+            />
+        );
         expect(getByTestId('ut-front-test')).toMatchSnapshot();
     });
 });

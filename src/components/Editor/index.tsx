@@ -34,12 +34,12 @@ function element(field: { onChange: (...event: any[]) => void; onBlur: () => voi
     return <Element {...field} {...props}/>;
 }
 
-const Editor: StyledType = ({ classes, className, fields, cards, onSubmit, trigger, get, ...rest }) => {
+const Editor: StyledType = ({ classes, className, fields, cards, layout, onSubmit, trigger, value, ...rest }) => {
     const schema = Object.entries(fields).reduce(
-        (schema, [name, {title, validation = Joi.string().min(0).allow('', null).default('label')}]) => schema.append({[name]: validation.label(title || name)}),
+        (schema, [name, {title, validation = Joi.string().min(0).allow('', null)}]) => schema.append({[name]: validation.label(title || name)}),
         Joi.object()
     );
-    const {handleSubmit, reset, control, formState: {errors}} = useForm({resolver: joiResolver(schema)});
+    const {handleSubmit, control, reset, formState: {errors}} = useForm({resolver: joiResolver(schema)});
     const getFormErrorMessage = (name) => {
         return errors[name] && <small className="p-error">{errors[name].message}</small>;
     };
@@ -47,12 +47,13 @@ const Editor: StyledType = ({ classes, className, fields, cards, onSubmit, trigg
         if (trigger) trigger.current = handleSubmit(onSubmit);
     }, [trigger, handleSubmit, onSubmit]);
     React.useEffect(() => {
-        (async() => reset(get ? await get() : {}))();
-    }, [get]);
+        reset(value || {});
+    }, [value]);
     return (
-        <div {...rest}>
-            <form onSubmit={handleSubmit(onSubmit)} className="p-grid p-m-2">
-                {Object.entries(cards || {}).map(([id, {title, className, fields: names = []}]) =>
+        <form {...rest} onSubmit={handleSubmit(onSubmit)} className={clsx('p-grid p-col p-mt-2', className)}>
+            {(layout || Object.keys(cards)).map((id) => {
+                const {title, className, fields: names = []} = (cards[id] || {title: '❌ ' + id, className: 'p-lg-6 p-xl-4'});
+                return (
                     <div key={id} className={clsx('p-col-12', className || 'p-xl-6')}>
                         <Card title={title} key={id} className='p-fluid'>
                             {names.map(name =>
@@ -64,7 +65,12 @@ const Editor: StyledType = ({ classes, className, fields, cards, onSubmit, trigg
                                         <Controller
                                             control={control}
                                             name={name}
-                                            render={({field}) => element({className: clsx({ 'p-invalid': errors[name] }), ...field}, fields[name].editor)}
+                                            render={
+                                                ({field}) => element({
+                                                    className: clsx({ 'p-invalid': errors[name] }),
+                                                    ...field
+                                                }, fields[name].editor)
+                                            }
                                         />
                                     </div>
                                     {getFormErrorMessage(name)}
@@ -72,9 +78,9 @@ const Editor: StyledType = ({ classes, className, fields, cards, onSubmit, trigg
                             )}
                         </Card>
                     </div>
-                )}
-            </form>
-        </div>
+                );
+            })}
+        </form>
     );
 };
 
