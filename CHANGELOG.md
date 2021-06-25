@@ -1,3 +1,20 @@
+# [1.21.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.20.0...v1.21.0) (2021-06-25)
+
+
+### Bug Fixes
+
+* decouple editor [UTCORE-121] ([8d68d6f](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/8d68d6fdf3d397abec6ef88a96c0eaced26255f0))
+* prevent form submit [UTCORE-121] ([efb5e9f](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/efb5e9f89521f906c8d84973498f3ac5043298ca))
+* refresh buttons [UTCORE-121] ([24dc18f](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/24dc18ff7250e55e8c0175da4529c303cad7a541))
+
+
+### Features
+
+* refactor events [UTCORE-121] ([b587435](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/b5874359cd90282c98762f3fda4b0bce7e70f1e2))
+* search parameters [UTCORE-121] ([83b3b47](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/83b3b4710537872fe7860fd7e88c855c51bc61db))
+
+
+
 # [1.20.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.19.1...v1.20.0) (2021-06-24)
 
 
