@@ -1,6 +1,6 @@
 import React from 'react';
 import {InputText, DataTable, Column, Toolbar, Button} from '../../prime';
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuid } from 'uuid';
 
 export const Table = React.forwardRef<{}, any>(({onChange, columns, value, dataKey = 'id'}, ref) => {
     if (typeof ref === 'function') ref(React.useState({})[0]);
@@ -26,14 +26,16 @@ export const Table = React.forwardRef<{}, any>(({onChange, columns, value, dataK
         restored[original.index] = original.value;
         onChange(restored);
     }, [value, onChange]);
-    const addNewRow = () => {
-        const id = uuidv4();
+    const addNewRow = e => {
+        e.preventDefault();
+        const id = uuid();
         const newValue = Object.keys(value[0] || {}).reduce((item, key) => ({...item, [key]: '', id: id}), {});
         const updatedValue = [...value, newValue];
         onChange(updatedValue);
         setEditingRows({[id]: true});
     };
-    const deleteRow = () => {
+    const deleteRow = e => {
+        e.preventDefault();
         onChange(value.filter(rowData => !selected.includes(rowData)));
     };
     const [selected, setSelected] = React.useState([]);
