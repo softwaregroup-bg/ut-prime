@@ -15,11 +15,11 @@ const fetchTranslations = params => ({
     params
 });
 
-const Gate: StyledType = ({ classes, children, cookieCheck, fetchTranslations, loginPage }) => {
+const Gate: StyledType = ({ classes, children, cookieCheck, fetchTranslations, loginPage = '#/login' }) => {
     const [loaded, setLoaded] = useState(null);
     const [cookieChecked, setCookieChecked] = useState(false);
     const login = useSelector(state => state.login || false);
-    const loginHash = loginPage && loginPage.startsWith('#');
+    const loginHash = !loginPage || loginPage.startsWith('#');
 
     async function load() {
         // setPermissions(result.get('permission.get').toJS());
@@ -76,7 +76,7 @@ const Gate: StyledType = ({ classes, children, cookieCheck, fetchTranslations, l
     } else if (!loginHash) {
         return <Loader open message='Redirecting to the login page...' />;
     } else {
-        return <Redirect to={loginPage.substr(1) || '/login'} />;
+        return <Redirect to={loginPage?.substr?.(1) || '/login'} />;
     }
 };
 
