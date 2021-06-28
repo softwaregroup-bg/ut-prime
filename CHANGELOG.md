@@ -1,3 +1,12 @@
+## [1.21.2](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.21.1...v1.21.2) (2021-06-28)
+
+
+### Bug Fixes
+
+* loginPage config is optional [UTCORE-121] ([875c274](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/875c274675abb8ba00bf226331d9464c2d0a5424))
+
+
+
 ## [1.21.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.21.0...v1.21.1) (2021-06-25)
 
 
