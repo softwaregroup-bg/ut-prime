@@ -1,3 +1,12 @@
+## [1.21.3](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.21.2...v1.21.3) (2021-07-02)
+
+
+### Bug Fixes
+
+* theme switching [UTCORE-121] ([23ae567](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/23ae5678f2d97ac09972a8d1fa98436e9f4b37d4))
+
+
+
 ## [1.21.2](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.21.1...v1.21.2) (2021-06-28)
 
 
