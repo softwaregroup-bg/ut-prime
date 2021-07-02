@@ -19,8 +19,11 @@ import Store from '../Store';
 import { StyledType } from './App.types';
 import PageNotFound from './PageNotFound';
 
+let last;
+
 const App: StyledType = ({middleware, reducers, theme, portalName, state, onDispatcher, loginPage}) => {
-    theme?.palette?.type === 'dark' ? dark?.use?.() : light?.use?.();
+    last?.unuse?.();
+    last = theme?.palette?.type === 'dark' ? dark?.use?.() : light?.use?.();
     return (
         <Store {...{middleware, reducers, state, onDispatcher}}>
             <ThemeProvider theme={createMuiTheme(theme)}>
