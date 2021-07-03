@@ -1,3 +1,12 @@
+## [1.21.4](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.21.3...v1.21.4) (2021-07-03)
+
+
+### Bug Fixes
+
+* [UTCORE-121] avoid Failed to execute 'removeChild' on 'Node' ([ddf89ff](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/ddf89ff4254f724aa03eff6d2a2fccf40204d1e2))
+
+
+
 ## [1.21.3](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.21.2...v1.21.3) (2021-07-02)
 
 
