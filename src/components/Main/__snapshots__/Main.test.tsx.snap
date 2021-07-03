@@ -274,10 +274,10 @@ exports[`<Main /> render equals snapshot 1`] = `
               role="presentation"
             >
               <a
-                aria-controls="pr_id_2_content_0"
+                aria-controls="pr_id_1_content_0"
                 aria-selected="true"
                 class="p-tabview-nav-link"
-                id="pr_id_2_header_0"
+                id="pr_id_1_header_0"
                 role="tab"
                 tabindex="0"
               >
@@ -302,9 +302,9 @@ exports[`<Main /> render equals snapshot 1`] = `
           >
             <div
               aria-hidden="false"
-              aria-labelledby="pr_id_2_header_0"
+              aria-labelledby="pr_id_1_header_0"
               class="p-tabview-panel"
-              id="pr_id_2_content_0"
+              id="pr_id_1_content_0"
               role="tabpanel"
             >
               <div>

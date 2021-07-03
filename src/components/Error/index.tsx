@@ -23,7 +23,7 @@ const Error: StyledType = ({ classes, open, message, close, title: header, type,
         actionButtons = <Button label="Close" onClick={handleClose} />;
     }
 
-    return (
+    return open ? (
         <Dialog
             visible={open}
             onHide={handleClose}
@@ -39,7 +39,7 @@ const Error: StyledType = ({ classes, open, message, close, title: header, type,
                 {actionButtons}
             </div>
         </Dialog>
-    );
+    ) : null;
 };
 
 export default connect(
