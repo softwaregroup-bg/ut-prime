@@ -1,3 +1,12 @@
+# [1.22.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.21.4...v1.22.0) (2021-07-21)
+
+
+### Features
+
+* **Editor:** nested cards [UTCORE-121] ([f4c3f6e](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/f4c3f6e4de3fbfd212e80fa32549b55d8a512efb))
+
+
+
 ## [1.21.4](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.21.3...v1.21.4) (2021-07-03)
 
 
