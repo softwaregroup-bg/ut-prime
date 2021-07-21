@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import Joi from 'joi';
 
-import { Card, InputText, Dropdown, InputMask, InputNumber, Calendar } from '../prime';
+import { Card, InputText, InputTextarea, Dropdown, TreeSelect, InputMask, InputNumber, Calendar } from '../prime';
 import { Styled, StyledType } from './Editor.types';
 import useForm from '../hooks/useForm';
 import Controller from '../Controller';
@@ -26,6 +26,8 @@ function Currency({onChange, ref, ...props}) {
 function element(field: { onChange: (...event: any[]) => void; onBlur: () => void; value: any; name: string; ref: RefCallBack; className: string; }, {type = 'string', ...props} = {}) {
     const Element: React.ElementType = {
         dropdown: Dropdown,
+        dropdownTree: TreeSelect,
+        text: InputTextarea,
         mask: InputMask,
         date: Calendar,
         currency: Currency,
@@ -49,34 +51,44 @@ const Editor: StyledType = ({ classes, className, fields, cards, layout, onSubmi
     React.useEffect(() => {
         reset(value || {});
     }, [value]);
+
+    function card(id) {
+        const {title, fields: names = []} = (cards[id] || {title: '❌ ' + id, className: 'p-lg-6 p-xl-4'});
+        return (
+            <Card title={title} key={id} className='p-fluid p-mb-3'>
+                {names.map(name => fields[name]
+                    ? <div className="p-field p-grid" key={name}>
+                        {fields[name].title ? <label className='p-col-12 p-md-4'>
+                            {fields[name].title}
+                        </label> : null}
+                        <div className={clsx(fields[name].title ? 'p-col-12 p-md-8' : 'p-col-12')}>
+                            <Controller
+                                control={control}
+                                name={name}
+                                render={
+                                    ({field}) => element({
+                                        className: clsx({ 'p-invalid': errors[name] }),
+                                        ...field
+                                    }, fields[name].editor)
+                                }
+                            />
+                        </div>
+                        {getFormErrorMessage(name)}
+                    </div>
+                    : <div className="p-field p-grid" key={name}>❌ {name}</div>
+                )}
+            </Card>
+        );
+    }
+
     return (
         <form {...rest} onSubmit={handleSubmit(onSubmit)} className={clsx('p-grid p-col p-mt-2', className)}>
-            {(layout || Object.keys(cards)).map((id) => {
-                const {title, className, fields: names = []} = (cards[id] || {title: '❌ ' + id, className: 'p-lg-6 p-xl-4'});
+            {(layout || Object.keys(cards)).map((id, index) => {
+                const nested = [].concat(id);
+                const key = nested[0];
                 return (
-                    <div key={id} className={clsx('p-col-12', className || 'p-xl-6')}>
-                        <Card title={title} key={id} className='p-fluid'>
-                            {names.map(name =>
-                                <div className="p-field p-grid" key={name}>
-                                    {fields[name].title ? <label className='p-col-12 p-md-4'>
-                                        {fields[name].title}
-                                    </label> : null}
-                                    <div className={clsx(fields[name].title ? 'p-col-12 p-md-8' : 'p-col-12')}>
-                                        <Controller
-                                            control={control}
-                                            name={name}
-                                            render={
-                                                ({field}) => element({
-                                                    className: clsx({ 'p-invalid': errors[name] }),
-                                                    ...field
-                                                }, fields[name].editor)
-                                            }
-                                        />
-                                    </div>
-                                    {getFormErrorMessage(name)}
-                                </div>
-                            )}
-                        </Card>
+                    <div key={key} className={clsx('p-col-12', cards[key]?.className || 'p-xl-6')}>
+                        {nested.map(card)}
                     </div>
                 );
             })}

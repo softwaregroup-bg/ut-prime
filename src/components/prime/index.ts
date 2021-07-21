@@ -24,3 +24,4 @@ export { TabView, TabPanel } from 'primereact/tabview';
 export { Toast } from 'primereact/toast';
 export { Toolbar } from 'primereact/toolbar';
 export { Tree } from 'primereact/tree';
+export { TreeSelect } from 'primereact/treeselect';

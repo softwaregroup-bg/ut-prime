@@ -7,13 +7,16 @@
         "confirmdialog",
         "datatable",
         "devextreme",
+        "hookform",
         "iban",
         "inputmask",
         "inputnumber",
         "inputtext",
         "inputtextarea",
+        "listbox",
         "mobi",
         "multiselect",
+        "panelmenu",
         "primeflex",
         "primeicons",
         "primereact",
@@ -21,6 +24,7 @@
         "submenu",
         "tabview",
         "testid",
-        "transpiled"
+        "transpiled",
+        "treeselect"
     ]
 }
