@@ -1,3 +1,17 @@
+# [1.23.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.22.0...v1.23.0) (2021-07-25)
+
+
+### Bug Fixes
+
+* type warnings [UTCORE-121] ([4f53882](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/4f538822ff1637b5ed590149cb24851a1f839313))
+
+
+### Features
+
+* align with json-schema [UTCORE-121] ([4d77a35](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/4d77a356e8fecf5e08b3da368bf3b5ec687aa353))
+
+
+
 # [1.22.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.21.4...v1.22.0) (2021-07-21)
 
 
