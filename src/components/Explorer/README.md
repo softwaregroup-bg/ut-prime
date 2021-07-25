@@ -16,7 +16,8 @@ import Explorer from 'ut-front-devextreme/core/Explorer';
     fetch={fetch}
     keyField='id'
     resultSet='items'
-    fields={fields}
+    properties={properties}
+    columns={columns}
     details={details}
 />
 ```
@@ -27,13 +28,15 @@ import Explorer from 'ut-front-devextreme/core/Explorer';
 - **keyField** - Name of the key field in the result set.
 - **resultSet** - Name of the property, in which the result set
   is returned.
-- **fields** - Fields to show in the table.
+- **properties** - Schema defining the properties in the result set.
+- **columns** - Array of property names to show as columns
 - **details** - Fields to show in the details pane.
 
-| propName  | propType | defaultValue | isRequired |
-| --------- | -------- | ------------ | ---------- |
-| fetch     | function |              | no         |
-| keyField  | string   |              | no         |
-| resultSet | string   |              | no         |
-| fields    | array    |              | no         |
-| details   | object   |              | no         |
+| propName  | propType    | defaultValue | isRequired |
+| --------- | --------    | ------------ | ---------- |
+| fetch     | function    |              | no         |
+| keyField  | string      |              | no         |
+| resultSet | string      |              | no         |
+| properties| JSON schema |              | no         |
+| columns   | array       |              | no         |
+| details   | object      |              | no         |

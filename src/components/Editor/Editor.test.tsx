@@ -7,7 +7,7 @@ describe('<Editor />', () => {
     it('render equals snapshot', () => {
         const { getByTestId } = render(
             <Editor
-                fields={{}}
+                properties={{}}
                 cards={{}}
                 value={{}}
                 onSubmit={data => {}}

@@ -31,13 +31,15 @@ const state = {
                         })}
                         keyField='id'
                         resultSet='items'
-                        fields={[{
-                            field: 'name',
-                            title: 'Name'
-                        }, {
-                            field: 'size',
-                            title: 'Size'
-                        }]}
+                        properties={{
+                            name: {
+                                title: 'Name'
+                            },
+                            size: {
+                                title: 'Size'
+                            }
+                        }}
+                        columns = {['name', 'size']}
                         details={{
                             name: 'Name'
                         }}

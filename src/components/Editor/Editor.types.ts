@@ -1,21 +1,27 @@
 import {WithStyles, withStyles, createStyles} from '@material-ui/core/styles';
 import React from 'react';
 import type { Schema } from 'joi';
+import type { JSONSchema7 } from 'json-schema'; // eslint-disable-line
 
-interface Field {
-    title: string;
-    editor?: {
-        type: string
+export interface PropertyEditor {
+    type: 'dropdown' | 'dropdownTree' | 'text' | 'mask' | 'date' | 'boolean' | 'currency' | 'table';
+    dropdown?: string;
+    [editorProperties: string]: any
+}
+export interface Property extends JSONSchema7 {
+    editor?: PropertyEditor,
+    properties?: {
+        [key: string]: Property
     },
     validation?: Schema
 }
 
-interface Fields {
-    [name: string]: Field
+export interface Properties {
+    [name: string]: Property
 }
 interface Card {
     title: string;
-    fields: string[];
+    properties: string[];
     className?: string;
 }
 
@@ -25,8 +31,17 @@ interface Cards {
 
 export interface Props extends React.HTMLAttributes<HTMLFormElement> {
     className?: string;
-    fields: Fields;
+    properties: Properties;
     cards: Cards;
+    dropdown?: {
+        [name: string]: {
+            label: string;
+            value: any;
+            className?: string;
+            title?: string;
+            disabled?: boolean
+        }[]
+    },
     layout?: string[];
     onSubmit: (form: {}) => void;
     trigger?: {

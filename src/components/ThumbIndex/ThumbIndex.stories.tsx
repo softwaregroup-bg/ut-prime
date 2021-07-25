@@ -8,6 +8,7 @@ import Wrap from '../test/wrap';
 import README from './README.md';
 import ThumbIndex from './index';
 import Editor from '../Editor';
+import {Properties, PropertyEditor} from '../Editor/Editor.types';
 import {Toast, Toolbar, Button} from '../prime';
 
 export default {
@@ -59,7 +60,7 @@ const index = [{
     icon: 'pi pi-clock'
 }];
 
-const identifierTypeEditor = {
+const identifierTypeEditor: PropertyEditor = {
     type: 'dropdown',
     options: [
         {value: 1, label: 'Sole Trader'},
@@ -67,14 +68,14 @@ const identifierTypeEditor = {
     ]
 };
 
-const currencyEditor = {
+const currencyEditor: PropertyEditor = {
     type: 'dropdown',
     options: [
         {value: 1, label: 'USD'},
         {value: 2, label: 'EUR'}
     ]
 };
-const phoneEditor = {
+const phoneEditor: PropertyEditor = {
     type: 'table',
     columns: [
         { field: 'type', header: 'Type' },
@@ -83,7 +84,7 @@ const phoneEditor = {
     ]
 };
 
-const emailEditor = {
+const emailEditor: PropertyEditor = {
     type: 'table',
     columns: [
         { field: 'type', header: 'Type' },
@@ -91,21 +92,25 @@ const emailEditor = {
     ]
 };
 
-const fields = {
+const properties: Properties = {
     identifierType: {title: 'Identifier type *', editor: identifierTypeEditor, validation: Joi.number().integer().required().label('Identifier type')},
     identifier: {title: 'Identifier *', validation: Joi.string().required()},
     clientNumber: {title: 'Client number'},
     legalStatus: {title: 'Legal status'},
-    regDocType: {title: 'Document type'},
-    regDocNum: {
-        title: 'Document number',
-        validation: Joi.string()
-            .when('regDocType', {
-                is: [Joi.string(), Joi.number()],
-                then: Joi.required(),
-                otherwise: Joi.allow('')
-            })
-            .label('Document number')
+    regDoc: {
+        properties: {
+            type: {title: 'Document type'},
+            num: {
+                title: 'Document number',
+                validation: Joi.string()
+                    .when('type', {
+                        is: [Joi.string(), Joi.number()],
+                        then: Joi.required(),
+                        otherwise: Joi.allow('')
+                    })
+                    .label('Document number')
+            }
+        }
     },
     regIssuer: {title: 'Issuer'},
     regCountry: {title: 'Country'},
@@ -127,13 +132,13 @@ const fields = {
 };
 
 const cards = {
-    main: {title: 'Main data', className: 'p-lg-6 p-xl-4', fields: ['identifierType', 'identifier', 'clientNumber', 'legalStatus']},
-    reg: {title: 'Registration', className: 'p-lg-6 p-xl-4', fields: ['regDocType', 'regDocNum', 'regIssuer', 'regCountry', 'regStart', 'regEnd']},
-    financial: {title: 'Financial data', className: 'p-lg-6 p-xl-4', fields: ['capital', 'capitalCurrency', 'capitalDate', 'capitalCountry', 'ownerNationality']},
-    address: {title: 'Address', fields: ['addressCountry', 'addressCity', 'addressZip', 'addressStreet']},
-    phone: {title: 'Phone', fields: ['phone']},
-    email: {title: 'E-mail', fields: ['email']},
-    person: {title: 'Contact person', fields: ['personName', 'personPosition']}
+    main: {title: 'Main data', className: 'p-lg-6 p-xl-4', properties: ['identifierType', 'identifier', 'clientNumber', 'legalStatus']},
+    reg: {title: 'Registration', className: 'p-lg-6 p-xl-4', properties: ['regDoc.type', 'regDoc.num', 'regIssuer', 'regCountry', 'regStart', 'regEnd']},
+    financial: {title: 'Financial data', className: 'p-lg-6 p-xl-4', properties: ['capital', 'capitalCurrency', 'capitalDate', 'capitalCountry', 'ownerNationality']},
+    address: {title: 'Address', properties: ['addressCountry', 'addressCity', 'addressZip', 'addressStreet']},
+    phone: {title: 'Phone', properties: ['phone']},
+    email: {title: 'E-mail', properties: ['email']},
+    person: {title: 'Contact person', properties: ['personName', 'personPosition']}
 };
 
 export const Basic: React.FC<{}> = () => {
@@ -152,7 +157,7 @@ export const Basic: React.FC<{}> = () => {
             <div className='p-grid' style={{overflowX: 'hidden', width: '100%'}}>
                 <ThumbIndex index={index} onFilter={setFilter}/>
                 <Editor
-                    fields={fields}
+                    properties={properties}
                     cards={cards}
                     layout={filter?.cards || []}
                     onSubmit={submit}

@@ -41,7 +41,9 @@ exports[`<Error /> render equals snapshot 1`] = `
     />
     <div
       class="Error-errorMessageWrap-3"
-    />
+    >
+      <span />
+    </div>
     <div
       class="Error-errorButtonWrap-4"
     >

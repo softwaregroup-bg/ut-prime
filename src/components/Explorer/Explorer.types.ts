@@ -1,9 +1,8 @@
 import {WithStyles, withStyles, createStyles} from '@material-ui/core/styles';
 import React from 'react';
+import { JSONSchema7 } from 'json-schema'; // eslint-disable-line
 
-interface column {
-    field: string;
-    title: string;
+interface Property extends JSONSchema7 {
     filter?: boolean;
     sort?: boolean;
     action?: ({
@@ -11,6 +10,10 @@ interface column {
         current: {},
         selected: []
     }) => void;
+}
+
+export interface Properties {
+    [name: string]: Property
 }
 
 interface action {
@@ -27,7 +30,8 @@ interface action {
 export interface Props {
     keyField: string;
     resultSet?: string;
-    fields: column[];
+    properties: Properties;
+    columns: string[];
     fetch: (params: {
         [resultSet: string]: {},
         orderBy: {
@@ -41,7 +45,8 @@ export interface Props {
     }) => Promise<{
         pagination?: {
             recordsTotal: number
-        }
+        },
+        [data: string]: any
     }>;
     subscribe?: (callback: (rows: any) => void) => () => void;
     className?: string;

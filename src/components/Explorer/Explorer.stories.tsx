@@ -31,17 +31,19 @@ export const Basic: React.FC<{}> = () => {
                     fetch={fetchItems}
                     keyField='id'
                     resultSet='items'
-                    fields={[{
-                        field: 'name',
-                        title: 'Name',
-                        filter: true,
-                        sort: true
-                    }, {
-                        field: 'size',
-                        title: 'Size',
-                        filter: true,
-                        sort: true
-                    }]}
+                    properties={{
+                        name: {
+                            title: 'Name',
+                            filter: true,
+                            sort: true
+                        },
+                        size: {
+                            title: 'Size',
+                            filter: true,
+                            sort: true
+                        }
+                    }}
+                    columns = {['name', 'size']}
                     subscribe={updateItems}
                     details={{
                         name: 'Name'

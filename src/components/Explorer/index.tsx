@@ -26,7 +26,8 @@ const Explorer: StyledType = ({
     keyField,
     fetch,
     subscribe,
-    fields,
+    properties,
+    columns,
     resultSet,
     children,
     details,
@@ -129,23 +130,23 @@ const Explorer: StyledType = ({
                 )
             }</div>
         </SplitterPanel>, [current, details, detailsOpened]);
-    const columns = React.useMemo(() => fields.map(({field, title, filter, sort, action}) => <Column
-        key={field}
-        field={field}
-        header={title}
-        body={action && (row => <Button
-            label={row[field]}
+    const Columns = React.useMemo(() => columns.map(name => <Column
+        key={name}
+        field={name}
+        header={properties[name].title}
+        body={properties[name].action && (row => <Button
+            label={row[name]}
             style={{padding: 0, minWidth: 'inherit'}}
             className='p-button-link'
-            onClick={() => action({
+            onClick={() => properties[name].action({
                 id: row && row[keyField],
                 current: row,
                 selected: [row]
             })}
         />)}
-        filter={!!filter}
-        sortable={!!sort}
-    />), [fields]);
+        filter={!!properties[name].filter}
+        sortable={!!properties[name].sort}
+    />), [columns, properties]);
     return (
         <div className={clsx('p-d-flex', 'p-flex-column', className)} style={{height: '100%'}} >
             <Toolbar
@@ -183,7 +184,7 @@ const Explorer: StyledType = ({
                             onRowSelect={handleRowSelect}
                         >
                             <Column selectionMode="multiple" style={selectionWidth}/>
-                            {columns}
+                            {Columns}
                         </DataTable>
                     </SplitterPanel>,
                     detailsPanel

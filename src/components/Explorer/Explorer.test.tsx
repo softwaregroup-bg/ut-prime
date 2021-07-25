@@ -11,15 +11,19 @@ describe('<Explorer />', () => {
             fetch={fetchItems}
             keyField='id'
             resultSet='items'
-            fields={[{
-                field: 'name',
-                title: 'Name',
-                filter: true,
-                sort: true
-            }, {
-                field: 'size',
-                title: 'Size'
-            }]}
+            properties={{
+                name: {
+                    title: 'Name',
+                    filter: true,
+                    sort: true
+                },
+                size: {
+                    title: 'Size',
+                    filter: true,
+                    sort: true
+                }
+            }}
+            columns = {['name', 'size']}
             details={{
                 name: 'Name'
             }}

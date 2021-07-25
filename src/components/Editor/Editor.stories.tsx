@@ -17,5 +17,5 @@ const state = {
 };
 
 export const Basic: React.FC<{}> = () => <Wrap state={state}>
-    <Editor fields={[]} cards={[]} />
+    <Editor properties={{}} cards={{}} onSubmit={() => {}}/>
 </Wrap>;

@@ -2,7 +2,13 @@ import React from 'react';
 import {InputText, DataTable, Column, Toolbar, Button} from '../../prime';
 import { v4 as uuid } from 'uuid';
 
-export const Table = React.forwardRef<{}, any>(({onChange, columns, value, dataKey = 'id'}, ref) => {
+export const Table = React.forwardRef<{}, any>(({
+    onChange,
+    columns,
+    value,
+    dataKey = 'id',
+    properties
+}, ref) => {
     if (typeof ref === 'function') ref(React.useState({})[0]);
     const cellEditor = React.useCallback((props, field) => <InputText
         type="text"
@@ -68,11 +74,11 @@ export const Table = React.forwardRef<{}, any>(({onChange, columns, value, dataK
             >
                 <Column selectionMode="multiple" headerStyle={{ width: '3rem' }}></Column>
                 {
-                    (columns || []).map(({ field, header }) => <Column
-                        key={field}
-                        field={field}
-                        header={header}
-                        editor={props => cellEditor(props, field)}
+                    (columns || []).map(name => <Column
+                        key={name}
+                        field={name}
+                        header={properties?.[name]?.title || name}
+                        editor={props => cellEditor(props, name)}
                     />)
                 }
                 <Column rowEditor headerStyle={{ width: '7rem' }} bodyStyle={{ textAlign: 'center' }}></Column>
