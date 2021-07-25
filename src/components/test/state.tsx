@@ -3,8 +3,12 @@ import {State} from '../Store/Store.types';
 import Immutable from 'immutable';
 
 const defaultState: State = {
-    error: {},
-    loader: {},
+    error: {
+        open: false,
+        title: '',
+        message: '',
+        type: ''
+    },
     login: Immutable.fromJS({
         profile: {
             initials: 'SA'

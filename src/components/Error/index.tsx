@@ -7,6 +7,7 @@ import Text from '../Text';
 import { logout } from '../Login/actions';
 
 import { Styled, StyledType } from './Error.types';
+import { State } from '../Store/Store.types';
 
 const close = () => ({type: 'error.close'});
 
@@ -43,6 +44,6 @@ const Error: StyledType = ({ classes, open, message, close, title: header, type,
 };
 
 export default connect(
-    state => state.error,
+    (state: State) => state.error,
     {close, logout}
 )(Styled(Error));

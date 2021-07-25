@@ -2,14 +2,15 @@ import React from 'react';
 import { connect, useSelector } from 'react-redux';
 import clsx from 'clsx';
 import { Redirect } from 'react-router-dom';
-import { Password, InputText, Button } from '../prime';
+import { Box } from '@material-ui/core';
 
+import { Password, InputText, Button } from '../prime';
 import Text from '../Text';
 import { Validator } from '../lib/validator';
+import { State } from '../Store/Store.types';
 
 import { Styled, StyledType } from './Login.types';
 import { identityCheck } from './actions';
-import { Box } from '@material-ui/core';
 
 const inputTypes = {
     username: {
@@ -128,7 +129,7 @@ const loginSteps = {
     }
 };
 
-type State = {
+type LoginState = {
     title: string;
     error: string;
     buttonLabel: string;
@@ -170,7 +171,7 @@ const updateLoginStep = (state, step) => {
     };
 };
 
-function reducer(state: State, action: Action): State {
+function reducer(state: LoginState, action: Action): LoginState {
     switch (action.type) {
         case 'login':
             if (action.methodRequestState !== 'finished') break;
@@ -189,7 +190,7 @@ function reducer(state: State, action: Action): State {
 }
 
 const validator = new Validator(inputTypes);
-const initialState: State = {
+const initialState: LoginState = {
     error: '',
     ...loginSteps.initial,
     inputs: [inputTypes.username]
@@ -210,7 +211,7 @@ const Login: StyledType = ({
         formContainer
     }
 }) => {
-    const authenticated = useSelector(state => state.login);
+    const authenticated = useSelector((state: State) => state.login);
 
     const [{ title, error, inputs, buttonLabel }, dispatch] = React.useReducer(reducer, initialState);
     if (authenticated) return <Redirect to='/' />;

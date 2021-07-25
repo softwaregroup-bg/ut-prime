@@ -5,7 +5,6 @@ import React from 'react';
 import error from '../images/error.png';
 
 export interface ILoginProps {
-    authenticated: boolean;
     identityCheck: ({}) => Promise<{}>;
 }
 

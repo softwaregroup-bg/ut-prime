@@ -8,6 +8,7 @@ import Context from '../Context';
 import Text from '../Text';
 import {logout} from '../Login/actions';
 import permissionCheck from '../lib/permission';
+import {State} from '../Store/Store.types';
 
 import { Styled, StyledType } from './Portal.types';
 
@@ -42,8 +43,13 @@ const Portal: StyledType = ({ classes, children }) => {
         menu,
         rightMenu,
         rightMenuItems
-    } = useSelector(({portal}) => portal || {});
-    const login = useSelector(({login}) => login);
+    } = useSelector(({portal}: State) => portal || {
+        tabs: undefined,
+        menu: undefined,
+        rightMenu: undefined,
+        rightMenuItems: undefined
+    });
+    const login = useSelector(({login}: State) => login);
     const initials = Immutable.getIn(login, ['profile', 'initials'], 'N/A');
     const permissions = Immutable.getIn(login, ['result', 'permission.get'], false);
     const dispatch = useDispatch();

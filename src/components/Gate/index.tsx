@@ -8,8 +8,9 @@ import Context from '../Text/context';
 
 import Permission from './Permission';
 import { Styled, StyledType } from './Gate.types';
+import { State } from '../Store/Store.types';
 
-const fetchTranslations = params => ({
+const fetchTranslations: ((params: any) => any) = params => ({
     type: 'core.translation.fetch',
     method: 'core.translation.fetch',
     params
@@ -18,7 +19,7 @@ const fetchTranslations = params => ({
 const Gate: StyledType = ({ classes, children, cookieCheck, fetchTranslations, loginPage = '#/login' }) => {
     const [loaded, setLoaded] = useState(null);
     const [cookieChecked, setCookieChecked] = useState(false);
-    const login = useSelector(state => state.login || false);
+    const login = useSelector((state: State) => state.login || false);
     const loginHash = !loginPage || loginPage.startsWith('#');
 
     async function load() {
