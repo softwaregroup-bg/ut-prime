@@ -1,8 +1,6 @@
 import React from 'react';
 import { withReadme } from 'storybook-readme';
 
-import Wrap from '../test/wrap';
-
 // @ts-ignore: md file and not a module
 import README from './README.md';
 import Text from './index';
@@ -10,9 +8,12 @@ import Text from './index';
 export default {
     title: 'Text',
     component: Text,
-    decorators: [withReadme(README)]
+    decorators: [withReadme(README)],
+    args: {
+        state: {
+        }
+    }
 };
 
-export const Basic: React.FC<{}> = () => <Wrap>
-    <Text>Text content, which can be translated</Text>
-</Wrap>;
+export const Basic: React.FC<{}> = () =>
+    <Text>Text content, which can be translated</Text>;

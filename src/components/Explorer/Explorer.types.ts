@@ -28,7 +28,7 @@ interface action {
 }
 
 export interface Props {
-    keyField: string;
+    keyField?: string;
     resultSet?: string;
     properties: Properties;
     columns: string[];
@@ -53,6 +53,7 @@ export interface Props {
     details: {};
     actions?: action[];
     filter?: {};
+    showFilter?: boolean;
     pageSize?: number
 }
 

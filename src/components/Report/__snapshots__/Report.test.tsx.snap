@@ -1,0 +1,211 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Report /> render equals snapshot 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  <div
+    class="p-d-flex p-ai-center"
+  >
+    <form
+      class="p-grid p-col p-mt-2"
+      style="flex-grow: 1;"
+    >
+      <div
+        class="p-col-12 p-col-12"
+      >
+        <div
+          class="p-card p-component p-fluid p-mb-3"
+        >
+          <div
+            class="p-card-body"
+          >
+            <div
+              class="p-card-content"
+            >
+              <div
+                class="p-d-flex p-flex-wrap"
+              >
+                <div
+                  class="p-field p-grid p-col-12 p-md-4 p-xl-3"
+                >
+                  <label
+                    class="p-col-12 p-md-4"
+                  >
+                    Name
+                  </label>
+                  <div
+                    class="p-col-12 p-md-8"
+                  >
+                    <input
+                      class="p-inputtext p-component"
+                      name="name"
+                      value=""
+                    />
+                  </div>
+                </div>
+                <div
+                  class="p-field p-grid p-col-12 p-md-4 p-xl-3"
+                >
+                  <label
+                    class="p-col-12 p-md-4"
+                  >
+                    Start Date
+                  </label>
+                  <div
+                    class="p-col-12 p-md-8"
+                  >
+                    <span
+                      class="p-calendar p-component p-inputwrapper"
+                    >
+                      <input
+                        autocomplete="off"
+                        class="p-inputtext p-component"
+                        inputmode="none"
+                        name="startDate"
+                        type="text"
+                      />
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="p-field p-grid p-col-12 p-md-4 p-xl-3"
+                >
+                  <label
+                    class="p-col-12 p-md-4"
+                  >
+                    End Date
+                  </label>
+                  <div
+                    class="p-col-12 p-md-8"
+                  >
+                    <span
+                      class="p-calendar p-component p-inputwrapper"
+                    >
+                      <input
+                        autocomplete="off"
+                        class="p-inputtext p-component"
+                        inputmode="none"
+                        name="endDate"
+                        type="text"
+                      />
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <button
+      class="p-button p-component p-col-1 p-button-icon-only"
+    >
+      <span
+        class="p-button-icon p-c pi pi-search"
+      />
+      <span
+        class="p-button-label p-c"
+      >
+         
+      </span>
+    </button>
+  </div>
+  <div
+    class="p-d-flex p-flex-column"
+    style="height: 100%;"
+  >
+    <div
+      class="p-datatable p-component p-datatable-auto-layout"
+      data-scrollselectors=".p-datatable-scrollable-body, .p-datatable-unfrozen-view .p-datatable-scrollable-body"
+    >
+      <div
+        class="p-datatable-loading-overlay p-component-overlay"
+      >
+        <i
+          class="p-datatable-loading-icon pi-spin pi pi-spinner"
+        />
+      </div>
+      <div
+        class="p-datatable-wrapper"
+      >
+        <table
+          role="grid"
+        >
+          <thead
+            class="p-datatable-thead"
+          >
+            <tr
+              role="row"
+            >
+              <th
+                class="p-sortable-disabled"
+                role="columnheader"
+              >
+                <span
+                  class="p-column-title"
+                >
+                  Name
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            class="p-datatable-tbody"
+          />
+        </table>
+      </div>
+      <div
+        class="p-paginator p-component p-paginator-bottom"
+      >
+        <button
+          class="p-paginator-first p-paginator-element p-link p-disabled"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="p-paginator-icon pi pi-angle-double-left"
+          />
+        </button>
+        <button
+          class="p-paginator-prev p-paginator-element p-link p-disabled"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="p-paginator-icon pi pi-angle-left"
+          />
+        </button>
+        <span
+          class="p-paginator-pages"
+        >
+          <button
+            class="p-paginator-page p-paginator-element p-link p-paginator-page-start p-paginator-page-end p-highlight"
+            type="button"
+          >
+            1
+          </button>
+        </span>
+        <button
+          class="p-paginator-next p-paginator-element p-link p-disabled"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="p-paginator-icon pi pi-angle-right"
+          />
+        </button>
+        <button
+          class="p-paginator-last p-paginator-element p-link p-disabled"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="p-paginator-icon pi pi-angle-double-right"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

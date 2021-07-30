@@ -13,10 +13,7 @@ export default {
     decorators: [withReadme(README)]
 };
 
-const state = {
-};
-
-export const Basic: React.FC<{}> = () => <Wrap state={state}>
+export const Basic: React.FC<{}> = () =>
     <div style={{height: 500}}>
         <Navigator
             fetch={() => Promise.resolve({
@@ -33,5 +30,4 @@ export const Basic: React.FC<{}> = () => <Wrap state={state}>
         >
             <div>Navigation component</div>
         </Navigator>
-    </div>
-</Wrap>;
+    </div>;

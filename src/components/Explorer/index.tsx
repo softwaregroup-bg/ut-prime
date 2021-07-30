@@ -33,6 +33,7 @@ const Explorer: StyledType = ({
     details,
     actions,
     filter,
+    showFilter = true,
     pageSize = 10
 }) => {
     const [tableFilter, setFilters] = React.useState<TableFilter>({
@@ -119,7 +120,7 @@ const Explorer: StyledType = ({
             });
         }
     }, [fetch, tableFilter, filter, subscribe]);
-    const detailsPanel = React.useMemo(() => detailsOpened &&
+    const detailsPanel = React.useMemo(() => detailsOpened && details &&
         <SplitterPanel key='details' size={10}>
             <div style={{ width: '200px' }}>{
                 current && Object.entries(details).map(([name, value], index) =>
@@ -144,52 +145,55 @@ const Explorer: StyledType = ({
                 selected: [row]
             })}
         />)}
-        filter={!!properties[name].filter}
+        filter={showFilter && !!properties[name].filter}
         sortable={!!properties[name].sort}
     />), [columns, properties]);
+    const table = <DataTable
+        autoLayout
+        lazy
+        rows={pageSize}
+        totalRecords={totalRecords}
+        paginator
+        first={tableFilter.first}
+        sortField={tableFilter.sortField}
+        sortOrder={tableFilter.sortOrder}
+        filters={tableFilter.filters}
+        onPage={handleFilterPageSort}
+        onSort={handleFilterPageSort}
+        onFilter={handleFilterPageSort}
+        loading={loading}
+        dataKey={keyField}
+        value={items}
+        selection={selected}
+        onSelectionChange={handleSelectionChange}
+        onRowSelect={handleRowSelect}
+    >
+        {keyField && <Column selectionMode="multiple" style={selectionWidth}/>}
+        {Columns}
+    </DataTable>;
     return (
         <div className={clsx('p-d-flex', 'p-flex-column', className)} style={{height: '100%'}} >
-            <Toolbar
-                left={React.useMemo(() =>
-                    <>
-                        {children && <Button icon="pi pi-bars" className="p-mr-2" onClick={navigationToggle}/>}
-                        {buttons}
-                    </>, [navigationToggle, buttons])
-                }
-                right={React.useMemo(() => <Button icon="pi pi-bars" className="p-mr-2" onClick={detailsToggle}/>, [detailsToggle])
-                }
-            />
-            <Splitter style={flexGrow}>
-                {[
-                    children && navigationOpened && <SplitterPanel key='nav' size={15}>{children}</SplitterPanel>,
-                    <SplitterPanel key='items' size={75}>
-                        <DataTable
-                            autoLayout
-                            lazy
-                            rows={pageSize}
-                            totalRecords={totalRecords}
-                            paginator
-                            first={tableFilter.first}
-                            sortField={tableFilter.sortField}
-                            sortOrder={tableFilter.sortOrder}
-                            filters={tableFilter.filters}
-                            onPage={handleFilterPageSort}
-                            onSort={handleFilterPageSort}
-                            onFilter={handleFilterPageSort}
-                            loading={loading}
-                            dataKey={keyField}
-                            value={items}
-                            selection={selected}
-                            onSelectionChange={handleSelectionChange}
-                            onRowSelect={handleRowSelect}
-                        >
-                            <Column selectionMode="multiple" style={selectionWidth}/>
-                            {Columns}
-                        </DataTable>
-                    </SplitterPanel>,
-                    detailsPanel
-                ].filter(Boolean)}
-            </Splitter>
+            {(detailsPanel || children) ? <>
+                <Toolbar
+                    left={React.useMemo(() =>
+                        <>
+                            {children && <Button icon="pi pi-bars" className="p-mr-2" onClick={navigationToggle}/>}
+                            {buttons}
+                        </>, [navigationToggle, buttons])
+                    }
+                    right={React.useMemo(() => <Button icon="pi pi-bars" className="p-mr-2" onClick={detailsToggle}/>, [detailsToggle])
+                    }
+                />
+                <Splitter style={flexGrow}>
+                    {[
+                        children && navigationOpened && <SplitterPanel key='nav' size={15}>{children}</SplitterPanel>,
+                        <SplitterPanel key='items' size={75}>
+                            {table}
+                        </SplitterPanel>,
+                        detailsPanel
+                    ].filter(Boolean)}
+                </Splitter>
+            </> : table}
         </div>
     );
 };

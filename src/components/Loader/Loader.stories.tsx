@@ -1,8 +1,6 @@
 import React from 'react';
 import { withReadme } from 'storybook-readme';
 
-import Wrap from '../test/wrap';
-
 // @ts-ignore: md file and not a module
 import README from './README.md';
 import Loader from './index';
@@ -10,15 +8,15 @@ import Loader from './index';
 export default {
     title: 'Loader',
     component: Loader,
-    decorators: [withReadme(README)]
-};
-
-const state = {
-    loader: {
-        toJS: () => ({open: true, message: 'loading ...'})
+    decorators: [withReadme(README)],
+    args: {
+        state: {
+            loader: {
+                toJS: () => ({open: true, message: 'loading ...'})
+            }
+        }
     }
 };
 
-export const Basic: React.FC<{}> = () => <Wrap state={state}>
-    <Loader>Hello Loader</Loader>
-</Wrap>;
+export const Basic: React.FC<{}> = () =>
+    <Loader>Hello Loader</Loader>;

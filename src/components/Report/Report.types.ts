@@ -1,24 +1,22 @@
 import {WithStyles, withStyles, createStyles} from '@material-ui/core/styles';
 import React from 'react';
+import type { Schema } from 'joi';
 
-import type {Properties, Cards, Dropdowns} from '../Form/Form.types';
+import type {Properties, Dropdowns} from '../Form/Form.types';
 
 export interface Props {
-    object: string,
-    id?: any,
     properties: Properties,
-    type?: string,
-    typeField?: string,
-    cards: Cards,
-    layouts?: any,
-    layoutName?: string,
-    nested?: string[],
-    keyField?: string,
+    validation?: Schema,
+    params: string[],
+    columns: string[],
     resultSet?: string,
     onDropdown: (params: string[]) => Promise<Dropdowns>,
-    onAdd: (params: {}) => Promise<{}>,
-    onGet: (params: {}) => Promise<{}>,
-    onEdit: (params: {}) => Promise<{}>
+    fetch: (params: {}) => Promise<{
+        pagination?: {
+            recordsTotal: number
+        },
+        [data: string]: any
+    }>;
 }
 
 const styles = createStyles({

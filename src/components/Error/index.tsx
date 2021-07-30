@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Dialog, Button } from '../prime';
 
 import Text from '../Text';
@@ -9,18 +9,22 @@ import { logout } from '../Login/actions';
 import { Styled, StyledType } from './Error.types';
 import { State } from '../Store/Store.types';
 
-const close = () => ({type: 'error.close'});
+const selectError = (state: State) => state.error;
 
-const Error: StyledType = ({ classes, open, message, close, title: header, type, logout }) => {
-    let handleClose = close;
+const Error: StyledType = ({ classes, message: errorMessage }) => {
     let closable = true;
     let actionButtons;
 
+    const {open, title: header, message, type} = useSelector(selectError);
+    const dispatch = useDispatch();
+    let handleClose;
+
     if (type === 'identity.invalidCredentials') {
-        handleClose = logout;
+        handleClose = React.useCallback(() => dispatch(logout()), [dispatch]);
         closable = false;
         actionButtons = <Button label="Login" onClick={handleClose} />;
     } else {
+        handleClose = React.useCallback(() => dispatch({type: 'error.close'}), [dispatch]);
         actionButtons = <Button label="Close" onClick={handleClose} />;
     }
 
@@ -34,7 +38,7 @@ const Error: StyledType = ({ classes, open, message, close, title: header, type,
         >
             <div className={clsx(classes.errorIconWrap, classes.errorIcon)} />
             <div className={classes.errorMessageWrap}>
-                <Text>{message}</Text>
+                <Text>{errorMessage || message}</Text>
             </div>
             <div className={classes.errorButtonWrap}>
                 {actionButtons}
@@ -43,7 +47,4 @@ const Error: StyledType = ({ classes, open, message, close, title: header, type,
     ) : null;
 };
 
-export default connect(
-    (state: State) => state.error,
-    {close, logout}
-)(Styled(Error));
+export default Styled(Error);

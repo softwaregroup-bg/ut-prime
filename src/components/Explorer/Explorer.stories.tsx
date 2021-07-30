@@ -1,6 +1,5 @@
 import React from 'react';
 import { withReadme } from 'storybook-readme';
-import Wrap from '../test/wrap';
 import {Toast} from '../prime';
 
 // @ts-ignore: md file and not a module
@@ -11,11 +10,12 @@ import {fetchItems, updateItems} from './mock';
 export default {
     title: 'Explorer',
     component: Explorer,
-    decorators: [withReadme(README)]
+    decorators: [withReadme(README)],
+    args: {
+        state: {}
+    }
 };
 
-const state = {
-};
 export const Basic: React.FC<{}> = () => {
     const toast = React.useRef(null);
     const show = action => data => toast.current.show({
@@ -24,7 +24,7 @@ export const Basic: React.FC<{}> = () => {
         detail: <pre>{JSON.stringify({action, data}, null, 2)}</pre>
     });
     return (
-        <Wrap state={state}>
+        <>
             <Toast ref={toast} />
             <div style={{height: 500, display: 'flex', flexDirection: 'column'}}>
                 <Explorer
@@ -65,6 +65,6 @@ export const Basic: React.FC<{}> = () => {
                     <div>Navigation component</div>
                 </Explorer>
             </div>
-        </Wrap>
+        </>
     );
 };

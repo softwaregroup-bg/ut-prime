@@ -1,160 +1,104 @@
 import React from 'react';
-import clsx from 'clsx';
-import Joi from 'joi';
-import get from 'lodash.get';
+import lodashGet from 'lodash.get';
 
-import { Card, InputText, InputTextarea, Dropdown, TreeSelect, InputMask, InputNumber, Calendar, Checkbox } from '../prime';
-import { Styled, StyledType, Properties } from './Editor.types';
-import useForm from '../hooks/useForm';
-import Controller from '../Controller';
-import { joiResolver } from '@hookform/resolvers/joi';
-import { RefCallBack } from 'react-hook-form';
-import {Table} from './Table';
+import { Styled, StyledType } from './Editor.types';
 
-function Currency({onChange, ref, ...props}) {
-    return (
-        <InputNumber
-            inputRef={ref}
-            onChange={e => {
-                onChange?.(e.value);
-            }}
-            maxFractionDigits={2}
-            {...props}
-        />
-    );
-}
+import Form from '../Form';
+import ThumbIndex from '../ThumbIndex';
+import {Toolbar, Button} from '../prime';
 
-function Bool({onChange, ref, value, ...props}) {
-    return (
-        <Checkbox
-            inputRef={ref}
-            onChange={e => {
-                onChange?.(e.checked);
-            }}
-            checked={value}
-            {...props}
-        />
-    );
-}
+const capital = (string: string) => string.charAt(0).toUpperCase() + string.slice(1);
 
-function element(
-    field: {
-        onChange: (...event: any[]) => void;
-        onBlur: () => void;
-        value: any;
-        name: string;
-        ref: RefCallBack;
-        className: string;
-    }, {
-        type = 'string',
-        dropdown = '',
-        ...props
-    } = {},
-    schema,
-    dropdowns
-) {
-    const Element: React.ElementType = {
-        dropdown: Dropdown,
-        dropdownTree: TreeSelect,
-        text: InputTextarea,
-        mask: InputMask,
-        date: Calendar,
-        boolean: Bool,
-        currency: Currency,
-        table: Table
-    }[type] || InputText;
-    const element = {
-        table: {
-            properties: schema.items
-        },
-        dropdown: {
-            ...dropdowns?.[dropdown] && {options: dropdowns?.[dropdown]}
-        }
-    }[type];
-    return <Element {...field} {...element} {...props}/>;
-}
-
-const getSchema = (properties: Properties) : Joi.Schema => Object.entries(properties).reduce(
-    (schema, [name, field]) => {
-        if ('properties' in field) {
-            return schema.append({[name]: getSchema(field.properties)});
-        } else {
-            const {title, validation = Joi.string().min(0).allow('', null)} = field;
-            return schema.append({[name]: validation.label(title || name)});
-        }
-    },
-    Joi.object()
-);
-
-const getIndex = (properties: Properties, root: string) : Properties => Object.entries(properties).reduce(
-    (map, [name, property]) => {
-        return ('properties' in property) ? {
-            ...map,
-            ...getIndex(property.properties, name + '.')
-        } : {
-            ...map,
-            [root + name]: property
-        };
-    },
-    {}
-);
-
-const Editor: StyledType = ({ classes, className, properties, cards, layout, onSubmit, trigger, value, dropdown, ...rest }) => {
-    const joiSchema = getSchema(properties);
-    const index = getIndex(properties, '');
-    const {handleSubmit, control, reset, formState: {errors}} = useForm({resolver: joiResolver(joiSchema)});
-    const getFormErrorMessage = (name) => {
-        const error = get(errors, name);
-        return error && <small className="p-error">{error.message}</small>;
-    };
-    React.useEffect(() => {
-        if (trigger) trigger.current = handleSubmit(onSubmit);
-    }, [trigger, handleSubmit, onSubmit]);
-    React.useEffect(() => {
-        reset(value || {});
-    }, [value]);
-
-    function card(id) {
-        const {title, properties = []} = (cards[id] || {title: '❌ ' + id, className: 'p-lg-6 p-xl-4'});
-        return (
-            <Card title={title} key={id} className='p-fluid p-mb-3'>
-                {properties.map(name => index[name]
-                    ? <div className="p-field p-grid" key={name}>
-                        {index[name].title ? <label className='p-col-12 p-md-4'>
-                            {index[name].title}
-                        </label> : null}
-                        <div className={clsx(index[name].title ? 'p-col-12 p-md-8' : 'p-col-12')}>
-                            <Controller
-                                control={control}
-                                name={name}
-                                render={
-                                    ({field}) => element({
-                                        className: clsx({ 'p-invalid': errors[name] }),
-                                        ...field
-                                    }, index[name].editor, index[name], dropdown)
-                                }
-                            />
-                        </div>
-                        {getFormErrorMessage(name)}
-                    </div>
-                    : <div className="p-field p-grid" key={name}>❌ {name}</div>
-                )}
-            </Card>
-        );
+const Editor: StyledType = ({
+    object,
+    id,
+    properties,
+    type,
+    typeField,
+    cards,
+    layouts,
+    layoutName,
+    nested,
+    keyField = object + 'Id',
+    resultSet = object,
+    onDropdown,
+    onAdd,
+    onGet,
+    onEdit
+}) => {
+    function getLayout(name = '') {
+        let index = layouts?.['edit' + capital(name)];
+        let layout;
+        if (typeof index?.[0] === 'string') {
+            layout = index;
+            index = false;
+        } else layout = !index && ['edit' + capital(name)];
+        return [index, layout];
     }
 
+    const trigger = React.useRef(null);
+    const [value, setValue] = React.useState({});
+    const [dropdowns, setDropdown] = React.useState({});
+    const [[index, layout], setIndex] = React.useState(getLayout(layoutName));
+    const [filter, setFilter] = React.useState(index?.[0]?.items?.[0]);
+    const dropdownNames = (layout || filter?.cards || [])
+        .flat()
+        .map(card => cards?.[card]?.properties)
+        .flat()
+        .filter(Boolean)
+        .map(name => lodashGet(properties, name?.replace(/\./g, '.properties.'))?.editor?.dropdown)
+        .filter(Boolean);
+    async function get() {
+        let result = (await onGet({[keyField]: id}));
+        if (nested) {
+            result = nested.reduce((prev, field) => ({
+                ...prev,
+                [field]: properties[field]?.properties ? [].concat(result[field])[0] : result[field]
+            }), {});
+        } else {
+            result = result[resultSet];
+            if (Array.isArray(result)) result = result[0];
+        }
+        if (typeField) setIndex(getLayout(result[typeField]));
+        setDropdown(await onDropdown(dropdownNames));
+        setValue(result);
+    }
+    async function init() {
+        setDropdown(await onDropdown(dropdownNames));
+    }
+    async function handleSubmit(instance) {
+        if (id != null) {
+            await onEdit({[object]: instance});
+        } else {
+            instance = await onAdd({[object]: instance});
+            id = instance[keyField];
+            setValue(instance);
+        }
+    }
+    React.useEffect(() => {
+        if (id) get();
+        else init();
+    }, []);
     return (
-        <form {...rest} onSubmit={handleSubmit(onSubmit)} className={clsx('p-grid p-col p-mt-2', className)}>
-            {(layout || Object.keys(cards)).map((id, index) => {
-                const nested = [].concat(id);
-                const key = nested[0];
-                return (
-                    <div key={key} className={clsx('p-col-12', cards[key]?.className || 'p-xl-6')}>
-                        {nested.map(card)}
-                    </div>
-                );
-            })}
-        </form>
+        <>
+            <Toolbar
+                left={
+                    <Button icon='pi pi-save' onClick={() => trigger?.current?.()}/>
+                }
+            />
+            <div className='p-d-flex' style={{overflowX: 'hidden', width: '100%'}}>
+                {index && <ThumbIndex index={index} onFilter={setFilter}/>}
+                <Form
+                    properties={properties}
+                    cards={cards}
+                    layout={layout || filter?.cards || []}
+                    onSubmit={handleSubmit}
+                    value={value}
+                    dropdowns={dropdowns}
+                    trigger={trigger}
+                />
+            </div>
+        </>
     );
 };
 

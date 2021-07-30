@@ -14,5 +14,9 @@ module.exports = {
     transformIgnorePatterns: ['<rootDir>/node_modules/(?!(impl|ut)-)', notUt],
     moduleNameMapper: {
         '^.+\\.(css|less|scss|png)$': 'babel-jest'
+    },
+    transform: {
+        '\\.[jt]sx?$': 'babel-jest',
+        '^.+\\.mdx?$': './stub'
     }
 };

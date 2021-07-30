@@ -1,19 +1,22 @@
-import { addDecorator, addParameters } from '@storybook/react';
-import { withA11y } from '@storybook/addon-a11y';
-import { addReadme } from 'storybook-readme';
+import React from 'react';
+import Wrap from '../src/components/test/wrap';
 
-/* Add A11y panel */
-addDecorator(withA11y);
+export const parameters = {
+    layout: 'fullscreen',
+    readme: {
+        theme: {
+            textColor: 'white',
+            barBg: '#2b2b2b'
+        },
+        codeTheme: 'a11y-dark',
+        StoryPreview: ({ children }) => children,
+    }
+};
 
-/* Enable README for all stories */
-addDecorator(addReadme);
-
-/* General options for storybook */
-addParameters({
-  layout: 'fullscreen',
-  /* Options for storybook-readme plugin */
-  readme: {
-    codeTheme: 'github',
-    StoryPreview: ({ children }) => children,
-  },
-});
+export const decorators = [
+    (Story, {args}) => args?.state ? (
+        <Wrap state={args?.state}>
+            <Story />
+        </Wrap>
+    ) : <Story />
+];

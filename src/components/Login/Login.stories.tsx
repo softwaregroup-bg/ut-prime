@@ -1,8 +1,6 @@
 import React from 'react';
 import { withReadme } from 'storybook-readme';
 
-import Wrap from '../test/wrap';
-
 // @ts-ignore: md file and not a module
 import README from './README.md';
 import Login from './index';
@@ -10,13 +8,13 @@ import Login from './index';
 export default {
     title: 'Login',
     component: Login,
-    decorators: [withReadme(README)]
+    decorators: [withReadme(README)],
+    args: {
+        state: {
+            login: false
+        }
+    }
 };
 
-const state = {
-    login: false
-};
-
-export const Basic: React.FC<{}> = () => <Wrap state={state}>
-    <Login />
-</Wrap>;
+export const Basic: React.FC<{}> = () =>
+    <Login />;

@@ -1,33 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Editor /> render equals snapshot 1`] = `
+exports[`<Form /> render equals snapshot 1`] = `
 <div
   data-testid="ut-front-test"
 >
-  <div
-    class="p-toolbar p-component"
-    role="toolbar"
-  >
-    <div
-      class="p-toolbar-group-left"
-    >
-      <button
-        class="p-button p-component p-button-icon-only"
-      >
-        <span
-          class="p-button-icon p-c pi pi-save"
-        />
-        <span
-          class="p-button-label p-c"
-        >
-           
-        </span>
-      </button>
-    </div>
-    <div
-      class="p-toolbar-group-right"
-    />
-  </div>
   <div
     class="p-d-flex"
     style="overflow-x: hidden; width: 100%;"

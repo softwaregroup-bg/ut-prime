@@ -2,22 +2,17 @@ import React from 'react';
 import { withReadme } from 'storybook-readme';
 import Joi from 'joi';
 
-import Wrap from '../test/wrap';
-
 // @ts-ignore: md file and not a module
 import README from './README.md';
 import ThumbIndex from './index';
-import Editor from '../Editor';
-import {Properties, PropertyEditor} from '../Editor/Editor.types';
+import Form from '../Form';
+import {Properties, PropertyEditor} from '../Form/Form.types';
 import {Toast, Toolbar, Button} from '../prime';
 
 export default {
     title: 'ThumbIndex',
     component: ThumbIndex,
     decorators: [withReadme(README)]
-};
-
-const state = {
 };
 
 const data = {
@@ -77,19 +72,12 @@ const currencyEditor: PropertyEditor = {
 };
 const phoneEditor: PropertyEditor = {
     type: 'table',
-    columns: [
-        { field: 'type', header: 'Type' },
-        { field: 'countryCode', header: 'Country code' },
-        { field: 'phoneNumber', header: 'Number' }
-    ]
+    columns: ['type', 'countryCode', 'phoneNumber']
 };
 
 const emailEditor: PropertyEditor = {
     type: 'table',
-    columns: [
-        { field: 'type', header: 'Type' },
-        { field: 'emailAddress', header: 'Email address' }
-    ]
+    columns: ['type', 'emailAddress']
 };
 
 const properties: Properties = {
@@ -125,8 +113,29 @@ const properties: Properties = {
     addressCity: {title: 'City'},
     addressZip: {title: 'Post code'},
     addressStreet: {title: 'Street'},
-    phone: {title: '', editor: phoneEditor, validation: Joi.any()},
-    email: {title: '', editor: emailEditor, validation: Joi.any()},
+    phone: {
+        title: '',
+        editor: phoneEditor,
+        validation: Joi.any(),
+        items: {
+            properties: {
+                type: {title: 'Type'},
+                countryCode: {title: 'Country code'},
+                phoneNumber: {title: 'Number'}
+            }
+        }
+    },
+    email: {
+        title: '',
+        editor: emailEditor,
+        validation: Joi.any(),
+        items: {
+            properties: {
+                type: {title: 'Type'},
+                emailAddress: {title: 'Email address'}
+            }
+        }
+    },
     personName: {title: 'Name'},
     personPosition: {title: 'Position'}
 };
@@ -151,12 +160,12 @@ export const Basic: React.FC<{}> = () => {
         detail: <pre>{JSON.stringify(formData, null, 2)}</pre>
     }), [toast]);
     return (
-        <Wrap state={state}>
+        <>
             <Toast ref={toast} />
             <Toolbar left={<Button icon='pi pi-save' onClick={() => trigger?.current?.()}/>}/>
-            <div className='p-grid' style={{overflowX: 'hidden', width: '100%'}}>
+            <div className='p-d-flex' style={{overflowX: 'hidden', width: '100%'}}>
                 <ThumbIndex index={index} onFilter={setFilter}/>
-                <Editor
+                <Form
                     properties={properties}
                     cards={cards}
                     layout={filter?.cards || []}
@@ -165,6 +174,6 @@ export const Basic: React.FC<{}> = () => {
                     value={data}
                 />
             </div>
-        </Wrap>
+        </>
     );
 };
