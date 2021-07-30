@@ -1,3 +1,12 @@
+# [1.24.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.23.0...v1.24.0) (2021-07-30)
+
+
+### Features
+
+* Form, Editor, Report, SB decorators ([7b08d32](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/7b08d3286d4848a24ea28e7bad6545a2b88c183b))
+
+
+
 # [1.23.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.22.0...v1.23.0) (2021-07-25)
 
 
