@@ -1,3 +1,12 @@
+# [1.25.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.24.0...v1.25.0) (2021-07-31)
+
+
+### Features
+
+* multiselect and cascading [UTCORE-121] ([66b645f](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/66b645f6a3dc36891bee2f10ca103740d7f61c84))
+
+
+
 # [1.24.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.23.0...v1.24.0) (2021-07-30)
 
 
