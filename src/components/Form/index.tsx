@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import Joi from 'joi';
 import get from 'lodash.get';
 
-import { Card, InputText, InputTextarea, Dropdown, TreeSelect, InputMask, InputNumber, Calendar, Checkbox } from '../prime';
+import { Card, InputText, InputTextarea, Dropdown, MultiSelect, TreeSelect, InputMask, InputNumber, Calendar, Checkbox } from '../prime';
 import { Styled, StyledType, Properties } from './Form.types';
 import useForm from '../hooks/useForm';
 import Controller from '../Controller';
@@ -48,14 +48,17 @@ function element(
     }, {
         type = 'string',
         dropdown = '',
+        parent = '',
         ...props
     } = {},
     schema,
-    dropdowns
+    dropdowns,
+    filter
 ) {
     const Element: React.ElementType = {
         dropdown: Dropdown,
         dropdownTree: TreeSelect,
+        multiSelect: MultiSelect,
         text: InputTextarea,
         mask: InputMask,
         date: Calendar,
@@ -63,15 +66,21 @@ function element(
         currency: Currency,
         table: Table
     }[type] || InputText;
-    const element = {
+    const defaults = {
         table: {
             properties: schema?.items?.properties
         },
         dropdown: {
-            ...dropdowns?.[dropdown] && {options: dropdowns?.[dropdown]}
+            options: dropdowns?.[dropdown] || []
+        },
+        multiSelect: {
+            display: 'chip',
+            options: dropdowns?.[dropdown] || []
         }
-    }[type];
-    return <Element {...field} {...element} {...props}/>;
+    }[type] || {disabled: undefined};
+    if (defaults?.options && filter) defaults.options = defaults.options.filter(item => item.parent === filter);
+    if (parent && !filter) defaults.disabled = true;
+    return <Element {...field} {...defaults} {...props}/>;
 }
 
 const getSchema = (properties: Properties) : Joi.Schema => Object.entries(properties).reduce(
@@ -102,7 +111,7 @@ const getIndex = (properties: Properties, root: string) : Properties => Object.e
 const Form: StyledType = ({ classes, className, properties, cards, layout, onSubmit, trigger, value, dropdowns, validation, ...rest }) => {
     const joiSchema = validation || getSchema(properties);
     const index = getIndex(properties, '');
-    const {handleSubmit, control, reset, formState: {errors}} = useForm({resolver: joiResolver(joiSchema)});
+    const {handleSubmit, control, reset, formState: {errors}, watch, setValue} = useForm({resolver: joiResolver(joiSchema)});
     const getFormErrorMessage = (name) => {
         const error = get(errors, name);
         return error && <small className="p-error">{error.message}</small>;
@@ -114,7 +123,24 @@ const Form: StyledType = ({ classes, className, properties, cards, layout, onSub
         reset(value || {});
     }, [value]);
 
-    function card(id) {
+    const children: {[parent: string]: string[]} = {};
+
+    function addParent(properties: Properties, name: string) {
+        const parent = properties[name]?.editor?.parent;
+        if (parent) {
+            const items = children[parent];
+            if (items) items.push(name);
+            else children[parent] = [name];
+            return watch(parent);
+        }
+    }
+
+    const parentChange = (name : string) => {
+        const items = children[name];
+        if (items) items.forEach(child => setValue(child, null));
+    };
+
+    function card(id: string) {
         const {title, properties = [], flex} = (cards[id] || {title: '❌ ' + id});
         return (
             <Card title={title} key={id} className='p-fluid p-mb-3'>
@@ -129,10 +155,23 @@ const Form: StyledType = ({ classes, className, properties, cards, layout, onSub
                                     control={control}
                                     name={name}
                                     render={
-                                        ({field}) => element({
-                                            className: clsx({ 'p-invalid': errors[name] }),
-                                            ...field
-                                        }, index[name].editor, index[name], dropdowns)
+                                        ({field}) => element(
+                                            {
+                                                className: clsx({ 'p-invalid': errors[name] }),
+                                                ...field,
+                                                onChange: e => {
+                                                    try {
+                                                        parentChange(name);
+                                                    } finally {
+                                                        field.onChange(e);
+                                                    }
+                                                }
+                                            },
+                                            index[name].editor,
+                                            index[name],
+                                            dropdowns,
+                                            addParent(index, name)
+                                        )
                                     }
                                 />
                             </div>

@@ -6,6 +6,7 @@ import type { JSONSchema7 } from 'json-schema'; // eslint-disable-line
 export interface PropertyEditor {
     type: 'dropdown' | 'dropdownTree' | 'text' | 'mask' | 'date' | 'boolean' | 'currency' | 'table';
     dropdown?: string;
+    parent?: string;
     [editorProperties: string]: any
 }
 export interface Property extends JSONSchema7 {
