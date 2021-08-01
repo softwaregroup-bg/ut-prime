@@ -68,10 +68,10 @@ const Editor: StyledType = ({
     }
     async function handleSubmit(instance) {
         if (id != null) {
-            await onEdit({[object]: instance});
+            await onEdit(nested ? instance : {[object]: instance});
         } else {
-            instance = await onAdd({[object]: instance});
-            id = instance[keyField];
+            instance = await onAdd(nested ? instance : {[object]: instance});
+            id = nested ? instance[nested[0]][keyField] : instance[keyField];
             setValue(instance);
         }
     }
