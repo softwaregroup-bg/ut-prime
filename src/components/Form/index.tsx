@@ -108,6 +108,14 @@ const getIndex = (properties: Properties, root: string) : Properties => Object.e
     {}
 );
 
+interface Errors {
+    message?: string
+}
+
+const flat = (e: Errors, path = '') => Object.entries(e).map(
+    ([name, value]) => typeof value.message === 'string' ? (path ? path + '.' + name : name) : flat(value, name)
+);
+
 const Form: StyledType = ({ classes, className, properties, cards, layout, onSubmit, trigger, value, dropdowns, validation, ...rest }) => {
     const joiSchema = validation || getSchema(properties);
     const index = getIndex(properties, '');
@@ -183,10 +191,21 @@ const Form: StyledType = ({ classes, className, properties, cards, layout, onSub
             </Card>
         );
     }
+    const visibleCards = (layout || Object.keys(cards));
+    const errorFields = flat(errors).flat();
+    const visibleProperties = visibleCards.map(id => {
+        const nested = [].concat(id);
+        return nested.map(cardName => cards[cardName]?.properties);
+    }).flat(10).filter(Boolean);
 
     return (
         <form {...rest} onSubmit={handleSubmit(onSubmit)} className={clsx('p-grid p-col p-mt-2', className)}>
-            {(layout || Object.keys(cards)).map(id => {
+            {
+                !!Object.keys(errors).length && <div className='p-col-12'>
+                    {errorFields.map(name => !visibleProperties.includes(name) && <><small className="p-error">{get(errors, name)?.message}</small><br /></>)}
+                </div>
+            }
+            {visibleCards.map(id => {
                 const nested = [].concat(id);
                 const key = nested[0];
                 return (
