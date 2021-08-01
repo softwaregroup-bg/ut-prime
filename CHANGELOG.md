@@ -1,3 +1,18 @@
+# [1.26.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.25.0...v1.26.0) (2021-08-01)
+
+
+### Bug Fixes
+
+* nested add/edit [UTCORE-121] ([a893ec4](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/a893ec4e4002280630501af3e235b0e0b7922e73))
+
+
+### Features
+
+* errors visualisation [UTCORE-121] ([3302cab](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/3302cab76a4d80b7aa3575822bcd912597fd9fc8))
+* track dirty [UTCORE-121] ([5bdd678](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/5bdd678a1bd79ec550457a7fa941e8f261dfb751))
+
+
+
 # [1.25.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.24.0...v1.25.0) (2021-07-31)
 
 
