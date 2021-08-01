@@ -116,17 +116,17 @@ const flat = (e: Errors, path = '') => Object.entries(e).map(
     ([name, value]) => typeof value.message === 'string' ? (path ? path + '.' + name : name) : flat(value, name)
 );
 
-const Form: StyledType = ({ classes, className, properties, cards, layout, onSubmit, trigger, value, dropdowns, validation, ...rest }) => {
+const Form: StyledType = ({ classes, className, properties, cards, layout, onSubmit, setTrigger, value, dropdowns, validation, ...rest }) => {
     const joiSchema = validation || getSchema(properties);
     const index = getIndex(properties, '');
-    const {handleSubmit, control, reset, formState: {errors}, watch, setValue} = useForm({resolver: joiResolver(joiSchema)});
+    const {handleSubmit, control, reset, formState: {errors, isDirty}, watch, setValue} = useForm({resolver: joiResolver(joiSchema)});
     const getFormErrorMessage = (name) => {
         const error = get(errors, name);
         return error && <small className="p-error">{error.message}</small>;
     };
     React.useEffect(() => {
-        if (trigger) trigger.current = handleSubmit(onSubmit);
-    }, [trigger, handleSubmit, onSubmit]);
+        if (setTrigger) setTrigger(isDirty && (prev => handleSubmit(onSubmit)));
+    }, [setTrigger, handleSubmit, onSubmit, isDirty]);
     React.useEffect(() => {
         reset(value || {});
     }, [value]);

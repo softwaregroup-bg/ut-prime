@@ -12,7 +12,8 @@ exports[`<Editor /> render equals snapshot 1`] = `
       class="p-toolbar-group-left"
     >
       <button
-        class="p-button p-component p-button-icon-only"
+        class="p-button p-component p-button-icon-only p-disabled"
+        disabled=""
       >
         <span
           class="p-button-icon p-c pi pi-save"

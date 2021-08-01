@@ -10,7 +10,7 @@ import Explorer from '../Explorer';
 const flexGrow = {flexGrow: 1};
 
 const Report: StyledType = ({ properties, validation, params = [], columns = [], fetch, onDropdown, resultSet }) => {
-    const trigger = React.useRef(null);
+    const [trigger, setTrigger] = React.useState();
     const dropdownNames = params
         .flat()
         .filter(Boolean)
@@ -36,9 +36,9 @@ const Report: StyledType = ({ properties, validation, params = [], columns = [],
                     onSubmit={setFilter}
                     value={filter}
                     dropdowns={dropdowns}
-                    trigger={trigger}
+                    setTrigger={setTrigger}
                 />
-                <Button className='p-col-1' icon='pi pi-search' onClick={() => trigger?.current?.()}/>
+                <Button className='p-col-1' icon='pi pi-search' onClick={trigger} disabled={!trigger}/>
             </div>
             <Explorer
                 fetch={fetch}

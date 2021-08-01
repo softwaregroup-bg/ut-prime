@@ -1,5 +1,6 @@
 import React from 'react';
 import lodashGet from 'lodash.get';
+import merge from 'ut-function.merge';
 
 import { Styled, StyledType } from './Editor.types';
 
@@ -36,7 +37,7 @@ const Editor: StyledType = ({
         return [index, layout];
     }
 
-    const trigger = React.useRef(null);
+    const [trigger, setTrigger] = React.useState();
     const [value, setValue] = React.useState({});
     const [dropdowns, setDropdown] = React.useState({});
     const [[index, layout], setIndex] = React.useState(getLayout(layoutName));
@@ -66,15 +67,18 @@ const Editor: StyledType = ({
     async function init() {
         setDropdown(await onDropdown(dropdownNames));
     }
-    async function handleSubmit(instance) {
-        if (id != null) {
-            await onEdit(nested ? instance : {[object]: instance});
-        } else {
-            instance = await onAdd(nested ? instance : {[object]: instance});
-            id = nested ? instance[nested[0]][keyField] : instance[keyField];
-            setValue(instance);
-        }
-    }
+    const handleSubmit = React.useCallback(
+        async function handleSubmit(instance) {
+            if (id != null) {
+                const response = await onEdit(nested ? instance : {[object]: instance});
+                setValue(prev => merge(instance, response));
+            } else {
+                const response = await onAdd(nested ? instance : {[object]: instance});
+                id = nested ? response[nested[0]][keyField] : response[keyField];
+                setValue(prev => merge(instance, response));
+            }
+        }, [onAdd, onEdit, id]
+    );
     React.useEffect(() => {
         if (id) get();
         else init();
@@ -83,7 +87,7 @@ const Editor: StyledType = ({
         <>
             <Toolbar
                 left={
-                    <Button icon='pi pi-save' onClick={() => trigger?.current?.()}/>
+                    <Button icon='pi pi-save' onClick={trigger} disabled={!trigger}/>
                 }
             />
             <div className='p-d-flex' style={{overflowX: 'hidden', width: '100%'}}>
@@ -95,7 +99,7 @@ const Editor: StyledType = ({
                     onSubmit={handleSubmit}
                     value={value}
                     dropdowns={dropdowns}
-                    trigger={trigger}
+                    setTrigger={setTrigger}
                 />
             </div>
         </>

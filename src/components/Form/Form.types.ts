@@ -49,9 +49,7 @@ export interface Props extends React.HTMLAttributes<HTMLFormElement> {
     layout?: string[];
     validation?: Schema;
     onSubmit: (form: {}) => void;
-    trigger?: {
-        current: (event: {}) => void
-    };
+    setTrigger?: (trigger: (event: {}) => void) => void;
     value?: any;
 }
 
