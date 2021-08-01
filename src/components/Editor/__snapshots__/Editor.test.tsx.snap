@@ -67,9 +67,9 @@ exports[`<Editor /> render equals snapshot 1`] = `
                     class="p-col-12 p-md-8"
                   >
                     <input
-                      class="p-inputtext p-component"
+                      class="p-inputtext p-component p-filled"
                       name="treeName"
-                      value=""
+                      value="Oak"
                     />
                   </div>
                 </div>
@@ -102,7 +102,7 @@ exports[`<Editor /> render equals snapshot 1`] = `
                     class="p-col-12 p-md-8"
                   >
                     <div
-                      class="p-dropdown p-component p-inputwrapper"
+                      class="p-dropdown p-component p-inputwrapper p-inputwrapper-filled"
                     >
                       <div
                         class="p-hidden-accessible"
@@ -124,12 +124,17 @@ exports[`<Editor /> render equals snapshot 1`] = `
                           <option
                             value=""
                           />
+                          <option
+                            value="1"
+                          >
+                            Fagaceae
+                          </option>
                         </select>
                       </div>
                       <span
-                        class="p-dropdown-label p-inputtext p-dropdown-label-empty"
+                        class="p-dropdown-label p-inputtext"
                       >
-                        empty
+                        Fagaceae
                       </span>
                       <div
                         aria-expanded="false"

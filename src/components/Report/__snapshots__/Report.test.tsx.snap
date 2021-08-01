@@ -120,13 +120,6 @@ exports[`<Report /> render equals snapshot 1`] = `
       data-scrollselectors=".p-datatable-scrollable-body, .p-datatable-unfrozen-view .p-datatable-scrollable-body"
     >
       <div
-        class="p-datatable-loading-overlay p-component-overlay"
-      >
-        <i
-          class="p-datatable-loading-icon pi-spin pi pi-spinner"
-        />
-      </div>
-      <div
         class="p-datatable-wrapper"
       >
         <table
@@ -152,7 +145,30 @@ exports[`<Report /> render equals snapshot 1`] = `
           </thead>
           <tbody
             class="p-datatable-tbody"
-          />
+          >
+            <tr
+              class=""
+              role="row"
+            >
+              <td
+                class=""
+                role="cell"
+              >
+                row 1
+              </td>
+            </tr>
+            <tr
+              class="p-row-odd"
+              role="row"
+            >
+              <td
+                class=""
+                role="cell"
+              >
+                row 2
+              </td>
+            </tr>
+          </tbody>
         </table>
       </div>
       <div
