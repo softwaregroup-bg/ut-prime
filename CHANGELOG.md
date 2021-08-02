@@ -1,3 +1,12 @@
+# [1.27.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.26.0...v1.27.0) (2021-08-02)
+
+
+### Features
+
+* explorer filter [UTCORE-121] ([0046863](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/0046863c6508385e65e34afbaad23f73f78b3783))
+
+
+
 # [1.26.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.25.0...v1.26.0) (2021-08-01)
 
 
