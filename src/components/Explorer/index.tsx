@@ -1,5 +1,6 @@
 import React from 'react';
-import { DataTable, Column, Button, Toolbar, Splitter, SplitterPanel } from '../prime';
+import lodashGet from 'lodash.get';
+import { DataTable, Column, Button, Toolbar, Splitter, SplitterPanel, Checkbox, Dropdown } from '../prime';
 
 import { Styled, StyledType } from './Explorer.types';
 import useToggle from '../hooks/useToggle';
@@ -33,11 +34,12 @@ const Explorer: StyledType = ({
     details,
     actions,
     filter,
+    onDropdown,
     showFilter = true,
     pageSize = 10
 }) => {
     const [tableFilter, setFilters] = React.useState<TableFilter>({
-        filters: {},
+        filters: columns?.reduce((prev, column) => (filter?.[column] === undefined) ? prev : {...prev, [column]: {value: filter[column]}}, {}),
         first: 0,
         page: 1
     });
@@ -54,6 +56,8 @@ const Explorer: StyledType = ({
 
     const [loading, setLoading] = React.useState(false);
     const [[items, totalRecords], setItems] = React.useState([[], 0]);
+    const [dropdowns, setDropdown] = React.useState({});
+
     const isEnabled = enabled => {
         if (typeof enabled !== 'string') return !!enabled;
         switch (enabled) {
@@ -62,6 +66,13 @@ const Explorer: StyledType = ({
             default: return false;
         }
     };
+
+    const dropdownNames = (columns || [])
+        .flat()
+        .filter(Boolean)
+        .map(name => lodashGet(properties, name?.replace(/\./g, '.properties.'))?.editor?.dropdown)
+        .filter(Boolean);
+
     const buttons = React.useMemo(() => (actions || []).map(({title, action, enabled = true}, index) =>
         <Button
             key={index}
@@ -79,11 +90,12 @@ const Explorer: StyledType = ({
         async function load() {
             if (!fetch) {
                 setItems([[], 0]);
+                setDropdown({});
             } else {
                 setLoading(true);
                 try {
                     const items = await fetch({
-                        [resultSet || 'filterBy']: {...Object.entries(tableFilter.filters).reduce((prev, [name, {value}]) => ({...prev, [name]: value}), {}), ...filter},
+                        [resultSet || 'filterBy']: {...filter, ...Object.entries(tableFilter.filters).reduce((prev, [name, {value}]) => ({...prev, [name]: value}), {})},
                         ...tableFilter.sortField && {
                             orderBy: [{
                                 field: tableFilter.sortField,
@@ -105,6 +117,7 @@ const Explorer: StyledType = ({
                         total = tableFilter.first + total;
                     }
                     setItems([records, total]);
+                    if (onDropdown) setDropdown(await onDropdown(dropdownNames));
                 } finally {
                     setLoading(false);
                 }
@@ -131,6 +144,53 @@ const Explorer: StyledType = ({
                 )
             }</div>
         </SplitterPanel>, [current, details, detailsOpened]);
+
+    const filterBy = (name: string, value: string) => e => {
+        setFilters(prev => {
+            const next = {
+                ...prev,
+                filters: {
+                    ...prev?.filters,
+                    [name]: {
+                        ...prev?.filters?.[name],
+                        value: e[value]
+                    }
+                }
+            };
+            return next;
+        });
+    };
+
+    function columnProps(name) {
+        const {type, dropdown, parent, ...editor} = properties?.[name]?.editor || {name};
+        const fieldName = editor.name || name;
+        let filterElement, body;
+        switch (type) {
+            case 'boolean':
+                filterElement = <Checkbox
+                    checked={tableFilter?.filters?.[fieldName]?.value}
+                    onChange={filterBy(fieldName, 'checked')}
+                    {...editor}
+                />;
+                body = function body(rowData) {
+                    const value = rowData[fieldName];
+                    if (value == null) return null;
+                    return <i className={`pi ${value ? 'pi-check' : 'pi-times'}`}></i>;
+                };
+                break;
+            case 'dropdown':
+                filterElement = <Dropdown
+                    value={tableFilter?.filters?.[fieldName]?.value}
+                    onChange={filterBy(fieldName, 'value')}
+                    showClear={true}
+                    options={dropdowns?.[dropdown] || []}
+                    {...editor}
+                />;
+                break;
+        }
+        return {...filterElement && {filterElement}, ...body && {body}};
+    }
+
     const Columns = React.useMemo(() => columns.map(name => <Column
         key={name}
         field={name}
@@ -147,7 +207,8 @@ const Explorer: StyledType = ({
         />)}
         filter={showFilter && !!properties[name].filter}
         sortable={!!properties[name].sort}
-    />), [columns, properties]);
+        {...columnProps(name)}
+    />), [columns, properties, showFilter, dropdowns, tableFilter]);
     const table = <DataTable
         autoLayout
         lazy
