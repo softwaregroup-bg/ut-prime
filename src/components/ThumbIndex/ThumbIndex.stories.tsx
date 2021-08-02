@@ -6,7 +6,7 @@ import Joi from 'joi';
 import README from './README.md';
 import ThumbIndex from './index';
 import Form from '../Form';
-import {Properties, PropertyEditor} from '../Form/Form.types';
+import {Properties, PropertyEditor} from '../types';
 import {Toast, Toolbar, Button} from '../prime';
 
 export default {
@@ -153,7 +153,7 @@ const cards = {
 export const Basic: React.FC<{}> = () => {
     const [filter, setFilter] = React.useState(index?.[0]?.items?.[0]);
     const toast = React.useRef(null);
-    const trigger = React.useRef(null);
+    const [trigger, setTrigger] = React.useState<(event: {}) => void>();
     const submit = React.useCallback(formData => toast.current.show({
         severity: 'success',
         summary: 'Submit',
@@ -162,7 +162,7 @@ export const Basic: React.FC<{}> = () => {
     return (
         <>
             <Toast ref={toast} />
-            <Toolbar left={<Button icon='pi pi-save' onClick={() => trigger?.current?.()}/>}/>
+            <Toolbar left={<Button icon='pi pi-save' onClick={trigger} disabled={!trigger}/>}/>
             <div className='p-d-flex' style={{overflowX: 'hidden', width: '100%'}}>
                 <ThumbIndex index={index} onFilter={setFilter}/>
                 <Form
@@ -170,7 +170,7 @@ export const Basic: React.FC<{}> = () => {
                     cards={cards}
                     layout={filter?.cards || []}
                     onSubmit={submit}
-                    trigger={trigger}
+                    setTrigger={setTrigger}
                     value={data}
                 />
             </div>

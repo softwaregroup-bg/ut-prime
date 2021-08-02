@@ -1,20 +1,7 @@
 import {WithStyles, withStyles, createStyles} from '@material-ui/core/styles';
 import React from 'react';
-import { JSONSchema7 } from 'json-schema'; // eslint-disable-line
 
-interface Property extends JSONSchema7 {
-    filter?: boolean;
-    sort?: boolean;
-    action?: ({
-        id: any,
-        current: {},
-        selected: []
-    }) => void;
-}
-
-export interface Properties {
-    [name: string]: Property
-}
+import type {Properties, Dropdowns} from '../types';
 
 interface action {
     title: string;
@@ -49,6 +36,7 @@ export interface Props {
         [data: string]: any
     }>;
     subscribe?: (callback: (rows: any) => void) => () => void;
+    onDropdown?: (params: string[]) => Promise<Dropdowns>,
     className?: string;
     details: {};
     actions?: action[];

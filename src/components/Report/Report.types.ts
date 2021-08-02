@@ -2,7 +2,7 @@ import {WithStyles, withStyles, createStyles} from '@material-ui/core/styles';
 import React from 'react';
 import type { Schema } from 'joi';
 
-import type {Properties, Dropdowns} from '../Form/Form.types';
+import type {Properties, Dropdowns} from '../types';
 
 export interface Props {
     properties: Properties,

@@ -1,7 +1,7 @@
 import {WithStyles, withStyles, createStyles} from '@material-ui/core/styles';
 import React from 'react';
 
-import type {Properties, Cards, Dropdowns} from '../Form/Form.types';
+import type {Properties, Cards, Dropdowns} from '../types';
 
 export interface Props {
     object: string,

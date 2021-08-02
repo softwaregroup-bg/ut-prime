@@ -4,7 +4,8 @@ import Joi from 'joi';
 import get from 'lodash.get';
 
 import { Card, InputText, InputTextarea, Dropdown, MultiSelect, TreeSelect, InputMask, InputNumber, Calendar, Checkbox } from '../prime';
-import { Styled, StyledType, Properties } from './Form.types';
+import { Styled, StyledType } from './Form.types';
+import { Properties } from '../types';
 import useForm from '../hooks/useForm';
 import Controller from '../Controller';
 import { joiResolver } from '@hookform/resolvers/joi';
@@ -125,7 +126,7 @@ const Form: StyledType = ({ classes, className, properties, cards, layout, onSub
         return error && <small className="p-error">{error.message}</small>;
     };
     React.useEffect(() => {
-        if (setTrigger) setTrigger(isDirty && (prev => handleSubmit(onSubmit)));
+        if (setTrigger) setTrigger(isDirty ? prev => handleSubmit(onSubmit) : undefined);
     }, [setTrigger, handleSubmit, onSubmit, isDirty]);
     React.useEffect(() => {
         reset(value || {});
