@@ -1,3 +1,12 @@
+## [1.27.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.27.0...v1.27.1) (2021-08-03)
+
+
+### Bug Fixes
+
+* field formatting and editors [UTCORE-121] ([857c4fd](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/857c4fd78fbc990d0f482f50abd663c7d07753a3))
+
+
+
 # [1.27.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.26.0...v1.27.0) (2021-08-02)
 
 
