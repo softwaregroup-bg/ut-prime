@@ -215,8 +215,8 @@ const Explorer: StyledType = ({
     const Columns = React.useMemo(() => columns.map(name => <Column
         key={name}
         field={name}
-        header={properties[name].title}
-        body={properties[name].action && (row => <Button
+        header={properties[name]?.title}
+        body={properties[name]?.action && (row => <Button
             label={row[name]}
             style={{padding: 0, minWidth: 'inherit'}}
             className='p-button-link'
@@ -226,8 +226,8 @@ const Explorer: StyledType = ({
                 selected: [row]
             })}
         />)}
-        filter={showFilter && !!properties[name].filter}
-        sortable={!!properties[name].sort}
+        filter={showFilter && !!properties[name]?.filter}
+        sortable={!!properties[name]?.sort}
         {...columnProps(name)}
     />), [columns, properties, showFilter, dropdowns, tableFilter]);
     const table = <DataTable
