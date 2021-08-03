@@ -1,3 +1,7 @@
+## [1.27.2](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.27.1...v1.27.2) (2021-08-03)
+
+
+
 ## [1.27.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.27.0...v1.27.1) (2021-08-03)
 
 
