@@ -56,7 +56,7 @@ exports[`<Report /> render equals snapshot 1`] = `
                     class="p-col-12 p-md-8"
                   >
                     <span
-                      class="p-calendar p-component p-inputwrapper"
+                      class="p-calendar p-component p-inputwrapper p-calendar-w-btn"
                     >
                       <input
                         autocomplete="off"
@@ -65,6 +65,20 @@ exports[`<Report /> render equals snapshot 1`] = `
                         name="startDate"
                         type="text"
                       />
+                      <button
+                        class="p-button p-component p-datepicker-trigger p-button-icon-only"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <span
+                          class="p-button-icon p-c pi pi-calendar"
+                        />
+                        <span
+                          class="p-button-label p-c"
+                        >
+                           
+                        </span>
+                      </button>
                     </span>
                   </div>
                 </div>
@@ -80,7 +94,7 @@ exports[`<Report /> render equals snapshot 1`] = `
                     class="p-col-12 p-md-8"
                   >
                     <span
-                      class="p-calendar p-component p-inputwrapper"
+                      class="p-calendar p-component p-inputwrapper p-calendar-w-btn"
                     >
                       <input
                         autocomplete="off"
@@ -89,6 +103,20 @@ exports[`<Report /> render equals snapshot 1`] = `
                         name="endDate"
                         type="text"
                       />
+                      <button
+                        class="p-button p-component p-datepicker-trigger p-button-icon-only"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <span
+                          class="p-button-icon p-c pi pi-calendar"
+                        />
+                        <span
+                          class="p-button-label p-c"
+                        >
+                           
+                        </span>
+                      </button>
                     </span>
                   </div>
                 </div>
