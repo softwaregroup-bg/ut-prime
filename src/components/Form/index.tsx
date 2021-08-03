@@ -2,87 +2,14 @@ import React from 'react';
 import clsx from 'clsx';
 import Joi from 'joi';
 import get from 'lodash.get';
+import { joiResolver } from '@hookform/resolvers/joi';
 
-import { Card, InputText, InputTextarea, Dropdown, MultiSelect, TreeSelect, InputMask, InputNumber, Calendar, Checkbox } from '../prime';
+import { Card } from '../prime';
 import { Styled, StyledType } from './Form.types';
 import { Properties } from '../types';
 import useForm from '../hooks/useForm';
 import Controller from '../Controller';
-import { joiResolver } from '@hookform/resolvers/joi';
-import { RefCallBack } from 'react-hook-form';
-import {Table} from './Table';
-
-function Currency({onChange, ref, ...props}) {
-    return (
-        <InputNumber
-            inputRef={ref}
-            onChange={e => {
-                onChange?.(e.value);
-            }}
-            maxFractionDigits={2}
-            {...props}
-        />
-    );
-}
-
-function Bool({onChange, ref, value, ...props}) {
-    return (
-        <Checkbox
-            inputRef={ref}
-            onChange={e => {
-                onChange?.(e.checked);
-            }}
-            checked={value}
-            {...props}
-        />
-    );
-}
-
-function element(
-    field: {
-        onChange: (...event: any[]) => void;
-        onBlur: () => void;
-        value: any;
-        name: string;
-        ref: RefCallBack;
-        className: string;
-    }, {
-        type = 'string',
-        dropdown = '',
-        parent = '',
-        ...props
-    } = {},
-    schema,
-    dropdowns,
-    filter
-) {
-    const Element: React.ElementType = {
-        dropdown: Dropdown,
-        dropdownTree: TreeSelect,
-        multiSelect: MultiSelect,
-        text: InputTextarea,
-        mask: InputMask,
-        date: Calendar,
-        boolean: Bool,
-        currency: Currency,
-        table: Table
-    }[type] || InputText;
-    const defaults = {
-        table: {
-            properties: schema?.items?.properties
-        },
-        dropdown: {
-            options: dropdowns?.[dropdown] || []
-        },
-        multiSelect: {
-            display: 'chip',
-            options: dropdowns?.[dropdown] || []
-        }
-    }[type] || {disabled: undefined};
-    if (defaults?.options && filter) defaults.options = defaults.options.filter(item => item.parent === filter);
-    if (parent && !filter) defaults.disabled = true;
-    return <Element {...field} {...defaults} {...props}/>;
-}
+import input from './input';
 
 const getSchema = (properties: Properties) : Joi.Schema => Object.entries(properties).reduce(
     (schema, [name, field]) => {
@@ -164,7 +91,7 @@ const Form: StyledType = ({ classes, className, properties, cards, layout, onSub
                                     control={control}
                                     name={name}
                                     render={
-                                        ({field}) => element(
+                                        ({field}) => input(
                                             {
                                                 className: clsx({ 'p-invalid': errors[name] }),
                                                 ...field,

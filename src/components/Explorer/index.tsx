@@ -187,6 +187,27 @@ const Explorer: StyledType = ({
                     {...editor}
                 />;
                 break;
+            case 'date':
+                body = function body(rowData) {
+                    const value = rowData[fieldName];
+                    if (value == null) return null;
+                    return new Date(value).toLocaleDateString();
+                };
+                break;
+            case 'time':
+                body = function body(rowData) {
+                    const value = rowData[fieldName];
+                    if (value == null) return null;
+                    return new Date(value).toLocaleTimeString();
+                };
+                break;
+            case 'date-time':
+                body = function body(rowData) {
+                    const value = rowData[fieldName];
+                    if (value == null) return null;
+                    return new Date(value).toLocaleString();
+                };
+                break;
         }
         return {...filterElement && {filterElement}, ...body && {body}};
     }
