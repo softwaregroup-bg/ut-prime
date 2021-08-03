@@ -74,18 +74,21 @@ export default function input(
         />;
         case 'date-time': return <Calendar
             {...field}
-            showTime={true}
+            showTime
+            showIcon
             value={field.value != null ? new Date(field.value) : field.value}
             {...props}
         />;
         case 'time': return <Calendar
             {...field}
-            timeOnly={true}
+            timeOnly
+            showIcon
             value={field.value != null ? new Date(field.value) : field.value}
             {...props}
         />;
         case 'date': return <Calendar
             {...field}
+            showIcon
             value={field.value != null ? new Date(field.value) : field.value}
             {...props}
         />;
