@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider, createTheme } from '@material-ui/core/styles';
 import { render as testRender } from '@testing-library/react';
 import merge from 'ut-function.merge';
 
@@ -8,7 +8,7 @@ import {State} from '../Store/Store.types';
 import defaultState from './state';
 
 export function render(children: React.ReactNode, initialStore: State = {}) {
-    const theme = createMuiTheme({}, {
+    const theme = createTheme({}, {
         ut: {
             classes: {},
             portalName: 'Administration'

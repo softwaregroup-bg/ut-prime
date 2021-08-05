@@ -9,117 +9,248 @@ exports[`<Form /> render equals snapshot 1`] = `
     style="overflow-x: hidden; width: 100%;"
   >
     <form
-      class="p-grid p-col p-mt-2"
+      class="p-grid p-col"
     >
       <div
         class="p-col-12 p-xl-6"
       >
-        <div
-          class="p-card p-component p-fluid p-mb-3"
-        >
+        <div>
           <div
-            class="p-card-body"
+            class="p-card p-component p-fluid p-mb-3"
           >
             <div
-              class="p-card-title"
-            >
-              Tree
-            </div>
-            <div
-              class="p-card-content"
+              class="p-card-body"
             >
               <div
-                class=""
+                class="p-card-title"
+              >
+                Tree
+              </div>
+              <div
+                class="p-card-content"
               >
                 <div
-                  class="p-field p-grid"
+                  class=""
                 >
-                  <label
-                    class="p-col-12 p-md-4"
-                  >
-                    Name
-                  </label>
                   <div
-                    class="p-col-12 p-md-8"
+                    class="p-field p-grid"
                   >
-                    <input
-                      class="p-inputtext p-component"
-                      name="treeName"
-                      value=""
-                    />
-                  </div>
-                </div>
-                <div
-                  class="p-field p-grid"
-                >
-                  <label
-                    class="p-col-12 p-md-4"
-                  >
-                    Description
-                  </label>
-                  <div
-                    class="p-col-12 p-md-8"
-                  >
-                    <textarea
-                      class="p-inputtextarea p-inputtext p-component"
-                      name="treeDescription"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="p-field p-grid"
-                >
-                  <label
-                    class="p-col-12 p-md-4"
-                  >
-                    Family
-                  </label>
-                  <div
-                    class="p-col-12 p-md-8"
-                  >
+                    <label
+                      class="p-col-12 p-md-4"
+                    >
+                      Name
+                    </label>
                     <div
-                      class="p-dropdown p-component p-inputwrapper"
+                      class="p-col-12 p-md-8"
+                    >
+                      <input
+                        class="p-inputtext p-component"
+                        name="treeName"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="p-field p-grid"
+                  >
+                    <label
+                      class="p-col-12 p-md-4"
+                    >
+                      Description
+                    </label>
+                    <div
+                      class="p-col-12 p-md-8"
+                    >
+                      <textarea
+                        class="p-inputtextarea p-inputtext p-component"
+                        name="treeDescription"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="p-field p-grid"
+                  >
+                    <label
+                      class="p-col-12 p-md-4"
+                    >
+                      Type
+                    </label>
+                    <div
+                      class="p-col-12 p-md-8"
                     >
                       <div
-                        class="p-hidden-accessible"
+                        class="p-dropdown p-component p-inputwrapper"
                       >
-                        <input
-                          aria-haspopup="listbox"
-                          readonly=""
-                          type="text"
-                        />
-                      </div>
-                      <div
-                        class="p-hidden-accessible p-dropdown-hidden-select"
-                      >
-                        <select
-                          aria-hidden="true"
-                          name="treeFamily"
-                          tabindex="-1"
+                        <div
+                          class="p-hidden-accessible"
                         >
-                          <option
-                            value=""
+                          <input
+                            aria-haspopup="listbox"
+                            readonly=""
+                            type="text"
                           />
-                        </select>
-                      </div>
-                      <span
-                        class="p-dropdown-label p-inputtext p-dropdown-label-empty"
-                      >
-                        empty
-                      </span>
-                      <div
-                        aria-expanded="false"
-                        aria-haspopup="listbox"
-                        class="p-dropdown-trigger"
-                        role="button"
-                      >
+                        </div>
+                        <div
+                          class="p-hidden-accessible p-dropdown-hidden-select"
+                        >
+                          <select
+                            aria-hidden="true"
+                            name="treeType"
+                            tabindex="-1"
+                          >
+                            <option
+                              value=""
+                            />
+                          </select>
+                        </div>
                         <span
-                          class="p-dropdown-trigger-icon p-clickable pi pi-chevron-down"
-                        />
+                          class="p-dropdown-label p-inputtext p-dropdown-label-empty"
+                        >
+                          empty
+                        </span>
+                        <div
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          class="p-dropdown-trigger"
+                          role="button"
+                        >
+                          <span
+                            class="p-dropdown-trigger-icon p-clickable pi pi-chevron-down"
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="p-col-12 p-xl-6"
+      >
+        <div>
+          <div
+            class="p-card p-component p-fluid p-mb-3"
+          >
+            <div
+              class="p-card-body"
+            >
+              <div
+                class="p-card-title"
+              >
+                Taxonomy
+              </div>
+              <div
+                class="p-card-content"
+              >
+                <div
+                  class=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            class="p-card p-component p-fluid p-mb-3"
+          >
+            <div
+              class="p-card-body"
+            >
+              <div
+                class="p-card-title"
+              >
+                Reproduction
+              </div>
+              <div
+                class="p-card-content"
+              >
+                <div
+                  class=""
+                >
+                  <div
+                    class="p-field p-grid"
+                  >
+                    <label
+                      class="p-col-12 p-md-4"
+                    >
+                      Seed
+                    </label>
+                    <div
+                      class="p-col-12 p-md-8"
+                    >
+                      <input
+                        class="p-inputtext p-component"
+                        name="seedDescription"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="p-field p-grid"
+                  >
+                    <label
+                      class="p-col-12 p-md-4"
+                    >
+                      Flower
+                    </label>
+                    <div
+                      class="p-col-12 p-md-8"
+                    >
+                      <input
+                        class="p-inputtext p-component"
+                        name="flowerDescription"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="p-field p-grid"
+                  >
+                    <label
+                      class="p-col-12 p-md-4"
+                    >
+                      Fruit
+                    </label>
+                    <div
+                      class="p-col-12 p-md-8"
+                    >
+                      <input
+                        class="p-inputtext p-component"
+                        name="fruitName"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="p-col-12 p-xl-6"
+      >
+        <div>
+          <div
+            class="p-card p-component p-fluid p-mb-3"
+          >
+            <div
+              class="p-card-body"
+            >
+              <div
+                class="p-card-title"
+              >
+                Morphology
+              </div>
+              <div
+                class="p-card-content"
+              >
+                <div
+                  class=""
+                />
               </div>
             </div>
           </div>

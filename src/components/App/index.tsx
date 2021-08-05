@@ -4,7 +4,7 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 import {Route, Switch} from 'react-router';
 import {hot} from 'react-hot-loader';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider, createTheme } from '@material-ui/core/styles';
 import {MuiPickersUtilsProvider} from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
 import 'primereact/resources/primereact.min.css';
@@ -29,7 +29,7 @@ const App: StyledType = ({middleware, reducers, theme, portalName, state, onDisp
     return (
         <DndProvider backend={HTML5Backend}>
             <Store {...{middleware, reducers, state, onDispatcher}}>
-                <ThemeProvider theme={createMuiTheme(theme)}>
+                <ThemeProvider theme={createTheme(theme)}>
                     <CssBaseline />
                     <Context.Provider value={{portalName}}>
                         <MuiPickersUtilsProvider utils={DateFnsUtils}>
