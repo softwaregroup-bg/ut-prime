@@ -1,3 +1,12 @@
+# [1.28.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.27.2...v1.28.0) (2021-08-05)
+
+
+### Features
+
+* visual form editor [UTCORE-121] ([edeb1b1](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/edeb1b1bcc326798594125c9fcf0fe64171dbdd8))
+
+
+
 ## [1.27.2](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.27.1...v1.27.2) (2021-08-03)
 
 
