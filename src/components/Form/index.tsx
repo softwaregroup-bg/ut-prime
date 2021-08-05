@@ -25,7 +25,7 @@ const getSchema = (properties: Properties) : Joi.Schema => Object.entries(proper
     Joi.object()
 );
 
-export const getIndex = (properties: Properties, root: string) : Properties => Object.entries(properties).reduce(
+const getIndex = (properties: Properties, root: string) : Properties => Object.entries(properties).reduce(
     (map, [name, property]) => {
         return ('properties' in property) ? {
             ...map,
