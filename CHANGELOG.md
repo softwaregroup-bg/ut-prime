@@ -1,3 +1,12 @@
+## [1.28.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.28.0...v1.28.1) (2021-08-05)
+
+
+### Bug Fixes
+
+* mixed export #UTCORE-121 ([cf35cc4](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/cf35cc40539d4ddc18530e8aeb97f57736cd980b)), closes [#UTCORE-121](https://github.com/softwaregroup-bg/ut-front-devextreme/issues/UTCORE-121)
+
+
+
 # [1.28.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.27.2...v1.28.0) (2021-08-05)
 
 
