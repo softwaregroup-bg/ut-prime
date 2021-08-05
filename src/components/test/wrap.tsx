@@ -1,6 +1,8 @@
 import React from 'react';
 import { ThemeProvider, createMuiTheme, withStyles, createStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 import merge from 'ut-function.merge';
 
 import Context from '../Context';
@@ -31,14 +33,16 @@ function Wrap({
         }
     });
     return (
-        <Store state={merge({}, defaultState, state)}>
-            <ThemeProvider theme={theme}>
-                <CssBaseline />
-                <Context.Provider value={{portalName}}>
-                    {children}
-                </Context.Provider>
-            </ThemeProvider>
-        </Store>
+        <DndProvider backend={HTML5Backend}>
+            <Store state={merge({}, defaultState, state)}>
+                <ThemeProvider theme={theme}>
+                    <CssBaseline />
+                    <Context.Provider value={{portalName}}>
+                        {children}
+                    </Context.Provider>
+                </ThemeProvider>
+            </Store>
+        </DndProvider>
     );
 }
 

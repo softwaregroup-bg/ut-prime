@@ -17,9 +17,7 @@ export default {
 const state = {
 };
 
-export const Basic: React.FC<{}> = () => <Wrap state={state}>
-    <${componentName} />
-</Wrap>;
+export const Basic: React.FC<{}> = () =>  <${componentName} />;
 `,
     extension: '.stories.tsx'
 });

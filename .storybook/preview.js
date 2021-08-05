@@ -1,5 +1,7 @@
 import React from 'react';
 import Wrap from '../src/components/test/wrap';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 
 export const parameters = {
     layout: 'fullscreen',
@@ -18,5 +20,7 @@ export const decorators = [
         <Wrap state={args?.state}>
             <Story />
         </Wrap>
-    ) : <Story />
+    ) : <DndProvider backend={HTML5Backend}>
+            <Story />
+        </DndProvider>
 ];

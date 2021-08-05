@@ -1,4 +1,6 @@
 import React from 'react';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 import {Route, Switch} from 'react-router';
 import {hot} from 'react-hot-loader';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -25,27 +27,29 @@ const App: StyledType = ({middleware, reducers, theme, portalName, state, onDisp
     last?.unuse?.();
     last = theme?.palette?.type === 'dark' ? dark?.use?.() : light?.use?.();
     return (
-        <Store {...{middleware, reducers, state, onDispatcher}}>
-            <ThemeProvider theme={createMuiTheme(theme)}>
-                <CssBaseline />
-                <Context.Provider value={{portalName}}>
-                    <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                        <Switch>
-                            <Route path='/login'>
-                                <LoginPage />
-                            </Route>
-                            <Route path='/sso/:appId/:ssoOrigin/login'>
-                                <LoginPage />
-                            </Route>
-                            <Route>
-                                <Main loginPage={loginPage}/>
-                            </Route>
-                            <Route path='*' component={PageNotFound} />
-                        </Switch>
-                    </MuiPickersUtilsProvider>
-                </Context.Provider>
-            </ThemeProvider>
-        </Store>
+        <DndProvider backend={HTML5Backend}>
+            <Store {...{middleware, reducers, state, onDispatcher}}>
+                <ThemeProvider theme={createMuiTheme(theme)}>
+                    <CssBaseline />
+                    <Context.Provider value={{portalName}}>
+                        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                            <Switch>
+                                <Route path='/login'>
+                                    <LoginPage />
+                                </Route>
+                                <Route path='/sso/:appId/:ssoOrigin/login'>
+                                    <LoginPage />
+                                </Route>
+                                <Route>
+                                    <Main loginPage={loginPage}/>
+                                </Route>
+                                <Route path='*' component={PageNotFound} />
+                            </Switch>
+                        </MuiPickersUtilsProvider>
+                    </Context.Provider>
+                </ThemeProvider>
+            </Store>
+        </DndProvider>
     );
 };
 

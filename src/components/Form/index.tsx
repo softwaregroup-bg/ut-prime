@@ -4,12 +4,14 @@ import Joi from 'joi';
 import get from 'lodash.get';
 import { joiResolver } from '@hookform/resolvers/joi';
 
-import { Card } from '../prime';
 import { Styled, StyledType } from './Form.types';
+import { DDField, DDCard} from './DragDrop';
+import input from './input';
+
 import { Properties } from '../types';
 import useForm from '../hooks/useForm';
+import useToggle from '../hooks/useToggle';
 import Controller from '../Controller';
-import input from './input';
 
 const getSchema = (properties: Properties) : Joi.Schema => Object.entries(properties).reduce(
     (schema, [name, field]) => {
@@ -23,7 +25,7 @@ const getSchema = (properties: Properties) : Joi.Schema => Object.entries(proper
     Joi.object()
 );
 
-const getIndex = (properties: Properties, root: string) : Properties => Object.entries(properties).reduce(
+export const getIndex = (properties: Properties, root: string) : Properties => Object.entries(properties).reduce(
     (map, [name, property]) => {
         return ('properties' in property) ? {
             ...map,
@@ -44,7 +46,9 @@ const flat = (e: Errors, path = '') => Object.entries(e).map(
     ([name, value]) => typeof value.message === 'string' ? (path ? path + '.' + name : name) : flat(value, name)
 );
 
-const Form: StyledType = ({ classes, className, properties, cards, layout, onSubmit, setTrigger, value, dropdowns, validation, ...rest }) => {
+const outline = {outline: '1px dotted #ffff0030'};
+
+const Form: StyledType = ({ classes, className, properties, design, cards, layout, onSubmit, setTrigger, value, dropdowns, validation, ...rest }) => {
     const joiSchema = validation || getSchema(properties);
     const index = getIndex(properties, '');
     const {handleSubmit, control, reset, formState: {errors, isDirty}, watch, setValue} = useForm({resolver: joiResolver(joiSchema)});
@@ -76,50 +80,106 @@ const Form: StyledType = ({ classes, className, properties, cards, layout, onSub
         if (items) items.forEach(child => setValue(child, null));
     };
 
-    function card(id: string) {
+    const [, moved] = useToggle();
+
+    function move(type: 'card' | 'field', source, destination) {
+        if (type === 'field') {
+            const destinationList = cards[destination.card].properties;
+            if (source.card === '/') {
+                destinationList.splice(destination.index, 0, source.index);
+            } else {
+                const sourceList = cards[source.card].properties;
+                destinationList.splice(destination.index, 0, sourceList.splice(source.index, 1)[0]);
+            }
+        } else if (type === 'card') {
+            let [
+                destinationList,
+                destinationIndex
+            ] = (destination.index[1] === false) ? [
+                visibleCards,
+                destination.index[0]
+            ] : [
+                visibleCards[destination.index[0]],
+                destination.index[1]
+            ];
+            if (!Array.isArray(destinationList)) {
+                const card = visibleCards[destination.index[0]];
+                if (typeof card === 'string') destinationList = visibleCards[destination.index[0]] = [card];
+            }
+            if (source.index[0] === false && Array.isArray(destinationList)) {
+                destinationList.splice(destinationIndex, 0, source.card);
+                moved();
+                return;
+            }
+            const [
+                sourceList,
+                sourceIndex,
+                sourceNested
+            ] = (source.index[1] === false) ? [
+                visibleCards,
+                source.index[0],
+                false
+            ] : [
+                visibleCards[source.index[0]],
+                source.index[1],
+                true
+            ];
+            if (Array.isArray(sourceList) && Array.isArray(destinationList)) {
+                const removed = sourceList.splice(sourceIndex, 1)[0];
+                if (sourceList.length === 1 && sourceNested && sourceList !== destinationList) visibleCards[source.index[0]] = sourceList[0];
+                destinationList.splice(destinationIndex, 0, removed);
+            }
+        }
+        moved();
+    }
+
+    function card(id: string, index1, index2) {
         const {title, properties = [], flex} = (cards[id] || {title: '❌ ' + id});
         return (
-            <Card title={title} key={id} className='p-fluid p-mb-3'>
+            <DDCard title={title} key={String(index2)} className='p-fluid p-mb-3' card={id} index={[index1, index2]} move={move} flex={flex} design={design}>
                 <div className={clsx(flex && 'p-d-flex p-flex-wrap')}>
-                    {properties.map(name => index[name]
-                        ? <div className={clsx('p-field p-grid', flex)} key={name}>
-                            {index[name].title ? <label className='p-col-12 p-md-4'>
-                                {index[name].title}
-                            </label> : null}
-                            <div className={clsx(index[name].title ? 'p-col-12 p-md-8' : 'p-col-12')}>
-                                <Controller
-                                    control={control}
-                                    name={name}
-                                    render={
-                                        ({field}) => input(
-                                            {
-                                                className: clsx({ 'p-invalid': errors[name] }),
-                                                ...field,
-                                                onChange: e => {
-                                                    try {
-                                                        parentChange(name);
-                                                    } finally {
-                                                        field.onChange(e);
-                                                    }
+                    {properties.map((name, ind) => index[name] ? <DDField
+                        className={clsx('p-field p-grid', flex)}
+                        key={name}
+                        index={ind}
+                        card={id}
+                        move={move}
+                        design={design}
+                        label={index[name].title}
+                    >
+                        <div className={clsx(index[name].title ? 'p-col-12 p-md-8' : 'p-col-12')}>
+                            <Controller
+                                control={control}
+                                name={name}
+                                render={
+                                    ({field}) => input(
+                                        {
+                                            className: clsx({ 'p-invalid': errors[name] }),
+                                            ...field,
+                                            onChange: e => {
+                                                try {
+                                                    parentChange(name);
+                                                } finally {
+                                                    field.onChange(e);
                                                 }
-                                            },
-                                            index[name].editor,
-                                            index[name],
-                                            dropdowns,
-                                            addParent(index, name)
-                                        )
-                                    }
-                                />
-                            </div>
-                            {getFormErrorMessage(name)}
+                                            }
+                                        },
+                                        index[name].editor,
+                                        index[name],
+                                        dropdowns,
+                                        addParent(index, name)
+                                    )
+                                }
+                            />
                         </div>
-                        : <div className="p-field p-grid" key={name}>❌ {name}</div>
+                        {getFormErrorMessage(name)}
+                    </DDField> : <div className="p-field p-grid" key={name}>❌ {name}</div>
                     )}
                 </div>
-            </Card>
+            </DDCard>
         );
     }
-    const visibleCards = (layout || Object.keys(cards));
+    const visibleCards: (string | string[])[] = (layout || Object.keys(cards));
     const errorFields = flat(errors).flat();
     const visibleProperties = visibleCards.map(id => {
         const nested = [].concat(id);
@@ -127,21 +187,41 @@ const Form: StyledType = ({ classes, className, properties, cards, layout, onSub
     }).flat(10).filter(Boolean);
 
     return (
-        <form {...rest} onSubmit={handleSubmit(onSubmit)} className={clsx('p-grid p-col p-mt-2', className)}>
+        <form {...rest} onSubmit={handleSubmit(onSubmit)} className={clsx('p-grid p-col', className)}>
             {
                 !!Object.keys(errors).length && <div className='p-col-12'>
                     {errorFields.map(name => !visibleProperties.includes(name) && <><small className="p-error">{get(errors, name)?.message}</small><br /></>)}
                 </div>
             }
-            {visibleCards.map(id => {
-                const nested = [].concat(id);
+            {visibleCards.map((id1, level1) => {
+                const nested = [].concat(id1);
                 const key = nested[0];
                 return (
-                    <div key={key} className={clsx('p-col-12', cards[key]?.className || 'p-xl-6')}>
-                        {nested.map(card)}
+                    <div key={level1} className={clsx('p-col-12', cards[key]?.className || 'p-xl-6')} {...design && {style: outline}}>
+                        {nested.map((id2, level2) => card(id2, level1, Array.isArray(id1) && level2))}
+                        <DDCard
+                            title='[ add row ]'
+                            className='p-fluid p-mb-3'
+                            card=''
+                            index={[level1, nested.length]}
+                            move={move}
+                            design={design}
+                            drop
+                        />
                     </div>
                 );
             })}
+            {design && <div className='p-col-12 p-xl-6' style={outline}>
+                <DDCard
+                    title='[ add column ]'
+                    className='p-fluid p-mb-3'
+                    card=''
+                    index={[visibleCards.length, false]}
+                    move={move}
+                    design={design}
+                    drop
+                />
+            </div>}
         </form>
     );
 };

@@ -8,8 +8,9 @@ export interface Props extends React.HTMLAttributes<HTMLFormElement> {
     properties: Properties;
     cards: Cards;
     dropdowns?: Dropdowns,
-    layout?: string[];
+    layout?: (string | string[])[];
     validation?: Schema;
+    design?: boolean;
     onSubmit: (form: {}) => void;
     setTrigger?: (trigger: (event: {}) => void) => void;
     value?: any;

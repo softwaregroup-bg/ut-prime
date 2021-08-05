@@ -1,6 +1,6 @@
 import {WithStyles, withStyles, createStyles} from '@material-ui/core/styles';
 import React from 'react';
-import { MenuItem } from 'primereact/components/menuitem/MenuItem';
+import { MenuItem } from 'primereact/menuitem/MenuItem';
 
 interface Item extends MenuItem {
     filter?: string | string[] | RegExp

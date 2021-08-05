@@ -10,7 +10,9 @@ export interface Props {
     type?: string,
     typeField?: string,
     cards: Cards,
-    layouts?: any,
+    layouts?: {
+        [name: string]: (string | string[])[]
+    },
     layoutName?: string,
     nested?: string[],
     keyField?: string,

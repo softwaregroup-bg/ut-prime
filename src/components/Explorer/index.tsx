@@ -230,6 +230,12 @@ const Explorer: StyledType = ({
         sortable={!!properties[name]?.sort}
         {...columnProps(name)}
     />), [columns, properties, showFilter, dropdowns, tableFilter]);
+    const left = React.useMemo(() => <>
+        {children && <Button icon="pi pi-bars" className="p-mr-2" onClick={navigationToggle}/>}
+        {buttons}
+    </>, [navigationToggle, buttons]);
+    const right = React.useMemo(() => <Button icon="pi pi-bars" className="p-mr-2" onClick={detailsToggle}/>, [detailsToggle]);
+
     const table = <DataTable
         autoLayout
         lazy
@@ -255,17 +261,8 @@ const Explorer: StyledType = ({
     </DataTable>;
     return (
         <div className={clsx('p-d-flex', 'p-flex-column', className)} style={{height: '100%'}} >
-            {(detailsPanel || children) ? <>
-                <Toolbar
-                    left={React.useMemo(() =>
-                        <>
-                            {children && <Button icon="pi pi-bars" className="p-mr-2" onClick={navigationToggle}/>}
-                            {buttons}
-                        </>, [navigationToggle, buttons])
-                    }
-                    right={React.useMemo(() => <Button icon="pi pi-bars" className="p-mr-2" onClick={detailsToggle}/>, [detailsToggle])
-                    }
-                />
+            {(detailsPanel || children || buttons?.length) ? <>
+                <Toolbar left={left} right={right} />
                 <Splitter style={flexGrow}>
                     {[
                         children && navigationOpened && <SplitterPanel key='nav' size={15}>{children}</SplitterPanel>,

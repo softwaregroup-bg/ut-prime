@@ -7,12 +7,16 @@ import README from './README.md';
 import ThumbIndex from './index';
 import Form from '../Form';
 import {Properties, PropertyEditor} from '../types';
-import {Toast, Toolbar, Button} from '../prime';
+import {Toolbar, Button} from '../prime';
+import useToast from '../hooks/useToast';
 
 export default {
     title: 'ThumbIndex',
     component: ThumbIndex,
-    decorators: [withReadme(README)]
+    decorators: [withReadme(README)],
+    args: {
+        state: {}
+    }
 };
 
 const data = {
@@ -152,16 +156,11 @@ const cards = {
 
 export const Basic: React.FC<{}> = () => {
     const [filter, setFilter] = React.useState(index?.[0]?.items?.[0]);
-    const toast = React.useRef(null);
     const [trigger, setTrigger] = React.useState<(event: {}) => void>();
-    const submit = React.useCallback(formData => toast.current.show({
-        severity: 'success',
-        summary: 'Submit',
-        detail: <pre>{JSON.stringify(formData, null, 2)}</pre>
-    }), [toast]);
+    const {toast, submit} = useToast();
     return (
         <>
-            <Toast ref={toast} />
+            {toast}
             <Toolbar left={<Button icon='pi pi-save' onClick={trigger} disabled={!trigger}/>}/>
             <div className='p-d-flex' style={{overflowX: 'hidden', width: '100%'}}>
                 <ThumbIndex index={index} onFilter={setFilter}/>

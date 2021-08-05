@@ -4,42 +4,24 @@ import { withReadme } from 'storybook-readme';
 // @ts-ignore: md file and not a module
 import README from './README.md';
 import Form from './index';
+import tree from '../test/tree';
 
 export default {
     title: 'Form',
     component: Form,
-    decorators: [withReadme(README)]
+    decorators: [withReadme(README)],
+    args: {
+        state: {}
+    }
 };
 
 export const Basic: React.FC<{}> = () =>
     <div className='p-d-flex' style={{overflowX: 'hidden', width: '100%'}}>
         <Form
-            properties={{
-                treeName: {
-                    title: 'Name'
-                },
-                treeDescription: {
-                    title: 'Description',
-                    editor: {
-                        type: 'text'
-                    }
-                },
-                treeFamily: {
-                    title: 'Family',
-                    editor: {
-                        type: 'dropdown',
-                        dropdown: 'tree.family'
-                    }
-                }
-            }}
-            cards={{
-                edit: {
-                    title: 'Tree',
-                    properties: ['treeName', 'treeDescription', 'treeFamily']
-                }
-            }}
-            dropdowns={{'tree.family': [{value: 1, label: 'Fagaceae'}, {value: 2, label: 'Pinaceae'}]}}
-            value={{tree: {treeName: 'Oak', treeId: 1, treeFamily: 1}}}
+            {...tree}
+            layout={['edit', ['taxonomy', 'reproduction'], 'morphology']}
+            dropdowns={{'tree.type': [{value: 1, label: 'Conifer'}, {value: 2, label: 'Broadleaf'}]}}
+            value={{tree: {treeName: 'Oak', treeId: 1, treeType: 1}}}
             onSubmit={() => {}}
         />
     </div>;
