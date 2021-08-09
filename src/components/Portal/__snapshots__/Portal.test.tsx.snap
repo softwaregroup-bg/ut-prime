@@ -12,7 +12,7 @@ exports[`<Portal /> render equals snapshot 1`] = `
       class="Portal-headerContainer-1"
     >
       <div
-        class="p-d-flex p-ai-center"
+        class="p-d-flex p-ai-center p-jc-center"
       >
         <div
           class="Portal-headerLogo-3"
@@ -25,8 +25,7 @@ exports[`<Portal /> render equals snapshot 1`] = `
           </span>
         </div>
         <div
-          class="p-menubar p-component"
-          style="border: 0px; flex-grow: 1;"
+          class="p-menubar p-component Portal-menuGrow-5"
         >
           <a
             class="p-menubar-button"
@@ -44,8 +43,7 @@ exports[`<Portal /> render equals snapshot 1`] = `
           />
         </div>
         <div
-          class="p-menubar p-component"
-          style="border: 0px;"
+          class="p-menubar p-component Portal-menu-6"
         >
           <a
             class="p-menubar-button"

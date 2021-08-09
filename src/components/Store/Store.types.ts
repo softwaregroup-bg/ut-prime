@@ -23,8 +23,11 @@ export interface State {
             Component: React.FC;
             params?: {}
         }[];
+        hideTabs?: boolean;
         menu: {}[];
+        menuClass?: 'menu' | 'menuGrow';
         rightMenu?: {}[];
+        rightMenuClass?: 'menu' | 'menuGrow';
         rightMenuItems?: {}[]
     };
 }

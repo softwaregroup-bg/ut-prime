@@ -11,42 +11,24 @@ import permissionCheck from '../lib/permission';
 import {State} from '../Store/Store.types';
 
 import { Styled, StyledType } from './Portal.types';
-
-// https://usehooks.com/useWindowSize/
-function useWindowSize() {
-    // Initialize state with undefined width/height so server and client renders match
-    // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
-    const [windowSize, setWindowSize] = React.useState({
-        width: undefined,
-        height: undefined
-    });
-
-    React.useEffect(() => {
-        function handleResize() {
-            setWindowSize({
-                width: window.innerWidth,
-                height: window.innerHeight
-            });
-        }
-
-        window.addEventListener('resize', handleResize);
-        handleResize();
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
-
-    return windowSize;
-}
+import { useWindowSize } from '../hooks';
 
 const Portal: StyledType = ({ classes, children }) => {
     const {
         tabs = [],
+        hideTabs,
         menu,
+        menuClass = 'menuGrow',
         rightMenu,
+        rightMenuClass = 'menu',
         rightMenuItems
     } = useSelector(({portal}: State) => portal || {
         tabs: undefined,
         menu: undefined,
+        menuClass: undefined,
+        hideTabs: undefined,
         rightMenu: undefined,
+        rightMenuClass: undefined,
         rightMenuItems: undefined
     });
     const login = useSelector(({login}: State) => login);
@@ -108,22 +90,25 @@ const Portal: StyledType = ({ classes, children }) => {
     return (
         <div className='p-d-flex p-flex-column' style={{height: size.height}}>
             <div className={classes.headerContainer}>
-                <div className='p-d-flex p-ai-center'>
+                <div className='p-d-flex p-ai-center p-jc-center'>
                     <div className={classes.headerLogo}></div>
                     <div className={classes.headerTitle}>
                         <Text>{portalName}</Text>
                     </div>
-                    <Menubar model={menuEnabled} style={{border: 0, flexGrow: 1}}/>
-                    <Menubar model={rightEnabled} style={{border: 0}}/>
+                    <Menubar model={menuEnabled} className={classes[menuClass]} />
+                    <Menubar model={rightEnabled} className={classes[rightMenuClass]} />
                 </div>
             </div>
-            <TabView activeIndex={tabIndex} onTabChange={handleTabSelect} className={classes.tabs}>
-                {tabs.map(({title, path, Component, params}) =>
-                    <TabPanel key={path} header={<>{title}&nbsp;&nbsp;</>} rightIcon='pi pi-times'>
-                        <Component {...params}/>
-                    </TabPanel>
-                )}
-            </TabView>
+            {(hideTabs)
+                ? (({Component, params}) => <Component {...params}/>)(tabs[tabIndex || 0] || {Component() { return null; }, params: undefined})
+                : <TabView activeIndex={tabIndex} onTabChange={handleTabSelect} className={classes.tabs}>
+                    {tabs.map(({title, path, Component, params}) =>
+                        <TabPanel key={path} header={<>{title}&nbsp;&nbsp;</>} rightIcon='pi pi-times'>
+                            <Component {...params}/>
+                        </TabPanel>
+                    )}
+                </TabView>
+            }
             {children}
         </div>
     );

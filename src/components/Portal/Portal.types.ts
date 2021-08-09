@@ -44,6 +44,13 @@ const styles = createStyles({
         '& .p-tabview-panel': {
             flexGrow: 1
         }
+    },
+    menuGrow: {
+        border: 0,
+        flexGrow: 1
+    },
+    menu: {
+        border: 0
     }
 });
 
