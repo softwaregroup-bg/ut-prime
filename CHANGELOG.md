@@ -1,3 +1,12 @@
+# [1.29.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.28.1...v1.29.0) (2021-08-09)
+
+
+### Features
+
+* **Portal:** menu and tabs customization ([c515039](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/c5150392b2ef163f3b0c3b8a67809b07c24459af))
+
+
+
 ## [1.28.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.28.0...v1.28.1) (2021-08-05)
 
 
