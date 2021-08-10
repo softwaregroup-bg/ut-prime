@@ -3,6 +3,7 @@ export { Button } from 'primereact/button';
 export { Calendar } from 'primereact/calendar';
 export { Card } from 'primereact/card';
 export { CascadeSelect } from 'primereact/cascadeselect';
+export { Chart } from 'primereact/chart';
 export { Checkbox } from 'primereact/checkbox';
 export { Chips } from 'primereact/chips';
 export { Column } from 'primereact/column';
