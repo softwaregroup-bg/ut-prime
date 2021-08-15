@@ -1,3 +1,12 @@
+# [1.30.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.29.1...v1.30.0) (2021-08-15)
+
+
+### Features
+
+* react-to-print ([f285ec7](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/f285ec7c9ad9bf36db44094ae834576e8d161e55))
+
+
+
 ## [1.29.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.29.0...v1.29.1) (2021-08-10)
 
 
