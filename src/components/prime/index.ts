@@ -21,6 +21,7 @@ export { MultiSelect } from 'primereact/multiselect';
 export { PanelMenu } from 'primereact/panelmenu';
 export { Password } from 'primereact/password';
 export { RadioButton } from 'primereact/radiobutton';
+export { Skeleton } from 'primereact/skeleton';
 export { Splitter, SplitterPanel } from 'primereact/splitter';
 export { TabView, TabPanel } from 'primereact/tabview';
 export { Toast } from 'primereact/toast';
