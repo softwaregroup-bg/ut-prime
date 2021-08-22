@@ -1,3 +1,12 @@
+# [1.31.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.30.2...v1.31.0) (2021-08-22)
+
+
+### Features
+
+* loading and labeling improvements ([64c71f5](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/64c71f5950e75a2650a26ec3c081c51ad8f4a7ab))
+
+
+
 ## [1.30.2](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.30.1...v1.30.2) (2021-08-19)
 
 
