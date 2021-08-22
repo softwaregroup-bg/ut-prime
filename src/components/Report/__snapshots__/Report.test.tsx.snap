@@ -8,7 +8,7 @@ exports[`<Report /> render equals snapshot 1`] = `
     class="p-d-flex p-ai-center"
   >
     <form
-      class="p-grid p-col"
+      class="p-grid p-col p-as-start"
       style="flex-grow: 1;"
     >
       <div
@@ -17,6 +17,7 @@ exports[`<Report /> render equals snapshot 1`] = `
         <div>
           <div
             class="p-card p-component p-fluid p-mb-3"
+            id="params"
           >
             <div
               class="p-card-body"
@@ -32,6 +33,7 @@ exports[`<Report /> render equals snapshot 1`] = `
                   >
                     <label
                       class="p-col-12 p-md-4"
+                      for="name"
                     >
                       Name
                     </label>
@@ -40,6 +42,7 @@ exports[`<Report /> render equals snapshot 1`] = `
                     >
                       <input
                         class="p-inputtext p-component"
+                        id="name"
                         name="name"
                         value=""
                       />
@@ -50,6 +53,7 @@ exports[`<Report /> render equals snapshot 1`] = `
                   >
                     <label
                       class="p-col-12 p-md-4"
+                      for="startDate"
                     >
                       Start Date
                     </label>
@@ -58,6 +62,7 @@ exports[`<Report /> render equals snapshot 1`] = `
                     >
                       <span
                         class="p-calendar p-component p-inputwrapper p-calendar-w-btn"
+                        id="startDate"
                       >
                         <input
                           autocomplete="off"
@@ -88,6 +93,7 @@ exports[`<Report /> render equals snapshot 1`] = `
                   >
                     <label
                       class="p-col-12 p-md-4"
+                      for="endDate"
                     >
                       End Date
                     </label>
@@ -96,6 +102,7 @@ exports[`<Report /> render equals snapshot 1`] = `
                     >
                       <span
                         class="p-calendar p-component p-inputwrapper p-calendar-w-btn"
+                        id="endDate"
                       >
                         <input
                           autocomplete="off"

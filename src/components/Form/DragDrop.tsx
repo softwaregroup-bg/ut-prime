@@ -17,7 +17,7 @@ type CardMonitor = DropTargetMonitor<{
     index: [number, number | false]
 }>;
 
-export function DDField({design, children = null, index, card = '', move = null, labelClass = 'p-col-12 p-md-4', label, ...props}) {
+export function DDField({design, children = null, name, index, card = '', move = null, labelClass = 'p-col-12 p-md-4', label, ...props}) {
     let labelProps;
     let isDragging = false;
     if (design) {
@@ -62,7 +62,7 @@ export function DDField({design, children = null, index, card = '', move = null,
     return (
         <div {...props}>
             {
-                label ? <label className={labelClass} {...labelProps}>
+                label ? <label className={labelClass} htmlFor={name} {...labelProps}>
                     {label}
                 </label> : null
             }

@@ -26,6 +26,7 @@ const Editor: StyledType = ({
     nested,
     keyField = object + 'Id',
     resultSet = object,
+    design: designDefault,
     onDropdown,
     onAdd,
     onGet,
@@ -46,6 +47,8 @@ const Editor: StyledType = ({
     const [dropdowns, setDropdown] = React.useState({});
     const [[index, layout], setIndex] = React.useState(getLayout(layoutName));
     const [filter, setFilter] = React.useState(index?.[0]?.items?.[0]);
+    const [loading, setLoading] = React.useState('');
+
     const dropdownNames = (layout || filter?.cards || [])
         .flat()
         .map(card => cards?.[card]?.properties)
@@ -54,6 +57,7 @@ const Editor: StyledType = ({
         .map(name => lodashGet(properties, name?.replace(/\./g, '.properties.'))?.editor?.dropdown)
         .filter(Boolean);
     async function get() {
+        setLoading('loading');
         let result = (await onGet({[keyField]: id}));
         if (nested) {
             result = nested.reduce((prev, field) => ({
@@ -67,9 +71,12 @@ const Editor: StyledType = ({
         if (typeField) setIndex(getLayout(result[typeField]));
         setDropdown(await onDropdown(dropdownNames));
         setValue(result);
+        setLoading('');
     }
     async function init() {
+        setLoading('loading');
         setDropdown(await onDropdown(dropdownNames));
+        setLoading('');
     }
     const handleSubmit = React.useCallback(
         async function handleSubmit(instance) {
@@ -98,15 +105,15 @@ const Editor: StyledType = ({
         moved();
     }
 
-    const [design, toggleDesign] = useToggle();
+    const [design, toggleDesign] = useToggle(designDefault);
     return (
         <>
             <Toolbar
                 left={
-                    <Button icon='pi pi-save' onClick={trigger} disabled={!trigger}/>
+                    <Button icon='pi pi-save' onClick={trigger} disabled={!trigger || !!loading} aria-label='save'/>
                 }
                 right={
-                    <Button icon='pi pi-cog' onClick={toggleDesign} {...design && {className: 'p-button-success'}}/>
+                    <Button icon='pi pi-cog' onClick={toggleDesign} {...design && {className: 'p-button-success'}} disabled={!!loading} aria-label='design'/>
                 }
             />
             <div className='p-d-flex' style={{overflowX: 'hidden', width: '100%'}}>
@@ -120,6 +127,7 @@ const Editor: StyledType = ({
                         onSubmit={handleSubmit}
                         value={value}
                         dropdowns={dropdowns}
+                        loading={loading}
                         setTrigger={setTrigger}
                     />
                     {design && <div className='p-col-2 p-d-flex-column'>
@@ -130,11 +138,13 @@ const Editor: StyledType = ({
                                 design
                                 move={remove}
                                 label=''
+                                name='trash'
                             ><i className='pi pi-trash p-m-3'></i></DDField>
                             {Object.entries(properties).map(([name, {title}], index) => <DDField
                                 className='p-field p-grid'
                                 key={index}
                                 index={name}
+                                name={name}
                                 card='/'
                                 design
                                 label={title}

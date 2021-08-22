@@ -9,7 +9,7 @@ exports[`<Form /> render equals snapshot 1`] = `
     style="overflow-x: hidden; width: 100%;"
   >
     <form
-      class="p-grid p-col"
+      class="p-grid p-col p-as-start"
     >
       <div
         class="p-col-12 p-xl-6"
@@ -17,6 +17,7 @@ exports[`<Form /> render equals snapshot 1`] = `
         <div>
           <div
             class="p-card p-component p-fluid p-mb-3"
+            id="edit"
           >
             <div
               class="p-card-body"
@@ -37,6 +38,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                   >
                     <label
                       class="p-col-12 p-md-4"
+                      for="treeName"
                     >
                       Name
                     </label>
@@ -45,6 +47,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                     >
                       <input
                         class="p-inputtext p-component"
+                        id="treeName"
                         name="treeName"
                         value=""
                       />
@@ -55,6 +58,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                   >
                     <label
                       class="p-col-12 p-md-4"
+                      for="treeDescription"
                     >
                       Description
                     </label>
@@ -63,6 +67,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                     >
                       <textarea
                         class="p-inputtextarea p-inputtext p-component"
+                        id="treeDescription"
                         name="treeDescription"
                       />
                     </div>
@@ -72,6 +77,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                   >
                     <label
                       class="p-col-12 p-md-4"
+                      for="treeType"
                     >
                       Type
                     </label>
@@ -80,6 +86,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                     >
                       <div
                         class="p-dropdown p-component p-inputwrapper"
+                        id="treeType"
                       >
                         <div
                           class="p-hidden-accessible"
@@ -133,6 +140,7 @@ exports[`<Form /> render equals snapshot 1`] = `
         <div>
           <div
             class="p-card p-component p-fluid p-mb-3"
+            id="taxonomy"
           >
             <div
               class="p-card-body"
@@ -155,6 +163,7 @@ exports[`<Form /> render equals snapshot 1`] = `
         <div>
           <div
             class="p-card p-component p-fluid p-mb-3"
+            id="reproduction"
           >
             <div
               class="p-card-body"
@@ -175,6 +184,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                   >
                     <label
                       class="p-col-12 p-md-4"
+                      for="seedDescription"
                     >
                       Seed
                     </label>
@@ -183,6 +193,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                     >
                       <input
                         class="p-inputtext p-component"
+                        id="seedDescription"
                         name="seedDescription"
                         value=""
                       />
@@ -193,6 +204,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                   >
                     <label
                       class="p-col-12 p-md-4"
+                      for="flowerDescription"
                     >
                       Flower
                     </label>
@@ -201,6 +213,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                     >
                       <input
                         class="p-inputtext p-component"
+                        id="flowerDescription"
                         name="flowerDescription"
                         value=""
                       />
@@ -211,6 +224,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                   >
                     <label
                       class="p-col-12 p-md-4"
+                      for="fruitName"
                     >
                       Fruit
                     </label>
@@ -219,6 +233,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                     >
                       <input
                         class="p-inputtext p-component"
+                        id="fruitName"
                         name="fruitName"
                         value=""
                       />
@@ -236,6 +251,7 @@ exports[`<Form /> render equals snapshot 1`] = `
         <div>
           <div
             class="p-card p-component p-fluid p-mb-3"
+            id="morphology"
           >
             <div
               class="p-card-body"

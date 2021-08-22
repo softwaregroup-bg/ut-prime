@@ -1,5 +1,5 @@
 import React from 'react';
-import { InputText, InputTextarea, Dropdown, MultiSelect, TreeSelect, InputMask, InputNumber, Calendar, Checkbox } from '../prime';
+import { InputText, InputTextarea, Dropdown, MultiSelect, TreeSelect, InputMask, InputNumber, Calendar, Checkbox, Skeleton } from '../prime';
 import { RefCallBack } from 'react-hook-form';
 
 import {Table} from './Table';
@@ -17,11 +17,13 @@ export default function input(
         dropdown = '',
         parent = '',
         ...props
-    } = {},
+    } = {id: field?.name},
     schema,
     dropdowns,
-    filter
+    filter,
+    loading: string
 ) {
+    if (loading) return <Skeleton className='p-inputtext'/>;
     switch (type) {
         case 'dropdownTree': return <TreeSelect
             {...field}

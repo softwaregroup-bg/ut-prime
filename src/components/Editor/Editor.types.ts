@@ -17,6 +17,7 @@ export interface Props {
     nested?: string[],
     keyField?: string,
     resultSet?: string,
+    design?: boolean,
     onDropdown: (params: string[]) => Promise<Dropdowns>,
     onAdd: (params: {}) => Promise<{}>,
     onGet: (params: {}) => Promise<{}>,

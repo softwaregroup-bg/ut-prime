@@ -25,9 +25,7 @@ module.exports = {
     stories: ['../src/**/*.stories.tsx'],
     addons: [
         'storybook-readme',
-        '@storybook/addon-actions',
-        '@storybook/addon-links',
-        '@storybook/addon-viewport',
+        '@storybook/addon-essentials',
         '@storybook/addon-a11y',
         '@storybook/addon-storysource',
     ],

@@ -48,7 +48,7 @@ const flat = (e: Errors, path = '') => Object.entries(e).map(
 
 const outline = {outline: '1px dotted #ffff0030'};
 
-const Form: StyledType = ({ classes, className, properties, design, cards, layout, onSubmit, setTrigger, value, dropdowns, validation, ...rest }) => {
+const Form: StyledType = ({ classes, className, properties, design, cards, layout, loading, onSubmit, setTrigger, value, dropdowns, validation, ...rest }) => {
     const joiSchema = validation || getSchema(properties);
     const index = getIndex(properties, '');
     const {handleSubmit, control, reset, formState: {errors, isDirty}, watch, setValue} = useForm({resolver: joiResolver(joiSchema)});
@@ -136,7 +136,7 @@ const Form: StyledType = ({ classes, className, properties, design, cards, layou
     function card(id: string, index1, index2) {
         const {title, properties = [], flex} = (cards[id] || {title: '❌ ' + id});
         return (
-            <DDCard title={title} key={String(index2)} className='p-fluid p-mb-3' card={id} index={[index1, index2]} move={move} flex={flex} design={design}>
+            <DDCard title={title} key={String(index2)} className='p-fluid p-mb-3' card={id} id={id} index={[index1, index2]} move={move} flex={flex} design={design}>
                 <div className={clsx(flex && 'p-d-flex p-flex-wrap')}>
                     {properties.map((name, ind) => index[name] ? <DDField
                         className={clsx('p-field p-grid', flex)}
@@ -145,6 +145,7 @@ const Form: StyledType = ({ classes, className, properties, design, cards, layou
                         card={id}
                         move={move}
                         design={design}
+                        name={name}
                         label={index[name].title}
                     >
                         <div className={clsx(index[name].title ? 'p-col-12 p-md-8' : 'p-col-12')}>
@@ -164,10 +165,11 @@ const Form: StyledType = ({ classes, className, properties, design, cards, layou
                                                 }
                                             }
                                         },
-                                        index[name].editor,
+                                        {id: name, ...index[name].editor},
                                         index[name],
                                         dropdowns,
-                                        addParent(index, name)
+                                        addParent(index, name),
+                                        loading
                                     )
                                 }
                             />
@@ -187,7 +189,7 @@ const Form: StyledType = ({ classes, className, properties, design, cards, layou
     }).flat(10).filter(Boolean);
 
     return (
-        <form {...rest} onSubmit={handleSubmit(onSubmit)} className={clsx('p-grid p-col', className)}>
+        <form {...rest} onSubmit={handleSubmit(onSubmit)} className={clsx('p-grid p-col p-as-start', className)}>
             {
                 !!Object.keys(errors).length && <div className='p-col-12'>
                     {errorFields.map(name => !visibleProperties.includes(name) && <><small className="p-error">{get(errors, name)?.message}</small><br /></>)}
