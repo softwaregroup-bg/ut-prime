@@ -45,12 +45,11 @@ const inputTypes = {
         label: 'New password',
         value: '',
         error: '',
-        validateOrder: ['isRequired', 'minLength', 'maxLength', 'shouldMatchField'],
+        validateOrder: ['isRequired', 'minLength', 'maxLength'],
         validations: {
             isRequired: true,
             minLength: 2,
-            maxLength: 30,
-            shouldMatchField: 'confirmPassword'
+            maxLength: 30
         }
     },
     confirmPassword: {
@@ -132,6 +131,7 @@ const loginSteps = {
 type LoginState = {
     title: string;
     error: string;
+    invalidField: string;
     buttonLabel: string;
     inputs: {
         name: string;
@@ -151,6 +151,11 @@ type Action = {
     result?: {}
 } | {
     type: 'logout'
+} | {
+    type: 'error',
+    isValid: boolean,
+    invalidField: string,
+    error: string
 };
 
 const updateLoginStep = (state, step) => {
@@ -165,8 +170,10 @@ const updateLoginStep = (state, step) => {
 
     return {
         ...state,
+        title: loginStep.title,
         inputs,
         error: '',
+        invalidField: '',
         loginType: step
     };
 };
@@ -181,9 +188,11 @@ function reducer(state: LoginState, action: Action): LoginState {
 
                 return loginSteps[type] ? updateLoginStep(state, type) : { ...state, error: action.error.message };
             } else if (action.result) {
-                return { ...state, error: '' };
+                return { ...state, error: '', invalidField: '' };
             }
             break;
+        case 'error':
+            return {...state, error: action.error, invalidField: action.invalidField};
         case 'logout':
             return state;
     }
@@ -192,8 +201,9 @@ function reducer(state: LoginState, action: Action): LoginState {
 const validator = new Validator(inputTypes);
 const initialState: LoginState = {
     error: '',
-    ...loginSteps.initial,
-    inputs: [inputTypes.username]
+    invalidField: '',
+    ...loginSteps.password,
+    inputs: [inputTypes.username, inputTypes.password]
 };
 
 const Login: StyledType = ({
@@ -213,7 +223,7 @@ const Login: StyledType = ({
 }) => {
     const authenticated = useSelector((state: State) => state.login);
 
-    const [{ title, error, inputs, buttonLabel }, dispatch] = React.useReducer(reducer, initialState);
+    const [{ title, error, invalidField, inputs, buttonLabel }, dispatch] = React.useReducer(reducer, initialState);
     if (authenticated) return <Redirect to='/' />;
 
     async function handleSubmit(e) {
@@ -224,9 +234,11 @@ const Login: StyledType = ({
         if (valid.isValid) {
             dispatch({ ...await identityCheck(allInputs), type: 'login' });
         } else {
-            ;
+            dispatch({...valid, type: 'error'});
         }
     }
+
+    const autoFocus = inputs.find(({disabled}) => !disabled)?.name;
 
     return (<div className={loginContainer}>
         <div className={clsx(loginLogo, loginPageHeader)} />
@@ -241,10 +253,22 @@ const Login: StyledType = ({
                     <div key={name} className='p-field p-float-label'>
                         {
                             type === 'text'
-                                ? <InputText name={name} disabled={disabled}/>
-                                : type === 'password' ? <Password name={name} disabled={disabled} feedback={false}/> : undefined
+                                ? <InputText
+                                        name={name}
+                                        disabled={disabled}
+                                        autoFocus={autoFocus === name}
+                                        className={clsx({'p-invalid': invalidField === name})}
+                                />
+                                : type === 'password'
+                                    ? <Password
+                                            feedback={false}
+                                            name={name}
+                                            disabled={disabled}
+                                            autoFocus={autoFocus === name}
+                                            className={clsx({'p-invalid': invalidField === name})}
+                                    /> : undefined
                         }
-                        <label>{label}</label>
+                        <label className={clsx({'p-error': invalidField === name})}>{label}</label>
                     </div>
                 ).filter(Boolean)}
                 <Button label={buttonLabel} type='submit'/>

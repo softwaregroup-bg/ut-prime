@@ -17,7 +17,7 @@ exports[`<Login /> render equals snapshot 1`] = `
         class="Login-loginTitle-8"
       >
         <span>
-          System Login
+          Login with password
         </span>
       </div>
       
@@ -32,8 +32,28 @@ exports[`<Login /> render equals snapshot 1`] = `
             class="p-inputtext p-component"
             name="username"
           />
-          <label>
+          <label
+            class=""
+          >
             Username
+          </label>
+        </div>
+        <div
+          class="p-field p-float-label"
+        >
+          <div
+            class="p-password p-component p-inputwrapper"
+          >
+            <input
+              class="p-inputtext p-component p-password-input"
+              name="password"
+              type="password"
+            />
+          </div>
+          <label
+            class=""
+          >
+            Password
           </label>
         </div>
         <button
@@ -43,7 +63,7 @@ exports[`<Login /> render equals snapshot 1`] = `
           <span
             class="p-button-label p-c"
           >
-            Next
+            Login
           </span>
         </button>
       </form>

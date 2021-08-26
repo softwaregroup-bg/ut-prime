@@ -9,8 +9,8 @@ const validators = {
         return value.length <= maxLength;
     },
     shouldMatchField: (value, shouldMatch, inputs) => {
-        if (inputs && inputs.getIn([shouldMatch, 'value']) !== '') {
-            return inputs.getIn([shouldMatch, 'value']) === value;
+        if (inputs && inputs[shouldMatch] !== '') {
+            return inputs[shouldMatch] === value;
         }
 
         return true;
