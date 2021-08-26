@@ -1,3 +1,12 @@
+## [1.31.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.31.0...v1.31.1) (2021-08-26)
+
+
+### Bug Fixes
+
+* login issues ([7bcf17a](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/7bcf17a0dc0f6d0f27f621c1188e6cfe56968ff0))
+
+
+
 # [1.31.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.30.2...v1.31.0) (2021-08-22)
 
 
