@@ -1,10 +1,14 @@
-import {ThemeOptions} from '@material-ui/core/styles';
+import type {Properties} from 'csstype'; // eslint-disable-line
+import {Theme} from '@material-ui/core/styles';
 import React from 'react';
 import { Props as StoreProps } from '../Store/Store.types';
 
-export interface utTheme extends ThemeOptions {
+export interface utTheme extends Theme {
     ut: {
-        classes: {}
+        classes?: {},
+        headerLogo?: Properties,
+        loginTop?: Properties,
+        loginBottom?: Properties
     }
 }
 

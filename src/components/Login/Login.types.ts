@@ -1,14 +1,21 @@
 import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
-import topLogo from './images/topLogo.png';
-import bottomLogo from './images/bottomLogo.png';
 import React from 'react';
+
+import topImage from './images/topLogo.png';
+import bottomImage from './images/bottomLogo.png';
 import error from '../images/error.png';
+import type {utTheme} from '../App/App.types';
 
 export interface ILoginProps {
     identityCheck: ({}) => Promise<{}>;
 }
 
-const styles = createStyles({
+const styles = ({
+    ut: {
+        loginTop,
+        loginBottom
+    } = {}
+}: utTheme) => createStyles({
     loginContainer: {
         display: 'flex',
         position: 'absolute',
@@ -24,11 +31,13 @@ const styles = createStyles({
     },
     loginPageHeader: {
         marginBottom: '55px',
-        background: `url(${topLogo}) no-repeat center`
+        background: `url(${topImage}) no-repeat center`,
+        ...loginTop
     },
     loginPageFooter: {
         marginTop: '55px',
-        background: `url(${bottomLogo}) no-repeat center`
+        background: `url(${bottomImage}) no-repeat center`,
+        ...loginBottom
     },
     loginForm: {
         boxSizing: 'border-box',

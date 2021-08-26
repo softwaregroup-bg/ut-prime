@@ -121,6 +121,7 @@
     "chromatic": "^5.9.2",
     "clsx": "1.1.1",
     "connected-react-router": "^6.9.1",
+    "csstype": "^3.0.8",
     "date-fns": "^2.14.0",
     "devextreme": "20.2.4",
     "devextreme-react": "20.2.4",

@@ -2,11 +2,16 @@ import {WithStyles, withStyles, createStyles} from '@material-ui/core/styles';
 import React from 'react';
 
 import logo from '../images/logo.png';
+import type {utTheme} from '../App/App.types';
 
 export interface Props {
 }
 
-const styles = createStyles({
+const styles = ({
+    ut: {
+        headerLogo
+    } = {}
+}: utTheme) => createStyles({
     '@global': {
         html: {
             fontSize: 14
@@ -27,9 +32,10 @@ const styles = createStyles({
         margin: '0 0px 0 10px',
         width: 36,
         height: 36,
-        background: `url(${logo})`,
+        background: `url(${logo}) no-repeat center`,
         backgroundSize: 'contain',
-        cursor: 'pointer'
+        cursor: 'pointer',
+        ...headerLogo
     },
     tabs: {
         display: 'flex',
