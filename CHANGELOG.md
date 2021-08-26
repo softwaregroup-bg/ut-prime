@@ -1,3 +1,12 @@
+# [1.32.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.31.1...v1.32.0) (2021-08-26)
+
+
+### Features
+
+* customize logos ([5d58026](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/5d580264f307d4cfd81088d1b4ed51643764cc6e))
+
+
+
 ## [1.31.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.31.0...v1.31.1) (2021-08-26)
 
 
