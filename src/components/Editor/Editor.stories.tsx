@@ -39,10 +39,19 @@ Basic.args = {
     object: 'tree',
     ...tree,
     layouts: {
-        edit: ['edit', ['taxonomy', 'reproduction'], 'morphology']
+        edit: ['edit', ['taxonomy', 'reproduction'], 'morphology', 'habitat']
     },
     onDropdown: names => Promise.resolve({
-        'tree.type': [{value: 1, label: 'Conifer'}, {value: 2, label: 'Broadleaf'}]
+        'tree.type': [{value: 1, label: 'Conifer'}, {value: 2, label: 'Broadleaf'}],
+        'tree.habitat': [
+            {value: 1, label: 'Forests'},
+            {value: 2, label: 'Plantations'},
+            {value: 3, label: 'Riverbanks'},
+            {value: 4, label: 'Rivers'},
+            {value: 5, label: 'Rocky areas'},
+            {value: 6, label: 'Urban'},
+            {value: 7, label: 'Wetlands'}
+        ]
     }),
     onGet: params => Promise.resolve({
         tree: {treeName: 'Oak', treeId: 1, treeType: 1}

@@ -2,7 +2,8 @@ import React from 'react';
 import { InputText, InputTextarea, Dropdown, MultiSelect, TreeSelect, InputMask, InputNumber, Calendar, Checkbox, Skeleton } from '../prime';
 import { RefCallBack } from 'react-hook-form';
 
-import {Table} from './Table';
+import Table from './inputs/Table';
+import MultiSelectPanel from './inputs/MultiSelectPanel';
 
 export default function input(
     field: {
@@ -72,6 +73,13 @@ export default function input(
             options={dropdowns?.[dropdown]?.filter(item => !filter || item.parent === filter) || []}
             disabled={parent && !filter}
             display='chip'
+            {...props}
+        />;
+        case 'multiSelectPanel': return <MultiSelectPanel
+            appendTo='self'
+            {...field}
+            options={dropdowns?.[dropdown]?.filter(item => !filter || item.parent === filter) || []}
+            disabled={parent && !filter}
             {...props}
         />;
         case 'date-time': return <Calendar

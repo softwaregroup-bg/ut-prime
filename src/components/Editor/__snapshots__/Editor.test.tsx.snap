@@ -326,6 +326,270 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
             </div>
           </div>
         </div>
+        <div
+          class="p-col-12 p-xl-6"
+        >
+          <div>
+            <div
+              class="p-card p-component p-fluid p-mb-3"
+              id="habitat"
+            >
+              <div
+                class="p-card-body"
+              >
+                <div
+                  class="p-card-title"
+                >
+                  Habitat
+                </div>
+                <div
+                  class="p-card-content"
+                >
+                  <div
+                    class=""
+                  >
+                    <div
+                      class="p-field p-grid"
+                    >
+                      <div
+                        class="p-col-12"
+                      >
+                        <div
+                          class="p-multiselect p-component p-inputwrapper p-inputwrapper-focus MultiSelectPanel-root-5 MultiSelectPanel-root-6"
+                          id="habitat"
+                        >
+                          <div
+                            class="p-hidden-accessible"
+                          >
+                            <input
+                              aria-expanded="true"
+                              aria-haspopup="listbox"
+                              name="habitat"
+                              readonly=""
+                              role="listbox"
+                              tabindex="0"
+                              type="text"
+                            />
+                          </div>
+                          <div
+                            class="p-multiselect-label-container"
+                          >
+                            <div
+                              class="p-multiselect-label p-multiselect-label-empty"
+                            >
+                              empty
+                            </div>
+                          </div>
+                          <div
+                            class="p-multiselect-trigger"
+                          >
+                            <span
+                              class="p-multiselect-trigger-icon p-c pi pi-chevron-down"
+                            />
+                          </div>
+                          <div
+                            class="p-multiselect-panel p-component"
+                          >
+                            <div
+                              class="p-multiselect-header"
+                            >
+                              <div
+                                class="p-checkbox p-component"
+                              >
+                                <div
+                                  class="p-hidden-accessible"
+                                >
+                                  <input
+                                    type="checkbox"
+                                  />
+                                </div>
+                                <div
+                                  aria-checked="false"
+                                  class="p-checkbox-box"
+                                  role="checkbox"
+                                >
+                                  <span
+                                    class="p-checkbox-icon p-c"
+                                  />
+                                </div>
+                              </div>
+                              <button
+                                class="p-multiselect-close p-link"
+                                type="button"
+                              >
+                                <span
+                                  class="p-multiselect-close-icon pi pi-times"
+                                />
+                              </button>
+                            </div>
+                            <div
+                              class="p-multiselect-items-wrapper"
+                              style="max-height: 200px;"
+                            >
+                              <ul
+                                aria-multiselectable="true"
+                                class="p-multiselect-items p-component"
+                                role="listbox"
+                              >
+                                <li
+                                  aria-selected="false"
+                                  class="p-multiselect-item"
+                                  role="option"
+                                  tabindex="0"
+                                >
+                                  <div
+                                    class="p-checkbox p-component"
+                                  >
+                                    <div
+                                      class="p-checkbox-box"
+                                    >
+                                      <span
+                                        class="p-checkbox-icon p-c"
+                                      />
+                                    </div>
+                                  </div>
+                                  <span>
+                                    Forests
+                                  </span>
+                                </li>
+                                <li
+                                  aria-selected="false"
+                                  class="p-multiselect-item"
+                                  role="option"
+                                  tabindex="0"
+                                >
+                                  <div
+                                    class="p-checkbox p-component"
+                                  >
+                                    <div
+                                      class="p-checkbox-box"
+                                    >
+                                      <span
+                                        class="p-checkbox-icon p-c"
+                                      />
+                                    </div>
+                                  </div>
+                                  <span>
+                                    Plantations
+                                  </span>
+                                </li>
+                                <li
+                                  aria-selected="false"
+                                  class="p-multiselect-item"
+                                  role="option"
+                                  tabindex="0"
+                                >
+                                  <div
+                                    class="p-checkbox p-component"
+                                  >
+                                    <div
+                                      class="p-checkbox-box"
+                                    >
+                                      <span
+                                        class="p-checkbox-icon p-c"
+                                      />
+                                    </div>
+                                  </div>
+                                  <span>
+                                    Riverbanks
+                                  </span>
+                                </li>
+                                <li
+                                  aria-selected="false"
+                                  class="p-multiselect-item"
+                                  role="option"
+                                  tabindex="0"
+                                >
+                                  <div
+                                    class="p-checkbox p-component"
+                                  >
+                                    <div
+                                      class="p-checkbox-box"
+                                    >
+                                      <span
+                                        class="p-checkbox-icon p-c"
+                                      />
+                                    </div>
+                                  </div>
+                                  <span>
+                                    Rivers
+                                  </span>
+                                </li>
+                                <li
+                                  aria-selected="false"
+                                  class="p-multiselect-item"
+                                  role="option"
+                                  tabindex="0"
+                                >
+                                  <div
+                                    class="p-checkbox p-component"
+                                  >
+                                    <div
+                                      class="p-checkbox-box"
+                                    >
+                                      <span
+                                        class="p-checkbox-icon p-c"
+                                      />
+                                    </div>
+                                  </div>
+                                  <span>
+                                    Rocky areas
+                                  </span>
+                                </li>
+                                <li
+                                  aria-selected="false"
+                                  class="p-multiselect-item"
+                                  role="option"
+                                  tabindex="0"
+                                >
+                                  <div
+                                    class="p-checkbox p-component"
+                                  >
+                                    <div
+                                      class="p-checkbox-box"
+                                    >
+                                      <span
+                                        class="p-checkbox-icon p-c"
+                                      />
+                                    </div>
+                                  </div>
+                                  <span>
+                                    Urban
+                                  </span>
+                                </li>
+                                <li
+                                  aria-selected="false"
+                                  class="p-multiselect-item"
+                                  role="option"
+                                  tabindex="0"
+                                >
+                                  <div
+                                    class="p-checkbox p-component"
+                                  >
+                                    <div
+                                      class="p-checkbox-box"
+                                    >
+                                      <span
+                                        class="p-checkbox-icon p-c"
+                                      />
+                                    </div>
+                                  </div>
+                                  <span>
+                                    Wetlands
+                                  </span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </form>
     </div>
   </div>
@@ -772,6 +1036,300 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
           <div>
             <div
               class="p-card p-component p-fluid p-mb-3"
+              id="habitat"
+            >
+              <div
+                class="p-card-body"
+              >
+                <div
+                  class="p-card-title"
+                >
+                  <div
+                    draggable="true"
+                    style="cursor: move;"
+                  >
+                    Habitat
+                  </div>
+                </div>
+                <div
+                  class="p-card-content"
+                >
+                  <div
+                    class=""
+                  >
+                    <div
+                      class="p-field p-grid"
+                    >
+                      <div
+                        class="p-col-12"
+                      >
+                        <div
+                          class="p-multiselect p-component p-inputwrapper p-inputwrapper-focus MultiSelectPanel-root-15 MultiSelectPanel-root-16"
+                          id="habitat"
+                        >
+                          <div
+                            class="p-hidden-accessible"
+                          >
+                            <input
+                              aria-expanded="true"
+                              aria-haspopup="listbox"
+                              name="habitat"
+                              readonly=""
+                              role="listbox"
+                              tabindex="0"
+                              type="text"
+                            />
+                          </div>
+                          <div
+                            class="p-multiselect-label-container"
+                          >
+                            <div
+                              class="p-multiselect-label p-multiselect-label-empty"
+                            >
+                              empty
+                            </div>
+                          </div>
+                          <div
+                            class="p-multiselect-trigger"
+                          >
+                            <span
+                              class="p-multiselect-trigger-icon p-c pi pi-chevron-down"
+                            />
+                          </div>
+                          <div
+                            class="p-multiselect-panel p-component"
+                          >
+                            <div
+                              class="p-multiselect-header"
+                            >
+                              <div
+                                class="p-checkbox p-component"
+                              >
+                                <div
+                                  class="p-hidden-accessible"
+                                >
+                                  <input
+                                    type="checkbox"
+                                  />
+                                </div>
+                                <div
+                                  aria-checked="false"
+                                  class="p-checkbox-box"
+                                  role="checkbox"
+                                >
+                                  <span
+                                    class="p-checkbox-icon p-c"
+                                  />
+                                </div>
+                              </div>
+                              <button
+                                class="p-multiselect-close p-link"
+                                type="button"
+                              >
+                                <span
+                                  class="p-multiselect-close-icon pi pi-times"
+                                />
+                              </button>
+                            </div>
+                            <div
+                              class="p-multiselect-items-wrapper"
+                              style="max-height: 200px;"
+                            >
+                              <ul
+                                aria-multiselectable="true"
+                                class="p-multiselect-items p-component"
+                                role="listbox"
+                              >
+                                <li
+                                  aria-selected="false"
+                                  class="p-multiselect-item"
+                                  role="option"
+                                  tabindex="0"
+                                >
+                                  <div
+                                    class="p-checkbox p-component"
+                                  >
+                                    <div
+                                      class="p-checkbox-box"
+                                    >
+                                      <span
+                                        class="p-checkbox-icon p-c"
+                                      />
+                                    </div>
+                                  </div>
+                                  <span>
+                                    Forests
+                                  </span>
+                                </li>
+                                <li
+                                  aria-selected="false"
+                                  class="p-multiselect-item"
+                                  role="option"
+                                  tabindex="0"
+                                >
+                                  <div
+                                    class="p-checkbox p-component"
+                                  >
+                                    <div
+                                      class="p-checkbox-box"
+                                    >
+                                      <span
+                                        class="p-checkbox-icon p-c"
+                                      />
+                                    </div>
+                                  </div>
+                                  <span>
+                                    Plantations
+                                  </span>
+                                </li>
+                                <li
+                                  aria-selected="false"
+                                  class="p-multiselect-item"
+                                  role="option"
+                                  tabindex="0"
+                                >
+                                  <div
+                                    class="p-checkbox p-component"
+                                  >
+                                    <div
+                                      class="p-checkbox-box"
+                                    >
+                                      <span
+                                        class="p-checkbox-icon p-c"
+                                      />
+                                    </div>
+                                  </div>
+                                  <span>
+                                    Riverbanks
+                                  </span>
+                                </li>
+                                <li
+                                  aria-selected="false"
+                                  class="p-multiselect-item"
+                                  role="option"
+                                  tabindex="0"
+                                >
+                                  <div
+                                    class="p-checkbox p-component"
+                                  >
+                                    <div
+                                      class="p-checkbox-box"
+                                    >
+                                      <span
+                                        class="p-checkbox-icon p-c"
+                                      />
+                                    </div>
+                                  </div>
+                                  <span>
+                                    Rivers
+                                  </span>
+                                </li>
+                                <li
+                                  aria-selected="false"
+                                  class="p-multiselect-item"
+                                  role="option"
+                                  tabindex="0"
+                                >
+                                  <div
+                                    class="p-checkbox p-component"
+                                  >
+                                    <div
+                                      class="p-checkbox-box"
+                                    >
+                                      <span
+                                        class="p-checkbox-icon p-c"
+                                      />
+                                    </div>
+                                  </div>
+                                  <span>
+                                    Rocky areas
+                                  </span>
+                                </li>
+                                <li
+                                  aria-selected="false"
+                                  class="p-multiselect-item"
+                                  role="option"
+                                  tabindex="0"
+                                >
+                                  <div
+                                    class="p-checkbox p-component"
+                                  >
+                                    <div
+                                      class="p-checkbox-box"
+                                    >
+                                      <span
+                                        class="p-checkbox-icon p-c"
+                                      />
+                                    </div>
+                                  </div>
+                                  <span>
+                                    Urban
+                                  </span>
+                                </li>
+                                <li
+                                  aria-selected="false"
+                                  class="p-multiselect-item"
+                                  role="option"
+                                  tabindex="0"
+                                >
+                                  <div
+                                    class="p-checkbox p-component"
+                                  >
+                                    <div
+                                      class="p-checkbox-box"
+                                    >
+                                      <span
+                                        class="p-checkbox-icon p-c"
+                                      />
+                                    </div>
+                                  </div>
+                                  <span>
+                                    Wetlands
+                                  </span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div
+              class="p-card p-component p-fluid p-mb-3"
+              style="opacity: 0.5; display: none;"
+            >
+              <div
+                class="p-card-body"
+              >
+                <div
+                  class="p-card-title"
+                >
+                  <div
+                    draggable="true"
+                    style="cursor: move;"
+                  >
+                    [ add row ]
+                  </div>
+                </div>
+                <div
+                  class="p-card-content"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="p-col-12 p-xl-6"
+          style="outline: 1px dotted #ffff0030;"
+        >
+          <div>
+            <div
+              class="p-card p-component p-fluid p-mb-3"
               style="opacity: 0.5; display: none;"
             >
               <div
@@ -918,6 +1476,9 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                   Fruit
                 </label>
               </div>
+              <div
+                class="p-field p-grid"
+              />
             </div>
           </div>
         </div>
@@ -1019,6 +1580,29 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                         style="cursor: move;"
                       >
                         Morphology
+                      </div>
+                    </div>
+                    <div
+                      class="p-card-content"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div
+                  class="p-card p-component p-fluid p-mb-3"
+                >
+                  <div
+                    class="p-card-body"
+                  >
+                    <div
+                      class="p-card-title"
+                    >
+                      <div
+                        draggable="true"
+                        style="cursor: move;"
+                      >
+                        Habitat
                       </div>
                     </div>
                     <div
@@ -1306,6 +1890,46 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
                   <div
                     class=""
                   />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="p-col-12 p-xl-6"
+        >
+          <div>
+            <div
+              class="p-card p-component p-fluid p-mb-3"
+              id="habitat"
+            >
+              <div
+                class="p-card-body"
+              >
+                <div
+                  class="p-card-title"
+                >
+                  Habitat
+                </div>
+                <div
+                  class="p-card-content"
+                >
+                  <div
+                    class=""
+                  >
+                    <div
+                      class="p-field p-grid"
+                    >
+                      <div
+                        class="p-col-12"
+                      >
+                        <div
+                          class="p-skeleton p-component p-inputtext"
+                          style="width: 100%; height: 1rem;"
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

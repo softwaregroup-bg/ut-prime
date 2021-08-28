@@ -2,7 +2,7 @@ import React from 'react';
 import {InputText, DataTable, Column, Toolbar, Button} from '../../prime';
 import { v4 as uuid } from 'uuid';
 
-export const Table = React.forwardRef<{}, any>(({
+export default React.forwardRef<{}, any>(({
     onChange,
     columns,
     value,

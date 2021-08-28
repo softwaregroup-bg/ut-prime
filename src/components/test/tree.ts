@@ -37,6 +37,13 @@ const tree: {properties: Properties, cards: Cards} = {
         },
         fruitName: {
             title: 'Fruit'
+        },
+        habitat: {
+            validation: Joi.array().items(Joi.number().integer()),
+            editor: {
+                type: 'multiSelectPanel',
+                dropdown: 'tree.habitat'
+            }
         }
     },
     cards: {
@@ -55,6 +62,10 @@ const tree: {properties: Properties, cards: Cards} = {
         morphology: {
             title: 'Morphology',
             properties: []
+        },
+        habitat: {
+            title: 'Habitat',
+            properties: ['habitat']
         }
     }
 };
