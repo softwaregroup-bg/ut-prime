@@ -9,6 +9,7 @@ interface Item extends MenuItem {
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     className?: string;
     index: Item[];
+    orientation: 'left' | 'top',
     onFilter: (filter: any) => void
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { render } from '../test';
-import { Basic, Loading, Design } from './Editor.stories';
+import { Basic, Loading, Design, Tabs } from './Editor.stories';
 
 describe('<Editor />', () => {
     it('Basic render equals snapshot', async() => {
@@ -14,6 +14,10 @@ describe('<Editor />', () => {
     });
     it('Design render equals snapshot', async() => {
         const { findByTestId } = render(<Design {...Design.args} />);
+        expect(await findByTestId('ut-front-test')).toMatchSnapshot();
+    });
+    it('Tabs render equals snapshot', async() => {
+        const { findByTestId } = render(<Tabs {...Design.args} />);
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
 });

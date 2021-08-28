@@ -13,8 +13,7 @@ describe('<Gate />', () => {
                     open: true,
                     message: 'Loading...'
                 })
-            },
-            true
+            }
         );
         expect(getByTestId('ut-front-test')).toMatchSnapshot('Loading');
         await findByText('ready');

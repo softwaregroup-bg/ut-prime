@@ -69,3 +69,25 @@ Design.args = {
     ...Basic.args,
     design: true
 };
+
+export const Tabs: Story<Props> = Template.bind({});
+Tabs.args = {
+    ...Basic.args,
+    layouts: {
+        edit: {
+            orientation: 'top',
+            index: [{
+                icon: 'pi pi-user',
+                label: 'General',
+                cards: ['edit', 'habitat']
+            }, {
+                label: 'Details',
+                icon: 'pi pi-book',
+                cards: ['taxonomy', 'morphology']
+            }, {
+                icon: 'pi pi-clock',
+                cards: ['history']
+            }]
+        }
+    }
+};

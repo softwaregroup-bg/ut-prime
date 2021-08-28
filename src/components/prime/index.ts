@@ -23,6 +23,7 @@ export { Password } from 'primereact/password';
 export { RadioButton } from 'primereact/radiobutton';
 export { Skeleton } from 'primereact/skeleton';
 export { Splitter, SplitterPanel } from 'primereact/splitter';
+export { TabMenu } from 'primereact/tabmenu';
 export { TabView, TabPanel } from 'primereact/tabview';
 export { Toast } from 'primereact/toast';
 export { Toolbar } from 'primereact/toolbar';

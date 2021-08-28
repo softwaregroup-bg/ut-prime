@@ -1,6 +1,7 @@
 import React from 'react';
 import lodashGet from 'lodash.get';
 import merge from 'ut-function.merge';
+import clsx from 'clsx';
 
 import { Styled, StyledType } from './Editor.types';
 
@@ -35,18 +36,20 @@ const Editor: StyledType = ({
     function getLayout(name = '') {
         let index: any = layouts?.['edit' + capital(name)];
         let layout;
-        if (typeof index?.[0] === 'string') {
+        const orientation = index.orientation;
+        if (orientation) index = index.index;
+        if (typeof (index?.[0]?.[0] || index?.[0]) === 'string') {
             layout = index;
             index = false;
         } else layout = !index && ['edit' + capital(name)];
-        return [index, layout];
+        return [index, layout, orientation || 'left'];
     }
 
     const [trigger, setTrigger] = React.useState();
     const [value, setValue] = React.useState({});
     const [dropdowns, setDropdown] = React.useState({});
-    const [[index, layout], setIndex] = React.useState(getLayout(layoutName));
-    const [filter, setFilter] = React.useState(index?.[0]?.items?.[0]);
+    const [[index, layout, orientation], setIndex] = React.useState(getLayout(layoutName));
+    const [filter, setFilter] = React.useState(index?.[0]?.items?.[0] || index?.[0]);
     const [loading, setLoading] = React.useState('');
 
     const dropdownNames = (layout || filter?.cards || [])
@@ -116,8 +119,8 @@ const Editor: StyledType = ({
                     <Button icon='pi pi-cog' onClick={toggleDesign} {...design && {className: 'p-button-success'}} disabled={!!loading} aria-label='design'/>
                 }
             />
-            <div className='p-d-flex' style={{overflowX: 'hidden', width: '100%'}}>
-                {index && <ThumbIndex index={index} onFilter={setFilter}/>}
+            <div className={clsx('p-d-flex', orientation === 'top' && 'p-flex-column')} style={{overflowX: 'hidden', width: '100%'}}>
+                {index && <ThumbIndex index={index} orientation={orientation} onFilter={setFilter}/>}
                 <div className='p-d-flex' style={flexGrow}>
                     <Form
                         properties={properties}
