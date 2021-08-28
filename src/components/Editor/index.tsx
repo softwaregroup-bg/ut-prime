@@ -51,8 +51,8 @@ const Editor: StyledType = ({
     const [[index, layout, orientation], setIndex] = React.useState(getLayout(layoutName));
     const [filter, setFilter] = React.useState(index?.[0]?.items?.[0] || index?.[0]);
     const [loading, setLoading] = React.useState('');
-
-    const dropdownNames = (layout || filter?.cards || [])
+    const indexCards = index && index.map(item => [item.cards, item?.items?.map(item => item.cards)]).flat(2).filter(Boolean);
+    const dropdownNames = (indexCards || layout || filter?.cards || [])
         .flat()
         .map(card => cards?.[card]?.properties)
         .flat()
