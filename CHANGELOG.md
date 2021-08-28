@@ -1,3 +1,13 @@
+# [1.33.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.32.0...v1.33.0) (2021-08-28)
+
+
+### Features
+
+* multiselect panel ([8dff9af](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/8dff9afa6323adeb50edfb1134b0888c5d2ee16f))
+* tabs orientation ([3d24d0f](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/3d24d0f8f96068638bfd051a75ec72437389e5b2))
+
+
+
 # [1.32.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.31.1...v1.32.0) (2021-08-26)
 
 
