@@ -1,22 +1,12 @@
 import React from 'react';
 import lodashGet from 'lodash.get';
-import { DataTable, Column, Button, Toolbar, Splitter, SplitterPanel, Checkbox, Dropdown } from '../prime';
+import clsx from 'clsx';
+
+import { DataTable, Column, Button, Toolbar, Splitter, SplitterPanel } from '../prime';
+import useToggle from '../hooks/useToggle';
+import columnProps, {TableFilter} from '../lib/column';
 
 import { Styled, StyledType } from './Explorer.types';
-import useToggle from '../hooks/useToggle';
-import clsx from 'clsx';
-interface TableFilter {
-    filters?: {
-        [name: string]: {
-            value: any;
-            matchMode: any;
-        }
-    },
-    sortField?: string,
-    sortOrder?: -1 | 1,
-    first: number,
-    page: number
-}
 
 const flexGrow = {flexGrow: 1};
 const selectionWidth = {width: '3em'};
@@ -161,57 +151,6 @@ const Explorer: StyledType = ({
         });
     };
 
-    function columnProps(name) {
-        const {type, dropdown, parent, ...editor} = properties?.[name]?.editor || {name};
-        const fieldName = editor.name || name;
-        let filterElement, body;
-        switch (type) {
-            case 'boolean':
-                filterElement = <Checkbox
-                    checked={tableFilter?.filters?.[fieldName]?.value}
-                    onChange={filterBy(fieldName, 'checked')}
-                    {...editor}
-                />;
-                body = function body(rowData) {
-                    const value = rowData[fieldName];
-                    if (value == null) return null;
-                    return <i className={`pi ${value ? 'pi-check' : 'pi-times'}`}></i>;
-                };
-                break;
-            case 'dropdown':
-                filterElement = <Dropdown
-                    value={tableFilter?.filters?.[fieldName]?.value}
-                    onChange={filterBy(fieldName, 'value')}
-                    showClear={true}
-                    options={dropdowns?.[dropdown] || []}
-                    {...editor}
-                />;
-                break;
-            case 'date':
-                body = function body(rowData) {
-                    const value = rowData[fieldName];
-                    if (value == null) return null;
-                    return new Date(value).toLocaleDateString();
-                };
-                break;
-            case 'time':
-                body = function body(rowData) {
-                    const value = rowData[fieldName];
-                    if (value == null) return null;
-                    return new Date(value).toLocaleTimeString();
-                };
-                break;
-            case 'date-time':
-                body = function body(rowData) {
-                    const value = rowData[fieldName];
-                    if (value == null) return null;
-                    return new Date(value).toLocaleString();
-                };
-                break;
-        }
-        return {...filterElement && {filterElement}, ...body && {body}};
-    }
-
     const Columns = React.useMemo(() => columns.map(name => <Column
         key={name}
         field={name}
@@ -228,7 +167,7 @@ const Explorer: StyledType = ({
         />)}
         filter={showFilter && !!properties[name]?.filter}
         sortable={!!properties[name]?.sort}
-        {...columnProps(name)}
+        {...columnProps({name, properties, dropdowns, tableFilter, filterBy})}
     />), [columns, properties, showFilter, dropdowns, tableFilter]);
     const left = React.useMemo(() => <>
         {children && <Button icon="pi pi-bars" className="mr-2" onClick={navigationToggle}/>}

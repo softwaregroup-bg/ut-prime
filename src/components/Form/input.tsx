@@ -60,6 +60,7 @@ export default function input(
         case 'table': return <Table
             {...field}
             properties={schema?.items?.properties}
+            dropdowns={dropdowns}
             {...props}
         />;
         case 'dropdown': return <Dropdown

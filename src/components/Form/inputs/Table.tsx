@@ -1,13 +1,16 @@
-import React from 'react';
-import {InputText, DataTable, Column, Toolbar, Button} from '../../prime';
 import { v4 as uuid } from 'uuid';
+import React from 'react';
+
+import {InputText, DataTable, Column, Toolbar, Button} from '../../prime';
+import columnProps from '../../lib/column';
 
 export default React.forwardRef<{}, any>(({
     onChange,
     columns,
     value,
     dataKey = 'id',
-    properties
+    properties,
+    dropdowns
 }, ref) => {
     if (typeof ref === 'function') ref(React.useState({})[0]);
     const cellEditor = React.useCallback((props, field) => <InputText
@@ -19,6 +22,7 @@ export default React.forwardRef<{}, any>(({
             updatedValue[props.rowIndex][props.field] = value;
             onChange(updatedValue);
         }}
+        className='w-full'
         id={`${props.rowData.id}`}
     />, [onChange]);
     const [original, setOriginal] = React.useState({index: null, value: null});
@@ -35,7 +39,7 @@ export default React.forwardRef<{}, any>(({
     const addNewRow = e => {
         e.preventDefault();
         const id = uuid();
-        const newValue = Object.keys(value[0] || {}).reduce((item, key) => ({...item, [key]: '', id: id}), {});
+        const newValue = Object.keys(value[0] || {}).reduce((item, key) => ({...item, [key]: '', [dataKey]: id}), {});
         const updatedValue = [...value, newValue];
         onChange(updatedValue);
         setEditingRows({[id]: true});
@@ -52,14 +56,14 @@ export default React.forwardRef<{}, any>(({
     const leftToolbarTemplate = () => {
         return (
             <React.Fragment>
-                <Button label="New" icon="pi pi-plus" className="p-button p-mr-2" onClick={addNewRow} />
+                <Button label="Add" icon="pi pi-plus" className="p-button mr-2" onClick={addNewRow} />
                 <Button label="Delete" icon="pi pi-trash" className="p-button" onClick={deleteRow} disabled={!selected || !selected.length} />
             </React.Fragment>
         );
     };
     return (
         <>
-            <Toolbar className="p-mb-4" left={leftToolbarTemplate} right={null}></Toolbar>
+            <Toolbar className="p-0" left={leftToolbarTemplate} right={null}></Toolbar>
             <DataTable
                 value={value}
                 editMode="row"
@@ -68,6 +72,7 @@ export default React.forwardRef<{}, any>(({
                 onRowEditInit={init}
                 onRowEditCancel={cancel}
                 selection={selected}
+                selectionMode='checkbox'
                 onSelectionChange={(e) => { setSelected(e.value); }}
                 editingRows={editingRows}
                 onRowEditChange={onRowEditChange}
@@ -79,6 +84,7 @@ export default React.forwardRef<{}, any>(({
                         field={name}
                         header={properties?.[name]?.title || name}
                         editor={props => cellEditor(props, name)}
+                        {...columnProps({name, properties, dropdowns, onChange})}
                     />)
                 }
                 <Column rowEditor headerStyle={{ width: '7rem' }} bodyStyle={{ textAlign: 'center' }}></Column>
