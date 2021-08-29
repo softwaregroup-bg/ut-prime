@@ -26,19 +26,19 @@ const Report: StyledType = ({ properties, validation, params = [], columns = [],
     const [filter, setFilter] = React.useState({});
     return (
         <>
-            <div className='p-d-flex p-ai-center'>
+            <div className='flex align-items-center'>
                 <Form
                     style={flexGrow}
                     properties={properties}
                     validation={validation}
-                    cards={{params: {properties: params, className: 'p-col-12', flex: 'p-col-12 p-md-4 p-xl-3'}}}
+                    cards={{params: {properties: params, className: 'col-12', flex: 'col-12 md:col-4 xl:col-3'}}}
                     layout={['params']}
                     onSubmit={setFilter}
                     value={filter}
                     dropdowns={dropdowns}
                     setTrigger={setTrigger}
                 />
-                <Button className='p-col-1' icon='pi pi-search' onClick={trigger} disabled={!trigger}/>
+                <Button className='col-1' icon='pi pi-search' onClick={trigger} disabled={!trigger}/>
             </div>
             <Explorer
                 fetch={fetch}

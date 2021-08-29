@@ -136,10 +136,10 @@ const Form: StyledType = ({ classes, className, properties, design, cards, layou
     function card(id: string, index1, index2) {
         const {title, properties = [], flex} = (cards[id] || {title: '❌ ' + id});
         return (
-            <DDCard title={title} key={String(index2)} className='p-fluid p-mb-3' card={id} id={id} index={[index1, index2]} move={move} flex={flex} design={design}>
-                <div className={clsx(flex && 'p-d-flex p-flex-wrap')}>
+            <DDCard title={title} key={String(index2)} className='card mb-3' card={id} id={id} index={[index1, index2]} move={move} flex={flex} design={design}>
+                <div className={clsx(flex && 'flex flex-wrap')}>
                     {properties.map((name, ind) => index[name] ? <DDField
-                        className={clsx('p-field p-grid', flex)}
+                        className={clsx('field grid', flex)}
                         key={name}
                         index={ind}
                         card={id}
@@ -148,14 +148,14 @@ const Form: StyledType = ({ classes, className, properties, design, cards, layou
                         name={name}
                         label={index[name].title}
                     >
-                        <div className={clsx(index[name].title ? 'p-col-12 p-md-8' : 'p-col-12')}>
+                        <div className={clsx(index[name].title ? 'col-12 md:col-8' : 'col-12')}>
                             <Controller
                                 control={control}
                                 name={name}
                                 render={
                                     ({field}) => input(
                                         {
-                                            className: clsx({ 'p-invalid': errors[name] }),
+                                            className: clsx('w-full', { 'p-invalid': errors[name] }),
                                             ...field,
                                             onChange: e => {
                                                 try {
@@ -175,7 +175,7 @@ const Form: StyledType = ({ classes, className, properties, design, cards, layou
                             />
                         </div>
                         {getFormErrorMessage(name)}
-                    </DDField> : <div className="p-field p-grid" key={name}>❌ {name}</div>
+                    </DDField> : <div className="field grid" key={name}>❌ {name}</div>
                     )}
                 </div>
             </DDCard>
@@ -189,9 +189,9 @@ const Form: StyledType = ({ classes, className, properties, design, cards, layou
     }).flat(10).filter(Boolean);
 
     return (
-        <form {...rest} onSubmit={handleSubmit(onSubmit)} className={clsx('p-grid p-col p-as-start', className)}>
+        <form {...rest} onSubmit={handleSubmit(onSubmit)} className={clsx('grid col align-self-start', className)}>
             {
-                !!Object.keys(errors).length && <div className='p-col-12'>
+                !!Object.keys(errors).length && <div className='col-12'>
                     {errorFields.map(name => !visibleProperties.includes(name) && <><small className="p-error">{get(errors, name)?.message}</small><br /></>)}
                 </div>
             }
@@ -199,11 +199,11 @@ const Form: StyledType = ({ classes, className, properties, design, cards, layou
                 const nested = [].concat(id1);
                 const key = nested[0];
                 return (
-                    <div key={level1} className={clsx('p-col-12', cards[key]?.className || 'p-xl-6')} {...design && {style: outline}}>
+                    <div key={level1} className={clsx('col-12', cards[key]?.className || 'xl:col-6')} {...design && {style: outline}}>
                         {nested.map((id2, level2) => card(id2, level1, Array.isArray(id1) && level2))}
                         <DDCard
                             title='[ add row ]'
-                            className='p-fluid p-mb-3'
+                            className='card mb-3'
                             card=''
                             index={[level1, nested.length]}
                             move={move}
@@ -213,10 +213,10 @@ const Form: StyledType = ({ classes, className, properties, design, cards, layou
                     </div>
                 );
             })}
-            {design && <div className='p-col-12 p-xl-6' style={outline}>
+            {design && <div className='col-12 xl:col-6' style={outline}>
                 <DDCard
                     title='[ add column ]'
-                    className='p-fluid p-mb-3'
+                    className='card mb-3'
                     card=''
                     index={[visibleCards.length, false]}
                     move={move}

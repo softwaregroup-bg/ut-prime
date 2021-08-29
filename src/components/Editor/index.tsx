@@ -119,9 +119,9 @@ const Editor: StyledType = ({
                     <Button icon='pi pi-cog' onClick={toggleDesign} {...design && {className: 'p-button-success'}} disabled={!!loading} aria-label='design'/>
                 }
             />
-            <div className={clsx('p-d-flex', orientation === 'top' && 'p-flex-column')} style={{overflowX: 'hidden', width: '100%'}}>
+            <div className={clsx('flex', orientation === 'top' && 'flex-column')} style={{overflowX: 'hidden', width: '100%'}}>
                 {index && <ThumbIndex index={index} orientation={orientation} onFilter={setFilter}/>}
-                <div className='p-d-flex' style={flexGrow}>
+                <div className='flex' style={flexGrow}>
                     <Form
                         properties={properties}
                         design={design}
@@ -133,32 +133,32 @@ const Editor: StyledType = ({
                         loading={loading}
                         setTrigger={setTrigger}
                     />
-                    {design && <div className='p-col-2 p-d-flex-column'>
-                        <Card title='Fields' className='p-mb-2'>
+                    {design && <div className='col-2 flex-column'>
+                        <Card title='Fields' className='mb-2'>
                             <DDField
-                                className='p-field p-grid'
+                                className='field grid'
                                 index='trash'
                                 design
                                 move={remove}
                                 label=''
                                 name='trash'
-                            ><i className='pi pi-trash p-m-3'></i></DDField>
+                            ><i className='pi pi-trash m-3'></i></DDField>
                             {Object.entries(properties).map(([name, {title}], index) => <DDField
-                                className='p-field p-grid'
+                                className='field grid'
                                 key={index}
                                 index={name}
                                 name={name}
                                 card='/'
                                 design
                                 label={title}
-                                labelClass='p-col-12'
+                                labelClass='col-12'
                             />)}
                         </Card>
                         <Card title='Cards'>
                             {Object.entries(cards).map(([name, {title}], index) => <DDCard
                                 key={index}
                                 title={title}
-                                className='p-fluid p-mb-3'
+                                className='card mb-3'
                                 card={name}
                                 index={[false, false]}
                                 design

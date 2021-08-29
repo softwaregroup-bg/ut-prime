@@ -16,7 +16,7 @@ export default {
 };
 
 export const Basic: React.FC<{}> = () =>
-    <div className='p-d-flex' style={{overflowX: 'hidden', width: '100%'}}>
+    <div className='flex' style={{overflowX: 'hidden', width: '100%'}}>
         <Form
             {...tree}
             layout={['edit', ['taxonomy', 'reproduction'], 'morphology']}

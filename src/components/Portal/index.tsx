@@ -88,9 +88,9 @@ const Portal: StyledType = ({ classes, children }) => {
         });
     }
     return (
-        <div className='p-d-flex p-flex-column' style={{height: size.height}}>
+        <div className='flex flex-column' style={{height: size.height}}>
             <div className={classes.headerContainer}>
-                <div className='p-d-flex p-ai-center p-jc-center'>
+                <div className='flex align-items-center justify-content-center'>
                     <div className={classes.headerLogo}></div>
                     <div className={classes.headerTitle}>
                         <Text>{portalName}</Text>

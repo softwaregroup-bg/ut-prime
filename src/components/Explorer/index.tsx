@@ -83,7 +83,7 @@ const Explorer: StyledType = ({
                 selected
             })}
             disabled={!isEnabled(enabled)}
-            className="p-mr-2"
+            className="mr-2"
         />
     ), [keyField, actions, current, selected]);
     React.useEffect(() => {
@@ -231,10 +231,10 @@ const Explorer: StyledType = ({
         {...columnProps(name)}
     />), [columns, properties, showFilter, dropdowns, tableFilter]);
     const left = React.useMemo(() => <>
-        {children && <Button icon="pi pi-bars" className="p-mr-2" onClick={navigationToggle}/>}
+        {children && <Button icon="pi pi-bars" className="mr-2" onClick={navigationToggle}/>}
         {buttons}
     </>, [navigationToggle, buttons]);
-    const right = React.useMemo(() => <Button icon="pi pi-bars" className="p-mr-2" onClick={detailsToggle}/>, [detailsToggle]);
+    const right = React.useMemo(() => <Button icon="pi pi-bars" className="mr-2" onClick={detailsToggle}/>, [detailsToggle]);
 
     const table = <DataTable
         autoLayout
@@ -260,7 +260,7 @@ const Explorer: StyledType = ({
         {Columns}
     </DataTable>;
     return (
-        <div className={clsx('p-d-flex', 'p-flex-column', className)} style={{height: '100%'}} >
+        <div className={clsx('flex', 'flex-column', className)} style={{height: '100%'}} >
             {(detailsPanel || children || buttons?.length) ? <>
                 <Toolbar left={left} right={right} />
                 <Splitter style={flexGrow}>

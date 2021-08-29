@@ -248,16 +248,16 @@ const Login: StyledType = ({
                 <div className={errorIcon} />
                 <div className={errorMessage}>{error}</div>
             </div>}
-            <form className={clsx('p-fluid', formContainer)} onSubmit={handleSubmit} autoComplete='off'>
+            <form className={clsx('card', formContainer)} onSubmit={handleSubmit} autoComplete='off'>
                 {inputs.map(({ name, type, label, disabled }) =>
-                    <div key={name} className='p-field p-float-label'>
+                    <div key={name} className='field p-float-label'>
                         {
                             type === 'text'
                                 ? <InputText
                                         name={name}
                                         disabled={disabled}
                                         autoFocus={autoFocus === name}
-                                        className={clsx({'p-invalid': invalidField === name})}
+                                        className={clsx('w-full', {'p-invalid': invalidField === name})}
                                 />
                                 : type === 'password'
                                     ? <Password
@@ -265,7 +265,8 @@ const Login: StyledType = ({
                                             name={name}
                                             disabled={disabled}
                                             autoFocus={autoFocus === name}
-                                            className={clsx({'p-invalid': invalidField === name})}
+                                            className={clsx('w-full', {'p-invalid': invalidField === name})}
+                                            inputClassName='w-full'
                                     /> : undefined
                         }
                         <label className={clsx({'p-error': invalidField === name})}>{label}</label>

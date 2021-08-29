@@ -32,7 +32,7 @@ const ThumbIndex: StyledType = ({ classes, className, index, orientation = 'left
         onTabChange={handleListChange}
     />;
     return (
-        <div className={clsx('p-d-flex p-flex-row', {'p-lg-2': !!model?.length}, className)} {...rest}>
+        <div className={clsx('flex flex-row', {'lg:col-2': !!model?.length}, className)} {...rest}>
             {tabs}
             {!!model?.length && <PanelMenu
                 style={{flexGrow: 1}}

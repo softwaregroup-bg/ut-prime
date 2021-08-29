@@ -17,7 +17,7 @@ type CardMonitor = DropTargetMonitor<{
     index: [number, number | false]
 }>;
 
-export function DDField({design, children = null, name, index, card = '', move = null, labelClass = 'p-col-12 p-md-4', label, ...props}) {
+export function DDField({design, children = null, name, index, card = '', move = null, labelClass = 'col-12 md:col-4', label, ...props}) {
     let labelProps;
     let isDragging = false;
     if (design) {
@@ -129,13 +129,13 @@ export function DDCard({children = null, card, index, move = undefined, flex = '
         title = (drop && canDropCard) ? '👉 ' + dragTitle : <div ref={dragCard} style={{cursor: 'move'}}>{title}</div>;
         dropZone = canDropField && <div
             ref={dropField}
-            className={clsx('p-field p-grid', flex)}
+            className={clsx('field grid', flex)}
             style={{
                 background: isOverField ? '#00ffff80' : 'transparent',
                 outline: '1px dashed #00ffff80'
             }}
         >
-            <label className='p-col-12'>👉 {dropLabel}</label>
+            <label className='col-12'>👉 {dropLabel}</label>
         </div>;
     }
     return (

@@ -145,9 +145,9 @@ const properties: Properties = {
 };
 
 const cards = {
-    main: {title: 'Main data', className: 'p-lg-6 p-xl-4', properties: ['identifierType', 'identifier', 'clientNumber', 'legalStatus']},
-    reg: {title: 'Registration', className: 'p-lg-6 p-xl-4', properties: ['regDoc.type', 'regDoc.num', 'regIssuer', 'regCountry', 'regStart', 'regEnd']},
-    financial: {title: 'Financial data', className: 'p-lg-6 p-xl-4', properties: ['capital', 'capitalCurrency', 'capitalDate', 'capitalCountry', 'ownerNationality']},
+    main: {title: 'Main data', className: 'lg:col-6 xl:col-4', properties: ['identifierType', 'identifier', 'clientNumber', 'legalStatus']},
+    reg: {title: 'Registration', className: 'lg:col-6 xl:col-4', properties: ['regDoc.type', 'regDoc.num', 'regIssuer', 'regCountry', 'regStart', 'regEnd']},
+    financial: {title: 'Financial data', className: 'lg:col-6 xl:col-4', properties: ['capital', 'capitalCurrency', 'capitalDate', 'capitalCountry', 'ownerNationality']},
     address: {title: 'Address', properties: ['addressCountry', 'addressCity', 'addressZip', 'addressStreet']},
     phone: {title: 'Phone', properties: ['phone']},
     email: {title: 'E-mail', properties: ['email']},
@@ -162,7 +162,7 @@ export const Basic: React.FC<{}> = () => {
         <>
             {toast}
             <Toolbar left={<Button icon='pi pi-save' onClick={trigger} disabled={!trigger}/>}/>
-            <div className='p-d-flex' style={{overflowX: 'hidden', width: '100%'}}>
+            <div className='flex' style={{overflowX: 'hidden', width: '100%'}}>
                 <ThumbIndex index={index} onFilter={setFilter}/>
                 <Form
                     properties={properties}
