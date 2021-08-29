@@ -12,14 +12,14 @@ exports[`<App /> render equals snapshot 1`] = `
       style="height: 100%; border-radius: 0;"
     >
       <div
-        class="p-d-flex p-flex-column"
+        class="flex flex-column"
         style="height: 768px;"
       >
         <div
           class="Portal-headerContainer-7"
         >
           <div
-            class="p-d-flex p-ai-center p-jc-center"
+            class="flex align-items-center justify-content-center"
           >
             <div
               class="Portal-headerLogo-9"

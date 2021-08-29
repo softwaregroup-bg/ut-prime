@@ -23,13 +23,13 @@ exports[`<Login /> render equals snapshot 1`] = `
       
       <form
         autocomplete="off"
-        class="p-fluid Login-formContainer-6"
+        class="card Login-formContainer-6"
       >
         <div
-          class="p-field p-float-label"
+          class="field p-float-label"
         >
           <input
-            class="p-inputtext p-component"
+            class="p-inputtext p-component w-full"
             name="username"
           />
           <label
@@ -39,13 +39,13 @@ exports[`<Login /> render equals snapshot 1`] = `
           </label>
         </div>
         <div
-          class="p-field p-float-label"
+          class="field p-float-label"
         >
           <div
-            class="p-password p-component p-inputwrapper"
+            class="p-password p-component p-inputwrapper w-full"
           >
             <input
-              class="p-inputtext p-component p-password-input"
+              class="p-inputtext p-component p-password-input w-full"
               name="password"
               type="password"
             />

@@ -5,18 +5,18 @@ exports[`<Report /> render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="p-d-flex p-ai-center"
+    class="flex align-items-center"
   >
     <form
-      class="p-grid p-col p-as-start"
+      class="grid col align-self-start"
       style="flex-grow: 1;"
     >
       <div
-        class="p-col-12 p-col-12"
+        class="col-12 col-12"
       >
         <div>
           <div
-            class="p-card p-component p-fluid p-mb-3"
+            class="p-card p-component card mb-3"
             id="params"
           >
             <div
@@ -26,22 +26,22 @@ exports[`<Report /> render equals snapshot 1`] = `
                 class="p-card-content"
               >
                 <div
-                  class="p-d-flex p-flex-wrap"
+                  class="flex flex-wrap"
                 >
                   <div
-                    class="p-field p-grid p-col-12 p-md-4 p-xl-3"
+                    class="field grid col-12 md:col-4 xl:col-3"
                   >
                     <label
-                      class="p-col-12 p-md-4"
+                      class="col-12 md:col-4"
                       for="name"
                     >
                       Name
                     </label>
                     <div
-                      class="p-col-12 p-md-8"
+                      class="col-12 md:col-8"
                     >
                       <input
-                        class="p-inputtext p-component"
+                        class="p-inputtext p-component w-full"
                         id="name"
                         name="name"
                         value=""
@@ -49,19 +49,19 @@ exports[`<Report /> render equals snapshot 1`] = `
                     </div>
                   </div>
                   <div
-                    class="p-field p-grid p-col-12 p-md-4 p-xl-3"
+                    class="field grid col-12 md:col-4 xl:col-3"
                   >
                     <label
-                      class="p-col-12 p-md-4"
+                      class="col-12 md:col-4"
                       for="startDate"
                     >
                       Start Date
                     </label>
                     <div
-                      class="p-col-12 p-md-8"
+                      class="col-12 md:col-8"
                     >
                       <span
-                        class="p-calendar p-component p-inputwrapper p-calendar-w-btn"
+                        class="p-calendar p-component p-inputwrapper w-full p-calendar-w-btn"
                         id="startDate"
                       >
                         <input
@@ -89,19 +89,19 @@ exports[`<Report /> render equals snapshot 1`] = `
                     </div>
                   </div>
                   <div
-                    class="p-field p-grid p-col-12 p-md-4 p-xl-3"
+                    class="field grid col-12 md:col-4 xl:col-3"
                   >
                     <label
-                      class="p-col-12 p-md-4"
+                      class="col-12 md:col-4"
                       for="endDate"
                     >
                       End Date
                     </label>
                     <div
-                      class="p-col-12 p-md-8"
+                      class="col-12 md:col-8"
                     >
                       <span
-                        class="p-calendar p-component p-inputwrapper p-calendar-w-btn"
+                        class="p-calendar p-component p-inputwrapper w-full p-calendar-w-btn"
                         id="endDate"
                       >
                         <input
@@ -136,7 +136,7 @@ exports[`<Report /> render equals snapshot 1`] = `
       </div>
     </form>
     <button
-      class="p-button p-component p-col-1 p-button-icon-only p-disabled"
+      class="p-button p-component col-1 p-button-icon-only p-disabled"
       disabled=""
     >
       <span
@@ -150,7 +150,7 @@ exports[`<Report /> render equals snapshot 1`] = `
     </button>
   </div>
   <div
-    class="p-d-flex p-flex-column"
+    class="flex flex-column"
     style="height: 100%;"
   >
     <div

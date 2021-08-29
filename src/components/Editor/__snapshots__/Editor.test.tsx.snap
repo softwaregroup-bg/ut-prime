@@ -50,22 +50,22 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="p-d-flex"
+    class="flex"
     style="overflow-x: hidden; width: 100%;"
   >
     <div
-      class="p-d-flex"
+      class="flex"
       style="flex-grow: 1;"
     >
       <form
-        class="p-grid p-col p-as-start"
+        class="grid col align-self-start"
       >
         <div
-          class="p-col-12 p-xl-6"
+          class="col-12 xl:col-6"
         >
           <div>
             <div
-              class="p-card p-component p-fluid p-mb-3"
+              class="p-card p-component card mb-3"
               id="edit"
             >
               <div
@@ -83,19 +83,19 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                     class=""
                   >
                     <div
-                      class="p-field p-grid"
+                      class="field grid"
                     >
                       <label
-                        class="p-col-12 p-md-4"
+                        class="col-12 md:col-4"
                         for="treeName"
                       >
                         Name
                       </label>
                       <div
-                        class="p-col-12 p-md-8"
+                        class="col-12 md:col-8"
                       >
                         <input
-                          class="p-inputtext p-component p-filled"
+                          class="p-inputtext p-component p-filled w-full"
                           id="treeName"
                           name="treeName"
                           value="Oak"
@@ -103,38 +103,38 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="p-field p-grid"
+                      class="field grid"
                     >
                       <label
-                        class="p-col-12 p-md-4"
+                        class="col-12 md:col-4"
                         for="treeDescription"
                       >
                         Description
                       </label>
                       <div
-                        class="p-col-12 p-md-8"
+                        class="col-12 md:col-8"
                       >
                         <textarea
-                          class="p-inputtextarea p-inputtext p-component"
+                          class="p-inputtextarea p-inputtext p-component w-full"
                           id="treeDescription"
                           name="treeDescription"
                         />
                       </div>
                     </div>
                     <div
-                      class="p-field p-grid"
+                      class="field grid"
                     >
                       <label
-                        class="p-col-12 p-md-4"
+                        class="col-12 md:col-4"
                         for="treeType"
                       >
                         Type
                       </label>
                       <div
-                        class="p-col-12 p-md-8"
+                        class="col-12 md:col-8"
                       >
                         <div
-                          class="p-dropdown p-component p-inputwrapper p-inputwrapper-filled"
+                          class="p-dropdown p-component p-inputwrapper w-full p-inputwrapper-filled"
                           id="treeType"
                         >
                           <div
@@ -189,11 +189,11 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
           </div>
         </div>
         <div
-          class="p-col-12 p-xl-6"
+          class="col-12 xl:col-6"
         >
           <div>
             <div
-              class="p-card p-component p-fluid p-mb-3"
+              class="p-card p-component card mb-3"
               id="taxonomy"
             >
               <div
@@ -216,7 +216,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
           </div>
           <div>
             <div
-              class="p-card p-component p-fluid p-mb-3"
+              class="p-card p-component card mb-3"
               id="reproduction"
             >
               <div
@@ -234,19 +234,19 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                     class=""
                   >
                     <div
-                      class="p-field p-grid"
+                      class="field grid"
                     >
                       <label
-                        class="p-col-12 p-md-4"
+                        class="col-12 md:col-4"
                         for="seedDescription"
                       >
                         Seed
                       </label>
                       <div
-                        class="p-col-12 p-md-8"
+                        class="col-12 md:col-8"
                       >
                         <input
-                          class="p-inputtext p-component"
+                          class="p-inputtext p-component w-full"
                           id="seedDescription"
                           name="seedDescription"
                           value=""
@@ -254,19 +254,19 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="p-field p-grid"
+                      class="field grid"
                     >
                       <label
-                        class="p-col-12 p-md-4"
+                        class="col-12 md:col-4"
                         for="flowerDescription"
                       >
                         Flower
                       </label>
                       <div
-                        class="p-col-12 p-md-8"
+                        class="col-12 md:col-8"
                       >
                         <input
-                          class="p-inputtext p-component"
+                          class="p-inputtext p-component w-full"
                           id="flowerDescription"
                           name="flowerDescription"
                           value=""
@@ -274,19 +274,19 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="p-field p-grid"
+                      class="field grid"
                     >
                       <label
-                        class="p-col-12 p-md-4"
+                        class="col-12 md:col-4"
                         for="fruitName"
                       >
                         Fruit
                       </label>
                       <div
-                        class="p-col-12 p-md-8"
+                        class="col-12 md:col-8"
                       >
                         <input
-                          class="p-inputtext p-component"
+                          class="p-inputtext p-component w-full"
                           id="fruitName"
                           name="fruitName"
                           value=""
@@ -300,11 +300,11 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
           </div>
         </div>
         <div
-          class="p-col-12 p-xl-6"
+          class="col-12 xl:col-6"
         >
           <div>
             <div
-              class="p-card p-component p-fluid p-mb-3"
+              class="p-card p-component card mb-3"
               id="morphology"
             >
               <div
@@ -327,11 +327,11 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
           </div>
         </div>
         <div
-          class="p-col-12 p-xl-6"
+          class="col-12 xl:col-6"
         >
           <div>
             <div
-              class="p-card p-component p-fluid p-mb-3"
+              class="p-card p-component card mb-3"
               id="habitat"
             >
               <div
@@ -349,13 +349,13 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                     class=""
                   >
                     <div
-                      class="p-field p-grid"
+                      class="field grid"
                     >
                       <div
-                        class="p-col-12"
+                        class="col-12"
                       >
                         <div
-                          class="p-multiselect p-component p-inputwrapper p-inputwrapper-focus MultiSelectPanel-root-5 MultiSelectPanel-root-6"
+                          class="p-multiselect p-component p-inputwrapper p-inputwrapper-focus MultiSelectPanel-root-5 MultiSelectPanel-root-6 w-full"
                           id="habitat"
                         >
                           <div
@@ -646,23 +646,23 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="p-d-flex"
+    class="flex"
     style="overflow-x: hidden; width: 100%;"
   >
     <div
-      class="p-d-flex"
+      class="flex"
       style="flex-grow: 1;"
     >
       <form
-        class="p-grid p-col p-as-start"
+        class="grid col align-self-start"
       >
         <div
-          class="p-col-12 p-xl-6"
+          class="col-12 xl:col-6"
           style="outline: 1px dotted #ffff0030;"
         >
           <div>
             <div
-              class="p-card p-component p-fluid p-mb-3"
+              class="p-card p-component card mb-3"
               id="edit"
             >
               <div
@@ -685,10 +685,10 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                     class=""
                   >
                     <div
-                      class="p-field p-grid"
+                      class="field grid"
                     >
                       <label
-                        class="p-col-12 p-md-4"
+                        class="col-12 md:col-4"
                         draggable="true"
                         for="treeName"
                         style="cursor: move;"
@@ -696,10 +696,10 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                         Name
                       </label>
                       <div
-                        class="p-col-12 p-md-8"
+                        class="col-12 md:col-8"
                       >
                         <input
-                          class="p-inputtext p-component p-filled"
+                          class="p-inputtext p-component p-filled w-full"
                           id="treeName"
                           name="treeName"
                           value="Oak"
@@ -707,10 +707,10 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="p-field p-grid"
+                      class="field grid"
                     >
                       <label
-                        class="p-col-12 p-md-4"
+                        class="col-12 md:col-4"
                         draggable="true"
                         for="treeDescription"
                         style="cursor: move;"
@@ -718,20 +718,20 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                         Description
                       </label>
                       <div
-                        class="p-col-12 p-md-8"
+                        class="col-12 md:col-8"
                       >
                         <textarea
-                          class="p-inputtextarea p-inputtext p-component"
+                          class="p-inputtextarea p-inputtext p-component w-full"
                           id="treeDescription"
                           name="treeDescription"
                         />
                       </div>
                     </div>
                     <div
-                      class="p-field p-grid"
+                      class="field grid"
                     >
                       <label
-                        class="p-col-12 p-md-4"
+                        class="col-12 md:col-4"
                         draggable="true"
                         for="treeType"
                         style="cursor: move;"
@@ -739,10 +739,10 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                         Type
                       </label>
                       <div
-                        class="p-col-12 p-md-8"
+                        class="col-12 md:col-8"
                       >
                         <div
-                          class="p-dropdown p-component p-inputwrapper p-inputwrapper-filled"
+                          class="p-dropdown p-component p-inputwrapper w-full p-inputwrapper-filled"
                           id="treeType"
                         >
                           <div
@@ -797,7 +797,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
           </div>
           <div>
             <div
-              class="p-card p-component p-fluid p-mb-3"
+              class="p-card p-component card mb-3"
               style="opacity: 0.5; display: none;"
             >
               <div
@@ -821,12 +821,12 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
           </div>
         </div>
         <div
-          class="p-col-12 p-xl-6"
+          class="col-12 xl:col-6"
           style="outline: 1px dotted #ffff0030;"
         >
           <div>
             <div
-              class="p-card p-component p-fluid p-mb-3"
+              class="p-card p-component card mb-3"
               id="taxonomy"
             >
               <div
@@ -854,7 +854,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
           </div>
           <div>
             <div
-              class="p-card p-component p-fluid p-mb-3"
+              class="p-card p-component card mb-3"
               id="reproduction"
             >
               <div
@@ -877,10 +877,10 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                     class=""
                   >
                     <div
-                      class="p-field p-grid"
+                      class="field grid"
                     >
                       <label
-                        class="p-col-12 p-md-4"
+                        class="col-12 md:col-4"
                         draggable="true"
                         for="seedDescription"
                         style="cursor: move;"
@@ -888,10 +888,10 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                         Seed
                       </label>
                       <div
-                        class="p-col-12 p-md-8"
+                        class="col-12 md:col-8"
                       >
                         <input
-                          class="p-inputtext p-component"
+                          class="p-inputtext p-component w-full"
                           id="seedDescription"
                           name="seedDescription"
                           value=""
@@ -899,10 +899,10 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="p-field p-grid"
+                      class="field grid"
                     >
                       <label
-                        class="p-col-12 p-md-4"
+                        class="col-12 md:col-4"
                         draggable="true"
                         for="flowerDescription"
                         style="cursor: move;"
@@ -910,10 +910,10 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                         Flower
                       </label>
                       <div
-                        class="p-col-12 p-md-8"
+                        class="col-12 md:col-8"
                       >
                         <input
-                          class="p-inputtext p-component"
+                          class="p-inputtext p-component w-full"
                           id="flowerDescription"
                           name="flowerDescription"
                           value=""
@@ -921,10 +921,10 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="p-field p-grid"
+                      class="field grid"
                     >
                       <label
-                        class="p-col-12 p-md-4"
+                        class="col-12 md:col-4"
                         draggable="true"
                         for="fruitName"
                         style="cursor: move;"
@@ -932,10 +932,10 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                         Fruit
                       </label>
                       <div
-                        class="p-col-12 p-md-8"
+                        class="col-12 md:col-8"
                       >
                         <input
-                          class="p-inputtext p-component"
+                          class="p-inputtext p-component w-full"
                           id="fruitName"
                           name="fruitName"
                           value=""
@@ -949,7 +949,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
           </div>
           <div>
             <div
-              class="p-card p-component p-fluid p-mb-3"
+              class="p-card p-component card mb-3"
               style="opacity: 0.5; display: none;"
             >
               <div
@@ -973,12 +973,12 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
           </div>
         </div>
         <div
-          class="p-col-12 p-xl-6"
+          class="col-12 xl:col-6"
           style="outline: 1px dotted #ffff0030;"
         >
           <div>
             <div
-              class="p-card p-component p-fluid p-mb-3"
+              class="p-card p-component card mb-3"
               id="morphology"
             >
               <div
@@ -1006,7 +1006,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
           </div>
           <div>
             <div
-              class="p-card p-component p-fluid p-mb-3"
+              class="p-card p-component card mb-3"
               style="opacity: 0.5; display: none;"
             >
               <div
@@ -1030,12 +1030,12 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
           </div>
         </div>
         <div
-          class="p-col-12 p-xl-6"
+          class="col-12 xl:col-6"
           style="outline: 1px dotted #ffff0030;"
         >
           <div>
             <div
-              class="p-card p-component p-fluid p-mb-3"
+              class="p-card p-component card mb-3"
               id="habitat"
             >
               <div
@@ -1058,13 +1058,13 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                     class=""
                   >
                     <div
-                      class="p-field p-grid"
+                      class="field grid"
                     >
                       <div
-                        class="p-col-12"
+                        class="col-12"
                       >
                         <div
-                          class="p-multiselect p-component p-inputwrapper p-inputwrapper-focus MultiSelectPanel-root-15 MultiSelectPanel-root-16"
+                          class="p-multiselect p-component p-inputwrapper p-inputwrapper-focus MultiSelectPanel-root-15 MultiSelectPanel-root-16 w-full"
                           id="habitat"
                         >
                           <div
@@ -1300,7 +1300,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
           </div>
           <div>
             <div
-              class="p-card p-component p-fluid p-mb-3"
+              class="p-card p-component card mb-3"
               style="opacity: 0.5; display: none;"
             >
               <div
@@ -1324,12 +1324,12 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
           </div>
         </div>
         <div
-          class="p-col-12 p-xl-6"
+          class="col-12 xl:col-6"
           style="outline: 1px dotted #ffff0030;"
         >
           <div>
             <div
-              class="p-card p-component p-fluid p-mb-3"
+              class="p-card p-component card mb-3"
               style="opacity: 0.5; display: none;"
             >
               <div
@@ -1354,10 +1354,10 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
         </div>
       </form>
       <div
-        class="p-col-2 p-d-flex-column"
+        class="col-2 flex-column"
       >
         <div
-          class="p-card p-component p-mb-2"
+          class="p-card p-component mb-2"
         >
           <div
             class="p-card-body"
@@ -1371,20 +1371,20 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
               class="p-card-content"
             >
               <div
-                class="p-field p-grid"
+                class="field grid"
               >
                 <i
-                  class="pi pi-trash p-m-3"
+                  class="pi pi-trash m-3"
                 />
               </div>
               <div
-                class="p-field p-grid"
+                class="field grid"
               />
               <div
-                class="p-field p-grid"
+                class="field grid"
               >
                 <label
-                  class="p-col-12"
+                  class="col-12"
                   draggable="true"
                   for="treeName"
                   style="cursor: move;"
@@ -1393,10 +1393,10 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                 </label>
               </div>
               <div
-                class="p-field p-grid"
+                class="field grid"
               >
                 <label
-                  class="p-col-12"
+                  class="col-12"
                   draggable="true"
                   for="treeDescription"
                   style="cursor: move;"
@@ -1405,10 +1405,10 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                 </label>
               </div>
               <div
-                class="p-field p-grid"
+                class="field grid"
               >
                 <label
-                  class="p-col-12"
+                  class="col-12"
                   draggable="true"
                   for="treeType"
                   style="cursor: move;"
@@ -1417,10 +1417,10 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                 </label>
               </div>
               <div
-                class="p-field p-grid"
+                class="field grid"
               >
                 <label
-                  class="p-col-12"
+                  class="col-12"
                   draggable="true"
                   for="seedDescription"
                   style="cursor: move;"
@@ -1429,10 +1429,10 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                 </label>
               </div>
               <div
-                class="p-field p-grid"
+                class="field grid"
               >
                 <label
-                  class="p-col-12"
+                  class="col-12"
                   draggable="true"
                   for="maleCone"
                   style="cursor: move;"
@@ -1441,10 +1441,10 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                 </label>
               </div>
               <div
-                class="p-field p-grid"
+                class="field grid"
               >
                 <label
-                  class="p-col-12"
+                  class="col-12"
                   draggable="true"
                   for="femaleCone"
                   style="cursor: move;"
@@ -1453,10 +1453,10 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                 </label>
               </div>
               <div
-                class="p-field p-grid"
+                class="field grid"
               >
                 <label
-                  class="p-col-12"
+                  class="col-12"
                   draggable="true"
                   for="flowerDescription"
                   style="cursor: move;"
@@ -1465,10 +1465,10 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                 </label>
               </div>
               <div
-                class="p-field p-grid"
+                class="field grid"
               >
                 <label
-                  class="p-col-12"
+                  class="col-12"
                   draggable="true"
                   for="fruitName"
                   style="cursor: move;"
@@ -1477,7 +1477,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                 </label>
               </div>
               <div
-                class="p-field p-grid"
+                class="field grid"
               />
             </div>
           </div>
@@ -1498,7 +1498,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
             >
               <div>
                 <div
-                  class="p-card p-component p-fluid p-mb-3"
+                  class="p-card p-component card mb-3"
                 >
                   <div
                     class="p-card-body"
@@ -1521,7 +1521,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
               </div>
               <div>
                 <div
-                  class="p-card p-component p-fluid p-mb-3"
+                  class="p-card p-component card mb-3"
                 >
                   <div
                     class="p-card-body"
@@ -1544,7 +1544,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
               </div>
               <div>
                 <div
-                  class="p-card p-component p-fluid p-mb-3"
+                  class="p-card p-component card mb-3"
                 >
                   <div
                     class="p-card-body"
@@ -1567,7 +1567,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
               </div>
               <div>
                 <div
-                  class="p-card p-component p-fluid p-mb-3"
+                  class="p-card p-component card mb-3"
                 >
                   <div
                     class="p-card-body"
@@ -1590,7 +1590,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
               </div>
               <div>
                 <div
-                  class="p-card p-component p-fluid p-mb-3"
+                  class="p-card p-component card mb-3"
                 >
                   <div
                     class="p-card-body"
@@ -1671,22 +1671,22 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="p-d-flex"
+    class="flex"
     style="overflow-x: hidden; width: 100%;"
   >
     <div
-      class="p-d-flex"
+      class="flex"
       style="flex-grow: 1;"
     >
       <form
-        class="p-grid p-col p-as-start"
+        class="grid col align-self-start"
       >
         <div
-          class="p-col-12 p-xl-6"
+          class="col-12 xl:col-6"
         >
           <div>
             <div
-              class="p-card p-component p-fluid p-mb-3"
+              class="p-card p-component card mb-3"
               id="edit"
             >
               <div
@@ -1704,16 +1704,16 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
                     class=""
                   >
                     <div
-                      class="p-field p-grid"
+                      class="field grid"
                     >
                       <label
-                        class="p-col-12 p-md-4"
+                        class="col-12 md:col-4"
                         for="treeName"
                       >
                         Name
                       </label>
                       <div
-                        class="p-col-12 p-md-8"
+                        class="col-12 md:col-8"
                       >
                         <div
                           class="p-skeleton p-component p-inputtext"
@@ -1722,16 +1722,16 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="p-field p-grid"
+                      class="field grid"
                     >
                       <label
-                        class="p-col-12 p-md-4"
+                        class="col-12 md:col-4"
                         for="treeDescription"
                       >
                         Description
                       </label>
                       <div
-                        class="p-col-12 p-md-8"
+                        class="col-12 md:col-8"
                       >
                         <div
                           class="p-skeleton p-component p-inputtext"
@@ -1740,16 +1740,16 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="p-field p-grid"
+                      class="field grid"
                     >
                       <label
-                        class="p-col-12 p-md-4"
+                        class="col-12 md:col-4"
                         for="treeType"
                       >
                         Type
                       </label>
                       <div
-                        class="p-col-12 p-md-8"
+                        class="col-12 md:col-8"
                       >
                         <div
                           class="p-skeleton p-component p-inputtext"
@@ -1764,11 +1764,11 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
           </div>
         </div>
         <div
-          class="p-col-12 p-xl-6"
+          class="col-12 xl:col-6"
         >
           <div>
             <div
-              class="p-card p-component p-fluid p-mb-3"
+              class="p-card p-component card mb-3"
               id="taxonomy"
             >
               <div
@@ -1791,7 +1791,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
           </div>
           <div>
             <div
-              class="p-card p-component p-fluid p-mb-3"
+              class="p-card p-component card mb-3"
               id="reproduction"
             >
               <div
@@ -1809,16 +1809,16 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
                     class=""
                   >
                     <div
-                      class="p-field p-grid"
+                      class="field grid"
                     >
                       <label
-                        class="p-col-12 p-md-4"
+                        class="col-12 md:col-4"
                         for="seedDescription"
                       >
                         Seed
                       </label>
                       <div
-                        class="p-col-12 p-md-8"
+                        class="col-12 md:col-8"
                       >
                         <div
                           class="p-skeleton p-component p-inputtext"
@@ -1827,16 +1827,16 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="p-field p-grid"
+                      class="field grid"
                     >
                       <label
-                        class="p-col-12 p-md-4"
+                        class="col-12 md:col-4"
                         for="flowerDescription"
                       >
                         Flower
                       </label>
                       <div
-                        class="p-col-12 p-md-8"
+                        class="col-12 md:col-8"
                       >
                         <div
                           class="p-skeleton p-component p-inputtext"
@@ -1845,16 +1845,16 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="p-field p-grid"
+                      class="field grid"
                     >
                       <label
-                        class="p-col-12 p-md-4"
+                        class="col-12 md:col-4"
                         for="fruitName"
                       >
                         Fruit
                       </label>
                       <div
-                        class="p-col-12 p-md-8"
+                        class="col-12 md:col-8"
                       >
                         <div
                           class="p-skeleton p-component p-inputtext"
@@ -1869,11 +1869,11 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
           </div>
         </div>
         <div
-          class="p-col-12 p-xl-6"
+          class="col-12 xl:col-6"
         >
           <div>
             <div
-              class="p-card p-component p-fluid p-mb-3"
+              class="p-card p-component card mb-3"
               id="morphology"
             >
               <div
@@ -1896,11 +1896,11 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
           </div>
         </div>
         <div
-          class="p-col-12 p-xl-6"
+          class="col-12 xl:col-6"
         >
           <div>
             <div
-              class="p-card p-component p-fluid p-mb-3"
+              class="p-card p-component card mb-3"
               id="habitat"
             >
               <div
@@ -1918,10 +1918,10 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
                     class=""
                   >
                     <div
-                      class="p-field p-grid"
+                      class="field grid"
                     >
                       <div
-                        class="p-col-12"
+                        class="col-12"
                       >
                         <div
                           class="p-skeleton p-component p-inputtext"
@@ -1991,23 +1991,23 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="p-d-flex"
+    class="flex"
     style="overflow-x: hidden; width: 100%;"
   >
     <div
-      class="p-d-flex"
+      class="flex"
       style="flex-grow: 1;"
     >
       <form
-        class="p-grid p-col p-as-start"
+        class="grid col align-self-start"
       >
         <div
-          class="p-col-12 p-xl-6"
+          class="col-12 xl:col-6"
           style="outline: 1px dotted #ffff0030;"
         >
           <div>
             <div
-              class="p-card p-component p-fluid p-mb-3"
+              class="p-card p-component card mb-3"
               id="edit"
             >
               <div
@@ -2030,10 +2030,10 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                     class=""
                   >
                     <div
-                      class="p-field p-grid"
+                      class="field grid"
                     >
                       <label
-                        class="p-col-12 p-md-4"
+                        class="col-12 md:col-4"
                         draggable="true"
                         for="treeName"
                         style="cursor: move;"
@@ -2041,10 +2041,10 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                         Name
                       </label>
                       <div
-                        class="p-col-12 p-md-8"
+                        class="col-12 md:col-8"
                       >
                         <input
-                          class="p-inputtext p-component p-filled"
+                          class="p-inputtext p-component p-filled w-full"
                           id="treeName"
                           name="treeName"
                           value="Oak"
@@ -2052,10 +2052,10 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="p-field p-grid"
+                      class="field grid"
                     >
                       <label
-                        class="p-col-12 p-md-4"
+                        class="col-12 md:col-4"
                         draggable="true"
                         for="treeDescription"
                         style="cursor: move;"
@@ -2063,20 +2063,20 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                         Description
                       </label>
                       <div
-                        class="p-col-12 p-md-8"
+                        class="col-12 md:col-8"
                       >
                         <textarea
-                          class="p-inputtextarea p-inputtext p-component"
+                          class="p-inputtextarea p-inputtext p-component w-full"
                           id="treeDescription"
                           name="treeDescription"
                         />
                       </div>
                     </div>
                     <div
-                      class="p-field p-grid"
+                      class="field grid"
                     >
                       <label
-                        class="p-col-12 p-md-4"
+                        class="col-12 md:col-4"
                         draggable="true"
                         for="treeType"
                         style="cursor: move;"
@@ -2084,10 +2084,10 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                         Type
                       </label>
                       <div
-                        class="p-col-12 p-md-8"
+                        class="col-12 md:col-8"
                       >
                         <div
-                          class="p-dropdown p-component p-inputwrapper p-inputwrapper-filled"
+                          class="p-dropdown p-component p-inputwrapper w-full p-inputwrapper-filled"
                           id="treeType"
                         >
                           <div
@@ -2142,7 +2142,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
           </div>
           <div>
             <div
-              class="p-card p-component p-fluid p-mb-3"
+              class="p-card p-component card mb-3"
               style="opacity: 0.5; display: none;"
             >
               <div
@@ -2166,12 +2166,12 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
           </div>
         </div>
         <div
-          class="p-col-12 p-xl-6"
+          class="col-12 xl:col-6"
           style="outline: 1px dotted #ffff0030;"
         >
           <div>
             <div
-              class="p-card p-component p-fluid p-mb-3"
+              class="p-card p-component card mb-3"
               id="taxonomy"
             >
               <div
@@ -2199,7 +2199,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
           </div>
           <div>
             <div
-              class="p-card p-component p-fluid p-mb-3"
+              class="p-card p-component card mb-3"
               id="reproduction"
             >
               <div
@@ -2222,10 +2222,10 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                     class=""
                   >
                     <div
-                      class="p-field p-grid"
+                      class="field grid"
                     >
                       <label
-                        class="p-col-12 p-md-4"
+                        class="col-12 md:col-4"
                         draggable="true"
                         for="seedDescription"
                         style="cursor: move;"
@@ -2233,10 +2233,10 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                         Seed
                       </label>
                       <div
-                        class="p-col-12 p-md-8"
+                        class="col-12 md:col-8"
                       >
                         <input
-                          class="p-inputtext p-component"
+                          class="p-inputtext p-component w-full"
                           id="seedDescription"
                           name="seedDescription"
                           value=""
@@ -2244,10 +2244,10 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="p-field p-grid"
+                      class="field grid"
                     >
                       <label
-                        class="p-col-12 p-md-4"
+                        class="col-12 md:col-4"
                         draggable="true"
                         for="flowerDescription"
                         style="cursor: move;"
@@ -2255,10 +2255,10 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                         Flower
                       </label>
                       <div
-                        class="p-col-12 p-md-8"
+                        class="col-12 md:col-8"
                       >
                         <input
-                          class="p-inputtext p-component"
+                          class="p-inputtext p-component w-full"
                           id="flowerDescription"
                           name="flowerDescription"
                           value=""
@@ -2266,10 +2266,10 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="p-field p-grid"
+                      class="field grid"
                     >
                       <label
-                        class="p-col-12 p-md-4"
+                        class="col-12 md:col-4"
                         draggable="true"
                         for="fruitName"
                         style="cursor: move;"
@@ -2277,10 +2277,10 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                         Fruit
                       </label>
                       <div
-                        class="p-col-12 p-md-8"
+                        class="col-12 md:col-8"
                       >
                         <input
-                          class="p-inputtext p-component"
+                          class="p-inputtext p-component w-full"
                           id="fruitName"
                           name="fruitName"
                           value=""
@@ -2294,7 +2294,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
           </div>
           <div>
             <div
-              class="p-card p-component p-fluid p-mb-3"
+              class="p-card p-component card mb-3"
               style="opacity: 0.5; display: none;"
             >
               <div
@@ -2318,12 +2318,12 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
           </div>
         </div>
         <div
-          class="p-col-12 p-xl-6"
+          class="col-12 xl:col-6"
           style="outline: 1px dotted #ffff0030;"
         >
           <div>
             <div
-              class="p-card p-component p-fluid p-mb-3"
+              class="p-card p-component card mb-3"
               id="morphology"
             >
               <div
@@ -2351,7 +2351,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
           </div>
           <div>
             <div
-              class="p-card p-component p-fluid p-mb-3"
+              class="p-card p-component card mb-3"
               style="opacity: 0.5; display: none;"
             >
               <div
@@ -2375,12 +2375,12 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
           </div>
         </div>
         <div
-          class="p-col-12 p-xl-6"
+          class="col-12 xl:col-6"
           style="outline: 1px dotted #ffff0030;"
         >
           <div>
             <div
-              class="p-card p-component p-fluid p-mb-3"
+              class="p-card p-component card mb-3"
               id="habitat"
             >
               <div
@@ -2403,13 +2403,13 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                     class=""
                   >
                     <div
-                      class="p-field p-grid"
+                      class="field grid"
                     >
                       <div
-                        class="p-col-12"
+                        class="col-12"
                       >
                         <div
-                          class="p-multiselect p-component p-inputwrapper p-inputwrapper-focus MultiSelectPanel-root-21 MultiSelectPanel-root-22"
+                          class="p-multiselect p-component p-inputwrapper p-inputwrapper-focus MultiSelectPanel-root-21 MultiSelectPanel-root-22 w-full"
                           id="habitat"
                         >
                           <div
@@ -2645,7 +2645,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
           </div>
           <div>
             <div
-              class="p-card p-component p-fluid p-mb-3"
+              class="p-card p-component card mb-3"
               style="opacity: 0.5; display: none;"
             >
               <div
@@ -2669,12 +2669,12 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
           </div>
         </div>
         <div
-          class="p-col-12 p-xl-6"
+          class="col-12 xl:col-6"
           style="outline: 1px dotted #ffff0030;"
         >
           <div>
             <div
-              class="p-card p-component p-fluid p-mb-3"
+              class="p-card p-component card mb-3"
               style="opacity: 0.5; display: none;"
             >
               <div
@@ -2699,10 +2699,10 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
         </div>
       </form>
       <div
-        class="p-col-2 p-d-flex-column"
+        class="col-2 flex-column"
       >
         <div
-          class="p-card p-component p-mb-2"
+          class="p-card p-component mb-2"
         >
           <div
             class="p-card-body"
@@ -2716,20 +2716,20 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
               class="p-card-content"
             >
               <div
-                class="p-field p-grid"
+                class="field grid"
               >
                 <i
-                  class="pi pi-trash p-m-3"
+                  class="pi pi-trash m-3"
                 />
               </div>
               <div
-                class="p-field p-grid"
+                class="field grid"
               />
               <div
-                class="p-field p-grid"
+                class="field grid"
               >
                 <label
-                  class="p-col-12"
+                  class="col-12"
                   draggable="true"
                   for="treeName"
                   style="cursor: move;"
@@ -2738,10 +2738,10 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                 </label>
               </div>
               <div
-                class="p-field p-grid"
+                class="field grid"
               >
                 <label
-                  class="p-col-12"
+                  class="col-12"
                   draggable="true"
                   for="treeDescription"
                   style="cursor: move;"
@@ -2750,10 +2750,10 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                 </label>
               </div>
               <div
-                class="p-field p-grid"
+                class="field grid"
               >
                 <label
-                  class="p-col-12"
+                  class="col-12"
                   draggable="true"
                   for="treeType"
                   style="cursor: move;"
@@ -2762,10 +2762,10 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                 </label>
               </div>
               <div
-                class="p-field p-grid"
+                class="field grid"
               >
                 <label
-                  class="p-col-12"
+                  class="col-12"
                   draggable="true"
                   for="seedDescription"
                   style="cursor: move;"
@@ -2774,10 +2774,10 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                 </label>
               </div>
               <div
-                class="p-field p-grid"
+                class="field grid"
               >
                 <label
-                  class="p-col-12"
+                  class="col-12"
                   draggable="true"
                   for="maleCone"
                   style="cursor: move;"
@@ -2786,10 +2786,10 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                 </label>
               </div>
               <div
-                class="p-field p-grid"
+                class="field grid"
               >
                 <label
-                  class="p-col-12"
+                  class="col-12"
                   draggable="true"
                   for="femaleCone"
                   style="cursor: move;"
@@ -2798,10 +2798,10 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                 </label>
               </div>
               <div
-                class="p-field p-grid"
+                class="field grid"
               >
                 <label
-                  class="p-col-12"
+                  class="col-12"
                   draggable="true"
                   for="flowerDescription"
                   style="cursor: move;"
@@ -2810,10 +2810,10 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                 </label>
               </div>
               <div
-                class="p-field p-grid"
+                class="field grid"
               >
                 <label
-                  class="p-col-12"
+                  class="col-12"
                   draggable="true"
                   for="fruitName"
                   style="cursor: move;"
@@ -2822,7 +2822,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                 </label>
               </div>
               <div
-                class="p-field p-grid"
+                class="field grid"
               />
             </div>
           </div>
@@ -2843,7 +2843,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
             >
               <div>
                 <div
-                  class="p-card p-component p-fluid p-mb-3"
+                  class="p-card p-component card mb-3"
                 >
                   <div
                     class="p-card-body"
@@ -2866,7 +2866,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
               </div>
               <div>
                 <div
-                  class="p-card p-component p-fluid p-mb-3"
+                  class="p-card p-component card mb-3"
                 >
                   <div
                     class="p-card-body"
@@ -2889,7 +2889,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
               </div>
               <div>
                 <div
-                  class="p-card p-component p-fluid p-mb-3"
+                  class="p-card p-component card mb-3"
                 >
                   <div
                     class="p-card-body"
@@ -2912,7 +2912,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
               </div>
               <div>
                 <div
-                  class="p-card p-component p-fluid p-mb-3"
+                  class="p-card p-component card mb-3"
                 >
                   <div
                     class="p-card-body"
@@ -2935,7 +2935,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
               </div>
               <div>
                 <div
-                  class="p-card p-component p-fluid p-mb-3"
+                  class="p-card p-component card mb-3"
                 >
                   <div
                     class="p-card-body"

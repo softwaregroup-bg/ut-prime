@@ -5,18 +5,18 @@ exports[`<Form /> render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="p-d-flex"
+    class="flex"
     style="overflow-x: hidden; width: 100%;"
   >
     <form
-      class="p-grid p-col p-as-start"
+      class="grid col align-self-start"
     >
       <div
-        class="p-col-12 p-xl-6"
+        class="col-12 xl:col-6"
       >
         <div>
           <div
-            class="p-card p-component p-fluid p-mb-3"
+            class="p-card p-component card mb-3"
             id="edit"
           >
             <div
@@ -34,19 +34,19 @@ exports[`<Form /> render equals snapshot 1`] = `
                   class=""
                 >
                   <div
-                    class="p-field p-grid"
+                    class="field grid"
                   >
                     <label
-                      class="p-col-12 p-md-4"
+                      class="col-12 md:col-4"
                       for="treeName"
                     >
                       Name
                     </label>
                     <div
-                      class="p-col-12 p-md-8"
+                      class="col-12 md:col-8"
                     >
                       <input
-                        class="p-inputtext p-component"
+                        class="p-inputtext p-component w-full"
                         id="treeName"
                         name="treeName"
                         value=""
@@ -54,38 +54,38 @@ exports[`<Form /> render equals snapshot 1`] = `
                     </div>
                   </div>
                   <div
-                    class="p-field p-grid"
+                    class="field grid"
                   >
                     <label
-                      class="p-col-12 p-md-4"
+                      class="col-12 md:col-4"
                       for="treeDescription"
                     >
                       Description
                     </label>
                     <div
-                      class="p-col-12 p-md-8"
+                      class="col-12 md:col-8"
                     >
                       <textarea
-                        class="p-inputtextarea p-inputtext p-component"
+                        class="p-inputtextarea p-inputtext p-component w-full"
                         id="treeDescription"
                         name="treeDescription"
                       />
                     </div>
                   </div>
                   <div
-                    class="p-field p-grid"
+                    class="field grid"
                   >
                     <label
-                      class="p-col-12 p-md-4"
+                      class="col-12 md:col-4"
                       for="treeType"
                     >
                       Type
                     </label>
                     <div
-                      class="p-col-12 p-md-8"
+                      class="col-12 md:col-8"
                     >
                       <div
-                        class="p-dropdown p-component p-inputwrapper"
+                        class="p-dropdown p-component p-inputwrapper w-full"
                         id="treeType"
                       >
                         <div
@@ -135,11 +135,11 @@ exports[`<Form /> render equals snapshot 1`] = `
         </div>
       </div>
       <div
-        class="p-col-12 p-xl-6"
+        class="col-12 xl:col-6"
       >
         <div>
           <div
-            class="p-card p-component p-fluid p-mb-3"
+            class="p-card p-component card mb-3"
             id="taxonomy"
           >
             <div
@@ -162,7 +162,7 @@ exports[`<Form /> render equals snapshot 1`] = `
         </div>
         <div>
           <div
-            class="p-card p-component p-fluid p-mb-3"
+            class="p-card p-component card mb-3"
             id="reproduction"
           >
             <div
@@ -180,19 +180,19 @@ exports[`<Form /> render equals snapshot 1`] = `
                   class=""
                 >
                   <div
-                    class="p-field p-grid"
+                    class="field grid"
                   >
                     <label
-                      class="p-col-12 p-md-4"
+                      class="col-12 md:col-4"
                       for="seedDescription"
                     >
                       Seed
                     </label>
                     <div
-                      class="p-col-12 p-md-8"
+                      class="col-12 md:col-8"
                     >
                       <input
-                        class="p-inputtext p-component"
+                        class="p-inputtext p-component w-full"
                         id="seedDescription"
                         name="seedDescription"
                         value=""
@@ -200,19 +200,19 @@ exports[`<Form /> render equals snapshot 1`] = `
                     </div>
                   </div>
                   <div
-                    class="p-field p-grid"
+                    class="field grid"
                   >
                     <label
-                      class="p-col-12 p-md-4"
+                      class="col-12 md:col-4"
                       for="flowerDescription"
                     >
                       Flower
                     </label>
                     <div
-                      class="p-col-12 p-md-8"
+                      class="col-12 md:col-8"
                     >
                       <input
-                        class="p-inputtext p-component"
+                        class="p-inputtext p-component w-full"
                         id="flowerDescription"
                         name="flowerDescription"
                         value=""
@@ -220,19 +220,19 @@ exports[`<Form /> render equals snapshot 1`] = `
                     </div>
                   </div>
                   <div
-                    class="p-field p-grid"
+                    class="field grid"
                   >
                     <label
-                      class="p-col-12 p-md-4"
+                      class="col-12 md:col-4"
                       for="fruitName"
                     >
                       Fruit
                     </label>
                     <div
-                      class="p-col-12 p-md-8"
+                      class="col-12 md:col-8"
                     >
                       <input
-                        class="p-inputtext p-component"
+                        class="p-inputtext p-component w-full"
                         id="fruitName"
                         name="fruitName"
                         value=""
@@ -246,11 +246,11 @@ exports[`<Form /> render equals snapshot 1`] = `
         </div>
       </div>
       <div
-        class="p-col-12 p-xl-6"
+        class="col-12 xl:col-6"
       >
         <div>
           <div
-            class="p-card p-component p-fluid p-mb-3"
+            class="p-card p-component card mb-3"
             id="morphology"
           >
             <div

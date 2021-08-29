@@ -5,7 +5,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="p-d-flex p-flex-column"
+    class="flex flex-column"
     style="height: 100%;"
   >
     <div
@@ -19,7 +19,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
         class="p-toolbar-group-right"
       >
         <button
-          class="p-button p-component p-mr-2 p-button-icon-only"
+          class="p-button p-component mr-2 p-button-icon-only"
         >
           <span
             class="p-button-icon p-c pi pi-bars"
