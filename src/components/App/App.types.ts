@@ -9,7 +9,8 @@ export interface utTheme extends ThemeOptions {
         headerLogo?: Properties,
         loginTop?: Properties,
         loginBottom?: Properties
-    }
+    },
+    name?: string
 }
 
 export interface Props extends StoreProps, React.HTMLAttributes<HTMLDivElement> {

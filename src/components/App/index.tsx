@@ -12,6 +12,8 @@ import 'primeflex/primeflex.css';
 import 'primeicons/primeicons.css';
 import light from 'primereact/resources/themes/md-light-indigo/theme.css';
 import dark from 'primereact/resources/themes/md-dark-indigo/theme.css';
+import lightCompact from 'primereact/resources/themes/mdc-light-indigo/theme.css';
+import darkCompact from 'primereact/resources/themes/mdc-dark-indigo/theme.css';
 
 import LoginPage from '../Login';
 import Main from '../Main';
@@ -25,7 +27,19 @@ let last;
 
 const App: StyledType = ({middleware, reducers, theme, portalName, state, onDispatcher, loginPage}) => {
     last?.unuse?.();
-    last = theme?.palette?.type === 'dark' ? dark?.use?.() : light?.use?.();
+    switch (theme?.name || theme?.palette?.type) {
+        case 'dark':
+            last = dark?.use?.();
+            break;
+        case 'dark-compact':
+            last = darkCompact?.use?.();
+            break;
+        case 'light-compact':
+            last = lightCompact?.use?.();
+            break;
+        default:
+            last = light?.use?.();
+    }
     return (
         <DndProvider backend={HTML5Backend}>
             <Store {...{middleware, reducers, state, onDispatcher}}>
