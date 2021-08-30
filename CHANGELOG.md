@@ -1,3 +1,19 @@
+# [1.34.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.33.0...v1.34.0) (2021-08-30)
+
+
+### Bug Fixes
+
+* grid input columns ([c99acb8](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/c99acb8f6fb47a409bef8521481a5b88989be875))
+* theming with class names ([c4442d6](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/c4442d6f0212b9e1cba6cacd0176ad733d560752))
+
+
+### Features
+
+* compact theme ([d16a591](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/d16a591723a8cdde3c26062973ac59fa3a6c6961))
+* primeflex 3 ([6350c65](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/6350c6582babc0b22b5ea824b7873e87a72c720b))
+
+
+
 # [1.33.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.32.0...v1.33.0) (2021-08-28)
 
 
