@@ -57,7 +57,7 @@ exports[`<Login /> render equals snapshot 1`] = `
           </label>
         </div>
         <button
-          class="p-button p-component"
+          class="p-button p-component w-full"
           type="submit"
         >
           <span

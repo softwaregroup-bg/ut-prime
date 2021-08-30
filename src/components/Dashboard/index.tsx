@@ -2,12 +2,12 @@ import React from 'react';
 import clsx from 'clsx';
 import { useTheme } from '@material-ui/core/styles';
 
-import { Portal } from '../Theme';
+import { Theme } from '../Theme';
 
 import { Styled, StyledType } from './Dashboard.types';
 
 const Dashboard: StyledType = ({ classes, className, ...props }) => {
-    const {ut} = useTheme<Portal>();
+    const {ut} = useTheme<Theme>();
     const theme = {...classes, ...ut.classes};
 
     return <div className={clsx(theme.h100pr, className)}>

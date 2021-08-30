@@ -1,20 +1,9 @@
-import type {Properties} from 'csstype'; // eslint-disable-line
-import {ThemeOptions} from '@material-ui/core/styles';
 import React from 'react';
 import { Props as StoreProps } from '../Store/Store.types';
-
-export interface utTheme extends ThemeOptions {
-    ut?: {
-        classes?: {},
-        headerLogo?: Properties,
-        loginTop?: Properties,
-        loginBottom?: Properties
-    },
-    name?: string
-}
+import { Theme } from '../Theme';
 
 export interface Props extends StoreProps, React.HTMLAttributes<HTMLDivElement> {
-    theme: utTheme,
+    theme: Theme,
     portalName: string,
     loginPage?: string
 }

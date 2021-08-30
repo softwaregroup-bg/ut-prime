@@ -4,18 +4,12 @@ import React from 'react';
 import topImage from './images/topLogo.png';
 import bottomImage from './images/bottomLogo.png';
 import error from '../images/error.png';
-import type {utTheme} from '../App/App.types';
 
 export interface ILoginProps {
     identityCheck: ({}) => Promise<{}>;
 }
 
-const styles = ({
-    ut: {
-        loginTop,
-        loginBottom
-    } = {}
-}: utTheme) => createStyles({
+const styles = createStyles({
     loginContainer: {
         display: 'flex',
         position: 'absolute',
@@ -31,13 +25,11 @@ const styles = ({
     },
     loginPageHeader: {
         marginBottom: '55px',
-        background: `url(${topImage}) no-repeat center`,
-        ...loginTop
+        background: `url(${topImage}) no-repeat center`
     },
     loginPageFooter: {
         marginTop: '55px',
-        background: `url(${bottomImage}) no-repeat center`,
-        ...loginBottom
+        background: `url(${bottomImage}) no-repeat center`
     },
     loginForm: {
         boxSizing: 'border-box',

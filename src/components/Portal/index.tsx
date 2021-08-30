@@ -1,8 +1,11 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useLocation, useHistory } from 'react-router-dom';
+import clsx from 'clsx';
 import Immutable from 'immutable';
+import { useTheme } from '@material-ui/core/styles';
 
+import { Theme } from '../Theme';
 import { Menubar, TabView, TabPanel } from '../prime';
 import Context from '../Context';
 import Text from '../Text';
@@ -14,6 +17,7 @@ import { Styled, StyledType } from './Portal.types';
 import { useWindowSize } from '../hooks';
 
 const Portal: StyledType = ({ classes, children }) => {
+    const {ut} = useTheme<Theme>();
     const {
         tabs = [],
         hideTabs,
@@ -91,7 +95,7 @@ const Portal: StyledType = ({ classes, children }) => {
         <div className='flex flex-column' style={{height: size.height}}>
             <div className={classes.headerContainer}>
                 <div className='flex align-items-center justify-content-center'>
-                    <div className={classes.headerLogo}></div>
+                    <div className={clsx(classes.headerLogo, ut?.classes?.headerLogo)}></div>
                     <div className={classes.headerTitle}>
                         <Text>{portalName}</Text>
                     </div>

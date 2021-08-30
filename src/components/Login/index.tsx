@@ -3,7 +3,9 @@ import { connect, useSelector } from 'react-redux';
 import clsx from 'clsx';
 import { Redirect } from 'react-router-dom';
 import { Box } from '@material-ui/core';
+import { useTheme } from '@material-ui/core/styles';
 
+import { Theme } from '../Theme';
 import { Password, InputText, Button } from '../prime';
 import Text from '../Text';
 import { Validator } from '../lib/validator';
@@ -221,6 +223,7 @@ const Login: StyledType = ({
         formContainer
     }
 }) => {
+    const {ut} = useTheme<Theme>();
     const authenticated = useSelector((state: State) => state.login);
 
     const [{ title, error, invalidField, inputs, buttonLabel }, dispatch] = React.useReducer(reducer, initialState);
@@ -241,7 +244,7 @@ const Login: StyledType = ({
     const autoFocus = inputs.find(({disabled}) => !disabled)?.name;
 
     return (<div className={loginContainer}>
-        <div className={clsx(loginLogo, loginPageHeader)} />
+        <div className={clsx(loginLogo, loginPageHeader, ut?.classes?.loginTop)} />
         <Box className={loginForm} boxShadow={3} bgcolor='background.paper' borderColor='divider'>
             {title && <div className={loginTitle}><Text>{title}</Text></div>}
             {error && <div className={formError}>
@@ -272,10 +275,10 @@ const Login: StyledType = ({
                         <label className={clsx({'p-error': invalidField === name})}>{label}</label>
                     </div>
                 ).filter(Boolean)}
-                <Button label={buttonLabel} type='submit'/>
+                <Button label={buttonLabel} type='submit' className='w-full'/>
             </form>
         </Box>
-        <div className={clsx(loginLogo, loginPageFooter)} />
+        <div className={clsx(loginLogo, loginPageFooter, ut?.classes?.loginBottom)} />
     </div>
     );
 };
