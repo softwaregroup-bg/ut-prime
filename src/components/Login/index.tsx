@@ -235,6 +235,7 @@ const Login: StyledType = ({
             .reduce((prev, { name, value }) => name ? { ...prev, [name]: value } : prev, {});
         const valid = validator.validateAll(allInputs);
         if (valid.isValid) {
+            delete allInputs.confirmPassword;
             dispatch({ ...await identityCheck(allInputs), type: 'login' });
         } else {
             dispatch({...valid, type: 'error'});
