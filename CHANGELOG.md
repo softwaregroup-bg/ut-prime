@@ -1,3 +1,12 @@
+## [1.34.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.34.0...v1.34.1) (2021-08-31)
+
+
+### Bug Fixes
+
+* do not submit confirmPassword ([c6831e9](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/c6831e9f17383f91268cc29527d2184a7f8fbc21))
+
+
+
 # [1.34.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.33.0...v1.34.0) (2021-08-30)
 
 
