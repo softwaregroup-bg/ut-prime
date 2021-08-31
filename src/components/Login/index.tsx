@@ -66,8 +66,7 @@ const inputTypes = {
             minLength: 2,
             maxLength: 30,
             shouldMatchField: 'newPassword'
-        },
-        skipSubmit: true
+        }
     },
     otp: {
         name: 'otp',
@@ -103,10 +102,11 @@ const loginSteps = {
     newPassword: {
         inputs: {
             username: inputTypes.username,
+            password: inputTypes.password,
             newPassword: inputTypes.newPassword,
             confirmPassword: inputTypes.confirmPassword
         },
-        disabledFields: ['username'],
+        disabledFields: ['username', 'password'],
         buttonLabel: 'Change',
         title: 'Password change required'
     },

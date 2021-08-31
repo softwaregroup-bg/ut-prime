@@ -35,7 +35,7 @@ export default (state = null, action: {
                     result: action.result,
                     language: action.result.language,
                     profile: {
-                        initials: initials(action?.result?.person)
+                        initials: initials(action?.result?.person || {firstName: '', lastName: ''})
                     }
                 }) : false;
             } else return state;
