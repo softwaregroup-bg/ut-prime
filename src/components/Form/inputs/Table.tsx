@@ -24,6 +24,7 @@ export default React.forwardRef<{}, any>(({
         }}
         className='w-full'
         id={`${props.rowData.id}`}
+        {...properties?.[field].editor}
     />, [onChange]);
     const [original, setOriginal] = React.useState({index: null, value: null});
 
