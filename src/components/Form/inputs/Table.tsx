@@ -10,7 +10,13 @@ export default React.forwardRef<{}, any>(({
     value,
     dataKey = 'id',
     properties,
-    dropdowns
+    dropdowns,
+    actions: {
+        allowAdd = true,
+        allowDelete = true,
+        allowEdit = true,
+        allowSelect = true
+    }
 }, ref) => {
     if (typeof ref === 'function') ref(React.useState({})[0]);
     const cellEditor = React.useCallback((props, field) => <InputText
@@ -57,8 +63,8 @@ export default React.forwardRef<{}, any>(({
     const leftToolbarTemplate = () => {
         return (
             <React.Fragment>
-                <Button label="Add" icon="pi pi-plus" className="p-button mr-2" onClick={addNewRow} />
-                <Button label="Delete" icon="pi pi-trash" className="p-button" onClick={deleteRow} disabled={!selected || !selected.length} />
+                {allowAdd && <Button label="Add" icon="pi pi-plus" className="p-button mr-2" onClick={addNewRow} />}
+                {allowDelete && <Button label="Delete" icon="pi pi-trash" className="p-button" onClick={deleteRow} disabled={!selected || !selected.length} />}
             </React.Fragment>
         );
     };
@@ -74,11 +80,11 @@ export default React.forwardRef<{}, any>(({
                 onRowEditCancel={cancel}
                 selection={selected}
                 selectionMode='checkbox'
-                onSelectionChange={(e) => { setSelected(e.value); }}
+                onSelectionChange={(e) => { allowSelect && setSelected(e.value); }}
                 editingRows={editingRows}
                 onRowEditChange={onRowEditChange}
             >
-                <Column selectionMode="multiple" headerStyle={{ width: '3rem' }}></Column>
+                {allowSelect && <Column selectionMode="multiple" headerStyle={{ width: '3rem' }}></Column>}
                 {
                     (columns || []).map(name => <Column
                         key={name}
@@ -88,7 +94,7 @@ export default React.forwardRef<{}, any>(({
                         {...columnProps({name, properties, dropdowns, onChange})}
                     />)
                 }
-                <Column rowEditor headerStyle={{ width: '7rem' }} bodyStyle={{ textAlign: 'center' }}></Column>
+                {allowEdit && <Column rowEditor headerStyle={{ width: '7rem' }} bodyStyle={{ textAlign: 'center' }}></Column>}
             </DataTable>
         </>
     );
