@@ -44,14 +44,15 @@ export default function columnProps({
                 if (value == null) return null;
                 return <i className={`pi ${value ? 'pi-check' : 'pi-times'}`}></i>;
             };
-            editor = function editor(props) {
+            editor = function editor(p) {
                 return <Checkbox
-                    checked={props.rowData[fieldName]}
+                    checked={p.rowData[fieldName]}
                     onChange={e => {
-                        const updatedValue = [...props.value];
-                        updatedValue[props.rowIndex][props.field] = e.checked;
+                        const updatedValue = [...p.value];
+                        updatedValue[p.rowIndex][p.field] = e.checked;
                         onChange(updatedValue);
                     }}
+                    {...props}
                 />;
             };
             break;
@@ -64,17 +65,18 @@ export default function columnProps({
                 showClear
                 {...props}
             />;
-            editor = function editor(props) {
+            editor = function editor(p) {
                 return <Dropdown
                     className='w-full'
                     options={dropdowns?.[dropdown] || []}
-                    value={props.rowData[fieldName]}
+                    value={p.rowData[fieldName]}
                     onChange={e => {
-                        const updatedValue = [...props.value];
-                        updatedValue[props.rowIndex][props.field] = e.value;
+                        const updatedValue = [...p.value];
+                        updatedValue[p.rowIndex][p.field] = e.value;
                         onChange(updatedValue);
                     }}
                     showClear
+                    {...props}
                 />;
             };
             break;
