@@ -1,3 +1,18 @@
+# [1.36.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.35.0...v1.36.0) (2021-09-06)
+
+
+### Bug Fixes
+
+* validate only registered fields fields ([f3c70f8](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/f3c70f8a0d6f2dd9320300c0c269a06f951cda14))
+
+
+### Features
+
+* hidden cards ([e0962e5](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/e0962e5a88d97663bc4ca46af73e1302f0b832bd))
+* multiSelectTree input ([a6410a4](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/a6410a43420252f2e2ff1fc1e4dc40bb17cbd4b4))
+
+
+
 # [1.35.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.34.2...v1.35.0) (2021-09-06)
 
 
