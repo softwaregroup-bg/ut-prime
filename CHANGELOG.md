@@ -1,3 +1,17 @@
+# [1.35.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.34.2...v1.35.0) (2021-09-06)
+
+
+### Bug Fixes
+
+* pass props to table input fields ([fb11644](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/fb11644b8a07e548b594e63ca912ec5d00bf4339))
+
+
+### Features
+
+* table input actions config ([41e1b2c](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/41e1b2caf10474e2eca6ee979d0a844dfac98f80))
+
+
+
 ## [1.34.2](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.34.1...v1.34.2) (2021-08-31)
 
 
