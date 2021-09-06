@@ -1,11 +1,13 @@
 import React from 'react';
 import lodashGet from 'lodash.get';
+import lodashSet from 'lodash.set';
 import merge from 'ut-function.merge';
 import clsx from 'clsx';
 
 import { Styled, StyledType } from './Editor.types';
 
 import Form from '../Form';
+import getSchema from '../Form/schema';
 import ThumbIndex from '../ThumbIndex';
 import {Toolbar, Button, Card} from '../prime';
 import useToggle from '../hooks/useToggle';
@@ -46,19 +48,26 @@ const Editor: StyledType = ({
     }
 
     const [trigger, setTrigger] = React.useState();
-    const [value, setValue] = React.useState({});
+    const [value, setEditValue] = React.useState({});
     const [dropdowns, setDropdown] = React.useState({});
     const [[index, layout, orientation], setIndex] = React.useState(getLayout(layoutName));
     const [filter, setFilter] = React.useState(index?.[0]?.items?.[0] || index?.[0]);
     const [loading, setLoading] = React.useState('');
     const indexCards = index && index.map(item => [item.cards, item?.items?.map(item => item.cards)]).flat(2).filter(Boolean);
-    const dropdownNames = (indexCards || layout || filter?.cards || [])
+    const fields: string[] = Array.from(new Set((indexCards || layout || filter?.cards || [])
         .flat()
         .map(card => cards?.[card]?.properties)
         .flat()
-        .filter(Boolean)
+        .filter(Boolean)));
+    const validation = getSchema(properties, '', fields);
+    const dropdownNames = fields
         .map(name => lodashGet(properties, name?.replace(/\./g, '.properties.'))?.editor?.dropdown)
         .filter(Boolean);
+    function setValue(value) {
+        const editValue = {};
+        fields.forEach(field => lodashSet(editValue, field, lodashGet(value, field)));
+        setEditValue(editValue);
+    }
     async function get() {
         setLoading('loading');
         let result = (await onGet({[keyField]: id}));
@@ -132,6 +141,7 @@ const Editor: StyledType = ({
                         dropdowns={dropdowns}
                         loading={loading}
                         setTrigger={setTrigger}
+                        validation={validation}
                     />
                     {design && <div className='col-2 flex-column'>
                         <Card title='Fields' className='mb-2'>
