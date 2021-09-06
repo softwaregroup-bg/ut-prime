@@ -30,6 +30,7 @@ export interface Card {
     properties: string[];
     className?: string;
     flex?: string;
+    hidden?: boolean;
 }
 
 export interface Cards {

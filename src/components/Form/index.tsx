@@ -1,6 +1,5 @@
 import React from 'react';
 import clsx from 'clsx';
-import Joi from 'joi';
 import get from 'lodash.get';
 import { joiResolver } from '@hookform/resolvers/joi';
 
@@ -12,18 +11,7 @@ import { Properties } from '../types';
 import useForm from '../hooks/useForm';
 import useToggle from '../hooks/useToggle';
 import Controller from '../Controller';
-
-const getSchema = (properties: Properties) : Joi.Schema => Object.entries(properties).reduce(
-    (schema, [name, field]) => {
-        if ('properties' in field) {
-            return schema.append({[name]: getSchema(field.properties)});
-        } else {
-            const {title, validation = Joi.string().min(0).allow('', null)} = field;
-            return schema.append({[name]: validation.label(title || name)});
-        }
-    },
-    Joi.object()
-);
+import getSchema from './schema';
 
 const getIndex = (properties: Properties, root: string) : Properties => Object.entries(properties).reduce(
     (map, [name, property]) => {
@@ -134,9 +122,9 @@ const Form: StyledType = ({ classes, className, properties, design, cards, layou
     }
 
     function card(id: string, index1, index2) {
-        const {title, properties = [], flex} = (cards[id] || {title: '❌ ' + id});
+        const {title, properties = [], flex, hidden} = (cards[id] || {title: '❌ ' + id});
         return (
-            <DDCard title={title} key={String(index2)} className='card mb-3' card={id} id={id} index={[index1, index2]} move={move} flex={flex} design={design}>
+            <DDCard title={title} key={String(index2)} className='card mb-3' card={id} id={id} index={[index1, index2]} move={move} flex={flex} design={design} hidden={hidden}>
                 <div className={clsx(flex && 'flex flex-wrap')}>
                     {properties.map((name, ind) => index[name] ? <DDField
                         className={clsx('field grid', flex)}
@@ -198,8 +186,9 @@ const Form: StyledType = ({ classes, className, properties, design, cards, layou
             {visibleCards.map((id1, level1) => {
                 const nested = [].concat(id1);
                 const key = nested[0];
+                if (cards[key]?.hidden && !design) return null;
                 return (
-                    <div key={level1} className={clsx('col-12', cards[key]?.className || 'xl:col-6')} {...design && {style: outline}}>
+                    <div key={level1} className={clsx('col-12', cards[key]?.className || (!cards[key]?.hidden && 'xl:col-6'))} {...design && {style: outline}}>
                         {nested.map((id2, level2) => card(id2, level1, Array.isArray(id1) && level2))}
                         <DDCard
                             title='[ add row ]'

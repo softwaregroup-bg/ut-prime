@@ -71,7 +71,7 @@ export function DDField({design, children = null, name, index, card = '', move =
     );
 }
 
-export function DDCard({children = null, card, index, move = undefined, flex = '', design, drop = false, title, ...props}) {
+export function DDCard({children = null, card, index, move = undefined, flex = '', design, hidden = false, drop = false, title, ...props}) {
     if (drop && !design) return null;
     let dropZone: ReactElement<HTMLDivElement>;
     let divProps;
