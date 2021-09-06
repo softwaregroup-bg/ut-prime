@@ -76,6 +76,19 @@ export default function input(
             display='chip'
             {...props}
         />;
+        case 'multiSelectTree': return <TreeSelect
+            {...field}
+            options={dropdowns?.[dropdown]?.filter(item => !filter || item.parent === filter) || []}
+            disabled={parent && !filter}
+            display='chip'
+            selectionMode='multiple'
+            metaKeySelection={false}
+            onChange={e => {
+                field.onChange?.(Object.keys(e.value));
+            }}
+            value={field.value?.map && Object.fromEntries(field.value?.map(value => [value, true]))}
+            {...props}
+        />;
         case 'multiSelectPanel': return <MultiSelectPanel
             appendTo='self'
             {...field}
