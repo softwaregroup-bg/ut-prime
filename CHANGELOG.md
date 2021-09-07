@@ -1,3 +1,12 @@
+# [1.38.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.37.0...v1.38.0) (2021-09-07)
+
+
+### Features
+
+* usePermission hook, Permission component ([feaf693](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/feaf693c6a98ab51f3f797a670749ab8b553b598))
+
+
+
 # [1.37.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.36.0...v1.37.0) (2021-09-07)
 
 
