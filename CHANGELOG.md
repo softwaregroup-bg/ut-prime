@@ -1,3 +1,12 @@
+# [1.37.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.36.0...v1.37.0) (2021-09-07)
+
+
+### Features
+
+* column properties ([53625c6](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/53625c6e648b7dee9262588222f287c40b83e87b))
+
+
+
 # [1.36.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.35.0...v1.36.0) (2021-09-06)
 
 
