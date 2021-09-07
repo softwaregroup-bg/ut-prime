@@ -38,7 +38,7 @@ const Editor: StyledType = ({
     function getLayout(name = '') {
         let index: any = layouts?.['edit' + capital(name)];
         let layout;
-        const orientation = index.orientation;
+        const orientation = index?.orientation;
         if (orientation) index = index.index;
         if (typeof (index?.[0]?.[0] || index?.[0]) === 'string') {
             layout = index;

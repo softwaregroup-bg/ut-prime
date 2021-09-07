@@ -16,7 +16,7 @@ export default React.forwardRef<{}, any>(({
         allowDelete = true,
         allowEdit = true,
         allowSelect = true
-    }
+    } = {}
 }, ref) => {
     if (typeof ref === 'function') ref(React.useState({})[0]);
     const cellEditor = React.useCallback((props, field) => <InputText

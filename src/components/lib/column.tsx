@@ -30,6 +30,7 @@ export default function columnProps({
     onChange?: (e: {}) => void
 }) {
     const {type, dropdown, parent, ...props} = properties?.[name]?.editor || {name};
+    const {column} = properties?.[name] || {};
     const fieldName = props.name || name;
     let filterElement, body, editor;
     switch (type) {
@@ -102,5 +103,5 @@ export default function columnProps({
             };
             break;
     }
-    return {...filterElement && {filterElement}, ...body && {body}, ...editor && {editor}};
+    return {...filterElement && {filterElement}, ...body && {body}, ...editor && {editor}, ...column};
 }
