@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Permission /> AnyDenied render equals snapshot 1`] = `
+<div
+  data-testid="ut-front-test"
+/>
+`;
+
+exports[`<Permission /> Basic render equals snapshot 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  Permissions checked: 
+  undefined
+</div>
+`;
+
+exports[`<Permission /> Denied render equals snapshot 1`] = `
+<div
+  data-testid="ut-front-test"
+/>
+`;
+
+exports[`<Permission /> Granted render equals snapshot 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  Permissions checked: 
+  granted
+</div>
+`;
+
+exports[`<Permission /> Multiple render equals snapshot 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  Permissions checked: 
+  granted,pageXYZ
+</div>
+`;
+
+exports[`<Permission /> Wildcard render equals snapshot 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  Permissions checked: 
+  pageXYZ
+</div>
+`;

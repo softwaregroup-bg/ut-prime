@@ -2,6 +2,7 @@ import React from 'react';
 import Wrap from '../src/components/test/wrap';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
+import theme from './theme';
 
 export const parameters = {
     layout: 'fullscreen',
@@ -12,6 +13,9 @@ export const parameters = {
         },
         codeTheme: 'a11y-dark',
         StoryPreview: ({ children }) => children,
+    },
+    docs: {
+        theme
     }
 };
 

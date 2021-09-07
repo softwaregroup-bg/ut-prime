@@ -1,23 +1,27 @@
 module.exports = (componentName) => ({
     content: `import React from 'react';
 import { withReadme } from 'storybook-readme';
-
-import Wrap from '../test/wrap';
+import type { Story, Meta } from '@storybook/react';
 
 // @ts-ignore: md file and not a module
 import README from './README.md';
 import ${componentName} from './index';
+import type { Props } from './${componentName}.types';
 
-export default {
+const meta: Meta = {
     title: '${componentName}',
     component: ${componentName},
-    decorators: [withReadme(README)]
+    decorators: [withReadme(README)],
+    args: {
+        state: {}
+    }
 };
+export default meta;
 
-const state = {
-};
+const Template: Story<Props & {state: {}}> = ({state, ...args}) => <${componentName} {...args} />;
 
-export const Basic: React.FC<{}> = () =>  <${componentName} />;
+export const Basic: Story<Props> = Template.bind({});
+Basic.args = {};
 `,
     extension: '.stories.tsx'
 });
