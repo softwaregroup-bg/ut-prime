@@ -132,7 +132,7 @@
     "immutable": "^4.0.0-rc.12",
     "jest": "^26.6.3",
     "jest-canvas-mock": "^2.3.1",
-    "joi": "17.3.0",
+    "joi": "17.4.2",
     "primereact": "^6.5.1",
     "primeflex": "^3.0.1",
     "primeicons": "^4.1.0",
