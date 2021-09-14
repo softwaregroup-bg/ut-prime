@@ -1,3 +1,12 @@
+## [1.38.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.38.0...v1.38.1) (2021-09-14)
+
+
+### Bug Fixes
+
+* include Permission ([c43e261](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/c43e2611af6406c9c472177ae3b4f5372542796d))
+
+
+
 # [1.38.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.37.0...v1.38.0) (2021-09-07)
 
 
