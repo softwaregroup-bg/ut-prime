@@ -7,23 +7,23 @@ import { Styled, StyledType } from './Form.types';
 import { DDField, DDCard} from './DragDrop';
 import input from './input';
 
-import { Properties } from '../types';
+import { Properties, Editors, PropertyEditors } from '../types';
 import useForm from '../hooks/useForm';
 import useToggle from '../hooks/useToggle';
 import Controller from '../Controller';
 import getSchema from './schema';
 
-const getIndex = (properties: Properties, root: string) : Properties => Object.entries(properties).reduce(
+const getIndex = (properties: Properties, editors: Editors, root: string) : PropertyEditors => Object.entries(properties).reduce(
     (map, [name, property]) => {
         return ('properties' in property) ? {
             ...map,
-            ...getIndex(property.properties, name + '.')
+            ...getIndex(property.properties, {}, name + '.')
         } : {
             ...map,
             [root + name]: property
         };
     },
-    {}
+    {...editors}
 );
 
 interface Errors {
@@ -36,9 +36,25 @@ const flat = (e: Errors, path = '') => Object.entries(e).map(
 
 const outline = {outline: '1px dotted #ffff0030'};
 
-const Form: StyledType = ({ classes, className, properties, design, cards, layout, loading, onSubmit, setTrigger, value, dropdowns, validation, ...rest }) => {
+const Form: StyledType = ({
+    classes,
+    className,
+    properties,
+    editors,
+    design,
+    cards,
+    layout,
+    loading,
+    onSubmit,
+    setTrigger,
+    value,
+    dropdowns,
+    validation,
+    ...rest
+}) => {
     const joiSchema = validation || getSchema(properties);
-    const index = getIndex(properties, '');
+    // console.log(joiSchema.describe());
+    const index = getIndex(properties, editors, '');
     const {handleSubmit, control, reset, formState: {errors, isDirty}, watch, setValue} = useForm({resolver: joiResolver(joiSchema)});
     const getFormErrorMessage = (name) => {
         const error = get(errors, name);
@@ -49,11 +65,11 @@ const Form: StyledType = ({ classes, className, properties, design, cards, layou
     }, [setTrigger, handleSubmit, onSubmit, isDirty]);
     React.useEffect(() => {
         reset(value || {});
-    }, [value]);
+    }, [value, reset]);
 
     const children: {[parent: string]: string[]} = {};
 
-    function addParent(properties: Properties, name: string) {
+    function addParent(properties: PropertyEditors, name: string) {
         const parent = properties[name]?.editor?.parent;
         if (parent) {
             const items = children[parent];
@@ -122,49 +138,67 @@ const Form: StyledType = ({ classes, className, properties, design, cards, layou
     }
 
     function card(id: string, index1, index2) {
-        const {title, properties = [], flex, hidden} = (cards[id] || {title: '❌ ' + id});
+        const {title, properties = [], flex, hidden, classes} = (cards[id] || {title: '❌ ' + id});
         return (
             <DDCard title={title} key={String(index2)} className='card mb-3' card={id} id={id} index={[index1, index2]} move={move} flex={flex} design={design} hidden={hidden}>
                 <div className={clsx(flex && 'flex flex-wrap')}>
-                    {properties.map((name, ind) => index[name] ? <DDField
-                        className={clsx('field grid', flex)}
-                        key={name}
-                        index={ind}
-                        card={id}
-                        move={move}
-                        design={design}
-                        name={name}
-                        label={index[name].title}
-                    >
-                        <div className={clsx(index[name].title ? 'col-12 md:col-8' : 'col-12')}>
-                            <Controller
-                                control={control}
-                                name={name}
-                                render={
-                                    ({field}) => input(
-                                        {
-                                            className: clsx('w-full', { 'p-invalid': errors[name] }),
-                                            ...field,
-                                            onChange: e => {
-                                                try {
-                                                    parentChange(name);
-                                                } finally {
-                                                    field.onChange(e);
-                                                }
+                    {properties.map((name, ind) => {
+                        const property = index[name];
+                        const Component = property && ('Component' in property) && property.Component;
+                        const {
+                            field: fieldClass = Component ? 'grid' : 'field grid',
+                            label: labelClass
+                        } = {...classes?.default, ...classes?.[name]};
+                        const inputClass = (name, className) => ({
+                            ...classes?.default,
+                            ...classes?.[name]
+                        }.input || ((index[name]?.title || className) ? `col-12 ${className}` : 'col-12'));
+                        const Input = ({name, className}) => <Controller
+                            control={control}
+                            name={name}
+                            render={
+                                ({field}) => <div className={inputClass(name, className)}>{input(
+                                    {
+                                        className: clsx('w-full', { 'p-invalid': errors[name] }),
+                                        ...field,
+                                        onChange: e => {
+                                            try {
+                                                parentChange(name);
+                                            } finally {
+                                                field.onChange(e);
                                             }
-                                        },
-                                        {id: name, ...index[name].editor},
-                                        index[name],
-                                        dropdowns,
-                                        addParent(index, name),
-                                        loading
-                                    )
-                                }
-                            />
-                        </div>
-                        {getFormErrorMessage(name)}
-                    </DDField> : <div className="field grid" key={name}>❌ {name}</div>
-                    )}
+                                        }
+                                    },
+                                    {id: name, ...index[name]?.editor},
+                                    index[name],
+                                    dropdowns,
+                                    addParent(index, name),
+                                    loading
+                                )}</div>
+                            }
+                        />;
+                        return property ? <DDField
+                            className={clsx(fieldClass, flex)}
+                            key={name}
+                            index={ind}
+                            card={id}
+                            move={move}
+                            design={design}
+                            name={name}
+                            label={property.title}
+                            labelClass={labelClass}
+                        >
+                            {Component ? <Component
+                                control = {control}
+                                name = {name}
+                                dropdowns = {dropdowns}
+                                filter = {addParent(index, name)}
+                                loading = {loading}
+                                Input = {Input}
+                            /> : <Input name={name} className='md:col-8' />}
+                            {getFormErrorMessage(name)}
+                        </DDField> : <div className="field grid" key={name}>❌ {name}</div>;
+                    })}
                 </div>
             </DDCard>
         );

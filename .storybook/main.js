@@ -21,6 +21,7 @@ module.exports = {
     typescript: {
         check: false,
         reactDocgen: false,
+        // reactDocgen: configType === 'PRODUCTION' ? 'react-docgen-typescript' : false,
     },
     stories: ['../src/**/*.stories.tsx'],
     addons: [

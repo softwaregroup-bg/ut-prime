@@ -37,6 +37,11 @@ export function DDField({design, children = null, name, index, card = '', move =
                 ref: dragField,
                 style: {cursor: 'move'}
             };
+            if (!label) {
+                label = <span>&nbsp;</span>;
+                labelClass = labelClass + ' absolute w-15rem';
+                // labelProps.style.marginLeft = -20;
+            }
         }
         const [{ canDrop, isOver }, dropField] = useDrop(
             () => ({

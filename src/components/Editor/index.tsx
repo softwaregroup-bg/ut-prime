@@ -21,6 +21,7 @@ const Editor: StyledType = ({
     object,
     id,
     properties,
+    editors,
     type,
     typeField,
     cards,
@@ -58,8 +59,10 @@ const Editor: StyledType = ({
         .flat()
         .map(card => cards?.[card]?.properties)
         .flat()
+        .map(property => editors?.[property]?.properties || property)
+        .flat()
         .filter(Boolean)));
-    const validation = getSchema(properties, '', fields);
+    const validation = getSchema(properties, fields);
     const dropdownNames = fields
         .map(name => lodashGet(properties, name?.replace(/\./g, '.properties.'))?.editor?.dropdown)
         .filter(Boolean);
@@ -133,6 +136,7 @@ const Editor: StyledType = ({
                 <div className='flex' style={flexGrow}>
                     <Form
                         properties={properties}
+                        editors={editors}
                         design={design}
                         cards={cards}
                         layout={layout || filter?.cards || []}
