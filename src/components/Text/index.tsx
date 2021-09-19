@@ -28,9 +28,9 @@ function applyTemplate(template, params) {
 }
 
 const Text: StyledType = ({ params, prefix, children }) => {
+    const {translate, language} = useContext(Context);
     if (typeof children !== 'string') return <>{children}</>;
     let template = children;
-    const {translate, language} = useContext(Context);
     if (typeof translate === 'function') {
         const text = (prefix ? [prefix, children] : [children]).join('>');
         // Translate the template

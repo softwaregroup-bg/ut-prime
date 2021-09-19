@@ -17,14 +17,12 @@ const Error: StyledType = ({ classes, message: errorMessage }) => {
 
     const {open, title: header, message, type} = useSelector(selectError);
     const dispatch = useDispatch();
-    let handleClose;
+    const handleClose = React.useCallback(() => dispatch(type === 'identity.invalidCredentials' ? logout() : {type: 'error.close'}), [dispatch, type]);
 
     if (type === 'identity.invalidCredentials') {
-        handleClose = React.useCallback(() => dispatch(logout()), [dispatch]);
         closable = false;
         actionButtons = <Button label="Login" onClick={handleClose} />;
     } else {
-        handleClose = React.useCallback(() => dispatch({type: 'error.close'}), [dispatch]);
         actionButtons = <Button label="Close" onClick={handleClose} />;
     }
 
