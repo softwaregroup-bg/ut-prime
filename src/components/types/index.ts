@@ -19,16 +19,15 @@ export interface Dropdowns {
     }[]
 }
 
-export interface Editor {
+export interface Editor extends React.FC<{
+    name: string,
+    Input: React.FC<{name: string, className?: string}>
+}> {
     title?: string,
     editor?: {
         parent?: string
     },
-    properties: string[],
-    Component: React.FC<{
-        name: string,
-        Input: React.FC<{name: string, className?: string}>
-    }>
+    properties: string[]
 }
 export interface Editors {
     [name: string]: Editor

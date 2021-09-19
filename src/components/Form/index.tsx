@@ -210,7 +210,7 @@ const Form: StyledType = ({
                 <div className={clsx(flex && 'flex flex-wrap')}>
                     {properties.map((name, ind) => {
                         const property = idx.properties[name];
-                        const Component = property && ('Component' in property) && property.Component;
+                        const Component = typeof property === 'function' && property;
                         const {
                             field: fieldClass = Component ? 'grid' : 'field grid',
                             label: labelClass
