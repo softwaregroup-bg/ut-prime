@@ -4,87 +4,127 @@ import React from 'react';
 import {InputText, DataTable, Column, Toolbar, Button} from '../../prime';
 import columnProps from '../../lib/column';
 
+const handleFilter = () => {};
+const INDEX = Symbol('index');
+
+const rowsFilter = (master, filter) => master && Object.fromEntries(
+    Object.entries(master).map(
+        ([master, detail]) => [detail, filter?.[master]]
+    )
+);
+
 export default React.forwardRef<{}, any>(({
     onChange,
     columns,
-    value,
+    value: allRows,
     dataKey = 'id',
     properties,
     dropdowns,
+    filter,
+    master,
     actions: {
         allowAdd = true,
         allowDelete = true,
         allowEdit = true,
         allowSelect = true
-    } = {}
+    } = {},
+    ...props
 }, ref) => {
-    if (typeof ref === 'function') ref(React.useState({})[0]);
+    if (typeof ref === 'function') ref({});
+    const [original, setOriginal] = React.useState({index: null, value: null});
+    const [selected, setSelected] = React.useState(null);
+    const [editingRows, setEditingRows] = React.useState({});
+
+    const rows = React.useMemo(() => master
+        ? allRows
+            ?.map((item, index) => ({[INDEX]: index, ...item}))
+            ?.filter(row => Object.entries(rowsFilter(master, filter)).every(([name, value]) => row?.[name] === value))
+        : allRows, [allRows, filter, master]);
+
     const cellEditor = React.useCallback((props, field) => <InputText
         type="text"
         autoFocus={props.index === 1}
         value={props.rowData[field]}
         onChange={({target: {value}}) => {
-            const updatedValue = [...props.value];
-            updatedValue[props.rowIndex][props.field] = value;
+            const updatedValue = [...allRows];
+            updatedValue[master ? props.rowData[INDEX] : props.rowIndex][props.field] = value;
             onChange(updatedValue);
         }}
         className='w-full'
         id={`${props.rowData.id}`}
         {...properties?.[field].editor}
-    />, [onChange]);
-    const [original, setOriginal] = React.useState({index: null, value: null});
+    />, [properties, allRows, master, onChange]);
 
     const init = React.useCallback(({index}) => {
-        setOriginal({index, value: {...value[index]}});
-    }, [value, setOriginal]);
+        setOriginal({
+            index: master ? rows[index][INDEX] : index,
+            value: {...rows[index]}
+        });
+    }, [rows, setOriginal, master]);
 
     const cancel = React.useCallback(() => {
-        const restored = [...value];
+        const restored = [...allRows];
         restored[original.index] = original.value;
         onChange(restored);
-    }, [value, onChange]);
-    const addNewRow = e => {
-        e.preventDefault();
-        const id = uuid();
-        const newValue = Object.keys(value[0] || {}).reduce((item, key) => ({...item, [key]: '', [dataKey]: id}), {});
-        const updatedValue = [...value, newValue];
-        onChange(updatedValue);
-        setEditingRows({[id]: true});
-    };
-    const deleteRow = e => {
-        e.preventDefault();
-        onChange(value.filter(rowData => !selected.includes(rowData)));
-    };
-    const [selected, setSelected] = React.useState([]);
-    const [editingRows, setEditingRows] = React.useState({});
-    const onRowEditChange = (event) => {
+    }, [allRows, onChange, original.index, original.value]);
+
+    const handleSelected = React.useCallback(event => {
+        if (!allowSelect) return;
+        onChange(event.value, 'select');
+        setSelected(event.value);
+    }, [allowSelect, onChange]);
+
+    const onRowEditChange = React.useCallback(event => {
         setEditingRows(event.data);
-    };
-    const leftToolbarTemplate = () => {
+    }, []);
+
+    const leftToolbarTemplate = React.useCallback(() => {
+        const addNewRow = event => {
+            event.preventDefault();
+            const id = uuid();
+            const newValue = {[dataKey]: id, ...rowsFilter(master, filter)};
+            const updatedValue = [...(allRows || []), newValue];
+            onChange(updatedValue);
+            setEditingRows({[id]: true});
+        };
+        const deleteRow = event => {
+            event.preventDefault();
+            const remove = [].concat(selected);
+            handleSelected({value: null});
+            onChange(allRows.filter((rowData, index) => master ? !remove.some(item => item[INDEX] === index) : !remove.includes(rowData)));
+        };
         return (
             <React.Fragment>
                 {allowAdd && <Button label="Add" icon="pi pi-plus" className="p-button mr-2" onClick={addNewRow} />}
-                {allowDelete && <Button label="Delete" icon="pi pi-trash" className="p-button" onClick={deleteRow} disabled={!selected || !selected.length} />}
+                {allowDelete && <Button label="Delete" icon="pi pi-trash" className="p-button" onClick={deleteRow} disabled={!selected} />}
             </React.Fragment>
         );
-    };
+    }, [allowAdd, allowDelete, selected, dataKey, master, filter, allRows, onChange, handleSelected]);
+
+    if (selected && !rows.includes(selected)) {
+        handleSelected({value: null});
+    }
+
     return (
         <>
             <Toolbar className="p-0" left={leftToolbarTemplate} right={null}></Toolbar>
             <DataTable
-                value={value}
-                editMode="row"
+                selectionMode='checkbox'
+                editMode='row'
+                className='editable-cells-table'
+                emptyMessage=''
+                {...props}
+                value={rows}
                 dataKey={dataKey}
-                className="editable-cells-table"
                 onRowEditInit={init}
                 onRowEditCancel={cancel}
                 selection={selected}
-                selectionMode='checkbox'
-                onSelectionChange={(e) => { allowSelect && setSelected(e.value); }}
+                onFilter={handleFilter}
+                onSelectionChange={handleSelected}
                 editingRows={editingRows}
                 onRowEditChange={onRowEditChange}
             >
-                {allowSelect && <Column selectionMode="multiple" headerStyle={{ width: '3rem' }}></Column>}
+                {allowSelect && !props.selectionMode && <Column selectionMode="multiple" headerStyle={{ width: '3rem' }}></Column>}
                 {
                     (columns || []).map(name => <Column
                         key={name}
