@@ -17,8 +17,8 @@ const compare = ({field, dir, smaller = {ASC: -1, DESC: 1}[dir]}) => function co
 };
 
 export const fetchItems = filters => {
-    let items = filteredItems(filters.items);
-    if (Array.isArray(filters.orderBy) && filters.orderBy.length) items = items.sort(compare(filters.orderBy[0]));
+    const items = filteredItems(filters.items);
+    if (Array.isArray(filters.orderBy) && filters.orderBy.length) items.sort(compare(filters.orderBy[0]));
     return Promise.resolve({
         items: items.slice((filters.paging.pageNumber - 1) * filters.paging.pageSize, filters.paging.pageNumber * filters.paging.pageSize),
         pagination: {
@@ -30,7 +30,8 @@ export const fetchItems = filters => {
 export const updateItems = update => {
     let size = 0;
     const handle = setInterval(() => {
-        update({0: {size: size++}});
+        size++;
+        update({0: {size}});
     }, 1000);
     return () => clearInterval(handle);
 };
