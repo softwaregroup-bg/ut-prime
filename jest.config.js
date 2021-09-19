@@ -12,6 +12,7 @@ module.exports = {
     coveragePathIgnorePatterns: ['<rootDir>/node_modules/', notUt],
     testPathIgnorePatterns: ['<rootDir>/node_modules/', notUt],
     transformIgnorePatterns: ['<rootDir>/node_modules/(?!(impl|ut)-)', notUt],
+    testEnvironment: 'jsdom',
     moduleNameMapper: {
         '^.+\\.(css|less|scss|png)$': 'babel-jest'
     },

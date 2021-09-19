@@ -1,9 +1,8 @@
-import * as dx from './dx';
 import * as mui from './mui';
 import * as prime from './prime';
 import * as hooks from './hooks';
 
-export {dx, mui, hooks, prime};
+export {mui, hooks, prime};
 
 export { default as App } from './App';
 export { default as Async } from './Async';
