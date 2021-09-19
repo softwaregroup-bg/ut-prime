@@ -36,7 +36,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
     >
       <button
         aria-label="design"
-        class="p-button p-component p-button-icon-only"
+        class="p-button p-component mr-2 p-button-icon-only"
       >
         <span
           class="p-button-icon p-c pi pi-cog"
@@ -632,7 +632,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
     >
       <button
         aria-label="design"
-        class="p-button p-component p-button-success p-button-icon-only"
+        class="p-button p-component mr-2 p-button-success p-button-icon-only"
       >
         <span
           class="p-button-icon p-c pi pi-cog"
@@ -1060,6 +1060,16 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                     <div
                       class="field grid"
                     >
+                      <label
+                        class="col-12 md:col-4 absolute w-15rem"
+                        draggable="true"
+                        for="habitat"
+                        style="cursor: move;"
+                      >
+                        <span>
+                           
+                        </span>
+                      </label>
                       <div
                         class="col-12"
                       >
@@ -1379,7 +1389,18 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
               </div>
               <div
                 class="field grid"
-              />
+              >
+                <label
+                  class="col-12 absolute w-15rem"
+                  draggable="true"
+                  for="treeId"
+                  style="cursor: move;"
+                >
+                  <span>
+                     
+                  </span>
+                </label>
+              </div>
               <div
                 class="field grid"
               >
@@ -1478,7 +1499,18 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
               </div>
               <div
                 class="field grid"
-              />
+              >
+                <label
+                  class="col-12 absolute w-15rem"
+                  draggable="true"
+                  for="habitat"
+                  style="cursor: move;"
+                >
+                  <span>
+                     
+                  </span>
+                </label>
+              </div>
             </div>
           </div>
         </div>
@@ -1656,7 +1688,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
     >
       <button
         aria-label="design"
-        class="p-button p-component p-button-icon-only p-disabled"
+        class="p-button p-component mr-2 p-button-icon-only p-disabled"
         disabled=""
       >
         <span
@@ -1977,7 +2009,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
     >
       <button
         aria-label="design"
-        class="p-button p-component p-button-success p-button-icon-only"
+        class="p-button p-component mr-2 p-button-success p-button-icon-only"
       >
         <span
           class="p-button-icon p-c pi pi-cog"
@@ -2405,6 +2437,16 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                     <div
                       class="field grid"
                     >
+                      <label
+                        class="col-12 md:col-4 absolute w-15rem"
+                        draggable="true"
+                        for="habitat"
+                        style="cursor: move;"
+                      >
+                        <span>
+                           
+                        </span>
+                      </label>
                       <div
                         class="col-12"
                       >
@@ -2724,7 +2766,18 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
               </div>
               <div
                 class="field grid"
-              />
+              >
+                <label
+                  class="col-12 absolute w-15rem"
+                  draggable="true"
+                  for="treeId"
+                  style="cursor: move;"
+                >
+                  <span>
+                     
+                  </span>
+                </label>
+              </div>
               <div
                 class="field grid"
               >
@@ -2823,7 +2876,18 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
               </div>
               <div
                 class="field grid"
-              />
+              >
+                <label
+                  class="col-12 absolute w-15rem"
+                  draggable="true"
+                  for="habitat"
+                  style="cursor: move;"
+                >
+                  <span>
+                     
+                  </span>
+                </label>
+              </div>
             </div>
           </div>
         </div>
