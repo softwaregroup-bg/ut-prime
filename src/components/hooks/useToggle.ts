@@ -1,6 +1,8 @@
 import { useReducer } from 'react';
 
 // https://usehooks.com/useToggle/
+const toggle = state => !state;
+
 export default function useToggle(initialValue = false) {
-    return useReducer(state => !state, initialValue);
+    return useReducer(toggle, initialValue);
 };

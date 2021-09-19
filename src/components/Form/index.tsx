@@ -2,9 +2,10 @@ import React from 'react';
 import clsx from 'clsx';
 import get from 'lodash.get';
 import { joiResolver } from '@hookform/resolvers/joi';
+import { DevTool } from '@hookform/devtools';
 
 import { Styled, StyledType } from './Form.types';
-import { DDField, DDCard} from './DragDrop';
+import { ConfigField, ConfigCard} from './DragDrop';
 import input from './input';
 
 import { Properties, Editors, PropertyEditors } from '../types';
@@ -13,11 +14,47 @@ import useToggle from '../hooks/useToggle';
 import Controller from '../Controller';
 import getSchema from './schema';
 
-const getIndex = (properties: Properties, editors: Editors, root: string) : PropertyEditors => Object.entries(properties).reduce(
+const inputClass = (index, classes, name, className) => ({
+    ...classes?.default,
+    ...classes?.[name]
+}.input || ((index.properties[name]?.title || className) ? `col-12 ${className || 'md:col-8'}` : 'col-12'));
+
+const Input = ({control, index, setValue, name, filter, dropdowns, loading, classes, className = ''}) => <Controller
+    control={control}
+    name={name}
+    render={
+        React.useCallback(({field, fieldState}) => <div className={inputClass(index, classes, field.name, className)}>{input(
+            {
+                className: clsx('w-full', { 'p-invalid': fieldState.error }),
+                ...field,
+                onChange: (e, type) => {
+                    if (type === 'select') {
+                        setValue(field.name + '$selected', e);
+                        return;
+                    }
+                    try {
+                        const items = index.children[field.name];
+                        if (items) items.forEach(child => setValue(child, null));
+                    } finally {
+                        field.onChange(e);
+                    }
+                }
+            },
+            {id: field.name, ...index.properties[field.name]?.editor},
+            index.properties[field.name],
+            dropdowns,
+            filter,
+            loading
+        )}</div>,
+        [className, classes, dropdowns, filter, index, loading, setValue])
+    }
+/>;
+
+const flatten = (properties: Properties, editors: Editors, root: string = '') : PropertyEditors => Object.entries(properties).reduce(
     (map, [name, property]) => {
         return ('properties' in property) ? {
             ...map,
-            ...getIndex(property.properties, {}, name + '.')
+            ...flatten(property.properties, {}, name + '.')
         } : {
             ...map,
             [root + name]: property
@@ -25,6 +62,25 @@ const getIndex = (properties: Properties, editors: Editors, root: string) : Prop
     },
     {...editors}
 );
+
+const getIndex = (properties: Properties, editors: Editors) : {
+    properties: PropertyEditors,
+    children: {[parent: string]: string[]}
+} => {
+    const index = flatten(properties, editors);
+    return {
+        properties: index,
+        children: Object.entries(index).reduce((prev, [name, property]) => {
+            const parent = property?.editor?.parent;
+            if (parent) {
+                const items = prev[parent];
+                if (items) items.push(name);
+                else prev[parent] = [name];
+            }
+            return prev;
+        }, {})
+    };
+};
 
 interface Errors {
     message?: string
@@ -54,39 +110,32 @@ const Form: StyledType = ({
 }) => {
     const joiSchema = validation || getSchema(properties);
     // console.log(joiSchema.describe());
-    const index = getIndex(properties, editors, '');
     const {handleSubmit, control, reset, formState: {errors, isDirty}, watch, setValue} = useForm({resolver: joiResolver(joiSchema)});
+    const visibleCards: (string | string[])[] = (layout || Object.keys(cards));
+    const errorFields = flat(errors).flat();
+    const visibleProperties = visibleCards.map(id => {
+        const nested = [].concat(id);
+        return nested.map(cardName => cards[cardName]?.properties);
+    }).flat(10).filter(Boolean);
+
     const getFormErrorMessage = (name) => {
         const error = get(errors, name);
         return error && <small className="p-error">{error.message}</small>;
     };
+
+    const [, moved] = useToggle();
+
+    const idx = React.useMemo(() => getIndex(properties, editors), [properties, editors]);
+
     React.useEffect(() => {
         if (setTrigger) setTrigger(isDirty ? prev => handleSubmit(onSubmit) : undefined);
     }, [setTrigger, handleSubmit, onSubmit, isDirty]);
+
     React.useEffect(() => {
         reset(value || {});
     }, [value, reset]);
 
-    const children: {[parent: string]: string[]} = {};
-
-    function addParent(properties: PropertyEditors, name: string) {
-        const parent = properties[name]?.editor?.parent;
-        if (parent) {
-            const items = children[parent];
-            if (items) items.push(name);
-            else children[parent] = [name];
-            return watch(parent);
-        }
-    }
-
-    const parentChange = (name : string) => {
-        const items = children[name];
-        if (items) items.forEach(child => setValue(child, null));
-    };
-
-    const [, moved] = useToggle();
-
-    function move(type: 'card' | 'field', source, destination) {
+    const move = React.useCallback((type: 'card' | 'field', source, destination) => {
         if (type === 'field') {
             const destinationList = cards[destination.card].properties;
             if (source.card === '/') {
@@ -135,49 +184,38 @@ const Form: StyledType = ({
             }
         }
         moved();
-    }
+    }, [cards, moved, visibleCards]);
+
+    const InputWrap = React.useCallback(({name, className}) => {
+        const parent = idx.properties[name]?.editor?.parent;
+        return (
+            <Input
+                classes = {classes}
+                control = {control}
+                name = {name}
+                dropdowns = {dropdowns}
+                filter = {parent && watch(parent)}
+                loading = {loading}
+                index = {idx}
+                setValue = {setValue}
+                className = {className}
+            />
+        );
+    }, [classes, control, dropdowns, idx, loading, setValue, watch]);
 
     function card(id: string, index1, index2) {
         const {title, properties = [], flex, hidden, classes} = (cards[id] || {title: '❌ ' + id});
         return (
-            <DDCard title={title} key={String(index2)} className='card mb-3' card={id} id={id} index={[index1, index2]} move={move} flex={flex} design={design} hidden={hidden}>
+            <ConfigCard title={title} key={`${index1}-${index2}`} className='card mb-3' card={id} id={id} index1={index1} index2={index2} move={move} flex={flex} design={design} hidden={hidden}>
                 <div className={clsx(flex && 'flex flex-wrap')}>
                     {properties.map((name, ind) => {
-                        const property = index[name];
+                        const property = idx.properties[name];
                         const Component = property && ('Component' in property) && property.Component;
                         const {
                             field: fieldClass = Component ? 'grid' : 'field grid',
                             label: labelClass
                         } = {...classes?.default, ...classes?.[name]};
-                        const inputClass = (name, className) => ({
-                            ...classes?.default,
-                            ...classes?.[name]
-                        }.input || ((index[name]?.title || className) ? `col-12 ${className}` : 'col-12'));
-                        const Input = ({name, className}) => <Controller
-                            control={control}
-                            name={name}
-                            render={
-                                ({field}) => <div className={inputClass(name, className)}>{input(
-                                    {
-                                        className: clsx('w-full', { 'p-invalid': errors[name] }),
-                                        ...field,
-                                        onChange: e => {
-                                            try {
-                                                parentChange(name);
-                                            } finally {
-                                                field.onChange(e);
-                                            }
-                                        }
-                                    },
-                                    {id: name, ...index[name]?.editor},
-                                    index[name],
-                                    dropdowns,
-                                    addParent(index, name),
-                                    loading
-                                )}</div>
-                            }
-                        />;
-                        return property ? <DDField
+                        return property ? <ConfigField
                             className={clsx(fieldClass, flex)}
                             key={name}
                             index={ind}
@@ -188,29 +226,17 @@ const Form: StyledType = ({
                             label={property.title}
                             labelClass={labelClass}
                         >
-                            {Component ? <Component
-                                control = {control}
-                                name = {name}
-                                dropdowns = {dropdowns}
-                                filter = {addParent(index, name)}
-                                loading = {loading}
-                                Input = {Input}
-                            /> : <Input name={name} className='md:col-8' />}
+                            {Component ? <Component name={name} Input={InputWrap}/> : <InputWrap name={name}/>}
                             {getFormErrorMessage(name)}
-                        </DDField> : <div className="field grid" key={name}>❌ {name}</div>;
+                        </ConfigField> : <div className="field grid" key={name}>❌ {name}</div>;
                     })}
                 </div>
-            </DDCard>
+            </ConfigCard>
         );
     }
-    const visibleCards: (string | string[])[] = (layout || Object.keys(cards));
-    const errorFields = flat(errors).flat();
-    const visibleProperties = visibleCards.map(id => {
-        const nested = [].concat(id);
-        return nested.map(cardName => cards[cardName]?.properties);
-    }).flat(10).filter(Boolean);
 
-    return (
+    return (<>
+        <DevTool control={control} placement="top-right" />
         <form {...rest} onSubmit={handleSubmit(onSubmit)} className={clsx('grid col align-self-start', className)}>
             {
                 !!Object.keys(errors).length && <div className='col-12'>
@@ -224,11 +250,12 @@ const Form: StyledType = ({
                 return (
                     <div key={level1} className={clsx('col-12', cards[key]?.className || (!cards[key]?.hidden && 'xl:col-6'))} {...design && {style: outline}}>
                         {nested.map((id2, level2) => card(id2, level1, Array.isArray(id1) && level2))}
-                        <DDCard
+                        <ConfigCard
                             title='[ add row ]'
                             className='card mb-3'
                             card=''
-                            index={[level1, nested.length]}
+                            index1={level1}
+                            index2={nested.length}
                             move={move}
                             design={design}
                             drop
@@ -237,18 +264,19 @@ const Form: StyledType = ({
                 );
             })}
             {design && <div className='col-12 xl:col-6' style={outline}>
-                <DDCard
+                <ConfigCard
                     title='[ add column ]'
                     className='card mb-3'
                     card=''
-                    index={[visibleCards.length, false]}
+                    index1={visibleCards.length}
+                    index2={false}
                     move={move}
                     design={design}
                     drop
                 />
             </div>}
         </form>
-    );
+    </>);
 };
 
 export default Styled(Form);

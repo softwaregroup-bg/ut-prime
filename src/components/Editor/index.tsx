@@ -11,8 +11,7 @@ import getSchema from '../Form/schema';
 import ThumbIndex from '../ThumbIndex';
 import {Toolbar, Button, Card} from '../prime';
 import useToggle from '../hooks/useToggle';
-import {DDField, DDCard} from '../Form/DragDrop';
-
+import {ConfigField, ConfigCard} from '../Form/DragDrop';
 const flexGrow = {flexGrow: 1};
 
 const capital = (string: string) => string.charAt(0).toUpperCase() + string.slice(1);
@@ -48,32 +47,37 @@ const Editor: StyledType = ({
         return [index, layout, orientation || 'left'];
     }
 
+    const [keyValue, setKeyValue] = React.useState(id);
     const [trigger, setTrigger] = React.useState();
     const [value, setEditValue] = React.useState({});
     const [dropdowns, setDropdown] = React.useState({});
     const [[index, layout, orientation], setIndex] = React.useState(getLayout(layoutName));
     const [filter, setFilter] = React.useState(index?.[0]?.items?.[0] || index?.[0]);
     const [loading, setLoading] = React.useState('');
-    const indexCards = index && index.map(item => [item.cards, item?.items?.map(item => item.cards)]).flat(2).filter(Boolean);
-    const fields: string[] = Array.from(new Set((indexCards || layout || filter?.cards || [])
-        .flat()
-        .map(card => cards?.[card]?.properties)
-        .flat()
-        .map(property => editors?.[property]?.properties || property)
-        .flat()
-        .filter(Boolean)));
-    const validation = getSchema(properties, fields);
-    const dropdownNames = fields
-        .map(name => lodashGet(properties, name?.replace(/\./g, '.properties.'))?.editor?.dropdown)
-        .filter(Boolean);
-    function setValue(value) {
-        const editValue = {};
-        fields.forEach(field => lodashSet(editValue, field, lodashGet(value, field)));
-        setEditValue(editValue);
-    }
+    const [validation, dropdownNames, setValue] = React.useMemo(() => {
+        const indexCards = index && index.map(item => [item.cards, item?.items?.map(item => item.cards)]).flat(2).filter(Boolean);
+        const fields: string[] = Array.from(new Set((indexCards || layout || filter?.cards || [])
+            .flat()
+            .map(card => cards?.[card]?.properties)
+            .flat()
+            .map(property => editors?.[property]?.properties || property)
+            .flat()
+            .filter(Boolean)));
+        const validation = getSchema(properties, fields);
+        const dropdownNames = fields
+            .map(name => lodashGet(properties, name?.replace(/\./g, '.properties.'))?.editor?.dropdown)
+            .filter(Boolean);
+        const setValue = (value) => {
+            const editValue = {};
+            fields.forEach(field => lodashSet(editValue, field, lodashGet(value, field)));
+            setEditValue(editValue);
+        };
+        return [validation, dropdownNames, setValue];
+    }, [cards, editors, filter?.cards, index, layout, properties]);
+
     async function get() {
         setLoading('loading');
-        let result = (await onGet({[keyField]: id}));
+        let result = (await onGet({[keyField]: keyValue}));
         if (nested) {
             result = nested.reduce((prev, field) => ({
                 ...prev,
@@ -93,20 +97,22 @@ const Editor: StyledType = ({
         setDropdown(await onDropdown(dropdownNames));
         setLoading('');
     }
+
     const handleSubmit = React.useCallback(
         async function handleSubmit(instance) {
-            if (id != null) {
+            if (keyValue != null) {
                 const response = await onEdit(nested ? instance : {[object]: instance});
                 setValue(prev => merge(instance, response));
             } else {
                 const response = await onAdd(nested ? instance : {[object]: instance});
-                id = nested ? response[nested[0]][keyField] : response[keyField];
+                setKeyValue(nested ? response[nested[0]][keyField] : response[keyField]);
                 setValue(prev => merge(instance, response));
             }
-        }, [onAdd, onEdit, id]
+        }, [keyValue, onEdit, nested, object, setValue, onAdd, keyField]
     );
+
     React.useEffect(() => {
-        if (id) get();
+        if (keyValue) get();
         else init();
     }, []);
 
@@ -127,9 +133,9 @@ const Editor: StyledType = ({
                 left={
                     <Button icon='pi pi-save' onClick={trigger} disabled={!trigger || !!loading} aria-label='save'/>
                 }
-                right={
-                    <Button icon='pi pi-cog' onClick={toggleDesign} {...design && {className: 'p-button-success'}} disabled={!!loading} aria-label='design'/>
-                }
+                right={<>
+                    <Button onClick={toggleDesign} className={clsx('mr-2', design && 'p-button-success')} disabled={!!loading} aria-label='design' icon='pi pi-cog' />
+                </>}
             />
             <div className={clsx('flex', orientation === 'top' && 'flex-column')} style={{overflowX: 'hidden', width: '100%'}}>
                 {index && <ThumbIndex index={index} orientation={orientation} onFilter={setFilter}/>}
@@ -149,15 +155,15 @@ const Editor: StyledType = ({
                     />
                     {design && <div className='col-2 flex-column'>
                         <Card title='Fields' className='mb-2'>
-                            <DDField
+                            <ConfigField
                                 className='field grid'
                                 index='trash'
                                 design
                                 move={remove}
                                 label=''
                                 name='trash'
-                            ><i className='pi pi-trash m-3'></i></DDField>
-                            {Object.entries(properties).map(([name, {title}], index) => <DDField
+                            ><i className='pi pi-trash m-3'></i></ConfigField>
+                            {Object.entries(properties).map(([name, {title}], index) => <ConfigField
                                 className='field grid'
                                 key={index}
                                 index={name}
@@ -169,12 +175,13 @@ const Editor: StyledType = ({
                             />)}
                         </Card>
                         <Card title='Cards'>
-                            {Object.entries(cards).map(([name, {title}], index) => <DDCard
+                            {Object.entries(cards).map(([name, {title}], index) => <ConfigCard
                                 key={index}
                                 title={title}
                                 className='card mb-3'
                                 card={name}
-                                index={[false, false]}
+                                index1={false}
+                                index2={false}
                                 design
                             />)}
                         </Card>

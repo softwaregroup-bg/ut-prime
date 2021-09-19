@@ -1,7 +1,6 @@
 import React from 'react';
 import type { JSONSchema7 } from 'json-schema'; // eslint-disable-line
 import type { Schema } from 'joi';
-import type { Control } from 'react-hook-form';
 
 export interface PropertyEditor {
     type: 'dropdown' | 'dropdownTree' | 'text' | 'mask' | 'date' | 'time' | 'date-time' | 'boolean' | 'currency' | 'table' | 'multiSelect' | 'multiSelectPanel';
@@ -27,12 +26,8 @@ export interface Editor {
     },
     properties: string[],
     Component: React.FC<{
-        control: Control,
         name: string,
-        dropdowns: Dropdowns,
-        filter: any,
-        loading: string,
-        Input: React.FC<{name: string}>
+        Input: React.FC<{name: string, className?: string}>
     }>
 }
 export interface Editors {
