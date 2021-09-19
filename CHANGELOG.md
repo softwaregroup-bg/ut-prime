@@ -1,3 +1,13 @@
+# [1.39.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.38.1...v1.39.0) (2021-09-19)
+
+
+### Features
+
+* custom editors ([adac658](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/adac658f278429efb5e10b7b36f765cae1ff1f50))
+* master detail tables ([f888926](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/f88892626923d103451c2a157242cf6db2e99de8))
+
+
+
 ## [1.38.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.38.0...v1.38.1) (2021-09-14)
 
 
