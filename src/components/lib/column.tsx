@@ -1,5 +1,5 @@
 import React from 'react';
-import { Checkbox, Dropdown } from '../prime';
+import { Checkbox, Dropdown, Calendar, InputMask } from '../prime';
 
 export interface TableFilter {
     filters?: {
@@ -87,6 +87,19 @@ export default function columnProps({
                 if (value == null) return null;
                 return new Date(value).toLocaleDateString();
             };
+            editor = function editor(p) {
+                return <Calendar
+                    className='w-full'
+                    value={new Date(p.rowData[fieldName])}
+                    onChange={e => {
+                        const updatedValue = [...p.value];
+                        updatedValue[p.rowIndex][p.field] = e.value;
+                        onChange(updatedValue);
+                    }}
+                    showIcon
+                    {...props}
+                />;
+            };
             break;
         case 'time':
             body = function body(rowData) {
@@ -94,12 +107,54 @@ export default function columnProps({
                 if (value == null) return null;
                 return new Date(value).toLocaleTimeString();
             };
+            editor = function editor(p) {
+                return <Calendar
+                    className='w-full'
+                    value={new Date(p.rowData[fieldName])}
+                    onChange={e => {
+                        const updatedValue = [...p.value];
+                        updatedValue[p.rowIndex][p.field] = e.value;
+                        onChange(updatedValue);
+                    }}
+                    timeOnly
+                    showIcon
+                    {...props}
+                />;
+            };
             break;
         case 'date-time':
             body = function body(rowData) {
                 const value = rowData[fieldName];
                 if (value == null) return null;
                 return new Date(value).toLocaleString();
+            };
+            editor = function editor(p) {
+                return <Calendar
+                    className='w-full'
+                    value={new Date(p.rowData[fieldName])}
+                    onChange={e => {
+                        const updatedValue = [...p.value];
+                        updatedValue[p.rowIndex][p.field] = e.value;
+                        onChange(updatedValue);
+                    }}
+                    showTime
+                    showIcon
+                    {...props}
+                />;
+            };
+            break;
+        case 'mask':
+            editor = function editor(p) {
+                return <InputMask
+                    className='w-full'
+                    value={p.rowData[fieldName]}
+                    onChange={e => {
+                        const updatedValue = [...p.value];
+                        updatedValue[p.rowIndex][p.field] = e.value;
+                        onChange(updatedValue);
+                    }}
+                    {...props}
+                />;
             };
             break;
     }
