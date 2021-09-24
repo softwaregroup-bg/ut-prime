@@ -1,3 +1,12 @@
+## [1.39.2](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.39.1...v1.39.2) (2021-09-24)
+
+
+### Bug Fixes
+
+* login validation ([b6f80b7](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/b6f80b797ab632ebc6b6ecb9e89d83c08966151d))
+
+
+
 ## [1.39.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.39.0...v1.39.1) (2021-09-19)
 
 
