@@ -25,7 +25,7 @@ const inputTypes = {
         validations: {
             isRequired: true,
             minLength: 2,
-            maxLength: 30
+            maxLength: 100
         }
     },
     password: {
@@ -38,7 +38,7 @@ const inputTypes = {
         validations: {
             isRequired: true,
             minLength: 3,
-            maxLength: 30
+            maxLength: 100
         }
     },
     newPassword: {
@@ -50,8 +50,8 @@ const inputTypes = {
         validateOrder: ['isRequired', 'minLength', 'maxLength'],
         validations: {
             isRequired: true,
-            minLength: 2,
-            maxLength: 30
+            minLength: 3,
+            maxLength: 100
         }
     },
     confirmPassword: {
@@ -63,8 +63,8 @@ const inputTypes = {
         validateOrder: ['isRequired', 'minLength', 'maxLength', 'shouldMatchField'],
         validations: {
             isRequired: true,
-            minLength: 2,
-            maxLength: 30,
+            minLength: 3,
+            maxLength: 100,
             shouldMatchField: 'newPassword'
         }
     },
