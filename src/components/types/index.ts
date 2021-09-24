@@ -3,7 +3,7 @@ import type { JSONSchema7 } from 'json-schema'; // eslint-disable-line
 import type { Schema } from 'joi';
 
 export interface PropertyEditor {
-    type: 'dropdown' | 'dropdownTree' | 'text' | 'mask' | 'date' | 'time' | 'date-time' | 'boolean' | 'currency' | 'table' | 'multiSelect' | 'multiSelectPanel';
+    type: 'dropdown' | 'dropdownTree' | 'text' | 'mask' | 'date' | 'time' | 'date-time' | 'boolean' | 'currency' | 'table' | 'multiSelect' | 'multiSelectPanel' | 'select';
     dropdown?: string;
     parent?: string;
     [editorProperties: string]: any

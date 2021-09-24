@@ -4,6 +4,7 @@ import { RefCallBack } from 'react-hook-form';
 
 import Table from './inputs/Table';
 import MultiSelectPanel from './inputs/MultiSelectPanel';
+import SelectButton from './inputs/SelectButton';
 
 export default function input(
     field: {
@@ -75,6 +76,12 @@ export default function input(
             options={dropdowns?.[dropdown]?.filter(item => !filter || item.parent === filter) || []}
             disabled={parent && !filter}
             display='chip'
+            {...props}
+        />;
+        case 'select': return <SelectButton
+            {...field}
+            options={dropdowns?.[dropdown]?.filter(filterBy) || []}
+            disabled={parent && !filter}
             {...props}
         />;
         case 'multiSelectTree': return <TreeSelect
