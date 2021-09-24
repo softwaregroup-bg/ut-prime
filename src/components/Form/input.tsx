@@ -18,6 +18,7 @@ export default function input(
         type = 'string',
         dropdown = '',
         parent = '',
+        optionsFilter = null,
         ...props
     } = {id: field?.name},
     schema,
@@ -26,6 +27,7 @@ export default function input(
     loading: string
 ) {
     if (loading) return <Skeleton className='p-inputtext'/>;
+    const filterBy = item => (!filter && !optionsFilter) || Object.entries({...optionsFilter, ...filter}).every(([name, value]) => String(item[name]) === String(value));
     switch (type) {
         case 'dropdownTree': return <TreeSelect
             {...field}
@@ -67,13 +69,13 @@ export default function input(
         />;
         case 'dropdown': return <Dropdown
             {...field}
-            options={dropdowns?.[dropdown]?.filter(item => !filter || item.parent === filter) || []}
+            options={dropdowns?.[dropdown]?.filter(filterBy) || []}
             disabled={parent && !filter}
             {...props}
         />;
         case 'multiSelect': return <MultiSelect
             {...field}
-            options={dropdowns?.[dropdown]?.filter(item => !filter || item.parent === filter) || []}
+            options={dropdowns?.[dropdown]?.filter(filterBy) || []}
             disabled={parent && !filter}
             display='chip'
             {...props}
@@ -86,7 +88,7 @@ export default function input(
         />;
         case 'multiSelectTree': return <TreeSelect
             {...field}
-            options={dropdowns?.[dropdown]?.filter(item => !filter || item.parent === filter) || []}
+            options={dropdowns?.[dropdown]?.filter(filterBy) || []}
             disabled={parent && !filter}
             display='chip'
             selectionMode='multiple'
@@ -100,7 +102,7 @@ export default function input(
         case 'multiSelectPanel': return <MultiSelectPanel
             appendTo='self'
             {...field}
-            options={dropdowns?.[dropdown]?.filter(item => !filter || item.parent === filter) || []}
+            options={dropdowns?.[dropdown]?.filter(filterBy) || []}
             disabled={parent && !filter}
             {...props}
         />;
@@ -126,6 +128,7 @@ export default function input(
         />;
         case 'integer': return <InputNumber
             {...field}
+            inputClassName='w-full'
             inputRef={field.ref}
             onChange={e => {
                 field.onChange?.(e.value);

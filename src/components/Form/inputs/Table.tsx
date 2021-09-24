@@ -20,7 +20,7 @@ export default React.forwardRef<{}, any>(({
     dataKey = 'id',
     properties,
     dropdowns,
-    filter,
+    filter: {parent: filter = false} = {},
     master,
     actions: {
         allowAdd = true,
@@ -104,7 +104,7 @@ export default React.forwardRef<{}, any>(({
     if (selected && !rows.includes(selected)) {
         handleSelected({value: null});
     }
-
+    if (master && !filter) return null;
     return (
         <>
             <Toolbar className="p-0" left={leftToolbarTemplate} right={null}></Toolbar>

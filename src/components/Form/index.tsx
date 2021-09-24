@@ -54,7 +54,7 @@ const flatten = (properties: Properties, editors: Editors, root: string = '') : 
     (map, [name, property]) => {
         return ('properties' in property) ? {
             ...map,
-            ...flatten(property.properties, {}, name + '.')
+            ...flatten(property.properties, {}, root + name + '.')
         } : {
             ...map,
             [root + name]: property
@@ -194,7 +194,7 @@ const Form: StyledType = ({
                 control = {control}
                 name = {name}
                 dropdowns = {dropdowns}
-                filter = {parent && watch(parent)}
+                filter = {parent && {parent: watch(parent)}}
                 loading = {loading}
                 index = {idx}
                 setValue = {setValue}

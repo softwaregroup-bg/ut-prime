@@ -25,7 +25,8 @@ export interface Editor extends React.FC<{
 }> {
     title?: string,
     editor?: {
-        parent?: string
+        parent?: string;
+        filter?: {}
     },
     properties: string[]
 }
