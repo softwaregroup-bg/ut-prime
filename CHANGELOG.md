@@ -1,3 +1,14 @@
+# [1.40.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.39.2...v1.40.0) (2021-09-24)
+
+
+### Features
+
+* date and time table editors ([86a1b04](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/86a1b040fc0cdc95153990b6aa74db838cc3af8a))
+* options filter ([f725963](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/f72596334c29ba0bca60ab6859c9cd3507fb1fc0))
+* select button editor ([c0d7149](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/c0d7149433ec25fc5618b2ea46b11566474d71b0))
+
+
+
 ## [1.39.2](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.39.1...v1.39.2) (2021-09-24)
 
 
