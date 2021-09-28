@@ -1,5 +1,12 @@
+const defaultErrors = {
+    401: 'Session closed or expired',
+    403: 'Insufficient permissions for the operation',
+    404: 'Resource cannot be found',
+    500: 'Error was received from server. Please try again later'
+};
+
 const mapErrorMessage = (resp) => {
-    let returnMsg = resp.message;
+    let returnMsg = resp.print || (resp.statusCode && defaultErrors[resp.statusCode]) || 'Unexpected error';
     if (resp.validation && resp.validation.keys && resp.validation.keys.length > 0) {
         returnMsg = resp.validation.keys.reduce((prev, cur) => {
             prev.push(cur);
@@ -12,12 +19,13 @@ const mapErrorMessage = (resp) => {
 
 export default (state = {open: false, title: '', message: '', type: ''}, action) => {
     if (action.suppressErrorWindow) return state;
-    if (action.type === 'error.close') {
+    if (action.type === 'front.error.close') {
         return {
             ...state,
             open: false,
             title: '',
             message: '',
+            statusCode: 200,
             type: ''
         };
     }
@@ -39,7 +47,8 @@ export default (state = {open: false, title: '', message: '', type: ''}, action)
             open: true,
             title: title,
             message: msg,
-            type: type
+            statusCode,
+            type
         };
     }
     return state;

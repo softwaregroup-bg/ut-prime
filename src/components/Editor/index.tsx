@@ -11,6 +11,7 @@ import getSchema from '../Form/schema';
 import ThumbIndex from '../ThumbIndex';
 import {Toolbar, Button, Card} from '../prime';
 import useToggle from '../hooks/useToggle';
+import useLoad from '../hooks/useLoad';
 import {ConfigField, ConfigCard} from '../Form/DragDrop';
 const flexGrow = {flexGrow: 1};
 
@@ -111,9 +112,9 @@ const Editor: StyledType = ({
         }, [keyValue, onEdit, nested, object, setValue, onAdd, keyField]
     );
 
-    React.useEffect(() => {
-        if (keyValue) get();
-        else init();
+    useLoad(async() => {
+        if (keyValue) await get();
+        else await init();
     }, []);
 
     const [, moved] = useToggle();

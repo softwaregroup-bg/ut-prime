@@ -6,7 +6,8 @@ export interface State {
         open: boolean;
         title: string;
         message: string;
-        type: string
+        type: string;
+        statusCode: number;
     };
     loader?: {
         toJS: () => {

@@ -7,7 +7,8 @@ const defaultState: State = {
         open: false,
         title: '',
         message: '',
-        type: ''
+        type: '',
+        statusCode: 200
     },
     login: Immutable.fromJS({
         profile: {
