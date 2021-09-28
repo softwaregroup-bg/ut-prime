@@ -1,3 +1,12 @@
+# [1.41.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.40.0...v1.41.0) (2021-09-28)
+
+
+### Features
+
+* useLoad ([4d01be8](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/4d01be811fad95e04dc5574f9f43e8c370a9728b))
+
+
+
 # [1.40.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.39.2...v1.40.0) (2021-09-24)
 
 
