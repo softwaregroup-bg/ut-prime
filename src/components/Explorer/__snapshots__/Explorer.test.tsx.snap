@@ -11,6 +11,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
     <div
       class="p-toolbar p-component"
       role="toolbar"
+      style="background: none;"
     >
       <div
         class="p-toolbar-group-left"

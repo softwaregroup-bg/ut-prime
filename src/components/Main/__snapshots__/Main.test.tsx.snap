@@ -8,8 +8,7 @@ exports[`<Main /> render equals snapshot 1`] = `
     class="Gate-gate-1"
   >
     <div
-      class="p-card"
-      style="height: 100%; border-radius: 0;"
+      class="border-noround surface-0 h-full"
     >
       <div
         class="flex flex-column"
@@ -33,6 +32,7 @@ exports[`<Main /> render equals snapshot 1`] = `
             </div>
             <div
               class="p-menubar p-component Portal-menuGrow-11"
+              style="background: none;"
             >
               <a
                 class="p-menubar-button"
@@ -162,6 +162,7 @@ exports[`<Main /> render equals snapshot 1`] = `
             </div>
             <div
               class="p-menubar p-component Portal-menu-12"
+              style="background: none;"
             >
               <a
                 class="p-menubar-button"

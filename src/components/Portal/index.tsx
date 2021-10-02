@@ -15,6 +15,7 @@ import {State} from '../Store/Store.types';
 
 import { Styled, StyledType } from './Portal.types';
 import { useWindowSize } from '../hooks';
+const backgroundNone = {background: 'none'};
 
 const Portal: StyledType = ({ classes, children }) => {
     const {ut} = useTheme<Theme>();
@@ -99,8 +100,8 @@ const Portal: StyledType = ({ classes, children }) => {
                     <div className={classes.headerTitle}>
                         <Text>{portalName}</Text>
                     </div>
-                    <Menubar model={menuEnabled} className={classes[menuClass]} />
-                    <Menubar model={rightEnabled} className={classes[rightMenuClass]} />
+                    <Menubar model={menuEnabled} className={classes[menuClass]} style={backgroundNone}/>
+                    <Menubar model={rightEnabled} className={classes[rightMenuClass]} style={backgroundNone}/>
                 </div>
             </div>
             {(hideTabs)

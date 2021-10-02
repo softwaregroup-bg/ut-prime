@@ -26,6 +26,7 @@ exports[`<Portal /> render equals snapshot 1`] = `
         </div>
         <div
           class="p-menubar p-component Portal-menuGrow-5"
+          style="background: none;"
         >
           <a
             class="p-menubar-button"
@@ -44,6 +45,7 @@ exports[`<Portal /> render equals snapshot 1`] = `
         </div>
         <div
           class="p-menubar p-component Portal-menu-6"
+          style="background: none;"
         >
           <a
             class="p-menubar-button"

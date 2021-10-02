@@ -13,7 +13,9 @@ import {Toolbar, Button, Card} from '../prime';
 import useToggle from '../hooks/useToggle';
 import useLoad from '../hooks/useLoad';
 import {ConfigField, ConfigCard} from '../Form/DragDrop';
+
 const flexGrow = {flexGrow: 1};
+const backgroundNone = {background: 'none'};
 
 const capital = (string: string) => string.charAt(0).toUpperCase() + string.slice(1);
 
@@ -131,6 +133,7 @@ const Editor: StyledType = ({
     return (
         <>
             <Toolbar
+                style={backgroundNone}
                 left={
                     <Button icon='pi pi-save' onClick={trigger} disabled={!trigger || !!loading} aria-label='save'/>
                 }

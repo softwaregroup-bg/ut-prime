@@ -12,6 +12,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
   <div
     class="p-toolbar p-component"
     role="toolbar"
+    style="background: none;"
   >
     <div
       class="p-toolbar-group-left"
@@ -608,6 +609,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
   <div
     class="p-toolbar p-component"
     role="toolbar"
+    style="background: none;"
   >
     <div
       class="p-toolbar-group-left"
@@ -1664,6 +1666,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
   <div
     class="p-toolbar p-component"
     role="toolbar"
+    style="background: none;"
   >
     <div
       class="p-toolbar-group-left"
@@ -1985,6 +1988,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
   <div
     class="p-toolbar p-component"
     role="toolbar"
+    style="background: none;"
   >
     <div
       class="p-toolbar-group-left"

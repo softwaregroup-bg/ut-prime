@@ -10,6 +10,7 @@ import { Styled, StyledType } from './Explorer.types';
 
 const flexGrow = {flexGrow: 1};
 const selectionWidth = {width: '3em'};
+const backgroundNone = {background: 'none'};
 
 const Explorer: StyledType = ({
     classes,
@@ -201,7 +202,7 @@ const Explorer: StyledType = ({
     return (
         <div className={clsx('flex', 'flex-column', className)} style={{height: '100%'}} >
             {(detailsPanel || children || buttons?.length) ? <>
-                <Toolbar left={left} right={right} />
+                <Toolbar left={left} right={right} style={backgroundNone} />
                 <Splitter style={flexGrow}>
                     {[
                         children && navigationOpened && <SplitterPanel key='nav' size={15}>{children}</SplitterPanel>,
