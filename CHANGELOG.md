@@ -1,3 +1,17 @@
+# [1.42.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.41.0...v1.42.0) (2021-10-02)
+
+
+### Bug Fixes
+
+* colors ([38af725](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/38af72521c31a0ce20ecd0940393f3c88b3d0aec))
+
+
+### Features
+
+* selectTable input ([d3b0146](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/d3b0146b38b3aa398deee5e0938f5b7c1e6855be))
+
+
+
 # [1.41.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.40.0...v1.41.0) (2021-09-28)
 
 
