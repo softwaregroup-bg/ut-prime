@@ -1,5 +1,5 @@
 import React from 'react';
-import { InputText, InputTextarea, Dropdown, MultiSelect, TreeSelect, InputMask, InputNumber, Calendar, Checkbox, Skeleton } from '../prime';
+import { InputText, InputTextarea, Dropdown, MultiSelect, TreeSelect, TreeTable, InputMask, InputNumber, Calendar, Checkbox, Skeleton, Column } from '../prime';
 import { RefCallBack } from 'react-hook-form';
 
 import Table from './inputs/Table';
@@ -19,8 +19,9 @@ export default function input(
         dropdown = '',
         parent = '',
         optionsFilter = null,
+        title = '',
         ...props
-    } = {id: field?.name},
+    }: any = {id: field?.name},
     schema,
     dropdowns,
     filter,
@@ -54,14 +55,13 @@ export default function input(
         case 'boolean': return <Checkbox
             {...field}
             inputRef={field.ref}
-            onChange={e => {
-                field.onChange?.(e.checked);
-            }}
+            onChange={e => field.onChange?.(e.checked)}
             checked={field.value}
             {...props}
         />;
         case 'table': return <Table
             {...field}
+            selectionMode='checkbox'
             filter={filter}
             properties={schema?.items?.properties}
             dropdowns={dropdowns}
@@ -106,6 +106,42 @@ export default function input(
             disabled={parent && !filter}
             {...props}
         />;
+        case 'selectTable': {
+            const all = dropdowns?.[dropdown];
+            const value = all.filter(filterBy) || [];
+            const dataKey = props.dataKey || 'value';
+            const valueKeys = value.map(item => item[dataKey]);
+            const single = props.selectionMode === 'single';
+            const hidden = !single && (field.value || []).filter(item => !valueKeys.includes(item));
+            return <Table
+                {...field}
+                actions={{allowAdd: false, allowEdit: false, allowDelete: false}}
+                dataKey={dataKey}
+                value={value}
+                selection={single ? value.find(row => row?.[dataKey] === field.value) : value.filter(row => field.value?.includes(row?.[dataKey]))}
+                onSelectionChange={event =>
+                    field.onChange?.(
+                        single
+                            ? event.value[dataKey]
+                            : [].concat(hidden, event.value?.map(row => row?.[dataKey])),
+                        {children: false, ...props.change}
+                    )
+                }
+                {...props}
+            >
+                <Column field='label' header={title}/>
+            </Table>;
+        }
+        case 'multiSelectTreeTable': return <TreeTable
+            {...field}
+            value={dropdowns?.[dropdown]?.filter(filterBy) || []}
+            selectionKeys={field.value}
+            onSelectionChange={e => field.onChange?.(e.value)}
+            selectionMode='checkbox'
+            {...props}
+        >
+            <Column field='label' expander/>
+        </TreeTable>;
         case 'date-time': return <Calendar
             {...field}
             showTime

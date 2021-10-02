@@ -27,16 +27,17 @@ const Input = ({control, index, setValue, name, filter, dropdowns, loading, clas
             {
                 className: clsx('w-full', { 'p-invalid': fieldState.error }),
                 ...field,
-                onChange: (e, type) => {
-                    if (type === 'select') {
-                        setValue(field.name + '$selected', e);
-                        return;
+                onChange: (e, {select = false, field: changeField = true, children = true} = {}) => {
+                    if (select) {
+                        setValue(`$.${field.name}.selected`, e);
                     }
                     try {
-                        const items = index.children[field.name];
-                        if (items) items.forEach(child => setValue(child, null));
+                        if (children) {
+                            const items = index.children[field.name];
+                            if (items) items.forEach(child => setValue(child, null));
+                        }
                     } finally {
-                        field.onChange(e);
+                        if (changeField) field.onChange(e);
                     }
                 }
             },

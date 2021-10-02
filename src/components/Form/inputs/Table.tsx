@@ -6,6 +6,7 @@ import columnProps from '../../lib/column';
 
 const handleFilter = () => {};
 const INDEX = Symbol('index');
+const backgroundNone = {background: 'none'};
 
 const rowsFilter = (master, filter) => master && Object.fromEntries(
     Object.entries(master).map(
@@ -22,6 +23,7 @@ export default React.forwardRef<{}, any>(({
     dropdowns,
     filter: {parent: filter = false} = {},
     master,
+    children,
     actions: {
         allowAdd = true,
         allowDelete = true,
@@ -31,7 +33,7 @@ export default React.forwardRef<{}, any>(({
     ...props
 }, ref) => {
     if (typeof ref === 'function') ref({});
-    const [original, setOriginal] = React.useState({index: null, value: null});
+    const [original, setOriginal] = React.useState({});
     const [selected, setSelected] = React.useState(null);
     const [editingRows, setEditingRows] = React.useState({});
 
@@ -56,21 +58,32 @@ export default React.forwardRef<{}, any>(({
     />, [properties, allRows, master, onChange]);
 
     const init = React.useCallback(({index}) => {
-        setOriginal({
-            index: master ? rows[index][INDEX] : index,
-            value: {...rows[index]}
+        setOriginal(prev => {
+            prev[master ? rows[index][INDEX] : index] = {...rows[index]};
+            return prev;
         });
     }, [rows, setOriginal, master]);
 
-    const cancel = React.useCallback(() => {
+    const cancel = React.useCallback(({index}) => {
         const restored = [...allRows];
-        restored[original.index] = original.value;
+        restored[index] = original[master ? rows[index][INDEX] : index];
         onChange(restored);
-    }, [allRows, onChange, original.index, original.value]);
+        setOriginal(prev => {
+            delete prev[master ? rows[index][INDEX] : index];
+            return prev;
+        });
+    }, [allRows, onChange, original, master, rows]);
+
+    const save = React.useCallback(({index}) => {
+        setOriginal(prev => {
+            delete prev[master ? rows[index][INDEX] : index];
+            return prev;
+        });
+    }, [master, rows]);
 
     const handleSelected = React.useCallback(event => {
         if (!allowSelect) return;
-        onChange(event.value, 'select');
+        onChange(event.value, {select: true, field: false, children: false});
         setSelected(event.value);
     }, [allowSelect, onChange]);
 
@@ -83,9 +96,17 @@ export default React.forwardRef<{}, any>(({
             event.preventDefault();
             const id = uuid();
             const newValue = {[dataKey]: id, ...rowsFilter(master, filter)};
+            if (master) newValue[INDEX] = allRows?.length || 0;
             const updatedValue = [...(allRows || []), newValue];
             onChange(updatedValue);
-            setEditingRows({[id]: true});
+            setEditingRows(prev => {
+                prev[id] = true;
+                return prev;
+            });
+            setOriginal(prev => {
+                prev[updatedValue.length - 1] = {...newValue};
+                return prev;
+            });
         };
         const deleteRow = event => {
             event.preventDefault();
@@ -101,30 +122,31 @@ export default React.forwardRef<{}, any>(({
         );
     }, [allowAdd, allowDelete, selected, dataKey, master, filter, allRows, onChange, handleSelected]);
 
-    if (selected && !rows.includes(selected)) {
+    if (selected && props.selectionMode === 'single' && !rows.includes(selected)) {
         handleSelected({value: null});
     }
     if (master && !filter) return null;
     return (
         <>
-            <Toolbar className="p-0" left={leftToolbarTemplate} right={null}></Toolbar>
+            {(allowAdd || allowDelete) && <Toolbar className="p-0" left={leftToolbarTemplate} right={null} style={backgroundNone}></Toolbar>}
             <DataTable
-                selectionMode='checkbox'
                 editMode='row'
                 className='editable-cells-table'
                 emptyMessage=''
+                selection={selected}
+                onSelectionChange={handleSelected}
                 {...props}
                 value={rows}
                 dataKey={dataKey}
                 onRowEditInit={init}
                 onRowEditCancel={cancel}
-                selection={selected}
+                onRowEditSave={save}
                 onFilter={handleFilter}
-                onSelectionChange={handleSelected}
                 editingRows={editingRows}
                 onRowEditChange={onRowEditChange}
             >
-                {allowSelect && !props.selectionMode && <Column selectionMode="multiple" headerStyle={{ width: '3rem' }}></Column>}
+                {allowSelect && (!props.selectionMode || props.selectionMode === 'checkbox') && <Column selectionMode="multiple" headerStyle={{ width: '3rem' }}></Column>}
+                {children}
                 {
                     (columns || []).map(name => <Column
                         key={name}
