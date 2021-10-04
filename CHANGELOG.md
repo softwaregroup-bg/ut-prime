@@ -1,3 +1,12 @@
+## [1.42.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.42.0...v1.42.1) (2021-10-04)
+
+
+### Bug Fixes
+
+* error handling ([51e40dd](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/51e40dda6023aa54efe0c77b4d8d8c6ab2f0f21c))
+
+
+
 # [1.42.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.41.0...v1.42.0) (2021-10-02)
 
 
