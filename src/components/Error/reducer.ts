@@ -1,3 +1,5 @@
+import {LOGOUT} from '../Login/actions';
+
 const defaultErrors = {
     401: 'Session closed or expired',
     403: 'Insufficient permissions for the operation',
@@ -18,8 +20,7 @@ const mapErrorMessage = (resp) => {
 };
 
 export default (state = {open: false, title: '', message: '', type: ''}, action) => {
-    if (action.suppressErrorWindow) return state;
-    if (action.type === 'front.error.close') {
+    if (['front.error.close', LOGOUT].includes(action.type)) {
         return {
             ...state,
             open: false,
@@ -30,6 +31,7 @@ export default (state = {open: false, title: '', message: '', type: ''}, action)
         };
     }
     if (action.error) {
+        if (action.suppressErrorWindow) return state;
         const msg = (mapErrorMessage(action.error) || mapErrorMessage(state.message));
         const statusMessage = action.error.statusMessage;
         const statusCode = action.error.statusCode;
