@@ -1,5 +1,5 @@
 import React from 'react';
-import { InputText, InputTextarea, Dropdown, MultiSelect, TreeSelect, TreeTable, InputMask, InputNumber, Calendar, Checkbox, Skeleton, Column } from '../prime';
+import { InputText, Password, InputTextarea, Dropdown, MultiSelect, TreeSelect, TreeTable, InputMask, InputNumber, Calendar, Checkbox, Skeleton, Column } from '../prime';
 import { RefCallBack } from 'react-hook-form';
 
 import Table from './inputs/Table';
@@ -170,6 +170,10 @@ export default function input(
                 field.onChange?.(e.value);
             }}
             showButtons
+            {...props}
+        />;
+        case 'password': return <Password
+            {...field}
             {...props}
         />;
         default: return <InputText
