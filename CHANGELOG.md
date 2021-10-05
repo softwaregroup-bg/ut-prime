@@ -1,3 +1,13 @@
+# [1.43.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.42.2...v1.43.0) (2021-10-05)
+
+
+### Features
+
+* handle readOnly ([06a9181](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/06a918197d782d5a6c091d33d5fce05eb5c0732e))
+* passord column ([ed147e4](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/ed147e4a7b0b61c07d4f3210a04c55d5ce6548bd))
+
+
+
 ## [1.42.2](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.42.1...v1.42.2) (2021-10-04)
 
 
