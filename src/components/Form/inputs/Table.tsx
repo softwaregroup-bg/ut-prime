@@ -24,6 +24,7 @@ export default React.forwardRef<{}, any>(({
     filter: {parent: filter = false} = {},
     master,
     children,
+    disabled,
     actions: {
         allowAdd = true,
         allowDelete = true,
@@ -52,6 +53,7 @@ export default React.forwardRef<{}, any>(({
             updatedValue[master ? props.rowData[INDEX] : props.rowIndex][props.field] = value;
             onChange(updatedValue);
         }}
+        disabled={properties?.[field]?.readOnly}
         className='w-full'
         id={`${props.rowData.id}`}
         {...properties?.[field].editor}
@@ -128,7 +130,7 @@ export default React.forwardRef<{}, any>(({
     if (master && !filter) return null;
     return (
         <>
-            {(allowAdd || allowDelete) && <Toolbar className="p-0" left={leftToolbarTemplate} right={null} style={backgroundNone}></Toolbar>}
+            {!disabled && (allowAdd || allowDelete) && <Toolbar className="p-0" left={leftToolbarTemplate} right={null} style={backgroundNone}></Toolbar>}
             <DataTable
                 editMode='row'
                 className='editable-cells-table'

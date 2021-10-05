@@ -158,5 +158,11 @@ export default function columnProps({
             };
             break;
     }
-    return {...filterElement && {filterElement}, ...body && {body}, ...editor && {editor}, ...column};
+    if (properties?.[name]?.readOnly) editor = false;
+    return {
+        ...filterElement && {filterElement},
+        ...body && {body},
+        ...(editor != null) && {editor},
+        ...column
+    };
 }

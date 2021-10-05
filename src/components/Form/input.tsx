@@ -28,6 +28,7 @@ export default function input(
     loading: string
 ) {
     if (loading) return <Skeleton className='p-inputtext'/>;
+    props.disabled = schema.readOnly;
     const filterBy = item => (!filter && !optionsFilter) || Object.entries({...optionsFilter, ...filter}).every(([name, value]) => String(item[name]) === String(value));
     switch (type) {
         case 'dropdownTree': return <TreeSelect
