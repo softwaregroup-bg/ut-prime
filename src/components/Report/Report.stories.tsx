@@ -9,7 +9,10 @@ import Report from './index';
 export default {
     title: 'Report',
     component: Report,
-    decorators: [withReadme(README)]
+    decorators: [withReadme(README)],
+    args: {
+        state: {}
+    }
 };
 
 export const Basic = () =>
