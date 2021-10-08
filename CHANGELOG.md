@@ -1,3 +1,12 @@
+# [1.44.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.43.1...v1.44.0) (2021-10-08)
+
+
+### Features
+
+* error handling ([be0cbe8](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/be0cbe883da01c07b5df123452e38d370c1c7442))
+
+
+
 ## [1.43.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.43.0...v1.43.1) (2021-10-08)
 
 
