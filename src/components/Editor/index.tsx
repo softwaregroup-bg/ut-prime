@@ -117,7 +117,7 @@ const Editor: StyledType = ({
     useLoad(async() => {
         if (keyValue) await get();
         else await init();
-    }, []);
+    });
 
     const [, moved] = useToggle();
 
@@ -176,7 +176,7 @@ const Editor: StyledType = ({
                                 design
                                 label={title}
                                 labelClass='col-12'
-                            />)}
+                            >{title || name}</ConfigField>)}
                         </Card>
                         <Card title='Cards'>
                             {Object.entries(cards).map(([name, {title}], index) => <ConfigCard

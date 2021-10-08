@@ -11,6 +11,7 @@ import input from './input';
 import { Properties, Editors, PropertyEditors } from '../types';
 import useForm from '../hooks/useForm';
 import useToggle from '../hooks/useToggle';
+import useSubmit from '../hooks/useSubmit';
 import Controller from '../Controller';
 import getSchema from './schema';
 
@@ -19,11 +20,13 @@ const inputClass = (index, classes, name, className) => ({
     ...classes?.[name]
 }.input || ((index.properties[name]?.title || className) ? `col-12 ${className || 'md:col-8'}` : 'col-12'));
 
-const Input = ({control, index, setValue, name, filter, dropdowns, loading, classes, className = ''}) => <Controller
+const Input = ({control, index, setValue, name, filter, dropdowns, loading, classes, className = '', error, label}) => <Controller
     control={control}
     name={name}
     render={
-        React.useCallback(({field, fieldState}) => <div className={inputClass(index, classes, field.name, className)}>{input(
+        React.useCallback(({field, fieldState}) => input(
+            label,
+            error,
             {
                 className: clsx('w-full', { 'p-invalid': fieldState.error }),
                 ...field,
@@ -41,13 +44,14 @@ const Input = ({control, index, setValue, name, filter, dropdowns, loading, clas
                     }
                 }
             },
+            inputClass(index, classes, field.name, className),
             {id: field.name, ...index.properties[field.name]?.editor},
             index.properties[field.name],
             dropdowns,
             filter,
             loading
-        )}</div>,
-        [className, classes, dropdowns, filter, index, loading, setValue])
+        ),
+        [className, classes, dropdowns, filter, index, loading, setValue, error, label])
     }
 />;
 
@@ -111,7 +115,7 @@ const Form: StyledType = ({
 }) => {
     const joiSchema = validation || getSchema(properties);
     // console.log(joiSchema.describe());
-    const {handleSubmit, control, reset, formState: {errors, isDirty}, watch, setValue} = useForm({resolver: joiResolver(joiSchema)});
+    const {handleSubmit: formSubmit, control, reset, formState: {errors, isDirty}, watch, setValue, setError, clearErrors} = useForm({resolver: joiResolver(joiSchema)});
     const visibleCards: (string | string[])[] = (layout || Object.keys(cards));
     const errorFields = flat(errors).flat();
     const visibleProperties = visibleCards.map(id => {
@@ -119,18 +123,28 @@ const Form: StyledType = ({
         return nested.map(cardName => cards[cardName]?.properties);
     }).flat(10).filter(Boolean);
 
-    const getFormErrorMessage = (name) => {
-        const error = get(errors, name);
-        return error && <small className="p-error">{error.message}</small>;
-    };
-
     const [, moved] = useToggle();
 
     const idx = React.useMemo(() => getIndex(properties, editors), [properties, editors]);
 
+    const {handleSubmit, toast} = useSubmit(
+        async form => {
+            try {
+                clearErrors();
+                return await onSubmit(form);
+            } catch (error) {
+                if (!Array.isArray(error.validation)) throw error;
+                error.validation.forEach(({path = '', message = ''} = {}) => {
+                    if (path && message) setError(path, {message});
+                });
+            }
+        },
+        [onSubmit, setError, clearErrors]
+    );
+
     React.useEffect(() => {
-        if (setTrigger) setTrigger(isDirty ? prev => handleSubmit(onSubmit) : undefined);
-    }, [setTrigger, handleSubmit, onSubmit, isDirty]);
+        if (setTrigger) setTrigger(isDirty ? prev => formSubmit(handleSubmit) : undefined);
+    }, [setTrigger, formSubmit, handleSubmit, isDirty]);
 
     React.useEffect(() => {
         reset(value || {});
@@ -187,7 +201,7 @@ const Form: StyledType = ({
         moved();
     }, [cards, moved, visibleCards]);
 
-    const InputWrap = React.useCallback(({name, className}) => {
+    const InputWrap = React.useCallback(({name, className, error, label}) => {
         const parent = idx.properties[name]?.editor?.parent;
         return (
             <Input
@@ -200,9 +214,25 @@ const Form: StyledType = ({
                 index = {idx}
                 setValue = {setValue}
                 className = {className}
+                error = {error}
+                label = {label}
             />
         );
     }, [classes, control, dropdowns, idx, loading, setValue, watch]);
+
+    const Label = React.useCallback(({name, className = 'col-12 md:col-4'}) => {
+        const label = idx.properties?.[name]?.title;
+        return label
+            ? <label className={className} htmlFor={name}>{label}</label>
+            : null;
+    }, [idx]);
+
+    const ErrorLabel = React.useCallback(({name, className = 'col-12 md:col-4'}) => {
+        const error = get(errors, name);
+        return error
+            ? <><small className={className}/><small className='col p-error'>{error.message}</small></>
+            : null;
+    }, [errors]);
 
     function card(id: string, index1, index2) {
         const {title, properties = [], flex, hidden, classes} = (cards[id] || {title: '❌ ' + id});
@@ -211,11 +241,20 @@ const Form: StyledType = ({
                 <div className={clsx(flex && 'flex flex-wrap')}>
                     {properties.map((name, ind) => {
                         const property = idx.properties[name];
-                        const Component = typeof property === 'function' && property;
                         const {
                             field: fieldClass = Component ? 'grid' : 'field grid',
                             label: labelClass
                         } = {...classes?.default, ...classes?.[name]};
+                        function Component() {
+                            if (typeof property === 'function') return property({name, Input: InputWrap, Label, ErrorLabel});
+                            return (
+                                <InputWrap
+                                    name={name}
+                                    label={<Label name={name} className={labelClass}/>}
+                                    error={<ErrorLabel name={name} className={labelClass} />}
+                                />
+                            );
+                        }
                         return property ? <ConfigField
                             className={clsx(fieldClass, flex)}
                             key={name}
@@ -225,10 +264,8 @@ const Form: StyledType = ({
                             design={design}
                             name={name}
                             label={property.title}
-                            labelClass={labelClass}
                         >
-                            {Component ? <Component name={name} Input={InputWrap}/> : <InputWrap name={name}/>}
-                            {getFormErrorMessage(name)}
+                            <Component />
                         </ConfigField> : <div className="field grid" key={name}>❌ {name}</div>;
                     })}
                 </div>
@@ -238,7 +275,8 @@ const Form: StyledType = ({
 
     return (<>
         <DevTool control={control} placement="top-right" />
-        <form {...rest} onSubmit={handleSubmit(onSubmit)} className={clsx('grid col align-self-start', className)}>
+        {toast}
+        <form {...rest} onSubmit={formSubmit(handleSubmit)} className={clsx('grid col align-self-start', className)}>
             {
                 !!Object.keys(errors).length && <div className='col-12'>
                     {errorFields.map(name => !visibleProperties.includes(name) && <><small className="p-error">{get(errors, name)?.message}</small><br /></>)}

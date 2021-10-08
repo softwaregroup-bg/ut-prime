@@ -16,5 +16,6 @@ export default function useLoad(callback, dependencies = []) {
     const dispatch = useDispatch();
     React.useEffect(() => {
         call(callback, dispatch);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, dependencies);
 }

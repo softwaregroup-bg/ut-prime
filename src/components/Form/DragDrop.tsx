@@ -17,7 +17,7 @@ type CardMonitor = DropTargetMonitor<{
     index: [number, number | false]
 }>;
 
-export function DragDropField({children, name, index, card, move, labelClass, label, ...props}) {
+export function DragDropField({children, name, index, card, move, label, ...props}) {
     let labelProps;
     let isDragging = false;
     const [collected, dragField] = useDrag(
@@ -34,12 +34,8 @@ export function DragDropField({children, name, index, card, move, labelClass, la
         isDragging = collected.isDragging;
         labelProps = {
             ref: dragField,
-            style: {cursor: 'move'}
+            style: {cursor: 'move', marginLeft: '-1em'}
         };
-        if (!label) {
-            label = <span>&nbsp;</span>;
-            labelClass = labelClass + ' absolute w-15rem';
-        }
     }
     const [{ canDrop, isOver }, dropField] = useDrop(
         () => ({
@@ -63,11 +59,7 @@ export function DragDropField({children, name, index, card, move, labelClass, la
     };
     return (
         <div {...props}>
-            {
-                label ? <label className={labelClass} htmlFor={name} {...labelProps}>
-                    {label}
-                </label> : null
-            }
+            <label className='absolute w-15rem col' {...labelProps}>📎</label>
             {children}
         </div>
     );
@@ -146,16 +138,11 @@ export function DragDropCard({children, card, index1, index2, move, flex, hidden
     );
 }
 
-export function ConfigField({design, children = null, name, index, card = '', move = null, labelClass = 'col-12 md:col-4', label, ...props}) {
+export function ConfigField({design, children = null, name, index, card = '', label, move = null, ...props}) {
     return (
-        design ? <DragDropField {...{name, index, card, move, labelClass, label, ...props}}>
+        design ? <DragDropField {...{name, index, card, move, label, ...props}}>
             {children}
         </DragDropField> : <div {...props}>
-            {
-                label ? <label className={labelClass} htmlFor={name}>
-                    {label}
-                </label> : null
-            }
             {children}
         </div>
     );

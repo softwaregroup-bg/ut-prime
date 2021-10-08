@@ -1,23 +1,6 @@
 import {LOGOUT} from '../Login/actions';
 
-const defaultErrors = {
-    401: 'Session closed or expired',
-    403: 'Insufficient permissions for the operation',
-    404: 'Resource cannot be found',
-    500: 'Error was received from server. Please try again later'
-};
-
-const mapErrorMessage = (resp) => {
-    let returnMsg = resp.print || (resp.statusCode && defaultErrors[resp.statusCode]) || 'Unexpected error';
-    if (resp.validation && resp.validation.keys && resp.validation.keys.length > 0) {
-        returnMsg = resp.validation.keys.reduce((prev, cur) => {
-            prev.push(cur);
-            return prev;
-        }, ['Validation error in:']);
-        return returnMsg.join(' ');
-    }
-    return returnMsg;
-};
+import errorMessage from './errorMessage';
 
 export default (state = {open: false, title: '', message: '', type: ''}, action) => {
     if (['front.error.close', LOGOUT].includes(action.type)) {
@@ -32,7 +15,7 @@ export default (state = {open: false, title: '', message: '', type: ''}, action)
     }
     if (action.error) {
         if (action.suppressErrorWindow) return state;
-        const msg = (mapErrorMessage(action.error) || mapErrorMessage(state.message));
+        const msg = (errorMessage(action.error) || errorMessage(state.message));
         const statusMessage = action.error.statusMessage;
         const statusCode = action.error.statusCode;
         let title = 'Error';

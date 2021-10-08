@@ -21,7 +21,9 @@ export interface Dropdowns {
 
 export interface Editor extends React.FC<{
     name: string,
-    Input: React.FC<{name: string, className?: string}>
+    Input: React.FC<{name: string, className?: string}>,
+    Label: React.FC<{name: string, className?: string}>,
+    ErrorLabel: React.FC<{name: string, className?: string}>
 }> {
     title?: string,
     editor?: {
