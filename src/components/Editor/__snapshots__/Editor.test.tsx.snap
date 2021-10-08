@@ -58,6 +58,11 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
       class="flex"
       style="flex-grow: 1;"
     >
+      <div
+        class="p-toast p-component p-toast-top-right"
+      >
+        <div />
+      </div>
       <form
         class="grid col align-self-start"
       >
@@ -655,6 +660,11 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
       class="flex"
       style="flex-grow: 1;"
     >
+      <div
+        class="p-toast p-component p-toast-top-right"
+      >
+        <div />
+      </div>
       <form
         class="grid col align-self-start"
       >
@@ -690,10 +700,15 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                       class="field grid"
                     >
                       <label
-                        class="col-12 md:col-4"
+                        class="absolute w-15rem col"
                         draggable="true"
+                        style="cursor: move; margin-left: -1em;"
+                      >
+                        📎
+                      </label>
+                      <label
+                        class="col-12 md:col-4"
                         for="treeName"
-                        style="cursor: move;"
                       >
                         Name
                       </label>
@@ -712,10 +727,15 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                       class="field grid"
                     >
                       <label
-                        class="col-12 md:col-4"
+                        class="absolute w-15rem col"
                         draggable="true"
+                        style="cursor: move; margin-left: -1em;"
+                      >
+                        📎
+                      </label>
+                      <label
+                        class="col-12 md:col-4"
                         for="treeDescription"
-                        style="cursor: move;"
                       >
                         Description
                       </label>
@@ -733,10 +753,15 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                       class="field grid"
                     >
                       <label
-                        class="col-12 md:col-4"
+                        class="absolute w-15rem col"
                         draggable="true"
+                        style="cursor: move; margin-left: -1em;"
+                      >
+                        📎
+                      </label>
+                      <label
+                        class="col-12 md:col-4"
                         for="treeType"
-                        style="cursor: move;"
                       >
                         Type
                       </label>
@@ -882,10 +907,15 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                       class="field grid"
                     >
                       <label
-                        class="col-12 md:col-4"
+                        class="absolute w-15rem col"
                         draggable="true"
+                        style="cursor: move; margin-left: -1em;"
+                      >
+                        📎
+                      </label>
+                      <label
+                        class="col-12 md:col-4"
                         for="seedDescription"
-                        style="cursor: move;"
                       >
                         Seed
                       </label>
@@ -904,10 +934,15 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                       class="field grid"
                     >
                       <label
-                        class="col-12 md:col-4"
+                        class="absolute w-15rem col"
                         draggable="true"
+                        style="cursor: move; margin-left: -1em;"
+                      >
+                        📎
+                      </label>
+                      <label
+                        class="col-12 md:col-4"
                         for="flowerDescription"
-                        style="cursor: move;"
                       >
                         Flower
                       </label>
@@ -926,10 +961,15 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                       class="field grid"
                     >
                       <label
-                        class="col-12 md:col-4"
+                        class="absolute w-15rem col"
                         draggable="true"
+                        style="cursor: move; margin-left: -1em;"
+                      >
+                        📎
+                      </label>
+                      <label
+                        class="col-12 md:col-4"
                         for="fruitName"
-                        style="cursor: move;"
                       >
                         Fruit
                       </label>
@@ -1063,14 +1103,11 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                       class="field grid"
                     >
                       <label
-                        class="col-12 md:col-4 absolute w-15rem"
+                        class="absolute w-15rem col"
                         draggable="true"
-                        for="habitat"
-                        style="cursor: move;"
+                        style="cursor: move; margin-left: -1em;"
                       >
-                        <span>
-                           
-                        </span>
+                        📎
                       </label>
                       <div
                         class="col-12"
@@ -1385,6 +1422,11 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
               <div
                 class="field grid"
               >
+                <label
+                  class="absolute w-15rem col"
+                >
+                  📎
+                </label>
                 <i
                   class="pi pi-trash m-3"
                 />
@@ -1393,125 +1435,121 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                 class="field grid"
               >
                 <label
-                  class="col-12 absolute w-15rem"
+                  class="absolute w-15rem col"
                   draggable="true"
-                  for="treeId"
-                  style="cursor: move;"
+                  style="cursor: move; margin-left: -1em;"
                 >
-                  <span>
-                     
-                  </span>
+                  📎
                 </label>
+                treeId
               </div>
               <div
                 class="field grid"
               >
                 <label
-                  class="col-12"
+                  class="absolute w-15rem col"
                   draggable="true"
-                  for="treeName"
-                  style="cursor: move;"
+                  style="cursor: move; margin-left: -1em;"
                 >
-                  Name
+                  📎
                 </label>
+                Name
               </div>
               <div
                 class="field grid"
               >
                 <label
-                  class="col-12"
+                  class="absolute w-15rem col"
                   draggable="true"
-                  for="treeDescription"
-                  style="cursor: move;"
+                  style="cursor: move; margin-left: -1em;"
                 >
-                  Description
+                  📎
                 </label>
+                Description
               </div>
               <div
                 class="field grid"
               >
                 <label
-                  class="col-12"
+                  class="absolute w-15rem col"
                   draggable="true"
-                  for="treeType"
-                  style="cursor: move;"
+                  style="cursor: move; margin-left: -1em;"
                 >
-                  Type
+                  📎
                 </label>
+                Type
               </div>
               <div
                 class="field grid"
               >
                 <label
-                  class="col-12"
+                  class="absolute w-15rem col"
                   draggable="true"
-                  for="seedDescription"
-                  style="cursor: move;"
+                  style="cursor: move; margin-left: -1em;"
                 >
-                  Seed
+                  📎
                 </label>
+                Seed
               </div>
               <div
                 class="field grid"
               >
                 <label
-                  class="col-12"
+                  class="absolute w-15rem col"
                   draggable="true"
-                  for="maleCone"
-                  style="cursor: move;"
+                  style="cursor: move; margin-left: -1em;"
                 >
-                  Male Cone
+                  📎
                 </label>
+                Male Cone
               </div>
               <div
                 class="field grid"
               >
                 <label
-                  class="col-12"
+                  class="absolute w-15rem col"
                   draggable="true"
-                  for="femaleCone"
-                  style="cursor: move;"
+                  style="cursor: move; margin-left: -1em;"
                 >
-                  Female Cone
+                  📎
                 </label>
+                Female Cone
               </div>
               <div
                 class="field grid"
               >
                 <label
-                  class="col-12"
+                  class="absolute w-15rem col"
                   draggable="true"
-                  for="flowerDescription"
-                  style="cursor: move;"
+                  style="cursor: move; margin-left: -1em;"
                 >
-                  Flower
+                  📎
                 </label>
+                Flower
               </div>
               <div
                 class="field grid"
               >
                 <label
-                  class="col-12"
+                  class="absolute w-15rem col"
                   draggable="true"
-                  for="fruitName"
-                  style="cursor: move;"
+                  style="cursor: move; margin-left: -1em;"
                 >
-                  Fruit
+                  📎
                 </label>
+                Fruit
               </div>
               <div
                 class="field grid"
               >
                 <label
-                  class="col-12 absolute w-15rem"
+                  class="absolute w-15rem col"
                   draggable="true"
-                  for="habitat"
-                  style="cursor: move;"
+                  style="cursor: move; margin-left: -1em;"
                 >
-                  <span>
-                     
-                  </span>
+                  📎
                 </label>
+                habitat
               </div>
             </div>
           </div>
@@ -1713,6 +1751,11 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
       class="flex"
       style="flex-grow: 1;"
     >
+      <div
+        class="p-toast p-component p-toast-top-right"
+      >
+        <div />
+      </div>
       <form
         class="grid col align-self-start"
       >
@@ -2034,6 +2077,11 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
       class="flex"
       style="flex-grow: 1;"
     >
+      <div
+        class="p-toast p-component p-toast-top-right"
+      >
+        <div />
+      </div>
       <form
         class="grid col align-self-start"
       >
@@ -2069,10 +2117,15 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                       class="field grid"
                     >
                       <label
-                        class="col-12 md:col-4"
+                        class="absolute w-15rem col"
                         draggable="true"
+                        style="cursor: move; margin-left: -1em;"
+                      >
+                        📎
+                      </label>
+                      <label
+                        class="col-12 md:col-4"
                         for="treeName"
-                        style="cursor: move;"
                       >
                         Name
                       </label>
@@ -2091,10 +2144,15 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                       class="field grid"
                     >
                       <label
-                        class="col-12 md:col-4"
+                        class="absolute w-15rem col"
                         draggable="true"
+                        style="cursor: move; margin-left: -1em;"
+                      >
+                        📎
+                      </label>
+                      <label
+                        class="col-12 md:col-4"
                         for="treeDescription"
-                        style="cursor: move;"
                       >
                         Description
                       </label>
@@ -2112,10 +2170,15 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                       class="field grid"
                     >
                       <label
-                        class="col-12 md:col-4"
+                        class="absolute w-15rem col"
                         draggable="true"
+                        style="cursor: move; margin-left: -1em;"
+                      >
+                        📎
+                      </label>
+                      <label
+                        class="col-12 md:col-4"
                         for="treeType"
-                        style="cursor: move;"
                       >
                         Type
                       </label>
@@ -2261,10 +2324,15 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                       class="field grid"
                     >
                       <label
-                        class="col-12 md:col-4"
+                        class="absolute w-15rem col"
                         draggable="true"
+                        style="cursor: move; margin-left: -1em;"
+                      >
+                        📎
+                      </label>
+                      <label
+                        class="col-12 md:col-4"
                         for="seedDescription"
-                        style="cursor: move;"
                       >
                         Seed
                       </label>
@@ -2283,10 +2351,15 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                       class="field grid"
                     >
                       <label
-                        class="col-12 md:col-4"
+                        class="absolute w-15rem col"
                         draggable="true"
+                        style="cursor: move; margin-left: -1em;"
+                      >
+                        📎
+                      </label>
+                      <label
+                        class="col-12 md:col-4"
                         for="flowerDescription"
-                        style="cursor: move;"
                       >
                         Flower
                       </label>
@@ -2305,10 +2378,15 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                       class="field grid"
                     >
                       <label
-                        class="col-12 md:col-4"
+                        class="absolute w-15rem col"
                         draggable="true"
+                        style="cursor: move; margin-left: -1em;"
+                      >
+                        📎
+                      </label>
+                      <label
+                        class="col-12 md:col-4"
                         for="fruitName"
-                        style="cursor: move;"
                       >
                         Fruit
                       </label>
@@ -2442,14 +2520,11 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                       class="field grid"
                     >
                       <label
-                        class="col-12 md:col-4 absolute w-15rem"
+                        class="absolute w-15rem col"
                         draggable="true"
-                        for="habitat"
-                        style="cursor: move;"
+                        style="cursor: move; margin-left: -1em;"
                       >
-                        <span>
-                           
-                        </span>
+                        📎
                       </label>
                       <div
                         class="col-12"
@@ -2764,6 +2839,11 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
               <div
                 class="field grid"
               >
+                <label
+                  class="absolute w-15rem col"
+                >
+                  📎
+                </label>
                 <i
                   class="pi pi-trash m-3"
                 />
@@ -2772,125 +2852,121 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                 class="field grid"
               >
                 <label
-                  class="col-12 absolute w-15rem"
+                  class="absolute w-15rem col"
                   draggable="true"
-                  for="treeId"
-                  style="cursor: move;"
+                  style="cursor: move; margin-left: -1em;"
                 >
-                  <span>
-                     
-                  </span>
+                  📎
                 </label>
+                treeId
               </div>
               <div
                 class="field grid"
               >
                 <label
-                  class="col-12"
+                  class="absolute w-15rem col"
                   draggable="true"
-                  for="treeName"
-                  style="cursor: move;"
+                  style="cursor: move; margin-left: -1em;"
                 >
-                  Name
+                  📎
                 </label>
+                Name
               </div>
               <div
                 class="field grid"
               >
                 <label
-                  class="col-12"
+                  class="absolute w-15rem col"
                   draggable="true"
-                  for="treeDescription"
-                  style="cursor: move;"
+                  style="cursor: move; margin-left: -1em;"
                 >
-                  Description
+                  📎
                 </label>
+                Description
               </div>
               <div
                 class="field grid"
               >
                 <label
-                  class="col-12"
+                  class="absolute w-15rem col"
                   draggable="true"
-                  for="treeType"
-                  style="cursor: move;"
+                  style="cursor: move; margin-left: -1em;"
                 >
-                  Type
+                  📎
                 </label>
+                Type
               </div>
               <div
                 class="field grid"
               >
                 <label
-                  class="col-12"
+                  class="absolute w-15rem col"
                   draggable="true"
-                  for="seedDescription"
-                  style="cursor: move;"
+                  style="cursor: move; margin-left: -1em;"
                 >
-                  Seed
+                  📎
                 </label>
+                Seed
               </div>
               <div
                 class="field grid"
               >
                 <label
-                  class="col-12"
+                  class="absolute w-15rem col"
                   draggable="true"
-                  for="maleCone"
-                  style="cursor: move;"
+                  style="cursor: move; margin-left: -1em;"
                 >
-                  Male Cone
+                  📎
                 </label>
+                Male Cone
               </div>
               <div
                 class="field grid"
               >
                 <label
-                  class="col-12"
+                  class="absolute w-15rem col"
                   draggable="true"
-                  for="femaleCone"
-                  style="cursor: move;"
+                  style="cursor: move; margin-left: -1em;"
                 >
-                  Female Cone
+                  📎
                 </label>
+                Female Cone
               </div>
               <div
                 class="field grid"
               >
                 <label
-                  class="col-12"
+                  class="absolute w-15rem col"
                   draggable="true"
-                  for="flowerDescription"
-                  style="cursor: move;"
+                  style="cursor: move; margin-left: -1em;"
                 >
-                  Flower
+                  📎
                 </label>
+                Flower
               </div>
               <div
                 class="field grid"
               >
                 <label
-                  class="col-12"
+                  class="absolute w-15rem col"
                   draggable="true"
-                  for="fruitName"
-                  style="cursor: move;"
+                  style="cursor: move; margin-left: -1em;"
                 >
-                  Fruit
+                  📎
                 </label>
+                Fruit
               </div>
               <div
                 class="field grid"
               >
                 <label
-                  class="col-12 absolute w-15rem"
+                  class="absolute w-15rem col"
                   draggable="true"
-                  for="habitat"
-                  style="cursor: move;"
+                  style="cursor: move; margin-left: -1em;"
                 >
-                  <span>
-                     
-                  </span>
+                  📎
                 </label>
+                habitat
               </div>
             </div>
           </div>

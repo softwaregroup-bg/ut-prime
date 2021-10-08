@@ -242,7 +242,7 @@ const Form: StyledType = ({
                     {properties.map((name, ind) => {
                         const property = idx.properties[name];
                         const {
-                            field: fieldClass = Component ? 'grid' : 'field grid',
+                            field: fieldClass = (typeof property === 'function') ? 'grid' : 'field grid',
                             label: labelClass
                         } = {...classes?.default, ...classes?.[name]};
                         function Component() {

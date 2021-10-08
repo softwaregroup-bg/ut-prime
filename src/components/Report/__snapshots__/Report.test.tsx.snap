@@ -7,6 +7,11 @@ exports[`<Report /> render equals snapshot 1`] = `
   <div
     class="flex align-items-center"
   >
+    <div
+      class="p-toast p-component p-toast-top-right"
+    >
+      <div />
+    </div>
     <form
       class="grid col align-self-start"
       style="flex-grow: 1;"

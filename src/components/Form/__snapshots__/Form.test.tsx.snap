@@ -8,6 +8,11 @@ exports[`<Form /> render equals snapshot 1`] = `
     class="flex"
     style="overflow-x: hidden; width: 100%;"
   >
+    <div
+      class="p-toast p-component p-toast-top-right"
+    >
+      <div />
+    </div>
     <form
       class="grid col align-self-start"
     >

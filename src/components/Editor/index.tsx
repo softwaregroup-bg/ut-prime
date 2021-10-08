@@ -175,7 +175,6 @@ const Editor: StyledType = ({
                                 card='/'
                                 design
                                 label={title}
-                                labelClass='col-12'
                             >{title || name}</ConfigField>)}
                         </Card>
                         <Card title='Cards'>
