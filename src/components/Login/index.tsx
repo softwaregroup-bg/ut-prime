@@ -185,7 +185,7 @@ function reducer(state: LoginState, action: Action): LoginState {
         case 'login':
             if (action.methodRequestState !== 'finished') break;
             if (action.error) {
-                const err = action.error.type.split('.');
+                const err = (action.error.type || '').split('.');
                 const type = err[err.length - 1];
 
                 return loginSteps[type] ? updateLoginStep(state, type) : { ...state, error: action.error.message };
