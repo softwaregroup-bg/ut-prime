@@ -1,3 +1,12 @@
+## [1.43.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.43.0...v1.43.1) (2021-10-08)
+
+
+### Bug Fixes
+
+* error.type can be missing ([8872d7d](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/8872d7d24784a76645be68f557b95427624d203f))
+
+
+
 # [1.43.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.42.2...v1.43.0) (2021-10-05)
 
 
