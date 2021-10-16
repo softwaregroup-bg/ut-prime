@@ -28,12 +28,14 @@ export default {
                                 })}
                                 keyField='id'
                                 resultSet='items'
-                                properties={{
-                                    name: {
-                                        title: 'Name'
-                                    },
-                                    size: {
-                                        title: 'Size'
+                                schema={{
+                                    properties: {
+                                        name: {
+                                            title: 'Name'
+                                        },
+                                        size: {
+                                            title: 'Size'
+                                        }
                                     }
                                 }}
                                 columns = {['name', 'size']}

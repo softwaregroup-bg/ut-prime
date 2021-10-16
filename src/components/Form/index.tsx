@@ -227,7 +227,7 @@ const Form: StyledType = ({
 
     function card(cardName, index1, index2) {
         if (typeof cardName === 'object') cardName = cardName.name;
-        const {label, widgets = [], flex, hidden, classes} = (cards[cardName] || {title: '❌ ' + cardName});
+        const {label, widgets = [], flex, hidden, classes} = (cards[cardName] || {label: '❌ ' + cardName});
         return (
             <ConfigCard title={label} key={`${index1}-${index2}`} className='card mb-3' card={cardName} id={cardName} index1={index1} index2={index2} move={move} flex={flex} design={design} hidden={hidden}>
                 <div className={clsx(flex && 'flex flex-wrap')}>

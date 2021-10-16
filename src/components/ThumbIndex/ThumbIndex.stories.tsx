@@ -141,13 +141,13 @@ const schema: Schema = {
 };
 
 const cards = {
-    main: {title: 'Main data', className: 'lg:col-6 xl:col-4', widgets: ['identifierType', 'identifier', 'clientNumber', 'legalStatus']},
-    reg: {title: 'Registration', className: 'lg:col-6 xl:col-4', widgets: ['regDoc.type', 'regDoc.num', 'regIssuer', 'regCountry', 'regStart', 'regEnd']},
-    financial: {title: 'Financial data', className: 'lg:col-6 xl:col-4', widgets: ['capital', 'capitalCurrency', 'capitalDate', 'capitalCountry', 'ownerNationality']},
-    address: {title: 'Address', widgets: ['addressCountry', 'addressCity', 'addressZip', 'addressStreet']},
-    phone: {title: 'Phone', widgets: [{name: 'phone', widgets: ['type', 'countryCode', 'phoneNumber']}]},
-    email: {title: 'E-mail', widgets: [{name: 'email', widgets: ['type', 'emailAddress']}]},
-    person: {title: 'Contact person', widgets: ['personName', 'personPosition']}
+    main: {label: 'Main data', className: 'lg:col-6 xl:col-4', widgets: ['identifierType', 'identifier', 'clientNumber', 'legalStatus']},
+    reg: {label: 'Registration', className: 'lg:col-6 xl:col-4', widgets: ['regDoc.type', 'regDoc.num', 'regIssuer', 'regCountry', 'regStart', 'regEnd']},
+    financial: {label: 'Financial data', className: 'lg:col-6 xl:col-4', widgets: ['capital', 'capitalCurrency', 'capitalDate', 'capitalCountry', 'ownerNationality']},
+    address: {label: 'Address', widgets: ['addressCountry', 'addressCity', 'addressZip', 'addressStreet']},
+    phone: {label: 'Phone', widgets: [{name: 'phone', widgets: ['type', 'countryCode', 'phoneNumber']}]},
+    email: {label: 'E-mail', widgets: [{name: 'email', widgets: ['type', 'emailAddress']}]},
+    person: {label: 'Contact person', widgets: ['personName', 'personPosition']}
 };
 
 export const Basic: React.FC<{}> = () => {
