@@ -1,71 +1,77 @@
 import Joi from 'joi';
-import type {Properties, Cards} from '../types';
+import type {Schema, Cards} from '../types';
 
-const tree: {properties: Properties, cards: Cards} = {
-    properties: {
-        treeId: {
-            validation: Joi.number().integer()
-        },
-        treeName: {
-            title: 'Name'
-        },
-        treeDescription: {
-            title: 'Description',
-            editor: {
-                type: 'text'
-            }
-        },
-        treeType: {
-            title: 'Type',
-            editor: {
-                type: 'dropdown',
-                dropdown: 'tree.type'
-            },
-            validation: Joi.number().integer()
-        },
-        seedDescription: {
-            title: 'Seed'
-        },
-        maleCone: {
-            title: 'Male Cone'
-        },
-        femaleCone: {
-            title: 'Female Cone'
-        },
-        flowerDescription: {
-            title: 'Flower'
-        },
-        fruitName: {
-            title: 'Fruit'
-        },
-        habitat: {
-            validation: Joi.array().items(Joi.number().integer()),
-            editor: {
-                type: 'multiSelectPanel',
-                dropdown: 'tree.habitat'
+const tree: {schema: Schema, cards: Cards} = {
+    schema: {
+        properties: {
+            tree: {
+                properties: {
+                    treeId: {
+                        validation: Joi.number().integer()
+                    },
+                    treeName: {
+                        title: 'Name'
+                    },
+                    treeDescription: {
+                        title: 'Description',
+                        widget: {
+                            type: 'text'
+                        }
+                    },
+                    treeType: {
+                        title: 'Type',
+                        widget: {
+                            type: 'dropdown',
+                            dropdown: 'tree.type'
+                        },
+                        validation: Joi.number().integer()
+                    },
+                    seedDescription: {
+                        title: 'Seed'
+                    },
+                    maleCone: {
+                        title: 'Male Cone'
+                    },
+                    femaleCone: {
+                        title: 'Female Cone'
+                    },
+                    flowerDescription: {
+                        title: 'Flower'
+                    },
+                    fruitName: {
+                        title: 'Fruit'
+                    },
+                    habitat: {
+                        validation: Joi.array().items(Joi.number().integer()),
+                        widget: {
+                            type: 'multiSelectPanel',
+                            dropdown: 'tree.habitat'
+                        }
+                    }
+                }
             }
         }
     },
     cards: {
         edit: {
-            title: 'Tree',
-            properties: ['treeName', 'treeDescription', 'treeType']
+            label: 'Tree',
+            widgets: ['tree.treeName', 'tree.treeDescription', 'tree.treeType']
         },
         reproduction: {
-            title: 'Reproduction',
-            properties: ['seedDescription', 'flowerDescription', 'fruitName']
+            label: 'Reproduction',
+            widgets: ['tree.seedDescription', 'tree.flowerDescription', 'tree.fruitName']
         },
         taxonomy: {
-            title: 'Taxonomy',
-            properties: []
+            label: 'Taxonomy',
+            widgets: []
         },
         morphology: {
-            title: 'Morphology',
-            properties: []
+            label: 'Morphology',
+            widgets: []
         },
         habitat: {
-            title: 'Habitat',
-            properties: ['habitat']
+            label: 'Habitat',
+            widgets: ['tree.habitat']
         }
     }
 };

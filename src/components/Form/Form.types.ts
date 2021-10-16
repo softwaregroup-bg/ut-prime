@@ -1,17 +1,17 @@
 import {WithStyles, withStyles, createStyles} from '@material-ui/core/styles';
 import React from 'react';
-import type { Schema } from 'joi';
+import type { Schema as Validation } from 'joi';
 
-import {Properties, Editors, Cards, Dropdowns} from '../types';
+import {Schema, Editors, Cards, Dropdowns} from '../types';
 export interface Props extends React.HTMLAttributes<HTMLFormElement> {
     className?: string;
-    properties: Properties;
+    schema: Schema;
     editors?: Editors;
     cards: Cards;
     dropdowns?: Dropdowns,
     layout?: (string | string[])[];
     loading?: string;
-    validation?: Schema;
+    validation?: Validation;
     design?: boolean;
     onSubmit: (form: {}) => void;
     setTrigger?: (trigger: (event: {}) => void) => void;

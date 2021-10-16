@@ -17,22 +17,24 @@ export default {
 
 export const Basic = () =>
     <Report
-        properties={{
-            name: {
-                title: 'Name'
-            },
-            startDate: {
-                title: 'Start Date',
-                validation: Joi.date(),
-                editor: {
-                    type: 'date'
-                }
-            },
-            endDate: {
-                title: 'End Date',
-                validation: Joi.date(),
-                editor: {
-                    type: 'date'
+        schema={{
+            properties: {
+                name: {
+                    title: 'Name'
+                },
+                startDate: {
+                    title: 'Start Date',
+                    validation: Joi.date(),
+                    widget: {
+                        type: 'date'
+                    }
+                },
+                endDate: {
+                    title: 'End Date',
+                    validation: Joi.date(),
+                    widget: {
+                        type: 'date'
+                    }
                 }
             }
         }}

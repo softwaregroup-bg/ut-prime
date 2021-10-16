@@ -25,28 +25,28 @@ const Navigator: StyledType = ({
         if (onSelect) onSelect(e.value);
         setSelectedNodeKey(e.value);
     }, [onSelect]);
-    const setTree = result => {
-        const children = result.reduce((prev, item) => parentField in item ? ({
-            ...prev,
-            [item[parentField]]: (prev[item[parentField]] || []).concat(item)
-        }) : prev, {});
-        result.forEach(item => Object.assign(item, {
-            key: String(item[keyField]),
-            children: children[item[keyField]]
-        }));
-        const items = result.filter(item => item[parentField] == null);
-        setItems({
-            items,
-            expanded: items.reduce((prev, {key}) => ({...prev, [key]: true}), {})
-        });
-        if (items.length) select({value: items[0][keyField]});
-    };
     React.useEffect(() => {
+        const setTree = result => {
+            const children = result.reduce((prev, item) => parentField in item ? ({
+                ...prev,
+                [item[parentField]]: (prev[item[parentField]] || []).concat(item)
+            }) : prev, {});
+            result.forEach(item => Object.assign(item, {
+                key: String(item[keyField]),
+                children: children[item[keyField]]
+            }));
+            const items = result.filter(item => item[parentField] == null);
+            setItems({
+                items,
+                expanded: items.reduce((prev, {key}) => ({...prev, [key]: true}), {})
+            });
+            if (items.length) select({value: items[0][keyField]});
+        };
         async function load() {
             setTree(resultSet ? (await fetch({}))[resultSet] : await fetch({}));
         }
         load();
-    }, [fetch]);
+    }, [fetch, keyField, parentField, resultSet, select]);
     return (
         items.length ? <Tree
             style={{border: 0, padding: 0}}

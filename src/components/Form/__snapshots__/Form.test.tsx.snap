@@ -43,7 +43,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                   >
                     <label
                       class="col-12 md:col-4"
-                      for="treeName"
+                      for="tree.treeName"
                     >
                       Name
                     </label>
@@ -51,10 +51,10 @@ exports[`<Form /> render equals snapshot 1`] = `
                       class="col-12 md:col-8"
                     >
                       <input
-                        class="p-inputtext p-component w-full"
-                        id="treeName"
-                        name="treeName"
-                        value=""
+                        class="p-inputtext p-component p-filled w-full"
+                        id="tree.treeName"
+                        name="tree.treeName"
+                        value="Oak"
                       />
                     </div>
                   </div>
@@ -63,7 +63,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                   >
                     <label
                       class="col-12 md:col-4"
-                      for="treeDescription"
+                      for="tree.treeDescription"
                     >
                       Description
                     </label>
@@ -72,8 +72,8 @@ exports[`<Form /> render equals snapshot 1`] = `
                     >
                       <textarea
                         class="p-inputtextarea p-inputtext p-component w-full"
-                        id="treeDescription"
-                        name="treeDescription"
+                        id="tree.treeDescription"
+                        name="tree.treeDescription"
                       />
                     </div>
                   </div>
@@ -82,7 +82,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                   >
                     <label
                       class="col-12 md:col-4"
-                      for="treeType"
+                      for="tree.treeType"
                     >
                       Type
                     </label>
@@ -90,8 +90,8 @@ exports[`<Form /> render equals snapshot 1`] = `
                       class="col-12 md:col-8"
                     >
                       <div
-                        class="p-dropdown p-component p-inputwrapper w-full"
-                        id="treeType"
+                        class="p-dropdown p-component p-inputwrapper w-full p-inputwrapper-filled"
+                        id="tree.treeType"
                       >
                         <div
                           class="p-hidden-accessible"
@@ -107,18 +107,23 @@ exports[`<Form /> render equals snapshot 1`] = `
                         >
                           <select
                             aria-hidden="true"
-                            name="treeType"
+                            name="tree.treeType"
                             tabindex="-1"
                           >
                             <option
                               value=""
                             />
+                            <option
+                              value="1"
+                            >
+                              Conifer
+                            </option>
                           </select>
                         </div>
                         <span
-                          class="p-dropdown-label p-inputtext p-dropdown-label-empty"
+                          class="p-dropdown-label p-inputtext"
                         >
-                          empty
+                          Conifer
                         </span>
                         <div
                           aria-expanded="false"
@@ -189,7 +194,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                   >
                     <label
                       class="col-12 md:col-4"
-                      for="seedDescription"
+                      for="tree.seedDescription"
                     >
                       Seed
                     </label>
@@ -198,8 +203,8 @@ exports[`<Form /> render equals snapshot 1`] = `
                     >
                       <input
                         class="p-inputtext p-component w-full"
-                        id="seedDescription"
-                        name="seedDescription"
+                        id="tree.seedDescription"
+                        name="tree.seedDescription"
                         value=""
                       />
                     </div>
@@ -209,7 +214,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                   >
                     <label
                       class="col-12 md:col-4"
-                      for="flowerDescription"
+                      for="tree.flowerDescription"
                     >
                       Flower
                     </label>
@@ -218,8 +223,8 @@ exports[`<Form /> render equals snapshot 1`] = `
                     >
                       <input
                         class="p-inputtext p-component w-full"
-                        id="flowerDescription"
-                        name="flowerDescription"
+                        id="tree.flowerDescription"
+                        name="tree.flowerDescription"
                         value=""
                       />
                     </div>
@@ -229,7 +234,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                   >
                     <label
                       class="col-12 md:col-4"
-                      for="fruitName"
+                      for="tree.fruitName"
                     >
                       Fruit
                     </label>
@@ -238,8 +243,8 @@ exports[`<Form /> render equals snapshot 1`] = `
                     >
                       <input
                         class="p-inputtext p-component w-full"
-                        id="fruitName"
-                        name="fruitName"
+                        id="tree.fruitName"
+                        name="tree.fruitName"
                         value=""
                       />
                     </div>

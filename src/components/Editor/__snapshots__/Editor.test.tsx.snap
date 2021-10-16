@@ -93,7 +93,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="treeName"
+                        for="tree.treeName"
                       >
                         Name
                       </label>
@@ -102,8 +102,8 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                       >
                         <input
                           class="p-inputtext p-component p-filled w-full"
-                          id="treeName"
-                          name="treeName"
+                          id="tree.treeName"
+                          name="tree.treeName"
                           value="Oak"
                         />
                       </div>
@@ -113,7 +113,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="treeDescription"
+                        for="tree.treeDescription"
                       >
                         Description
                       </label>
@@ -122,8 +122,8 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                       >
                         <textarea
                           class="p-inputtextarea p-inputtext p-component w-full"
-                          id="treeDescription"
-                          name="treeDescription"
+                          id="tree.treeDescription"
+                          name="tree.treeDescription"
                         />
                       </div>
                     </div>
@@ -132,7 +132,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="treeType"
+                        for="tree.treeType"
                       >
                         Type
                       </label>
@@ -141,7 +141,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                       >
                         <div
                           class="p-dropdown p-component p-inputwrapper w-full p-inputwrapper-filled"
-                          id="treeType"
+                          id="tree.treeType"
                         >
                           <div
                             class="p-hidden-accessible"
@@ -157,7 +157,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                           >
                             <select
                               aria-hidden="true"
-                              name="treeType"
+                              name="tree.treeType"
                               tabindex="-1"
                             >
                               <option
@@ -244,7 +244,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="seedDescription"
+                        for="tree.seedDescription"
                       >
                         Seed
                       </label>
@@ -253,8 +253,8 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                       >
                         <input
                           class="p-inputtext p-component w-full"
-                          id="seedDescription"
-                          name="seedDescription"
+                          id="tree.seedDescription"
+                          name="tree.seedDescription"
                           value=""
                         />
                       </div>
@@ -264,7 +264,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="flowerDescription"
+                        for="tree.flowerDescription"
                       >
                         Flower
                       </label>
@@ -273,8 +273,8 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                       >
                         <input
                           class="p-inputtext p-component w-full"
-                          id="flowerDescription"
-                          name="flowerDescription"
+                          id="tree.flowerDescription"
+                          name="tree.flowerDescription"
                           value=""
                         />
                       </div>
@@ -284,7 +284,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="fruitName"
+                        for="tree.fruitName"
                       >
                         Fruit
                       </label>
@@ -293,8 +293,8 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                       >
                         <input
                           class="p-inputtext p-component w-full"
-                          id="fruitName"
-                          name="fruitName"
+                          id="tree.fruitName"
+                          name="tree.fruitName"
                           value=""
                         />
                       </div>
@@ -362,7 +362,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                       >
                         <div
                           class="p-multiselect p-component p-inputwrapper p-inputwrapper-focus MultiSelectPanel-root-5 MultiSelectPanel-root-6 w-full"
-                          id="habitat"
+                          id="tree.habitat"
                         >
                           <div
                             class="p-hidden-accessible"
@@ -370,7 +370,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                             <input
                               aria-expanded="true"
                               aria-haspopup="listbox"
-                              name="habitat"
+                              name="tree.habitat"
                               readonly=""
                               role="listbox"
                               tabindex="0"
@@ -708,7 +708,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                       </label>
                       <label
                         class="col-12 md:col-4"
-                        for="treeName"
+                        for="tree.treeName"
                       >
                         Name
                       </label>
@@ -717,8 +717,8 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                       >
                         <input
                           class="p-inputtext p-component p-filled w-full"
-                          id="treeName"
-                          name="treeName"
+                          id="tree.treeName"
+                          name="tree.treeName"
                           value="Oak"
                         />
                       </div>
@@ -735,7 +735,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                       </label>
                       <label
                         class="col-12 md:col-4"
-                        for="treeDescription"
+                        for="tree.treeDescription"
                       >
                         Description
                       </label>
@@ -744,8 +744,8 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                       >
                         <textarea
                           class="p-inputtextarea p-inputtext p-component w-full"
-                          id="treeDescription"
-                          name="treeDescription"
+                          id="tree.treeDescription"
+                          name="tree.treeDescription"
                         />
                       </div>
                     </div>
@@ -761,7 +761,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                       </label>
                       <label
                         class="col-12 md:col-4"
-                        for="treeType"
+                        for="tree.treeType"
                       >
                         Type
                       </label>
@@ -770,7 +770,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                       >
                         <div
                           class="p-dropdown p-component p-inputwrapper w-full p-inputwrapper-filled"
-                          id="treeType"
+                          id="tree.treeType"
                         >
                           <div
                             class="p-hidden-accessible"
@@ -786,7 +786,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                           >
                             <select
                               aria-hidden="true"
-                              name="treeType"
+                              name="tree.treeType"
                               tabindex="-1"
                             >
                               <option
@@ -915,7 +915,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                       </label>
                       <label
                         class="col-12 md:col-4"
-                        for="seedDescription"
+                        for="tree.seedDescription"
                       >
                         Seed
                       </label>
@@ -924,8 +924,8 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                       >
                         <input
                           class="p-inputtext p-component w-full"
-                          id="seedDescription"
-                          name="seedDescription"
+                          id="tree.seedDescription"
+                          name="tree.seedDescription"
                           value=""
                         />
                       </div>
@@ -942,7 +942,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                       </label>
                       <label
                         class="col-12 md:col-4"
-                        for="flowerDescription"
+                        for="tree.flowerDescription"
                       >
                         Flower
                       </label>
@@ -951,8 +951,8 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                       >
                         <input
                           class="p-inputtext p-component w-full"
-                          id="flowerDescription"
-                          name="flowerDescription"
+                          id="tree.flowerDescription"
+                          name="tree.flowerDescription"
                           value=""
                         />
                       </div>
@@ -969,7 +969,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                       </label>
                       <label
                         class="col-12 md:col-4"
-                        for="fruitName"
+                        for="tree.fruitName"
                       >
                         Fruit
                       </label>
@@ -978,8 +978,8 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                       >
                         <input
                           class="p-inputtext p-component w-full"
-                          id="fruitName"
-                          name="fruitName"
+                          id="tree.fruitName"
+                          name="tree.fruitName"
                           value=""
                         />
                       </div>
@@ -1114,7 +1114,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                       >
                         <div
                           class="p-multiselect p-component p-inputwrapper p-inputwrapper-focus MultiSelectPanel-root-15 MultiSelectPanel-root-16 w-full"
-                          id="habitat"
+                          id="tree.habitat"
                         >
                           <div
                             class="p-hidden-accessible"
@@ -1122,7 +1122,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                             <input
                               aria-expanded="true"
                               aria-haspopup="listbox"
-                              name="habitat"
+                              name="tree.habitat"
                               readonly=""
                               role="listbox"
                               tabindex="0"
@@ -1441,115 +1441,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                 >
                   📎
                 </label>
-                treeId
-              </div>
-              <div
-                class="field grid"
-              >
-                <label
-                  class="absolute w-15rem col"
-                  draggable="true"
-                  style="cursor: move; margin-left: -1em;"
-                >
-                  📎
-                </label>
-                Name
-              </div>
-              <div
-                class="field grid"
-              >
-                <label
-                  class="absolute w-15rem col"
-                  draggable="true"
-                  style="cursor: move; margin-left: -1em;"
-                >
-                  📎
-                </label>
-                Description
-              </div>
-              <div
-                class="field grid"
-              >
-                <label
-                  class="absolute w-15rem col"
-                  draggable="true"
-                  style="cursor: move; margin-left: -1em;"
-                >
-                  📎
-                </label>
-                Type
-              </div>
-              <div
-                class="field grid"
-              >
-                <label
-                  class="absolute w-15rem col"
-                  draggable="true"
-                  style="cursor: move; margin-left: -1em;"
-                >
-                  📎
-                </label>
-                Seed
-              </div>
-              <div
-                class="field grid"
-              >
-                <label
-                  class="absolute w-15rem col"
-                  draggable="true"
-                  style="cursor: move; margin-left: -1em;"
-                >
-                  📎
-                </label>
-                Male Cone
-              </div>
-              <div
-                class="field grid"
-              >
-                <label
-                  class="absolute w-15rem col"
-                  draggable="true"
-                  style="cursor: move; margin-left: -1em;"
-                >
-                  📎
-                </label>
-                Female Cone
-              </div>
-              <div
-                class="field grid"
-              >
-                <label
-                  class="absolute w-15rem col"
-                  draggable="true"
-                  style="cursor: move; margin-left: -1em;"
-                >
-                  📎
-                </label>
-                Flower
-              </div>
-              <div
-                class="field grid"
-              >
-                <label
-                  class="absolute w-15rem col"
-                  draggable="true"
-                  style="cursor: move; margin-left: -1em;"
-                >
-                  📎
-                </label>
-                Fruit
-              </div>
-              <div
-                class="field grid"
-              >
-                <label
-                  class="absolute w-15rem col"
-                  draggable="true"
-                  style="cursor: move; margin-left: -1em;"
-                >
-                  📎
-                </label>
-                habitat
+                tree
               </div>
             </div>
           </div>
@@ -1786,7 +1678,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="treeName"
+                        for="tree.treeName"
                       >
                         Name
                       </label>
@@ -1804,7 +1696,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="treeDescription"
+                        for="tree.treeDescription"
                       >
                         Description
                       </label>
@@ -1822,7 +1714,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="treeType"
+                        for="tree.treeType"
                       >
                         Type
                       </label>
@@ -1891,7 +1783,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="seedDescription"
+                        for="tree.seedDescription"
                       >
                         Seed
                       </label>
@@ -1909,7 +1801,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="flowerDescription"
+                        for="tree.flowerDescription"
                       >
                         Flower
                       </label>
@@ -1927,7 +1819,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="fruitName"
+                        for="tree.fruitName"
                       >
                         Fruit
                       </label>
@@ -2125,7 +2017,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                       </label>
                       <label
                         class="col-12 md:col-4"
-                        for="treeName"
+                        for="tree.treeName"
                       >
                         Name
                       </label>
@@ -2134,8 +2026,8 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                       >
                         <input
                           class="p-inputtext p-component p-filled w-full"
-                          id="treeName"
-                          name="treeName"
+                          id="tree.treeName"
+                          name="tree.treeName"
                           value="Oak"
                         />
                       </div>
@@ -2152,7 +2044,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                       </label>
                       <label
                         class="col-12 md:col-4"
-                        for="treeDescription"
+                        for="tree.treeDescription"
                       >
                         Description
                       </label>
@@ -2161,8 +2053,8 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                       >
                         <textarea
                           class="p-inputtextarea p-inputtext p-component w-full"
-                          id="treeDescription"
-                          name="treeDescription"
+                          id="tree.treeDescription"
+                          name="tree.treeDescription"
                         />
                       </div>
                     </div>
@@ -2178,7 +2070,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                       </label>
                       <label
                         class="col-12 md:col-4"
-                        for="treeType"
+                        for="tree.treeType"
                       >
                         Type
                       </label>
@@ -2187,7 +2079,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                       >
                         <div
                           class="p-dropdown p-component p-inputwrapper w-full p-inputwrapper-filled"
-                          id="treeType"
+                          id="tree.treeType"
                         >
                           <div
                             class="p-hidden-accessible"
@@ -2203,7 +2095,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                           >
                             <select
                               aria-hidden="true"
-                              name="treeType"
+                              name="tree.treeType"
                               tabindex="-1"
                             >
                               <option
@@ -2332,7 +2224,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                       </label>
                       <label
                         class="col-12 md:col-4"
-                        for="seedDescription"
+                        for="tree.seedDescription"
                       >
                         Seed
                       </label>
@@ -2341,8 +2233,8 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                       >
                         <input
                           class="p-inputtext p-component w-full"
-                          id="seedDescription"
-                          name="seedDescription"
+                          id="tree.seedDescription"
+                          name="tree.seedDescription"
                           value=""
                         />
                       </div>
@@ -2359,7 +2251,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                       </label>
                       <label
                         class="col-12 md:col-4"
-                        for="flowerDescription"
+                        for="tree.flowerDescription"
                       >
                         Flower
                       </label>
@@ -2368,8 +2260,8 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                       >
                         <input
                           class="p-inputtext p-component w-full"
-                          id="flowerDescription"
-                          name="flowerDescription"
+                          id="tree.flowerDescription"
+                          name="tree.flowerDescription"
                           value=""
                         />
                       </div>
@@ -2386,7 +2278,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                       </label>
                       <label
                         class="col-12 md:col-4"
-                        for="fruitName"
+                        for="tree.fruitName"
                       >
                         Fruit
                       </label>
@@ -2395,8 +2287,8 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                       >
                         <input
                           class="p-inputtext p-component w-full"
-                          id="fruitName"
-                          name="fruitName"
+                          id="tree.fruitName"
+                          name="tree.fruitName"
                           value=""
                         />
                       </div>
@@ -2531,7 +2423,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                       >
                         <div
                           class="p-multiselect p-component p-inputwrapper p-inputwrapper-focus MultiSelectPanel-root-21 MultiSelectPanel-root-22 w-full"
-                          id="habitat"
+                          id="tree.habitat"
                         >
                           <div
                             class="p-hidden-accessible"
@@ -2539,7 +2431,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                             <input
                               aria-expanded="true"
                               aria-haspopup="listbox"
-                              name="habitat"
+                              name="tree.habitat"
                               readonly=""
                               role="listbox"
                               tabindex="0"
@@ -2858,115 +2750,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                 >
                   📎
                 </label>
-                treeId
-              </div>
-              <div
-                class="field grid"
-              >
-                <label
-                  class="absolute w-15rem col"
-                  draggable="true"
-                  style="cursor: move; margin-left: -1em;"
-                >
-                  📎
-                </label>
-                Name
-              </div>
-              <div
-                class="field grid"
-              >
-                <label
-                  class="absolute w-15rem col"
-                  draggable="true"
-                  style="cursor: move; margin-left: -1em;"
-                >
-                  📎
-                </label>
-                Description
-              </div>
-              <div
-                class="field grid"
-              >
-                <label
-                  class="absolute w-15rem col"
-                  draggable="true"
-                  style="cursor: move; margin-left: -1em;"
-                >
-                  📎
-                </label>
-                Type
-              </div>
-              <div
-                class="field grid"
-              >
-                <label
-                  class="absolute w-15rem col"
-                  draggable="true"
-                  style="cursor: move; margin-left: -1em;"
-                >
-                  📎
-                </label>
-                Seed
-              </div>
-              <div
-                class="field grid"
-              >
-                <label
-                  class="absolute w-15rem col"
-                  draggable="true"
-                  style="cursor: move; margin-left: -1em;"
-                >
-                  📎
-                </label>
-                Male Cone
-              </div>
-              <div
-                class="field grid"
-              >
-                <label
-                  class="absolute w-15rem col"
-                  draggable="true"
-                  style="cursor: move; margin-left: -1em;"
-                >
-                  📎
-                </label>
-                Female Cone
-              </div>
-              <div
-                class="field grid"
-              >
-                <label
-                  class="absolute w-15rem col"
-                  draggable="true"
-                  style="cursor: move; margin-left: -1em;"
-                >
-                  📎
-                </label>
-                Flower
-              </div>
-              <div
-                class="field grid"
-              >
-                <label
-                  class="absolute w-15rem col"
-                  draggable="true"
-                  style="cursor: move; margin-left: -1em;"
-                >
-                  📎
-                </label>
-                Fruit
-              </div>
-              <div
-                class="field grid"
-              >
-                <label
-                  class="absolute w-15rem col"
-                  draggable="true"
-                  style="cursor: move; margin-left: -1em;"
-                >
-                  📎
-                </label>
-                habitat
+                tree
               </div>
             </div>
           </div>

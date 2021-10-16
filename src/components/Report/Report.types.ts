@@ -1,12 +1,12 @@
 import {WithStyles, withStyles, createStyles} from '@material-ui/core/styles';
 import React from 'react';
-import type { Schema } from 'joi';
+import type { Schema as Validation } from 'joi';
 
-import type {Properties, Dropdowns} from '../types';
+import type {Schema, Dropdowns} from '../types';
 
 export interface Props {
-    properties: Properties,
-    validation?: Schema,
+    schema: Schema,
+    validation?: Validation,
     params: string[],
     columns: string[],
     resultSet?: string,

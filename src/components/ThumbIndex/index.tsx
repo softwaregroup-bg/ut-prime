@@ -4,8 +4,8 @@ import clsx from 'clsx';
 import { ListBox, PanelMenu, TabMenu } from '../prime';
 import { Styled, StyledType } from './ThumbIndex.types';
 
-const ThumbIndex: StyledType = ({ classes, className, index, orientation = 'left', children, onFilter, ...rest }) => {
-    const [[selectedList, activeIndex], setList] = React.useState([index[0], 0]);
+const ThumbIndex: StyledType = ({ classes, className, items, orientation = 'left', children, onFilter, ...rest }) => {
+    const [[selectedList, activeIndex], setList] = React.useState([items[0], 0]);
     const handleListChange = React.useCallback(({value, index}) => {
         setList([value, index]);
         onFilter(value?.items?.[0] || value);
@@ -22,12 +22,12 @@ const ThumbIndex: StyledType = ({ classes, className, index, orientation = 'left
     }, [onFilter, selectedList]);
     const tabs = orientation === 'left' ? <ListBox
         value={selectedList}
-        options={index}
+        options={items}
         itemTemplate={({icon, label}) => <><i className={icon}> {label}</i></>}
         onChange={handleListChange}
         style={{border: 0}}
     /> : <TabMenu
-        model={index}
+        model={items}
         activeIndex={activeIndex}
         onTabChange={handleListChange}
     />;

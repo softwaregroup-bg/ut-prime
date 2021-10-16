@@ -16,7 +16,7 @@ const rowsFilter = (master, filter) => master && Object.fromEntries(
 
 export default React.forwardRef<{}, any>(({
     onChange,
-    columns,
+    widgets,
     value: allRows,
     dataKey = 'id',
     properties,
@@ -56,7 +56,7 @@ export default React.forwardRef<{}, any>(({
         disabled={properties?.[field]?.readOnly}
         className='w-full'
         id={`${props.rowData.id}`}
-        {...properties?.[field].editor}
+        {...properties?.[field]?.widget}
     />, [properties, allRows, master, onChange]);
 
     const init = React.useCallback(({index}) => {
@@ -150,12 +150,12 @@ export default React.forwardRef<{}, any>(({
                 {allowSelect && (!props.selectionMode || props.selectionMode === 'checkbox') && <Column selectionMode="multiple" headerStyle={{ width: '3rem' }}></Column>}
                 {children}
                 {
-                    (columns || []).map(name => <Column
+                    (widgets || []).map(name => <Column
                         key={name}
                         field={name}
                         header={properties?.[name]?.title || name}
                         editor={props => cellEditor(props, name)}
-                        {...columnProps({name, properties, dropdowns, onChange})}
+                        {...columnProps({name, property: properties?.[name], dropdowns, onChange})}
                     />)
                 }
                 {allowEdit && <Column rowEditor headerStyle={{ width: '7rem' }} bodyStyle={{ textAlign: 'center' }}></Column>}

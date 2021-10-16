@@ -1,7 +1,7 @@
 import {WithStyles, withStyles, createStyles} from '@material-ui/core/styles';
 import React from 'react';
 
-import type {Properties, Dropdowns} from '../types';
+import type {Schema, Dropdowns} from '../types';
 
 interface action {
     title: string;
@@ -17,7 +17,7 @@ interface action {
 export interface Props {
     keyField?: string;
     resultSet?: string;
-    properties: Properties;
+    schema: Schema;
     columns: string[];
     fetch: (params: {
         [resultSet: string]: {},

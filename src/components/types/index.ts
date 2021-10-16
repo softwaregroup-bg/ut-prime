@@ -1,6 +1,6 @@
 import React from 'react';
 import type { JSONSchema7 } from 'json-schema'; // eslint-disable-line
-import type { Schema } from 'joi';
+import type { Schema as Validation } from 'joi';
 
 export interface PropertyEditor {
     type: 'dropdown' | 'dropdownTree' | 'text' | 'mask' | 'date' | 'time' | 'date-time' | 'boolean' | 'currency' | 'table' | 'multiSelect' | 'multiSelectPanel' | 'select';
@@ -26,7 +26,7 @@ export interface Editor extends React.FC<{
     ErrorLabel: React.FC<{name: string, className?: string}>
 }> {
     title?: string,
-    editor?: {
+    widget?: {
         parent?: string;
         filter?: {}
     },
@@ -44,23 +44,30 @@ export interface Property extends JSONSchema7 {
         current: {},
         selected: []
     }) => void;
-    editor?: PropertyEditor,
+    widget?: PropertyEditor,
     properties?: {
         [key: string]: Property
     },
-    validation?: Schema
+    items?: Property,
+    validation?: Validation
 }
 
 export interface Properties {
     [name: string]: Property
 }
 
+export interface Schema extends JSONSchema7 {
+    properties?: {
+        [name: string]: Property
+    }
+}
+
 export interface PropertyEditors {
     [name: string]: Property | Editor
 }
 export interface Card {
-    title?: string;
-    properties: string[];
+    label?: string;
+    widgets: (string | {name: string})[];
     className?: string;
     classes?: {
         [name: string]: {

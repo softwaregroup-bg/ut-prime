@@ -18,7 +18,7 @@ const Explorer: StyledType = ({
     keyField,
     fetch,
     subscribe,
-    properties,
+    schema: {properties = {}} = {},
     columns,
     resultSet,
     children,
@@ -49,23 +49,23 @@ const Explorer: StyledType = ({
     const [[items, totalRecords], setItems] = React.useState([[], 0]);
     const [dropdowns, setDropdown] = React.useState({});
 
-    const isEnabled = enabled => {
-        if (typeof enabled !== 'string') return !!enabled;
-        switch (enabled) {
-            case 'current': return !!current;
-            case 'selected': return selected && selected.length > 0;
-            default: return false;
-        }
-    };
-
     const dropdownNames = (columns || [])
         .flat()
         .filter(Boolean)
-        .map(name => lodashGet(properties, name?.replace(/\./g, '.properties.'))?.editor?.dropdown)
-        .filter(Boolean);
+        .map(name => lodashGet(properties, name?.replace(/\./g, '.properties.'))?.widget?.dropdown)
+        .filter(Boolean)
+        .join(',');
 
-    const buttons = React.useMemo(() => (actions || []).map(({title, action, enabled = true}, index) =>
-        <Button
+    const buttons = React.useMemo(() => (actions || []).map(({title, action, enabled = true}, index) => {
+        const isEnabled = enabled => {
+            if (typeof enabled !== 'string') return !!enabled;
+            switch (enabled) {
+                case 'current': return !!current;
+                case 'selected': return selected && selected.length > 0;
+                default: return false;
+            }
+        };
+        return (<Button
             key={index}
             label={title}
             onClick={() => action({
@@ -75,7 +75,8 @@ const Explorer: StyledType = ({
             })}
             disabled={!isEnabled(enabled)}
             className="mr-2"
-        />
+        />);
+    }
     ), [keyField, actions, current, selected]);
     React.useEffect(() => {
         async function load() {
@@ -108,7 +109,7 @@ const Explorer: StyledType = ({
                         total = tableFilter.first + total;
                     }
                     setItems([records, total]);
-                    if (onDropdown) setDropdown(await onDropdown(dropdownNames));
+                    if (onDropdown) setDropdown(await onDropdown(dropdownNames.split(',').filter(Boolean)));
                 } finally {
                     setLoading(false);
                 }
@@ -123,7 +124,7 @@ const Explorer: StyledType = ({
                 }), totalRecords]);
             });
         }
-    }, [fetch, tableFilter, filter, subscribe]);
+    }, [fetch, tableFilter, filter, subscribe, resultSet, pageSize, onDropdown, keyField, dropdownNames]);
     const detailsPanel = React.useMemo(() => detailsOpened && details &&
         <SplitterPanel key='details' size={10}>
             <div style={{ width: '200px' }}>{
@@ -134,7 +135,7 @@ const Explorer: StyledType = ({
                     </div>
                 )
             }</div>
-        </SplitterPanel>, [current, details, detailsOpened]);
+        </SplitterPanel>, [classes.details, classes.detailsLabel, classes.detailsValue, current, details, detailsOpened]);
 
     const filterBy = (name: string, value: string) => e => {
         setFilters(prev => {
@@ -152,28 +153,35 @@ const Explorer: StyledType = ({
         });
     };
 
-    const Columns = React.useMemo(() => columns.map(name => <Column
-        key={name}
-        field={name}
-        header={properties[name]?.title}
-        body={properties[name]?.action && (row => <Button
-            label={row[name]}
-            style={{padding: 0, minWidth: 'inherit'}}
-            className='p-button-link'
-            onClick={() => properties[name].action({
-                id: row && row[keyField],
-                current: row,
-                selected: [row]
-            })}
-        />)}
-        filter={showFilter && !!properties[name]?.filter}
-        sortable={!!properties[name]?.sort}
-        {...columnProps({name, properties, dropdowns, tableFilter, filterBy})}
-    />), [columns, properties, showFilter, dropdowns, tableFilter]);
+    const Columns = React.useMemo(() => columns.map(name => {
+        const property = lodashGet(properties, name?.replace(/\./g, '.properties.'));
+        const field = name.split('.').pop();
+        return (
+            <Column
+                key={name}
+                field={field}
+                header={property?.title}
+                body={property?.action && (row => <Button
+                    label={row[field]}
+                    style={{padding: 0, minWidth: 'inherit'}}
+                    className='p-button-link'
+                    onClick={() => property.action({
+                        id: row && row[keyField],
+                        current: row,
+                        selected: [row]
+                    })}
+                />)}
+                filter={showFilter && !!property?.filter}
+                sortable={!!property?.sort}
+                {...columnProps({name: field, property, dropdowns, tableFilter, filterBy})}
+            />
+        );
+    }), [columns, properties, showFilter, dropdowns, tableFilter, keyField]);
+    const hasChildren = !!children;
     const left = React.useMemo(() => <>
-        {children && <Button icon="pi pi-bars" className="mr-2" onClick={navigationToggle}/>}
+        {hasChildren && <Button icon="pi pi-bars" className="mr-2" onClick={navigationToggle}/>}
         {buttons}
-    </>, [navigationToggle, buttons]);
+    </>, [navigationToggle, buttons, hasChildren]);
     const right = React.useMemo(() => <Button icon="pi pi-bars" className="mr-2" onClick={detailsToggle}/>, [detailsToggle]);
 
     const table = <DataTable

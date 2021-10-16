@@ -16,21 +16,25 @@ export interface TableFilter {
 
 export default function columnProps({
     name,
-    properties,
+    property,
     dropdowns,
     tableFilter,
     filterBy,
     onChange
 }: {
     name: string,
-    properties: {},
+    property: {
+        widget: any,
+        column: {},
+        readOnly: boolean
+    },
     dropdowns: {},
     tableFilter?: TableFilter,
     filterBy?: (name: string, value: string) => (e: {}) => void,
     onChange?: (e: {}) => void
 }) {
-    const {type, dropdown, parent, ...props} = properties?.[name]?.editor || {name};
-    const {column} = properties?.[name] || {};
+    const {type, dropdown, parent, ...props} = property?.widget || {name};
+    const {column} = property || {};
     const fieldName = props.name || name;
     let filterElement, body, editor;
     switch (type) {
@@ -158,7 +162,7 @@ export default function columnProps({
             };
             break;
     }
-    if (properties?.[name]?.readOnly) editor = false;
+    if (property?.readOnly) editor = false;
     return {
         ...filterElement && {filterElement},
         ...body && {body},

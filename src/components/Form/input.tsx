@@ -1,10 +1,31 @@
 import React from 'react';
-import { InputText, Password, InputTextarea, Dropdown, MultiSelect, TreeSelect, TreeTable, InputMask, InputNumber, Calendar, Checkbox, Skeleton, Column } from '../prime';
+import {
+    InputText,
+    Password,
+    InputTextarea,
+    Dropdown,
+    MultiSelect,
+    TreeSelect,
+    TreeTable,
+    InputMask,
+    InputNumber,
+    Calendar,
+    Checkbox,
+    Image,
+    Skeleton,
+    Column
+} from '../prime';
 import { RefCallBack } from 'react-hook-form';
 
 import Table from './inputs/Table';
 import MultiSelectPanel from './inputs/MultiSelectPanel';
 import SelectButton from './inputs/SelectButton';
+
+const Field = ({children, label, error, inputClass}) => <>
+    {label}
+    <div className={inputClass}>{children}</div>
+    {error}
+</>;
 
 export default function input(
     label,
@@ -33,32 +54,27 @@ export default function input(
 ) {
     if (loading) return <>{label}<div className={inputClass}><Skeleton className='p-inputtext'/></div></>;
     props.disabled = schema.readOnly;
-    const Field = ({children}) => <>
-        {label}
-        <div className={inputClass}>{children}</div>
-        {error}
-    </>;
-    const filterBy = item => (!filter && !optionsFilter) || Object.entries({...optionsFilter, ...filter}).every(([name, value]) => String(item[name]) === String(value));
+    const filterBy = item => (!filter && !optionsFilter) || Object.entries({...optionsFilter, ...filter}).every(([name, value]) => value === undefined || String(item[name]) === String(value));
     switch (type) {
-        case 'dropdownTree': return <Field>
+        case 'dropdownTree': return <Field {...{label, error, inputClass}}>
             <TreeSelect
                 {...field}
                 {...props}
             />
         </Field>;
-        case 'text': return <Field>
+        case 'text': return <Field {...{label, error, inputClass}}>
             <InputTextarea
                 {...field}
                 {...props}
             />
         </Field>;
-        case 'mask': return <Field>
+        case 'mask': return <Field {...{label, error, inputClass}}>
             <InputMask
                 {...field}
                 {...props}
             />
         </Field>;
-        case 'currency': return <Field>
+        case 'currency': return <Field {...{label, error, inputClass}}>
             <InputNumber
                 {...field}
                 inputRef={field.ref}
@@ -70,7 +86,7 @@ export default function input(
                 {...props}
             />
         </Field>;
-        case 'boolean': return <Field>
+        case 'boolean': return <Field {...{label, error, inputClass}}>
             <Checkbox
                 {...field}
                 inputRef={field.ref}
@@ -93,7 +109,7 @@ export default function input(
                 />
             </div>
         </>;
-        case 'dropdown': return <Field>
+        case 'dropdown': return <Field {...{label, error, inputClass}}>
             <Dropdown
                 {...field}
                 options={dropdowns?.[dropdown]?.filter(filterBy) || []}
@@ -101,7 +117,7 @@ export default function input(
                 {...props}
             />
         </Field>;
-        case 'multiSelect': return <Field>
+        case 'multiSelect': return <Field {...{label, error, inputClass}}>
             <MultiSelect
                 {...field}
                 options={dropdowns?.[dropdown]?.filter(filterBy) || []}
@@ -110,7 +126,7 @@ export default function input(
                 {...props}
             />
         </Field>;
-        case 'select': return <Field>
+        case 'select': return <Field {...{label, error, inputClass}}>
             <SelectButton
                 {...field}
                 options={dropdowns?.[dropdown]?.filter(filterBy) || []}
@@ -118,7 +134,7 @@ export default function input(
                 {...props}
             />
         </Field>;
-        case 'multiSelectTree': return <Field>
+        case 'multiSelectTree': return <Field {...{label, error, inputClass}}>
             <TreeSelect
                 {...field}
                 options={dropdowns?.[dropdown]?.filter(filterBy) || []}
@@ -133,7 +149,7 @@ export default function input(
                 {...props}
             />
         </Field>;
-        case 'multiSelectPanel': return <Field>
+        case 'multiSelectPanel': return <Field {...{label, error, inputClass}}>
             <MultiSelectPanel
                 appendTo='self'
                 {...field}
@@ -190,7 +206,7 @@ export default function input(
                 </TreeTable>
             </div>
         </>;
-        case 'date-time': return <Field>
+        case 'date-time': return <Field {...{label, error, inputClass}}>
             <Calendar
                 {...field}
                 showTime
@@ -199,7 +215,7 @@ export default function input(
                 {...props}
             />
         </Field>;
-        case 'time': return <Field>
+        case 'time': return <Field {...{label, error, inputClass}}>
             <Calendar
                 {...field}
                 timeOnly
@@ -208,7 +224,7 @@ export default function input(
                 {...props}
             />
         </Field>;
-        case 'date': return <Field>
+        case 'date': return <Field {...{label, error, inputClass}}>
             <Calendar
                 {...field}
                 showIcon
@@ -216,7 +232,7 @@ export default function input(
                 {...props}
             />
         </Field>;
-        case 'integer': return <Field>
+        case 'integer': return <Field {...{label, error, inputClass}}>
             <InputNumber
                 {...field}
                 inputClassName='w-full'
@@ -228,13 +244,21 @@ export default function input(
                 {...props}
             />
         </Field>;
-        case 'password': return <Field>
+        case 'image': return <Field {...{label, error, inputClass}}>
+            <Image
+                imageClassName='w-full'
+                preview
+                src={field.value}
+                {...props}
+            />
+        </Field>;
+        case 'password': return <Field {...{label, error, inputClass}}>
             <Password
                 {...field}
                 {...props}
             />
         </Field>;
-        default: return <Field>
+        default: return <Field {...{label, error, inputClass}}>
             <InputText
                 {...field}
                 {...props}

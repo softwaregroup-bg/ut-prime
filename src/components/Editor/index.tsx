@@ -7,7 +7,7 @@ import clsx from 'clsx';
 import { Styled, StyledType } from './Editor.types';
 
 import Form from '../Form';
-import getSchema from '../Form/schema';
+import getValidation from '../Form/schema';
 import ThumbIndex from '../ThumbIndex';
 import {Toolbar, Button, Card} from '../prime';
 import useToggle from '../hooks/useToggle';
@@ -22,14 +22,13 @@ const capital = (string: string) => string.charAt(0).toUpperCase() + string.slic
 const Editor: StyledType = ({
     object,
     id,
-    properties,
+    schema = {},
     editors,
     type,
     typeField,
     cards,
     layouts,
     layoutName,
-    nested,
     keyField = object + 'Id',
     resultSet = object,
     design: designDefault,
@@ -38,61 +37,60 @@ const Editor: StyledType = ({
     onGet,
     onEdit
 }) => {
+    const {properties = {}} = schema;
     function getLayout(name = '') {
-        let index: any = layouts?.['edit' + capital(name)];
+        let items: any = layouts?.['edit' + capital(name)];
         let layout;
-        const orientation = index?.orientation;
-        if (orientation) index = index.index;
-        if (typeof (index?.[0]?.[0] || index?.[0]) === 'string') {
-            layout = index;
-            index = false;
-        } else layout = !index && ['edit' + capital(name)];
-        return [index, layout, orientation || 'left'];
+        const orientation = items?.orientation;
+        if (orientation) items = items.items;
+        if (typeof (items?.[0]?.[0] || items?.[0]) === 'string') {
+            layout = items;
+            items = false;
+        } else layout = !items && ['edit' + capital(name)];
+        return [items, layout, orientation || 'left'];
     }
 
     const [keyValue, setKeyValue] = React.useState(id);
     const [trigger, setTrigger] = React.useState();
     const [value, setEditValue] = React.useState({});
     const [dropdowns, setDropdown] = React.useState({});
-    const [[index, layout, orientation], setIndex] = React.useState(getLayout(layoutName));
-    const [filter, setFilter] = React.useState(index?.[0]?.items?.[0] || index?.[0]);
+    const [[items, layout, orientation], setIndex] = React.useState(getLayout(layoutName));
+    const [filter, setFilter] = React.useState(items?.[0]?.items?.[0] || items?.[0]);
     const [loading, setLoading] = React.useState('');
-    const [validation, dropdownNames, setValue] = React.useMemo(() => {
-        const indexCards = index && index.map(item => [item.cards, item?.items?.map(item => item.cards)]).flat(2).filter(Boolean);
-        const fields: string[] = Array.from(new Set((indexCards || layout || filter?.cards || [])
+    const widgetName = widget => typeof widget === 'string' ? widget : widget.name;
+    const [validation, dropdownNames, getValue] = React.useMemo(() => {
+        const indexCards = items && items.map(item => [item.widgets, item?.items?.map(item => item.widgets)]).flat(2).filter(Boolean);
+        const fields: string[] = Array.from(new Set((indexCards || layout || filter?.widgets || [])
             .flat()
-            .map(card => cards?.[card]?.properties)
+            .map(card => cards?.[card]?.widgets)
             .flat()
+            .filter(Boolean)
+            .map(widgetName)
             .map(property => editors?.[property]?.properties || property)
             .flat()
             .filter(Boolean)));
-        const validation = getSchema(properties, fields);
+        const validation = getValidation(schema, fields);
         const dropdownNames = fields
-            .map(name => lodashGet(properties, name?.replace(/\./g, '.properties.'))?.editor?.dropdown)
+            .map(name => lodashGet(schema.properties, name?.replace(/\./g, '.properties.'))?.widget?.dropdown)
             .filter(Boolean);
-        const setValue = (value) => {
+        const getValue = (value) => {
             const editValue = {};
             fields.forEach(field => lodashSet(editValue, field, lodashGet(value, field)));
-            setEditValue(editValue);
+            return editValue;
         };
-        return [validation, dropdownNames, setValue];
-    }, [cards, editors, filter?.cards, index, layout, properties]);
+        return [validation, dropdownNames, getValue];
+    }, [cards, editors, filter?.widgets, items, layout, schema]);
 
     async function get() {
         setLoading('loading');
-        let result = (await onGet({[keyField]: keyValue}));
-        if (nested) {
-            result = nested.reduce((prev, field) => ({
-                ...prev,
-                [field]: properties[field]?.properties ? [].concat(result[field])[0] : result[field]
-            }), {});
-        } else {
-            result = result[resultSet];
-            if (Array.isArray(result)) result = result[0];
-        }
+        const result = (await onGet({[keyField]: keyValue}));
+        Object.entries(result).forEach(([name, value]) => {
+            // back end wrongly returned an array with a single item
+            if (Array.isArray(value) && properties[name]?.properties) result[name] = value[0];
+        });
         if (typeField) setIndex(getLayout(result[typeField]));
         setDropdown(await onDropdown(dropdownNames));
-        setValue(result);
+        setEditValue(getValue(result));
         setLoading('');
     }
     async function init() {
@@ -104,14 +102,14 @@ const Editor: StyledType = ({
     const handleSubmit = React.useCallback(
         async function handleSubmit(instance) {
             if (keyValue != null) {
-                const response = await onEdit(nested ? instance : {[object]: instance});
-                setValue(prev => merge(instance, response));
+                const response = getValue(await onEdit(instance));
+                setEditValue(merge(instance, response));
             } else {
-                const response = await onAdd(nested ? instance : {[object]: instance});
-                setKeyValue(nested ? response[nested[0]][keyField] : response[keyField]);
-                setValue(prev => merge(instance, response));
+                const response = getValue(await onAdd(instance));
+                setKeyValue(lodashGet(response, `${resultSet}.${keyField}`));
+                setEditValue(merge(instance, response));
             }
-        }, [keyValue, onEdit, nested, object, setValue, onAdd, keyField]
+        }, [keyValue, onEdit, getValue, onAdd, keyField, resultSet]
     );
 
     useLoad(async() => {
@@ -123,7 +121,7 @@ const Editor: StyledType = ({
 
     function remove(type, source) {
         if (source.card !== '/') {
-            const sourceList = cards[source.card].properties;
+            const sourceList = cards[source.card].widgets;
             sourceList.splice(source.index, 1);
         }
         moved();
@@ -142,14 +140,14 @@ const Editor: StyledType = ({
                 </>}
             />
             <div className={clsx('flex', orientation === 'top' && 'flex-column')} style={{overflowX: 'hidden', width: '100%'}}>
-                {index && <ThumbIndex index={index} orientation={orientation} onFilter={setFilter}/>}
+                {items && <ThumbIndex items={items} orientation={orientation} onFilter={setFilter}/>}
                 <div className='flex' style={flexGrow}>
                     <Form
-                        properties={properties}
+                        schema={schema}
                         editors={editors}
                         design={design}
                         cards={cards}
-                        layout={layout || filter?.cards || []}
+                        layout={layout || filter?.widgets || []}
                         onSubmit={handleSubmit}
                         value={value}
                         dropdowns={dropdowns}
@@ -178,9 +176,9 @@ const Editor: StyledType = ({
                             >{title || name}</ConfigField>)}
                         </Card>
                         <Card title='Cards'>
-                            {Object.entries(cards).map(([name, {title}], index) => <ConfigCard
+                            {Object.entries(cards).map(([name, {label}], index) => <ConfigCard
                                 key={index}
-                                title={title}
+                                title={label}
                                 className='card mb-3'
                                 card={name}
                                 index1={false}

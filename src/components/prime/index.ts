@@ -11,6 +11,7 @@ export { DataTable } from 'primereact/datatable';
 export { Dialog } from 'primereact/dialog';
 export { Dropdown } from 'primereact/dropdown';
 export { FileUpload } from 'primereact/fileupload';
+export { Image } from 'primereact/image';
 export { InputMask } from 'primereact/inputmask';
 export { InputNumber } from 'primereact/inputnumber';
 export { InputText } from 'primereact/inputtext';

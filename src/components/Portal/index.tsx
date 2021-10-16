@@ -17,6 +17,15 @@ import { Styled, StyledType } from './Portal.types';
 import { useWindowSize } from '../hooks';
 const backgroundNone = {background: 'none'};
 
+const filterMenu = (permissions, command, items) => items
+    .filter(permissions ? permissionCheck(permissions.toJS()) : Boolean)
+    .map(({title, items, ...item}) => ({
+        title,
+        label: title,
+        ...items ? {items: filterMenu(permissions, command, items)} : {command},
+        ...item
+    }));
+
 const Portal: StyledType = ({ classes, children }) => {
     const {ut} = useTheme<Theme>();
     const {
@@ -62,18 +71,10 @@ const Portal: StyledType = ({ classes, children }) => {
         } else {
             history.push(tabs[event.index].path);
         }
-    }, [tabs]);
+    }, [dispatch, history, tabs]);
 
-    const filterMenu = items => items
-        .filter(permissions ? permissionCheck(permissions.toJS()) : Boolean)
-        .map(({title, items, ...item}) => ({
-            title,
-            label: title,
-            ...items ? {items: filterMenu(items)} : {command},
-            ...item
-        }));
-    const menuEnabled = React.useMemo(() => filterMenu(menu || []), [menu, permissions]);
-    const rightEnabled = React.useMemo(() => filterMenu(rightMenu || [{
+    const menuEnabled = React.useMemo(() => filterMenu(permissions, command, menu || []), [command, menu, permissions]);
+    const rightEnabled = React.useMemo(() => filterMenu(permissions, command, rightMenu || [{
         title: initials,
         icon: 'user',
         items: [
@@ -84,7 +85,7 @@ const Portal: StyledType = ({ classes, children }) => {
                 action: logout
             }
         ]
-    }]), [rightMenu, rightMenuItems, permissions]);
+    }]), [permissions, command, rightMenu, initials, rightMenuItems]);
 
     if (location.pathname !== '/' && !tabs.find(tab => tab.path === location.pathname + location.search)) {
         dispatch({

@@ -1,6 +1,6 @@
 import {WithStyles, withStyles, createStyles} from '@material-ui/core/styles';
 import React from 'react';
-import { MenuItem } from 'primereact/menuitem/MenuItem';
+import type { MenuItem } from 'primereact/menuitem';
 
 interface Item extends MenuItem {
     filter?: string | string[] | RegExp
@@ -8,7 +8,7 @@ interface Item extends MenuItem {
 
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     className?: string;
-    index: Item[];
+    items: Item[];
     orientation?: 'left' | 'top',
     onFilter: (filter: any) => void
 }

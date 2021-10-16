@@ -113,15 +113,23 @@ exports[`<Portal /> render equals snapshot 1`] = `
     <div
       class="p-tabview p-component Portal-tabs-4"
     >
-      <ul
-        class="p-tabview-nav"
-        role="tablist"
+      <div
+        class="p-tabview-nav-container"
       >
-        <li
-          class="p-tabview-ink-bar"
-          style="width: 0px;"
-        />
-      </ul>
+        <div
+          class="p-tabview-nav-content"
+        >
+          <ul
+            class="p-tabview-nav"
+            role="tablist"
+          >
+            <li
+              class="p-tabview-ink-bar"
+              style="width: 0px;"
+            />
+          </ul>
+        </div>
+      </div>
       <div
         class="p-tabview-panels"
       />

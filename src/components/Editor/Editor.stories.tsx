@@ -76,17 +76,17 @@ Tabs.args = {
     layouts: {
         edit: {
             orientation: 'top',
-            index: [{
+            items: [{
                 icon: 'pi pi-user',
                 label: 'General',
-                cards: ['edit', 'habitat']
+                widgets: ['edit', 'habitat']
             }, {
                 label: 'Details',
                 icon: 'pi pi-book',
-                cards: ['taxonomy', 'morphology']
+                widgets: ['taxonomy', 'morphology']
             }, {
                 icon: 'pi pi-clock',
-                cards: ['history']
+                widgets: ['history']
             }]
         }
     }

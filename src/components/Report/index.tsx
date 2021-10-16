@@ -6,32 +6,39 @@ import { Styled, StyledType } from './Report.types';
 import { Button } from '../prime';
 import Form from '../Form';
 import Explorer from '../Explorer';
+import useLoad from '../hooks/useLoad';
 
 const flexGrow = {flexGrow: 1};
 
-const Report: StyledType = ({ properties, validation, params = [], columns = [], fetch, onDropdown, resultSet }) => {
+const Report: StyledType = ({
+    schema,
+    validation,
+    params = [],
+    columns = [],
+    fetch,
+    onDropdown,
+    resultSet
+}) => {
     const [trigger, setTrigger] = React.useState();
     const dropdownNames = params
         .flat()
         .filter(Boolean)
-        .map(name => lodashGet(properties, name?.replace(/\./g, '.properties.'))?.editor?.dropdown)
+        .map(name => lodashGet(schema?.properties, name?.replace(/\./g, '.properties.'))?.widget?.dropdown)
         .filter(Boolean);
     const [dropdowns, setDropdown] = React.useState({});
-    async function init() {
+
+    useLoad(async() => {
         setDropdown(await onDropdown(dropdownNames));
-    }
-    React.useEffect(() => {
-        init();
-    }, []);
+    });
     const [filter, setFilter] = React.useState({});
     return (
         <>
             <div className='flex align-items-center'>
                 <Form
                     style={flexGrow}
-                    properties={properties}
+                    schema={schema}
                     validation={validation}
-                    cards={{params: {properties: params, className: 'col-12', flex: 'col-12 md:col-4 xl:col-3'}}}
+                    cards={{params: {widgets: params, className: 'col-12', flex: 'col-12 md:col-4 xl:col-3'}}}
                     layout={['params']}
                     onSubmit={setFilter}
                     value={filter}
@@ -42,7 +49,7 @@ const Report: StyledType = ({ properties, validation, params = [], columns = [],
             </div>
             <Explorer
                 fetch={fetch}
-                properties={properties}
+                schema={schema}
                 columns={columns}
                 resultSet={resultSet}
                 details={false}

@@ -13,53 +13,24 @@ import useForm from '../hooks/useForm';
 import useToggle from '../hooks/useToggle';
 import useSubmit from '../hooks/useSubmit';
 import Controller from '../Controller';
-import getSchema from './schema';
+import getValidation from './schema';
 
 const inputClass = (index, classes, name, className) => ({
     ...classes?.default,
     ...classes?.[name]
 }.input || ((index.properties[name]?.title || className) ? `col-12 ${className || 'md:col-8'}` : 'col-12'));
 
-const Input = ({control, index, setValue, name, filter, dropdowns, loading, classes, className = '', error, label}) => <Controller
-    control={control}
-    name={name}
-    render={
-        React.useCallback(({field, fieldState}) => input(
-            label,
-            error,
-            {
-                className: clsx('w-full', { 'p-invalid': fieldState.error }),
-                ...field,
-                onChange: (e, {select = false, field: changeField = true, children = true} = {}) => {
-                    if (select) {
-                        setValue(`$.${field.name}.selected`, e);
-                    }
-                    try {
-                        if (children) {
-                            const items = index.children[field.name];
-                            if (items) items.forEach(child => setValue(child, null));
-                        }
-                    } finally {
-                        if (changeField) field.onChange(e);
-                    }
-                }
-            },
-            inputClass(index, classes, field.name, className),
-            {id: field.name, ...index.properties[field.name]?.editor},
-            index.properties[field.name],
-            dropdowns,
-            filter,
-            loading
-        ),
-        [className, classes, dropdowns, filter, index, loading, setValue, error, label])
-    }
-/>;
+const widgetName = name => typeof name === 'string' ? name : name.name;
 
 const flatten = (properties: Properties, editors: Editors, root: string = '') : PropertyEditors => Object.entries(properties).reduce(
     (map, [name, property]) => {
         return ('properties' in property) ? {
             ...map,
             ...flatten(property.properties, {}, root + name + '.')
+        } : ('items' in property) ? {
+            ...map,
+            [root + name]: property,
+            ...flatten(property.items.properties, {}, root + name + '.')
         } : {
             ...map,
             [root + name]: property
@@ -76,7 +47,7 @@ const getIndex = (properties: Properties, editors: Editors) : {
     return {
         properties: index,
         children: Object.entries(index).reduce((prev, [name, property]) => {
-            const parent = property?.editor?.parent;
+            const parent = property?.widget?.parent;
             if (parent) {
                 const items = prev[parent];
                 if (items) items.push(name);
@@ -100,7 +71,7 @@ const outline = {outline: '1px dotted #ffff0030'};
 const Form: StyledType = ({
     classes,
     className,
-    properties,
+    schema = {},
     editors,
     design,
     cards,
@@ -113,14 +84,15 @@ const Form: StyledType = ({
     validation,
     ...rest
 }) => {
-    const joiSchema = validation || getSchema(properties);
+    const {properties = {}} = schema;
+    const joiSchema = validation || getValidation(schema);
     // console.log(joiSchema.describe());
     const {handleSubmit: formSubmit, control, reset, formState: {errors, isDirty}, watch, setValue, setError, clearErrors} = useForm({resolver: joiResolver(joiSchema)});
     const visibleCards: (string | string[])[] = (layout || Object.keys(cards));
     const errorFields = flat(errors).flat();
     const visibleProperties = visibleCards.map(id => {
         const nested = [].concat(id);
-        return nested.map(cardName => cards[cardName]?.properties);
+        return nested.map(cardName => cards[typeof cardName === 'string' ? cardName : cardName.name]?.widgets);
     }).flat(10).filter(Boolean);
 
     const [, moved] = useToggle();
@@ -152,11 +124,11 @@ const Form: StyledType = ({
 
     const move = React.useCallback((type: 'card' | 'field', source, destination) => {
         if (type === 'field') {
-            const destinationList = cards[destination.card].properties;
+            const destinationList = cards[destination.card].widgets;
             if (source.card === '/') {
                 destinationList.splice(destination.index, 0, source.index);
             } else {
-                const sourceList = cards[source.card].properties;
+                const sourceList = cards[source.card].widgets;
                 destinationList.splice(destination.index, 0, sourceList.splice(source.index, 1)[0]);
             }
         } else if (type === 'card') {
@@ -201,21 +173,40 @@ const Form: StyledType = ({
         moved();
     }, [cards, moved, visibleCards]);
 
-    const InputWrap = React.useCallback(({name, className, error, label}) => {
-        const parent = idx.properties[name]?.editor?.parent;
+    const InputWrap = React.useCallback(({label, error, name, className, ...widget}) => {
+        const parent = idx.properties[name]?.widget?.parent;
         return (
-            <Input
-                classes = {classes}
-                control = {control}
-                name = {name}
-                dropdowns = {dropdowns}
-                filter = {parent && {parent: watch(parent)}}
-                loading = {loading}
-                index = {idx}
-                setValue = {setValue}
-                className = {className}
-                error = {error}
-                label = {label}
+            <Controller
+                control={control}
+                name={name}
+                render={({field, fieldState}) => input(
+                    label,
+                    error,
+                    {
+                        className: clsx('w-full', { 'p-invalid': fieldState.error }),
+                        ...field,
+                        value: field.value || '',
+                        onChange: (e, {select = false, field: changeField = true, children = true} = {}) => {
+                            if (select) {
+                                setValue(`$.${field.name}.selected`, e);
+                            }
+                            try {
+                                if (children) {
+                                    const items = idx.children[field.name];
+                                    if (items) items.forEach(child => setValue(child, null));
+                                }
+                            } finally {
+                                if (changeField) field.onChange(e);
+                            }
+                        }
+                    },
+                    inputClass(idx, classes, field.name, className),
+                    {id: field.name, ...idx.properties[field.name]?.widget, ...widget},
+                    idx.properties[field.name],
+                    dropdowns,
+                    parent && {parent: watch(parent)},
+                    loading
+                )}
             />
         );
     }, [classes, control, dropdowns, idx, loading, setValue, watch]);
@@ -234,24 +225,27 @@ const Form: StyledType = ({
             : null;
     }, [errors]);
 
-    function card(id: string, index1, index2) {
-        const {title, properties = [], flex, hidden, classes} = (cards[id] || {title: '❌ ' + id});
+    function card(cardName, index1, index2) {
+        if (typeof cardName === 'object') cardName = cardName.name;
+        const {label, widgets = [], flex, hidden, classes} = (cards[cardName] || {title: '❌ ' + cardName});
         return (
-            <ConfigCard title={title} key={`${index1}-${index2}`} className='card mb-3' card={id} id={id} index1={index1} index2={index2} move={move} flex={flex} design={design} hidden={hidden}>
+            <ConfigCard title={label} key={`${index1}-${index2}`} className='card mb-3' card={cardName} id={cardName} index1={index1} index2={index2} move={move} flex={flex} design={design} hidden={hidden}>
                 <div className={clsx(flex && 'flex flex-wrap')}>
-                    {properties.map((name, ind) => {
+                    {widgets.map((widget, ind) => {
+                        if (typeof widget === 'string') widget = {name: widget};
+                        const {name} = widget;
                         const property = idx.properties[name];
                         const {
                             field: fieldClass = (typeof property === 'function') ? 'grid' : 'field grid',
                             label: labelClass
                         } = {...classes?.default, ...classes?.[name]};
-                        function Component() {
-                            if (typeof property === 'function') return property({name, Input: InputWrap, Label, ErrorLabel});
+                        function Field() {
+                            if (typeof property === 'function') return property({name: name, Input: InputWrap, Label, ErrorLabel});
                             return (
                                 <InputWrap
-                                    name={name}
                                     label={<Label name={name} className={labelClass}/>}
                                     error={<ErrorLabel name={name} className={labelClass} />}
+                                    {...widget}
                                 />
                             );
                         }
@@ -259,13 +253,13 @@ const Form: StyledType = ({
                             className={clsx(fieldClass, flex)}
                             key={name}
                             index={ind}
-                            card={id}
+                            card={cardName}
                             move={move}
                             design={design}
                             name={name}
                             label={property.title}
                         >
-                            <Component />
+                            {Field()}
                         </ConfigField> : <div className="field grid" key={name}>❌ {name}</div>;
                     })}
                 </div>
@@ -284,7 +278,7 @@ const Form: StyledType = ({
             }
             {visibleCards.map((id1, level1) => {
                 const nested = [].concat(id1);
-                const key = nested[0];
+                const key = widgetName(nested[0]);
                 if (cards[key]?.hidden && !design) return null;
                 return (
                     <div key={level1} className={clsx('col-12', cards[key]?.className || (!cards[key]?.hidden && 'xl:col-6'))} {...design && {style: outline}}>

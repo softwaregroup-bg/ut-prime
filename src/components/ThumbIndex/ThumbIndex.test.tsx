@@ -6,7 +6,7 @@ import ThumbIndex from './index';
 describe('<ThumbIndex />', () => {
     it('render equals snapshot', () => {
         const onFilter = jest.fn();
-        const { getByTestId } = render(<ThumbIndex index={[]} onFilter={onFilter}/>);
+        const { getByTestId } = render(<ThumbIndex items={[]} onFilter={onFilter}/>);
         expect(getByTestId('ut-front-test')).toMatchSnapshot();
     });
 });

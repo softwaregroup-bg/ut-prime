@@ -264,38 +264,46 @@ exports[`<App /> render equals snapshot 1`] = `
         <div
           class="p-tabview p-component Portal-tabs-10"
         >
-          <ul
-            class="p-tabview-nav"
-            role="tablist"
+          <div
+            class="p-tabview-nav-container"
           >
-            <li
-              class="p-unselectable-text p-tabview-selected p-highlight"
-              role="presentation"
+            <div
+              class="p-tabview-nav-content"
             >
-              <a
-                aria-controls="pr_id_1_content_0"
-                aria-selected="true"
-                class="p-tabview-nav-link"
-                id="pr_id_1_header_0"
-                role="tab"
-                tabindex="0"
+              <ul
+                class="p-tabview-nav"
+                role="tablist"
               >
-                <span
-                  class="p-tabview-title"
+                <li
+                  class="p-unselectable-text p-tabview-selected p-highlight"
+                  role="presentation"
                 >
-                  Dashboard
-                    
-                </span>
-                <i
-                  class="pi pi-times"
+                  <a
+                    aria-controls="pr_id_1_content_0"
+                    aria-selected="true"
+                    class="p-tabview-nav-link"
+                    id="pr_id_1_header_0"
+                    role="tab"
+                    tabindex="0"
+                  >
+                    <span
+                      class="p-tabview-title"
+                    >
+                      Dashboard
+                        
+                    </span>
+                    <i
+                      class="pi pi-times"
+                    />
+                  </a>
+                </li>
+                <li
+                  class="p-tabview-ink-bar"
+                  style="left: 0px;"
                 />
-              </a>
-            </li>
-            <li
-              class="p-tabview-ink-bar"
-              style="left: 0px;"
-            />
-          </ul>
+              </ul>
+            </div>
+          </div>
           <div
             class="p-tabview-panels"
           >

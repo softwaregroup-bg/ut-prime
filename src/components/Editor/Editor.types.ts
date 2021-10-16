@@ -1,17 +1,16 @@
 import {WithStyles, withStyles, createStyles} from '@material-ui/core/styles';
 import React from 'react';
+import type { MenuItem } from 'primereact/menuitem';
 
-import type { MenuItem } from 'primereact/menuitem/MenuItem';
-import type {Properties, Editors, Cards, Dropdowns} from '../types';
+import type {Schema, Editors, Cards, Dropdowns} from '../types';
 
 interface Index extends MenuItem {
-    orientation?: 'left' | 'top',
-    index: MenuItem
+    orientation?: 'left' | 'top';
 }
 export interface Props {
     object: string,
     id?: any,
-    properties: Properties,
+    schema: Schema,
     editors?: Editors,
     type?: string,
     typeField?: string,

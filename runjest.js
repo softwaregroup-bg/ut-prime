@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // enable running jest when project is cloned in subfolder of node_modules
 const Runtime = require('jest-runtime').default; // eslint-disable-line
 
@@ -9,4 +10,4 @@ Runtime.createHasteMap = function(...args) {
     return ret;
 };
 
-module.exports = require('jest/bin/jest');
+module.exports = require('jest-cli/bin/jest');

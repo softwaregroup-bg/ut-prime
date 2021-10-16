@@ -6,7 +6,7 @@ import Joi from 'joi';
 import README from './README.md';
 import ThumbIndex from './index';
 import Form from '../Form';
-import {Properties, PropertyEditor} from '../types';
+import {Schema, PropertyEditor} from '../types';
 import {Toolbar, Button} from '../prime';
 import useToast from '../hooks/useToast';
 
@@ -32,11 +32,11 @@ const data = {
     ]
 };
 
-const index = [{
+const items = [{
     icon: 'pi pi-user',
     items: [{
         label: 'Main',
-        cards: ['main', 'reg', 'financial', 'invalid'],
+        widgets: ['main', 'reg', 'financial', 'invalid'],
         items: [
             {label: 'Identification'},
             {label: 'Registration'},
@@ -44,7 +44,7 @@ const index = [{
         ]
     }, {
         label: 'Contacts',
-        cards: ['address', 'phone', 'email', 'person'],
+        widgets: ['address', 'phone', 'email', 'person'],
         items: [
             {label: 'Address'},
             {label: 'Phone & Mail'},
@@ -74,88 +74,84 @@ const currencyEditor: PropertyEditor = {
         {value: 2, label: 'EUR'}
     ]
 };
-const phoneEditor: PropertyEditor = {
-    type: 'table',
-    columns: ['type', 'countryCode', 'phoneNumber']
+const tableEditor: PropertyEditor = {
+    type: 'table'
 };
 
-const emailEditor: PropertyEditor = {
-    type: 'table',
-    columns: ['type', 'emailAddress']
-};
-
-const properties: Properties = {
-    identifierType: {title: 'Identifier type *', editor: identifierTypeEditor, validation: Joi.number().integer().required().label('Identifier type')},
-    identifier: {title: 'Identifier *', validation: Joi.string().required()},
-    clientNumber: {title: 'Client number'},
-    legalStatus: {title: 'Legal status'},
-    regDoc: {
-        properties: {
-            type: {title: 'Document type'},
-            num: {
-                title: 'Document number',
-                validation: Joi.string()
-                    .when('type', {
-                        is: [Joi.string(), Joi.number()],
-                        then: Joi.required(),
-                        otherwise: Joi.allow('')
-                    })
-                    .label('Document number')
-            }
-        }
-    },
-    regIssuer: {title: 'Issuer'},
-    regCountry: {title: 'Country'},
-    regStart: {title: 'Issuing date', editor: {type: 'date', mask: '99/99/9999'}, validation: Joi.date()},
-    regEnd: {title: 'Valid until', editor: {type: 'date', mask: '99/99/9999'}, validation: Joi.date()},
-    capital: {title: 'Issued Capital', editor: {type: 'currency'}, validation: Joi.number()},
-    capitalCurrency: {title: 'Issued Capital currency', editor: currencyEditor, validation: Joi.number().integer()},
-    capitalDate: {title: 'Issued on'},
-    capitalCountry: {title: 'Capital country'},
-    ownerNationality: {title: 'Capital owner nationality'},
-    addressCountry: {title: 'Country'},
-    addressCity: {title: 'City'},
-    addressZip: {title: 'Post code'},
-    addressStreet: {title: 'Street'},
-    phone: {
-        title: '',
-        editor: phoneEditor,
-        validation: Joi.any(),
-        items: {
+const schema: Schema = {
+    properties: {
+        identifierType: {title: 'Identifier type *', widget: identifierTypeEditor, validation: Joi.number().integer().required().label('Identifier type')},
+        identifier: {title: 'Identifier *', validation: Joi.string().required()},
+        clientNumber: {title: 'Client number'},
+        legalStatus: {title: 'Legal status'},
+        regDoc: {
             properties: {
-                type: {title: 'Type'},
-                countryCode: {title: 'Country code'},
-                phoneNumber: {title: 'Number'}
+                type: {title: 'Document type'},
+                num: {
+                    title: 'Document number',
+                    validation: Joi.string()
+                        .when('type', {
+                            is: [Joi.string(), Joi.number()],
+                            then: Joi.required(),
+                            otherwise: Joi.allow('')
+                        })
+                        .label('Document number')
+                }
             }
-        }
-    },
-    email: {
-        title: '',
-        editor: emailEditor,
-        validation: Joi.any(),
-        items: {
-            properties: {
-                type: {title: 'Type'},
-                emailAddress: {title: 'Email address'}
+        },
+        regIssuer: {title: 'Issuer'},
+        regCountry: {title: 'Country'},
+        regStart: {title: 'Issuing date', widget: {type: 'date', mask: '99/99/9999'}, validation: Joi.date()},
+        regEnd: {title: 'Valid until', widget: {type: 'date', mask: '99/99/9999'}, validation: Joi.date()},
+        capital: {title: 'Issued Capital', widget: {type: 'currency'}, validation: Joi.number()},
+        capitalCurrency: {title: 'Issued Capital currency', widget: currencyEditor, validation: Joi.number().integer()},
+        capitalDate: {title: 'Issued on'},
+        capitalCountry: {title: 'Capital country'},
+        ownerNationality: {title: 'Capital owner nationality'},
+        addressCountry: {title: 'Country'},
+        addressCity: {title: 'City'},
+        addressZip: {title: 'Post code'},
+        addressStreet: {title: 'Street'},
+        phone: {
+            title: '',
+            widget: tableEditor,
+            validation: Joi.any(),
+            items: {
+                properties: {
+                    type: {title: 'Type'},
+                    countryCode: {title: 'Country code'},
+                    phoneNumber: {title: 'Number'}
+                }
             }
-        }
-    },
-    personName: {title: 'Name'},
-    personPosition: {title: 'Position'}
+        },
+        email: {
+            title: '',
+            widget: tableEditor,
+            validation: Joi.any(),
+            items: {
+                properties: {
+                    type: {title: 'Type'},
+                    emailAddress: {title: 'Email address'}
+                }
+            }
+        },
+        personName: {title: 'Name'},
+        personPosition: {title: 'Position'}
+    }
 };
 
 const cards = {
-    main: {title: 'Main data', className: 'lg:col-6 xl:col-4', properties: ['identifierType', 'identifier', 'clientNumber', 'legalStatus']},
-    reg: {title: 'Registration', className: 'lg:col-6 xl:col-4', properties: ['regDoc.type', 'regDoc.num', 'regIssuer', 'regCountry', 'regStart', 'regEnd']},
-    financial: {title: 'Financial data', className: 'lg:col-6 xl:col-4', properties: ['capital', 'capitalCurrency', 'capitalDate', 'capitalCountry', 'ownerNationality']},
-    address: {title: 'Address', properties: ['addressCountry', 'addressCity', 'addressZip', 'addressStreet']},
-    phone: {title: 'Phone', properties: ['phone']},
-    email: {title: 'E-mail', properties: ['email']},
-    person: {title: 'Contact person', properties: ['personName', 'personPosition']}
+    main: {title: 'Main data', className: 'lg:col-6 xl:col-4', widgets: ['identifierType', 'identifier', 'clientNumber', 'legalStatus']},
+    reg: {title: 'Registration', className: 'lg:col-6 xl:col-4', widgets: ['regDoc.type', 'regDoc.num', 'regIssuer', 'regCountry', 'regStart', 'regEnd']},
+    financial: {title: 'Financial data', className: 'lg:col-6 xl:col-4', widgets: ['capital', 'capitalCurrency', 'capitalDate', 'capitalCountry', 'ownerNationality']},
+    address: {title: 'Address', widgets: ['addressCountry', 'addressCity', 'addressZip', 'addressStreet']},
+    phone: {title: 'Phone', widgets: [{name: 'phone', widgets: ['type', 'countryCode', 'phoneNumber']}]},
+    email: {title: 'E-mail', widgets: [{name: 'email', widgets: ['type', 'emailAddress']}]},
+    person: {title: 'Contact person', widgets: ['personName', 'personPosition']}
 };
 
 export const Basic: React.FC<{}> = () => {
-    const [filter, setFilter] = React.useState(index?.[0]?.items?.[0]);
+    const [filter, setFilter] = React.useState(items?.[0]?.items?.[0]);
     const [trigger, setTrigger] = React.useState<(event: {}) => void>();
     const {toast, submit} = useToast();
     return (
@@ -163,11 +159,11 @@ export const Basic: React.FC<{}> = () => {
             {toast}
             <Toolbar left={<Button icon='pi pi-save' onClick={trigger} disabled={!trigger}/>}/>
             <div className='flex' style={{overflowX: 'hidden', width: '100%'}}>
-                <ThumbIndex index={index} onFilter={setFilter}/>
+                <ThumbIndex items={items} onFilter={setFilter}/>
                 <Form
-                    properties={properties}
+                    schema={schema}
                     cards={cards}
-                    layout={filter?.cards || []}
+                    layout={filter?.widgets || []}
                     onSubmit={submit}
                     setTrigger={setTrigger}
                     value={data}
