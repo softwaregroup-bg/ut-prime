@@ -1,3 +1,12 @@
+## [1.44.2](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.44.1...v1.44.2) (2021-10-16)
+
+
+### Bug Fixes
+
+* labels ([db023c3](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/db023c305296502cc71d1dfad73c7fbd6cb19286))
+
+
+
 ## [1.44.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.44.0...v1.44.1) (2021-10-16)
 
 
