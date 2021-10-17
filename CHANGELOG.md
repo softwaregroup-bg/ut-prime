@@ -1,3 +1,12 @@
+## [1.44.3](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.44.2...v1.44.3) (2021-10-17)
+
+
+### Bug Fixes
+
+* controlled components empty value ([9b6cc0d](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/9b6cc0d7ae3f1b7ae3b8f012dc9613c93eb5acfd))
+
+
+
 ## [1.44.2](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.44.1...v1.44.2) (2021-10-16)
 
 
