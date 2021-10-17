@@ -66,7 +66,7 @@ exports[`<Report /> render equals snapshot 1`] = `
                       class="col-12 md:col-8"
                     >
                       <span
-                        class="p-calendar p-component p-inputwrapper w-full p-calendar-w-btn p-inputwrapper-filled"
+                        class="p-calendar p-component p-inputwrapper w-full p-calendar-w-btn"
                         id="startDate"
                       >
                         <input
@@ -106,7 +106,7 @@ exports[`<Report /> render equals snapshot 1`] = `
                       class="col-12 md:col-8"
                     >
                       <span
-                        class="p-calendar p-component p-inputwrapper w-full p-calendar-w-btn p-inputwrapper-filled"
+                        class="p-calendar p-component p-inputwrapper w-full p-calendar-w-btn"
                         id="endDate"
                       >
                         <input
