@@ -185,7 +185,6 @@ const Form: StyledType = ({
                     {
                         className: clsx('w-full', { 'p-invalid': fieldState.error }),
                         ...field,
-                        value: field.value || '',
                         onChange: (e, {select = false, field: changeField = true, children = true} = {}) => {
                             if (select) {
                                 setValue(`$.${field.name}.selected`, e);

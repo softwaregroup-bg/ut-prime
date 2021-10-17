@@ -65,12 +65,14 @@ export default function input(
         case 'text': return <Field {...{label, error, inputClass}}>
             <InputTextarea
                 {...field}
+                value={field.value || ''}
                 {...props}
             />
         </Field>;
         case 'mask': return <Field {...{label, error, inputClass}}>
             <InputMask
                 {...field}
+                value={field.value || ''}
                 {...props}
             />
         </Field>;
@@ -255,12 +257,14 @@ export default function input(
         case 'password': return <Field {...{label, error, inputClass}}>
             <Password
                 {...field}
+                value={field.value || ''}
                 {...props}
             />
         </Field>;
         default: return <Field {...{label, error, inputClass}}>
             <InputText
                 {...field}
+                value={field.value || ''}
                 {...props}
             />
         </Field>;
