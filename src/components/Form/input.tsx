@@ -54,7 +54,7 @@ export default function input(
 ) {
     if (loading) return <>{label}<div className={inputClass}><Skeleton className='p-inputtext'/></div></>;
     props.disabled = schema.readOnly;
-    const filterBy = item => (!filter && !optionsFilter) || Object.entries({...optionsFilter, ...filter}).every(([name, value]) => value === undefined || String(item[name]) === String(value));
+    const filterBy = item => (!filter && !optionsFilter) || Object.entries({...optionsFilter, ...filter}).every(([name, value]) => String(item[name]) === String(value));
     switch (type) {
         case 'dropdownTree': return <Field {...{label, error, inputClass}}>
             <TreeSelect
@@ -162,7 +162,7 @@ export default function input(
         </Field>;
         case 'selectTable': {
             const all = dropdowns?.[dropdown];
-            const value = all.filter(filterBy) || [];
+            const value = all?.filter(filterBy) || [];
             const dataKey = props.dataKey || 'value';
             const valueKeys = value.map(item => item[dataKey]);
             const single = props.selectionMode === 'single';
