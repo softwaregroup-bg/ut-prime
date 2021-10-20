@@ -30,7 +30,10 @@ const Explorer: StyledType = ({
     pageSize = 10
 }) => {
     const [tableFilter, setFilters] = React.useState<TableFilter>({
-        filters: columns?.reduce((prev, column) => (filter?.[column] === undefined) ? prev : {...prev, [column]: {value: filter[column]}}, {}),
+        filters: columns?.reduce((prev, column) => {
+            column = column.split('.').pop();
+            return (filter?.[column] === undefined) ? prev : {...prev, [column]: {value: filter[column]}};
+        }, {}),
         first: 0,
         page: 1
     });
