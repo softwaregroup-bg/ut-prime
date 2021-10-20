@@ -1,3 +1,13 @@
+## [1.44.4](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.44.3...v1.44.4) (2021-10-20)
+
+
+### Bug Fixes
+
+* column filters ([23ab6ed](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/23ab6ed2ee11f29372c48feaa71c1629fb66c04f))
+* field filters ([217840e](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/217840e4117aadb43a04e704862b447610c0c32a))
+
+
+
 ## [1.44.3](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.44.2...v1.44.3) (2021-10-17)
 
 
