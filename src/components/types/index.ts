@@ -1,11 +1,31 @@
-import React from 'react';
+import type React from 'react';
 import type { JSONSchema7 } from 'json-schema'; // eslint-disable-line
 import type { Schema as Validation } from 'joi';
+import type { MenuItem } from 'primereact/menuitem';
+import type { ColumnProps } from 'primereact/column';
 
 export interface PropertyEditor {
-    type: 'dropdown' | 'dropdownTree' | 'text' | 'mask' | 'date' | 'time' | 'date-time' | 'boolean' | 'currency' | 'table' | 'multiSelect' | 'multiSelectPanel' | 'select';
+    type?:
+        'boolean' |
+        'date-time' |
+        'date' |
+        'dropdown' |
+        'dropdownTree' |
+        'integer' |
+        'mask' |
+        'multiSelect' |
+        'multiSelectPanel' |
+        'multiSelectTree' |
+        'password' |
+        'select' |
+        'selectTable' |
+        'currency' |
+        'table' |
+        'text' |
+        'time';
     dropdown?: string;
     parent?: string;
+    column?: ColumnProps;
     [editorProperties: string]: any
 }
 
@@ -67,7 +87,7 @@ export interface PropertyEditors {
 }
 export interface Card {
     label?: string;
-    widgets: (string | {name: string})[];
+    widgets: (string | {name: string, widgets?: any[]})[];
     className?: string;
     classes?: {
         [name: string]: {
@@ -82,4 +102,23 @@ export interface Card {
 
 export interface Cards {
     [name: string]: Card
+}
+
+interface Index extends MenuItem {
+    orientation?: 'left' |
+    'top';
+}
+export interface Layouts {
+    [name: string]: (string | string[])[] | Index
+}
+
+export interface Action {
+    title: string;
+    permission?: string;
+    enabled?: string | boolean;
+    action: ({
+        id: any,
+        current: {},
+        selected: []
+    }) => void;
 }

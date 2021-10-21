@@ -1,18 +1,7 @@
 import {WithStyles, withStyles, createStyles} from '@material-ui/core/styles';
 import React from 'react';
 
-import type {Schema, Dropdowns} from '../types';
-
-interface action {
-    title: string;
-    permission?: string;
-    enabled?: string | boolean;
-    action: ({
-        id: any,
-        current: {},
-        selected: []
-    }) => void;
-}
+import type {Schema, Dropdowns, Action} from '../types';
 
 export interface Props {
     keyField?: string;
@@ -39,7 +28,7 @@ export interface Props {
     onDropdown?: (params: string[]) => Promise<Dropdowns>,
     className?: string;
     details: {};
-    actions?: action[];
+    actions?: Action[];
     filter?: {};
     showFilter?: boolean;
     pageSize?: number

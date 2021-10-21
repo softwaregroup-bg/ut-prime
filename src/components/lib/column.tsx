@@ -24,24 +24,23 @@ export default function columnProps({
 }: {
     name: string,
     property: {
-        widget: any,
-        column: {},
-        readOnly: boolean
+        widget?: any,
+        readOnly?: boolean,
+        foreign?: string
     },
     dropdowns: {},
     tableFilter?: TableFilter,
     filterBy?: (name: string, value: string) => (e: {}) => void,
     onChange?: (e: {}) => void
 }) {
-    const {type, dropdown, parent, ...props} = property?.widget || {name};
-    const {column} = property || {};
-    const fieldName = props.name || name;
+    const {type, dropdown, parent, column, ...props} = property?.widget || {name};
+    const fieldName = name;
     let filterElement, body, editor;
     switch (type) {
         case 'boolean':
             filterElement = filterBy && <Checkbox
-                checked={tableFilter?.filters?.[fieldName]?.value}
-                onChange={filterBy(fieldName, 'checked')}
+                checked={tableFilter?.filters?.[property?.foreign || fieldName]?.value}
+                onChange={filterBy(property?.foreign || fieldName, 'checked')}
                 {...props}
             />;
             body = function body(rowData) {
@@ -65,8 +64,8 @@ export default function columnProps({
             filterElement = filterBy && <Dropdown
                 className='w-full'
                 options={dropdowns?.[dropdown] || []}
-                value={tableFilter?.filters?.[fieldName]?.value}
-                onChange={filterBy(fieldName, 'value')}
+                value={tableFilter?.filters?.[property?.foreign || fieldName]?.value}
+                onChange={filterBy(property?.foreign || fieldName, 'value')}
                 showClear
                 {...props}
             />;
