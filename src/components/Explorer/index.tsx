@@ -1,5 +1,6 @@
 import React from 'react';
 import lodashGet from 'lodash.get';
+import merge from 'ut-function.merge';
 import clsx from 'clsx';
 
 import { DataTable, Column, Button, Toolbar, Splitter, SplitterPanel } from '../prime';
@@ -89,21 +90,24 @@ const Explorer: StyledType = ({
             } else {
                 setLoading(true);
                 try {
-                    const items = await fetch({
-                        [resultSet || 'filterBy']: {...filter, ...Object.entries(tableFilter.filters).reduce((prev, [name, {value}]) => ({...prev, [name]: value}), {})},
-                        ...tableFilter.sortField && {
+                    const items = await fetch(merge(
+                        {...filter},
+                        {
+                            [resultSet || 'filterBy']: Object.entries(tableFilter.filters).reduce((prev, [name, {value}]) => ({...prev, [name]: value}), {})
+                        },
+                        tableFilter.sortField && {
                             orderBy: [{
                                 field: tableFilter.sortField,
                                 dir: {[-1]: 'DESC', 1: 'ASC'}[tableFilter.sortOrder]
                             }]
                         },
-                        ...pageSize && {
+                        pageSize && {
                             paging: {
                                 pageSize,
                                 pageNumber: Math.floor(tableFilter.first / pageSize) + 1
                             }
                         }
-                    });
+                    ));
                     const records = resultSet ? items[resultSet] : items;
                     let total = items.pagination && items.pagination.recordsTotal;
                     if (total == null) {
