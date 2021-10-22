@@ -1,3 +1,12 @@
+## [1.44.6](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.44.5...v1.44.6) (2021-10-22)
+
+
+### Bug Fixes
+
+* report filter ([ad1ebc0](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/ad1ebc0e4d4c3f26bee793fe0705a46cbb3b3b55))
+
+
+
 ## [1.44.5](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.44.4...v1.44.5) (2021-10-21)
 
 
