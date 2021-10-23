@@ -1,3 +1,12 @@
+## [1.44.7](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.44.6...v1.44.7) (2021-10-23)
+
+
+### Bug Fixes
+
+* Explorer and Navigator filtering ([382c55a](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/382c55afd08623e0f89a00670ce4d2f870066d2c))
+
+
+
 ## [1.44.6](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.44.5...v1.44.6) (2021-10-22)
 
 
