@@ -9,9 +9,9 @@ describe('<Navigator />', () => {
         const { getByTestId } = render(<Navigator
             fetch={() => Promise.resolve({
                 items: [...Array(50).keys()].map(number => ({
-                    id: number,
+                    id: String(number),
                     name: `Item ${number}`,
-                    parents: number >= 10 ? number % 10 : undefined
+                    parents: number >= 10 ? String(number % 10) : undefined
                 }))
             })}
             keyField='id'

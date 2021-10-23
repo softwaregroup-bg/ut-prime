@@ -21,8 +21,8 @@ exports[`<Navigator /> render equals snapshot 1`] = `
         <div
           aria-expanded="true"
           aria-posinset="1"
-          aria-selected="false"
-          class="p-treenode-content p-treenode-selectable"
+          aria-selected="true"
+          class="p-treenode-content p-treenode-selectable p-highlight"
           role="treeitem"
           tabindex="0"
         >

@@ -32,8 +32,9 @@ const Explorer: StyledType = ({
 }) => {
     const [tableFilter, setFilters] = React.useState<TableFilter>({
         filters: columns?.reduce((prev, column) => {
+            const value = lodashGet(filter, column);
             column = column.split('.').pop();
-            return (filter?.[column] === undefined) ? prev : {...prev, [column]: {value: filter[column]}};
+            return (value === undefined) ? prev : {...prev, [column]: {value}};
         }, {}),
         first: 0,
         page: 1

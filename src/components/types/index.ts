@@ -12,6 +12,7 @@ export interface PropertyEditor {
         'dropdown' |
         'dropdownTree' |
         'integer' |
+        'image' |
         'mask' |
         'multiSelect' |
         'multiSelectPanel' |
