@@ -27,6 +27,11 @@ export interface PropertyEditor {
     dropdown?: string;
     parent?: string;
     column?: ColumnProps;
+    pivot?: {
+        dropdown?: string;
+        examples?: {}[];
+        join: {}
+    };
     [editorProperties: string]: any
 }
 
@@ -88,7 +93,7 @@ export interface PropertyEditors {
 }
 export interface Card {
     label?: string;
-    widgets: (string | {name: string, widgets?: any[]})[];
+    widgets: (string | {name: string, widgets?: any[], filter?: {}})[];
     className?: string;
     classes?: {
         [name: string]: {

@@ -71,7 +71,14 @@ const Editor: StyledType = ({
             .filter(Boolean)));
         const validation = getValidation(schema, fields);
         const dropdownNames = fields
-            .map(name => lodashGet(schema.properties, name?.replace(/\./g, '.properties.'))?.widget?.dropdown)
+            .map(name => {
+                const property = lodashGet(schema.properties, name?.replace(/\./g, '.properties.'));
+                return [
+                    property?.widget?.dropdown,
+                    property?.widget?.pivot?.dropdown
+                ];
+            })
+            .flat()
             .filter(Boolean);
         const getValue = (value) => {
             const editValue = {};

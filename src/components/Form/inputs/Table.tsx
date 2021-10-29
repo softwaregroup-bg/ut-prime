@@ -1,87 +1,114 @@
 import { v4 as uuid } from 'uuid';
 import React from 'react';
+import lodashGet from 'lodash.get';
 
-import {InputText, DataTable, Column, Toolbar, Button} from '../../prime';
+import {DataTable, Column, Toolbar, Button} from '../../prime';
 import columnProps from '../../lib/column';
 
 const handleFilter = () => {};
 const INDEX = Symbol('index');
 const backgroundNone = {background: 'none'};
 
-const rowsFilter = (master, filter) => master && Object.fromEntries(
+const masterFilter = (master, filter) => master && Object.fromEntries(
     Object.entries(master).map(
         ([master, detail]) => [detail, filter?.[master]]
     )
 );
 
+const noRows = Object.freeze([]);
+
 export default React.forwardRef<{}, any>(({
     onChange,
     widgets,
-    value: allRows,
+    value: allRows = noRows,
     dataKey = 'id',
     properties,
     dropdowns,
-    filter: {parent: filter = false} = {},
+    parent,
+    filter,
     master,
     children,
     disabled,
+    pivot: {
+        dropdown = '',
+        examples: pivotRows = (dropdown && dropdowns?.[dropdown]),
+        join = null
+    } = {},
     actions: {
-        allowAdd = true,
-        allowDelete = true,
+        allowAdd = !pivotRows?.length,
+        allowDelete = !pivotRows?.length,
         allowEdit = true,
-        allowSelect = true
+        allowSelect = !pivotRows?.length
     } = {},
     ...props
 }, ref) => {
     if (typeof ref === 'function') ref({});
-    const [original, setOriginal] = React.useState({});
+    const [original, setOriginal] = React.useState([]);
     const [selected, setSelected] = React.useState(null);
     const [editingRows, setEditingRows] = React.useState({});
 
-    const rows = React.useMemo(() => master
-        ? allRows
-            ?.map((item, index) => ({[INDEX]: index, ...item}))
-            ?.filter(row => Object.entries(rowsFilter(master, filter)).every(([name, value]) => row?.[name] === value))
-        : allRows, [allRows, filter, master]);
+    const rows = React.useMemo(() => {
+        const keys = Object.entries(join || {});
+        const joined = (pivotRows?.length && keys.length) ? pivotRows.map($pivot => {
+            const found = allRows.findIndex(row => keys.every(([pivotKey, rowKey]: [string, string]) => $pivot[pivotKey] === row[rowKey]));
+            return found >= 0 ? {
+                ...allRows[found],
+                [INDEX]: found,
+                $pivot
+            } : {
+                ...Object.fromEntries(keys.map(([pivotKey, rowKey]) => [rowKey, $pivot[pivotKey]])),
+                $pivot
+            };
+        }) : allRows?.map((item, index) => ({[INDEX]: index, ...item})) || [];
+        const filterFields = Object.entries({...filter, ...masterFilter(master, parent)});
+        return joined?.filter(row => filterFields.every(([name, value]) => lodashGet(row, name) === value));
+    }, [allRows, parent, master, pivotRows, join, filter]);
 
-    const cellEditor = React.useCallback((props, field) => <InputText
-        type="text"
-        autoFocus={props.index === 1}
-        value={props.rowData[field]}
-        onChange={({target: {value}}) => {
+    const changeFieldValue = React.useCallback((row, field, value) => {
+        const index = row[INDEX];
+        if (index >= 0) {
             const updatedValue = [...allRows];
-            updatedValue[master ? props.rowData[INDEX] : props.rowIndex][props.field] = value;
+            updatedValue[index][field] = value;
             onChange(updatedValue);
-        }}
-        disabled={properties?.[field]?.readOnly}
-        className='w-full'
-        id={`${props.rowData.id}`}
-        {...properties?.[field]?.widget}
-    />, [properties, allRows, master, onChange]);
+        } else {
+            const {$pivot, ...values} = row;
+            onChange([...allRows, {...values, [field]: value}]);
+        }
+    }, [allRows, onChange]);
 
     const init = React.useCallback(({index}) => {
-        setOriginal(prev => {
-            prev[master ? rows[index][INDEX] : index] = {...rows[index]};
+        const originalIndex = rows[index][INDEX];
+        (originalIndex != null) && setOriginal(prev => {
+            prev[originalIndex] = {...rows[index]};
             return prev;
         });
-    }, [rows, setOriginal, master]);
+    }, [rows, setOriginal]);
 
     const cancel = React.useCallback(({index}) => {
         const restored = [...allRows];
-        restored[index] = original[master ? rows[index][INDEX] : index];
-        onChange(restored);
-        setOriginal(prev => {
-            delete prev[master ? rows[index][INDEX] : index];
-            return prev;
-        });
-    }, [allRows, onChange, original, master, rows]);
+        const originalIndex = rows[index][INDEX];
+        if (originalIndex != null) {
+            if (original[originalIndex]) {
+                const {$pivot, ...values} = original[originalIndex];
+                restored[originalIndex] = values;
+            } else {
+                restored.splice(originalIndex, 1);
+            }
+            onChange(restored);
+            setOriginal(prev => {
+                delete prev[originalIndex];
+                return prev;
+            });
+        }
+    }, [allRows, onChange, original, rows]);
 
     const save = React.useCallback(({index}) => {
-        setOriginal(prev => {
-            delete prev[master ? rows[index][INDEX] : index];
+        const originalIndex = rows[index][INDEX];
+        (originalIndex != null) && setOriginal(prev => {
+            delete prev[originalIndex];
             return prev;
         });
-    }, [master, rows]);
+    }, [rows]);
 
     const handleSelected = React.useCallback(event => {
         if (!allowSelect) return;
@@ -97,7 +124,7 @@ export default React.forwardRef<{}, any>(({
         const addNewRow = event => {
             event.preventDefault();
             const id = uuid();
-            const newValue = {[dataKey]: id, ...rowsFilter(master, filter)};
+            const newValue = {[dataKey]: id, ...filter, ...masterFilter(master, parent)};
             if (master) newValue[INDEX] = allRows?.length || 0;
             const updatedValue = [...(allRows || []), newValue];
             onChange(updatedValue);
@@ -122,12 +149,12 @@ export default React.forwardRef<{}, any>(({
                 {allowDelete && <Button label="Delete" icon="pi pi-trash" className="p-button" onClick={deleteRow} disabled={!selected} />}
             </React.Fragment>
         );
-    }, [allowAdd, allowDelete, selected, dataKey, master, filter, allRows, onChange, handleSelected]);
+    }, [allowAdd, allowDelete, selected, dataKey, master, filter, parent, allRows, onChange, handleSelected]);
 
     if (selected && props.selectionMode === 'single' && !rows.includes(selected)) {
         handleSelected({value: null});
     }
-    if (master && !filter) return null;
+    if (master && !parent) return null;
     return (
         <>
             {!disabled && (allowAdd || allowDelete) && <Toolbar className="p-0" left={leftToolbarTemplate} right={null} style={backgroundNone}></Toolbar>}
@@ -154,8 +181,7 @@ export default React.forwardRef<{}, any>(({
                         key={name}
                         field={name}
                         header={properties?.[name]?.title || name}
-                        editor={props => cellEditor(props, name)}
-                        {...columnProps({name, property: properties?.[name], dropdowns, onChange})}
+                        {...columnProps({name, property: properties?.[name], dropdowns, changeFieldValue})}
                     />)
                 }
                 {allowEdit && <Column rowEditor headerStyle={{ width: '7rem' }} bodyStyle={{ textAlign: 'center' }}></Column>}

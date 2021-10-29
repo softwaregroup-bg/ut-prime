@@ -203,7 +203,7 @@ const Form: StyledType = ({
                     {id: field.name, ...idx.properties[field.name]?.widget, ...widget},
                     idx.properties[field.name],
                     dropdowns,
-                    parent && {parent: watch(parent)},
+                    parent && watch(parent),
                     loading
                 )}
             />

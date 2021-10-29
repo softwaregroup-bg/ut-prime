@@ -42,19 +42,19 @@ export default function input(
     {
         type = 'string',
         dropdown = '',
-        parent = '',
+        parent: parentField = '',
         optionsFilter = null,
         title = '',
         ...props
     }: any = {id: field?.name},
     schema,
     dropdowns,
-    filter,
+    parentValue,
     loading: string
 ) {
     if (loading) return <>{label}<div className={inputClass}><Skeleton className='p-inputtext'/></div></>;
     props.disabled = schema.readOnly;
-    const filterBy = item => (!filter && !optionsFilter) || Object.entries({...optionsFilter, ...filter}).every(([name, value]) => String(item[name]) === String(value));
+    const filterBy = item => (!parentField && !optionsFilter) || Object.entries({...optionsFilter, parent: parentValue}).every(([name, value]) => String(item[name]) === String(value));
     switch (type) {
         case 'dropdownTree': return <Field {...{label, error, inputClass}}>
             <TreeSelect
@@ -104,7 +104,7 @@ export default function input(
                 <Table
                     {...field}
                     selectionMode='checkbox'
-                    filter={filter}
+                    parent={parentValue}
                     properties={schema?.items?.properties}
                     dropdowns={dropdowns}
                     {...props}
@@ -115,7 +115,7 @@ export default function input(
             <Dropdown
                 {...field}
                 options={dropdowns?.[dropdown]?.filter(filterBy) || []}
-                disabled={parent && !filter}
+                disabled={parentField && !parentValue}
                 {...props}
             />
         </Field>;
@@ -123,7 +123,7 @@ export default function input(
             <MultiSelect
                 {...field}
                 options={dropdowns?.[dropdown]?.filter(filterBy) || []}
-                disabled={parent && !filter}
+                disabled={parentField && !parentValue}
                 display='chip'
                 {...props}
             />
@@ -132,7 +132,7 @@ export default function input(
             <SelectButton
                 {...field}
                 options={dropdowns?.[dropdown]?.filter(filterBy) || []}
-                disabled={parent && !filter}
+                disabled={parentField && !parentValue}
                 {...props}
             />
         </Field>;
@@ -140,7 +140,7 @@ export default function input(
             <TreeSelect
                 {...field}
                 options={dropdowns?.[dropdown]?.filter(filterBy) || []}
-                disabled={parent && !filter}
+                disabled={parentField && !parentValue}
                 display='chip'
                 selectionMode='multiple'
                 metaKeySelection={false}
@@ -156,7 +156,7 @@ export default function input(
                 appendTo='self'
                 {...field}
                 options={dropdowns?.[dropdown]?.filter(filterBy) || []}
-                disabled={parent && !filter}
+                disabled={parentField && !parentValue}
                 {...props}
             />
         </Field>;

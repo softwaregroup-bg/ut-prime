@@ -1,5 +1,5 @@
 import React from 'react';
-import { Checkbox, Dropdown, Calendar, InputMask } from '../prime';
+import { Checkbox, Dropdown, Calendar, InputMask, InputText, InputTextarea } from '../prime';
 
 export interface TableFilter {
     filters?: {
@@ -20,7 +20,7 @@ export default function columnProps({
     dropdowns,
     tableFilter,
     filterBy,
-    onChange
+    changeFieldValue
 }: {
     name: string,
     property: {
@@ -31,7 +31,7 @@ export default function columnProps({
     dropdowns: {},
     tableFilter?: TableFilter,
     filterBy?: (name: string, value: string) => (e: {}) => void,
-    onChange?: (e: {}) => void
+    changeFieldValue?: (rowData: {}, field: string, value: any) => void
 }) {
     const {type, dropdown, parent, column, ...props} = property?.widget || {name};
     const fieldName = name;
@@ -48,17 +48,6 @@ export default function columnProps({
                 if (value == null) return null;
                 return <i className={`pi ${value ? 'pi-check' : 'pi-times'}`}></i>;
             };
-            editor = function editor(p) {
-                return <Checkbox
-                    checked={p.rowData[fieldName]}
-                    onChange={e => {
-                        const updatedValue = [...p.value];
-                        updatedValue[p.rowIndex][p.field] = e.checked;
-                        onChange(updatedValue);
-                    }}
-                    {...props}
-                />;
-            };
             break;
         case 'dropdown':
             filterElement = filterBy && <Dropdown
@@ -69,39 +58,12 @@ export default function columnProps({
                 showClear
                 {...props}
             />;
-            editor = function editor(p) {
-                return <Dropdown
-                    className='w-full'
-                    options={dropdowns?.[dropdown] || []}
-                    value={p.rowData[fieldName]}
-                    onChange={e => {
-                        const updatedValue = [...p.value];
-                        updatedValue[p.rowIndex][p.field] = e.value;
-                        onChange(updatedValue);
-                    }}
-                    showClear
-                    {...props}
-                />;
-            };
             break;
         case 'date':
             body = function body(rowData) {
                 const value = rowData[fieldName];
                 if (value == null) return null;
                 return new Date(value).toLocaleDateString();
-            };
-            editor = function editor(p) {
-                return <Calendar
-                    className='w-full'
-                    value={new Date(p.rowData[fieldName])}
-                    onChange={e => {
-                        const updatedValue = [...p.value];
-                        updatedValue[p.rowIndex][p.field] = e.value;
-                        onChange(updatedValue);
-                    }}
-                    showIcon
-                    {...props}
-                />;
             };
             break;
         case 'time':
@@ -110,20 +72,6 @@ export default function columnProps({
                 if (value == null) return null;
                 return new Date(value).toLocaleTimeString();
             };
-            editor = function editor(p) {
-                return <Calendar
-                    className='w-full'
-                    value={new Date(p.rowData[fieldName])}
-                    onChange={e => {
-                        const updatedValue = [...p.value];
-                        updatedValue[p.rowIndex][p.field] = e.value;
-                        onChange(updatedValue);
-                    }}
-                    timeOnly
-                    showIcon
-                    {...props}
-                />;
-            };
             break;
         case 'date-time':
             body = function body(rowData) {
@@ -131,37 +79,98 @@ export default function columnProps({
                 if (value == null) return null;
                 return new Date(value).toLocaleString();
             };
-            editor = function editor(p) {
-                return <Calendar
-                    className='w-full'
-                    value={new Date(p.rowData[fieldName])}
-                    onChange={e => {
-                        const updatedValue = [...p.value];
-                        updatedValue[p.rowIndex][p.field] = e.value;
-                        onChange(updatedValue);
-                    }}
-                    showTime
-                    showIcon
-                    {...props}
-                />;
-            };
-            break;
-        case 'mask':
-            editor = function editor(p) {
-                return <InputMask
-                    className='w-full'
-                    value={p.rowData[fieldName]}
-                    onChange={e => {
-                        const updatedValue = [...p.value];
-                        updatedValue[p.rowIndex][p.field] = e.value;
-                        onChange(updatedValue);
-                    }}
-                    {...props}
-                />;
-            };
             break;
     }
-    if (property?.readOnly) editor = false;
+    if (!property?.readOnly && changeFieldValue) {
+        editor = function editor(p) {
+            const widget = p.rowData?.$pivot?.[fieldName]?.widget || p.rowData?.$pivot?.widget;
+            switch (widget?.type || type) {
+                case 'boolean':
+                    return <Checkbox
+                        checked={p.rowData[fieldName]}
+                        onChange={e => {
+                            changeFieldValue(p.rowData, p.field, e.checked);
+                        }}
+                        {...props}
+                    />;
+                case 'dropdown':
+                    return <Dropdown
+                        className='w-full'
+                        options={dropdowns?.[dropdown] || []}
+                        value={p.rowData[fieldName]}
+                        onChange={e => {
+                            changeFieldValue(p.rowData, p.field, e.value);
+                        }}
+                        showClear
+                        {...props}
+                    />;
+                case 'date':
+                    return <Calendar
+                        className='w-full'
+                        value={new Date(p.rowData[fieldName])}
+                        onChange={e => {
+                            changeFieldValue(p.rowData, p.field, e.value);
+                        }}
+                        showIcon
+                        {...props}
+                    />;
+                case 'time':
+                    return <Calendar
+                        className='w-full'
+                        value={new Date(p.rowData[fieldName])}
+                        onChange={e => {
+                            changeFieldValue(p.rowData, p.field, e.value);
+                        }}
+                        timeOnly
+                        showIcon
+                        {...props}
+                    />;
+                case 'date-time':
+                    return <Calendar
+                        className='w-full'
+                        value={new Date(p.rowData[fieldName])}
+                        onChange={e => {
+                            changeFieldValue(p.rowData, p.field, e.value);
+                        }}
+                        showTime
+                        showIcon
+                        {...props}
+                    />;
+                case 'mask':
+                    return <InputMask
+                        className='w-full'
+                        value={p.rowData[fieldName]}
+                        onChange={e => {
+                            changeFieldValue(p.rowData, p.field, e.value);
+                        }}
+                        {...props}
+                    />;
+                case 'text':
+                    return <InputTextarea
+                        className='w-full'
+                        autoFocus={true}
+                        value={p.rowData[fieldName]}
+                        onChange={e => {
+                            changeFieldValue(p.rowData, p.field, e.target.value);
+                        }}
+                        {...props}
+                    />;
+                default:
+                    return <InputText
+                        type='text'
+                        autoFocus={true}
+                        value={p.rowData[fieldName]}
+                        onChange={event => {
+                            changeFieldValue(p.rowData, p.field, event.target.value);
+                        }}
+                        disabled={property?.readOnly}
+                        className='w-full'
+                        id={`${p.rowData.id}`}
+                        {...props}
+                    />;
+            };
+        };
+    }
     return {
         ...filterElement && {filterElement},
         ...body && {body},
