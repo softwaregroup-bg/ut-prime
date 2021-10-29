@@ -1,3 +1,12 @@
+# [1.45.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.44.7...v1.45.0) (2021-10-29)
+
+
+### Features
+
+* pivot table ([411f906](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/411f906f29a96565903f9b354efdb3827c57bfec))
+
+
+
 ## [1.44.7](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.44.6...v1.44.7) (2021-10-23)
 
 
