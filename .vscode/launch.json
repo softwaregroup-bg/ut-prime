@@ -21,6 +21,21 @@
             "skipFiles": [
                 "<node_internals>/**"
             ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Test watch",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run-script",
+                "test:watch"
+            ],
+            "console": "integratedTerminal",
+            "autoAttachChildProcesses": false,
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
         }
     ]
 }

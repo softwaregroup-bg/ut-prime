@@ -72,9 +72,8 @@ const Explorer: StyledType = ({
             }
         };
         return (
-            <Permission permission={permission}>
+            <Permission key={index} permission={permission}>
                 <Button
-                    key={index}
                     label={title}
                     onClick={() => action({
                         id: current && current[keyField],
@@ -195,7 +194,7 @@ const Explorer: StyledType = ({
         {hasChildren && <Button icon="pi pi-bars" className="mr-2" onClick={navigationToggle}/>}
         {buttons}
     </>, [navigationToggle, buttons, hasChildren]);
-    const right = React.useMemo(() => <Button icon="pi pi-bars" className="mr-2" onClick={detailsToggle}/>, [detailsToggle]);
+    const right = React.useMemo(() => details && <Button icon="pi pi-bars" className="mr-2" onClick={detailsToggle}/>, [detailsToggle]);
 
     const table = <DataTable
         autoLayout
@@ -220,20 +219,27 @@ const Explorer: StyledType = ({
         {keyField && <Column selectionMode="multiple" style={selectionWidth}/>}
         {Columns}
     </DataTable>;
+    const nav = children && navigationOpened && <SplitterPanel key='nav' size={15}>{children}</SplitterPanel>;
     return (
         <div className={clsx('flex', 'flex-column', className)} style={{height: '100%'}} >
-            {(detailsPanel || children || buttons?.length) ? <>
-                <Toolbar left={left} right={right} style={backgroundNone} />
-                <Splitter style={flexGrow}>
-                    {[
-                        children && navigationOpened && <SplitterPanel key='nav' size={15}>{children}</SplitterPanel>,
-                        <SplitterPanel key='items' size={75}>
-                            {table}
-                        </SplitterPanel>,
-                        detailsPanel
-                    ].filter(Boolean)}
-                </Splitter>
-            </> : table}
+            {
+                buttons?.length
+                    ? <Toolbar left={left} right={right} style={backgroundNone} />
+                    : null
+            }
+            {
+                (nav || detailsPanel)
+                    ? <Splitter style={flexGrow}>
+                        {[
+                            nav,
+                            <SplitterPanel key='items' size={nav ? detailsPanel ? 75 : 85 : 90}>
+                                {table}
+                            </SplitterPanel>,
+                            detailsPanel
+                        ].filter(Boolean)}
+                    </Splitter>
+                    : table
+            }
         </div>
     );
 };

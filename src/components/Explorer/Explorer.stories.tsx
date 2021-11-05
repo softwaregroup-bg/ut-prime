@@ -20,11 +20,15 @@ export default {
 const Template: Story<{
     createPermission?: string,
     editPermission?: string,
-    deletePermission?: string
+    deletePermission?: string,
+    details?: {},
+    children?: React.ReactNode
 }> = ({
     createPermission,
     editPermission,
-    deletePermission
+    deletePermission,
+    details,
+    children
 }) => {
     const toast = React.useRef(null);
     const show = action => data => toast.current.show({
@@ -56,9 +60,7 @@ const Template: Story<{
                     }}
                     columns = {['name', 'size']}
                     subscribe={updateItems}
-                    details={{
-                        name: 'Name'
-                    }}
+                    details={details}
                     filter={{}}
                     actions={[{
                         title: 'Create',
@@ -76,7 +78,7 @@ const Template: Story<{
                         action: show('delete')
                     }]}
                 >
-                    <div>Navigation component</div>
+                    {children}
                 </Explorer>
             </div>
         </>
@@ -84,9 +86,25 @@ const Template: Story<{
 };
 
 export const Basic = Template.bind({});
+Basic.args = {};
+
+export const Children = Template.bind({});
+Children.args = {
+    ...Basic.args,
+    children: <div>Navigation component</div>
+};
+
+export const Details = Template.bind({});
+Details.args = {
+    ...Children.args,
+    details: {
+        name: 'Name'
+    }
+};
 
 export const ActionPermissions = Template.bind({});
 ActionPermissions.args = {
+    ...Details.args,
     createPermission: 'forbidden',
     editPermission: 'granted',
     deletePermission: 'forbidden'

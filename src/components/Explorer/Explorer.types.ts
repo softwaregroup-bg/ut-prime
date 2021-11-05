@@ -27,7 +27,7 @@ export interface Props {
     subscribe?: (callback: (rows: any) => void) => () => void;
     onDropdown?: (params: string[]) => Promise<Dropdowns>,
     className?: string;
-    details: {};
+    details?: {};
     actions?: Action[];
     filter?: {};
     showFilter?: boolean;
