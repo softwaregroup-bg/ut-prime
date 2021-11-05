@@ -1,3 +1,12 @@
+## [1.45.2](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.45.1...v1.45.2) (2021-11-05)
+
+
+### Bug Fixes
+
+* make explorer details optional ([d86a03e](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/d86a03e03385b1ba9c6f2d2301be7a2074f98918))
+
+
+
 ## [1.45.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.45.0...v1.45.1) (2021-11-05)
 
 
