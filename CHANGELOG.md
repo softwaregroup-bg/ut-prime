@@ -1,3 +1,12 @@
+## [1.45.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.45.0...v1.45.1) (2021-11-05)
+
+
+### Bug Fixes
+
+* add permissions for actions in explorer component #UTCORE-121 ([#5](https://github.com/softwaregroup-bg/ut-front-devextreme/issues/5)) ([891ac17](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/891ac1713c62779c3b0dd049e3cc796d528b1a43)), closes [#UTCORE-121](https://github.com/softwaregroup-bg/ut-front-devextreme/issues/UTCORE-121)
+
+
+
 # [1.45.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.44.7...v1.45.0) (2021-10-29)
 
 
