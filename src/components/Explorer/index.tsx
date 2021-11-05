@@ -4,6 +4,7 @@ import merge from 'ut-function.merge';
 import clsx from 'clsx';
 
 import { DataTable, Column, Button, Toolbar, Splitter, SplitterPanel } from '../prime';
+import Permission from '../Permission';
 import useToggle from '../hooks/useToggle';
 import columnProps, {TableFilter} from '../lib/column';
 
@@ -61,7 +62,7 @@ const Explorer: StyledType = ({
         .filter(Boolean)
         .join(',');
 
-    const buttons = React.useMemo(() => (actions || []).map(({title, action, enabled = true}, index) => {
+    const buttons = React.useMemo(() => (actions || []).map(({title, action, enabled = true, permission}, index) => {
         const isEnabled = enabled => {
             if (typeof enabled !== 'string') return !!enabled;
             switch (enabled) {
@@ -70,17 +71,21 @@ const Explorer: StyledType = ({
                 default: return false;
             }
         };
-        return (<Button
-            key={index}
-            label={title}
-            onClick={() => action({
-                id: current && current[keyField],
-                current,
-                selected
-            })}
-            disabled={!isEnabled(enabled)}
-            className="mr-2"
-        />);
+        return (
+            <Permission permission={permission}>
+                <Button
+                    key={index}
+                    label={title}
+                    onClick={() => action({
+                        id: current && current[keyField],
+                        current,
+                        selected
+                    })}
+                    disabled={!isEnabled(enabled)}
+                    className="mr-2"
+                />
+            </Permission>
+        );
     }
     ), [keyField, actions, current, selected]);
     React.useEffect(() => {

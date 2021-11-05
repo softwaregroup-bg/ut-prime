@@ -1,5 +1,6 @@
 import React from 'react';
 import { withReadme } from 'storybook-readme';
+import type { Story } from '@storybook/react';
 import {Toast} from '../prime';
 
 // @ts-ignore: md file and not a module
@@ -16,7 +17,15 @@ export default {
     }
 };
 
-export const Basic: React.FC<{}> = () => {
+const Template: Story<{
+    createPermission?: string,
+    editPermission?: string,
+    deletePermission?: string
+}> = ({
+    createPermission,
+    editPermission,
+    deletePermission
+}) => {
     const toast = React.useRef(null);
     const show = action => data => toast.current.show({
         severity: 'success',
@@ -53,13 +62,16 @@ export const Basic: React.FC<{}> = () => {
                     filter={{}}
                     actions={[{
                         title: 'Create',
+                        permission: createPermission,
                         action: () => {}
                     }, {
                         title: 'Edit',
+                        permission: editPermission,
                         enabled: 'current',
                         action: show('edit')
                     }, {
                         title: 'Delete',
+                        permission: deletePermission,
                         enabled: 'selected',
                         action: show('delete')
                     }]}
@@ -69,4 +81,13 @@ export const Basic: React.FC<{}> = () => {
             </div>
         </>
     );
+};
+
+export const Basic = Template.bind({});
+
+export const ActionPermissions = Template.bind({});
+ActionPermissions.args = {
+    createPermission: 'forbidden',
+    editPermission: 'granted',
+    deletePermission: 'forbidden'
 };
