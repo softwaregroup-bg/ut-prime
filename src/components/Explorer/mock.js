@@ -1,7 +1,7 @@
 const filteredItems = (filterBy) => {
     return Object.entries(filterBy).reduce((items, [key, value]) => {
         return items.filter(i => {
-            return i[key] === value || (typeof value === 'string' && i[key].toString().toLowerCase().includes(value.toLowerCase()));
+            return value === undefined || i[key] === value || (typeof value === 'string' && i[key].toString().toLowerCase().includes(value.toLowerCase()));
         });
     }, [...Array(55).keys()].map(number => ({
         id: number,

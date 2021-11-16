@@ -2,7 +2,6 @@ import React from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import {Route, Switch} from 'react-router';
-import {hot} from 'react-hot-loader';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider, createTheme } from '@material-ui/core/styles';
 import {MuiPickersUtilsProvider} from '@material-ui/pickers';
@@ -67,4 +66,4 @@ const App: StyledType = ({middleware, reducers, theme, portalName, state, onDisp
     );
 };
 
-export default hot(module)(App);
+export default App;

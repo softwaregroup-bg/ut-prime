@@ -35,7 +35,7 @@ const Explorer: StyledType = ({
         filters: columns?.reduce((prev, column) => {
             const value = lodashGet(filter, column);
             column = column.split('.').pop();
-            return (value === undefined) ? prev : {...prev, [column]: {value}};
+            return (value === undefined) ? {...prev, [column]: {matchMode: 'contains'}} : {...prev, [column]: {value, matchMode: 'contains'}};
         }, {}),
         first: 0,
         page: 1
@@ -96,7 +96,8 @@ const Explorer: StyledType = ({
                 setLoading(true);
                 try {
                     const items = await fetch(merge(
-                        {...filter},
+                        {},
+                        filter,
                         {
                             [resultSet || 'filterBy']: Object.entries(tableFilter.filters).reduce((prev, [name, {value}]) => ({...prev, [name]: value}), {})
                         },
@@ -194,7 +195,7 @@ const Explorer: StyledType = ({
         {hasChildren && <Button icon="pi pi-bars" className="mr-2" onClick={navigationToggle}/>}
         {buttons}
     </>, [navigationToggle, buttons, hasChildren]);
-    const right = React.useMemo(() => details && <Button icon="pi pi-bars" className="mr-2" onClick={detailsToggle}/>, [detailsToggle]);
+    const right = React.useMemo(() => details && <Button icon="pi pi-bars" className="mr-2" onClick={detailsToggle}/>, [details, detailsToggle]);
 
     const table = <DataTable
         autoLayout
@@ -213,6 +214,7 @@ const Explorer: StyledType = ({
         dataKey={keyField}
         value={items}
         selection={selected}
+        filterDisplay='row'
         onSelectionChange={handleSelectionChange}
         onRowSelect={handleRowSelect}
     >

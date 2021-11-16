@@ -172,6 +172,8 @@ export default function columnProps({
         };
     }
     return {
+        showClearButton: true,
+        showFilterMenu: false,
         ...filterElement && {filterElement},
         ...body && {body},
         ...(editor != null) && {editor},

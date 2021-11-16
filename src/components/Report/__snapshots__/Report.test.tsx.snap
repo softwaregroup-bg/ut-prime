@@ -66,7 +66,7 @@ exports[`<Report /> render equals snapshot 1`] = `
                       class="col-12 md:col-8"
                     >
                       <span
-                        class="p-calendar p-component p-inputwrapper w-full p-calendar-w-btn"
+                        class="p-calendar p-component p-inputwrapper w-full p-calendar-w-btn p-calendar-w-btn-right"
                         id="startDate"
                       >
                         <input
@@ -106,7 +106,7 @@ exports[`<Report /> render equals snapshot 1`] = `
                       class="col-12 md:col-8"
                     >
                       <span
-                        class="p-calendar p-component p-inputwrapper w-full p-calendar-w-btn"
+                        class="p-calendar p-component p-inputwrapper w-full p-calendar-w-btn p-calendar-w-btn-right"
                         id="endDate"
                       >
                         <input
@@ -159,14 +159,16 @@ exports[`<Report /> render equals snapshot 1`] = `
     style="height: 100%;"
   >
     <div
-      class="p-datatable p-component p-datatable-auto-layout"
-      data-scrollselectors=".p-datatable-scrollable-body, .p-datatable-unfrozen-view .p-datatable-scrollable-body"
+      class="p-datatable p-component p-datatable-auto-layout p-datatable-responsive-stack"
+      data-scrollselectors=".p-datatable-wrapper"
+      pr_id_1=""
     >
       <div
         class="p-datatable-wrapper"
       >
         <table
-          role="grid"
+          class="p-datatable-table"
+          role="table"
         >
           <thead
             class="p-datatable-thead"
@@ -175,15 +177,26 @@ exports[`<Report /> render equals snapshot 1`] = `
               role="row"
             >
               <th
-                class="p-sortable-disabled"
+                class=""
                 role="columnheader"
               >
-                <span
-                  class="p-column-title"
+                <div
+                  class="p-column-header-content"
                 >
-                  Name
-                </span>
+                  <span
+                    class="p-column-title"
+                  >
+                    Name
+                  </span>
+                </div>
               </th>
+            </tr>
+            <tr
+              role="row"
+            >
+              <th
+                class="p-filter-column"
+              />
             </tr>
           </thead>
           <tbody
@@ -197,6 +210,11 @@ exports[`<Report /> render equals snapshot 1`] = `
                 class=""
                 role="cell"
               >
+                <span
+                  class="p-column-title"
+                >
+                  Name
+                </span>
                 row 1
               </td>
             </tr>
@@ -208,6 +226,11 @@ exports[`<Report /> render equals snapshot 1`] = `
                 class=""
                 role="cell"
               >
+                <span
+                  class="p-column-title"
+                >
+                  Name
+                </span>
                 row 2
               </td>
             </tr>

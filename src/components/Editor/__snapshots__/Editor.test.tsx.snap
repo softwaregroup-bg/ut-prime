@@ -413,11 +413,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                                   aria-checked="false"
                                   class="p-checkbox-box"
                                   role="checkbox"
-                                >
-                                  <span
-                                    class="p-checkbox-icon p-c"
-                                  />
-                                </div>
+                                />
                               </div>
                               <button
                                 class="p-multiselect-close p-link"
@@ -1165,11 +1161,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                                   aria-checked="false"
                                   class="p-checkbox-box"
                                   role="checkbox"
-                                >
-                                  <span
-                                    class="p-checkbox-icon p-c"
-                                  />
-                                </div>
+                                />
                               </div>
                               <button
                                 class="p-multiselect-close p-link"
@@ -2474,11 +2466,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                                   aria-checked="false"
                                   class="p-checkbox-box"
                                   role="checkbox"
-                                >
-                                  <span
-                                    class="p-checkbox-icon p-c"
-                                  />
-                                </div>
+                                />
                               </div>
                               <button
                                 class="p-multiselect-close p-link"

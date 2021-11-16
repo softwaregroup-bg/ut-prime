@@ -18,6 +18,7 @@ import { useWindowSize } from '../hooks';
 const backgroundNone = {background: 'none'};
 
 const filterMenu = (permissions, command, items) => items
+    .filter(Boolean)
     .filter(permissions ? permissionCheck(permissions.toJS()) : Boolean)
     .map(({title, items, ...item}) => ({
         title,
