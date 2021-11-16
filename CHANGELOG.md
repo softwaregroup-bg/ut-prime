@@ -1,3 +1,12 @@
+# [1.46.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.45.2...v1.46.0) (2021-11-16)
+
+
+### Features
+
+* upgrade primereact ([9920020](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/9920020e2f5299c5a592eed42516bb6a3958bac6))
+
+
+
 ## [1.45.2](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.45.1...v1.45.2) (2021-11-05)
 
 
