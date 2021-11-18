@@ -7,11 +7,6 @@ export interface Props {
 }
 
 const styles = createStyles({
-    '@global': {
-        html: {
-            fontSize: 14
-        }
-    },
     headerContainer: {
         zIndex: 2,
         cursor: 'default'

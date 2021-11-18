@@ -9,5 +9,6 @@ export interface Theme extends T {
         },
         portalName?: string,
     },
+    fontSize?: number;
     name?: string
 }

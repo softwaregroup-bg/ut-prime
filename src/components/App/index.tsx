@@ -3,7 +3,7 @@ import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import {Route, Switch} from 'react-router';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { ThemeProvider, createTheme } from '@material-ui/core/styles';
+import { ThemeProvider, StylesProvider, createTheme, withStyles } from '@material-ui/core/styles';
 import {MuiPickersUtilsProvider} from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
 import 'primereact/resources/primereact.min.css';
@@ -21,12 +21,24 @@ import Store from '../Store';
 
 import { StyledType } from './App.types';
 import PageNotFound from './PageNotFound';
+import { Theme } from '../Theme';
+
+const Reset = withStyles(({fontSize = 14}: Theme) => ({
+    '@global': {
+        html: {
+            fontSize
+        }
+    }
+}))(CssBaseline);
 
 let last;
 
 const App: StyledType = ({middleware, reducers, theme, portalName, state, onDispatcher, loginPage}) => {
     last?.unuse?.();
     switch (theme?.name || theme?.palette?.type) {
+        case 'custom':
+            last = null;
+            break;
         case 'dark':
             last = dark?.use?.();
             break;
@@ -43,7 +55,9 @@ const App: StyledType = ({middleware, reducers, theme, portalName, state, onDisp
         <DndProvider backend={HTML5Backend}>
             <Store {...{middleware, reducers, state, onDispatcher}}>
                 <ThemeProvider theme={createTheme(theme)}>
-                    <CssBaseline />
+                    <StylesProvider injectFirst>
+                        <Reset />
+                    </StylesProvider>
                     <Context.Provider value={{portalName}}>
                         <MuiPickersUtilsProvider utils={DateFnsUtils}>
                             <Switch>
