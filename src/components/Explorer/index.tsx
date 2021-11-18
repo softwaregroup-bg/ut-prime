@@ -225,7 +225,7 @@ const Explorer: StyledType = ({
     return (
         <div className={clsx('flex', 'flex-column', className)} style={{height: '100%'}} >
             {
-                buttons?.length
+                buttons?.length || nav || detailsPanel
                     ? <Toolbar left={left} right={right} style={backgroundNone} />
                     : null
             }
