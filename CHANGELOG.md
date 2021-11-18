@@ -1,3 +1,17 @@
+# [1.47.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.46.0...v1.47.0) (2021-11-18)
+
+
+### Bug Fixes
+
+* Explorer toolbar ([71a27bf](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/71a27bf632696453ae054eb8fdd9df0f5dc799ff))
+
+
+### Features
+
+* external theming ([1fcc3d7](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/1fcc3d782a840e7df69b7d3762ab3a825eb3d41f))
+
+
+
 # [1.46.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.45.2...v1.46.0) (2021-11-16)
 
 
