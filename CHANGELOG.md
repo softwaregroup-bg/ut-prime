@@ -1,3 +1,13 @@
+## [1.47.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.47.0...v1.47.1) (2021-11-23)
+
+
+### Bug Fixes
+
+* pass editable ([89f4434](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/89f4434481d09a537c6648148c9b62fbfa6256cb))
+* table editors ([9b1bd15](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/9b1bd159ded6741c13548ef0d4e6b9a760487c6e))
+
+
+
 # [1.47.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.46.0...v1.47.0) (2021-11-18)
 
 
