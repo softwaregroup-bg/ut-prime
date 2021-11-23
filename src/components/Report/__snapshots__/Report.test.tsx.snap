@@ -207,15 +207,9 @@ exports[`<Report /> render equals snapshot 1`] = `
               role="row"
             >
               <td
-                class="p-editable-column"
+                class=""
                 role="cell"
               >
-                <a
-                  class="p-cell-editor-key-helper p-hidden-accessible"
-                  tabindex="0"
-                >
-                  <span />
-                </a>
                 <span
                   class="p-column-title"
                 >
@@ -229,15 +223,9 @@ exports[`<Report /> render equals snapshot 1`] = `
               role="row"
             >
               <td
-                class="p-editable-column"
+                class=""
                 role="cell"
               >
-                <a
-                  class="p-cell-editor-key-helper p-hidden-accessible"
-                  tabindex="0"
-                >
-                  <span />
-                </a>
                 <span
                   class="p-column-title"
                 >

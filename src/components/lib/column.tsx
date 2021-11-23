@@ -24,7 +24,8 @@ export default function columnProps({
     property,
     dropdowns,
     tableFilter,
-    filterBy
+    filterBy,
+    editable
 }: {
     name: string,
     property: {
@@ -35,6 +36,7 @@ export default function columnProps({
     dropdowns: {},
     tableFilter?: TableFilter,
     filterBy?: (name: string, value: string) => (e: {}) => void,
+    editable?: boolean
 }) {
     const {type, dropdown, parent, column, ...props} = property?.widget || {name};
     const fieldName = name;
@@ -83,7 +85,7 @@ export default function columnProps({
             };
             break;
     }
-    if (!property?.readOnly) {
+    if (!property?.readOnly && editable) {
         editor = function editor(p) {
             const widget = p.rowData?.$pivot?.[fieldName]?.widget || p.rowData?.$pivot?.widget;
             switch (widget?.type || type) {

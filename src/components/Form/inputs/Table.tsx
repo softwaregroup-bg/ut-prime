@@ -151,7 +151,7 @@ export default React.forwardRef<{}, any>(({
                         key={name}
                         field={name}
                         header={properties?.[name]?.title || name}
-                        {...columnProps({name, property: properties?.[name], dropdowns})}
+                        {...columnProps({name, property: properties?.[name], dropdowns, editable: true})}
                     />)
                 }
                 {allowEdit && <Column rowEditor headerStyle={{ width: '7rem' }} bodyStyle={{ textAlign: 'center' }}></Column>}
