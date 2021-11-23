@@ -14,24 +14,27 @@ export interface TableFilter {
     page: number
 }
 
+function dateOrNull(value) {
+    if (value == null) return null;
+    return new Date(value);
+}
+
 export default function columnProps({
     name,
     property,
     dropdowns,
     tableFilter,
-    filterBy,
-    changeFieldValue
+    filterBy
 }: {
     name: string,
     property: {
         widget?: any,
         readOnly?: boolean,
-        foreign?: string
+        body?: string
     },
     dropdowns: {},
     tableFilter?: TableFilter,
     filterBy?: (name: string, value: string) => (e: {}) => void,
-    changeFieldValue?: (rowData: {}, field: string, value: any) => void
 }) {
     const {type, dropdown, parent, column, ...props} = property?.widget || {name};
     const fieldName = name;
@@ -39,12 +42,12 @@ export default function columnProps({
     switch (type) {
         case 'boolean':
             filterElement = filterBy && <Checkbox
-                checked={tableFilter?.filters?.[property?.foreign || fieldName]?.value}
-                onChange={filterBy(property?.foreign || fieldName, 'checked')}
+                checked={tableFilter?.filters?.[fieldName]?.value}
+                onChange={filterBy(fieldName, 'checked')}
                 {...props}
             />;
             body = function body(rowData) {
-                const value = rowData[fieldName];
+                const value = rowData[property?.body || fieldName];
                 if (value == null) return null;
                 return <i className={`pi ${value ? 'pi-check' : 'pi-times'}`}></i>;
             };
@@ -53,24 +56,23 @@ export default function columnProps({
             filterElement = filterBy && <Dropdown
                 className='w-full'
                 options={dropdowns?.[dropdown] || []}
-                value={tableFilter?.filters?.[property?.foreign || fieldName]?.value}
-                onChange={filterBy(property?.foreign || fieldName, 'value')}
+                value={tableFilter?.filters?.[fieldName]?.value}
+                onChange={filterBy(fieldName, 'value')}
                 showClear
                 {...props}
             />;
+            body = function body(rowData) {
+                return rowData[property?.body || fieldName];
+            };
             break;
         case 'date':
             body = function body(rowData) {
-                const value = rowData[fieldName];
-                if (value == null) return null;
-                return new Date(value).toLocaleDateString();
+                return dateOrNull(rowData[fieldName])?.toLocaleDateString();
             };
             break;
         case 'time':
             body = function body(rowData) {
-                const value = rowData[fieldName];
-                if (value == null) return null;
-                return new Date(value).toLocaleTimeString();
+                return dateOrNull(rowData[fieldName])?.toLocaleTimeString();
             };
             break;
         case 'date-time':
@@ -81,16 +83,14 @@ export default function columnProps({
             };
             break;
     }
-    if (!property?.readOnly && changeFieldValue) {
+    if (!property?.readOnly) {
         editor = function editor(p) {
             const widget = p.rowData?.$pivot?.[fieldName]?.widget || p.rowData?.$pivot?.widget;
             switch (widget?.type || type) {
                 case 'boolean':
                     return <Checkbox
                         checked={p.rowData[fieldName]}
-                        onChange={e => {
-                            changeFieldValue(p.rowData, p.field, e.checked);
-                        }}
+                        onChange={event => p.editorCallback(event.checked)}
                         {...props}
                     />;
                 case 'dropdown':
@@ -98,40 +98,35 @@ export default function columnProps({
                         className='w-full'
                         options={dropdowns?.[dropdown] || []}
                         value={p.rowData[fieldName]}
-                        onChange={e => {
-                            changeFieldValue(p.rowData, p.field, e.value);
-                        }}
+                        onChange={event => p.editorCallback(event.value)}
                         showClear
                         {...props}
                     />;
                 case 'date':
                     return <Calendar
+                        showOnFocus={false}
                         className='w-full'
-                        value={new Date(p.rowData[fieldName])}
-                        onChange={e => {
-                            changeFieldValue(p.rowData, p.field, e.value);
-                        }}
+                        value={dateOrNull(p.rowData[fieldName])}
+                        onChange={event => p.editorCallback(event.value)}
                         showIcon
                         {...props}
                     />;
                 case 'time':
                     return <Calendar
+                        showOnFocus={false}
                         className='w-full'
-                        value={new Date(p.rowData[fieldName])}
-                        onChange={e => {
-                            changeFieldValue(p.rowData, p.field, e.value);
-                        }}
+                        value={dateOrNull(p.rowData[fieldName])}
+                        onChange={event => p.editorCallback(event.value)}
                         timeOnly
                         showIcon
                         {...props}
                     />;
                 case 'date-time':
                     return <Calendar
+                        showOnFocus={false}
                         className='w-full'
-                        value={new Date(p.rowData[fieldName])}
-                        onChange={e => {
-                            changeFieldValue(p.rowData, p.field, e.value);
-                        }}
+                        value={dateOrNull(p.rowData[fieldName])}
+                        onChange={event => p.editorCallback(event.value)}
                         showTime
                         showIcon
                         {...props}
@@ -140,9 +135,7 @@ export default function columnProps({
                     return <InputMask
                         className='w-full'
                         value={p.rowData[fieldName]}
-                        onChange={e => {
-                            changeFieldValue(p.rowData, p.field, e.value);
-                        }}
+                        onChange={event => p.editorCallback(event.value)}
                         {...props}
                     />;
                 case 'text':
@@ -150,9 +143,7 @@ export default function columnProps({
                         className='w-full'
                         autoFocus={true}
                         value={p.rowData[fieldName]}
-                        onChange={e => {
-                            changeFieldValue(p.rowData, p.field, e.target.value);
-                        }}
+                        onChange={event => p.editorCallback(event.target.value)}
                         {...props}
                     />;
                 default:
@@ -160,9 +151,7 @@ export default function columnProps({
                         type='text'
                         autoFocus={true}
                         value={p.rowData[fieldName]}
-                        onChange={event => {
-                            changeFieldValue(p.rowData, p.field, event.target.value);
-                        }}
+                        onChange={event => p.editorCallback(event.target.value)}
                         disabled={property?.readOnly}
                         className='w-full'
                         id={`${p.rowData.id}`}

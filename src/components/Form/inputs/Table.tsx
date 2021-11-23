@@ -43,9 +43,9 @@ export default React.forwardRef<{}, any>(({
     ...props
 }, ref) => {
     if (typeof ref === 'function') ref({});
-    const [original, setOriginal] = React.useState([]);
     const [selected, setSelected] = React.useState(null);
     const [editingRows, setEditingRows] = React.useState({});
+    const [pendingEdit, setPendingEdit] = React.useState(null);
 
     const rows = React.useMemo(() => {
         const keys = Object.entries(join || {});
@@ -64,51 +64,27 @@ export default React.forwardRef<{}, any>(({
         return joined?.filter(row => filterFields.every(([name, value]) => lodashGet(row, name) === value));
     }, [allRows, parent, master, pivotRows, join, filter]);
 
-    const changeFieldValue = React.useCallback((row, field, value) => {
-        const index = row[INDEX];
-        if (index >= 0) {
-            const updatedValue = [...allRows];
-            updatedValue[index][field] = value;
-            onChange(updatedValue);
-        } else {
-            const {$pivot, ...values} = row;
-            onChange([...allRows, {...values, [field]: value}]);
+    React.useEffect(() => {
+        if (pendingEdit) {
+            setPendingEdit(null);
+            setEditingRows(prev => ({
+                ...prev,
+                ...pendingEdit
+            }));
         }
-    }, [allRows, onChange]);
+    }, [pendingEdit]);
 
-    const init = React.useCallback(({index}) => {
+    const complete = React.useCallback(({index, newData}) => {
+        const changed = [...allRows];
         const originalIndex = rows[index][INDEX];
-        (originalIndex != null) && setOriginal(prev => {
-            prev[originalIndex] = {...rows[index]};
-            return prev;
-        });
-    }, [rows, setOriginal]);
-
-    const cancel = React.useCallback(({index}) => {
-        const restored = [...allRows];
-        const originalIndex = rows[index][INDEX];
+        const {$pivot, ...values} = newData;
         if (originalIndex != null) {
-            if (original[originalIndex]) {
-                const {$pivot, ...values} = original[originalIndex];
-                restored[originalIndex] = values;
-            } else {
-                restored.splice(originalIndex, 1);
-            }
-            onChange(restored);
-            setOriginal(prev => {
-                delete prev[originalIndex];
-                return prev;
-            });
+            changed[originalIndex] = values;
+            onChange(changed);
+        } else {
+            onChange([...changed, values]);
         }
-    }, [allRows, onChange, original, rows]);
-
-    const save = React.useCallback(({index}) => {
-        const originalIndex = rows[index][INDEX];
-        (originalIndex != null) && setOriginal(prev => {
-            delete prev[originalIndex];
-            return prev;
-        });
-    }, [rows]);
+    }, [allRows, onChange, rows]);
 
     const handleSelected = React.useCallback(event => {
         if (!allowSelect) return;
@@ -128,14 +104,10 @@ export default React.forwardRef<{}, any>(({
             if (master) newValue[INDEX] = allRows?.length || 0;
             const updatedValue = [...(allRows || []), newValue];
             onChange(updatedValue);
-            setEditingRows(prev => {
-                prev[id] = true;
-                return prev;
-            });
-            setOriginal(prev => {
-                prev[updatedValue.length - 1] = {...newValue};
-                return prev;
-            });
+            setPendingEdit(prev => ({
+                ...prev,
+                [id]: true
+            }));
         };
         const deleteRow = event => {
             event.preventDefault();
@@ -167,9 +139,7 @@ export default React.forwardRef<{}, any>(({
                 {...props}
                 value={rows}
                 dataKey={dataKey}
-                onRowEditInit={init}
-                onRowEditCancel={cancel}
-                onRowEditSave={save}
+                onRowEditComplete={complete}
                 onFilter={handleFilter}
                 editingRows={editingRows}
                 onRowEditChange={onRowEditChange}
@@ -181,7 +151,7 @@ export default React.forwardRef<{}, any>(({
                         key={name}
                         field={name}
                         header={properties?.[name]?.title || name}
-                        {...columnProps({name, property: properties?.[name], dropdowns, changeFieldValue})}
+                        {...columnProps({name, property: properties?.[name], dropdowns})}
                     />)
                 }
                 {allowEdit && <Column rowEditor headerStyle={{ width: '7rem' }} bodyStyle={{ textAlign: 'center' }}></Column>}

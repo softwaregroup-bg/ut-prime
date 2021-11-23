@@ -70,6 +70,7 @@ export interface Property extends JSONSchema7 {
         current: {},
         selected: []
     }) => void;
+    body?: string;
     widget?: PropertyEditor,
     properties?: {
         [key: string]: Property
