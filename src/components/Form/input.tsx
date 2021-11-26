@@ -40,7 +40,7 @@ export default function input(
     },
     inputClass,
     {
-        type = 'string',
+        type,
         dropdown = '',
         parent: parentField = '',
         optionsFilter = null,
@@ -55,7 +55,7 @@ export default function input(
     if (loading) return <>{label}<div className={inputClass}><Skeleton className='p-inputtext'/></div></>;
     props.disabled = schema.readOnly;
     const filterBy = item => (!parentField && !optionsFilter) || Object.entries({...optionsFilter, parent: parentValue}).every(([name, value]) => String(item[name]) === String(value));
-    switch (type) {
+    switch (type || schema.type) {
         case 'dropdownTree': return <Field {...{label, error, inputClass}}>
             <TreeSelect
                 {...field}
@@ -80,9 +80,7 @@ export default function input(
             <InputNumber
                 {...field}
                 inputRef={field.ref}
-                onChange={e => {
-                    field.onChange?.(e.value);
-                }}
+                onChange={e => field.onChange?.(e.value)}
                 minFractionDigits={2}
                 maxFractionDigits={4}
                 {...props}
@@ -234,14 +232,20 @@ export default function input(
                 {...props}
             />
         </Field>;
+        case 'number': return <Field {...{label, error, inputClass}}>
+            <InputNumber
+                {...field}
+                inputRef={field.ref}
+                onChange={e => field.onChange?.(e.value)}
+                {...props}
+            />
+        </Field>;
         case 'integer': return <Field {...{label, error, inputClass}}>
             <InputNumber
                 {...field}
                 inputClassName='w-full'
                 inputRef={field.ref}
-                onChange={e => {
-                    field.onChange?.(e.value);
-                }}
+                onChange={e => field.onChange?.(e.value)}
                 showButtons
                 {...props}
             />
