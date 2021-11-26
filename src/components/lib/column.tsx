@@ -19,6 +19,11 @@ function dateOrNull(value) {
     return new Date(value);
 }
 
+function timeOrZero(value) {
+    if (value == null) return new Date(1970, 0, 1);
+    return new Date(value);
+}
+
 export default function columnProps({
     name,
     property,
@@ -117,7 +122,7 @@ export default function columnProps({
                     return <Calendar
                         showOnFocus={false}
                         className='w-full'
-                        value={dateOrNull(p.rowData[fieldName])}
+                        value={timeOrZero(p.rowData[fieldName])}
                         onChange={event => p.editorCallback(event.value)}
                         timeOnly
                         showIcon
