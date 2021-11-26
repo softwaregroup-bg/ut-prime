@@ -64,16 +64,6 @@ export default React.forwardRef<{}, any>(({
         return joined?.filter(row => filterFields.every(([name, value]) => lodashGet(row, name) === value));
     }, [allRows, parent, master, pivotRows, join, filter]);
 
-    React.useEffect(() => {
-        if (pendingEdit) {
-            setPendingEdit(null);
-            setEditingRows(prev => ({
-                ...prev,
-                ...pendingEdit
-            }));
-        }
-    }, [pendingEdit]);
-
     const complete = React.useCallback(({index, newData}) => {
         const changed = [...allRows];
         const originalIndex = rows[index][INDEX];
@@ -91,6 +81,18 @@ export default React.forwardRef<{}, any>(({
         onChange(event.value, {select: true, field: false, children: false});
         setSelected(event.value);
     }, [allowSelect, onChange]);
+
+    React.useEffect(() => {
+        if (pendingEdit) {
+            setPendingEdit(null);
+            setEditingRows(prev => ({
+                ...prev,
+                ...pendingEdit
+            }));
+            const lastEditing = rows.find(row => pendingEdit[row[dataKey]]);
+            if (lastEditing) handleSelected({value: lastEditing});
+        }
+    }, [dataKey, handleSelected, pendingEdit, rows]);
 
     const onRowEditChange = React.useCallback(event => {
         setEditingRows(event.data);
@@ -113,7 +115,7 @@ export default React.forwardRef<{}, any>(({
             event.preventDefault();
             const remove = [].concat(selected);
             handleSelected({value: null});
-            onChange(allRows.filter((rowData, index) => master ? !remove.some(item => item[INDEX] === index) : !remove.includes(rowData)));
+            onChange(allRows.filter((rowData, index) => !remove.some(item => item[INDEX] === index)));
         };
         return (
             <React.Fragment>
