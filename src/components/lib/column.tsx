@@ -105,7 +105,13 @@ export default function columnProps({
                         className='w-full'
                         options={dropdowns?.[dropdown] || []}
                         value={p.rowData[fieldName]}
-                        onChange={event => p.editorCallback(event.value)}
+                        onChange={event => {
+                            if (property?.body) {
+                                const item = dropdowns?.[dropdown]?.find(({value}) => value === event.value);
+                                p.rowData[property?.body] = item?.label;
+                            }
+                            p.editorCallback(event.value);
+                        }}
                         showClear
                         {...props}
                     />;
