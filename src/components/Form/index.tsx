@@ -87,7 +87,27 @@ const Form: StyledType = ({
     const {properties = {}} = schema;
     const joiSchema = validation || getValidation(schema);
     // console.log(joiSchema.describe());
-    const {handleSubmit: formSubmit, control, reset, formState: {errors, isDirty}, watch, setValue, setError, clearErrors} = useForm({resolver: joiResolver(joiSchema)});
+    const {
+        handleSubmit: formSubmit,
+        control,
+        reset,
+        formState: {
+            errors,
+            isDirty
+        },
+        watch,
+        setValue,
+        setError,
+        clearErrors
+    } = useForm({
+        resolver: joiResolver(
+            joiSchema,
+            {
+                stripUnknown: true,
+                abortEarly: false
+            }
+        )
+    });
     const visibleCards: (string | string[])[] = (layout || Object.keys(cards));
     const errorFields = flat(errors).flat();
     const visibleProperties = visibleCards.map(id => {

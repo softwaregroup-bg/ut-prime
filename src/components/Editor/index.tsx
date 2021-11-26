@@ -57,18 +57,39 @@ const Editor: StyledType = ({
     const [[items, layout, orientation], setIndex] = React.useState(getLayout(layoutName));
     const [filter, setFilter] = React.useState(items?.[0]?.items?.[0] || items?.[0]);
     const [loading, setLoading] = React.useState('');
-    const widgetName = widget => typeof widget === 'string' ? widget : widget.name;
     const [validation, dropdownNames, getValue] = React.useMemo(() => {
+        const widgetName = widget =>
+            typeof widget === 'string'
+                ? widget
+                : Array.isArray(widget.widgets)
+                    ? [
+                        widget.name,
+                        ...(
+                            widget.hidden ||
+                            [lodashGet(schema.properties, widget.name?.replace(/\./g, '.properties.'))?.widget?.dataKey].filter(Boolean)
+                        )
+                            .concat(widget.widgets)
+                            .map(name => widget.name + '.' + name)
+                    ]
+                    : widget.name;
         const indexCards = items && items.map(item => [item.widgets, item?.items?.map(item => item.widgets)]).flat(2).filter(Boolean);
-        const fields: string[] = Array.from(new Set((indexCards || layout || filter?.widgets || [])
-            .flat()
-            .map(card => cards?.[card]?.widgets)
-            .flat()
-            .filter(Boolean)
-            .map(widgetName)
-            .map(property => editors?.[property]?.properties || property)
-            .flat()
-            .filter(Boolean)));
+        const fields: string[] = Array.from(
+            new Set(
+                // collect all widgets from cards
+                (indexCards || layout || filter?.widgets || [])
+                    .flat()
+                    .map(card => cards?.[card]?.widgets)
+                    .flat()
+                    .filter(Boolean)
+                // collect all column and field names
+                    .map(widgetName)
+                    .flat()
+                // collect field names from custom editors
+                    .map(property => editors?.[property]?.properties || property)
+                    .flat()
+                    .filter(Boolean)
+            )
+        );
         const validation = getValidation(schema, fields);
         const dropdownNames = fields
             .map(name => {
