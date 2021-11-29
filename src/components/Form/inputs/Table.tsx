@@ -38,7 +38,7 @@ export default React.forwardRef<{}, any>(({
         allowAdd = !pivotRows?.length,
         allowDelete = !pivotRows?.length,
         allowEdit = true,
-        allowSelect = !pivotRows?.length
+        allowSelect = true
     } = {},
     ...props
 }, ref) => {

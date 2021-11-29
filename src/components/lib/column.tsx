@@ -1,5 +1,5 @@
 import React from 'react';
-import { Checkbox, Dropdown, Calendar, InputMask, InputText, InputTextarea } from '../prime';
+import { Checkbox, Dropdown, SelectButton, Calendar, InputMask, InputText, InputTextarea } from '../prime';
 
 export interface TableFilter {
     filters?: {
@@ -72,6 +72,19 @@ export default function columnProps({
                 return rowData[property?.body || fieldName];
             };
             break;
+        case 'select':
+            body = function body(rowData) {
+                return <SelectButton
+                    className='w-full'
+                    options={dropdowns?.[dropdown] || []}
+                    value={props?.split ? rowData[fieldName]?.split(props.split) : rowData[fieldName]}
+                    disabled
+                    style={{whiteSpace: 'nowrap'}}
+                    // onChange={(e) => {}}
+                    {...props}
+                />;
+            };
+            break;
         case 'date':
             body = function body(rowData) {
                 return dateOrNull(rowData[fieldName])?.toLocaleDateString();
@@ -113,6 +126,14 @@ export default function columnProps({
                             p.editorCallback(event.value);
                         }}
                         showClear
+                        {...props}
+                    />;
+                case 'select':
+                    return <SelectButton
+                        className='w-full'
+                        options={dropdowns?.[dropdown] || []}
+                        value={props?.split ? p.rowData[fieldName]?.split(props.split) : p.rowData[fieldName]}
+                        onChange={event => p.editorCallback(props?.split ? event.value.join(props.split) : event.value)}
                         {...props}
                     />;
                 case 'date':

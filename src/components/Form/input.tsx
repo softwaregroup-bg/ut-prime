@@ -13,13 +13,13 @@ import {
     Checkbox,
     Image,
     Skeleton,
+    SelectButton,
     Column
 } from '../prime';
 import { RefCallBack } from 'react-hook-form';
 
 import Table from './inputs/Table';
 import MultiSelectPanel from './inputs/MultiSelectPanel';
-import SelectButton from './inputs/SelectButton';
 
 const Field = ({children, label, error, inputClass}) => <>
     {label}
