@@ -131,6 +131,8 @@ export default function input(
                 {...field}
                 options={dropdowns?.[dropdown]?.filter(filterBy) || []}
                 disabled={parentField && !parentValue}
+                value={props?.split ? field.value?.split(props.split) : field.value}
+                onChange={event => field.onChange(props?.split ? event.value.join(props.split) : event.value)}
                 {...props}
             />
         </Field>;
