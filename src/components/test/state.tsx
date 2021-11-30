@@ -24,7 +24,8 @@ const defaultState: State = {
     }),
     portal: {
         menu: [{
-            title: ' 🏠 '
+            title: ' 🏠 ',
+            action: () => ({type: 'test'})
         }, {
             title: 'Main',
             items: [{
@@ -58,15 +59,32 @@ const defaultState: State = {
             }
         }, {
             title: 'Granted',
-            permission: 'granted'
+            permission: 'granted',
+            path: '/granted',
+            component: () => function Granted() {
+                return 'access granted';
+            }
+        }, {
+            title: 'Empty',
+            permission: 'granted',
+            items: [{
+                title: 'Empty level 1',
+                permission: 'granted',
+                items: [{
+                    permission: 'granted',
+                    title: 'Empty level 2'
+                }]
+            }]
         }, {
             title: 'Denied',
             permission: 'denied'
         }],
         rightMenuItems: [{
-            title: 'Help'
+            title: 'Help',
+            action: () => ({type: 'test'})
         }, {
-            title: 'Profile'
+            title: 'Profile',
+            action: () => ({type: 'test'})
         }],
         tabs: [{
             title: 'Dashboard',

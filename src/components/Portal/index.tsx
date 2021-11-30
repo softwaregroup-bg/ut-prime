@@ -25,7 +25,8 @@ const filterMenu = (permissions, command, items) => items
         label: title,
         ...items ? {items: filterMenu(permissions, command, items)} : {command},
         ...item
-    }));
+    }))
+    .filter(item => item?.items?.length || item.component || item.action);
 
 const Portal: StyledType = ({ classes, children }) => {
     const {ut} = useTheme<Theme>();

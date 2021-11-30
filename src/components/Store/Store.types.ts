@@ -1,6 +1,19 @@
 import React from 'react';
-import {Reducer, Middleware, Action} from 'redux';
-
+import {Reducer, Middleware, Action, AnyAction} from 'redux';
+import type { MenuItem as PrimeMenuItem } from 'primereact/menuitem';
+export interface MenuItem extends PrimeMenuItem {
+    title: string;
+    path?: string;
+    component?: () => any;
+    tab?: ({}) => Promise<{
+        title: string;
+        component?: () => any
+    }>,
+    params?: {
+        id: string | number
+    },
+    action?: () => AnyAction
+}
 export interface State {
     error?: {
         open: boolean;
@@ -25,11 +38,11 @@ export interface State {
             params?: {}
         }[];
         hideTabs?: boolean;
-        menu: {}[];
+        menu: MenuItem[];
         menuClass?: 'menu' | 'menuGrow';
-        rightMenu?: {}[];
+        rightMenu?: MenuItem[];
         rightMenuClass?: 'menu' | 'menuGrow';
-        rightMenuItems?: {}[]
+        rightMenuItems?: MenuItem[]
     };
 }
 
