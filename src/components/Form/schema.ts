@@ -37,8 +37,8 @@ export default function getValidation(schema: Schema | Property, filter?: string
                 return schema.append({[name]: validation(name, field)});
             }
         },
-        Joi.object({
-            $: Joi.any()
+        Joi.object(path ? {} : {
+            $: Joi.any().strip()
         })
     );
 };
