@@ -1,5 +1,5 @@
 import React from 'react';
-import { Checkbox, Dropdown, SelectButton, Calendar, InputMask, InputText, InputTextarea } from '../prime';
+import { Checkbox, Dropdown, SelectButton, Calendar, InputMask, InputText, InputTextarea, InputNumber } from '../prime';
 
 export interface TableFilter {
     filters?: {
@@ -27,6 +27,7 @@ function timeOrZero(value) {
 export default function columnProps({
     name,
     property,
+    widget,
     dropdowns,
     tableFilter,
     filterBy,
@@ -34,16 +35,19 @@ export default function columnProps({
 }: {
     name: string,
     property: {
+        type?: string,
+        title?: string,
         widget?: any,
         readOnly?: boolean,
         body?: string
     },
+    widget?: any,
     dropdowns: {},
     tableFilter?: TableFilter,
     filterBy?: (name: string, value: string) => (e: {}) => void,
     editable?: boolean
 }) {
-    const {type, dropdown, parent, column, ...props} = property?.widget || {name};
+    const {type, dropdown, parent, column, ...props} = widget || property?.widget || {name};
     const fieldName = name;
     let filterElement, body, editor;
     switch (type) {
@@ -106,11 +110,22 @@ export default function columnProps({
     if (!property?.readOnly && editable) {
         editor = function editor(p) {
             const widget = p.rowData?.$pivot?.[fieldName]?.widget || p.rowData?.$pivot?.widget;
-            switch (widget?.type || type) {
+            switch (widget?.type || type || property?.type) {
                 case 'boolean':
                     return <Checkbox
                         checked={p.rowData[fieldName]}
                         onChange={event => p.editorCallback(event.checked)}
+                        {...props}
+                    />;
+                case 'integer':
+                    return <InputNumber
+                        autoFocus={true}
+                        value={p.rowData[fieldName]}
+                        onChange={event => p.editorCallback(event.value)}
+                        disabled={property?.readOnly}
+                        className='w-full'
+                        id={`${p.rowData.id}`}
+                        showButtons
                         {...props}
                     />;
                 case 'dropdown':
@@ -197,6 +212,8 @@ export default function columnProps({
     return {
         showClearButton: true,
         showFilterMenu: false,
+        field: name,
+        header: property?.title || name,
         ...filterElement && {filterElement},
         ...body && {body},
         ...(editor != null) && {editor},
