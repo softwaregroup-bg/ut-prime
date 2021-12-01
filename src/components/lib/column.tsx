@@ -147,8 +147,8 @@ export default function columnProps({
                     return <SelectButton
                         className='w-full'
                         options={dropdowns?.[dropdown] || []}
-                        value={props?.split ? p.rowData[fieldName]?.split(props.split) : p.rowData[fieldName]}
-                        onChange={event => p.editorCallback(props?.split ? event.value.join(props.split) : event.value)}
+                        value={props?.split ? p.rowData[fieldName]?.split(props.split).filter(Boolean) : p.rowData[fieldName]}
+                        onChange={event => p.editorCallback(props?.split ? event.value.join(props.split) || null : event.value)}
                         {...props}
                     />;
                 case 'date':
