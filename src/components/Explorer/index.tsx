@@ -166,14 +166,14 @@ const Explorer: StyledType = ({
         });
     };
 
-    const Columns = React.useMemo(() => columns.map(name => {
+    const Columns = React.useMemo(() => columns.map(column => {
+        const isString = typeof column === 'string';
+        const {name, ...widget} = isString ? {name: column} : column;
         const property = lodashGet(properties, name?.replace(/\./g, '.properties.'));
         const field = name.split('.').pop();
         return (
             <Column
                 key={name}
-                field={field}
-                header={property?.title}
                 body={property?.action && (row => <Button
                     label={row[field]}
                     style={{padding: 0, minWidth: 'inherit'}}
@@ -186,7 +186,7 @@ const Explorer: StyledType = ({
                 />)}
                 filter={showFilter && !!property?.filter}
                 sortable={!!property?.sort}
-                {...columnProps({name: field, property, dropdowns, tableFilter, filterBy})}
+                {...columnProps({name: field, widget: !isString && widget, property, dropdowns, tableFilter, filterBy})}
             />
         );
     }), [columns, properties, showFilter, dropdowns, tableFilter, keyField]);
