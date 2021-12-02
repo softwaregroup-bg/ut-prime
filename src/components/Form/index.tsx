@@ -115,9 +115,9 @@ const Form: StyledType = ({
         const visibleCards: (string | string[])[] = (layout || Object.keys(cards));
         const widgetNames = widget => {
             widget = typeof widget === 'string' ? widget : widget.name;
-            const editor = editors?.[widget.replace('$.selected.', '')];
+            const editor = editors?.[widget.replace('$.edit.', '')];
             if (!editor) return widget;
-            return widget.startsWith('$.selected.') ? editor.properties.map(name => '$.selected.' + name) : editor.properties;
+            return widget.startsWith('$.edit.') ? editor.properties.map(name => '$.edit.' + name) : editor.properties;
         };
         return [
             visibleCards,
@@ -212,11 +212,11 @@ const Form: StyledType = ({
         label,
         error,
         name,
-        propertyName = name.replace('$.selected.', ''),
+        propertyName = name.replace('$.edit.', ''),
         className,
         ...widget
     }) {
-        widget.parent = widget.parent || name.match(/^\$\.selected\.[^.]+/)?.[0];
+        widget.parent = widget.parent || name.match(/^\$\.edit\.[^.]+/)?.[0].replace('.edit.', '.selected.');
         const parent = widget.parent || idx.properties[propertyName]?.widget?.parent;
         const parentWatch = parent && watch(parent);
         return (
@@ -229,16 +229,15 @@ const Form: StyledType = ({
                     {
                         className: clsx('w-full', { 'p-invalid': fieldState.error }),
                         ...field,
-                        ...(propertyName !== name) && {value: getValues(name)},
                         onChange: (value, {select = false, field: changeField = true, children = true} = {}) => {
                             if (select) {
-                                const prefix = `$.selected.${propertyName}.`;
+                                const prefix = `$.edit.${propertyName}.`;
                                 setValue(`$.selected.${propertyName}`, value, {shouldDirty: false, shouldTouch: false});
                                 visibleProperties.forEach(property => {
-                                    if (property.startsWith(prefix) && !(property.substr(prefix.length) in value)) {
+                                    if (property.startsWith(prefix)) {
                                         setValue(
                                             property,
-                                            null,
+                                            value?.[property.substr(prefix.length)],
                                             {shouldDirty: false, shouldTouch: false}
                                         );
                                     }
@@ -266,16 +265,17 @@ const Form: StyledType = ({
                     idx.properties[propertyName],
                     dropdowns,
                     parentWatch,
-                    loading
+                    loading,
+                    getValues
                 )}
             />
         );
     }, [classes, control, dropdowns, idx, loading, setValue, watch, getValues, visibleProperties]);
 
-    const InputWrapSelected = React.useCallback(
-        function InputSelected({name, ...props}) {
+    const InputWrapEdit = React.useCallback(
+        function InputEdit({name, ...props}) {
             const Component = InputWrap; // this is to please eslint-plugin-react-hooks
-            return <Component name={'$.selected.' + name} {...props}/>;
+            return <Component name={'$.edit.' + name} {...props}/>;
         },
         [InputWrap]
     );
@@ -304,9 +304,9 @@ const Form: StyledType = ({
                         if (typeof widget === 'string') widget = {name: widget};
                         const {
                             name,
-                            propertyName = name.replace('$.selected.', '')
+                            propertyName = name.replace('$.edit.', '')
                         } = widget;
-                        const parent = name.match(/^\$\.selected\.[^.]+/)?.[0];
+                        const parent = name.match(/^\$\.edit\.[^.]+/)?.[0].replace('.edit.', '.selected.');
                         const property = idx.properties[propertyName];
                         const {
                             field: fieldClass = (typeof property === 'function') ? 'grid' : 'field grid',
@@ -316,7 +316,7 @@ const Form: StyledType = ({
                             if (typeof property === 'function') {
                                 return property({
                                     name,
-                                    Input: name.startsWith('$.selected.') ? InputWrapSelected : InputWrap,
+                                    Input: name.startsWith('$.edit.') ? InputWrapEdit : InputWrap,
                                     Label,
                                     ErrorLabel
                                 });

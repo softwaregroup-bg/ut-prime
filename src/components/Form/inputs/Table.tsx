@@ -23,6 +23,7 @@ const noRows = Object.freeze([]);
 
 export default React.forwardRef<{}, any>(({
     onChange,
+    getValues,
     widgets,
     value: allRows = noRows,
     dataKey = 'id',
@@ -47,7 +48,7 @@ export default React.forwardRef<{}, any>(({
     ...props
 }, ref) => {
     if (typeof ref === 'function') ref({});
-    const [selected, setSelected] = React.useState(null);
+    const [selected, setSelected] = React.useState(getValues(`$.selected.${props.name}`));
     const [editingRows, setEditingRows] = React.useState({});
     const [pendingEdit, setPendingEdit] = React.useState(null);
 
@@ -98,7 +99,7 @@ export default React.forwardRef<{}, any>(({
             const lastEditing = rows.find(row => pendingEdit[row[dataKey]]);
             if (lastEditing) handleSelected({value: lastEditing});
         }
-    }, [dataKey, handleSelected, pendingEdit, rows]);
+    }, [dataKey, handleSelected, onChange, pendingEdit, rows]);
 
     const onRowEditChange = React.useCallback(event => {
         setEditingRows(event.data);
