@@ -1,6 +1,3 @@
-import { SelectButton as SelectButtonPrime } from 'primereact/selectbutton';
-import { styled } from '../mui/styles';
-
 export { AutoComplete } from 'primereact/autocomplete';
 export { Button } from 'primereact/button';
 export { Calendar } from 'primereact/calendar';
@@ -25,6 +22,7 @@ export { MultiSelect } from 'primereact/multiselect';
 export { PanelMenu } from 'primereact/panelmenu';
 export { Password } from 'primereact/password';
 export { RadioButton } from 'primereact/radiobutton';
+export { SelectButton } from 'primereact/selectbutton';
 export { Skeleton } from 'primereact/skeleton';
 export { Splitter, SplitterPanel } from 'primereact/splitter';
 export { TabMenu } from 'primereact/tabmenu';
@@ -34,22 +32,3 @@ export { Toolbar } from 'primereact/toolbar';
 export { Tree } from 'primereact/tree';
 export { TreeSelect } from 'primereact/treeselect';
 export { TreeTable } from 'primereact/treetable';
-
-export const SelectButton = styled(SelectButtonPrime)(() => ({
-    height: '100%',
-    '& .p-component.p-button': {
-        height: '100%'
-    },
-    '& .p-component.p-button.p-highlight': {
-        backgroundColor: 'var(--primary-color)',
-        color: 'var(--primary-color-text)'
-    },
-    '& .p-component.p-button:not(.p-disabled):not(.p-highlight):hover': {
-        backgroundColor: 'var(--primary-color)',
-        color: 'var(--primary-color-text)'
-    },
-    '& .p-component.p-button:focus.p-highlight': {
-        backgroundColor: 'var(--primary-color)',
-        color: 'var(--primary-color-text)'
-    }
-}));

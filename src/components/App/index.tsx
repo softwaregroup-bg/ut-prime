@@ -11,8 +11,8 @@ import 'primeflex/primeflex.css';
 import 'primeicons/primeicons.css';
 import light from 'primereact/resources/themes/md-light-indigo/theme.css';
 import dark from 'primereact/resources/themes/md-dark-indigo/theme.css';
-import lightCompact from 'primereact/resources/themes/mdc-light-indigo/theme.css';
-import darkCompact from 'primereact/resources/themes/mdc-dark-indigo/theme.css';
+import lightCompact from 'primereact/resources/themes/saga-blue/theme.css';
+import darkCompact from 'primereact/resources/themes/arya-blue/theme.css';
 
 import LoginPage from '../Login';
 import Main from '../Main';
