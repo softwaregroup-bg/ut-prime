@@ -51,7 +51,8 @@ export default function input(
     dropdowns,
     parentValue,
     loading: string,
-    getValues: (name: any) => any
+    getValues: (name: any) => any,
+    counter
 ) {
     if (loading) return <>{label}<div className={inputClass}><Skeleton className='p-inputtext'/></div></>;
     props.disabled = schema?.readOnly || (parentField && !parentValue);
@@ -107,6 +108,7 @@ export default function input(
                     properties={schema?.items?.properties}
                     dropdowns={dropdowns}
                     getValues={getValues}
+                    counter={counter}
                     {...props}
                 />
             </div>

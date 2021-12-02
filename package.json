@@ -150,7 +150,6 @@
     "tslib": "^2.3.1",
     "typescript": "^4.4.4",
     "ut-function.merge": "^1.5.6",
-    "ut-tools": "^6.39.0",
-    "uuid": "3.3.2"
+    "ut-tools": "^6.39.0"
   }
 }

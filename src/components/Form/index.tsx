@@ -111,6 +111,7 @@ const Form: StyledType = ({
         )
     });
     const errorFields = flat(errors).flat();
+    const counter = React.useRef(0);
     const [visibleCards, visibleProperties] = React.useMemo(() => {
         const visibleCards: (string | string[])[] = (layout || Object.keys(cards));
         const widgetNames = widget => {
@@ -266,7 +267,8 @@ const Form: StyledType = ({
                     dropdowns,
                     parentWatch,
                     loading,
-                    getValues
+                    getValues,
+                    counter
                 )}
             />
         );

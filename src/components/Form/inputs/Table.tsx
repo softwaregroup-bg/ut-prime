@@ -1,4 +1,3 @@
-import { v4 as uuid } from 'uuid';
 import React from 'react';
 import lodashGet from 'lodash.get';
 
@@ -24,9 +23,11 @@ const noRows = Object.freeze([]);
 export default React.forwardRef<{}, any>(({
     onChange,
     getValues,
+    counter,
     widgets,
     value: allRows = noRows,
     dataKey = 'id',
+    keyColumn,
     properties,
     dropdowns,
     parent,
@@ -78,6 +79,7 @@ export default React.forwardRef<{}, any>(({
                 changed[originalIndex] = values;
                 onChange(changed);
             } else {
+                values[keyColumn || dataKey] = -(++counter.current);
                 onChange([...changed, values]);
             }
         };
@@ -108,8 +110,8 @@ export default React.forwardRef<{}, any>(({
     const leftToolbarTemplate = React.useCallback(() => {
         const addNewRow = event => {
             event.preventDefault();
-            const id = uuid();
-            const newValue = {[dataKey]: id, ...filter, ...masterFilter(master, parent)};
+            const id = ++counter.current;
+            const newValue = {[keyColumn || dataKey]: -id, ...filter, ...masterFilter(master, parent)};
             if (master) newValue[INDEX] = allRows?.length || 0;
             const updatedValue = [...(allRows || []), newValue];
             onChange(updatedValue);
@@ -130,7 +132,7 @@ export default React.forwardRef<{}, any>(({
                 {allowDelete && <Button label="Delete" icon="pi pi-trash" className="p-button" onClick={deleteRow} disabled={!selected} />}
             </React.Fragment>
         );
-    }, [allowAdd, allowDelete, selected, dataKey, master, filter, parent, allRows, onChange, handleSelected]);
+    }, [allowAdd, allowDelete, selected, dataKey, keyColumn, master, filter, parent, allRows, onChange, handleSelected, counter]);
 
     if (selected && props.selectionMode === 'single' && !rows.includes(selected)) {
         const keyValue = selected[dataKey];
