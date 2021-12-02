@@ -14,6 +14,7 @@ import useToggle from '../hooks/useToggle';
 import useSubmit from '../hooks/useSubmit';
 import Controller from '../Controller';
 import getValidation from './schema';
+import {CHANGE} from './const';
 
 const inputClass = (index, classes, name, className) => ({
     ...classes?.default,
@@ -97,6 +98,7 @@ const Form: StyledType = ({
         },
         watch,
         setValue,
+        getValues,
         setError,
         clearErrors
     } = useForm({
@@ -108,12 +110,25 @@ const Form: StyledType = ({
             }
         )
     });
-    const visibleCards: (string | string[])[] = (layout || Object.keys(cards));
     const errorFields = flat(errors).flat();
-    const visibleProperties = visibleCards.map(id => {
-        const nested = [].concat(id);
-        return nested.map(cardName => cards[typeof cardName === 'string' ? cardName : cardName.name]?.widgets);
-    }).flat(10).filter(Boolean);
+    const [visibleCards, visibleProperties] = React.useMemo(() => {
+        const visibleCards: (string | string[])[] = (layout || Object.keys(cards));
+        const widgetNames = widget => {
+            widget = typeof widget === 'string' ? widget : widget.name;
+            const editor = editors?.[widget.replace('$.selected.', '')];
+            if (!editor) return widget;
+            return widget.startsWith('$.selected.') ? editor.properties.map(name => '$.selected.' + name) : editor.properties;
+        };
+        return [
+            visibleCards,
+            visibleCards.map(id => {
+                const nested = [].concat(id);
+                return nested.map(
+                    cardName => cards[typeof cardName === 'string' ? cardName : cardName.name]?.widgets.map(widgetNames)
+                );
+            }).flat(10).filter(Boolean)
+        ];
+    }, [cards, layout, editors]);
 
     const [, moved] = useToggle();
 
@@ -193,8 +208,17 @@ const Form: StyledType = ({
         moved();
     }, [cards, moved, visibleCards]);
 
-    const InputWrap = React.useCallback(({label, error, name, className, ...widget}) => {
-        const parent = idx.properties[name]?.widget?.parent;
+    const InputWrap = React.useCallback(function Input({
+        label,
+        error,
+        name,
+        propertyName = name.replace('$.selected.', ''),
+        className,
+        ...widget
+    }) {
+        widget.parent = widget.parent || name.match(/^\$\.selected\.[^.]+/)?.[0];
+        const parent = widget.parent || idx.properties[propertyName]?.widget?.parent;
+        const parentWatch = parent && watch(parent);
         return (
             <Controller
                 control={control}
@@ -205,30 +229,56 @@ const Form: StyledType = ({
                     {
                         className: clsx('w-full', { 'p-invalid': fieldState.error }),
                         ...field,
-                        onChange: (e, {select = false, field: changeField = true, children = true} = {}) => {
+                        ...(propertyName !== name) && {value: getValues(name)},
+                        onChange: (value, {select = false, field: changeField = true, children = true} = {}) => {
                             if (select) {
-                                setValue(`$.${field.name}.selected`, e);
+                                const prefix = `$.selected.${propertyName}.`;
+                                setValue(`$.selected.${propertyName}`, value, {shouldDirty: false, shouldTouch: false});
+                                visibleProperties.forEach(property => {
+                                    if (property.startsWith(prefix) && !(property.substr(prefix.length) in value)) {
+                                        setValue(
+                                            property,
+                                            null,
+                                            {shouldDirty: false, shouldTouch: false}
+                                        );
+                                    }
+                                });
                             }
                             try {
                                 if (children) {
-                                    const items = idx.children[field.name];
+                                    const items = idx.children[propertyName];
                                     if (items) items.forEach(child => setValue(child, null));
                                 }
                             } finally {
-                                if (changeField) field.onChange(e);
+                                if (changeField) {
+                                    field.onChange(value);
+                                    if (parentWatch?.[CHANGE]) {
+                                        const old = {...parentWatch};
+                                        parentWatch[name.split('.').pop()] = value;
+                                        parentWatch[CHANGE](old, parentWatch);
+                                    }
+                                }
                             }
                         }
                     },
-                    inputClass(idx, classes, field.name, className),
-                    {id: field.name, ...idx.properties[field.name]?.widget, ...widget},
-                    idx.properties[field.name],
+                    inputClass(idx, classes, propertyName, className),
+                    {id: name, ...idx.properties[propertyName]?.widget, ...widget},
+                    idx.properties[propertyName],
                     dropdowns,
-                    parent && watch(parent),
+                    parentWatch,
                     loading
                 )}
             />
         );
-    }, [classes, control, dropdowns, idx, loading, setValue, watch]);
+    }, [classes, control, dropdowns, idx, loading, setValue, watch, getValues, visibleProperties]);
+
+    const InputWrapSelected = React.useCallback(
+        function InputSelected({name, ...props}) {
+            const Component = InputWrap; // this is to please eslint-plugin-react-hooks
+            return <Component name={'$.selected.' + name} {...props}/>;
+        },
+        [InputWrap]
+    );
 
     const Label = React.useCallback(({name, className = 'col-12 md:col-4'}) => {
         const label = idx.properties?.[name]?.title;
@@ -252,18 +302,31 @@ const Form: StyledType = ({
                 <div className={clsx(flex && 'flex flex-wrap')}>
                     {widgets.map((widget, ind) => {
                         if (typeof widget === 'string') widget = {name: widget};
-                        const {name} = widget;
-                        const property = idx.properties[name];
+                        const {
+                            name,
+                            propertyName = name.replace('$.selected.', '')
+                        } = widget;
+                        const parent = name.match(/^\$\.selected\.[^.]+/)?.[0];
+                        const property = idx.properties[propertyName];
                         const {
                             field: fieldClass = (typeof property === 'function') ? 'grid' : 'field grid',
                             label: labelClass
-                        } = {...classes?.default, ...classes?.[name]};
+                        } = {...classes?.default, ...classes?.[propertyName]};
                         function Field() {
-                            if (typeof property === 'function') return property({name: name, Input: InputWrap, Label, ErrorLabel});
+                            if (typeof property === 'function') {
+                                return property({
+                                    name,
+                                    Input: name.startsWith('$.selected.') ? InputWrapSelected : InputWrap,
+                                    Label,
+                                    ErrorLabel
+                                });
+                            }
                             return (
                                 <InputWrap
-                                    label={<Label name={name} className={labelClass}/>}
-                                    error={<ErrorLabel name={name} className={labelClass} />}
+                                    label={<Label name={propertyName} className={labelClass}/>}
+                                    error={<ErrorLabel name={propertyName} className={labelClass} />}
+                                    propertyName={propertyName}
+                                    parent={parent}
                                     {...widget}
                                 />
                             );

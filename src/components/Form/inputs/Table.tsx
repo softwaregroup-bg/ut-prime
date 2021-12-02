@@ -4,10 +4,14 @@ import lodashGet from 'lodash.get';
 
 import {DataTable, Column, Toolbar, Button} from '../../prime';
 import columnProps from '../../lib/column';
+import {CHANGE, INDEX} from '../const';
 
 const handleFilter = () => {};
-const INDEX = Symbol('index');
 const backgroundNone = {background: 'none'};
+
+const complete = ({data, newData}) => {
+    data[CHANGE]?.(data, newData);
+};
 
 const masterFilter = (master, filter) => master && Object.fromEntries(
     Object.entries(master).map(
@@ -64,17 +68,19 @@ export default React.forwardRef<{}, any>(({
         return joined?.filter(row => filterFields.every(([name, value]) => lodashGet(row, name) === value));
     }, [allRows, parent, master, pivotRows, join, filter]);
 
-    const complete = React.useCallback(({index, newData}) => {
-        const changed = [...allRows];
-        const originalIndex = rows[index][INDEX];
-        const {$pivot, ...values} = newData;
-        if (originalIndex != null) {
-            changed[originalIndex] = values;
-            onChange(changed);
-        } else {
-            onChange([...changed, values]);
-        }
-    }, [allRows, onChange, rows]);
+    rows.forEach(row => {
+        row[CHANGE] = function change(row, newData) {
+            const changed = [...allRows];
+            const originalIndex = row[INDEX];
+            const {$pivot, ...values} = newData;
+            if (originalIndex != null) {
+                changed[originalIndex] = values;
+                onChange(changed);
+            } else {
+                onChange([...changed, values]);
+            }
+        };
+    });
 
     const handleSelected = React.useCallback(event => {
         if (!allowSelect) return;
@@ -96,7 +102,7 @@ export default React.forwardRef<{}, any>(({
 
     const onRowEditChange = React.useCallback(event => {
         setEditingRows(event.data);
-    }, []);
+    }, [setEditingRows]);
 
     const leftToolbarTemplate = React.useCallback(() => {
         const addNewRow = event => {
@@ -126,7 +132,8 @@ export default React.forwardRef<{}, any>(({
     }, [allowAdd, allowDelete, selected, dataKey, master, filter, parent, allRows, onChange, handleSelected]);
 
     if (selected && props.selectionMode === 'single' && !rows.includes(selected)) {
-        handleSelected({value: null});
+        const keyValue = selected[dataKey];
+        handleSelected({value: rows.find(row => row[dataKey] === keyValue)});
     }
     if (master && !parent) return null;
     return (
@@ -149,12 +156,14 @@ export default React.forwardRef<{}, any>(({
                 {allowSelect && (!props.selectionMode || props.selectionMode === 'checkbox') && <Column selectionMode="multiple" headerStyle={{ width: '3rem' }}></Column>}
                 {children}
                 {
-                    (widgets || []).map(name => <Column
-                        key={name}
-                        field={name}
-                        header={properties?.[name]?.title || name}
-                        {...columnProps({name, property: properties?.[name], dropdowns, editable: true})}
-                    />)
+                    (widgets || []).map(column => {
+                        const isString = typeof column === 'string';
+                        const {name, ...widget} = isString ? {name: column} : column;
+                        return (<Column
+                            key={name}
+                            {...columnProps({name, widget: !isString && widget, property: properties?.[name], dropdowns, editable: true})}
+                        />);
+                    })
                 }
                 {allowEdit && <Column rowEditor headerStyle={{ width: '7rem' }} bodyStyle={{ textAlign: 'center' }}></Column>}
             </DataTable>
