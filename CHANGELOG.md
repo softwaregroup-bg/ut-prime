@@ -1,3 +1,33 @@
+# [1.48.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.47.1...v1.48.0) (2021-12-03)
+
+
+### Bug Fixes
+
+* dropdown set related column ([4d2bc15](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/4d2bc15fad3e0d044df3c9065c8b8f63d3a460e5))
+* handle json schema types ([c38e230](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/c38e230e5ed0004c1fcd2e86c4b2712bd129716b))
+* handle null for select split ([01f9479](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/01f947909180c14c8e1de863b0e703e0a4356ccf))
+* hide empty menus ([26a1ea3](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/26a1ea3e0301892db2fc7e70067211955298dad2))
+* ignore $ property in form root ([8817d78](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/8817d78204cc3b9df9d389362db0bec4e59508f2))
+* key handling ([3508c31](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/3508c31862cb6cbdbe197b416238805f8d492e68))
+* optional schema for inputs ([e93131b](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/e93131bef0d5c79ccf181ed832992f61539f4e50))
+* remove unused file ([c13ae02](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/c13ae02c4ab0ddca78a8fab52cca16f73f25831f))
+* submit only configured columns ([79ba1d5](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/79ba1d57c49de52663a2678c2871699dfc545784))
+* table add/delete ([7d22bf4](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/7d22bf4517aff84faada0bf42594dab9cad4e958))
+* table selection handling ([7537574](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/7537574b5dc6bf171a7b45eebcca518d825f8938))
+* time columns handling ([dda4f8f](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/dda4f8fdd03622e3e9060f0453a6887cb9572b99))
+* use better theme ([0dc6743](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/0dc67438457430e98c9b68101ebb613e53124165))
+
+
+### Features
+
+* column configuration ([68837ab](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/68837ab33fe88731c4f82f0bfa8a278e0895129b))
+* integer column editor ([87abc0c](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/87abc0c5e3769d02dd49d446a1a51f8df26b5a35))
+* master detail form ([08a4ae1](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/08a4ae132f845f10203b6b8f8c39fa13febe88b3))
+* select input split ([81489ab](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/81489ab8def03d8ff0f0805461a269564bbc84a5))
+* selectButton column ([9815179](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/98151795e5008841a5fb1884fe490b37d6e8a31a))
+
+
+
 ## [1.47.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.47.0...v1.47.1) (2021-11-23)
 
 
