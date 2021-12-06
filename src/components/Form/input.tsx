@@ -155,6 +155,8 @@ export default function input(
             <MultiSelectPanel
                 appendTo='self'
                 {...field}
+                value={props?.split ? field.value?.split(props.split).filter(Boolean) : field.value}
+                onChange={event => field.onChange(props?.split ? event.value.join(props.split) || null : event.value)}
                 options={dropdowns?.[dropdown]?.filter(filterBy) || []}
                 {...props}
             />
