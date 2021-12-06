@@ -154,7 +154,6 @@ export default function columnProps({
                 case 'date':
                     return <Calendar
                         showOnFocus={false}
-                        className='w-full'
                         value={dateOrNull(p.rowData[fieldName])}
                         onChange={event => p.editorCallback(event.value)}
                         showIcon
@@ -163,7 +162,6 @@ export default function columnProps({
                 case 'time':
                     return <Calendar
                         showOnFocus={false}
-                        className='w-full'
                         value={timeOrZero(p.rowData[fieldName])}
                         onChange={event => p.editorCallback(event.value)}
                         timeOnly
@@ -173,7 +171,6 @@ export default function columnProps({
                 case 'date-time':
                     return <Calendar
                         showOnFocus={false}
-                        className='w-full'
                         value={dateOrNull(p.rowData[fieldName])}
                         onChange={event => p.editorCallback(event.value)}
                         showTime
