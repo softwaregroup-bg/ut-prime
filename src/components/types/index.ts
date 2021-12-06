@@ -101,6 +101,8 @@ export interface Card {
         hidden?: string[],
         filter?: {}
     })[];
+    watch?: string;
+    match?: any;
     className?: string;
     classes?: {
         [name: string]: {

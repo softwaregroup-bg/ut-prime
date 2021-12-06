@@ -122,12 +122,14 @@ const Form: StyledType = ({
         };
         return [
             visibleCards,
-            visibleCards.map(id => {
-                const nested = [].concat(id);
-                return nested.map(
-                    cardName => cards[typeof cardName === 'string' ? cardName : cardName.name]?.widgets.map(widgetNames)
-                );
-            }).flat(10).filter(Boolean)
+            Array.from(new Set(
+                visibleCards.map(id => {
+                    const nested = [].concat(id);
+                    return nested.map(
+                        cardName => cards[typeof cardName === 'string' ? cardName : cardName.name]?.widgets.map(widgetNames)
+                    );
+                }).flat(10).filter(Boolean)
+            ))
         ];
     }, [cards, layout, editors]);
 
@@ -362,11 +364,20 @@ const Form: StyledType = ({
             }
             {visibleCards.map((id1, level1) => {
                 const nested = [].concat(id1);
-                const key = widgetName(nested[0]);
-                if (cards[key]?.hidden && !design) return null;
+                const firstCard = cards[widgetName(nested[0])];
+                const nestedCards = nested.map((widget, level2) => {
+                    const key = widgetName(widget);
+                    const currentCard = cards?.[key];
+                    if (currentCard?.hidden && !design) return null;
+                    const watched = currentCard?.watch && watch(currentCard.watch);
+                    const match = currentCard?.match;
+                    return (!match || (typeof match === 'object' ? Object.entries(match).every(([key, value]) => watched?.[key] === value) : match === watched)) ? card(widget, level1, Array.isArray(id1) && level2) : null;
+                }).filter(Boolean);
+
+                if (!nestedCards.length) return null;
                 return (
-                    <div key={level1} className={clsx('col-12', cards[key]?.className || (!cards[key]?.hidden && 'xl:col-6'))} {...design && {style: outline}}>
-                        {nested.map((id2, level2) => card(id2, level1, Array.isArray(id1) && level2))}
+                    <div key={level1} className={clsx('col-12', firstCard?.className || (!firstCard?.hidden && 'xl:col-6'))} {...design && {style: outline}}>
+                        {nestedCards}
                         <ConfigCard
                             title='[ add row ]'
                             className='card mb-3'
