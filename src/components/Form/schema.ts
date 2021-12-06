@@ -38,6 +38,7 @@ export default function getValidation(schema: Schema | Property, filter?: string
             }
         },
         Joi.object(path ? {} : {
+            $key: Joi.any().strip(),
             $: Joi.any().strip()
         })
     );

@@ -64,10 +64,7 @@ const Editor: StyledType = ({
                 : Array.isArray(widget.widgets)
                     ? [
                         widget.name,
-                        ...(
-                            widget.hidden ||
-                            [lodashGet(schema.properties, widget.name?.replace(/\./g, '.properties.'))?.widget?.dataKey].filter(Boolean)
-                        )
+                        ...widget.hidden
                             .concat(widget.widgets)
                             .map(name => widget.name + '.' + name)
                     ]

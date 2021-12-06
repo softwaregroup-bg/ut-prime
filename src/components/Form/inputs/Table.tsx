@@ -3,7 +3,10 @@ import lodashGet from 'lodash.get';
 
 import {DataTable, Column, Toolbar, Button} from '../../prime';
 import columnProps from '../../lib/column';
-import {CHANGE, INDEX} from '../const';
+import {CHANGE, INDEX, KEY} from '../const';
+import type {Properties} from '../../types';
+
+const defaults = (properties : Properties) => Object.fromEntries(Object.entries(properties).map(([key, value]) => [key, value.default]));
 
 const handleFilter = () => {};
 const backgroundNone = {background: 'none'};
@@ -26,8 +29,7 @@ export default React.forwardRef<{}, any>(({
     counter,
     widgets,
     value: allRows = noRows,
-    dataKey = 'id',
-    keyColumn,
+    identity,
     properties,
     dropdowns,
     parent,
@@ -62,24 +64,26 @@ export default React.forwardRef<{}, any>(({
                 [INDEX]: found,
                 $pivot
             } : {
+                ...master && Object.fromEntries(Object.entries(master).map(([masterKey, rowKey]) => [rowKey, parent[masterKey]])),
                 ...Object.fromEntries(keys.map(([pivotKey, rowKey]) => [rowKey, $pivot[pivotKey]])),
                 $pivot
             };
-        }) : allRows?.map((item, index) => ({[INDEX]: index, ...item})) || [];
+        }) : allRows?.map((item, index) => ({...item, [INDEX]: index})) || [];
         const filterFields = Object.entries({...filter, ...masterFilter(master, parent)});
         return joined?.filter(row => filterFields.every(([name, value]) => lodashGet(row, name) === value));
     }, [allRows, parent, master, pivotRows, join, filter]);
 
-    rows.forEach(row => {
+    rows.forEach((row, index) => {
+        row[KEY] = index;
         row[CHANGE] = function change(row, newData) {
             const changed = [...allRows];
             const originalIndex = row[INDEX];
-            const {$pivot, ...values} = newData;
+            const {$pivot, [KEY]: key, [INDEX]: index, ...values} = newData;
             if (originalIndex != null) {
                 changed[originalIndex] = values;
                 onChange(changed);
             } else {
-                values[keyColumn || dataKey] = -(++counter.current);
+                if (identity) values[identity] = -(++counter.current);
                 onChange([...changed, values]);
             }
         };
@@ -98,10 +102,10 @@ export default React.forwardRef<{}, any>(({
                 ...prev,
                 ...pendingEdit
             }));
-            const lastEditing = rows.find(row => pendingEdit[row[dataKey]]);
+            const lastEditing = rows.find((_, index) => pendingEdit[index]);
             if (lastEditing) handleSelected({value: lastEditing});
         }
-    }, [dataKey, handleSelected, onChange, pendingEdit, rows]);
+    }, [handleSelected, onChange, pendingEdit, rows]);
 
     const onRowEditChange = React.useCallback(event => {
         setEditingRows(event.data);
@@ -110,14 +114,13 @@ export default React.forwardRef<{}, any>(({
     const leftToolbarTemplate = React.useCallback(() => {
         const addNewRow = event => {
             event.preventDefault();
-            const id = ++counter.current;
-            const newValue = {[keyColumn || dataKey]: -id, ...filter, ...masterFilter(master, parent)};
-            if (master) newValue[INDEX] = allRows?.length || 0;
+            const newValue = {...filter, ...masterFilter(master, parent), ...defaults(properties)};
+            if (identity) newValue[identity] = -(++counter.current);
             const updatedValue = [...(allRows || []), newValue];
             onChange(updatedValue);
             setPendingEdit(prev => ({
                 ...prev,
-                [id]: true
+                [updatedValue.length - 1]: true
             }));
         };
         const deleteRow = event => {
@@ -132,11 +135,10 @@ export default React.forwardRef<{}, any>(({
                 {allowDelete && <Button label="Delete" icon="pi pi-trash" className="p-button" onClick={deleteRow} disabled={!selected} />}
             </React.Fragment>
         );
-    }, [allowAdd, allowDelete, selected, dataKey, keyColumn, master, filter, parent, allRows, onChange, handleSelected, counter]);
+    }, [allowAdd, allowDelete, selected, identity, master, filter, parent, allRows, onChange, handleSelected, counter, properties]);
 
     if (selected && props.selectionMode === 'single' && !rows.includes(selected)) {
-        const keyValue = selected[dataKey];
-        handleSelected({value: rows.find(row => row[dataKey] === keyValue)});
+        handleSelected({value: rows[selected[KEY]]});
     }
     if (master && !parent) return null;
     return (
@@ -150,7 +152,7 @@ export default React.forwardRef<{}, any>(({
                 onSelectionChange={handleSelected}
                 {...props}
                 value={rows}
-                dataKey={dataKey}
+                dataKey={KEY}
                 onRowEditComplete={complete}
                 onFilter={handleFilter}
                 editingRows={editingRows}

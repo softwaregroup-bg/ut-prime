@@ -94,7 +94,13 @@ export interface PropertyEditors {
 }
 export interface Card {
     label?: string;
-    widgets: (string | {name: string, propertyName?: string, widgets?: any[], filter?: {}})[];
+    widgets: (string | {
+        name: string,
+        propertyName?: string,
+        widgets?: any[],
+        hidden?: string[],
+        filter?: {}
+    })[];
     className?: string;
     classes?: {
         [name: string]: {
