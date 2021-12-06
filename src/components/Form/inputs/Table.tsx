@@ -6,7 +6,7 @@ import columnProps from '../../lib/column';
 import {CHANGE, INDEX, KEY} from '../const';
 import type {Properties} from '../../types';
 
-const defaults = (properties : Properties) => Object.fromEntries(Object.entries(properties).map(([key, value]) => [key, value.default]));
+const defaults = (properties : Properties) => Object.fromEntries(Object.entries(properties).map(([key, value]) => ('default' in value) && [key, value.default]).filter(Boolean));
 
 const handleFilter = () => {};
 const backgroundNone = {background: 'none'};
