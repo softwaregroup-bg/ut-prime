@@ -254,7 +254,7 @@ const Form: StyledType = ({
                             } finally {
                                 if (changeField) {
                                     field.onChange(value);
-                                    if (parentWatch?.[CHANGE]) {
+                                    if (parentWatch?.[CHANGE] && name.startsWith('$.edit.')) {
                                         const old = {...parentWatch};
                                         parentWatch[name.split('.').pop()] = value;
                                         parentWatch[CHANGE](old, parentWatch);
