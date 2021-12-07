@@ -6,7 +6,23 @@ import columnProps from '../../lib/column';
 import {CHANGE, INDEX, KEY} from '../const';
 import type {Properties} from '../../types';
 
-const defaults = (properties : Properties) => Object.fromEntries(Object.entries(properties).map(([key, value]) => ('default' in value) && [key, value.default]).filter(Boolean));
+const getDefault = (key, value, rows) => {
+    if (!value || !('default' in value)) return;
+    const defaultValue = value.default;
+    switch (defaultValue?.function) {
+        case 'max':
+            return [key, rows.reduce((max, row) => Math.max(max, row[key]), 0) + 1];
+        case 'min':
+            return [key, rows.reduce((min, row) => Math.min(min, row[key]), 0) - 1];
+        default:
+            return [key, defaultValue];
+    }
+};
+
+const defaults = (properties : Properties, rows: {}[]) =>
+    Object.fromEntries(
+        Object.entries(properties)
+            .map(([key, value]) => getDefault(key, value, rows)).filter(Boolean));
 
 const handleFilter = () => {};
 const backgroundNone = {background: 'none'};
@@ -114,7 +130,7 @@ export default React.forwardRef<{}, any>(({
     const leftToolbarTemplate = React.useCallback(() => {
         const addNewRow = event => {
             event.preventDefault();
-            const newValue = {...filter, ...masterFilter(master, parent), ...defaults(properties)};
+            const newValue = {...filter, ...masterFilter(master, parent), ...defaults(properties, allRows)};
             if (identity) newValue[identity] = -(++counter.current);
             const updatedValue = [...(allRows || []), newValue];
             onChange(updatedValue);
