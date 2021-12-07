@@ -1,3 +1,23 @@
+# [1.49.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.48.0...v1.49.0) (2021-12-07)
+
+
+### Bug Fixes
+
+* do not set undefined defaults ([2aee5ff](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/2aee5ffa4413d0a1895506c763670c6a1a2e3c0e))
+* key handling ([560e394](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/560e394962fc7a4bce207f43bcbb5939a5fa66c4))
+* only update parent for detail form inputs ([dbd357e](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/dbd357e83dfa2a93361f598320022e24cb5089bb))
+* remove full width for date/time columns ([8cca886](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/8cca886f4bb9bb5e826315dfc9787b5776ee0821))
+
+
+### Features
+
+* conditional cards ([d14f01a](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/d14f01a728d2c4b0fe3cb611c24c28ee66bebed5))
+* default value functions ([2c73425](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/2c73425ed9217bc6eb1524e75f7843f4ea2cc2a7))
+* multiSelectPanel split ([c9fb29f](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/c9fb29f9883a044132f1e7ac080647b5bd60c0bd))
+* set lookup columns from dropdown ([3a74fb8](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/3a74fb830940cd153725a91aad7dd8174888c073))
+
+
+
 # [1.48.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.47.1...v1.48.0) (2021-12-03)
 
 
