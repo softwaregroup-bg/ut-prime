@@ -47,7 +47,7 @@ export default function columnProps({
     filterBy?: (name: string, value: string) => (e: {}) => void,
     editable?: boolean
 }) {
-    const {type, dropdown, parent, column, ...props} = widget || property?.widget || {name};
+    const {type, dropdown, parent, column, lookup, ...props} = widget || property?.widget || {name};
     const fieldName = name;
     let filterElement, body, editor;
     switch (type) {
@@ -134,7 +134,12 @@ export default function columnProps({
                         options={dropdowns?.[dropdown] || []}
                         value={p.rowData[fieldName]}
                         onChange={event => {
-                            if (property?.body) {
+                            if (lookup) {
+                                const item = dropdowns?.[dropdown]?.find(({value}) => value === event.value);
+                                item && Object.entries(lookup).forEach(([key, value]) => {
+                                    if (typeof value === 'string') p.rowData[value] = item[key];
+                                });
+                            } else if (property?.body) {
                                 const item = dropdowns?.[dropdown]?.find(({value}) => value === event.value);
                                 p.rowData[property?.body] = item?.label;
                             }
