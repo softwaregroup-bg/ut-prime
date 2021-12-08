@@ -1,0 +1,4 @@
+/* disable animations for screenshots */
+.p-tabview .p-tabview-nav .p-tabview-ink-bar {
+    transition: none !important;
+}
