@@ -20,7 +20,7 @@ const styles = createStyles({
         transform: 'translateY(-50%)'
     },
     loginLogo: {
-        width: '480px',
+        width: '420px',
         height: '80px'
     },
     loginPageHeader: {
@@ -33,8 +33,8 @@ const styles = createStyles({
     },
     loginForm: {
         boxSizing: 'border-box',
-        width: 480,
-        padding: '30px 95px 55px',
+        width: 420,
+        padding: '30px 60px',
         borderWidth: 1,
         borderType: 'solid'
     },

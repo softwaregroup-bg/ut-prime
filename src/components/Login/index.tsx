@@ -254,29 +254,33 @@ const Login: StyledType = ({
             </div>}
             <form className={clsx('card', formContainer)} onSubmit={handleSubmit} autoComplete='off'>
                 {inputs.map(({ name, type, label, disabled }) =>
-                    <div key={name} className='field p-float-label'>
-                        {
-                            type === 'text'
-                                ? <InputText
-                                        name={name}
-                                        disabled={disabled}
-                                        autoFocus={autoFocus === name}
-                                        className={clsx('w-full', {'p-invalid': invalidField === name})}
-                                />
-                                : type === 'password'
-                                    ? <Password
-                                            feedback={false}
+                    <div key={name} className='field col-12 p-2'>
+                        <span className='p-float-label'>
+                            {
+                                type === 'text'
+                                    ? <InputText
                                             name={name}
                                             disabled={disabled}
                                             autoFocus={autoFocus === name}
                                             className={clsx('w-full', {'p-invalid': invalidField === name})}
-                                            inputClassName='w-full'
-                                    /> : undefined
-                        }
-                        <label className={clsx({'p-error': invalidField === name})}>{label}</label>
+                                    />
+                                    : type === 'password'
+                                        ? <Password
+                                                feedback={false}
+                                                name={name}
+                                                disabled={disabled}
+                                                autoFocus={autoFocus === name}
+                                                className={clsx('w-full', {'p-invalid': invalidField === name})}
+                                                inputClassName='w-full'
+                                        /> : undefined
+                            }
+                            <label className={clsx({'p-error': invalidField === name})}>{label}</label>
+                        </span>
                     </div>
                 ).filter(Boolean)}
-                <Button label={buttonLabel} type='submit' className='w-full'/>
+                <div className='field col-12 p-2'>
+                    <Button label={buttonLabel} type='submit' className='w-full'/>
+                </div>
             </form>
         </Box>
         <div className={clsx(loginLogo, loginPageFooter, ut?.classes?.loginBottom)} />

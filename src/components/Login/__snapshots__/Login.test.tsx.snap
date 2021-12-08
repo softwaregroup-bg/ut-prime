@@ -26,46 +26,58 @@ exports[`<Login /> render equals snapshot 1`] = `
         class="card Login-formContainer-6"
       >
         <div
-          class="field p-float-label"
-        >
-          <input
-            class="p-inputtext p-component w-full"
-            name="username"
-          />
-          <label
-            class=""
-          >
-            Username
-          </label>
-        </div>
-        <div
-          class="field p-float-label"
-        >
-          <div
-            class="p-password p-component p-inputwrapper w-full"
-          >
-            <input
-              class="p-inputtext p-component p-password-input w-full"
-              name="password"
-              type="password"
-            />
-          </div>
-          <label
-            class=""
-          >
-            Password
-          </label>
-        </div>
-        <button
-          class="p-button p-component w-full"
-          type="submit"
+          class="field col-12 p-2"
         >
           <span
-            class="p-button-label p-c"
+            class="p-float-label"
           >
-            Login
+            <input
+              class="p-inputtext p-component w-full"
+              name="username"
+            />
+            <label
+              class=""
+            >
+              Username
+            </label>
           </span>
-        </button>
+        </div>
+        <div
+          class="field col-12 p-2"
+        >
+          <span
+            class="p-float-label"
+          >
+            <div
+              class="p-password p-component p-inputwrapper w-full"
+            >
+              <input
+                class="p-inputtext p-component p-password-input w-full"
+                name="password"
+                type="password"
+              />
+            </div>
+            <label
+              class=""
+            >
+              Password
+            </label>
+          </span>
+        </div>
+        <div
+          class="field col-12 p-2"
+        >
+          <button
+            class="p-button p-component w-full"
+            type="submit"
+          >
+            <span
+              class="p-button-label p-c"
+            >
+              Login
+            </span>
+          </button>
+        </div>
       </form>
     </div>
     <div
