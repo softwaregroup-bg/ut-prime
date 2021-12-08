@@ -67,13 +67,14 @@ export default React.forwardRef<{}, any>(({
     ...props
 }, ref) => {
     if (typeof ref === 'function') ref({});
-    const [selected, setSelected] = React.useState(getValues(`$.selected.${props.name}`));
+    const [selected, setSelected] = React.useState(getValues ? getValues(`$.selected.${props.name}`) : null);
     const [editingRows, setEditingRows] = React.useState({});
     const [pendingEdit, setPendingEdit] = React.useState(null);
+    const keepRows = !!props.selection;
 
     const rows = React.useMemo(() => {
         const keys = Object.entries(join || {});
-        const joined = (pivotRows?.length && keys.length) ? pivotRows.map($pivot => {
+        const joined = keepRows ? allRows : (pivotRows?.length && keys.length) ? pivotRows.map($pivot => {
             const found = allRows.findIndex(row => keys.every(([pivotKey, rowKey]: [string, string]) => $pivot[pivotKey] === row[rowKey]));
             return found >= 0 ? {
                 ...allRows[found],
@@ -87,9 +88,9 @@ export default React.forwardRef<{}, any>(({
         }) : allRows?.map((item, index) => ({...item, [INDEX]: index})) || [];
         const filterFields = Object.entries({...filter, ...masterFilter(master, parent)});
         return joined?.filter(row => filterFields.every(([name, value]) => lodashGet(row, name) === value));
-    }, [allRows, parent, master, pivotRows, join, filter]);
+    }, [allRows, parent, master, pivotRows, join, filter, keepRows]);
 
-    rows.forEach((row, index) => {
+    !keepRows && rows.forEach((row, index) => {
         row[KEY] = index;
         row[CHANGE] = function change(row, newData) {
             const changed = [...allRows];
@@ -166,9 +167,9 @@ export default React.forwardRef<{}, any>(({
                 emptyMessage=''
                 selection={selected}
                 onSelectionChange={handleSelected}
+                dataKey={KEY}
                 {...props}
                 value={rows}
-                dataKey={KEY}
                 onRowEditComplete={complete}
                 onFilter={handleFilter}
                 editingRows={editingRows}

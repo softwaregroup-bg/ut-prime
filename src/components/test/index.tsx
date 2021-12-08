@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeProvider, createTheme } from '@material-ui/core/styles';
-import { render as testRender } from '@testing-library/react';
+import { render as testRender, RenderResult } from '@testing-library/react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import merge from 'ut-function.merge';
@@ -9,7 +9,7 @@ import Store from '../Store';
 import {State} from '../Store/Store.types';
 import defaultState from './state';
 
-export function render(children: React.ReactNode, initialStore: State = {}) {
+export function render(children: React.ReactNode, initialStore: State = {}) : RenderResult {
     const theme = createTheme({}, {
         ut: {
             classes: {},
@@ -26,4 +26,4 @@ export function render(children: React.ReactNode, initialStore: State = {}) {
         </Store>
     </DndProvider>;
     return testRender(store);
-}
+};

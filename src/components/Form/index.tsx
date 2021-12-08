@@ -264,7 +264,7 @@ const Form: StyledType = ({
                         }
                     },
                     inputClass(idx, classes, propertyName, className),
-                    {id: name, ...idx.properties[propertyName]?.widget, ...widget},
+                    {id: name, ...idx.properties[propertyName]?.widget, ...widget, parent},
                     idx.properties[propertyName],
                     dropdowns,
                     parentWatch,
