@@ -68,17 +68,16 @@ const Editor: StyledType = ({
     const [filter, setFilter] = React.useState(items?.[0]?.items?.[0] || items?.[0]);
     const [loading, setLoading] = React.useState('');
     const [validation, dropdownNames, getValue] = React.useMemo(() => {
+        const columns = (propertyName, property) => []
+            .concat(property?.hidden)
+            .concat(property?.widgets)
+            .filter(Boolean)
+            .map(name => propertyName + '.' + name)
+            .concat(propertyName);
         const widgetName = widget =>
             typeof widget === 'string'
-                ? widget
-                : Array.isArray(widget.widgets)
-                    ? [
-                        widget.name,
-                        ...widget.hidden
-                            .concat(widget.widgets)
-                            .map(name => widget.name + '.' + name)
-                    ]
-                    : widget.name;
+                ? columns(widget, lodashGet(schema?.properties, widget?.replace(/\./g, '.properties.'))?.widget)
+                : columns(widget.name, widget);
         const indexCards = items && items.map(item => [item.widgets, item?.items?.map(item => item.widgets)]).flat(2).filter(Boolean);
         const fields: string[] = Array.from(
             new Set(
