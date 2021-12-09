@@ -19,6 +19,16 @@ const backgroundNone = {background: 'none'};
 
 const capital = (string: string) => string.charAt(0).toUpperCase() + string.slice(1);
 
+function handleArray(result: {}, properties) {
+    Object.entries(result).forEach(([name, value]) => {
+        // back end wrongly returned an array with a single item
+        if (Array.isArray(value) && properties[name]?.properties) result[name] = value[0];
+    });
+    return result;
+}
+
+const empty = {title: undefined};
+
 const Editor: StyledType = ({
     object,
     id,
@@ -37,7 +47,7 @@ const Editor: StyledType = ({
     onGet,
     onEdit
 }) => {
-    const {properties = {}} = schema;
+    const {properties = empty} = schema;
     function getLayout(name = '') {
         let items: any = layouts?.['edit' + capital(name)];
         let layout;
@@ -100,7 +110,10 @@ const Editor: StyledType = ({
             .filter(Boolean);
         const getValue = (value) => {
             const editValue = {};
-            fields.forEach(field => lodashSet(editValue, field, lodashGet(value, field)));
+            fields.forEach(field => {
+                const fieldValue = lodashGet(value, field);
+                if (fieldValue !== undefined) lodashSet(editValue, field, fieldValue);
+            });
             return editValue;
         };
         return [validation, dropdownNames, getValue];
@@ -109,10 +122,7 @@ const Editor: StyledType = ({
     async function get() {
         setLoading('loading');
         const result = (await onGet({[keyField]: keyValue}));
-        Object.entries(result).forEach(([name, value]) => {
-            // back end wrongly returned an array with a single item
-            if (Array.isArray(value) && properties[name]?.properties) result[name] = value[0];
-        });
+        handleArray(result, properties);
         if (typeField) setIndex(getLayout(result[typeField]));
         setDropdown(await onDropdown(dropdownNames));
         setEditValue(getValue(result));
@@ -127,14 +137,14 @@ const Editor: StyledType = ({
     const handleSubmit = React.useCallback(
         async function handleSubmit(instance) {
             if (keyValue != null) {
-                const response = getValue(await onEdit(instance));
+                const response = getValue(handleArray(await onEdit(instance), properties));
                 setEditValue(merge(instance, response));
             } else {
-                const response = getValue(await onAdd(instance));
+                const response = getValue(handleArray(await onAdd(instance), properties));
                 setKeyValue(lodashGet(response, `${resultSet}.${keyField}`));
                 setEditValue(merge(instance, response));
             }
-        }, [keyValue, onEdit, getValue, onAdd, keyField, resultSet]
+        }, [keyValue, onEdit, getValue, onAdd, keyField, resultSet, properties]
     );
 
     useLoad(async() => {
