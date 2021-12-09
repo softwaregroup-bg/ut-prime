@@ -142,7 +142,8 @@ const Form: StyledType = ({
         async form => {
             try {
                 clearErrors();
-                return await onSubmit(form);
+                const {$, ...value} = form;
+                return await onSubmit(value);
             } catch (error) {
                 if (!Array.isArray(error.validation)) throw error;
                 error.validation.forEach(({path = '', message = ''} = {}) => {
