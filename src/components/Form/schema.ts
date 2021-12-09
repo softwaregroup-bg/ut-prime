@@ -63,7 +63,7 @@ export default function getValidation(schema: Schema | Property, filter?: string
         Joi.object(path ? {} : {
             $: Joi.any().strip(),
             $key: Joi.any().strip(),
-            ...filter.includes('$original') && {$original: Joi.any()}
+            ...filter?.includes('$original') && {$original: Joi.any()}
         })
     );
 };
