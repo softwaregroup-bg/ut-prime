@@ -1,3 +1,12 @@
+## [1.50.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.50.0...v1.50.1) (2021-12-09)
+
+
+### Bug Fixes
+
+* column names from schema widget ([7be03f2](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/7be03f25611d12980abc16e90a2b5dfc3d9dc379))
+
+
+
 # [1.50.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.49.0...v1.50.0) (2021-12-09)
 
 
