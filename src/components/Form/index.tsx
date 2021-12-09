@@ -65,8 +65,8 @@ interface Errors {
 }
 
 const flat = (e: Errors, path = '') => Object.entries(e).map(
-    ([name, value]) => typeof value.message === 'string' ? (path ? path + '.' + name : name) : flat(value, name)
-);
+    ([name, value]) => typeof value.message === 'string' ? (path ? path + '.' + name : name) : flat(value, path ? path + '.' + name : name)
+).flat();
 
 const outline = {outline: '1px dotted #ffff0030'};
 
@@ -111,7 +111,7 @@ const Form: StyledType = ({
             }
         )
     });
-    const errorFields = flat(errors).flat();
+    const errorFields = flat(errors);
     const counter = React.useRef(0);
     const [visibleCards, visibleProperties] = React.useMemo(() => {
         const visibleCards: (string | string[])[] = (layout || Object.keys(cards));
