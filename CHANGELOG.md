@@ -1,3 +1,22 @@
+# [1.50.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.49.0...v1.50.0) (2021-12-09)
+
+
+### Bug Fixes
+
+* from sumission result handling ([f8f1407](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/f8f14075b5c5c8add11f42bb31f1881844f98e81))
+* login padding ([b08122a](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/b08122ac8e331989cfe989da14284ddac46e0a35))
+* selectTable ([a1d493c](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/a1d493cbb6f5d8ad45b7dc993a93225c1ae71b84))
+* skip $ on submit ([e3bb3d7](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/e3bb3d7ee4c35173433f8e9e20d3768a0ec6151e))
+* validation ([7d95690](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/7d956903825178edd784b560bf6c77e927871124))
+* visualize errors for tables ([4059753](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/4059753f16ec45939e2560846458265c5a327d91))
+
+
+### Features
+
+* access original values ([a5c29f8](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/a5c29f8449fe11ca0083decee4875e4334519571))
+
+
+
 # [1.49.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.48.0...v1.49.0) (2021-12-07)
 
 
