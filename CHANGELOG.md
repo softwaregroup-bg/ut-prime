@@ -1,3 +1,13 @@
+## [1.50.2](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.50.1...v1.50.2) (2021-12-09)
+
+
+### Bug Fixes
+
+* filter $original ([fe379b5](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/fe379b51e7fe69ccc03883a5f06c7e1683a1210e))
+* handle undefined filter ([87cd8da](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/87cd8dad23c28fc6ba1097b64f87c709c9f7266e))
+
+
+
 ## [1.50.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.50.0...v1.50.1) (2021-12-09)
 
 
