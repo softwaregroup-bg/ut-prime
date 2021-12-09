@@ -1,15 +1,14 @@
 {
     "cSpell.words": [
-        "Dropdowns",
-        "Scroller",
-        "Unmount",
         "arpa",
         "cascadeselect",
+        "clonedeep",
         "clsx",
         "confirmdialog",
         "csstype",
         "datatable",
         "devextreme",
+        "Dropdowns",
         "hookform",
         "iban",
         "inputmask",
@@ -24,10 +23,12 @@
         "primeicons",
         "primereact",
         "radiobutton",
+        "Scroller",
         "submenu",
         "tabview",
         "testid",
         "transpiled",
-        "treeselect"
+        "treeselect",
+        "Unmount"
     ]
 }

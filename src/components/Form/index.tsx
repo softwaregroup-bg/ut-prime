@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import get from 'lodash.get';
+import clonedeep from 'lodash.clonedeep';
 import { joiResolver } from '@hookform/resolvers/joi';
 import { DevTool } from '@hookform/devtools';
 
@@ -157,7 +158,8 @@ const Form: StyledType = ({
     }, [setTrigger, formSubmit, handleSubmit, isDirty]);
 
     React.useEffect(() => {
-        reset(value || {});
+        const {$original, ...formValue} = value || {};
+        reset({...formValue, $original: clonedeep(formValue)});
     }, [value, reset]);
 
     const move = React.useCallback((type: 'card' | 'field', source, destination) => {
