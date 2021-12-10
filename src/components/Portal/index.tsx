@@ -4,6 +4,7 @@ import { useLocation, useHistory } from 'react-router-dom';
 import clsx from 'clsx';
 import Immutable from 'immutable';
 import { useTheme } from '@material-ui/core/styles';
+import {ErrorBoundary} from 'react-error-boundary';
 
 import { Theme } from '../Theme';
 import { Menubar, TabView, TabPanel } from '../prime';
@@ -16,6 +17,15 @@ import {State} from '../Store/Store.types';
 import { Styled, StyledType } from './Portal.types';
 import { useWindowSize } from '../hooks';
 const backgroundNone = {background: 'none'};
+
+function ErrorFallback({error}) {
+    return (
+        <div role="alert">
+            <p>There was an unexpected error:</p>
+            <pre style={{color: 'red'}}>{error.message}</pre>
+        </div>
+    );
+}
 
 const filterMenu = (permissions, command, items) => items
     .filter(Boolean)
@@ -112,7 +122,9 @@ const Portal: StyledType = ({ classes, children }) => {
                 : <TabView activeIndex={tabIndex} onTabChange={handleTabSelect} className={classes.tabs}>
                     {tabs.map(({title, path, Component, params}) =>
                         <TabPanel key={path} header={<>{title}&nbsp;&nbsp;</>} rightIcon='pi pi-times'>
-                            <Component {...params}/>
+                            <ErrorBoundary FallbackComponent={ErrorFallback}>
+                                <Component {...params}/>
+                            </ErrorBoundary>
                         </TabPanel>
                     )}
                 </TabView>
