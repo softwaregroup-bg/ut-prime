@@ -1,3 +1,12 @@
+# [1.51.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.50.2...v1.51.0) (2021-12-10)
+
+
+### Features
+
+* error boundary ([2bd2f61](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/2bd2f617530997cdb053b50507a7c03c2f6855a9))
+
+
+
 ## [1.50.2](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.50.1...v1.50.2) (2021-12-09)
 
 
