@@ -27,6 +27,7 @@ module.exports = {
     addons: [
         'storybook-readme',
         '@storybook/addon-essentials',
+        '@storybook/addon-interactions',
         '@storybook/addon-a11y',
         '@storybook/addon-storysource',
     ],

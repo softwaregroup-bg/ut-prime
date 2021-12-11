@@ -265,6 +265,7 @@ export default function input(
             <Password
                 {...field}
                 value={field.value || ''}
+                onChange={e => field.onChange?.(e.target.value || null)}
                 {...props}
             />
         </Field>;
@@ -272,6 +273,7 @@ export default function input(
             <InputText
                 {...field}
                 value={field.value || ''}
+                onChange={e => field.onChange?.(e.target.value || null)}
                 {...props}
             />
         </Field>;

@@ -5,6 +5,7 @@ const tree: {schema: Schema, cards: Cards} = {
     schema: {
         properties: {
             tree: {
+                required: ['treeName'],
                 properties: {
                     treeId: {
                         validation: Joi.number().integer()

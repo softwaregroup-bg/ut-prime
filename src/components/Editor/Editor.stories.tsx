@@ -1,6 +1,7 @@
 import React from 'react';
 import { withReadme } from 'storybook-readme';
 import type { Story, Meta } from '@storybook/react';
+import { userEvent, within } from '@storybook/testing-library';
 
 // @ts-ignore: md file and not a module
 import README from './README.md';
@@ -19,8 +20,10 @@ const meta: Meta = {
 };
 export default meta;
 
+const sticky = {sticky: true};
+
 const Template: Story<Props> = args => {
-    const {toast, submit} = useToast();
+    const {toast, submit} = useToast(sticky);
     return (
         <>
             {toast}
@@ -90,4 +93,20 @@ Tabs.args = {
             }]
         }
     }
+};
+
+export const Submit: Story<Props> = Template.bind({});
+Submit.args = Basic.args;
+Submit.play = async({canvasElement}) => {
+    const canvas = within(canvasElement);
+    userEvent.type(canvas.getByLabelText('Description'), 'test');
+    userEvent.click(canvas.getByLabelText('save'));
+};
+
+export const Validation: Story<Props> = Template.bind({});
+Validation.args = Basic.args;
+Validation.play = async({canvasElement}) => {
+    const canvas = within(canvasElement);
+    userEvent.clear(canvas.getByLabelText('Name'));
+    userEvent.click(canvas.getByLabelText('save'));
 };
