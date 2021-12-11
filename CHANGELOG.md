@@ -1,3 +1,12 @@
+## [1.51.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.51.0...v1.51.1) (2021-12-11)
+
+
+### Bug Fixes
+
+* validations ([87a8bd1](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/87a8bd1cf0f0e717613ee3751da1873a9874dd62))
+
+
+
 # [1.51.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.50.2...v1.51.0) (2021-12-10)
 
 
