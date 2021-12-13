@@ -1,4 +1,3 @@
-import Joi from 'joi';
 import type {Schema, Cards} from '../types';
 
 const tree: {schema: Schema, cards: Cards} = {
@@ -8,7 +7,6 @@ const tree: {schema: Schema, cards: Cards} = {
                 required: ['treeName'],
                 properties: {
                     treeId: {
-                        validation: Joi.number().integer()
                     },
                     treeName: {
                         title: 'Name'
@@ -24,8 +22,7 @@ const tree: {schema: Schema, cards: Cards} = {
                         widget: {
                             type: 'dropdown',
                             dropdown: 'tree.type'
-                        },
-                        validation: Joi.number().integer()
+                        }
                     },
                     seedDescription: {
                         title: 'Seed'
@@ -43,7 +40,6 @@ const tree: {schema: Schema, cards: Cards} = {
                         title: 'Fruit'
                     },
                     habitat: {
-                        validation: Joi.array().items(Joi.number().integer()),
                         widget: {
                             type: 'multiSelectPanel',
                             dropdown: 'tree.habitat'

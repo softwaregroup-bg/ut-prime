@@ -4,12 +4,15 @@ import { Schema, Property } from '../types';
 function validation(name, field, required) {
     let result = field.validation;
     if (!result) {
-        switch (field?.widget?.type || field.type || 'string') {
+        switch (field?.widget?.type || field.type || 'unknown') {
             case 'mask':
             case 'text':
             case 'password':
             case 'string':
                 result = Joi.string();
+                break;
+            case 'unknown':
+                result = Joi.alternatives().try(Joi.string(), Joi.number());
                 break;
             case 'currency':
             case 'number':
