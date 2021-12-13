@@ -1,3 +1,13 @@
+## [1.51.2](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.51.1...v1.51.2) (2021-12-13)
+
+
+### Bug Fixes
+
+* optimize properties ([c79ea7f](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/c79ea7ffffa00c68cd5f7d4d01bebfb3620e8540))
+* validations ([32231e8](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/32231e804d834eab05f4ac08b871e721e1d87434))
+
+
+
 ## [1.51.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.51.0...v1.51.1) (2021-12-11)
 
 
