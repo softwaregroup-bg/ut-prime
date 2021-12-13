@@ -19,6 +19,11 @@ const getDefault = (key, value, rows) => {
     }
 };
 
+const selectStyle = { width: '3rem' };
+const editStyle = { width: '7rem' };
+const editBodyStyle = { textAlign: 'center' };
+const sameString = (a, b) => a === b || (a != null && b != null && String(a) === String(b));
+
 const defaults = (properties : Properties, rows: {}[]) =>
     Object.fromEntries(
         Object.entries(properties)
@@ -87,7 +92,7 @@ export default React.forwardRef<{}, any>(({
             };
         }) : allRows?.map((item, index) => ({...item, [INDEX]: index})) || [];
         const filterFields = Object.entries({...filter, ...masterFilter(master, parent)});
-        return joined?.filter(row => filterFields.every(([name, value]) => lodashGet(row, name) === value));
+        return joined?.filter(row => filterFields.every(([name, value]) => sameString(lodashGet(row, name), value)));
     }, [allRows, parent, master, pivotRows, join, filter, keepRows]);
 
     !keepRows && rows.forEach((row, index) => {
@@ -175,7 +180,7 @@ export default React.forwardRef<{}, any>(({
                 editingRows={editingRows}
                 onRowEditChange={onRowEditChange}
             >
-                {allowSelect && (!props.selectionMode || props.selectionMode === 'checkbox') && <Column selectionMode="multiple" headerStyle={{ width: '3rem' }}></Column>}
+                {allowSelect && (!props.selectionMode || props.selectionMode === 'checkbox') && <Column selectionMode="multiple" headerStyle={selectStyle}></Column>}
                 {children}
                 {
                     (widgets || []).map(column => {
@@ -187,7 +192,7 @@ export default React.forwardRef<{}, any>(({
                         />);
                     })
                 }
-                {allowEdit && <Column rowEditor headerStyle={{ width: '7rem' }} bodyStyle={{ textAlign: 'center' }}></Column>}
+                {allowEdit && <Column rowEditor headerStyle={editStyle} bodyStyle={editBodyStyle}></Column>}
             </DataTable>
         </>
     );

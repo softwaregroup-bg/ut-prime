@@ -5,7 +5,7 @@ exports[`<Gate /> render equals snapshot: Loading 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="Gate-gate-1"
+    class="h-full"
   >
     <div
       class="Loader-loaderContainer-3"
@@ -33,7 +33,7 @@ exports[`<Gate /> render equals snapshot: Ready 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="Gate-gate-1"
+    class="h-full"
   >
     ready
   </div>

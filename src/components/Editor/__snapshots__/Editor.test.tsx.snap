@@ -51,12 +51,10 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="flex"
-    style="overflow-x: hidden; width: 100%;"
+    class="flex overflow-x-hidden w-full"
   >
     <div
-      class="flex"
-      style="flex-grow: 1;"
+      class="flex flex-grow-1"
     >
       <div
         class="p-toast p-component p-toast-top-right"
@@ -649,12 +647,10 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="flex"
-    style="overflow-x: hidden; width: 100%;"
+    class="flex overflow-x-hidden w-full"
   >
     <div
-      class="flex"
-      style="flex-grow: 1;"
+      class="flex flex-grow-1"
     >
       <div
         class="p-toast p-component p-toast-top-right"
@@ -1628,12 +1624,10 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="flex"
-    style="overflow-x: hidden; width: 100%;"
+    class="flex overflow-x-hidden w-full"
   >
     <div
-      class="flex"
-      style="flex-grow: 1;"
+      class="flex flex-grow-1"
     >
       <div
         class="p-toast p-component p-toast-top-right"
@@ -1954,12 +1948,10 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="flex"
-    style="overflow-x: hidden; width: 100%;"
+    class="flex overflow-x-hidden w-full"
   >
     <div
-      class="flex"
-      style="flex-grow: 1;"
+      class="flex flex-grow-1"
     >
       <div
         class="p-toast p-component p-toast-top-right"

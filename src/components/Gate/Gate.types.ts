@@ -8,8 +8,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const styles = createStyles({
-    gate: {
-        height: '100%'
+    component: {
     }
 });
 

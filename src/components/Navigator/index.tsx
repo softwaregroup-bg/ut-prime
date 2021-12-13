@@ -49,8 +49,7 @@ const Navigator: StyledType = ({
     }, [fetch, keyField, parentField, resultSet, select]);
     return (
         items.length ? <Tree
-            style={{border: 0, padding: 0}}
-            className={clsx(classes.component, className)}
+            className={clsx('border-none', 'p-0', classes.component, className)}
             value={items}
             nodeTemplate={nodeTemplate}
             selectionMode='single'

@@ -51,6 +51,7 @@ const App: StyledType = ({middleware, reducers, theme, portalName, state, onDisp
         default:
             last = light?.use?.();
     }
+    const context = React.useMemo(() => ({portalName}), [portalName]);
     return (
         <DndProvider backend={HTML5Backend}>
             <Store {...{middleware, reducers, state, onDispatcher}}>
@@ -58,7 +59,7 @@ const App: StyledType = ({middleware, reducers, theme, portalName, state, onDisp
                     <StylesProvider injectFirst>
                         <Reset />
                     </StylesProvider>
-                    <Context.Provider value={{portalName}}>
+                    <Context.Provider value={context}>
                         <MuiPickersUtilsProvider utils={DateFnsUtils}>
                             <Switch>
                                 <Route path='/login'>

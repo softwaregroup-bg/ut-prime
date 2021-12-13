@@ -14,7 +14,6 @@ import useToggle from '../hooks/useToggle';
 import useLoad from '../hooks/useLoad';
 import {ConfigField, ConfigCard} from '../Form/DragDrop';
 
-const flexGrow = {flexGrow: 1};
 const backgroundNone = {background: 'none'};
 
 const capital = (string: string) => string.charAt(0).toUpperCase() + string.slice(1);
@@ -173,9 +172,9 @@ const Editor: StyledType = ({
                     <Button onClick={toggleDesign} className={clsx('mr-2', design && 'p-button-success')} disabled={!!loading} aria-label='design' icon='pi pi-cog' />
                 </>}
             />
-            <div className={clsx('flex', orientation === 'top' && 'flex-column')} style={{overflowX: 'hidden', width: '100%'}}>
+            <div className={clsx('flex', 'overflow-x-hidden', 'w-full', orientation === 'top' && 'flex-column')}>
                 {items && <ThumbIndex items={items} orientation={orientation} onFilter={setFilter}/>}
-                <div className='flex' style={flexGrow}>
+                <div className='flex flex-grow-1'>
                     <Form
                         schema={schema}
                         editors={editors}

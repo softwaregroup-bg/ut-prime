@@ -10,6 +10,8 @@ import { Styled, StyledType } from './Error.types';
 import { State } from '../Store/Store.types';
 
 const selectError = (state: State) => state.error;
+const breakpoints = {'960px': '75vw', '640px': '95vw'};
+const width = {width: '30vw'};
 
 const Error: StyledType = ({ classes, message: errorMessage }) => {
     let closable = true;
@@ -31,8 +33,8 @@ const Error: StyledType = ({ classes, message: errorMessage }) => {
         <Dialog
             visible={open}
             onHide={handleClose}
-            breakpoints={{'960px': '75vw', '640px': '95vw'}}
-            style={{width: '30vw'}}
+            breakpoints={breakpoints}
+            style={width}
             {...{closable, header}}
         >
             <div className={clsx(classes.errorIconWrap, classes.errorIcon)} />

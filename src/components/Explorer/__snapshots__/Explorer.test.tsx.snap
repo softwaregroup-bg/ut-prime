@@ -5,8 +5,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="flex flex-column"
-    style="height: 100%;"
+    class="flex flex-column h-full"
   >
     <div
       class="p-toolbar p-component"

@@ -25,7 +25,7 @@ const ThumbIndex: StyledType = ({ classes, className, items, orientation = 'left
         options={items}
         itemTemplate={({icon, label}) => <><i className={icon}> {label}</i></>}
         onChange={handleListChange}
-        style={{border: 0}}
+        className='border-none'
     /> : <TabMenu
         model={items}
         activeIndex={activeIndex}
@@ -35,7 +35,7 @@ const ThumbIndex: StyledType = ({ classes, className, items, orientation = 'left
         <div className={clsx('flex flex-row', {'lg:col-2': !!model?.length}, className)} {...rest}>
             {tabs}
             {!!model?.length && <PanelMenu
-                style={{flexGrow: 1}}
+                className='flex-1'
                 model={model}
             />}
             {children}

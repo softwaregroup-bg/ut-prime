@@ -5,8 +5,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="p-tree p-component Navigator-component-1 p-tree-selectable"
-    style="border: 0px; padding: 0px;"
+    class="p-tree p-component border-none p-0 Navigator-component-1 p-tree-selectable"
   >
     <div
       class="p-tree-header"

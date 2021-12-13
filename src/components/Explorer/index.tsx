@@ -13,6 +13,8 @@ import { Styled, StyledType } from './Explorer.types';
 const flexGrow = {flexGrow: 1};
 const selectionWidth = {width: '3em'};
 const backgroundNone = {background: 'none'};
+const splitterWidth = { width: '200px' };
+const actionButtonStyle = {padding: 0, minWidth: 'inherit'};
 
 const Explorer: StyledType = ({
     classes,
@@ -140,7 +142,7 @@ const Explorer: StyledType = ({
     }, [fetch, tableFilter, filter, subscribe, resultSet, pageSize, onDropdown, keyField, dropdownNames]);
     const detailsPanel = React.useMemo(() => detailsOpened && details &&
         <SplitterPanel key='details' size={10}>
-            <div style={{ width: '200px' }}>{
+            <div style={splitterWidth}>{
                 current && Object.entries(details).map(([name, value], index) =>
                     <div className={classes.details} key={index}>
                         <div className={classes.detailsLabel}>{value}</div>
@@ -176,7 +178,7 @@ const Explorer: StyledType = ({
                 key={name}
                 body={property?.action && (row => <Button
                     label={row[field]}
-                    style={{padding: 0, minWidth: 'inherit'}}
+                    style={actionButtonStyle}
                     className='p-button-link'
                     onClick={() => property.action({
                         id: row && row[keyField],
@@ -223,7 +225,7 @@ const Explorer: StyledType = ({
     </DataTable>;
     const nav = children && navigationOpened && <SplitterPanel key='nav' size={15}>{children}</SplitterPanel>;
     return (
-        <div className={clsx('flex', 'flex-column', className)} style={{height: '100%'}} >
+        <div className={clsx('flex', 'flex-column', 'h-full', className)}>
             {
                 buttons?.length || nav || detailsPanel
                     ? <Toolbar left={left} right={right} style={backgroundNone} />

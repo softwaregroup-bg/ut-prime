@@ -20,6 +20,7 @@ import { RefCallBack } from 'react-hook-form';
 
 import Table from './inputs/Table';
 import MultiSelectPanel from './inputs/MultiSelectPanel';
+const noActions = {allowAdd: false, allowEdit: false, allowDelete: false};
 
 const Field = ({children, label, error, inputClass}) => <>
     {label}
@@ -174,7 +175,7 @@ export default function input(
                 <div className={inputClass}>
                     <Table
                         {...field}
-                        actions={{allowAdd: false, allowEdit: false, allowDelete: false}}
+                        actions={noActions}
                         dataKey={dataKey}
                         value={value}
                         selection={single ? value.find(row => row?.[dataKey] === field.value) : value.filter(row => field.value?.includes(row?.[dataKey]))}

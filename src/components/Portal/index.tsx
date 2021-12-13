@@ -98,6 +98,9 @@ const Portal: StyledType = ({ classes, children }) => {
             }
         ]
     }]), [permissions, command, rightMenu, initials, rightMenuItems]);
+    const style = React.useMemo(() => ({
+        height: size.height
+    }), [size.height]);
 
     if (location.pathname !== '/' && !tabs.find(tab => tab.path === location.pathname + location.search)) {
         dispatch({
@@ -106,7 +109,7 @@ const Portal: StyledType = ({ classes, children }) => {
         });
     }
     return (
-        <div className='flex flex-column' style={{height: size.height}}>
+        <div className='flex flex-column' style={style}>
             <div className={classes.headerContainer}>
                 <div className='flex align-items-center justify-content-center'>
                     <div className={clsx(classes.headerLogo, ut?.classes?.headerLogo)}></div>

@@ -79,11 +79,10 @@ export default function columnProps({
         case 'select':
             body = function body(rowData) {
                 return <SelectButton
-                    className='w-full'
+                    className='w-full white-space-nowrap'
                     options={dropdowns?.[dropdown] || []}
                     value={props?.split ? rowData[fieldName]?.split(props.split) : rowData[fieldName]}
                     disabled
-                    style={{whiteSpace: 'nowrap'}}
                     // onChange={(e) => {}}
                     {...props}
                 />;
@@ -150,7 +149,7 @@ export default function columnProps({
                     />;
                 case 'select':
                     return <SelectButton
-                        className='w-full'
+                        className='w-full white-space-nowrap'
                         options={dropdowns?.[dropdown] || []}
                         value={props?.split ? p.rowData[fieldName]?.split(props.split).filter(Boolean) : p.rowData[fieldName]}
                         onChange={event => p.editorCallback(props?.split ? event.value.join(props.split) || null : event.value)}

@@ -8,8 +8,7 @@ exports[`<ThumbIndex /> render equals snapshot 1`] = `
     class="flex flex-row"
   >
     <div
-      class="p-listbox p-component"
-      style="border: 0px;"
+      class="p-listbox p-component border-none"
     >
       <div
         class="p-listbox-list-wrapper"

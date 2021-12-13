@@ -155,8 +155,7 @@ exports[`<Report /> render equals snapshot 1`] = `
     </button>
   </div>
   <div
-    class="flex flex-column"
-    style="height: 100%;"
+    class="flex flex-column h-full"
   >
     <div
       class="p-datatable p-component p-datatable-auto-layout p-datatable-responsive-stack"

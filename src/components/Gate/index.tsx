@@ -65,7 +65,7 @@ const Gate: StyledType = ({ classes, children, cookieCheck, fetchTranslations, l
         return <Loader />;
     } else if (login) {
         return (
-            <div className={classes.gate}>
+            <div className='h-full'>
                 {loaded ? <Context.Provider value={loaded}>
                     <Permission>
                         {children}
