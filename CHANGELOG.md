@@ -1,3 +1,19 @@
+# [1.52.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.51.2...v1.52.0) (2021-12-14)
+
+
+### Bug Fixes
+
+* schema format handling ([bd7e283](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/bd7e283583449fdc1db0ea01c0ca3bf1f56bd795))
+* typeField handling ([025c96f](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/025c96fdae1adc1cf191ed8e5f5e3bb70a30edc8))
+
+
+### Features
+
+* image basePath ([ae17cdf](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/ae17cdfcc22c800bb7a6ef793698084421c44e2d))
+* pivot filter ([f0cb2d9](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/f0cb2d9d6bb8b2ec8d41c878bfd3405eab4ddff6))
+
+
+
 ## [1.51.2](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.51.1...v1.51.2) (2021-12-13)
 
 
