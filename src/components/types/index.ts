@@ -30,6 +30,7 @@ export interface PropertyEditor {
     pivot?: {
         dropdown?: string;
         examples?: {}[];
+        master?: {};
         join: {}
     };
     [editorProperties: string]: any
@@ -97,6 +98,7 @@ export interface Card {
     widgets: (string | {
         name: string,
         propertyName?: string,
+        actions?: {},
         widgets?: any[],
         hidden?: string[],
         filter?: {}
