@@ -29,7 +29,7 @@ export default function useSubmit(submit, dependencies) {
     const dispatch = useDispatch();
     const toast = React.useRef(null);
     return {
-        // //eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         handleSubmit: React.useCallback(call(submit, dispatch, toast), dependencies),
         toast: <Toast ref={toast} />
     };
