@@ -258,8 +258,8 @@ export default function input(
             <Image
                 imageClassName='w-full'
                 preview
-                src={field.value}
-                {...props}
+                src={field.value ? (props.basePath || '') + field.value : null}
+                {...(({basePath, ...rest}) => rest)(props)}
             />
         </Field>;
         case 'password': return <Field {...{label, error, inputClass}}>
