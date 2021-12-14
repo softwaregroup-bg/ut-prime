@@ -60,6 +60,7 @@ export default React.forwardRef<{}, any>(({
     disabled,
     pivot: {
         dropdown = '',
+        master: pivotMaster = null,
         examples: pivotRows = (dropdown && dropdowns?.[dropdown]),
         join = null
     } = {},
@@ -79,7 +80,12 @@ export default React.forwardRef<{}, any>(({
 
     const rows = React.useMemo(() => {
         const keys = Object.entries(join || {});
-        const joined = keepRows ? allRows : (pivotRows?.length && keys.length) ? pivotRows.map($pivot => {
+        let pivotRowsFiltered = pivotRows;
+        if (pivotRowsFiltered?.length && pivotMaster) {
+            const pivotFilterFields = Object.entries({...filter, ...masterFilter(pivotMaster, parent)});
+            pivotRowsFiltered = pivotRows.filter(row => pivotFilterFields.every(([name, value]) => sameString(lodashGet(row, name), value)));
+        }
+        const joined = keepRows ? allRows : (pivotRows?.length && keys.length) ? pivotRowsFiltered.map($pivot => {
             const found = allRows.findIndex(row => keys.every(([pivotKey, rowKey]: [string, string]) => $pivot[pivotKey] === row[rowKey]));
             return found >= 0 ? {
                 ...allRows[found],
@@ -93,7 +99,7 @@ export default React.forwardRef<{}, any>(({
         }) : allRows?.map((item, index) => ({...item, [INDEX]: index})) || [];
         const filterFields = Object.entries({...filter, ...masterFilter(master, parent)});
         return joined?.filter(row => filterFields.every(([name, value]) => sameString(lodashGet(row, name), value)));
-    }, [allRows, parent, master, pivotRows, join, filter, keepRows]);
+    }, [allRows, parent, master, pivotRows, join, filter, keepRows, pivotMaster]);
 
     !keepRows && rows.forEach((row, index) => {
         row[KEY] = index;
@@ -165,7 +171,7 @@ export default React.forwardRef<{}, any>(({
     if (master && !parent) return null;
     return (
         <>
-            {!disabled && (allowAdd || allowDelete) && <Toolbar className="p-0" left={leftToolbarTemplate} right={null} style={backgroundNone}></Toolbar>}
+            {!disabled && (allowAdd || allowDelete) && <Toolbar className="p-0 border-none" left={leftToolbarTemplate} right={null} style={backgroundNone}></Toolbar>}
             <DataTable
                 editMode='row'
                 className='editable-cells-table'
