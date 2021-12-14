@@ -121,7 +121,7 @@ const Editor: StyledType = ({
         setLoading('loading');
         const result = (await onGet({[keyField]: keyValue}));
         handleArray(result, properties);
-        if (typeField) setIndex(getLayout(result[typeField]));
+        if (typeField) setIndex(getLayout(lodashGet(result, typeField)));
         setDropdown(await onDropdown(dropdownNames));
         setEditValue(getValue(result));
         setLoading('');
