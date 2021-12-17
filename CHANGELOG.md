@@ -1,3 +1,12 @@
+# [1.53.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.52.1...v1.53.0) (2021-12-17)
+
+
+### Features
+
+* report improvementes ([13a770f](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/13a770fed6c50f4fc1f4b8f006bd603a76f58c27))
+
+
+
 ## [1.52.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.52.0...v1.52.1) (2021-12-14)
 
 
