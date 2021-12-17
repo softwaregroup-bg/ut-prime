@@ -7,7 +7,7 @@ export { Chart } from 'primereact/chart';
 export { Checkbox } from 'primereact/checkbox';
 export { Chips } from 'primereact/chips';
 export { Column } from 'primereact/column';
-export { DataTable } from 'primereact/datatable';
+export { DataTable, DataTableProps } from 'primereact/datatable';
 export { Dialog } from 'primereact/dialog';
 export { Dropdown } from 'primereact/dropdown';
 export { FileUpload } from 'primereact/fileupload';

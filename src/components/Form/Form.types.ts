@@ -20,6 +20,9 @@ export interface Props extends React.HTMLAttributes<HTMLFormElement> {
 
 const styles = createStyles({
     component: {
+        '& .p-datatable-wrapper': {
+            overflowX: 'auto'
+        }
     }
 });
 

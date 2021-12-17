@@ -5,7 +5,7 @@ exports[`<Report /> render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="flex align-items-center"
+    class="flex align-items-center Report-report-2"
   >
     <div
       class="p-toast p-component p-toast-top-right"
@@ -13,7 +13,7 @@ exports[`<Report /> render equals snapshot 1`] = `
       <div />
     </div>
     <form
-      class="grid col align-self-start"
+      class="grid col align-self-start Form-component-3"
       style="flex-grow: 1;"
     >
       <div
@@ -34,104 +34,22 @@ exports[`<Report /> render equals snapshot 1`] = `
                   class="flex flex-wrap"
                 >
                   <div
-                    class="field grid col-12 md:col-4 xl:col-3"
+                    class="field grid"
                   >
-                    <label
-                      class="col-12 md:col-4"
-                      for="name"
-                    >
-                      Name
-                    </label>
-                    <div
-                      class="col-12 md:col-8"
-                    >
-                      <input
-                        class="p-inputtext p-component w-full"
-                        id="name"
-                        name="name"
-                        value=""
-                      />
-                    </div>
+                    ❌ 
+                    name
                   </div>
                   <div
-                    class="field grid col-12 md:col-4 xl:col-3"
+                    class="field grid"
                   >
-                    <label
-                      class="col-12 md:col-4"
-                      for="startDate"
-                    >
-                      Start Date
-                    </label>
-                    <div
-                      class="col-12 md:col-8"
-                    >
-                      <span
-                        class="p-calendar p-component p-inputwrapper w-full p-calendar-w-btn p-calendar-w-btn-right"
-                        id="startDate"
-                      >
-                        <input
-                          autocomplete="off"
-                          class="p-inputtext p-component"
-                          inputmode="none"
-                          name="startDate"
-                          type="text"
-                        />
-                        <button
-                          class="p-button p-component p-datepicker-trigger p-button-icon-only"
-                          tabindex="-1"
-                          type="button"
-                        >
-                          <span
-                            class="p-button-icon p-c pi pi-calendar"
-                          />
-                          <span
-                            class="p-button-label p-c"
-                          >
-                             
-                          </span>
-                        </button>
-                      </span>
-                    </div>
+                    ❌ 
+                    startDate
                   </div>
                   <div
-                    class="field grid col-12 md:col-4 xl:col-3"
+                    class="field grid"
                   >
-                    <label
-                      class="col-12 md:col-4"
-                      for="endDate"
-                    >
-                      End Date
-                    </label>
-                    <div
-                      class="col-12 md:col-8"
-                    >
-                      <span
-                        class="p-calendar p-component p-inputwrapper w-full p-calendar-w-btn p-calendar-w-btn-right"
-                        id="endDate"
-                      >
-                        <input
-                          autocomplete="off"
-                          class="p-inputtext p-component"
-                          inputmode="none"
-                          name="endDate"
-                          type="text"
-                        />
-                        <button
-                          class="p-button p-component p-datepicker-trigger p-button-icon-only"
-                          tabindex="-1"
-                          type="button"
-                        >
-                          <span
-                            class="p-button-icon p-c pi pi-calendar"
-                          />
-                          <span
-                            class="p-button-label p-c"
-                          >
-                             
-                          </span>
-                        </button>
-                      </span>
-                    </div>
+                    ❌ 
+                    endDate
                   </div>
                 </div>
               </div>
@@ -155,13 +73,56 @@ exports[`<Report /> render equals snapshot 1`] = `
     </button>
   </div>
   <div
-    class="flex flex-column h-full"
+    class="flex flex-column h-full Explorer-component-4"
   >
     <div
       class="p-datatable p-component p-datatable-auto-layout p-datatable-responsive-stack"
       data-scrollselectors=".p-datatable-wrapper"
       pr_id_1=""
     >
+      <div
+        class="p-paginator p-component p-paginator-top"
+      >
+        <button
+          class="p-paginator-first p-paginator-element p-link p-disabled"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="p-paginator-icon pi pi-angle-double-left"
+          />
+        </button>
+        <button
+          class="p-paginator-prev p-paginator-element p-link p-disabled"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="p-paginator-icon pi pi-angle-left"
+          />
+        </button>
+        <span
+          class="p-paginator-pages"
+        />
+        <button
+          class="p-paginator-next p-paginator-element p-link p-disabled"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="p-paginator-icon pi pi-angle-right"
+          />
+        </button>
+        <button
+          class="p-paginator-last p-paginator-element p-link p-disabled"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="p-paginator-icon pi pi-angle-double-right"
+          />
+        </button>
+      </div>
       <div
         class="p-datatable-wrapper"
       >
@@ -185,7 +146,7 @@ exports[`<Report /> render equals snapshot 1`] = `
                   <span
                     class="p-column-title"
                   >
-                    Name
+                    name
                   </span>
                 </div>
               </th>
@@ -202,89 +163,18 @@ exports[`<Report /> render equals snapshot 1`] = `
             class="p-datatable-tbody"
           >
             <tr
-              class=""
+              class="p-datatable-emptymessage"
               role="row"
             >
               <td
-                class=""
+                colspan="1"
                 role="cell"
               >
-                <span
-                  class="p-column-title"
-                >
-                  Name
-                </span>
-                row 1
-              </td>
-            </tr>
-            <tr
-              class="p-row-odd"
-              role="row"
-            >
-              <td
-                class=""
-                role="cell"
-              >
-                <span
-                  class="p-column-title"
-                >
-                  Name
-                </span>
-                row 2
+                No available options
               </td>
             </tr>
           </tbody>
         </table>
-      </div>
-      <div
-        class="p-paginator p-component p-paginator-bottom"
-      >
-        <button
-          class="p-paginator-first p-paginator-element p-link p-disabled"
-          disabled=""
-          type="button"
-        >
-          <span
-            class="p-paginator-icon pi pi-angle-double-left"
-          />
-        </button>
-        <button
-          class="p-paginator-prev p-paginator-element p-link p-disabled"
-          disabled=""
-          type="button"
-        >
-          <span
-            class="p-paginator-icon pi pi-angle-left"
-          />
-        </button>
-        <span
-          class="p-paginator-pages"
-        >
-          <button
-            class="p-paginator-page p-paginator-element p-link p-paginator-page-start p-paginator-page-end p-highlight"
-            type="button"
-          >
-            1
-          </button>
-        </span>
-        <button
-          class="p-paginator-next p-paginator-element p-link p-disabled"
-          disabled=""
-          type="button"
-        >
-          <span
-            class="p-paginator-icon pi pi-angle-right"
-          />
-        </button>
-        <button
-          class="p-paginator-last p-paginator-element p-link p-disabled"
-          disabled=""
-          type="button"
-        >
-          <span
-            class="p-paginator-icon pi pi-angle-double-right"
-          />
-        </button>
       </div>
     </div>
   </div>

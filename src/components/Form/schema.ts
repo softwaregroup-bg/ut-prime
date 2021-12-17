@@ -4,7 +4,7 @@ import { Schema, Property } from '../types';
 function validation(name, field, required) {
     let result = field.validation;
     if (!result) {
-        switch (field?.widget?.type || field.type || 'unknown') {
+        switch (field?.widget?.type || field.type || field.format || 'unknown') {
             case 'mask':
             case 'text':
             case 'password':
@@ -52,7 +52,7 @@ function validation(name, field, required) {
 }
 
 export default function getValidation(schema: Schema | Property, filter?: string[], path: string = '') : Joi.Schema {
-    return Object.entries(schema.properties || {}).reduce(
+    return Object.entries(schema?.properties || {}).reduce(
         (prev, [name, field]) => {
             if ('properties' in field) {
                 return prev.append({[name]: getValidation(field, filter, path ? path + '.' + name : name)});

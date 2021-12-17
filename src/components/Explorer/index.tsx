@@ -31,7 +31,8 @@ const Explorer: StyledType = ({
     filter,
     onDropdown,
     showFilter = true,
-    pageSize = 10
+    pageSize = 10,
+    table: tableProps
 }) => {
     const [tableFilter, setFilters] = React.useState<TableFilter>({
         filters: columns?.reduce((prev, column) => {
@@ -219,13 +220,14 @@ const Explorer: StyledType = ({
         filterDisplay='row'
         onSelectionChange={handleSelectionChange}
         onRowSelect={handleRowSelect}
+        {...tableProps}
     >
         {keyField && <Column selectionMode="multiple" style={selectionWidth}/>}
         {Columns}
     </DataTable>;
     const nav = children && navigationOpened && <SplitterPanel key='nav' size={15}>{children}</SplitterPanel>;
     return (
-        <div className={clsx('flex', 'flex-column', 'h-full', className)}>
+        <div className={clsx('flex', 'flex-column', 'h-full', classes.component, className)}>
             {
                 buttons?.length || nav || detailsPanel
                     ? <Toolbar left={left} right={right} style={backgroundNone} />

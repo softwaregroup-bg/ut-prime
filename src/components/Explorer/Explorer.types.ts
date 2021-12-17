@@ -1,5 +1,6 @@
 import {WithStyles, withStyles, createStyles} from '@material-ui/core/styles';
 import React from 'react';
+import { DataTableProps } from '../prime';
 
 import type {Schema, Dropdowns, Action} from '../types';
 
@@ -31,10 +32,16 @@ export interface Props {
     actions?: Action[];
     filter?: {};
     showFilter?: boolean;
-    pageSize?: number
+    pageSize?: number;
+    table?: DataTableProps;
 }
 
 const styles = createStyles({
+    component: {
+        '& .p-datatable-wrapper': {
+            overflowX: 'auto'
+        }
+    },
     details: {
         marginBottom: 15
     },

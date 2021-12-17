@@ -359,7 +359,7 @@ const Form: StyledType = ({
     return (<>
         <DevTool control={control} placement="top-right" />
         {toast}
-        <form {...rest} onSubmit={formSubmit(handleSubmit)} className={clsx('grid col align-self-start', className)}>
+        <form {...rest} onSubmit={formSubmit(handleSubmit)} className={clsx('grid col align-self-start', classes.component, className)}>
             {
                 !!Object.keys(errors).length && <div className='col-12'>
                     {errorFields.map(name => !visibleProperties.includes(name) && <><small className="p-error">{get(errors, name)?.message}</small><br /></>)}

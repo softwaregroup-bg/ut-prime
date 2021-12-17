@@ -21,6 +21,11 @@ export interface Props {
 
 const styles = createStyles({
     component: {
+    },
+    report: {
+        '& .p-card .p-card-body': {
+            padding: 0
+        }
     }
 });
 
