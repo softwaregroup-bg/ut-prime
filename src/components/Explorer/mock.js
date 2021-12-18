@@ -29,9 +29,11 @@ export const fetchItems = filters => {
 
 export const updateItems = update => {
     let size = 0;
+    // eslint-disable-next-line no-process-env
+    const interval = (process.env.NODE_ENV === 'production') ? 10000 : 1000;
     const handle = setInterval(() => {
         size++;
         update({0: {size}});
-    }, 1000);
+    }, interval);
     return () => clearInterval(handle);
 };
