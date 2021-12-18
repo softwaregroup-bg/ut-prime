@@ -34,22 +34,104 @@ exports[`<Report /> render equals snapshot 1`] = `
                   class="flex flex-wrap"
                 >
                   <div
-                    class="field grid"
+                    class="field grid col-12 md:col-4 xl:col-3 mb-0"
                   >
-                    ❌ 
-                    name
+                    <label
+                      class="col-12 md:col-4"
+                      for="name"
+                    >
+                      Name
+                    </label>
+                    <div
+                      class="col-12 md:col-8"
+                    >
+                      <input
+                        class="p-inputtext p-component w-full"
+                        id="name"
+                        name="name"
+                        value=""
+                      />
+                    </div>
                   </div>
                   <div
-                    class="field grid"
+                    class="field grid col-12 md:col-4 xl:col-3 mb-0"
                   >
-                    ❌ 
-                    startDate
+                    <label
+                      class="col-12 md:col-4"
+                      for="startDate"
+                    >
+                      Start Date
+                    </label>
+                    <div
+                      class="col-12 md:col-8"
+                    >
+                      <span
+                        class="p-calendar p-component p-inputwrapper w-full p-calendar-w-btn p-calendar-w-btn-right"
+                        id="startDate"
+                      >
+                        <input
+                          autocomplete="off"
+                          class="p-inputtext p-component"
+                          inputmode="none"
+                          name="startDate"
+                          type="text"
+                        />
+                        <button
+                          class="p-button p-component p-datepicker-trigger p-button-icon-only"
+                          tabindex="-1"
+                          type="button"
+                        >
+                          <span
+                            class="p-button-icon p-c pi pi-calendar"
+                          />
+                          <span
+                            class="p-button-label p-c"
+                          >
+                             
+                          </span>
+                        </button>
+                      </span>
+                    </div>
                   </div>
                   <div
-                    class="field grid"
+                    class="field grid col-12 md:col-4 xl:col-3 mb-0"
                   >
-                    ❌ 
-                    endDate
+                    <label
+                      class="col-12 md:col-4"
+                      for="endDate"
+                    >
+                      End Date
+                    </label>
+                    <div
+                      class="col-12 md:col-8"
+                    >
+                      <span
+                        class="p-calendar p-component p-inputwrapper w-full p-calendar-w-btn p-calendar-w-btn-right"
+                        id="endDate"
+                      >
+                        <input
+                          autocomplete="off"
+                          class="p-inputtext p-component"
+                          inputmode="none"
+                          name="endDate"
+                          type="text"
+                        />
+                        <button
+                          class="p-button p-component p-datepicker-trigger p-button-icon-only"
+                          tabindex="-1"
+                          type="button"
+                        >
+                          <span
+                            class="p-button-icon p-c pi pi-calendar"
+                          />
+                          <span
+                            class="p-button-label p-c"
+                          >
+                             
+                          </span>
+                        </button>
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -103,7 +185,14 @@ exports[`<Report /> render equals snapshot 1`] = `
         </button>
         <span
           class="p-paginator-pages"
-        />
+        >
+          <button
+            class="p-paginator-page p-paginator-element p-link p-paginator-page-start p-paginator-page-end p-highlight"
+            type="button"
+          >
+            1
+          </button>
+        </span>
         <button
           class="p-paginator-next p-paginator-element p-link p-disabled"
           disabled=""
@@ -146,7 +235,7 @@ exports[`<Report /> render equals snapshot 1`] = `
                   <span
                     class="p-column-title"
                   >
-                    name
+                    Name
                   </span>
                 </div>
               </th>
@@ -163,14 +252,35 @@ exports[`<Report /> render equals snapshot 1`] = `
             class="p-datatable-tbody"
           >
             <tr
-              class="p-datatable-emptymessage"
+              class=""
               role="row"
             >
               <td
-                colspan="1"
+                class=""
                 role="cell"
               >
-                No available options
+                <span
+                  class="p-column-title"
+                >
+                  Name
+                </span>
+                row 1
+              </td>
+            </tr>
+            <tr
+              class="p-row-odd"
+              role="row"
+            >
+              <td
+                class=""
+                role="cell"
+              >
+                <span
+                  class="p-column-title"
+                >
+                  Name
+                </span>
+                row 2
               </td>
             </tr>
           </tbody>
