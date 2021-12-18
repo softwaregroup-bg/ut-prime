@@ -3,7 +3,7 @@ import Wrap from '../src/components/test/wrap';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import theme from './theme';
-import './preview.css';
+if(process.env.NODE_ENV === 'production') require('./preview.css');
 
 export const parameters = {
     layout: 'fullscreen',

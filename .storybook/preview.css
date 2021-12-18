@@ -1,4 +1,4 @@
-/* disable animations for screenshots */
+/* hide ink-bar for screenshots */
 .p-tabview .p-tabview-nav .p-tabview-ink-bar {
-    transition: none !important;
+    display: none !important;
 }
