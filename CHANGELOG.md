@@ -1,3 +1,12 @@
+## [1.53.3](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.53.2...v1.53.3) (2021-12-20)
+
+
+### Bug Fixes
+
+* align numeric columns ([288c191](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/288c1918904880dba2432a9802345ceb1afb45d9))
+
+
+
 ## [1.53.2](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.53.1...v1.53.2) (2021-12-18)
 
 
