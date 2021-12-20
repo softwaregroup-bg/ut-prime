@@ -1,5 +1,6 @@
 import React from 'react';
 import { Checkbox, Dropdown, SelectButton, Calendar, InputMask, InputText, InputTextarea, InputNumber } from '../prime';
+import { Property } from '../types';
 
 export interface TableFilter {
     filters?: {
@@ -34,13 +35,7 @@ export default function columnProps({
     editable
 }: {
     name: string,
-    property: {
-        type?: string,
-        title?: string,
-        widget?: any,
-        readOnly?: boolean,
-        body?: string
-    },
+    property: Property,
     widget?: any,
     dropdowns: {},
     tableFilter?: TableFilter,
@@ -49,8 +44,13 @@ export default function columnProps({
 }) {
     const {type, dropdown, parent, column, lookup, ...props} = widget || property?.widget || {name};
     const fieldName = name;
-    let filterElement, body, editor;
-    switch (type) {
+    let filterElement, body, editor, className, bodyClassName;
+    switch (type || property.type || property.format) {
+        case 'integer':
+        case 'number':
+            className = 'text-right';
+            bodyClassName = 'text-right';
+            break;
         case 'boolean':
             filterElement = filterBy && <Checkbox
                 checked={tableFilter?.filters?.[fieldName]?.value}
@@ -218,6 +218,8 @@ export default function columnProps({
         ...filterElement && {filterElement},
         ...body && {body},
         ...(editor != null) && {editor},
+        className,
+        bodyClassName,
         ...column
     };
 }
