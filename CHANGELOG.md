@@ -1,3 +1,13 @@
+## [1.53.4](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.53.3...v1.53.4) (2021-12-22)
+
+
+### Bug Fixes
+
+* dropdownTree uses string keys ([c32062b](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/c32062b1963b15a75faf2d6b961f3b42abb89eff))
+* property is optional ([19c324e](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/19c324ebcee08f0e87aee19a027c0155367cf8ff))
+
+
+
 ## [1.53.3](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.53.2...v1.53.3) (2021-12-20)
 
 
