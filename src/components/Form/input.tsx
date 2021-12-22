@@ -62,6 +62,7 @@ export default function input(
         case 'dropdownTree': return <Field {...{label, error, inputClass}}>
             <TreeSelect
                 {...field}
+                value={field.value == null ? field.value : String(field.value)}
                 options={dropdowns?.[dropdown]?.filter(filterBy) || []}
                 {...props}
             />
