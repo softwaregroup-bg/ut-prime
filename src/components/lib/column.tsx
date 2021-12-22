@@ -45,7 +45,7 @@ export default function columnProps({
     const {type, dropdown, parent, column, lookup, ...props} = widget || property?.widget || {name};
     const fieldName = name;
     let filterElement, body, editor, className, bodyClassName;
-    switch (type || property.type || property.format) {
+    switch (type || property?.type || property?.format) {
         case 'integer':
         case 'number':
             className = 'text-right';
