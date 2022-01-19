@@ -1,3 +1,17 @@
+# [1.54.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.53.4...v1.54.0) (2022-01-19)
+
+
+### Bug Fixes
+
+* multiselect when adding ([6ae571d](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/6ae571d2b5be08c62373e518dba72c5e904d674b))
+
+
+### Features
+
+* improve type and title handling ([075bfb5](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/075bfb55143308400831f8243b01ac5c3d644aa4))
+
+
+
 ## [1.53.4](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.53.3...v1.53.4) (2021-12-22)
 
 
