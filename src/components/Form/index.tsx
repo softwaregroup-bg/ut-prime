@@ -9,6 +9,7 @@ import { Styled, StyledType } from './Form.types';
 import { ConfigField, ConfigCard} from './DragDrop';
 import input from './input';
 
+import titleCase from '../lib/titleCase';
 import { Properties, Editors, PropertyEditors } from '../types';
 import useForm from '../hooks/useForm';
 import useToggle from '../hooks/useToggle';
@@ -20,11 +21,11 @@ import {CHANGE} from './const';
 const inputClass = (index, classes, name, className) => ({
     ...classes?.default,
     ...classes?.[name]
-}.input || ((index.properties[name]?.title || className) ? `col-12 ${className || 'md:col-8'}` : 'col-12'));
+}.input || ((index.properties[name]?.title !== '' || className) ? `col-12 ${className || 'md:col-8'}` : 'col-12'));
 
 const widgetName = name => typeof name === 'string' ? name : name.name;
 
-const flatten = (properties: Properties, editors: Editors, root: string = '') : PropertyEditors => Object.entries(properties).reduce(
+const flatten = (properties: Properties, editors: Editors, root: string = '') : PropertyEditors => Object.entries(properties || {}).reduce(
     (map, [name, property]) => {
         return ('properties' in property) ? {
             ...map,
@@ -288,7 +289,8 @@ const Form: StyledType = ({
     );
 
     const Label = React.useCallback(({name, className = 'col-12 md:col-4'}) => {
-        const label = idx.properties?.[name]?.title;
+        let label = idx.properties?.[name]?.title;
+        if (label === undefined) label = titleCase(name.split('.').pop());
         return label
             ? <label className={className} htmlFor={name}>{label}</label>
             : null;

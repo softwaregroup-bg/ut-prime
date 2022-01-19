@@ -18,6 +18,7 @@ import {
 } from '../prime';
 import { RefCallBack } from 'react-hook-form';
 
+import getType from '../lib/getType';
 import Table from './inputs/Table';
 import MultiSelectPanel from './inputs/MultiSelectPanel';
 const noActions = {allowAdd: false, allowEdit: false, allowDelete: false};
@@ -58,7 +59,7 @@ export default function input(
     if (loading) return <>{label}<div className={inputClass}><Skeleton className='p-inputtext'/></div></>;
     props.disabled = schema?.readOnly || (parentField && !parentValue);
     const filterBy = item => (!parentField && !optionsFilter) || Object.entries({...optionsFilter, parent: parentValue}).every(([name, value]) => String(item[name]) === String(value));
-    switch (type || schema?.type || schema?.format) {
+    switch (type || schema?.format || getType(schema?.type)) {
         case 'dropdownTree': return <Field {...{label, error, inputClass}}>
             <TreeSelect
                 {...field}

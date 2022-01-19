@@ -40,6 +40,7 @@ const tree: {schema: Schema, cards: Cards} = {
                         title: 'Fruit'
                     },
                     habitat: {
+                        title: '',
                         widget: {
                             type: 'multiSelectPanel',
                             dropdown: 'tree.habitat'

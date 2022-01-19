@@ -1,6 +1,8 @@
 import React from 'react';
 import { Checkbox, Dropdown, SelectButton, Calendar, InputMask, InputText, InputTextarea, InputNumber } from '../prime';
 import { Property } from '../types';
+import titleCase from './titleCase';
+import getType from './getType';
 
 export interface TableFilter {
     filters?: {
@@ -45,7 +47,7 @@ export default function columnProps({
     const {type, dropdown, parent, column, lookup, ...props} = widget || property?.widget || {name};
     const fieldName = name;
     let filterElement, body, editor, className, bodyClassName;
-    switch (type || property?.type || property?.format) {
+    switch (type || property?.format || getType(property?.type)) {
         case 'integer':
         case 'number':
             className = 'text-right';
@@ -109,7 +111,7 @@ export default function columnProps({
     if (!property?.readOnly && editable) {
         editor = function editor(p) {
             const widget = p.rowData?.$pivot?.[fieldName]?.widget || p.rowData?.$pivot?.widget;
-            switch (widget?.type || type || property?.type) {
+            switch (widget?.type || type || property?.format || getType(property?.type)) {
                 case 'boolean':
                     return <Checkbox
                         checked={p.rowData[fieldName]}
@@ -214,7 +216,7 @@ export default function columnProps({
         showClearButton: true,
         showFilterMenu: false,
         field: name,
-        header: property?.title || name,
+        header: property?.title || titleCase(name.split('.').pop()),
         ...filterElement && {filterElement},
         ...body && {body},
         ...(editor != null) && {editor},
