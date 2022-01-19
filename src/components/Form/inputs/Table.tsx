@@ -131,9 +131,9 @@ export default React.forwardRef<{}, any>(({
                 ...pendingEdit
             }));
             const lastEditing = rows.find((_, index) => pendingEdit[index]);
-            if (lastEditing) handleSelected({value: lastEditing});
+            if (lastEditing) handleSelected({value: props.selectionMode === 'single' ? lastEditing : [lastEditing]});
         }
-    }, [handleSelected, onChange, pendingEdit, rows]);
+    }, [handleSelected, onChange, pendingEdit, rows, props.selectionMode]);
 
     const onRowEditChange = React.useCallback(event => {
         setEditingRows(event.data);
