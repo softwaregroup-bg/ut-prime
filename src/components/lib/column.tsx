@@ -28,6 +28,7 @@ function timeOrZero(value) {
 }
 
 export default function columnProps({
+    resultSet,
     name,
     property,
     widget,
@@ -36,6 +37,7 @@ export default function columnProps({
     filterBy,
     editable
 }: {
+    resultSet: string,
     name: string,
     property: Property,
     widget?: any,
@@ -212,11 +214,12 @@ export default function columnProps({
             };
         };
     }
+    resultSet = resultSet ? resultSet + '.' : '';
     return {
         showClearButton: true,
         showFilterMenu: false,
         field: name,
-        header: property?.title || titleCase(name.split('.').pop()),
+        header: <span data-testid={`${resultSet}${name}Title`}>{property?.title || titleCase(name.split('.').pop())}</span>,
         ...filterElement && {filterElement},
         ...body && {body},
         ...(editor != null) && {editor},

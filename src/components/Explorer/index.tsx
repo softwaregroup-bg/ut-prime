@@ -189,10 +189,10 @@ const Explorer: StyledType = ({
                 />)}
                 filter={showFilter && !!property?.filter}
                 sortable={!!property?.sort}
-                {...columnProps({name: field, widget: !isString && widget, property, dropdowns, tableFilter, filterBy})}
+                {...columnProps({resultSet, name: field, widget: !isString && widget, property, dropdowns, tableFilter, filterBy})}
             />
         );
-    }), [columns, properties, showFilter, dropdowns, tableFilter, keyField]);
+    }), [columns, properties, showFilter, dropdowns, tableFilter, keyField, resultSet]);
     const hasChildren = !!children;
     const left = React.useMemo(() => <>
         {hasChildren && <Button icon="pi pi-bars" className="mr-2" onClick={navigationToggle}/>}

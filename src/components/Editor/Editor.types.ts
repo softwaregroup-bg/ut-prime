@@ -8,6 +8,7 @@ export interface Props {
     schema: Schema,
     editors?: Editors,
     type?: string,
+    name?: string,
     typeField?: string,
     cards: Cards,
     layouts?: Layouts,

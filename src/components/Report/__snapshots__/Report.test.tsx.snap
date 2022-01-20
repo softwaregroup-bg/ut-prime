@@ -235,7 +235,11 @@ exports[`<Report /> render equals snapshot 1`] = `
                   <span
                     class="p-column-title"
                   >
-                    Name
+                    <span
+                      data-testid="result.nameTitle"
+                    >
+                      Name
+                    </span>
                   </span>
                 </div>
               </th>
@@ -262,7 +266,11 @@ exports[`<Report /> render equals snapshot 1`] = `
                 <span
                   class="p-column-title"
                 >
-                  Name
+                  <span
+                    data-testid="result.nameTitle"
+                  >
+                    Name
+                  </span>
                 </span>
                 row 1
               </td>
@@ -278,7 +286,11 @@ exports[`<Report /> render equals snapshot 1`] = `
                 <span
                   class="p-column-title"
                 >
-                  Name
+                  <span
+                    data-testid="result.nameTitle"
+                  >
+                    Name
+                  </span>
                 </span>
                 row 2
               </td>

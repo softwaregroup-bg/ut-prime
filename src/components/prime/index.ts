@@ -22,6 +22,7 @@ export { MultiSelect } from 'primereact/multiselect';
 export { PanelMenu } from 'primereact/panelmenu';
 export { Password } from 'primereact/password';
 export { RadioButton } from 'primereact/radiobutton';
+export { Ripple } from 'primereact/ripple';
 export { SelectButton } from 'primereact/selectbutton';
 export { Skeleton } from 'primereact/skeleton';
 export { Splitter, SplitterPanel } from 'primereact/splitter';

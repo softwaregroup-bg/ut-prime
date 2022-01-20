@@ -83,7 +83,11 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                       <span
                         class="p-column-title"
                       >
-                        Name
+                        <span
+                          data-testid="items.nameTitle"
+                        >
+                          Name
+                        </span>
                       </span>
                       <span
                         class="p-sortable-column-icon pi pi-fw pi-sort-alt"
@@ -102,7 +106,11 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                       <span
                         class="p-column-title"
                       >
-                        Size
+                        <span
+                          data-testid="items.sizeTitle"
+                        >
+                          Size
+                        </span>
                       </span>
                       <span
                         class="p-sortable-column-icon pi pi-fw pi-sort-alt"
@@ -220,7 +228,11 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                     <span
                       class="p-column-title"
                     >
-                      Name
+                      <span
+                        data-testid="items.nameTitle"
+                      >
+                        Name
+                      </span>
                     </span>
                     Item 0
                   </td>
@@ -231,7 +243,11 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                     <span
                       class="p-column-title"
                     >
-                      Size
+                      <span
+                        data-testid="items.sizeTitle"
+                      >
+                        Size
+                      </span>
                     </span>
                     0
                   </td>
@@ -270,7 +286,11 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                     <span
                       class="p-column-title"
                     >
-                      Name
+                      <span
+                        data-testid="items.nameTitle"
+                      >
+                        Name
+                      </span>
                     </span>
                     Item 1
                   </td>
@@ -281,7 +301,11 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                     <span
                       class="p-column-title"
                     >
-                      Size
+                      <span
+                        data-testid="items.sizeTitle"
+                      >
+                        Size
+                      </span>
                     </span>
                     10
                   </td>
@@ -320,7 +344,11 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                     <span
                       class="p-column-title"
                     >
-                      Name
+                      <span
+                        data-testid="items.nameTitle"
+                      >
+                        Name
+                      </span>
                     </span>
                     Item 2
                   </td>
@@ -331,7 +359,11 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                     <span
                       class="p-column-title"
                     >
-                      Size
+                      <span
+                        data-testid="items.sizeTitle"
+                      >
+                        Size
+                      </span>
                     </span>
                     20
                   </td>
@@ -370,7 +402,11 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                     <span
                       class="p-column-title"
                     >
-                      Name
+                      <span
+                        data-testid="items.nameTitle"
+                      >
+                        Name
+                      </span>
                     </span>
                     Item 3
                   </td>
@@ -381,7 +417,11 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                     <span
                       class="p-column-title"
                     >
-                      Size
+                      <span
+                        data-testid="items.sizeTitle"
+                      >
+                        Size
+                      </span>
                     </span>
                     30
                   </td>
@@ -420,7 +460,11 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                     <span
                       class="p-column-title"
                     >
-                      Name
+                      <span
+                        data-testid="items.nameTitle"
+                      >
+                        Name
+                      </span>
                     </span>
                     Item 4
                   </td>
@@ -431,7 +475,11 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                     <span
                       class="p-column-title"
                     >
-                      Size
+                      <span
+                        data-testid="items.sizeTitle"
+                      >
+                        Size
+                      </span>
                     </span>
                     40
                   </td>
@@ -470,7 +518,11 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                     <span
                       class="p-column-title"
                     >
-                      Name
+                      <span
+                        data-testid="items.nameTitle"
+                      >
+                        Name
+                      </span>
                     </span>
                     Item 5
                   </td>
@@ -481,7 +533,11 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                     <span
                       class="p-column-title"
                     >
-                      Size
+                      <span
+                        data-testid="items.sizeTitle"
+                      >
+                        Size
+                      </span>
                     </span>
                     50
                   </td>
@@ -520,7 +576,11 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                     <span
                       class="p-column-title"
                     >
-                      Name
+                      <span
+                        data-testid="items.nameTitle"
+                      >
+                        Name
+                      </span>
                     </span>
                     Item 6
                   </td>
@@ -531,7 +591,11 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                     <span
                       class="p-column-title"
                     >
-                      Size
+                      <span
+                        data-testid="items.sizeTitle"
+                      >
+                        Size
+                      </span>
                     </span>
                     60
                   </td>
@@ -570,7 +634,11 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                     <span
                       class="p-column-title"
                     >
-                      Name
+                      <span
+                        data-testid="items.nameTitle"
+                      >
+                        Name
+                      </span>
                     </span>
                     Item 7
                   </td>
@@ -581,7 +649,11 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                     <span
                       class="p-column-title"
                     >
-                      Size
+                      <span
+                        data-testid="items.sizeTitle"
+                      >
+                        Size
+                      </span>
                     </span>
                     70
                   </td>
@@ -620,7 +692,11 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                     <span
                       class="p-column-title"
                     >
-                      Name
+                      <span
+                        data-testid="items.nameTitle"
+                      >
+                        Name
+                      </span>
                     </span>
                     Item 8
                   </td>
@@ -631,7 +707,11 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                     <span
                       class="p-column-title"
                     >
-                      Size
+                      <span
+                        data-testid="items.sizeTitle"
+                      >
+                        Size
+                      </span>
                     </span>
                     80
                   </td>
@@ -670,7 +750,11 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                     <span
                       class="p-column-title"
                     >
-                      Name
+                      <span
+                        data-testid="items.nameTitle"
+                      >
+                        Name
+                      </span>
                     </span>
                     Item 9
                   </td>
@@ -681,7 +765,11 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                     <span
                       class="p-column-title"
                     >
-                      Size
+                      <span
+                        data-testid="items.sizeTitle"
+                      >
+                        Size
+                      </span>
                     </span>
                     90
                   </td>

@@ -45,6 +45,7 @@ const masterFilter = (master, filter) => master && Object.fromEntries(
 const noRows = Object.freeze([]);
 
 export default React.forwardRef<{}, any>(({
+    name: resultSet,
     onChange,
     getValues,
     counter,
@@ -159,11 +160,24 @@ export default React.forwardRef<{}, any>(({
         };
         return (
             <React.Fragment>
-                {allowAdd && <Button label="Add" icon="pi pi-plus" className="p-button mr-2" onClick={addNewRow} />}
-                {allowDelete && <Button label="Delete" icon="pi pi-trash" className="p-button" onClick={deleteRow} disabled={!selected} />}
+                {allowAdd && <Button
+                    label="Add"
+                    icon="pi pi-plus"
+                    className="p-button mr-2"
+                    onClick={addNewRow}
+                    data-testid={`${resultSet}.addButton`}
+                />}
+                {allowDelete && <Button
+                    label="Delete"
+                    icon="pi pi-trash"
+                    className="p-button"
+                    onClick={deleteRow}
+                    disabled={!selected}
+                    data-testid={`${resultSet}.saveButton`}
+                />}
             </React.Fragment>
         );
-    }, [allowAdd, allowDelete, selected, identity, master, filter, parent, allRows, onChange, handleSelected, counter, properties]);
+    }, [allowAdd, allowDelete, selected, identity, master, filter, parent, allRows, onChange, handleSelected, counter, properties, resultSet]);
 
     if (selected && props.selectionMode === 'single' && !rows.includes(selected)) {
         handleSelected({value: rows[selected[KEY]]});
@@ -194,7 +208,7 @@ export default React.forwardRef<{}, any>(({
                         const {name, ...widget} = isString ? {name: column} : column;
                         return (<Column
                             key={name}
-                            {...columnProps({name, widget: !isString && widget, property: properties?.[name], dropdowns, editable: true})}
+                            {...columnProps({resultSet, name, widget: !isString && widget, property: properties?.[name], dropdowns, editable: true})}
                         />);
                     })
                 }

@@ -20,6 +20,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
       <button
         aria-label="save"
         class="p-button p-component p-button-icon-only p-disabled"
+        data-testid="saveButton"
         disabled=""
       >
         <span
@@ -38,6 +39,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
       <button
         aria-label="design"
         class="p-button p-component mr-2 p-button-icon-only"
+        data-testid="designButton"
       >
         <span
           class="p-button-icon p-c pi pi-cog"
@@ -616,6 +618,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
       <button
         aria-label="save"
         class="p-button p-component p-button-icon-only p-disabled"
+        data-testid="saveButton"
         disabled=""
       >
         <span
@@ -634,6 +637,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
       <button
         aria-label="design"
         class="p-button p-component mr-2 p-button-success p-button-icon-only"
+        data-testid="designButton"
       >
         <span
           class="p-button-icon p-c pi pi-cog"
@@ -1592,6 +1596,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
       <button
         aria-label="save"
         class="p-button p-component p-button-icon-only p-disabled"
+        data-testid="saveButton"
         disabled=""
       >
         <span
@@ -1610,6 +1615,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
       <button
         aria-label="design"
         class="p-button p-component mr-2 p-button-icon-only p-disabled"
+        data-testid="designButton"
         disabled=""
       >
         <span
@@ -1917,6 +1923,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
       <button
         aria-label="save"
         class="p-button p-component p-button-icon-only p-disabled"
+        data-testid="saveButton"
         disabled=""
       >
         <span
@@ -1935,6 +1942,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
       <button
         aria-label="design"
         class="p-button p-component mr-2 p-button-success p-button-icon-only"
+        data-testid="designButton"
       >
         <span
           class="p-button-icon p-c pi pi-cog"

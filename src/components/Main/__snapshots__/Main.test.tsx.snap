@@ -95,6 +95,7 @@ exports[`<Main /> render equals snapshot 1`] = `
                       <a
                         aria-haspopup="false"
                         class="p-menuitem-link"
+                        data-testid="menu#/page1"
                         href="#"
                         role="menuitem"
                       >
@@ -112,6 +113,7 @@ exports[`<Main /> render equals snapshot 1`] = `
                       <a
                         aria-haspopup="false"
                         class="p-menuitem-link"
+                        data-testid="menu#/page2"
                         href="#"
                         role="menuitem"
                       >
@@ -131,6 +133,7 @@ exports[`<Main /> render equals snapshot 1`] = `
                   <a
                     aria-haspopup="false"
                     class="p-menuitem-link"
+                    data-testid="menu#/page3"
                     href="#"
                     role="menuitem"
                   >
@@ -148,6 +151,7 @@ exports[`<Main /> render equals snapshot 1`] = `
                   <a
                     aria-haspopup="false"
                     class="p-menuitem-link"
+                    data-testid="menu#/granted"
                     href="#"
                     role="menuitem"
                   >
@@ -185,6 +189,7 @@ exports[`<Main /> render equals snapshot 1`] = `
                   <a
                     aria-haspopup="true"
                     class="p-menuitem-link"
+                    data-testid="menu#profile"
                     href="#"
                     role="menuitem"
                   >
@@ -245,6 +250,7 @@ exports[`<Main /> render equals snapshot 1`] = `
                       <a
                         aria-haspopup="false"
                         class="p-menuitem-link"
+                        data-testid="menu#logout"
                         href="#"
                         role="menuitem"
                       >

@@ -7,7 +7,7 @@ import { useTheme } from '@material-ui/core/styles';
 import {ErrorBoundary} from 'react-error-boundary';
 
 import { Theme } from '../Theme';
-import { Menubar, TabView, TabPanel } from '../prime';
+import { Menubar, TabView, TabPanel, Ripple } from '../prime';
 import Context from '../Context';
 import Text from '../Text';
 import {logout} from '../Login/actions';
@@ -27,10 +27,29 @@ function ErrorFallback({error}) {
     );
 }
 
+const template = (item, {onClick, onKeyDown, className, iconClassName, labelClassName, submenuIconClassName}) => (
+    <a
+        href={item.url || '#'}
+        data-testid={`menu#${item.path || item.id}`}
+        role='menuitem'
+        className={className}
+        target={item.target}
+        aria-haspopup={item.items != null}
+        onClick={onClick}
+        onKeyDown={onKeyDown}
+    >
+        {item.icon && <span className={iconClassName}></span>}
+        {item.label && <span className={labelClassName}>{item.label}</span>}
+        {item.items && <span className={submenuIconClassName}></span>}
+        <Ripple />
+    </a>
+);
+
 const filterMenu = (permissions, command, items) => items
     .filter(Boolean)
     .filter(permissions ? permissionCheck(permissions.toJS()) : Boolean)
     .map(({title, items, ...item}) => ({
+        ...(item.path || item.id) && {template},
         title,
         label: title,
         ...items ? {items: filterMenu(permissions, command, items)} : {command},
@@ -89,10 +108,12 @@ const Portal: StyledType = ({ classes, children }) => {
     const rightEnabled = React.useMemo(() => filterMenu(permissions, command, rightMenu || [{
         title: initials,
         icon: 'user',
+        id: 'profile',
         items: [
             ...(rightMenuItems || []),
             {
                 beginGroup: true,
+                id: 'logout',
                 title: 'Logout',
                 action: logout
             }

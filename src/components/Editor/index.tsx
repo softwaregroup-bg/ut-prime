@@ -38,6 +38,7 @@ const Editor: StyledType = ({
     cards,
     layouts,
     layoutName,
+    name,
     keyField = object + 'Id',
     resultSet = object,
     design: designDefault,
@@ -58,6 +59,7 @@ const Editor: StyledType = ({
         } else layout = !items && ['edit' + capital(name)];
         return [items, layout, orientation || 'left'];
     }
+    name = name ? name + '.' : '';
 
     const [keyValue, setKeyValue] = React.useState(id);
     const [trigger, setTrigger] = React.useState();
@@ -166,14 +168,27 @@ const Editor: StyledType = ({
             <Toolbar
                 style={backgroundNone}
                 left={
-                    <Button icon='pi pi-save' onClick={trigger} disabled={!trigger || !!loading} aria-label='save'/>
+                    <Button
+                        icon='pi pi-save'
+                        onClick={trigger}
+                        disabled={!trigger || !!loading}
+                        aria-label='save'
+                        data-testid={name + 'saveButton'}
+                    />
                 }
                 right={<>
-                    <Button onClick={toggleDesign} className={clsx('mr-2', design && 'p-button-success')} disabled={!!loading} aria-label='design' icon='pi pi-cog' />
+                    <Button
+                        icon='pi pi-cog'
+                        onClick={toggleDesign}
+                        disabled={!!loading}
+                        aria-label='design'
+                        data-testid={name + 'designButton'}
+                        className={clsx('mr-2', design && 'p-button-success')}
+                    />
                 </>}
             />
             <div className={clsx('flex', 'overflow-x-hidden', 'w-full', orientation === 'top' && 'flex-column')}>
-                {items && <ThumbIndex items={items} orientation={orientation} onFilter={setFilter}/>}
+                {items && <ThumbIndex name={name} items={items} orientation={orientation} onFilter={setFilter}/>}
                 <div className='flex flex-grow-1'>
                     <Form
                         schema={schema}
