@@ -1,3 +1,12 @@
+# [1.55.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.54.0...v1.55.0) (2022-01-20)
+
+
+### Features
+
+* add data-testid ([8b34306](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/8b34306eecba4afa48ef58d1552ecca3bdb1592b))
+
+
+
 # [1.54.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.53.4...v1.54.0) (2022-01-19)
 
 
