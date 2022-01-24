@@ -59,6 +59,7 @@ export default React.forwardRef<{}, any>(({
     master,
     children,
     disabled,
+    autoSelect,
     pivot: {
         dropdown = '',
         master: pivotMaster = null,
@@ -131,10 +132,12 @@ export default React.forwardRef<{}, any>(({
                 ...prev,
                 ...pendingEdit
             }));
-            const lastEditing = rows.find((_, index) => pendingEdit[index]);
-            if (lastEditing) handleSelected({value: props.selectionMode === 'single' ? lastEditing : [lastEditing]});
+            if (autoSelect) {
+                const lastEditing = rows.find((_, index) => pendingEdit[index]);
+                if (lastEditing) handleSelected({value: props.selectionMode === 'single' ? lastEditing : [lastEditing]});
+            }
         }
-    }, [handleSelected, onChange, pendingEdit, rows, props.selectionMode]);
+    }, [handleSelected, onChange, pendingEdit, rows, props.selectionMode, autoSelect]);
 
     const onRowEditChange = React.useCallback(event => {
         setEditingRows(event.data);

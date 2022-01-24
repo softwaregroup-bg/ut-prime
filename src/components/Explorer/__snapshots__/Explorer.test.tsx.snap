@@ -41,7 +41,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
         style="flex-basis: calc(90% - 4px);"
       >
         <div
-          class="p-datatable p-component p-datatable-hoverable-rows p-datatable-auto-layout p-datatable-responsive-stack"
+          class="p-datatable p-component p-datatable-selectable p-datatable-auto-layout p-datatable-responsive-stack"
           data-scrollselectors=".p-datatable-wrapper"
           pr_id_1=""
         >
