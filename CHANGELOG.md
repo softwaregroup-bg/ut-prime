@@ -1,3 +1,12 @@
+# [1.56.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.55.0...v1.56.0) (2022-01-24)
+
+
+### Features
+
+* configurable autoselect ([7b33410](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/7b33410e30b2a2233a0122a5cdfe6acfb9e9db47))
+
+
+
 # [1.55.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.54.0...v1.55.0) (2022-01-20)
 
 
