@@ -18,7 +18,7 @@ export const Basic: React.FC<{}> = () =>
                 items: [...Array(50).keys()].map(number => ({
                     id: String(number),
                     name: `Item ${number}`,
-                    parents: number >= 10 ? String(number % 10) : undefined
+                    parent: number >= 10 ? String(number % 10) : undefined
                 }))
             })}
             keyField='id'

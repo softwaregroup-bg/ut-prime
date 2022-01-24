@@ -14,7 +14,7 @@ const Navigator: StyledType = ({
     field,
     title,
     keyField,
-    parentField = 'parents',
+    parentField = 'parent',
     resultSet,
     onSelect
 }) => {

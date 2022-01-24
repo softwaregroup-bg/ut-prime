@@ -41,4 +41,4 @@ import Navigator from 'ut-front-devextreme/core/Navigator';
 | resultSet   | string   |              | yes        |
 | field       | string   |              | yes        |
 | title       | string   |              | yes        |
-| parentField | string   |  'parents'   | no         |
+| parentField | string   |  'parent'    | no         |
