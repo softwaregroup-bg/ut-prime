@@ -100,7 +100,9 @@ const Editor: StyledType = ({
         const validation = getValidation(schema, fields);
         const dropdownNames = fields
             .map(name => {
-                const property = lodashGet(schema.properties, name?.replace(/\./g, '.properties.'));
+                const property =
+                    lodashGet(schema.properties, name?.replace(/\./g, '.properties.')) ||
+                    lodashGet(schema.properties, name?.replace(/\./g, '.items.properties.'));
                 return [
                     property?.widget?.dropdown,
                     property?.widget?.pivot?.dropdown
