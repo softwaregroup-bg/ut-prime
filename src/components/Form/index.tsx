@@ -261,7 +261,7 @@ const Form: StyledType = ({
                                     if (parentWatch?.[CHANGE] && name.startsWith('$.edit.')) {
                                         const old = {...parentWatch};
                                         parentWatch[name.split('.').pop()] = value;
-                                        parentWatch[CHANGE](old, parentWatch);
+                                        parentWatch[CHANGE]({data: old, newData: parentWatch});
                                     }
                                 }
                             }

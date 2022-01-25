@@ -19,7 +19,7 @@ export const Basic: React.FC<{}> = () =>
     <div className='flex' style={{overflowX: 'hidden', width: '100%'}}>
         <Form
             {...tree}
-            layout={['edit', ['taxonomy', 'reproduction'], 'morphology']}
+            layout={['edit', ['taxonomy', 'reproduction'], 'links', 'morphology']}
             dropdowns={{'tree.type': [{value: 1, label: 'Conifer'}, {value: 2, label: 'Broadleaf'}]}}
             value={{tree: {treeName: 'Oak', treeId: 1, treeType: 1}}}
             onSubmit={() => {}}

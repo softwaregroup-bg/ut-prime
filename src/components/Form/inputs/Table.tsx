@@ -3,7 +3,7 @@ import lodashGet from 'lodash.get';
 
 import {DataTable, Column, Toolbar, Button} from '../../prime';
 import columnProps from '../../lib/column';
-import {CHANGE, INDEX, KEY} from '../const';
+import {CHANGE, INDEX, KEY, NEW} from '../const';
 import type {Properties} from '../../types';
 
 const getDefault = (key, value, rows) => {
@@ -11,9 +11,9 @@ const getDefault = (key, value, rows) => {
     const defaultValue = value.default;
     switch (defaultValue?.function) {
         case 'max':
-            return [key, rows.reduce((max, row) => Math.max(max, row[key]), 0) + 1];
+            return [key, rows.reduce((max, row) => row ? Math.max(max, row[key]) : max, 0) + 1];
         case 'min':
-            return [key, rows.reduce((min, row) => Math.min(min, row[key]), 0) - 1];
+            return [key, rows.reduce((min, row) => row ? Math.min(min, row[key]) : min, 0) - 1];
         default:
             return [key, defaultValue];
     }
@@ -31,10 +31,6 @@ const defaults = (properties : Properties, rows: {}[]) =>
 
 const handleFilter = () => {};
 const backgroundNone = {background: 'none'};
-
-const complete = ({data, newData}) => {
-    data[CHANGE]?.(data, newData);
-};
 
 const masterFilter = (master, filter) => master && Object.fromEntries(
     Object.entries(master).map(
@@ -87,36 +83,59 @@ export default React.forwardRef<{}, any>(({
             const pivotFilterFields = Object.entries({...filter, ...masterFilter(pivotMaster, parent)});
             pivotRowsFiltered = pivotRows.filter(row => pivotFilterFields.every(([name, value]) => sameString(lodashGet(row, name), value)));
         }
-        const joined = keepRows ? allRows : (pivotRows?.length && keys.length) ? pivotRowsFiltered.map($pivot => {
-            const found = allRows.findIndex(row => keys.every(([pivotKey, rowKey]: [string, string]) => $pivot[pivotKey] === row[rowKey]));
-            return found >= 0 ? {
-                ...allRows[found],
-                [INDEX]: found,
-                $pivot
-            } : {
-                ...master && Object.fromEntries(Object.entries(master).map(([masterKey, rowKey]) => [rowKey, parent[masterKey]])),
-                ...Object.fromEntries(keys.map(([pivotKey, rowKey]) => [rowKey, $pivot[pivotKey]])),
-                $pivot
-            };
-        }) : allRows?.map((item, index) => ({...item, [INDEX]: index})) || [];
+        const joined = keepRows
+            ? allRows
+            : (pivotRows?.length && keys.length)
+                ? pivotRowsFiltered.map($pivot => {
+                    const found = allRows.findIndex(row => keys.every(([pivotKey, rowKey]: [string, string]) => $pivot[pivotKey] === row[rowKey]));
+                    return found >= 0 ? {
+                        ...allRows[found],
+                        [INDEX]: found,
+                        $pivot
+                    } : {
+                        ...master && Object.fromEntries(Object.entries(master).map(([masterKey, rowKey]) => [rowKey, parent[masterKey]])),
+                        ...Object.fromEntries(keys.map(([pivotKey, rowKey]) => [rowKey, $pivot[pivotKey]])),
+                        $pivot
+                    };
+                }).map((item, index) => item && {
+                    ...item,
+                    [KEY]: index
+                })
+                : allRows?.map((item, index) => item && {
+                    ...item,
+                    [INDEX]: index,
+                    [KEY]: index
+                }) || [];
         const filterFields = Object.entries({...filter, ...masterFilter(master, parent)});
-        return joined?.filter(row => filterFields.every(([name, value]) => sameString(lodashGet(row, name), value)));
+        return joined?.filter(row => row && filterFields.every(([name, value]) => sameString(lodashGet(row, name), value)));
     }, [allRows, parent, master, pivotRows, join, filter, keepRows, pivotMaster]);
 
-    !keepRows && rows.forEach((row, index) => {
-        row[KEY] = index;
-        row[CHANGE] = function change(row, newData) {
-            const changed = [...allRows];
-            const originalIndex = row[INDEX];
-            const {$pivot, [KEY]: key, [INDEX]: index, ...values} = newData;
-            if (originalIndex != null) {
-                changed[originalIndex] = values;
-                onChange(changed);
-            } else {
-                if (identity) values[identity] = -(++counter.current);
-                onChange([...changed, values]);
+    const cancel = React.useCallback(({data}) => {
+        if (data[NEW]) {
+            const index = data[INDEX];
+            if (index != null) {
+                const changed = [...allRows];
+                delete changed[index];
+                onChange((Object.keys(editingRows).length <= 1) ? changed.filter(Boolean) : changed);
             }
-        };
+        }
+    }, [allRows, onChange, editingRows]);
+
+    const complete = React.useCallback(({data, newData}) => {
+        const changed = [...allRows];
+        const originalIndex = data[INDEX];
+        const {[NEW]: ignore, $pivot, [KEY]: key, [INDEX]: index, ...values} = newData;
+        if (originalIndex != null) {
+            changed[originalIndex] = values;
+            onChange(changed);
+        } else {
+            if (identity) values[identity] = -(++counter.current);
+            onChange([...changed, values]);
+        }
+    }, [allRows, counter, identity, onChange]);
+
+    !keepRows && rows.forEach(row => {
+        row[CHANGE] = complete;
     });
 
     const handleSelected = React.useCallback(event => {
@@ -133,7 +152,7 @@ export default React.forwardRef<{}, any>(({
                 ...pendingEdit
             }));
             if (autoSelect) {
-                const lastEditing = rows.find((_, index) => pendingEdit[index]);
+                const lastEditing = rows.find(row => row && pendingEdit[row[KEY]]);
                 if (lastEditing) handleSelected({value: props.selectionMode === 'single' ? lastEditing : [lastEditing]});
             }
         }
@@ -146,7 +165,7 @@ export default React.forwardRef<{}, any>(({
     const leftToolbarTemplate = React.useCallback(() => {
         const addNewRow = event => {
             event.preventDefault();
-            const newValue = {...filter, ...masterFilter(master, parent), ...defaults(properties, allRows)};
+            const newValue = {...filter, ...masterFilter(master, parent), ...defaults(properties, allRows), [NEW]: true};
             if (identity) newValue[identity] = -(++counter.current);
             const updatedValue = [...(allRows || []), newValue];
             onChange(updatedValue);
@@ -199,6 +218,7 @@ export default React.forwardRef<{}, any>(({
                 {...props}
                 value={rows}
                 onRowEditComplete={complete}
+                onRowEditCancel={cancel}
                 onFilter={handleFilter}
                 editingRows={editingRows}
                 onRowEditChange={onRowEditChange}

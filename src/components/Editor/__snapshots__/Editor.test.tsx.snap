@@ -1558,6 +1558,29 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                         draggable="true"
                         style="cursor: move;"
                       >
+                        Links
+                      </div>
+                    </div>
+                    <div
+                      class="p-card-content"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div
+                  class="p-card p-component card mb-3"
+                >
+                  <div
+                    class="p-card-body"
+                  >
+                    <div
+                      class="p-card-title"
+                    >
+                      <div
+                        draggable="true"
+                        style="cursor: move;"
+                      >
                         Habitat
                       </div>
                     </div>
@@ -2841,6 +2864,29 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                         style="cursor: move;"
                       >
                         Morphology
+                      </div>
+                    </div>
+                    <div
+                      class="p-card-content"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div
+                  class="p-card p-component card mb-3"
+                >
+                  <div
+                    class="p-card-body"
+                  >
+                    <div
+                      class="p-card-title"
+                    >
+                      <div
+                        draggable="true"
+                        style="cursor: move;"
+                      >
+                        Links
                       </div>
                     </div>
                     <div

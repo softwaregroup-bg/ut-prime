@@ -45,6 +45,18 @@ const tree: {schema: Schema, cards: Cards} = {
                             type: 'multiSelectPanel',
                             dropdown: 'tree.habitat'
                         }
+                    },
+                    links: {
+                        title: '',
+                        widget: {
+                            type: 'table'
+                        },
+                        items: {
+                            properties: {
+                                title: {},
+                                url: {}
+                            }
+                        }
                     }
                 }
             }
@@ -66,6 +78,13 @@ const tree: {schema: Schema, cards: Cards} = {
         morphology: {
             label: 'Morphology',
             widgets: []
+        },
+        links: {
+            label: 'Links',
+            widgets: [{
+                name: 'tree.links',
+                widgets: ['title', 'url']
+            }]
         },
         habitat: {
             label: 'Habitat',
