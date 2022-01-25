@@ -1,3 +1,13 @@
+## [1.56.2](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.56.1...v1.56.2) (2022-01-25)
+
+
+### Bug Fixes
+
+* dropdown names capture #UTCORE-121 ([6b4c1cc](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/6b4c1ccd43156f70d9b2fb10754bb36d0b843cec)), closes [#UTCORE-121](https://github.com/softwaregroup-bg/ut-front-devextreme/issues/UTCORE-121)
+* improved row editing #UTCORE-121 ([9cc42c0](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/9cc42c0ff491d1e5316a7e410aee821338e3d412)), closes [#UTCORE-121](https://github.com/softwaregroup-bg/ut-front-devextreme/issues/UTCORE-121)
+
+
+
 ## [1.56.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.56.0...v1.56.1) (2022-01-24)
 
 
