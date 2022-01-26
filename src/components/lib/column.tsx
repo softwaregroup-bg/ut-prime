@@ -3,7 +3,7 @@ import { Checkbox, Dropdown, SelectButton, Calendar, InputMask, InputText, Input
 import { Property } from '../types';
 import titleCase from './titleCase';
 import getType from './getType';
-
+import {KEY} from '../Form/const';
 export interface TableFilter {
     filters?: {
         [name: string]: {
@@ -46,9 +46,15 @@ export default function columnProps({
     filterBy?: (name: string, value: string) => (e: {}) => void,
     editable?: boolean
 }) {
+    const resultSetDot = resultSet ? resultSet + '.' : '';
     const {type, dropdown, parent, column, lookup, ...props} = widget || property?.widget || {name};
     const fieldName = name;
     let filterElement, body, editor, className, bodyClassName;
+    const filterId = `${resultSetDot}${name}Filter`;
+    filterElement = filterBy && <InputText
+        id={filterId}
+        {...props}
+    />;
     switch (type || property?.format || getType(property?.type)) {
         case 'integer':
         case 'number':
@@ -57,6 +63,7 @@ export default function columnProps({
             break;
         case 'boolean':
             filterElement = filterBy && <Checkbox
+                id={filterId}
                 checked={tableFilter?.filters?.[fieldName]?.value}
                 onChange={filterBy(fieldName, 'checked')}
                 {...props}
@@ -69,6 +76,7 @@ export default function columnProps({
             break;
         case 'dropdown':
             filterElement = filterBy && <Dropdown
+                id={filterId}
                 className='w-full'
                 options={dropdowns?.[dropdown] || []}
                 value={tableFilter?.filters?.[fieldName]?.value}
@@ -83,6 +91,7 @@ export default function columnProps({
         case 'select':
             body = function body(rowData) {
                 return <SelectButton
+                    id={filterId}
                     className='w-full white-space-nowrap'
                     options={dropdowns?.[dropdown] || []}
                     value={props?.split ? rowData[fieldName]?.split(props.split) : rowData[fieldName]}
@@ -113,11 +122,13 @@ export default function columnProps({
     if (!property?.readOnly && editable) {
         editor = function editor(p) {
             const widget = p.rowData?.$pivot?.[fieldName]?.widget || p.rowData?.$pivot?.widget;
+            const inputId = `${resultSet}[${p.rowData[KEY]}].${fieldName}`;
             switch (widget?.type || type || property?.format || getType(property?.type)) {
                 case 'boolean':
                     return <Checkbox
                         checked={p.rowData[fieldName]}
                         onChange={event => p.editorCallback(event.checked)}
+                        id={inputId}
                         {...props}
                     />;
                 case 'integer':
@@ -127,7 +138,7 @@ export default function columnProps({
                         onChange={event => p.editorCallback(event.value)}
                         disabled={property?.readOnly}
                         className='w-full'
-                        id={`${p.rowData.id}`}
+                        id={inputId}
                         showButtons
                         {...props}
                     />;
@@ -149,6 +160,7 @@ export default function columnProps({
                             p.editorCallback(event.value);
                         }}
                         showClear
+                        id={inputId}
                         {...props}
                     />;
                 case 'select':
@@ -157,6 +169,7 @@ export default function columnProps({
                         options={dropdowns?.[dropdown] || []}
                         value={props?.split ? p.rowData[fieldName]?.split(props.split).filter(Boolean) : p.rowData[fieldName]}
                         onChange={event => p.editorCallback(props?.split ? event.value.join(props.split) || null : event.value)}
+                        id={inputId}
                         {...props}
                     />;
                 case 'date':
@@ -165,6 +178,7 @@ export default function columnProps({
                         value={dateOrNull(p.rowData[fieldName])}
                         onChange={event => p.editorCallback(event.value)}
                         showIcon
+                        id={inputId}
                         {...props}
                     />;
                 case 'time':
@@ -174,6 +188,7 @@ export default function columnProps({
                         onChange={event => p.editorCallback(event.value)}
                         timeOnly
                         showIcon
+                        id={inputId}
                         {...props}
                     />;
                 case 'date-time':
@@ -183,6 +198,7 @@ export default function columnProps({
                         onChange={event => p.editorCallback(event.value)}
                         showTime
                         showIcon
+                        id={inputId}
                         {...props}
                     />;
                 case 'mask':
@@ -190,6 +206,7 @@ export default function columnProps({
                         className='w-full'
                         value={p.rowData[fieldName]}
                         onChange={event => p.editorCallback(event.value)}
+                        id={inputId}
                         {...props}
                     />;
                 case 'text':
@@ -198,6 +215,7 @@ export default function columnProps({
                         autoFocus={true}
                         value={p.rowData[fieldName]}
                         onChange={event => p.editorCallback(event.target.value)}
+                        id={inputId}
                         {...props}
                     />;
                 default:
@@ -208,18 +226,17 @@ export default function columnProps({
                         onChange={event => p.editorCallback(event.target.value)}
                         disabled={property?.readOnly}
                         className='w-full'
-                        id={`${p.rowData.id}`}
+                        id={inputId}
                         {...props}
                     />;
             };
         };
     }
-    resultSet = resultSet ? resultSet + '.' : '';
     return {
         showClearButton: true,
         showFilterMenu: false,
         field: name,
-        header: <span data-testid={`${resultSet}${name}Title`}>{property?.title || titleCase(name.split('.').pop())}</span>,
+        header: <span data-testid={`${resultSetDot}${name}Title`}>{property?.title || titleCase(name.split('.').pop())}</span>,
         ...filterElement && {filterElement},
         ...body && {body},
         ...(editor != null) && {editor},

@@ -20,6 +20,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
       >
         <button
           class="p-button p-component mr-2 p-button-icon-only"
+          data-testid="items.details.toggleButton"
         >
           <span
             class="p-button-icon p-c pi pi-bars"
@@ -149,9 +150,9 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                         class="p-fluid p-column-filter-element"
                       >
                         <input
-                          class="p-inputtext p-component p-column-filter"
-                          type="text"
-                          value=""
+                          class="p-inputtext p-component"
+                          id="items.nameFilter"
+                          name="name"
                         />
                       </div>
                       <button
@@ -174,9 +175,9 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                         class="p-fluid p-column-filter-element"
                       >
                         <input
-                          class="p-inputtext p-component p-column-filter"
-                          type="text"
-                          value=""
+                          class="p-inputtext p-component"
+                          id="items.sizeFilter"
+                          name="size"
                         />
                       </div>
                       <button

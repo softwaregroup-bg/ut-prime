@@ -30,7 +30,6 @@ function ErrorFallback({error}) {
 const template = (item, {onClick, onKeyDown, className, iconClassName, labelClassName, submenuIconClassName}) => (
     <a
         href={item.url || '#'}
-        data-testid={`menu#${item.path || item.id}`}
         role='menuitem'
         className={className}
         target={item.target}
@@ -39,7 +38,7 @@ const template = (item, {onClick, onKeyDown, className, iconClassName, labelClas
         onKeyDown={onKeyDown}
     >
         {item.icon && <span className={iconClassName}></span>}
-        {item.label && <span className={labelClassName}>{item.label}</span>}
+        {item.label && <span className={labelClassName} data-testid={`portal.menu${item.path || item.id}`}>{item.label}</span>}
         {item.items && <span className={submenuIconClassName}></span>}
         <Ripple />
     </a>
@@ -108,12 +107,12 @@ const Portal: StyledType = ({ classes, children }) => {
     const rightEnabled = React.useMemo(() => filterMenu(permissions, command, rightMenu || [{
         title: initials,
         icon: 'user',
-        id: 'profile',
+        id: '/profile',
         items: [
             ...(rightMenuItems || []),
             {
                 beginGroup: true,
-                id: 'logout',
+                id: '/logout',
                 title: 'Logout',
                 action: logout
             }
@@ -145,7 +144,7 @@ const Portal: StyledType = ({ classes, children }) => {
                 ? (({Component, params}) => <Component {...params}/>)(tabs[tabIndex || 0] || {Component() { return null; }, params: undefined})
                 : <TabView activeIndex={tabIndex} onTabChange={handleTabSelect} className={classes.tabs}>
                     {tabs.map(({title, path, Component, params}) =>
-                        <TabPanel key={path} header={<>{title}&nbsp;&nbsp;</>} rightIcon='pi pi-times'>
+                        <TabPanel key={path} header={<span data-testid={`portal.tab${path}`}>{title}&nbsp;&nbsp;</span>} rightIcon='pi pi-times'>
                             <ErrorBoundary FallbackComponent={ErrorFallback}>
                                 <Component {...params}/>
                             </ErrorBoundary>

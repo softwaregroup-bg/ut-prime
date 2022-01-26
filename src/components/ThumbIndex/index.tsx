@@ -25,14 +25,13 @@ const ThumbIndex: StyledType = ({ name, classes, className, items, orientation =
         const template = (item, {iconClassName, onClick: handleClick, labelClassName, className}) => (
             <a
                 href={item.url || '#'}
-                data-testid={(name || '') + item.id + 'Tab'}
                 className={className}
                 target={item.target}
                 onClick={handleClick}
                 role="presentation"
             >
                 {item.icon && <span className={iconClassName}></span>}
-                {item.label && <span className={labelClassName}>{item.label}</span>}
+                {item.label && <span className={labelClassName} data-testid={(name || '') + item.id + 'Tab'}>{item.label}</span>}
                 <Ripple />
             </a>
         );

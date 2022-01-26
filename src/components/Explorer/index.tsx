@@ -77,6 +77,7 @@ const Explorer: StyledType = ({
         return (
             <Permission key={index} permission={permission}>
                 <Button
+                    data-testid={`${permission ? (permission + 'Button') : ('button' + index)}`}
                     label={title}
                     onClick={() => action({
                         id: current && current[keyField],
@@ -178,6 +179,7 @@ const Explorer: StyledType = ({
             <Column
                 key={name}
                 body={property?.action && (row => <Button
+                    data-testid={`${resultSet || 'filterBy'}.${field}Item/${row && row[keyField]}`}
                     label={row[field]}
                     style={actionButtonStyle}
                     className='p-button-link'
@@ -195,10 +197,12 @@ const Explorer: StyledType = ({
     }), [columns, properties, showFilter, dropdowns, tableFilter, keyField, resultSet]);
     const hasChildren = !!children;
     const left = React.useMemo(() => <>
-        {hasChildren && <Button icon="pi pi-bars" className="mr-2" onClick={navigationToggle}/>}
+        {hasChildren && <Button data-testId={`${resultSet}.navigator.toggleButton`} icon="pi pi-bars" className="mr-2" onClick={navigationToggle}/>}
         {buttons}
-    </>, [navigationToggle, buttons, hasChildren]);
-    const right = React.useMemo(() => details && <Button icon="pi pi-bars" className="mr-2" onClick={detailsToggle}/>, [details, detailsToggle]);
+    </>, [navigationToggle, buttons, hasChildren, resultSet]);
+    const right = React.useMemo(() =>
+        details && <Button data-testId={`${resultSet}.details.toggleButton`} icon="pi pi-bars" className="mr-2" onClick={detailsToggle}/>,
+    [details, detailsToggle, resultSet]);
 
     const table = <DataTable
         autoLayout

@@ -34,7 +34,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
             />
           </button>
-          <span>
+          <span
+            data-testid="navigator.itemsItem/0"
+          >
             Item 0
           </span>
         </div>
@@ -61,7 +63,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/10"
+              >
                 Item 10
               </span>
             </div>
@@ -85,7 +89,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/20"
+              >
                 Item 20
               </span>
             </div>
@@ -109,7 +115,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/30"
+              >
                 Item 30
               </span>
             </div>
@@ -133,7 +141,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/40"
+              >
                 Item 40
               </span>
             </div>
@@ -160,7 +170,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
             />
           </button>
-          <span>
+          <span
+            data-testid="navigator.itemsItem/1"
+          >
             Item 1
           </span>
         </div>
@@ -187,7 +199,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/11"
+              >
                 Item 11
               </span>
             </div>
@@ -211,7 +225,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/21"
+              >
                 Item 21
               </span>
             </div>
@@ -235,7 +251,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/31"
+              >
                 Item 31
               </span>
             </div>
@@ -259,7 +277,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/41"
+              >
                 Item 41
               </span>
             </div>
@@ -286,7 +306,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
             />
           </button>
-          <span>
+          <span
+            data-testid="navigator.itemsItem/2"
+          >
             Item 2
           </span>
         </div>
@@ -313,7 +335,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/12"
+              >
                 Item 12
               </span>
             </div>
@@ -337,7 +361,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/22"
+              >
                 Item 22
               </span>
             </div>
@@ -361,7 +387,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/32"
+              >
                 Item 32
               </span>
             </div>
@@ -385,7 +413,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/42"
+              >
                 Item 42
               </span>
             </div>
@@ -412,7 +442,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
             />
           </button>
-          <span>
+          <span
+            data-testid="navigator.itemsItem/3"
+          >
             Item 3
           </span>
         </div>
@@ -439,7 +471,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/13"
+              >
                 Item 13
               </span>
             </div>
@@ -463,7 +497,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/23"
+              >
                 Item 23
               </span>
             </div>
@@ -487,7 +523,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/33"
+              >
                 Item 33
               </span>
             </div>
@@ -511,7 +549,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/43"
+              >
                 Item 43
               </span>
             </div>
@@ -538,7 +578,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
             />
           </button>
-          <span>
+          <span
+            data-testid="navigator.itemsItem/4"
+          >
             Item 4
           </span>
         </div>
@@ -565,7 +607,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/14"
+              >
                 Item 14
               </span>
             </div>
@@ -589,7 +633,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/24"
+              >
                 Item 24
               </span>
             </div>
@@ -613,7 +659,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/34"
+              >
                 Item 34
               </span>
             </div>
@@ -637,7 +685,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/44"
+              >
                 Item 44
               </span>
             </div>
@@ -664,7 +714,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
             />
           </button>
-          <span>
+          <span
+            data-testid="navigator.itemsItem/5"
+          >
             Item 5
           </span>
         </div>
@@ -691,7 +743,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/15"
+              >
                 Item 15
               </span>
             </div>
@@ -715,7 +769,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/25"
+              >
                 Item 25
               </span>
             </div>
@@ -739,7 +795,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/35"
+              >
                 Item 35
               </span>
             </div>
@@ -763,7 +821,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/45"
+              >
                 Item 45
               </span>
             </div>
@@ -790,7 +850,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
             />
           </button>
-          <span>
+          <span
+            data-testid="navigator.itemsItem/6"
+          >
             Item 6
           </span>
         </div>
@@ -817,7 +879,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/16"
+              >
                 Item 16
               </span>
             </div>
@@ -841,7 +905,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/26"
+              >
                 Item 26
               </span>
             </div>
@@ -865,7 +931,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/36"
+              >
                 Item 36
               </span>
             </div>
@@ -889,7 +957,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/46"
+              >
                 Item 46
               </span>
             </div>
@@ -916,7 +986,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
             />
           </button>
-          <span>
+          <span
+            data-testid="navigator.itemsItem/7"
+          >
             Item 7
           </span>
         </div>
@@ -943,7 +1015,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/17"
+              >
                 Item 17
               </span>
             </div>
@@ -967,7 +1041,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/27"
+              >
                 Item 27
               </span>
             </div>
@@ -991,7 +1067,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/37"
+              >
                 Item 37
               </span>
             </div>
@@ -1015,7 +1093,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/47"
+              >
                 Item 47
               </span>
             </div>
@@ -1042,7 +1122,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
             />
           </button>
-          <span>
+          <span
+            data-testid="navigator.itemsItem/8"
+          >
             Item 8
           </span>
         </div>
@@ -1069,7 +1151,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/18"
+              >
                 Item 18
               </span>
             </div>
@@ -1093,7 +1177,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/28"
+              >
                 Item 28
               </span>
             </div>
@@ -1117,7 +1203,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/38"
+              >
                 Item 38
               </span>
             </div>
@@ -1141,7 +1229,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/48"
+              >
                 Item 48
               </span>
             </div>
@@ -1168,7 +1258,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
             />
           </button>
-          <span>
+          <span
+            data-testid="navigator.itemsItem/9"
+          >
             Item 9
           </span>
         </div>
@@ -1195,7 +1287,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/19"
+              >
                 Item 19
               </span>
             </div>
@@ -1219,7 +1313,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/29"
+              >
                 Item 29
               </span>
             </div>
@@ -1243,7 +1339,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/39"
+              >
                 Item 39
               </span>
             </div>
@@ -1267,7 +1365,9 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
-              <span>
+              <span
+                data-testid="navigator.itemsItem/49"
+              >
                 Item 49
               </span>
             </div>

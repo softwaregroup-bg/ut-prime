@@ -68,7 +68,6 @@ exports[`<Portal /> render equals snapshot 1`] = `
               <a
                 aria-haspopup="true"
                 class="p-menuitem-link"
-                data-testid="menu#profile"
                 href="#"
                 role="menuitem"
               >
@@ -77,6 +76,7 @@ exports[`<Portal /> render equals snapshot 1`] = `
                 />
                 <span
                   class="p-menuitem-text"
+                  data-testid="portal.menu/profile"
                 >
                   N/A
                 </span>
@@ -95,12 +95,12 @@ exports[`<Portal /> render equals snapshot 1`] = `
                   <a
                     aria-haspopup="false"
                     class="p-menuitem-link"
-                    data-testid="menu#logout"
                     href="#"
                     role="menuitem"
                   >
                     <span
                       class="p-menuitem-text"
+                      data-testid="portal.menu/logout"
                     >
                       Logout
                     </span>

@@ -19,7 +19,7 @@ const Navigator: StyledType = ({
     onSelect
 }) => {
     const [{items, expanded}, setItems] = React.useState({items: [], expanded: {}});
-    const nodeTemplate = React.useCallback(node => <span>{node[field]}</span>, [field]);
+    const nodeTemplate = React.useCallback(node => <span data-testid={`navigator.${resultSet}Item/${node[keyField]}`}>{node[field]}</span>, [field, keyField, resultSet]);
     const [selectedNodeKey, setSelectedNodeKey] = React.useState(null);
     const select = React.useCallback(e => {
         if (onSelect) onSelect(e.value);
