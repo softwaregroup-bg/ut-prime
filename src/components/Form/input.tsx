@@ -3,7 +3,7 @@ import {
     InputText,
     Password,
     InputTextarea,
-    Dropdown,
+    DropdownTest,
     MultiSelect,
     TreeSelect,
     TreeTable,
@@ -65,6 +65,7 @@ export default function input(
                 {...field}
                 value={field.value == null ? field.value : String(field.value)}
                 options={dropdowns?.[dropdown]?.filter(filterBy) || []}
+                inputId={field.name}
                 {...props}
             />
         </Field>;
@@ -89,6 +90,7 @@ export default function input(
                 onChange={e => field.onChange?.(e.value)}
                 minFractionDigits={2}
                 maxFractionDigits={4}
+                inputId={field.name}
                 {...props}
             />
         </Field>;
@@ -118,7 +120,7 @@ export default function input(
             </div>
         </>;
         case 'dropdown': return <Field {...{label, error, inputClass}}>
-            <Dropdown
+            <DropdownTest
                 {...field}
                 options={dropdowns?.[dropdown]?.filter(filterBy) || []}
                 {...props}
@@ -219,6 +221,7 @@ export default function input(
                 showTime
                 showIcon
                 value={field.value != null ? new Date(field.value) : field.value}
+                inputId={field.name}
                 {...props}
             />
         </Field>;
@@ -228,6 +231,7 @@ export default function input(
                 timeOnly
                 showIcon
                 value={field.value != null ? new Date(field.value) : field.value}
+                inputId={field.name}
                 {...props}
             />
         </Field>;
@@ -236,6 +240,7 @@ export default function input(
                 {...field}
                 showIcon
                 value={field.value != null ? new Date(field.value) : field.value}
+                inputId={field.name}
                 {...props}
             />
         </Field>;
@@ -244,6 +249,7 @@ export default function input(
                 {...field}
                 inputRef={field.ref}
                 onChange={e => field.onChange?.(e.value)}
+                inputId={field.name}
                 {...props}
             />
         </Field>;
@@ -254,6 +260,7 @@ export default function input(
                 inputRef={field.ref}
                 onChange={e => field.onChange?.(e.value)}
                 showButtons
+                inputId={field.name}
                 {...props}
             />
         </Field>;
@@ -270,6 +277,9 @@ export default function input(
                 {...field}
                 value={field.value || ''}
                 onChange={e => field.onChange?.(e.target.value || null)}
+                role='textbox'
+                feedback={false}
+                inputId={field.name}
                 {...props}
             />
         </Field>;

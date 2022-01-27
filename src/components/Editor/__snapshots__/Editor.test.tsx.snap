@@ -173,7 +173,11 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                           <span
                             class="p-dropdown-label p-inputtext"
                           >
-                            Conifer
+                            <span
+                              data-testid="tree.treeType"
+                            >
+                              Conifer
+                            </span>
                           </span>
                           <div
                             aria-expanded="false"
@@ -798,7 +802,11 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                           <span
                             class="p-dropdown-label p-inputtext"
                           >
-                            Conifer
+                            <span
+                              data-testid="tree.treeType"
+                            >
+                              Conifer
+                            </span>
                           </span>
                           <div
                             aria-expanded="false"
@@ -2126,7 +2134,11 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                           <span
                             class="p-dropdown-label p-inputtext"
                           >
-                            Conifer
+                            <span
+                              data-testid="tree.treeType"
+                            >
+                              Conifer
+                            </span>
                           </span>
                           <div
                             aria-expanded="false"

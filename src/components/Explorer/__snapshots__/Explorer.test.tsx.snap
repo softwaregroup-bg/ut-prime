@@ -151,8 +151,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                       >
                         <input
                           class="p-inputtext p-component"
-                          id="items.nameFilter"
-                          name="name"
+                          name="items.nameFilter"
                         />
                       </div>
                       <button
@@ -176,8 +175,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                       >
                         <input
                           class="p-inputtext p-component"
-                          id="items.sizeFilter"
-                          name="size"
+                          name="items.sizeFilter"
                         />
                       </div>
                       <button

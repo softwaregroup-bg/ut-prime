@@ -1,5 +1,5 @@
 import React from 'react';
-import { Checkbox, Dropdown, SelectButton, Calendar, InputMask, InputText, InputTextarea, InputNumber } from '../prime';
+import { Checkbox, DropdownTest, SelectButton, Calendar, InputMask, InputText, InputTextarea, InputNumber } from '../prime';
 import { Property } from '../types';
 import titleCase from './titleCase';
 import getType from './getType';
@@ -52,8 +52,8 @@ export default function columnProps({
     let filterElement, body, editor, className, bodyClassName;
     const filterId = `${resultSetDot}${name}Filter`;
     filterElement = filterBy && <InputText
-        id={filterId}
         {...props}
+        name={filterId}
     />;
     switch (type || property?.format || getType(property?.type)) {
         case 'integer':
@@ -63,10 +63,10 @@ export default function columnProps({
             break;
         case 'boolean':
             filterElement = filterBy && <Checkbox
-                id={filterId}
                 checked={tableFilter?.filters?.[fieldName]?.value}
                 onChange={filterBy(fieldName, 'checked')}
                 {...props}
+                name={filterId}
             />;
             body = function body(rowData) {
                 const value = rowData[property?.body || fieldName];
@@ -75,14 +75,14 @@ export default function columnProps({
             };
             break;
         case 'dropdown':
-            filterElement = filterBy && <Dropdown
-                id={filterId}
+            filterElement = filterBy && <DropdownTest
                 className='w-full'
                 options={dropdowns?.[dropdown] || []}
                 value={tableFilter?.filters?.[fieldName]?.value}
                 onChange={filterBy(fieldName, 'value')}
                 showClear
                 {...props}
+                name={filterId}
             />;
             body = function body(rowData) {
                 return rowData[property?.body || fieldName];
@@ -91,13 +91,13 @@ export default function columnProps({
         case 'select':
             body = function body(rowData) {
                 return <SelectButton
-                    id={filterId}
                     className='w-full white-space-nowrap'
                     options={dropdowns?.[dropdown] || []}
                     value={props?.split ? rowData[fieldName]?.split(props.split) : rowData[fieldName]}
                     disabled
                     // onChange={(e) => {}}
                     {...props}
+                    name={filterId}
                 />;
             };
             break;
@@ -128,8 +128,9 @@ export default function columnProps({
                     return <Checkbox
                         checked={p.rowData[fieldName]}
                         onChange={event => p.editorCallback(event.checked)}
-                        id={inputId}
+                        inputId={inputId}
                         {...props}
+                        name={inputId}
                     />;
                 case 'integer':
                     return <InputNumber
@@ -138,12 +139,13 @@ export default function columnProps({
                         onChange={event => p.editorCallback(event.value)}
                         disabled={property?.readOnly}
                         className='w-full'
-                        id={inputId}
                         showButtons
+                        inputId={inputId}
                         {...props}
+                        name={inputId}
                     />;
                 case 'dropdown':
-                    return <Dropdown
+                    return <DropdownTest
                         className='w-full'
                         options={dropdowns?.[dropdown] || []}
                         value={p.rowData[fieldName]}
@@ -160,8 +162,9 @@ export default function columnProps({
                             p.editorCallback(event.value);
                         }}
                         showClear
-                        id={inputId}
+                        inputId={inputId}
                         {...props}
+                        name={inputId}
                     />;
                 case 'select':
                     return <SelectButton
@@ -171,6 +174,7 @@ export default function columnProps({
                         onChange={event => p.editorCallback(props?.split ? event.value.join(props.split) || null : event.value)}
                         id={inputId}
                         {...props}
+                        name={inputId}
                     />;
                 case 'date':
                     return <Calendar
@@ -178,8 +182,9 @@ export default function columnProps({
                         value={dateOrNull(p.rowData[fieldName])}
                         onChange={event => p.editorCallback(event.value)}
                         showIcon
-                        id={inputId}
+                        inputId={inputId}
                         {...props}
+                        name={inputId}
                     />;
                 case 'time':
                     return <Calendar
@@ -188,8 +193,9 @@ export default function columnProps({
                         onChange={event => p.editorCallback(event.value)}
                         timeOnly
                         showIcon
-                        id={inputId}
+                        inputId={inputId}
                         {...props}
+                        name={inputId}
                     />;
                 case 'date-time':
                     return <Calendar
@@ -198,8 +204,9 @@ export default function columnProps({
                         onChange={event => p.editorCallback(event.value)}
                         showTime
                         showIcon
-                        id={inputId}
+                        inputId={inputId}
                         {...props}
+                        name={inputId}
                     />;
                 case 'mask':
                     return <InputMask
@@ -208,6 +215,7 @@ export default function columnProps({
                         onChange={event => p.editorCallback(event.value)}
                         id={inputId}
                         {...props}
+                        name={inputId}
                     />;
                 case 'text':
                     return <InputTextarea
@@ -217,6 +225,7 @@ export default function columnProps({
                         onChange={event => p.editorCallback(event.target.value)}
                         id={inputId}
                         {...props}
+                        name={inputId}
                     />;
                 default:
                     return <InputText
@@ -228,6 +237,7 @@ export default function columnProps({
                         className='w-full'
                         id={inputId}
                         {...props}
+                        name={inputId}
                     />;
             };
         };

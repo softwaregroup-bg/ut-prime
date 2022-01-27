@@ -12,11 +12,13 @@ export interface PropertyEditor {
         'dropdown' |
         'dropdownTree' |
         'integer' |
+        'number' |
         'image' |
         'mask' |
         'multiSelect' |
         'multiSelectPanel' |
         'multiSelectTree' |
+        'multiSelectTreeTable' |
         'password' |
         'select' |
         'selectTable' |
@@ -43,6 +45,10 @@ export interface Dropdowns {
         className?: string;
         title?: string;
         disabled?: boolean
+    }[] | {
+        key: any;
+        label: string;
+        data?: any
     }[]
 }
 

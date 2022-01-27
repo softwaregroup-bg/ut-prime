@@ -197,11 +197,11 @@ const Explorer: StyledType = ({
     }), [columns, properties, showFilter, dropdowns, tableFilter, keyField, resultSet]);
     const hasChildren = !!children;
     const left = React.useMemo(() => <>
-        {hasChildren && <Button data-testId={`${resultSet}.navigator.toggleButton`} icon="pi pi-bars" className="mr-2" onClick={navigationToggle}/>}
+        {hasChildren && <Button data-testid={`${resultSet}.navigator.toggleButton`} icon="pi pi-bars" className="mr-2" onClick={navigationToggle}/>}
         {buttons}
     </>, [navigationToggle, buttons, hasChildren, resultSet]);
     const right = React.useMemo(() =>
-        details && <Button data-testId={`${resultSet}.details.toggleButton`} icon="pi pi-bars" className="mr-2" onClick={detailsToggle}/>,
+        details && <Button data-testid={`${resultSet}.details.toggleButton`} icon="pi pi-bars" className="mr-2" onClick={detailsToggle}/>,
     [details, detailsToggle, resultSet]);
 
     const table = <DataTable

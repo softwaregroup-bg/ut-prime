@@ -72,6 +72,7 @@ exports[`<Report /> render equals snapshot 1`] = `
                         <input
                           autocomplete="off"
                           class="p-inputtext p-component"
+                          id="startDate"
                           inputmode="none"
                           name="startDate"
                           type="text"
@@ -112,6 +113,7 @@ exports[`<Report /> render equals snapshot 1`] = `
                         <input
                           autocomplete="off"
                           class="p-inputtext p-component"
+                          id="endDate"
                           inputmode="none"
                           name="endDate"
                           type="text"

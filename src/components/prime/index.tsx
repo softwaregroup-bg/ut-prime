@@ -1,3 +1,6 @@
+import React from 'react';
+import { Dropdown } from '../prime';
+
 export { AutoComplete } from 'primereact/autocomplete';
 export { Button } from 'primereact/button';
 export { Calendar } from 'primereact/calendar';
@@ -33,3 +36,20 @@ export { Toolbar } from 'primereact/toolbar';
 export { Tree } from 'primereact/tree';
 export { TreeSelect } from 'primereact/treeselect';
 export { TreeTable } from 'primereact/treetable';
+
+const valueTemplate = (option, {optionLabel, name}) => {
+    const value = option?.[optionLabel || 'label'];
+    return value
+        ? <span data-testid={name}>{value}</span>
+        : 'empty';
+};
+
+export class DropdownTest extends Dropdown {
+    static defaultProps = Object.assign({}, Dropdown.defaultProps, {valueTemplate});
+
+    renderLabel(option) {
+        return option
+            ? super.renderLabel(option)
+            : <span className='w-full inline-flex' data-testid={this.props.name}>{super.renderLabel(option)}</span>;
+    }
+}
