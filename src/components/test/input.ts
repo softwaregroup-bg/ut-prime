@@ -93,7 +93,7 @@ export const input: {
                     multiSelectTreeTable: {
                         widget: {
                             type: 'multiSelectTreeTable',
-                            dropdown: 'select'
+                            dropdown: 'multiSelectTreeTable'
                         }
                     },
                     date: {
@@ -224,6 +224,11 @@ export const dropdowns = {
         {value: 1, label: 'One'},
         {value: 2, label: 'Two'},
         {value: 3, label: 'Three'}
+    ],
+    multiSelectTreeTable: [
+        {key: 1, data: {label: 'One'}},
+        {key: 2, data: {label: 'Two'}},
+        {key: 3, data: {label: 'Three'}}
     ],
     multiSelectTree: [
         {key: 1, label: 'Earth'},

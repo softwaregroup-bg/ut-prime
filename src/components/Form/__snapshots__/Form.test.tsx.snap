@@ -484,3 +484,1448 @@ exports[`<Form /> render equals snapshot 1`] = `
   </div>
 </div>
 `;
+
+exports[`<Form /> render equals snapshot 2`] = `
+<div
+  data-testid="ut-front-test"
+>
+  <div
+    class="flex"
+    style="overflow-x: hidden; width: 100%;"
+  >
+    <div
+      class="p-toast p-component p-toast-top-right"
+    >
+      <div />
+    </div>
+    <form
+      class="grid col align-self-start Form-component-2"
+    >
+      <div
+        class="col-12 xl:col-4"
+      >
+        <div>
+          <div
+            class="p-card p-component card mb-3"
+            id="left"
+          >
+            <div
+              class="p-card-body"
+            >
+              <div
+                class="p-card-content"
+              >
+                <div
+                  class=""
+                >
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="input.input"
+                    >
+                      Input
+                    </label>
+                    <div
+                      class="col-12 md:col-8"
+                    >
+                      <input
+                        class="p-inputtext p-component w-full"
+                        id="input.input"
+                        name="input.input"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="input.password"
+                    >
+                      Password
+                    </label>
+                    <div
+                      class="col-12 md:col-8"
+                    >
+                      <div
+                        class="p-password p-component p-inputwrapper w-full"
+                        id="input.password"
+                      >
+                        <input
+                          class="p-inputtext p-component p-password-input"
+                          id="input.password"
+                          name="input.password"
+                          role="textbox"
+                          type="password"
+                          value=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="input.text"
+                    >
+                      Text
+                    </label>
+                    <div
+                      class="col-12 md:col-8"
+                    >
+                      <textarea
+                        class="p-inputtextarea p-inputtext p-component w-full"
+                        id="input.text"
+                        name="input.text"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="input.mask"
+                    >
+                      Mask
+                    </label>
+                    <div
+                      class="col-12 md:col-8"
+                    >
+                      <input
+                        class="p-inputtext p-component p-inputmask w-full"
+                        id="input.mask"
+                        name="input.mask"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="input.boolean"
+                    >
+                      Boolean
+                    </label>
+                    <div
+                      class="col-12 md:col-8"
+                    >
+                      <div
+                        class="p-checkbox p-component w-full"
+                        id="input.boolean"
+                      >
+                        <div
+                          class="p-hidden-accessible"
+                        >
+                          <input
+                            name="input.boolean"
+                            type="checkbox"
+                          />
+                        </div>
+                        <div
+                          aria-checked="false"
+                          class="p-checkbox-box"
+                          role="checkbox"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="input.date"
+                    >
+                      Date
+                    </label>
+                    <div
+                      class="col-12 md:col-8"
+                    >
+                      <span
+                        class="p-calendar p-component p-inputwrapper w-full p-calendar-w-btn p-calendar-w-btn-right"
+                        id="input.date"
+                      >
+                        <input
+                          autocomplete="off"
+                          class="p-inputtext p-component"
+                          id="input.date"
+                          inputmode="none"
+                          name="input.date"
+                          type="text"
+                        />
+                        <button
+                          class="p-button p-component p-datepicker-trigger p-button-icon-only"
+                          tabindex="-1"
+                          type="button"
+                        >
+                          <span
+                            class="p-button-icon p-c pi pi-calendar"
+                          />
+                          <span
+                            class="p-button-label p-c"
+                          >
+                             
+                          </span>
+                        </button>
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="input.time"
+                    >
+                      Time
+                    </label>
+                    <div
+                      class="col-12 md:col-8"
+                    >
+                      <span
+                        class="p-calendar p-component p-inputwrapper w-full p-calendar-w-btn p-calendar-w-btn-right p-calendar-timeonly"
+                        id="input.time"
+                      >
+                        <input
+                          autocomplete="off"
+                          class="p-inputtext p-component"
+                          id="input.time"
+                          inputmode="none"
+                          name="input.time"
+                          type="text"
+                        />
+                        <button
+                          class="p-button p-component p-datepicker-trigger p-button-icon-only"
+                          tabindex="-1"
+                          type="button"
+                        >
+                          <span
+                            class="p-button-icon p-c pi pi-calendar"
+                          />
+                          <span
+                            class="p-button-label p-c"
+                          >
+                             
+                          </span>
+                        </button>
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="input.datetime"
+                    >
+                      Datetime
+                    </label>
+                    <div
+                      class="col-12 md:col-8"
+                    >
+                      <span
+                        class="p-calendar p-component p-inputwrapper w-full p-calendar-w-btn p-calendar-w-btn-right"
+                        id="input.datetime"
+                      >
+                        <input
+                          autocomplete="off"
+                          class="p-inputtext p-component"
+                          id="input.datetime"
+                          inputmode="none"
+                          name="input.datetime"
+                          type="text"
+                        />
+                        <button
+                          class="p-button p-component p-datepicker-trigger p-button-icon-only"
+                          tabindex="-1"
+                          type="button"
+                        >
+                          <span
+                            class="p-button-icon p-c pi pi-calendar"
+                          />
+                          <span
+                            class="p-button-label p-c"
+                          >
+                             
+                          </span>
+                        </button>
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="input.number"
+                    >
+                      Number
+                    </label>
+                    <div
+                      class="col-12 md:col-8"
+                    >
+                      <span
+                        class="p-inputnumber p-component p-inputwrapper w-full"
+                        id="input.number"
+                      >
+                        <input
+                          class="p-inputtext p-component p-inputnumber-input"
+                          id="input.number"
+                          inputmode="numeric"
+                          name="input.number"
+                          role="spinbutton"
+                          type="text"
+                          value=""
+                        />
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="input.currency"
+                    >
+                      Currency
+                    </label>
+                    <div
+                      class="col-12 md:col-8"
+                    >
+                      <span
+                        class="p-inputnumber p-component p-inputwrapper w-full"
+                        id="input.currency"
+                      >
+                        <input
+                          class="p-inputtext p-component p-inputnumber-input"
+                          id="input.currency"
+                          inputmode="decimal"
+                          name="input.currency"
+                          role="spinbutton"
+                          type="text"
+                          value=""
+                        />
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="input.integer"
+                    >
+                      Integer
+                    </label>
+                    <div
+                      class="col-12 md:col-8"
+                    >
+                      <span
+                        class="p-inputnumber p-component p-inputwrapper w-full p-inputnumber-buttons-stacked"
+                        id="input.integer"
+                      >
+                        <input
+                          class="p-inputtext p-component p-inputnumber-input w-full"
+                          id="input.integer"
+                          inputmode="numeric"
+                          name="input.integer"
+                          role="spinbutton"
+                          type="text"
+                          value=""
+                        />
+                        <span
+                          class="p-inputnumber-button-group"
+                        >
+                          <button
+                            class="p-inputnumber-button p-inputnumber-button-up p-button p-button-icon-only p-component"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            <span
+                              class="p-button-icon pi pi-angle-up"
+                            />
+                          </button>
+                          <button
+                            class="p-inputnumber-button p-inputnumber-button-down p-button p-button-icon-only p-component"
+                            tabindex="-1"
+                            type="button"
+                          >
+                            <span
+                              class="p-button-icon pi pi-angle-down"
+                            />
+                          </button>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-12 xl:col-4"
+      >
+        <div>
+          <div
+            class="p-card p-component card mb-3"
+            id="center"
+          >
+            <div
+              class="p-card-body"
+            >
+              <div
+                class="p-card-content"
+              >
+                <div
+                  class=""
+                >
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="input.image"
+                    >
+                      Image
+                    </label>
+                    <div
+                      class="col-12 md:col-8"
+                    >
+                      <span
+                        class="p-image p-component p-image-preview-container"
+                      >
+                        <img
+                          class="w-full"
+                        />
+                        <div
+                          class="p-image-preview-indicator"
+                        >
+                          <i
+                            class="p-image-preview-icon pi pi-eye"
+                          />
+                        </div>
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="input.dropdown"
+                    >
+                      Dropdown
+                    </label>
+                    <div
+                      class="col-12 md:col-8"
+                    >
+                      <div
+                        class="p-dropdown p-component p-inputwrapper w-full"
+                        id="input.dropdown"
+                      >
+                        <div
+                          class="p-hidden-accessible"
+                        >
+                          <input
+                            aria-haspopup="listbox"
+                            readonly=""
+                            type="text"
+                          />
+                        </div>
+                        <div
+                          class="p-hidden-accessible p-dropdown-hidden-select"
+                        >
+                          <select
+                            aria-hidden="true"
+                            name="input.dropdown"
+                            tabindex="-1"
+                          >
+                            <option
+                              value=""
+                            />
+                          </select>
+                        </div>
+                        <span
+                          class="w-full inline-flex"
+                          data-testid="input.dropdown"
+                        >
+                          <span
+                            class="p-dropdown-label p-inputtext p-dropdown-label-empty"
+                          >
+                            empty
+                          </span>
+                        </span>
+                        <div
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          class="p-dropdown-trigger"
+                          role="button"
+                        >
+                          <span
+                            class="p-dropdown-trigger-icon p-clickable pi pi-chevron-down"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="input.dropdownTree"
+                    >
+                      Dropdown Tree
+                    </label>
+                    <div
+                      class="col-12 md:col-8"
+                    >
+                      <div
+                        class="p-treeselect p-component p-inputwrapper w-full"
+                        id="input.dropdownTree"
+                      >
+                        <div
+                          class="p-hidden-accessible"
+                        >
+                          <input
+                            aria-expanded="false"
+                            aria-haspopup="true"
+                            id="input.dropdownTree"
+                            readonly=""
+                            role="listbox"
+                            type="text"
+                          />
+                        </div>
+                        <span
+                          class="w-full inline-flex"
+                          data-testid="input.dropdownTree"
+                        >
+                          <div
+                            class="p-treeselect-label-container"
+                          >
+                            <div
+                              class="p-treeselect-label p-placeholder p-treeselect-label-empty"
+                            >
+                              empty
+                            </div>
+                          </div>
+                        </span>
+                        <div
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          class="p-treeselect-trigger"
+                          role="button"
+                        >
+                          <span
+                            class="p-treeselect-trigger-icon p-clickable pi pi-chevron-down"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="input.multiSelect"
+                    >
+                      Multi Select
+                    </label>
+                    <div
+                      class="col-12 md:col-8"
+                    >
+                      <div
+                        class="p-multiselect p-component p-inputwrapper p-multiselect-chip w-full"
+                        id="input.multiSelect"
+                      >
+                        <div
+                          class="p-hidden-accessible"
+                        >
+                          <input
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            name="input.multiSelect"
+                            readonly=""
+                            role="listbox"
+                            tabindex="0"
+                            type="text"
+                          />
+                        </div>
+                        <span
+                          class="w-full inline-flex"
+                          data-testid="input.multiSelect"
+                        >
+                          <div
+                            class="p-multiselect-label-container"
+                          >
+                            <div
+                              class="p-multiselect-label p-multiselect-label-empty"
+                            >
+                              empty
+                            </div>
+                          </div>
+                        </span>
+                        <div
+                          class="p-multiselect-trigger"
+                        >
+                          <span
+                            class="p-multiselect-trigger-icon p-c pi pi-chevron-down"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="input.multiSelectTree"
+                    >
+                      Multi Select Tree
+                    </label>
+                    <div
+                      class="col-12 md:col-8"
+                    >
+                      <div
+                        class="p-treeselect p-component p-inputwrapper p-treeselect-chip w-full"
+                        id="input.multiSelectTree"
+                      >
+                        <div
+                          class="p-hidden-accessible"
+                        >
+                          <input
+                            aria-expanded="false"
+                            aria-haspopup="true"
+                            readonly=""
+                            role="listbox"
+                            type="text"
+                          />
+                        </div>
+                        <span
+                          class="w-full inline-flex"
+                          data-testid="input.multiSelectTree"
+                        >
+                          <div
+                            class="p-treeselect-label-container"
+                          >
+                            <div
+                              class="p-treeselect-label p-placeholder p-treeselect-label-empty"
+                            >
+                              empty
+                            </div>
+                          </div>
+                        </span>
+                        <div
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          class="p-treeselect-trigger"
+                          role="button"
+                        >
+                          <span
+                            class="p-treeselect-trigger-icon p-clickable pi pi-chevron-down"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="input.select"
+                    >
+                      Select
+                    </label>
+                    <div
+                      class="col-12 md:col-8"
+                    >
+                      <div
+                        class="p-selectbutton p-buttonset p-component w-full"
+                        id="input.select"
+                        role="group"
+                      >
+                        <span
+                          class="w-full inline-flex"
+                          data-testid="input.select"
+                        >
+                          <div
+                            aria-label="One"
+                            aria-pressed="false"
+                            class="p-button p-component"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <span
+                              class="p-button-label p-c"
+                            >
+                              One
+                            </span>
+                          </div>
+                          <div
+                            aria-label="Two"
+                            aria-pressed="false"
+                            class="p-button p-component"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <span
+                              class="p-button-label p-c"
+                            >
+                              Two
+                            </span>
+                          </div>
+                          <div
+                            aria-label="Three"
+                            aria-pressed="false"
+                            class="p-button p-component"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <span
+                              class="p-button-label p-c"
+                            >
+                              Three
+                            </span>
+                          </div>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="input.table"
+                    >
+                      Table
+                    </label>
+                    <div
+                      class="col-12 md:col-8"
+                    >
+                      <div
+                        class="p-toolbar p-component p-0 border-none"
+                        role="toolbar"
+                        style="background: none;"
+                      >
+                        <div
+                          class="p-toolbar-group-left"
+                        >
+                          <button
+                            class="p-button p-component p-button mr-2"
+                            data-testid="input.table.addButton"
+                          >
+                            <span
+                              class="p-button-icon p-c p-button-icon-left pi pi-plus"
+                            />
+                            <span
+                              class="p-button-label p-c"
+                            >
+                              Add
+                            </span>
+                          </button>
+                          <button
+                            class="p-button p-component p-button p-disabled"
+                            data-testid="input.table.saveButton"
+                            disabled=""
+                          >
+                            <span
+                              class="p-button-icon p-c p-button-icon-left pi pi-trash"
+                            />
+                            <span
+                              class="p-button-label p-c"
+                            >
+                              Delete
+                            </span>
+                          </button>
+                        </div>
+                        <div
+                          class="p-toolbar-group-right"
+                        />
+                      </div>
+                      <div
+                        class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full"
+                        data-scrollselectors=".p-datatable-wrapper"
+                        id="input.table"
+                        pr_id_2=""
+                      >
+                        <span
+                          class="w-full"
+                          data-testid="input.table"
+                        >
+                          <div
+                            class="p-datatable-wrapper"
+                          >
+                            <table
+                              class="p-datatable-table"
+                              role="table"
+                            >
+                              <thead
+                                class="p-datatable-thead"
+                              >
+                                <tr
+                                  role="row"
+                                >
+                                  <th
+                                    class="p-selection-column"
+                                    role="columnheader"
+                                    style="width: 3rem;"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                      <div
+                                        class="p-checkbox p-component"
+                                      >
+                                        <div
+                                          class="p-checkbox-box p-component p-disabled"
+                                          role="checkbox"
+                                        >
+                                          <span
+                                            class="p-checkbox-icon"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="input.table.nameTitle"
+                                        >
+                                          Name
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="input.table.valueTitle"
+                                        >
+                                          Value
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                    style="width: 7rem;"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                    </div>
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody
+                                class="p-datatable-tbody"
+                              >
+                                <tr
+                                  class="p-datatable-emptymessage"
+                                  role="row"
+                                >
+                                  <td
+                                    colspan="4"
+                                    role="cell"
+                                  >
+                                    No available options
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-12 xl:col-4"
+      >
+        <div>
+          <div
+            class="p-card p-component card mb-3"
+            id="right"
+          >
+            <div
+              class="p-card-body"
+            >
+              <div
+                class="p-card-content"
+              >
+                <div
+                  class=""
+                >
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="input.selectTable"
+                    >
+                      Select Table
+                    </label>
+                    <div
+                      class="col-12 md:col-8"
+                    >
+                      <div
+                        class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full"
+                        data-scrollselectors=".p-datatable-wrapper"
+                        id="input.selectTable"
+                        pr_id_3=""
+                      >
+                        <span
+                          class="w-full"
+                          data-testid="input.selectTable"
+                        >
+                          <div
+                            class="p-datatable-wrapper"
+                          >
+                            <table
+                              class="p-datatable-table"
+                              role="table"
+                            >
+                              <thead
+                                class="p-datatable-thead"
+                              >
+                                <tr
+                                  role="row"
+                                >
+                                  <th
+                                    class="p-selection-column"
+                                    role="columnheader"
+                                    style="width: 3rem;"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                      <div
+                                        class="p-checkbox p-component"
+                                      >
+                                        <div
+                                          aria-checked="false"
+                                          class="p-checkbox-box p-component"
+                                          role="checkbox"
+                                          tabindex="0"
+                                        >
+                                          <span
+                                            class="p-checkbox-icon"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                    </div>
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody
+                                class="p-datatable-tbody"
+                              >
+                                <tr
+                                  class="p-selectable-row"
+                                  role="row"
+                                >
+                                  <td
+                                    class="p-selection-column"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    />
+                                    <div
+                                      class="p-checkbox p-component"
+                                    >
+                                      <div
+                                        aria-checked="false"
+                                        class="p-checkbox-box p-component"
+                                        role="checkbox"
+                                        tabindex="0"
+                                      >
+                                        <span
+                                          class="p-checkbox-icon"
+                                        />
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td
+                                    class=""
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    />
+                                    One
+                                  </td>
+                                </tr>
+                                <tr
+                                  class="p-selectable-row p-row-odd"
+                                  role="row"
+                                >
+                                  <td
+                                    class="p-selection-column"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    />
+                                    <div
+                                      class="p-checkbox p-component"
+                                    >
+                                      <div
+                                        aria-checked="false"
+                                        class="p-checkbox-box p-component"
+                                        role="checkbox"
+                                        tabindex="0"
+                                      >
+                                        <span
+                                          class="p-checkbox-icon"
+                                        />
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td
+                                    class=""
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    />
+                                    Two
+                                  </td>
+                                </tr>
+                                <tr
+                                  class="p-selectable-row"
+                                  role="row"
+                                >
+                                  <td
+                                    class="p-selection-column"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    />
+                                    <div
+                                      class="p-checkbox p-component"
+                                    >
+                                      <div
+                                        aria-checked="false"
+                                        class="p-checkbox-box p-component"
+                                        role="checkbox"
+                                        tabindex="0"
+                                      >
+                                        <span
+                                          class="p-checkbox-icon"
+                                        />
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td
+                                    class=""
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    />
+                                    Three
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="input.multiSelectPanel"
+                    >
+                      Multi Select Panel
+                    </label>
+                    <div
+                      class="col-12 md:col-8"
+                    >
+                      <span
+                        class="w-full"
+                        data-testid="input.multiSelectPanel"
+                      >
+                        <div
+                          class="p-multiselect p-component p-inputwrapper p-inputwrapper-focus MultiSelectPanel-root-3 MultiSelectPanel-root-4 w-full"
+                          id="input.multiSelectPanel"
+                        >
+                          <div
+                            class="p-hidden-accessible"
+                          >
+                            <input
+                              aria-expanded="true"
+                              aria-haspopup="listbox"
+                              name="input.multiSelectPanel"
+                              readonly=""
+                              role="listbox"
+                              tabindex="0"
+                              type="text"
+                            />
+                          </div>
+                          <div
+                            class="p-multiselect-label-container"
+                          >
+                            <div
+                              class="p-multiselect-label p-multiselect-label-empty"
+                            >
+                              empty
+                            </div>
+                          </div>
+                          <div
+                            class="p-multiselect-trigger"
+                          >
+                            <span
+                              class="p-multiselect-trigger-icon p-c pi pi-chevron-down"
+                            />
+                          </div>
+                          <div
+                            class="p-multiselect-panel p-component"
+                          >
+                            <div
+                              class="p-multiselect-header"
+                            >
+                              <div
+                                class="p-checkbox p-component"
+                              >
+                                <div
+                                  class="p-hidden-accessible"
+                                >
+                                  <input
+                                    type="checkbox"
+                                  />
+                                </div>
+                                <div
+                                  aria-checked="false"
+                                  class="p-checkbox-box"
+                                  role="checkbox"
+                                />
+                              </div>
+                              <button
+                                class="p-multiselect-close p-link"
+                                type="button"
+                              >
+                                <span
+                                  class="p-multiselect-close-icon pi pi-times"
+                                />
+                              </button>
+                            </div>
+                            <div
+                              class="p-multiselect-items-wrapper"
+                              style="max-height: 200px;"
+                            >
+                              <ul
+                                aria-multiselectable="true"
+                                class="p-multiselect-items p-component"
+                                role="listbox"
+                              >
+                                <li
+                                  aria-selected="false"
+                                  class="p-multiselect-item"
+                                  role="option"
+                                  tabindex="0"
+                                >
+                                  <div
+                                    class="p-checkbox p-component"
+                                  >
+                                    <div
+                                      class="p-checkbox-box"
+                                    >
+                                      <span
+                                        class="p-checkbox-icon p-c"
+                                      />
+                                    </div>
+                                  </div>
+                                  <span>
+                                    One
+                                  </span>
+                                </li>
+                                <li
+                                  aria-selected="false"
+                                  class="p-multiselect-item"
+                                  role="option"
+                                  tabindex="0"
+                                >
+                                  <div
+                                    class="p-checkbox p-component"
+                                  >
+                                    <div
+                                      class="p-checkbox-box"
+                                    >
+                                      <span
+                                        class="p-checkbox-icon p-c"
+                                      />
+                                    </div>
+                                  </div>
+                                  <span>
+                                    Two
+                                  </span>
+                                </li>
+                                <li
+                                  aria-selected="false"
+                                  class="p-multiselect-item"
+                                  role="option"
+                                  tabindex="0"
+                                >
+                                  <div
+                                    class="p-checkbox p-component"
+                                  >
+                                    <div
+                                      class="p-checkbox-box"
+                                    >
+                                      <span
+                                        class="p-checkbox-icon p-c"
+                                      />
+                                    </div>
+                                  </div>
+                                  <span>
+                                    Three
+                                  </span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="input.multiSelectTreeTable"
+                    >
+                      Multi Select Tree Table
+                    </label>
+                    <div
+                      class="col-12 md:col-8"
+                    >
+                      <div
+                        class="p-treetable p-component w-full"
+                        data-scrollselectors=".p-treetable-scrollable-body"
+                        id="input.multiSelectTreeTable"
+                      >
+                        <span
+                          class="w-full inline-flex"
+                          data-testid="input.multiSelectTreeTable"
+                        >
+                          <div
+                            class="p-treetable-wrapper"
+                          >
+                            <table>
+                              <thead
+                                class="p-treetable-thead"
+                              >
+                                <tr>
+                                  <th
+                                    class=""
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    />
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody
+                                class="p-treetable-tbody"
+                              >
+                                <tr
+                                  class=""
+                                  tabindex="0"
+                                >
+                                  <td
+                                    class=""
+                                  >
+                                    <button
+                                      class="p-treetable-toggler p-link p-unselectable-text"
+                                      style="margin-left: 0px; visibility: hidden;"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      <i
+                                        class="\\"p-treetable-toggler-icon pi pi-fw pi-chevron-right"
+                                      />
+                                    </button>
+                                    <div
+                                      aria-checked="false"
+                                      class="p-checkbox p-treetable-checkbox p-component"
+                                      role="checkbox"
+                                    >
+                                      <div
+                                        class="p-hidden-accessible"
+                                      >
+                                        <input
+                                          type="checkbox"
+                                        />
+                                      </div>
+                                      <div
+                                        class="p-checkbox-box"
+                                      >
+                                        <span
+                                          class="p-checkbox-icon p-c"
+                                        />
+                                      </div>
+                                    </div>
+                                    One
+                                  </td>
+                                </tr>
+                                <tr
+                                  class=""
+                                  tabindex="0"
+                                >
+                                  <td
+                                    class=""
+                                  >
+                                    <button
+                                      class="p-treetable-toggler p-link p-unselectable-text"
+                                      style="margin-left: 0px; visibility: hidden;"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      <i
+                                        class="\\"p-treetable-toggler-icon pi pi-fw pi-chevron-right"
+                                      />
+                                    </button>
+                                    <div
+                                      aria-checked="false"
+                                      class="p-checkbox p-treetable-checkbox p-component"
+                                      role="checkbox"
+                                    >
+                                      <div
+                                        class="p-hidden-accessible"
+                                      >
+                                        <input
+                                          type="checkbox"
+                                        />
+                                      </div>
+                                      <div
+                                        class="p-checkbox-box"
+                                      >
+                                        <span
+                                          class="p-checkbox-icon p-c"
+                                        />
+                                      </div>
+                                    </div>
+                                    Two
+                                  </td>
+                                </tr>
+                                <tr
+                                  class=""
+                                  tabindex="0"
+                                >
+                                  <td
+                                    class=""
+                                  >
+                                    <button
+                                      class="p-treetable-toggler p-link p-unselectable-text"
+                                      style="margin-left: 0px; visibility: hidden;"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      <i
+                                        class="\\"p-treetable-toggler-icon pi pi-fw pi-chevron-right"
+                                      />
+                                    </button>
+                                    <div
+                                      aria-checked="false"
+                                      class="p-checkbox p-treetable-checkbox p-component"
+                                      role="checkbox"
+                                    >
+                                      <div
+                                        class="p-hidden-accessible"
+                                      >
+                                        <input
+                                          type="checkbox"
+                                        />
+                                      </div>
+                                      <div
+                                        class="p-checkbox-box"
+                                      >
+                                        <span
+                                          class="p-checkbox-icon p-c"
+                                        />
+                                      </div>
+                                    </div>
+                                    Three
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;
