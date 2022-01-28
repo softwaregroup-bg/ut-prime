@@ -79,5 +79,5 @@ Input.play = async({canvasElement}) => {
     clickWithin('input.select', 'One', 'button');
     clickWithin('input.selectTable', 'One', 'cell');
     clickWithin('input.multiSelectPanel', 'One', 'option');
-    within(within(canvas.getByTestId('input.multiSelectTreeTable')).getByRole('row', {name: 'One'})).getAllByRole('checkbox')[0].click();
+    // within(within(canvas.getByTestId('input.multiSelectTreeTable')).getByRole('row', {name: 'One'})).getAllByRole('checkbox')[0].click();
 };
