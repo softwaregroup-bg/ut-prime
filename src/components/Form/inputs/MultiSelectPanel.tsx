@@ -17,8 +17,8 @@ class MultiSelectPanel extends MultiSelect {
         return super.onOptionKeyDown(event);
     }
 
-    render () {
-        return <span data-testid={this.props.id} className='w-full'>{super.render()}</span>
+    render() {
+        return <span data-testid={this.props.id} className='w-full'>{super.render()}</span>;
     }
 };
 

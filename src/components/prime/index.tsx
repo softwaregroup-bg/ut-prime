@@ -45,49 +45,49 @@ const valueTemplate = (option, {optionLabel, name}) => {
 };
 
 export class DropdownTest extends Dropdown {
-    //@ts-ignore
+    // @ts-ignore
     static defaultProps = Object.assign({}, Dropdown.defaultProps, {valueTemplate});
 
     renderLabel(option) {
         return option
-            //@ts-ignore
+            // @ts-ignore
             ? super.renderLabel(option)
-            //@ts-ignore
+            // @ts-ignore
             : <span className='w-full inline-flex' data-testid={this.props.name}>{super.renderLabel(option)}</span>;
     }
 }
 
 export class MultiSelectTest extends MultiSelect {
     renderLabel(...params) {
-        //@ts-ignore
-        return <span className='w-full inline-flex' data-testid={this.props.name}>{super.renderLabel(...params)}</span>
+        // @ts-ignore
+        return <span className='w-full inline-flex' data-testid={this.props.name}>{super.renderLabel(...params)}</span>;
     }
 };
 
 export class TreeSelectTest extends TreeSelect {
     renderLabel(...params) {
-        //@ts-ignore
-        return <span className='w-full inline-flex' data-testid={this.props.name}>{super.renderLabel(...params)}</span>
+        // @ts-ignore
+        return <span className='w-full inline-flex' data-testid={this.props.name}>{super.renderLabel(...params)}</span>;
     }
 };
 
 export class TreeTableTest extends TreeTable {
     renderTable(...params) {
-        //@ts-ignore
-        return <span className='w-full inline-flex' data-testid={this.props.id}>{super.renderTable(...params)}</span>
+        // @ts-ignore
+        return <span className='w-full inline-flex' data-testid={this.props.id}>{super.renderTable(...params)}</span>;
     }
 };
 
 export class SelectButtonTest extends SelectButton {
     renderItems() {
-        //@ts-ignore
-        return <span className='w-full inline-flex' data-testid={this.props.id}>{super.renderItems()}</span>
+        // @ts-ignore
+        return <span className='w-full inline-flex' data-testid={this.props.id}>{super.renderItems()}</span>;
     }
 };
 
 export class DataTableTest extends DataTable {
     renderContent(...params) {
-        //@ts-ignore
-        return <span className='w-full' data-testid={this.props.id}>{super.renderContent(...params)}</span>
+        // @ts-ignore
+        return <span className='w-full' data-testid={this.props.id}>{super.renderContent(...params)}</span>;
     }
 };
