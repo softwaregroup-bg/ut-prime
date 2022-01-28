@@ -4,16 +4,16 @@ import {
     Password,
     InputTextarea,
     DropdownTest,
-    MultiSelect,
-    TreeSelect,
-    TreeTable,
+    MultiSelectTest,
+    TreeSelectTest,
+    TreeTableTest,
     InputMask,
     InputNumber,
     Calendar,
     Checkbox,
     Image,
     Skeleton,
-    SelectButton,
+    SelectButtonTest,
     Column
 } from '../prime';
 import { RefCallBack } from 'react-hook-form';
@@ -61,7 +61,7 @@ export default function input(
     const filterBy = item => (!parentField && !optionsFilter) || Object.entries({...optionsFilter, parent: parentValue}).every(([name, value]) => String(item[name]) === String(value));
     switch (type || schema?.format || getType(schema?.type)) {
         case 'dropdownTree': return <Field {...{label, error, inputClass}}>
-            <TreeSelect
+            <TreeSelectTest
                 {...field}
                 value={field.value == null ? field.value : String(field.value)}
                 options={dropdowns?.[dropdown]?.filter(filterBy) || []}
@@ -127,7 +127,7 @@ export default function input(
             />
         </Field>;
         case 'multiSelect': return <Field {...{label, error, inputClass}}>
-            <MultiSelect
+            <MultiSelectTest
                 {...field}
                 options={dropdowns?.[dropdown]?.filter(filterBy) || []}
                 display='chip'
@@ -135,7 +135,7 @@ export default function input(
             />
         </Field>;
         case 'select': return <Field {...{label, error, inputClass}}>
-            <SelectButton
+            <SelectButtonTest
                 {...field}
                 options={dropdowns?.[dropdown]?.filter(filterBy) || []}
                 value={props?.split ? field.value?.split(props.split).filter(Boolean) : field.value}
@@ -144,7 +144,7 @@ export default function input(
             />
         </Field>;
         case 'multiSelectTree': return <Field {...{label, error, inputClass}}>
-            <TreeSelect
+            <TreeSelectTest
                 {...field}
                 options={dropdowns?.[dropdown]?.filter(filterBy) || []}
                 display='chip'
@@ -203,7 +203,7 @@ export default function input(
             {error}
             {label}
             <div className={inputClass}>
-                <TreeTable
+                <TreeTableTest
                     {...field}
                     value={dropdowns?.[dropdown]?.filter(filterBy) || []}
                     selectionKeys={field.value}
@@ -212,7 +212,7 @@ export default function input(
                     {...props}
                 >
                     <Column field='label' expander/>
-                </TreeTable>
+                </TreeTableTest>
             </div>
         </>;
         case 'date-time': return <Field {...{label, error, inputClass}}>

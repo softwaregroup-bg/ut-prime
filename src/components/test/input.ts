@@ -3,7 +3,7 @@ import type {
     Cards
 } from '../types';
 
-const input: {
+export const input: {
     schema: Schema,
     cards: Cards
 } = {
@@ -17,7 +17,7 @@ const input: {
                     dropdownTree: {
                         widget: {
                             type: 'dropdownTree',
-                            dropdown: 'input.dropdown'
+                            dropdown: 'dropdownTree'
                         }
                     },
                     text: {
@@ -57,43 +57,43 @@ const input: {
                     dropdown: {
                         widget: {
                             type: 'dropdown',
-                            dropdown: 'input.dropdown'
+                            dropdown: 'dropdown'
                         }
                     },
                     multiSelect: {
                         widget: {
                             type: 'multiSelect',
-                            dropdown: 'input.dropdown'
+                            dropdown: 'multiSelect'
                         }
                     },
                     select: {
                         widget: {
                             type: 'select',
-                            dropdown: 'input.dropdown'
+                            dropdown: 'select'
                         }
                     },
                     multiSelectTree: {
                         widget: {
                             type: 'multiSelectTree',
-                            dropdown: 'input.dropdownTree'
+                            dropdown: 'multiSelectTree'
                         }
                     },
                     multiSelectPanel: {
                         widget: {
                             type: 'multiSelectPanel',
-                            dropdown: 'input.dropdown'
+                            dropdown: 'select'
                         }
                     },
                     selectTable: {
                         widget: {
                             type: 'selectTable',
-                            dropdown: 'input.dropdown'
+                            dropdown: 'select'
                         }
                     },
                     multiSelectTreeTable: {
                         widget: {
                             type: 'multiSelectTreeTable',
-                            dropdown: 'input.dropdownTree'
+                            dropdown: 'select'
                         }
                     },
                     date: {
@@ -204,4 +204,30 @@ const input: {
     }
 };
 
-export default input;
+export const dropdowns = {
+    dropdown: [
+        {value: 1, label: 'EUR'},
+        {value: 2, label: 'USD'},
+        {value: 3, label: 'BGN'}
+    ],
+    dropdownTree: [
+        {key: 1, label: 'Asia'},
+        {key: 2, label: 'Europe'},
+        {key: 3, label: 'Australia'}
+    ],
+    multiSelect: [
+        {value: 1, label: 'Rome'},
+        {value: 2, label: 'Cairo'},
+        {value: 3, label: 'Athens'}
+    ],
+    select: [
+        {value: 1, label: 'One'},
+        {value: 2, label: 'Two'},
+        {value: 3, label: 'Three'}
+    ],
+    multiSelectTree: [
+        {key: 1, label: 'Earth'},
+        {key: 2, label: 'Mars'},
+        {key: 3, label: 'Australia'}
+    ]
+};

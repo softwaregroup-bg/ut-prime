@@ -47,7 +47,7 @@ export interface Dropdowns {
         disabled?: boolean
     }[] | {
         key: any;
-        label: string;
+        label?: string;
         data?: any
     }[]
 }

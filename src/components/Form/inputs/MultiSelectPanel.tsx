@@ -1,3 +1,4 @@
+import React from 'react';
 import { styled } from '../../mui/styles';
 import { MultiSelect } from '../../prime';
 
@@ -14,6 +15,10 @@ class MultiSelectPanel extends MultiSelect {
         if (originalEvent.which === 27) return;
         // @ts-ignore Property 'onOptionKeyDown' does not exist on type 'MultiSelect'
         return super.onOptionKeyDown(event);
+    }
+
+    render () {
+        return <span data-testid={this.props.id} className='w-full'>{super.render()}</span>
     }
 };
 

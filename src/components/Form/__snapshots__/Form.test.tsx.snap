@@ -333,112 +333,117 @@ exports[`<Form /> render equals snapshot 1`] = `
                         id="tree.links"
                         pr_id_1=""
                       >
-                        <div
-                          class="p-datatable-wrapper"
+                        <span
+                          class="w-full"
+                          data-testid="tree.links"
                         >
-                          <table
-                            class="p-datatable-table"
-                            role="table"
+                          <div
+                            class="p-datatable-wrapper"
                           >
-                            <thead
-                              class="p-datatable-thead"
+                            <table
+                              class="p-datatable-table"
+                              role="table"
                             >
-                              <tr
-                                role="row"
+                              <thead
+                                class="p-datatable-thead"
                               >
-                                <th
-                                  class="p-selection-column"
-                                  role="columnheader"
-                                  style="width: 3rem;"
+                                <tr
+                                  role="row"
                                 >
-                                  <div
-                                    class="p-column-header-content"
+                                  <th
+                                    class="p-selection-column"
+                                    role="columnheader"
+                                    style="width: 3rem;"
                                   >
-                                    <span
-                                      class="p-column-title"
-                                    />
                                     <div
-                                      class="p-checkbox p-component"
+                                      class="p-column-header-content"
                                     >
+                                      <span
+                                        class="p-column-title"
+                                      />
                                       <div
-                                        class="p-checkbox-box p-component p-disabled"
-                                        role="checkbox"
+                                        class="p-checkbox p-component"
                                       >
-                                        <span
-                                          class="p-checkbox-icon"
-                                        />
+                                        <div
+                                          class="p-checkbox-box p-component p-disabled"
+                                          role="checkbox"
+                                        >
+                                          <span
+                                            class="p-checkbox-icon"
+                                          />
+                                        </div>
                                       </div>
                                     </div>
-                                  </div>
-                                </th>
-                                <th
-                                  class=""
-                                  role="columnheader"
-                                >
-                                  <div
-                                    class="p-column-header-content"
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
                                   >
-                                    <span
-                                      class="p-column-title"
+                                    <div
+                                      class="p-column-header-content"
                                     >
                                       <span
-                                        data-testid="tree.links.titleTitle"
+                                        class="p-column-title"
                                       >
-                                        Title
+                                        <span
+                                          data-testid="tree.links.titleTitle"
+                                        >
+                                          Title
+                                        </span>
                                       </span>
-                                    </span>
-                                  </div>
-                                </th>
-                                <th
-                                  class=""
-                                  role="columnheader"
-                                >
-                                  <div
-                                    class="p-column-header-content"
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
                                   >
-                                    <span
-                                      class="p-column-title"
+                                    <div
+                                      class="p-column-header-content"
                                     >
                                       <span
-                                        data-testid="tree.links.urlTitle"
+                                        class="p-column-title"
                                       >
-                                        Url
+                                        <span
+                                          data-testid="tree.links.urlTitle"
+                                        >
+                                          Url
+                                        </span>
                                       </span>
-                                    </span>
-                                  </div>
-                                </th>
-                                <th
-                                  class=""
-                                  role="columnheader"
-                                  style="width: 7rem;"
-                                >
-                                  <div
-                                    class="p-column-header-content"
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                    style="width: 7rem;"
                                   >
-                                    <span
-                                      class="p-column-title"
-                                    />
-                                  </div>
-                                </th>
-                              </tr>
-                            </thead>
-                            <tbody
-                              class="p-datatable-tbody"
-                            >
-                              <tr
-                                class="p-datatable-emptymessage"
-                                role="row"
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                    </div>
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody
+                                class="p-datatable-tbody"
                               >
-                                <td
-                                  colspan="4"
-                                  role="cell"
+                                <tr
+                                  class="p-datatable-emptymessage"
+                                  role="row"
                                 >
-                                  No available options
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
+                                  <td
+                                    colspan="4"
+                                    role="cell"
+                                  >
+                                    No available options
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </span>
                       </div>
                     </div>
                   </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import lodashGet from 'lodash.get';
 
-import {DataTable, Column, Toolbar, Button} from '../../prime';
+import {DataTableTest, Column, Toolbar, Button} from '../../prime';
 import columnProps from '../../lib/column';
 import {CHANGE, INDEX, KEY, NEW} from '../const';
 import type {Properties} from '../../types';
@@ -208,7 +208,7 @@ export default React.forwardRef<{}, any>(({
     return (
         <>
             {!disabled && (allowAdd || allowDelete) && <Toolbar className="p-0 border-none" left={leftToolbarTemplate} right={null} style={backgroundNone}></Toolbar>}
-            <DataTable
+            <DataTableTest
                 editMode='row'
                 className='editable-cells-table'
                 emptyMessage=''
@@ -236,7 +236,7 @@ export default React.forwardRef<{}, any>(({
                     })
                 }
                 {allowEdit && <Column rowEditor headerStyle={editStyle} bodyStyle={editBodyStyle}></Column>}
-            </DataTable>
+            </DataTableTest>
         </>
     );
 });

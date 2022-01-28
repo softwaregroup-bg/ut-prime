@@ -7,7 +7,7 @@ import { within } from '@testing-library/react';
 import README from './README.md';
 import Form from './index';
 import tree from '../test/tree';
-import input from '../test/input';
+import {input, dropdowns} from '../test/input';
 
 export default {
     title: 'Form',
@@ -34,18 +34,7 @@ export const Input = () =>
         <Form
             {...input}
             layout={['left', 'center', 'right']}
-            dropdowns={{
-                'input.dropdown': [
-                    {value: 1, label: 'One'},
-                    {value: 2, label: 'Two'},
-                    {value: 3, label: 'Three'}
-                ],
-                'input.dropdownTree': [
-                    {key: 1, label: 'One', data: {label: 'One'}},
-                    {key: 2, label: 'Two', data: {label: 'Two'}},
-                    {key: 3, label: 'Three', data: {label: 'Three'}}
-                ]
-            }}
+            dropdowns={dropdowns}
             value={{input: {}}}
             onSubmit={() => {}}
         />
@@ -53,20 +42,42 @@ export const Input = () =>
 
 Input.play = async({canvasElement}) => {
     const canvas = within(canvasElement);
+    const body = within(document.body);
     const type = (role, id, text) => userEvent.type(canvas.getByRole(role, {name: (name, el) => el.id === id}), text);
     const click = (id) => userEvent.click(canvas.getByTestId(id));
+    const clickOption = (id, name, role = 'option') => {
+        id && click(id);
+        body.getByRole(role, {name}).click()
+    }
+    const clickWithin = (id, name, role = 'option') => within(canvas.getByTestId(id)).getByRole(role, {name}).click()
+
+    // left
     type('textbox', 'input.input', 'input');
     type('textbox', 'input.text', 'text');
     type('textbox', 'input.mask', '192168000001');
     type('textbox', 'input.date', '01/31/2022');
     type('textbox', 'input.time', '20:00');
+    type('generic', 'input.boolean', '');
     type('textbox', 'input.datetime', '01/31/2022 20:00');
     type('spinbutton', 'input.currency', '1234567.89');
     type('spinbutton', 'input.number', '12345.67890');
     type('spinbutton', 'input.integer', '1234567890');
     type('textbox', 'input.password', '123');
-    click('input.dropdown');
+
+    // center
+    clickOption('input.dropdown', 'EUR');
+    clickOption('input.dropdownTree', 'Asia', 'treeitem');
+    clickOption('input.multiSelect', 'Rome');
+    click('input.multiSelect'); // close the multiselect dropdown
+    clickOption('input.multiSelectTree', 'Earth', 'treeitem');
+    click('input.multiSelectTree'); // close the multiselect dropdown
     click('input.table.addButton');
     type('textbox', 'input.table[0].name', 'name');
     type('textbox', 'input.table[0].value', 'value');
+
+    // right
+    clickWithin('input.select', 'One', 'button');
+    clickWithin('input.selectTable', 'One', 'cell');
+    clickWithin('input.multiSelectPanel', 'One', 'option');
+    within(within(canvas.getByTestId('input.multiSelectTreeTable')).getByRole('row', {name: 'One'})).getAllByRole('checkbox')[0].click();
 };
