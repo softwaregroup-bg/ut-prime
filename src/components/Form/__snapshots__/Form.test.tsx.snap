@@ -531,10 +531,10 @@ exports[`<Form /> render equals snapshot 2`] = `
                       class="col-12 md:col-8"
                     >
                       <input
-                        class="p-inputtext p-component w-full"
+                        class="p-inputtext p-component p-filled w-full"
                         id="input.input"
                         name="input.input"
-                        value=""
+                        value="input"
                       />
                     </div>
                   </div>
@@ -551,16 +551,16 @@ exports[`<Form /> render equals snapshot 2`] = `
                       class="col-12 md:col-8"
                     >
                       <div
-                        class="p-password p-component p-inputwrapper w-full"
+                        class="p-password p-component p-inputwrapper p-inputwrapper-filled w-full"
                         id="input.password"
                       >
                         <input
-                          class="p-inputtext p-component p-password-input"
+                          class="p-inputtext p-component p-filled p-password-input"
                           id="input.password"
                           name="input.password"
                           role="textbox"
                           type="password"
-                          value=""
+                          value="123"
                         />
                       </div>
                     </div>
@@ -578,10 +578,12 @@ exports[`<Form /> render equals snapshot 2`] = `
                       class="col-12 md:col-8"
                     >
                       <textarea
-                        class="p-inputtextarea p-inputtext p-component w-full"
+                        class="p-inputtextarea p-inputtext p-component p-filled w-full"
                         id="input.text"
                         name="input.text"
-                      />
+                      >
+                        text
+                      </textarea>
                     </div>
                   </div>
                   <div
@@ -597,7 +599,7 @@ exports[`<Form /> render equals snapshot 2`] = `
                       class="col-12 md:col-8"
                     >
                       <input
-                        class="p-inputtext p-component p-inputmask w-full"
+                        class="p-inputtext p-component p-filled p-inputmask w-full"
                         id="input.mask"
                         name="input.mask"
                         type="text"
@@ -617,22 +619,27 @@ exports[`<Form /> render equals snapshot 2`] = `
                       class="col-12 md:col-8"
                     >
                       <div
-                        class="p-checkbox p-component w-full"
+                        class="p-checkbox p-component p-checkbox-checked w-full"
                         id="input.boolean"
                       >
                         <div
                           class="p-hidden-accessible"
                         >
                           <input
+                            checked=""
                             name="input.boolean"
                             type="checkbox"
                           />
                         </div>
                         <div
-                          aria-checked="false"
-                          class="p-checkbox-box"
+                          aria-checked="true"
+                          class="p-checkbox-box p-highlight"
                           role="checkbox"
-                        />
+                        >
+                          <span
+                            class="p-checkbox-icon p-c pi pi-check"
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -649,12 +656,12 @@ exports[`<Form /> render equals snapshot 2`] = `
                       class="col-12 md:col-8"
                     >
                       <span
-                        class="p-calendar p-component p-inputwrapper w-full p-calendar-w-btn p-calendar-w-btn-right"
+                        class="p-calendar p-component p-inputwrapper w-full p-calendar-w-btn p-calendar-w-btn-right p-inputwrapper-filled"
                         id="input.date"
                       >
                         <input
                           autocomplete="off"
-                          class="p-inputtext p-component"
+                          class="p-inputtext p-component p-filled"
                           id="input.date"
                           inputmode="none"
                           name="input.date"
@@ -690,12 +697,12 @@ exports[`<Form /> render equals snapshot 2`] = `
                       class="col-12 md:col-8"
                     >
                       <span
-                        class="p-calendar p-component p-inputwrapper w-full p-calendar-w-btn p-calendar-w-btn-right p-calendar-timeonly"
+                        class="p-calendar p-component p-inputwrapper w-full p-calendar-w-btn p-calendar-w-btn-right p-calendar-timeonly p-inputwrapper-filled"
                         id="input.time"
                       >
                         <input
                           autocomplete="off"
-                          class="p-inputtext p-component"
+                          class="p-inputtext p-component p-filled"
                           id="input.time"
                           inputmode="none"
                           name="input.time"
@@ -731,12 +738,12 @@ exports[`<Form /> render equals snapshot 2`] = `
                       class="col-12 md:col-8"
                     >
                       <span
-                        class="p-calendar p-component p-inputwrapper w-full p-calendar-w-btn p-calendar-w-btn-right"
+                        class="p-calendar p-component p-inputwrapper w-full p-calendar-w-btn p-calendar-w-btn-right p-inputwrapper-filled"
                         id="input.datetime"
                       >
                         <input
                           autocomplete="off"
-                          class="p-inputtext p-component"
+                          class="p-inputtext p-component p-filled"
                           id="input.datetime"
                           inputmode="none"
                           name="input.datetime"
@@ -776,7 +783,8 @@ exports[`<Form /> render equals snapshot 2`] = `
                         id="input.number"
                       >
                         <input
-                          class="p-inputtext p-component p-inputnumber-input"
+                          aria-valuenow="1234567890"
+                          class="p-inputtext p-component p-filled p-inputnumber-input"
                           id="input.number"
                           inputmode="numeric"
                           name="input.number"
@@ -804,7 +812,8 @@ exports[`<Form /> render equals snapshot 2`] = `
                         id="input.currency"
                       >
                         <input
-                          class="p-inputtext p-component p-inputnumber-input"
+                          aria-valuenow="123456789"
+                          class="p-inputtext p-component p-filled p-inputnumber-input"
                           id="input.currency"
                           inputmode="decimal"
                           name="input.currency"
@@ -832,7 +841,8 @@ exports[`<Form /> render equals snapshot 2`] = `
                         id="input.integer"
                       >
                         <input
-                          class="p-inputtext p-component p-inputnumber-input w-full"
+                          aria-valuenow="1234567890"
+                          class="p-inputtext p-component p-filled p-inputnumber-input w-full"
                           id="input.integer"
                           inputmode="numeric"
                           name="input.integer"
@@ -929,7 +939,7 @@ exports[`<Form /> render equals snapshot 2`] = `
                       class="col-12 md:col-8"
                     >
                       <div
-                        class="p-dropdown p-component p-inputwrapper w-full"
+                        class="p-dropdown p-component p-inputwrapper w-full p-inputwrapper-filled"
                         id="input.dropdown"
                       >
                         <div
@@ -952,16 +962,20 @@ exports[`<Form /> render equals snapshot 2`] = `
                             <option
                               value=""
                             />
+                            <option
+                              value="1"
+                            >
+                              EUR
+                            </option>
                           </select>
                         </div>
                         <span
-                          class="w-full inline-flex"
-                          data-testid="input.dropdown"
+                          class="p-dropdown-label p-inputtext"
                         >
                           <span
-                            class="p-dropdown-label p-inputtext p-dropdown-label-empty"
+                            data-testid="input.dropdown"
                           >
-                            empty
+                            EUR
                           </span>
                         </span>
                         <div
@@ -990,7 +1004,7 @@ exports[`<Form /> render equals snapshot 2`] = `
                       class="col-12 md:col-8"
                     >
                       <div
-                        class="p-treeselect p-component p-inputwrapper w-full"
+                        class="p-treeselect p-component p-inputwrapper p-inputwrapper-filled w-full"
                         id="input.dropdownTree"
                       >
                         <div
@@ -1013,9 +1027,9 @@ exports[`<Form /> render equals snapshot 2`] = `
                             class="p-treeselect-label-container"
                           >
                             <div
-                              class="p-treeselect-label p-placeholder p-treeselect-label-empty"
+                              class="p-treeselect-label"
                             >
-                              empty
+                              Asia
                             </div>
                           </div>
                         </span>
@@ -1045,7 +1059,7 @@ exports[`<Form /> render equals snapshot 2`] = `
                       class="col-12 md:col-8"
                     >
                       <div
-                        class="p-multiselect p-component p-inputwrapper p-multiselect-chip w-full"
+                        class="p-multiselect p-component p-inputwrapper p-multiselect-chip p-inputwrapper-filled w-full"
                         id="input.multiSelect"
                       >
                         <div
@@ -1069,9 +1083,20 @@ exports[`<Form /> render equals snapshot 2`] = `
                             class="p-multiselect-label-container"
                           >
                             <div
-                              class="p-multiselect-label p-multiselect-label-empty"
+                              class="p-multiselect-label"
                             >
-                              empty
+                              <div
+                                class="p-multiselect-token"
+                              >
+                                <span
+                                  class="p-multiselect-token-label"
+                                >
+                                  Rome
+                                </span>
+                                <span
+                                  class="p-multiselect-token-icon pi pi-times-circle"
+                                />
+                              </div>
                             </div>
                           </div>
                         </span>
@@ -1098,7 +1123,7 @@ exports[`<Form /> render equals snapshot 2`] = `
                       class="col-12 md:col-8"
                     >
                       <div
-                        class="p-treeselect p-component p-inputwrapper p-treeselect-chip w-full"
+                        class="p-treeselect p-component p-inputwrapper p-treeselect-chip p-inputwrapper-filled w-full"
                         id="input.multiSelectTree"
                       >
                         <div
@@ -1120,9 +1145,17 @@ exports[`<Form /> render equals snapshot 2`] = `
                             class="p-treeselect-label-container"
                           >
                             <div
-                              class="p-treeselect-label p-placeholder p-treeselect-label-empty"
+                              class="p-treeselect-label"
                             >
-                              empty
+                              <div
+                                class="p-treeselect-token"
+                              >
+                                <span
+                                  class="p-treeselect-token-label"
+                                >
+                                  Earth
+                                </span>
+                              </div>
                             </div>
                           </div>
                         </span>
@@ -1162,8 +1195,8 @@ exports[`<Form /> render equals snapshot 2`] = `
                         >
                           <div
                             aria-label="One"
-                            aria-pressed="false"
-                            class="p-button p-component"
+                            aria-pressed="true"
+                            class="p-button p-component p-highlight"
                             role="button"
                             tabindex="0"
                           >
@@ -1293,8 +1326,9 @@ exports[`<Form /> render equals snapshot 2`] = `
                                         class="p-checkbox p-component"
                                       >
                                         <div
-                                          class="p-checkbox-box p-component p-disabled"
+                                          class="p-checkbox-box p-component"
                                           role="checkbox"
+                                          tabindex="0"
                                         >
                                           <span
                                             class="p-checkbox-icon"
@@ -1358,14 +1392,100 @@ exports[`<Form /> render equals snapshot 2`] = `
                                 class="p-datatable-tbody"
                               >
                                 <tr
-                                  class="p-datatable-emptymessage"
+                                  class=""
+                                  draggable="false"
                                   role="row"
                                 >
                                   <td
-                                    colspan="4"
+                                    class="p-selection-column"
                                     role="cell"
                                   >
-                                    No available options
+                                    <span
+                                      class="p-column-title"
+                                    />
+                                    <div
+                                      class="p-checkbox p-component"
+                                    >
+                                      <div
+                                        aria-checked="false"
+                                        class="p-checkbox-box p-component"
+                                        role="checkbox"
+                                        tabindex="0"
+                                      >
+                                        <span
+                                          class="p-checkbox-icon"
+                                        />
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="input.table.nameTitle"
+                                      >
+                                        Name
+                                      </span>
+                                    </span>
+                                    <input
+                                      class="p-inputtext p-component p-filled w-full"
+                                      id="input.table[0].name"
+                                      name="input.table[0].name"
+                                      type="text"
+                                      value="name"
+                                    />
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="input.table.valueTitle"
+                                      >
+                                        Value
+                                      </span>
+                                    </span>
+                                    <input
+                                      class="p-inputtext p-component p-filled w-full"
+                                      id="input.table[0].value"
+                                      name="input.table[0].value"
+                                      type="text"
+                                      value="value"
+                                    />
+                                  </td>
+                                  <td
+                                    class=""
+                                    role="cell"
+                                    style="text-align: center;"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    />
+                                    <button
+                                      class="p-row-editor-save p-link"
+                                      tabindex="0"
+                                      type="button"
+                                    >
+                                      <span
+                                        class="p-row-editor-save-icon pi pi-fw pi-check"
+                                      />
+                                    </button>
+                                    <button
+                                      class="p-row-editor-cancel p-link"
+                                      tabindex="0"
+                                      type="button"
+                                    >
+                                      <span
+                                        class="p-row-editor-cancel-icon pi pi-fw pi-times"
+                                      />
+                                    </button>
                                   </td>
                                 </tr>
                               </tbody>
@@ -1478,7 +1598,7 @@ exports[`<Form /> render equals snapshot 2`] = `
                                 class="p-datatable-tbody"
                               >
                                 <tr
-                                  class="p-selectable-row"
+                                  class="p-highlight p-selectable-row"
                                   role="row"
                                 >
                                   <td
@@ -1489,16 +1609,16 @@ exports[`<Form /> render equals snapshot 2`] = `
                                       class="p-column-title"
                                     />
                                     <div
-                                      class="p-checkbox p-component"
+                                      class="p-checkbox p-component p-checkbox-focused"
                                     >
                                       <div
-                                        aria-checked="false"
-                                        class="p-checkbox-box p-component"
+                                        aria-checked="true"
+                                        class="p-checkbox-box p-component p-highlight p-focus"
                                         role="checkbox"
                                         tabindex="0"
                                       >
                                         <span
-                                          class="p-checkbox-icon"
+                                          class="p-checkbox-icon pi pi-check"
                                         />
                                       </div>
                                     </div>
@@ -1609,7 +1729,7 @@ exports[`<Form /> render equals snapshot 2`] = `
                         data-testid="input.multiSelectPanel"
                       >
                         <div
-                          class="p-multiselect p-component p-inputwrapper p-inputwrapper-focus MultiSelectPanel-root-3 MultiSelectPanel-root-4 w-full"
+                          class="p-multiselect p-component p-inputwrapper p-inputwrapper-filled p-inputwrapper-focus MultiSelectPanel-root-3 MultiSelectPanel-root-4 w-full"
                           id="input.multiSelectPanel"
                         >
                           <div
@@ -1629,9 +1749,9 @@ exports[`<Form /> render equals snapshot 2`] = `
                             class="p-multiselect-label-container"
                           >
                             <div
-                              class="p-multiselect-label p-multiselect-label-empty"
+                              class="p-multiselect-label p-multiselect-items-label"
                             >
-                              empty
+                              One
                             </div>
                           </div>
                           <div
@@ -1682,8 +1802,8 @@ exports[`<Form /> render equals snapshot 2`] = `
                                 role="listbox"
                               >
                                 <li
-                                  aria-selected="false"
-                                  class="p-multiselect-item"
+                                  aria-selected="true"
+                                  class="p-multiselect-item p-highlight"
                                   role="option"
                                   tabindex="0"
                                 >
@@ -1691,10 +1811,10 @@ exports[`<Form /> render equals snapshot 2`] = `
                                     class="p-checkbox p-component"
                                   >
                                     <div
-                                      class="p-checkbox-box"
+                                      class="p-checkbox-box p-highlight"
                                     >
                                       <span
-                                        class="p-checkbox-icon p-c"
+                                        class="p-checkbox-icon p-c pi pi-check"
                                       />
                                     </div>
                                   </div>
@@ -1810,7 +1930,7 @@ exports[`<Form /> render equals snapshot 2`] = `
                                       />
                                     </button>
                                     <div
-                                      aria-checked="false"
+                                      aria-checked="true"
                                       class="p-checkbox p-treetable-checkbox p-component"
                                       role="checkbox"
                                     >
@@ -1822,10 +1942,10 @@ exports[`<Form /> render equals snapshot 2`] = `
                                         />
                                       </div>
                                       <div
-                                        class="p-checkbox-box"
+                                        class="p-checkbox-box p-highlight"
                                       >
                                         <span
-                                          class="p-checkbox-icon p-c"
+                                          class="p-checkbox-icon p-c pi pi-check"
                                         />
                                       </div>
                                     </div>
@@ -1850,7 +1970,6 @@ exports[`<Form /> render equals snapshot 2`] = `
                                       />
                                     </button>
                                     <div
-                                      aria-checked="false"
                                       class="p-checkbox p-treetable-checkbox p-component"
                                       role="checkbox"
                                     >
@@ -1890,7 +2009,6 @@ exports[`<Form /> render equals snapshot 2`] = `
                                       />
                                     </button>
                                     <div
-                                      aria-checked="false"
                                       class="p-checkbox p-treetable-checkbox p-component"
                                       role="checkbox"
                                     >

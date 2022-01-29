@@ -2,6 +2,10 @@ import React from 'react';
 
 import { render } from '../test';
 import { Basic, Input } from './Form.stories';
+import { config } from 'react-transition-group';
+
+config.disabled = true;
+window.HTMLElement.prototype.scrollIntoView = function() {};
 
 describe('<Form />', () => {
     it('render equals snapshot', async() => {
@@ -9,7 +13,8 @@ describe('<Form />', () => {
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
     it('render equals snapshot', async() => {
-        const { findByTestId } = render(<Input />);
-        expect(await findByTestId('ut-front-test')).toMatchSnapshot();
+        const { getByTestId, container } = render(<Input />);
+        await Input.play({canvasElement: container});
+        expect(getByTestId('ut-front-test')).toMatchSnapshot();
     });
 });

@@ -57,7 +57,7 @@ Input.play = async({canvasElement}) => {
     type('textbox', 'input.mask', '192168000001');
     type('textbox', 'input.date', '01/31/2022');
     type('textbox', 'input.time', '20:00');
-    type('generic', 'input.boolean', '');
+    type('generic', 'input.boolean', '{shift}');
     type('textbox', 'input.datetime', '01/31/2022 20:00');
     type('spinbutton', 'input.currency', '1234567.89');
     type('spinbutton', 'input.number', '12345.67890');
