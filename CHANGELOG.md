@@ -1,3 +1,12 @@
+## [1.56.8](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.56.7...v1.56.8) (2022-01-31)
+
+
+### Bug Fixes
+
+* testability ([464edc4](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/464edc41b2cdb374796717625f1055a88d851622))
+
+
+
 ## [1.56.7](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.56.6...v1.56.7) (2022-01-29)
 
 
