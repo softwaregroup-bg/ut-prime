@@ -1,7 +1,136 @@
 import type {
     Schema,
-    Cards
+    Cards,
+    Properties
 } from '../types';
+
+const properties: Properties = {
+    input: {
+        filter: true
+    },
+    dropdownTree: {
+        widget: {
+            type: 'dropdownTree',
+            dropdown: 'dropdownTree'
+        }
+    },
+    text: {
+        widget: {
+            type: 'text'
+        }
+    },
+    mask: {
+        widget: {
+            type: 'mask',
+            mask: '***.***.***.***'
+        }
+    },
+    currency: {
+        widget: {
+            type: 'currency',
+            currency: 'USD'
+        }
+    },
+    boolean: {
+        filter: true,
+        widget: {
+            type: 'boolean'
+        }
+    },
+    table: {
+        items: {
+            properties: {
+                name: {},
+                value: {}
+            }
+        },
+        widget: {
+            type: 'table',
+            widgets: ['name', 'value']
+        }
+    },
+    dropdown: {
+        filter: true,
+        widget: {
+            type: 'dropdown',
+            dropdown: 'dropdown'
+        }
+    },
+    multiSelect: {
+        widget: {
+            type: 'multiSelect',
+            dropdown: 'multiSelect'
+        }
+    },
+    select: {
+        widget: {
+            type: 'select',
+            dropdown: 'select'
+        }
+    },
+    multiSelectTree: {
+        widget: {
+            type: 'multiSelectTree',
+            dropdown: 'multiSelectTree'
+        }
+    },
+    multiSelectPanel: {
+        widget: {
+            type: 'multiSelectPanel',
+            dropdown: 'select'
+        }
+    },
+    selectTable: {
+        widget: {
+            type: 'selectTable',
+            dropdown: 'select'
+        }
+    },
+    multiSelectTreeTable: {
+        widget: {
+            type: 'multiSelectTreeTable',
+            dropdown: 'multiSelectTreeTable'
+        }
+    },
+    date: {
+        widget: {
+            type: 'date',
+            showOnFocus: false
+        }
+    },
+    time: {
+        widget: {
+            type: 'time',
+            showOnFocus: false
+        }
+    },
+    datetime: {
+        widget: {
+            type: 'date-time',
+            showOnFocus: false
+        }
+    },
+    number: {
+        widget: {
+            type: 'number'
+        }
+    },
+    integer: {
+        widget: {
+            type: 'integer'
+        }
+    },
+    image: {
+        widget: {
+            type: 'image'
+        }
+    },
+    password: {
+        widget: {
+            type: 'password'
+        }
+    }
+};
 
 export const input: {
     schema: Schema,
@@ -10,130 +139,16 @@ export const input: {
     schema: {
         properties: {
             input: {
-                required: ['treeName'],
-                properties: {
-                    input: {
-                    },
-                    dropdownTree: {
-                        widget: {
-                            type: 'dropdownTree',
-                            dropdown: 'dropdownTree'
-                        }
-                    },
-                    text: {
-                        widget: {
-                            type: 'text'
-                        }
-                    },
-                    mask: {
-                        widget: {
-                            type: 'mask',
-                            mask: '***.***.***.***'
-                        }
-                    },
-                    currency: {
-                        widget: {
-                            type: 'currency',
-                            currency: 'USD'
-                        }
-                    },
-                    boolean: {
-                        widget: {
-                            type: 'boolean'
-                        }
-                    },
-                    table: {
-                        items: {
-                            properties: {
-                                name: {},
-                                value: {}
-                            }
-                        },
-                        widget: {
-                            type: 'table',
-                            widgets: ['name', 'value']
-                        }
-                    },
-                    dropdown: {
-                        widget: {
-                            type: 'dropdown',
-                            dropdown: 'dropdown'
-                        }
-                    },
-                    multiSelect: {
-                        widget: {
-                            type: 'multiSelect',
-                            dropdown: 'multiSelect'
-                        }
-                    },
-                    select: {
-                        widget: {
-                            type: 'select',
-                            dropdown: 'select'
-                        }
-                    },
-                    multiSelectTree: {
-                        widget: {
-                            type: 'multiSelectTree',
-                            dropdown: 'multiSelectTree'
-                        }
-                    },
-                    multiSelectPanel: {
-                        widget: {
-                            type: 'multiSelectPanel',
-                            dropdown: 'select'
-                        }
-                    },
-                    selectTable: {
-                        widget: {
-                            type: 'selectTable',
-                            dropdown: 'select'
-                        }
-                    },
-                    multiSelectTreeTable: {
-                        widget: {
-                            type: 'multiSelectTreeTable',
-                            dropdown: 'multiSelectTreeTable'
-                        }
-                    },
-                    date: {
-                        widget: {
-                            type: 'date',
-                            showOnFocus: false
-                        }
-                    },
-                    time: {
-                        widget: {
-                            type: 'time',
-                            showOnFocus: false
-                        }
-                    },
-                    datetime: {
-                        widget: {
-                            type: 'date-time',
-                            showOnFocus: false
-                        }
-                    },
-                    number: {
-                        widget: {
-                            type: 'number'
-                        }
-                    },
-                    integer: {
-                        widget: {
-                            type: 'integer'
-                        }
-                    },
-                    image: {
-                        widget: {
-                            type: 'image'
-                        }
-                    },
-                    password: {
-                        widget: {
-                            type: 'password'
-                        }
-                    }
+                properties
+            },
+            table: {
+                type: 'array',
+                widget: {
+                    type: 'table'
+                },
+                title: '',
+                items: {
+                    properties
                 }
             }
         }
@@ -164,6 +179,46 @@ export const input: {
                 'input.image',
                 'input.password'
             ]
+        },
+        table: {
+            className: 'xl:col-12',
+            widgets: [{
+                name: 'table',
+                id: 'table1',
+                widgets: [
+                    'input',
+                    'password',
+                    'text',
+                    'mask',
+                    'boolean',
+                    'date',
+                    'time',
+                    'datetime',
+                    'number',
+                    'currency',
+                    'integer'
+                ]
+            }, {
+                name: 'table',
+                id: 'table2',
+                widgets: [
+                    'image',
+                    'dropdown',
+                    'dropdownTree',
+                    'multiSelect',
+                    'multiSelectTree',
+                    'select',
+                    'table'
+                ]
+            }, {
+                name: 'table',
+                id: 'table3',
+                widgets: [
+                    'input.selectTable',
+                    'input.multiSelectPanel',
+                    'input.multiSelectTreeTable'
+                ]
+            }]
         },
         left: {
             className: 'xl:col-4',

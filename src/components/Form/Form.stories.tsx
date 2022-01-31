@@ -57,7 +57,7 @@ Input.play = async({canvasElement}) => {
     type('textbox', 'input.mask', '192168000001');
     type('textbox', 'input.date', '01/31/2022');
     type('textbox', 'input.time', '20:00');
-    type('generic', 'input.boolean', '{shift}');
+    click('input.boolean');
     type('textbox', 'input.datetime', '01/31/2022 20:00');
     type('spinbutton', 'input.currency', '1234567.89');
     type('spinbutton', 'input.number', '12345.67890');
@@ -80,4 +80,22 @@ Input.play = async({canvasElement}) => {
     clickWithin('input.selectTable', 'One', 'cell');
     clickWithin('input.multiSelectPanel', 'One', 'option');
     within(within(canvas.getByTestId('input.multiSelectTreeTable')).getByRole('row', {name: 'One'})).getAllByRole('checkbox')[0].click();
+};
+
+export const Table = () =>
+    <div className='flex' style={{overflowX: 'hidden', width: '100%'}}>
+        <Form
+            {...input}
+            layout={['table']}
+            dropdowns={dropdowns}
+            value={{table: [{}]}}
+            onSubmit={() => {}}
+        />
+    </div>;
+
+Table.play = async({canvasElement}) => {
+    const canvas = within(canvasElement);
+    within(canvas.getByTestId('table1')).getByRole('button', {name: ''}).click();
+    within(canvas.getByTestId('table2')).getByRole('button', {name: ''}).click();
+    within(canvas.getByTestId('table3')).getByRole('button', {name: ''}).click();
 };
