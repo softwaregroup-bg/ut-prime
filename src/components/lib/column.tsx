@@ -1,5 +1,5 @@
 import React from 'react';
-import { Checkbox, DropdownTest, SelectButton, Calendar, InputMask, InputText, InputTextarea, InputNumber } from '../prime';
+import { CheckboxTest, DropdownTest, SelectButton, Calendar, InputMask, InputText, InputTextarea, InputNumber } from '../prime';
 import { Property } from '../types';
 import titleCase from './titleCase';
 import getType from './getType';
@@ -62,10 +62,11 @@ export default function columnProps({
             bodyClassName = 'text-right';
             break;
         case 'boolean':
-            filterElement = filterBy && <Checkbox
+            filterElement = filterBy && <CheckboxTest
                 checked={tableFilter?.filters?.[fieldName]?.value}
                 onChange={filterBy(fieldName, 'checked')}
                 {...props}
+                id={filterId}
                 name={filterId}
             />;
             body = function body(rowData) {
@@ -125,10 +126,10 @@ export default function columnProps({
             const inputId = `${resultSet}[${p.rowData[KEY]}].${fieldName}`;
             switch (widget?.type || type || property?.format || getType(property?.type)) {
                 case 'boolean':
-                    return <Checkbox
+                    return <CheckboxTest
                         checked={p.rowData[fieldName]}
                         onChange={event => p.editorCallback(event.checked)}
-                        inputId={inputId}
+                        id={inputId}
                         {...props}
                         name={inputId}
                     />;
@@ -211,7 +212,7 @@ export default function columnProps({
                 case 'mask':
                     return <InputMask
                         className='w-full'
-                        value={p.rowData[fieldName]}
+                        value={p.rowData[fieldName] ?? ''}
                         onChange={event => p.editorCallback(event.value)}
                         id={inputId}
                         {...props}
@@ -221,7 +222,7 @@ export default function columnProps({
                     return <InputTextarea
                         className='w-full'
                         autoFocus={true}
-                        value={p.rowData[fieldName]}
+                        value={p.rowData[fieldName] ?? ''}
                         onChange={event => p.editorCallback(event.target.value)}
                         id={inputId}
                         {...props}
@@ -231,7 +232,7 @@ export default function columnProps({
                     return <InputText
                         type='text'
                         autoFocus={true}
-                        value={p.rowData[fieldName]}
+                        value={p.rowData[fieldName] ?? ''}
                         onChange={event => p.editorCallback(event.target.value)}
                         disabled={property?.readOnly}
                         className='w-full'

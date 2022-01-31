@@ -41,7 +41,8 @@ const masterFilter = (master, filter) => master && Object.fromEntries(
 const noRows = Object.freeze([]);
 
 export default React.forwardRef<{}, any>(({
-    name: resultSet,
+    name,
+    id: resultSet = name,
     onChange,
     getValues,
     counter,
@@ -215,6 +216,7 @@ export default React.forwardRef<{}, any>(({
                 selection={selected}
                 onSelectionChange={handleSelected}
                 dataKey={KEY}
+                id={resultSet}
                 {...props}
                 value={rows}
                 onRowEditComplete={complete}

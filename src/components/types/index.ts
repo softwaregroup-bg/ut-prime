@@ -103,6 +103,7 @@ export interface Card {
     label?: string;
     widgets: (string | {
         name: string,
+        id?: string,
         propertyName?: string,
         actions?: {},
         widgets?: any[],

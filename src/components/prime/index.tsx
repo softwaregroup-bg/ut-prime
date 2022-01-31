@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dropdown, MultiSelect, TreeSelect, TreeTable, SelectButton, DataTable } from '../prime';
+import { Dropdown, MultiSelect, TreeSelect, TreeTable, SelectButton, DataTable, Checkbox } from '../prime';
 
 export { AutoComplete } from 'primereact/autocomplete';
 export { Button } from 'primereact/button';
@@ -89,5 +89,13 @@ export class DataTableTest extends DataTable {
     renderContent(...params) {
         // @ts-ignore
         return <span className='w-full' data-testid={this.props.id}>{super.renderContent(...params)}</span>;
+    }
+};
+
+export class CheckboxTest extends Checkbox {
+    render(...params) {
+        // @ts-ignore
+        // eslint-disable-next-line react/jsx-handler-names
+        return <span className='w-full' data-testid={this.props.id} onClick={this.onClick}>{super.render(...params)}</span>;
     }
 };

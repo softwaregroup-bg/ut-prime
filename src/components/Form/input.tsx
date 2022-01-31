@@ -10,7 +10,7 @@ import {
     InputMask,
     InputNumber,
     Calendar,
-    Checkbox,
+    CheckboxTest,
     Image,
     Skeleton,
     SelectButtonTest,
@@ -95,11 +95,12 @@ export default function input(
             />
         </Field>;
         case 'boolean': return <Field {...{label, error, inputClass}}>
-            <Checkbox
+            <CheckboxTest
                 {...field}
                 inputRef={field.ref}
                 onChange={e => field.onChange?.(e.checked)}
                 checked={field.value}
+                id={field.name}
                 {...props}
             />
         </Field>;
@@ -279,6 +280,7 @@ export default function input(
                 onChange={e => field.onChange?.(e.target.value || null)}
                 role='textbox'
                 feedback={false}
+                inputClassName='w-full'
                 inputId={field.name}
                 {...props}
             />

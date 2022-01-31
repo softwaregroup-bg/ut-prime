@@ -226,6 +226,7 @@ const Form: StyledType = ({
         widget.parent = widget.parent || name.match(/^\$\.edit\.[^.]+/)?.[0].replace('.edit.', '.selected.');
         const parent = widget.parent || idx.properties[propertyName]?.widget?.parent;
         const parentWatch = parent && watch(parent);
+        const inputWidget = {id: name, ...idx.properties[propertyName]?.widget, ...widget, parent};
         return (
             <Controller
                 control={control}
@@ -234,7 +235,7 @@ const Form: StyledType = ({
                     label,
                     error,
                     {
-                        className: clsx('w-full', { 'p-invalid': fieldState.error }),
+                        className: clsx({'w-full': !['boolean'].includes(inputWidget.type)}, { 'p-invalid': fieldState.error }),
                         ...field,
                         onChange: (value, {select = false, field: changeField = true, children = true} = {}) => {
                             if (select) {
@@ -268,7 +269,7 @@ const Form: StyledType = ({
                         }
                     },
                     inputClass(idx, classes, propertyName, className),
-                    {id: name, ...idx.properties[propertyName]?.widget, ...widget, parent},
+                    inputWidget,
                     idx.properties[propertyName],
                     dropdowns,
                     parentWatch,
@@ -313,6 +314,7 @@ const Form: StyledType = ({
                         if (typeof widget === 'string') widget = {name: widget};
                         const {
                             name,
+                            id,
                             propertyName = name.replace('$.edit.', '')
                         } = widget;
                         const parent = name.match(/^\$\.edit\.[^.]+/)?.[0].replace('.edit.', '.selected.');
@@ -342,7 +344,7 @@ const Form: StyledType = ({
                         }
                         return property ? <ConfigField
                             className={clsx(fieldClass, flex)}
-                            key={name}
+                            key={id || name}
                             index={ind}
                             card={cardName}
                             move={move}
