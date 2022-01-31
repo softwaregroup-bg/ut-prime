@@ -1,3 +1,12 @@
+## [1.56.9](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.56.8...v1.56.9) (2022-01-31)
+
+
+### Bug Fixes
+
+* editor drag and drop ([5cda20c](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/5cda20c09f5a79b578273bed7e1e988624fcdccb))
+
+
+
 ## [1.56.8](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.56.7...v1.56.8) (2022-01-31)
 
 
