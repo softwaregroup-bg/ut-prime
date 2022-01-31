@@ -65,11 +65,12 @@ export function DragDropField({children, name, index, card, move, label, ...prop
     );
 }
 
-export function DragDropCard({children, card, index1, index2, move, flex, hidden, drop, title, ...props}) {
+export function DragDropCard({children, card, index1, index2, move, flex, hidden, drag, drop, title, ...props}) {
     const [{isDragging}, dragCard] = useDrag(
         () => ({
             type: CARD,
             item: { card, index: [index1, index2], title },
+            canDrag: !drop,
             collect: monitor => ({
                 isDragging: !!monitor.isDragging()
             })
@@ -108,33 +109,30 @@ export function DragDropCard({children, card, index1, index2, move, flex, hidden
             ...isOverCard && {background: '#00ffff80'},
             outline: '1px dashed #00ffff80'
         },
-        ...drop && {opacity: 0.5},
-        ...drop && !canDropCard && {
-            display: 'none'
-        }
+        ...drop && {opacity: 0.5}
     };
     const divProps = {
         ref: dropCard
     };
-    title = (drop && canDropCard) ? '👉 ' + dragTitle : <div ref={dragCard} style={{cursor: 'move'}}>{title}</div>;
-    const dropZone: ReactElement<HTMLDivElement> = canDropField && <div
+    title = (drop && canDropCard) ? '👉 ' + dragTitle : <div ref={dragCard} style={drop ? {} : {cursor: 'move'}}>{title}</div>;
+    const dropZone: ReactElement<HTMLDivElement> = !drop && <div
         ref={dropField}
         className={clsx('field grid', flex)}
         style={{
-            background: isOverField ? '#00ffff80' : 'transparent',
-            outline: '1px dashed #00ffff80'
+            background: isOverField && canDropField ? '#00ffff80' : 'transparent',
+            outline: canDropField ? '1px dashed #00ffff80' : 'none'
         }}
     >
-        <label className='col-12'>👉 {dropLabel}</label>
+        <label className='col-12'>{canDropField ? '👉' : ''}&nbsp;{canDropField ? dropLabel : ''}</label>
     </div>;
 
     return (
-        <div {...divProps}>
-            <Card title={title} {...props}>
+        <div {...divProps}>{
+            (drop || drag) ? <Card title={title} {...props}/> : <Card title={title} {...props}>
                 {children}
                 {dropZone}
             </Card>
-        </div>
+        }</div>
     );
 }
 
@@ -148,10 +146,10 @@ export function ConfigField({design, children = null, name, index, card = '', la
     );
 }
 
-export function ConfigCard({children = null, card, index1, index2, move = undefined, flex = '', design, hidden = false, drop = false, title, ...props}) {
+export function ConfigCard({children = null, card, index1, index2, move = undefined, flex = '', design, hidden = false, drag = false, drop = false, title, ...props}) {
     if (drop && !design) return null;
     return (
-        design ? <DragDropCard {...{card, index1, index2, move, flex, hidden, drop, title, ...props}}>
+        design ? <DragDropCard {...{card, index1, index2, move, flex, hidden, drag, drop, title, ...props}}>
             {children}
         </DragDropCard> : <div>
             <Card title={title} {...props}>

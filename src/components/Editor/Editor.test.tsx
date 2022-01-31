@@ -17,7 +17,7 @@ describe('<Editor />', () => {
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
     it('Tabs render equals snapshot', async() => {
-        const { findByTestId } = render(<Tabs {...Design.args} />);
+        const { findByTestId } = render(<Tabs {...Tabs.args} />);
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
 });

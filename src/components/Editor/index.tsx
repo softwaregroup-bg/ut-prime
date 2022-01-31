@@ -234,6 +234,7 @@ const Editor: StyledType = ({
                                 index1={false}
                                 index2={false}
                                 design
+                                drag
                             />)}
                         </Card>
                     </div>}

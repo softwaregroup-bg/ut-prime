@@ -827,6 +827,18 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                       </div>
                     </div>
                   </div>
+                  <div
+                    class="field grid"
+                    style="background: transparent; outline: none;"
+                  >
+                    <label
+                      class="col-12"
+                    >
+                      
+                       
+                      
+                    </label>
+                  </div>
                 </div>
               </div>
             </div>
@@ -834,7 +846,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
           <div>
             <div
               class="p-card p-component card mb-3"
-              style="opacity: 0.5; display: none;"
+              style="opacity: 0.5;"
             >
               <div
                 class="p-card-body"
@@ -844,14 +856,10 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                 >
                   <div
                     draggable="true"
-                    style="cursor: move;"
                   >
-                    [ add row ]
+                    [ add card ]
                   </div>
                 </div>
-                <div
-                  class="p-card-content"
-                />
               </div>
             </div>
           </div>
@@ -884,6 +892,18 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                   <div
                     class=""
                   />
+                  <div
+                    class="field grid"
+                    style="background: transparent; outline: none;"
+                  >
+                    <label
+                      class="col-12"
+                    >
+                      
+                       
+                      
+                    </label>
+                  </div>
                 </div>
               </div>
             </div>
@@ -994,6 +1014,18 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                       </div>
                     </div>
                   </div>
+                  <div
+                    class="field grid"
+                    style="background: transparent; outline: none;"
+                  >
+                    <label
+                      class="col-12"
+                    >
+                      
+                       
+                      
+                    </label>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1001,7 +1033,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
           <div>
             <div
               class="p-card p-component card mb-3"
-              style="opacity: 0.5; display: none;"
+              style="opacity: 0.5;"
             >
               <div
                 class="p-card-body"
@@ -1011,14 +1043,10 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                 >
                   <div
                     draggable="true"
-                    style="cursor: move;"
                   >
-                    [ add row ]
+                    [ add card ]
                   </div>
                 </div>
-                <div
-                  class="p-card-content"
-                />
               </div>
             </div>
           </div>
@@ -1051,6 +1079,18 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                   <div
                     class=""
                   />
+                  <div
+                    class="field grid"
+                    style="background: transparent; outline: none;"
+                  >
+                    <label
+                      class="col-12"
+                    >
+                      
+                       
+                      
+                    </label>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1058,7 +1098,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
           <div>
             <div
               class="p-card p-component card mb-3"
-              style="opacity: 0.5; display: none;"
+              style="opacity: 0.5;"
             >
               <div
                 class="p-card-body"
@@ -1068,14 +1108,10 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                 >
                   <div
                     draggable="true"
-                    style="cursor: move;"
                   >
-                    [ add row ]
+                    [ add card ]
                   </div>
                 </div>
-                <div
-                  class="p-card-content"
-                />
               </div>
             </div>
           </div>
@@ -1353,6 +1389,18 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                       </div>
                     </div>
                   </div>
+                  <div
+                    class="field grid"
+                    style="background: transparent; outline: none;"
+                  >
+                    <label
+                      class="col-12"
+                    >
+                      
+                       
+                      
+                    </label>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1360,7 +1408,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
           <div>
             <div
               class="p-card p-component card mb-3"
-              style="opacity: 0.5; display: none;"
+              style="opacity: 0.5;"
             >
               <div
                 class="p-card-body"
@@ -1370,14 +1418,10 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                 >
                   <div
                     draggable="true"
-                    style="cursor: move;"
                   >
-                    [ add row ]
+                    [ add card ]
                   </div>
                 </div>
-                <div
-                  class="p-card-content"
-                />
               </div>
             </div>
           </div>
@@ -1389,7 +1433,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
           <div>
             <div
               class="p-card p-component card mb-3"
-              style="opacity: 0.5; display: none;"
+              style="opacity: 0.5;"
             >
               <div
                 class="p-card-body"
@@ -1399,14 +1443,10 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                 >
                   <div
                     draggable="true"
-                    style="cursor: move;"
                   >
-                    [ add column ]
+                    [ add card ]
                   </div>
                 </div>
-                <div
-                  class="p-card-content"
-                />
               </div>
             </div>
           </div>
@@ -1487,9 +1527,6 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                         Tree
                       </div>
                     </div>
-                    <div
-                      class="p-card-content"
-                    />
                   </div>
                 </div>
               </div>
@@ -1510,9 +1547,6 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                         Reproduction
                       </div>
                     </div>
-                    <div
-                      class="p-card-content"
-                    />
                   </div>
                 </div>
               </div>
@@ -1533,9 +1567,6 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                         Taxonomy
                       </div>
                     </div>
-                    <div
-                      class="p-card-content"
-                    />
                   </div>
                 </div>
               </div>
@@ -1556,9 +1587,6 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                         Morphology
                       </div>
                     </div>
-                    <div
-                      class="p-card-content"
-                    />
                   </div>
                 </div>
               </div>
@@ -1579,9 +1607,6 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                         Links
                       </div>
                     </div>
-                    <div
-                      class="p-card-content"
-                    />
                   </div>
                 </div>
               </div>
@@ -1602,9 +1627,6 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                         Habitat
                       </div>
                     </div>
-                    <div
-                      class="p-card-content"
-                    />
                   </div>
                 </div>
               </div>
@@ -1982,7 +2004,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
     >
       <button
         aria-label="design"
-        class="p-button p-component mr-2 p-button-success p-button-icon-only"
+        class="p-button p-component mr-2 p-button-icon-only"
         data-testid="designButton"
       >
         <span
@@ -1997,8 +2019,83 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="flex overflow-x-hidden w-full"
+    class="flex overflow-x-hidden w-full flex-column"
   >
+    <div
+      class="flex flex-row"
+    >
+      <div
+        class="p-tabmenu p-component"
+      >
+        <ul
+          class="p-tabmenu-nav p-reset"
+          role="tablist"
+        >
+          <li
+            aria-expanded="true"
+            aria-selected="true"
+            class="p-tabmenuitem p-highlight"
+            role="tab"
+          >
+            <a
+              class="p-menuitem-link"
+              href="#"
+              role="presentation"
+            >
+              <span
+                class="p-menuitem-icon pi pi-user"
+              />
+              <span
+                class="p-menuitem-text"
+              >
+                General
+              </span>
+            </a>
+          </li>
+          <li
+            aria-expanded="false"
+            aria-selected="false"
+            class="p-tabmenuitem"
+            role="tab"
+          >
+            <a
+              class="p-menuitem-link"
+              href="#"
+              role="presentation"
+            >
+              <span
+                class="p-menuitem-icon pi pi-book"
+              />
+              <span
+                class="p-menuitem-text"
+              >
+                Details
+              </span>
+            </a>
+          </li>
+          <li
+            aria-expanded="false"
+            aria-selected="false"
+            class="p-tabmenuitem"
+            role="tab"
+          >
+            <a
+              class="p-menuitem-link"
+              href="#"
+              role="presentation"
+            >
+              <span
+                class="p-menuitem-icon pi pi-clock"
+              />
+            </a>
+          </li>
+          <li
+            class="p-tabmenu-ink-bar"
+            style="left: 0px;"
+          />
+        </ul>
+      </div>
+    </div>
     <div
       class="flex flex-grow-1"
     >
@@ -2008,11 +2105,10 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
         <div />
       </div>
       <form
-        class="grid col align-self-start Form-component-18"
+        class="grid col align-self-start Form-component-19"
       >
         <div
           class="col-12 xl:col-6"
-          style="outline: 1px dotted #ffff0030;"
         >
           <div>
             <div
@@ -2025,12 +2121,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                 <div
                   class="p-card-title"
                 >
-                  <div
-                    draggable="true"
-                    style="cursor: move;"
-                  >
-                    Tree
-                  </div>
+                  Tree
                 </div>
                 <div
                   class="p-card-content"
@@ -2041,13 +2132,6 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                     <div
                       class="field grid"
                     >
-                      <label
-                        class="absolute w-15rem col"
-                        draggable="true"
-                        style="cursor: move; margin-left: -1em;"
-                      >
-                        📎
-                      </label>
                       <label
                         class="col-12 md:col-4"
                         for="tree.treeName"
@@ -2069,13 +2153,6 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                       class="field grid"
                     >
                       <label
-                        class="absolute w-15rem col"
-                        draggable="true"
-                        style="cursor: move; margin-left: -1em;"
-                      >
-                        📎
-                      </label>
-                      <label
                         class="col-12 md:col-4"
                         for="tree.treeDescription"
                       >
@@ -2094,13 +2171,6 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                     <div
                       class="field grid"
                     >
-                      <label
-                        class="absolute w-15rem col"
-                        draggable="true"
-                        style="cursor: move; margin-left: -1em;"
-                      >
-                        📎
-                      </label>
                       <label
                         class="col-12 md:col-4"
                         for="tree.treeType"
@@ -2168,258 +2238,9 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
               </div>
             </div>
           </div>
-          <div>
-            <div
-              class="p-card p-component card mb-3"
-              style="opacity: 0.5; display: none;"
-            >
-              <div
-                class="p-card-body"
-              >
-                <div
-                  class="p-card-title"
-                >
-                  <div
-                    draggable="true"
-                    style="cursor: move;"
-                  >
-                    [ add row ]
-                  </div>
-                </div>
-                <div
-                  class="p-card-content"
-                />
-              </div>
-            </div>
-          </div>
         </div>
         <div
           class="col-12 xl:col-6"
-          style="outline: 1px dotted #ffff0030;"
-        >
-          <div>
-            <div
-              class="p-card p-component card mb-3"
-              id="taxonomy"
-            >
-              <div
-                class="p-card-body"
-              >
-                <div
-                  class="p-card-title"
-                >
-                  <div
-                    draggable="true"
-                    style="cursor: move;"
-                  >
-                    Taxonomy
-                  </div>
-                </div>
-                <div
-                  class="p-card-content"
-                >
-                  <div
-                    class=""
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="p-card p-component card mb-3"
-              id="reproduction"
-            >
-              <div
-                class="p-card-body"
-              >
-                <div
-                  class="p-card-title"
-                >
-                  <div
-                    draggable="true"
-                    style="cursor: move;"
-                  >
-                    Reproduction
-                  </div>
-                </div>
-                <div
-                  class="p-card-content"
-                >
-                  <div
-                    class=""
-                  >
-                    <div
-                      class="field grid"
-                    >
-                      <label
-                        class="absolute w-15rem col"
-                        draggable="true"
-                        style="cursor: move; margin-left: -1em;"
-                      >
-                        📎
-                      </label>
-                      <label
-                        class="col-12 md:col-4"
-                        for="tree.seedDescription"
-                      >
-                        Seed
-                      </label>
-                      <div
-                        class="col-12 md:col-8"
-                      >
-                        <input
-                          class="p-inputtext p-component w-full"
-                          id="tree.seedDescription"
-                          name="tree.seedDescription"
-                          value=""
-                        />
-                      </div>
-                    </div>
-                    <div
-                      class="field grid"
-                    >
-                      <label
-                        class="absolute w-15rem col"
-                        draggable="true"
-                        style="cursor: move; margin-left: -1em;"
-                      >
-                        📎
-                      </label>
-                      <label
-                        class="col-12 md:col-4"
-                        for="tree.flowerDescription"
-                      >
-                        Flower
-                      </label>
-                      <div
-                        class="col-12 md:col-8"
-                      >
-                        <input
-                          class="p-inputtext p-component w-full"
-                          id="tree.flowerDescription"
-                          name="tree.flowerDescription"
-                          value=""
-                        />
-                      </div>
-                    </div>
-                    <div
-                      class="field grid"
-                    >
-                      <label
-                        class="absolute w-15rem col"
-                        draggable="true"
-                        style="cursor: move; margin-left: -1em;"
-                      >
-                        📎
-                      </label>
-                      <label
-                        class="col-12 md:col-4"
-                        for="tree.fruitName"
-                      >
-                        Fruit
-                      </label>
-                      <div
-                        class="col-12 md:col-8"
-                      >
-                        <input
-                          class="p-inputtext p-component w-full"
-                          id="tree.fruitName"
-                          name="tree.fruitName"
-                          value=""
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="p-card p-component card mb-3"
-              style="opacity: 0.5; display: none;"
-            >
-              <div
-                class="p-card-body"
-              >
-                <div
-                  class="p-card-title"
-                >
-                  <div
-                    draggable="true"
-                    style="cursor: move;"
-                  >
-                    [ add row ]
-                  </div>
-                </div>
-                <div
-                  class="p-card-content"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="col-12 xl:col-6"
-          style="outline: 1px dotted #ffff0030;"
-        >
-          <div>
-            <div
-              class="p-card p-component card mb-3"
-              id="morphology"
-            >
-              <div
-                class="p-card-body"
-              >
-                <div
-                  class="p-card-title"
-                >
-                  <div
-                    draggable="true"
-                    style="cursor: move;"
-                  >
-                    Morphology
-                  </div>
-                </div>
-                <div
-                  class="p-card-content"
-                >
-                  <div
-                    class=""
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="p-card p-component card mb-3"
-              style="opacity: 0.5; display: none;"
-            >
-              <div
-                class="p-card-body"
-              >
-                <div
-                  class="p-card-title"
-                >
-                  <div
-                    draggable="true"
-                    style="cursor: move;"
-                  >
-                    [ add row ]
-                  </div>
-                </div>
-                <div
-                  class="p-card-content"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="col-12 xl:col-6"
-          style="outline: 1px dotted #ffff0030;"
         >
           <div>
             <div
@@ -2432,12 +2253,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                 <div
                   class="p-card-title"
                 >
-                  <div
-                    draggable="true"
-                    style="cursor: move;"
-                  >
-                    Habitat
-                  </div>
+                  Habitat
                 </div>
                 <div
                   class="p-card-content"
@@ -2448,13 +2264,6 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                     <div
                       class="field grid"
                     >
-                      <label
-                        class="absolute w-15rem col"
-                        draggable="true"
-                        style="cursor: move; margin-left: -1em;"
-                      >
-                        📎
-                      </label>
                       <div
                         class="col-12"
                       >
@@ -2463,7 +2272,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                           data-testid="tree.habitat"
                         >
                           <div
-                            class="p-multiselect p-component p-inputwrapper p-inputwrapper-focus MultiSelectPanel-root-21 MultiSelectPanel-root-22 w-full"
+                            class="p-multiselect p-component p-inputwrapper p-inputwrapper-focus MultiSelectPanel-root-22 MultiSelectPanel-root-23 w-full"
                             id="tree.habitat"
                           >
                             <div
@@ -2694,261 +2503,8 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
               </div>
             </div>
           </div>
-          <div>
-            <div
-              class="p-card p-component card mb-3"
-              style="opacity: 0.5; display: none;"
-            >
-              <div
-                class="p-card-body"
-              >
-                <div
-                  class="p-card-title"
-                >
-                  <div
-                    draggable="true"
-                    style="cursor: move;"
-                  >
-                    [ add row ]
-                  </div>
-                </div>
-                <div
-                  class="p-card-content"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="col-12 xl:col-6"
-          style="outline: 1px dotted #ffff0030;"
-        >
-          <div>
-            <div
-              class="p-card p-component card mb-3"
-              style="opacity: 0.5; display: none;"
-            >
-              <div
-                class="p-card-body"
-              >
-                <div
-                  class="p-card-title"
-                >
-                  <div
-                    draggable="true"
-                    style="cursor: move;"
-                  >
-                    [ add column ]
-                  </div>
-                </div>
-                <div
-                  class="p-card-content"
-                />
-              </div>
-            </div>
-          </div>
         </div>
       </form>
-      <div
-        class="col-2 flex-column"
-      >
-        <div
-          class="p-card p-component mb-2"
-        >
-          <div
-            class="p-card-body"
-          >
-            <div
-              class="p-card-title"
-            >
-              Fields
-            </div>
-            <div
-              class="p-card-content"
-            >
-              <div
-                class="field grid"
-              >
-                <label
-                  class="absolute w-15rem col"
-                >
-                  📎
-                </label>
-                <i
-                  class="pi pi-trash m-3"
-                />
-              </div>
-              <div
-                class="field grid"
-              >
-                <label
-                  class="absolute w-15rem col"
-                  draggable="true"
-                  style="cursor: move; margin-left: -1em;"
-                >
-                  📎
-                </label>
-                tree
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="p-card p-component"
-        >
-          <div
-            class="p-card-body"
-          >
-            <div
-              class="p-card-title"
-            >
-              Cards
-            </div>
-            <div
-              class="p-card-content"
-            >
-              <div>
-                <div
-                  class="p-card p-component card mb-3"
-                >
-                  <div
-                    class="p-card-body"
-                  >
-                    <div
-                      class="p-card-title"
-                    >
-                      <div
-                        draggable="true"
-                        style="cursor: move;"
-                      >
-                        Tree
-                      </div>
-                    </div>
-                    <div
-                      class="p-card-content"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div
-                  class="p-card p-component card mb-3"
-                >
-                  <div
-                    class="p-card-body"
-                  >
-                    <div
-                      class="p-card-title"
-                    >
-                      <div
-                        draggable="true"
-                        style="cursor: move;"
-                      >
-                        Reproduction
-                      </div>
-                    </div>
-                    <div
-                      class="p-card-content"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div
-                  class="p-card p-component card mb-3"
-                >
-                  <div
-                    class="p-card-body"
-                  >
-                    <div
-                      class="p-card-title"
-                    >
-                      <div
-                        draggable="true"
-                        style="cursor: move;"
-                      >
-                        Taxonomy
-                      </div>
-                    </div>
-                    <div
-                      class="p-card-content"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div
-                  class="p-card p-component card mb-3"
-                >
-                  <div
-                    class="p-card-body"
-                  >
-                    <div
-                      class="p-card-title"
-                    >
-                      <div
-                        draggable="true"
-                        style="cursor: move;"
-                      >
-                        Morphology
-                      </div>
-                    </div>
-                    <div
-                      class="p-card-content"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div
-                  class="p-card p-component card mb-3"
-                >
-                  <div
-                    class="p-card-body"
-                  >
-                    <div
-                      class="p-card-title"
-                    >
-                      <div
-                        draggable="true"
-                        style="cursor: move;"
-                      >
-                        Links
-                      </div>
-                    </div>
-                    <div
-                      class="p-card-content"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div
-                  class="p-card p-component card mb-3"
-                >
-                  <div
-                    class="p-card-body"
-                  >
-                    <div
-                      class="p-card-title"
-                    >
-                      <div
-                        draggable="true"
-                        style="cursor: move;"
-                      >
-                        Habitat
-                      </div>
-                    </div>
-                    <div
-                      class="p-card-content"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </div>

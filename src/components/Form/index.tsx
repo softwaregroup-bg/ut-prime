@@ -386,9 +386,10 @@ const Form: StyledType = ({
                     <div key={level1} className={clsx('col-12', firstCard?.className || (!firstCard?.hidden && 'xl:col-6'))} {...design && {style: outline}}>
                         {nestedCards}
                         <ConfigCard
-                            title='[ add row ]'
+                            title='[ add card ]'
                             className='card mb-3'
                             card=''
+                            key={`${level1}-drop`}
                             index1={level1}
                             index2={nested.length}
                             move={move}
@@ -400,9 +401,10 @@ const Form: StyledType = ({
             })}
             {design && <div className='col-12 xl:col-6' style={outline}>
                 <ConfigCard
-                    title='[ add column ]'
+                    title='[ add card ]'
                     className='card mb-3'
                     card=''
+                    key={`${visibleCards.length}-drop`}
                     index1={visibleCards.length}
                     index2={false}
                     move={move}
