@@ -1,5 +1,11 @@
 import React from 'react';
-import { Dropdown, MultiSelect, TreeSelect, TreeTable, SelectButton, DataTable, Checkbox } from '../prime';
+import {Dropdown} from 'primereact/dropdown';
+import {MultiSelect} from 'primereact/multiselect';
+import {TreeSelect} from 'primereact/treeselect';
+import {TreeTable} from 'primereact/treetable';
+import {SelectButton} from 'primereact/selectbutton';
+import {DataTable} from 'primereact/datatable';
+import {Checkbox} from 'primereact/checkbox';
 
 export { AutoComplete } from 'primereact/autocomplete';
 export { Button } from 'primereact/button';
