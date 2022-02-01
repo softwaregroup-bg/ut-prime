@@ -1,3 +1,13 @@
+## [1.56.10](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.56.9...v1.56.10) (2022-02-01)
+
+
+### Bug Fixes
+
+* circular dependecies ([cea0042](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/cea0042bc216db9fce0fc415e8272d0e6098c60b))
+* react-hook-form loses Symbol during setValue ([40eed21](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/40eed2107494a18dad7aa4749cf3459dae158066))
+
+
+
 ## [1.56.9](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.56.8...v1.56.9) (2022-01-31)
 
 
