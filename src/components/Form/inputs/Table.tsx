@@ -125,7 +125,7 @@ export default React.forwardRef<{}, any>(({
     const complete = React.useCallback(({data, newData}) => {
         const changed = [...allRows];
         const originalIndex = data[INDEX];
-        const {[NEW]: ignore, $pivot, [KEY]: key, [INDEX]: index, ...values} = newData;
+        const {[NEW]: ignore, $pivot, [KEY]: key, [CHANGE]: change, [INDEX]: index, ...values} = newData;
         if (originalIndex != null) {
             changed[originalIndex] = values;
             onChange(changed);
