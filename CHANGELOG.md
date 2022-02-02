@@ -1,3 +1,12 @@
+## [1.56.11](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.56.10...v1.56.11) (2022-02-02)
+
+
+### Bug Fixes
+
+* preserve tabs state ([38784c3](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/38784c305c5591b8a757383be16bee8a4fa57c55))
+
+
+
 ## [1.56.10](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.56.9...v1.56.10) (2022-02-01)
 
 
