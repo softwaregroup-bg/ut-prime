@@ -142,7 +142,7 @@ const Portal: StyledType = ({ classes, children }) => {
             </div>
             {(hideTabs)
                 ? (({Component, params}) => <Component {...params}/>)(tabs[tabIndex || 0] || {Component() { return null; }, params: undefined})
-                : <TabView activeIndex={tabIndex} onTabChange={handleTabSelect} className={classes.tabs}>
+                : <TabView activeIndex={tabIndex} onTabChange={handleTabSelect} className={classes.tabs} renderActiveOnly={false}>
                     {tabs.map(({title, path, Component, params}) =>
                         <TabPanel key={path} header={<span data-testid={`portal.tab${path}`}>{title}&nbsp;&nbsp;</span>} rightIcon='pi pi-times'>
                             <ErrorBoundary FallbackComponent={ErrorFallback}>
