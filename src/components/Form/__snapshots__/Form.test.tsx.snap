@@ -1972,13 +1972,17 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                         Password
                                       </span>
                                     </span>
-                                    <input
-                                      class="p-inputtext p-component w-full"
+                                    <div
+                                      class="p-password p-component p-inputwrapper"
                                       id="table1[0].password"
-                                      name="table1[0].password"
-                                      type="text"
-                                      value=""
-                                    />
+                                    >
+                                      <input
+                                        class="p-inputtext p-component p-password-input"
+                                        name="table1[0].password"
+                                        type="password"
+                                        value=""
+                                      />
+                                    </div>
                                   </td>
                                   <td
                                     class="p-editable-column p-cell-editing"
