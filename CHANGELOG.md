@@ -1,3 +1,12 @@
+## [1.57.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.57.0...v1.57.1) (2022-02-03)
+
+
+### Bug Fixes
+
+* password table input ([#8](https://github.com/softwaregroup-bg/ut-front-devextreme/issues/8)) ([c129e01](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/c129e017ecc3a036246d03bf2c247633d6b1abb8))
+
+
+
 # [1.57.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.56.11...v1.57.0) (2022-02-03)
 
 
