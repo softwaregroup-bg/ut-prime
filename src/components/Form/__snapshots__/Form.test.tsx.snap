@@ -2499,6 +2499,24 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                         class="p-column-title"
                                       >
                                         <span
+                                          data-testid="table2.radioTitle"
+                                        >
+                                          Radio
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
                                           data-testid="table2.selectTitle"
                                         >
                                           Select
@@ -2712,6 +2730,42 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                       type="text"
                                       value=""
                                     />
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table2.radioTitle"
+                                      >
+                                        Radio
+                                      </span>
+                                    </span>
+                                    <div
+                                      class="p-radiobutton p-component"
+                                    >
+                                      <div
+                                        class="p-hidden-accessible"
+                                      >
+                                        <input
+                                          id="table2[0].radio"
+                                          name="table2[0].radio"
+                                          type="radio"
+                                        />
+                                      </div>
+                                      <div
+                                        aria-checked="false"
+                                        class="p-radiobutton-box"
+                                        role="radio"
+                                      >
+                                        <div
+                                          class="p-radiobutton-icon"
+                                        />
+                                      </div>
+                                    </div>
                                   </td>
                                   <td
                                     class="p-editable-column p-cell-editing"

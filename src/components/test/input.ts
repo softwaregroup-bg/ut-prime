@@ -129,6 +129,11 @@ const properties: Properties = {
         widget: {
             type: 'password'
         }
+    },
+    radio: {
+        widget: {
+            type: 'radio'
+        }
     }
 };
 
@@ -207,6 +212,7 @@ export const input: {
                     'dropdownTree',
                     'multiSelect',
                     'multiSelectTree',
+                    'radio',
                     'select',
                     'table'
                 ]

@@ -126,6 +126,11 @@ export default React.forwardRef<{}, any>(({
         const changed = [...allRows];
         const originalIndex = data[INDEX];
         const {[NEW]: ignore, $pivot, [KEY]: key, [CHANGE]: change, [INDEX]: index, ...values} = newData;
+        for (const [key, value] of Object.entries(properties)) {
+            // @ts-ignore Property 'widget' does not exist on type 'unknown'
+            if (value?.widget?.type !== 'radio' || !values[key]) continue;
+            for (const id in changed) changed[id][key] && (changed[id][key] = false);
+        }
         if (originalIndex != null) {
             changed[originalIndex] = values;
             onChange(changed);
@@ -133,7 +138,7 @@ export default React.forwardRef<{}, any>(({
             if (identity) values[identity] = -(++counter.current);
             onChange([...changed, values]);
         }
-    }, [allRows, counter, identity, onChange]);
+    }, [allRows, counter, identity, onChange, properties]);
 
     !keepRows && rows.forEach(row => {
         row[CHANGE] = complete;
