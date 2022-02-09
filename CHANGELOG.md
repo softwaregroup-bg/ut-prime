@@ -1,3 +1,12 @@
+# [1.59.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.58.0...v1.59.0) (2022-02-09)
+
+
+### Features
+
+* select table inputs ([#9](https://github.com/softwaregroup-bg/ut-front-devextreme/issues/9)) ([4ce39a9](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/4ce39a900d485b08f20bc645db97b19d3ca096b1))
+
+
+
 # [1.58.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.57.1...v1.58.0) (2022-02-09)
 
 
