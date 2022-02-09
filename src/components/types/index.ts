@@ -11,6 +11,7 @@ export interface PropertyEditor {
         'date' |
         'dropdown' |
         'dropdownTree' |
+        'file' |
         'integer' |
         'number' |
         'image' |

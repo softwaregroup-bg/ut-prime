@@ -15,10 +15,10 @@ exports[`<Portal /> render equals snapshot 1`] = `
         class="flex align-items-center justify-content-center"
       >
         <div
-          class="Portal-headerLogo-3"
+          class="hidden lg:block Portal-headerLogo-3"
         />
         <div
-          class="Portal-headerTitle-2"
+          class="hidden lg:block Portal-headerTitle-2"
         >
           <span>
             Administration Portal

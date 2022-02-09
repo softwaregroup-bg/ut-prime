@@ -21,10 +21,10 @@ exports[`<App /> render equals snapshot 1`] = `
             class="flex align-items-center justify-content-center"
           >
             <div
-              class="Portal-headerLogo-9"
+              class="hidden lg:block Portal-headerLogo-9"
             />
             <div
-              class="Portal-headerTitle-8"
+              class="hidden lg:block Portal-headerTitle-8"
             >
               <span>
                 test

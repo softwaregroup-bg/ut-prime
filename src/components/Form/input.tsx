@@ -14,6 +14,7 @@ import {
     Image,
     Skeleton,
     SelectButtonTest,
+    FileUpload,
     Column
 } from '../prime';
 import { RefCallBack } from 'react-hook-form';
@@ -282,6 +283,17 @@ export default function input(
                 feedback={false}
                 inputClassName='w-full'
                 inputId={field.name}
+                {...props}
+            />
+        </Field>;
+        case 'file': return <Field {...{label, error, inputClass}}>
+            <FileUpload
+                {...field}
+                value={field.value}
+                onSelect={e => {
+                    field.onChange?.(e.files || null);
+                }}
+                mode='basic'
                 {...props}
             />
         </Field>;

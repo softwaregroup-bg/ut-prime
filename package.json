@@ -44,7 +44,7 @@
     "preversion": "ut-preversion",
     "test": "jest",
     "version": "npm run build-storybook && npm run chromatic && ut-version",
-    "review": "npm run build-storybook && npm run chromatic",
+    "review": "npm run build-storybook && npm run chromatic -- --exit-once-uploaded",
     "jenkins": "ut-jenkins",
     "gitlab": "ut-gitlab"
   },

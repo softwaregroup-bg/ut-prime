@@ -132,8 +132,8 @@ const Portal: StyledType = ({ classes, children }) => {
         <div className='flex flex-column' style={style}>
             <div className={classes.headerContainer}>
                 <div className='flex align-items-center justify-content-center'>
-                    <div className={clsx(classes.headerLogo, ut?.classes?.headerLogo)}></div>
-                    <div className={classes.headerTitle}>
+                    <div className={clsx('hidden lg:block', classes.headerLogo, ut?.classes?.headerLogo)}></div>
+                    <div className={clsx('hidden lg:block', classes.headerTitle)}>
                         <Text>{portalName}</Text>
                     </div>
                     <Menubar model={menuEnabled} className={classes[menuClass]} style={backgroundNone}/>
