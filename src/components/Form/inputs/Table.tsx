@@ -39,6 +39,7 @@ const masterFilter = (master, filter) => master && Object.fromEntries(
 );
 
 const noRows = Object.freeze([]);
+const radioColumns = Object.freeze(['radio', 'select-table-radio']);
 
 export default React.forwardRef<{}, any>(({
     name,
@@ -128,8 +129,12 @@ export default React.forwardRef<{}, any>(({
         const {[NEW]: ignore, $pivot, [KEY]: key, [CHANGE]: change, [INDEX]: index, ...values} = newData;
         for (const [key, value] of Object.entries(properties)) {
             // @ts-ignore Property 'widget' does not exist on type 'unknown'
-            if (value?.widget?.type !== 'radio' || !values[key]) continue;
-            for (const id in changed) changed[id][key] && (changed[id][key] = false);
+            if (!radioColumns.includes(value?.widget?.type) || !values[key]) continue;
+            for (let id = 0; id < changed.length; id++) {
+                if (!changed[id][key]) continue;
+                if (id !== originalIndex) changed[id][key] = false;
+                else changed[id][key] = newData[key];
+            }
         }
         if (originalIndex != null) {
             changed[originalIndex] = values;

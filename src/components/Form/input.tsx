@@ -171,11 +171,25 @@ export default function input(
         </Field>;
         case 'selectTable': {
             const all = dropdowns?.[dropdown];
-            const value = all?.filter(filterBy) || [];
+            const paramSet = Boolean(props.widgets?.length);
             const dataKey = props.dataKey || 'value';
+            const value = (all?.filter(filterBy) || []).map(value => {
+                if (!paramSet || !field.value) return value;
+                return {
+                    ...field.value.find(v => v[dataKey] === value[dataKey]) || {},
+                    ...value
+                };
+            });
             const valueKeys = value.map(item => item[dataKey]);
             const single = props.selectionMode === 'single';
-            const hidden = !single && (field.value || []).filter(item => !valueKeys.includes(item));
+            const hidden = !single && (field.value || []).filter(item => paramSet ? !valueKeys.includes(item[dataKey]) : !valueKeys.includes(item));
+            const selection = single
+                ? paramSet
+                    ? value.find(row => row?.[dataKey] === field.value[dataKey])
+                    : value.find(row => row?.[dataKey] === field.value)
+                : paramSet
+                    ? value.filter(row => field.value?.filter(v => v[dataKey] === row?.[dataKey]).length)
+                    : value.filter(row => field.value?.includes(row?.[dataKey]));
             return <>
                 {error}
                 {label}
@@ -185,12 +199,44 @@ export default function input(
                         actions={noActions}
                         dataKey={dataKey}
                         value={value}
-                        selection={single ? value.find(row => row?.[dataKey] === field.value) : value.filter(row => field.value?.includes(row?.[dataKey]))}
-                        onSelectionChange={event =>
+                        properties={schema?.widget?.items?.properties}
+                        selection={selection}
+                        onSelectionChange={event => {
+                            if (!paramSet) {
+                                return field.onChange?.(
+                                    single
+                                        ? event.value[dataKey]
+                                        : [].concat(hidden, event.value?.map(row => row?.[dataKey])),
+                                    {children: false, ...props.change}
+                                );
+                            }
+                            if (!value?.length) {
+                                return field.onChange?.(
+                                    [].concat(
+                                        hidden,
+                                        event.value
+                                    ),
+                                    {children: false, ...props.change}
+                                );
+                            }
+                            for (const key of props.widgets) {
+                                const setWidgetIndex = value.findIndex(e => e[key]);
+                                if (setWidgetIndex > -1 && !event.value.find(e => e[key])) {
+                                    delete value[setWidgetIndex][key];
+                                }
+                            }
+                            return field.onChange?.(
+                                [].concat(
+                                    hidden,
+                                    value?.filter?.(fv => event.value?.findIndex?.(v => fv[dataKey] === v[dataKey]) > -1),
+                                    event.value.filter?.(v => value?.findIndex?.(fv => fv[dataKey] === v[dataKey]) < 0)
+                                ).filter(Boolean),
+                                {children: false, ...props.change}
+                            );
+                        }}
+                        onChange={event =>
                             field.onChange?.(
-                                single
-                                    ? event.value[dataKey]
-                                    : [].concat(hidden, event.value?.map(row => row?.[dataKey])),
+                                event.filter(e => selection.findIndex(s => s[dataKey] === e[dataKey]) > -1),
                                 {children: false, ...props.change}
                             )
                         }

@@ -86,6 +86,20 @@ const properties: Properties = {
             dropdown: 'select'
         }
     },
+    selectTableWithFlags: {
+        widget: {
+            type: 'selectTable',
+            dropdown: 'select',
+            items: {
+                properties: {
+                    flag1: {widget: {type: 'select-table-radio'}},
+                    flag2: {widget: {type: 'select-table-radio'}}
+                }
+            },
+            widgets: ['flag1', 'flag2'],
+            selectionMode: 'checkbox'
+        }
+    },
     multiSelectTreeTable: {
         widget: {
             type: 'multiSelectTreeTable',
@@ -259,7 +273,8 @@ export const input: {
             widgets: [
                 'input.selectTable',
                 'input.multiSelectPanel',
-                'input.multiSelectTreeTable'
+                'input.multiSelectTreeTable',
+                'input.selectTableWithFlags'
             ]
         }
     }
