@@ -53,6 +53,8 @@ export default function columnProps({
     const filterId = `${resultSetDot}${name}Filter`;
     filterElement = filterBy && <InputText
         {...props}
+        value={tableFilter?.filters?.[fieldName]?.value ?? ''}
+        onChange={filterBy(fieldName, 'target.value')}
         name={filterId}
     />;
     switch (type || property?.format || getType(property?.type)) {

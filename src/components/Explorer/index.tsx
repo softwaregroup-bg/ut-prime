@@ -154,7 +154,8 @@ const Explorer: StyledType = ({
             }</div>
         </SplitterPanel>, [classes.details, classes.detailsLabel, classes.detailsValue, current, details, detailsOpened]);
 
-    const filterBy = (name: string, value: string) => e => {
+    const filterBy = (name: string, key: string) => e => {
+        const value = lodashGet(e, key);
         setFilters(prev => {
             const next = {
                 ...prev,
@@ -162,7 +163,7 @@ const Explorer: StyledType = ({
                     ...prev?.filters,
                     [name]: {
                         ...prev?.filters?.[name],
-                        value: e[value]
+                        value: value === '' ? undefined : value
                     }
                 }
             };
