@@ -1,3 +1,12 @@
+## [1.59.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.59.0...v1.59.1) (2022-02-11)
+
+
+### Bug Fixes
+
+* text filters ([844791f](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/844791fd7c9d6d59e2beb6343985b1c17bbe9793))
+
+
+
 # [1.59.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.58.0...v1.59.0) (2022-02-09)
 
 
