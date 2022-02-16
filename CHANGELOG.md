@@ -1,3 +1,12 @@
+# [1.60.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.59.1...v1.60.0) (2022-02-16)
+
+
+### Features
+
+* file input ([10719ab](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/10719ab6c61aaff00683a4f9763c71b67012ed5d))
+
+
+
 ## [1.59.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.59.0...v1.59.1) (2022-02-11)
 
 
