@@ -1,3 +1,12 @@
+## [1.60.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.60.0...v1.60.1) (2022-02-16)
+
+
+### Bug Fixes
+
+* separate form data from submit data ([537dcc4](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/537dcc41ca1e99bcbbaa8a0ba7dbd4fadb5eefa3))
+
+
+
 # [1.60.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.59.1...v1.60.0) (2022-02-16)
 
 
