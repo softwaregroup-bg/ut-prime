@@ -137,14 +137,14 @@ const Editor: StyledType = ({
     }
 
     const handleSubmit = React.useCallback(
-        async function handleSubmit(instance) {
+        async function handleSubmit({form, submit}) {
             if (keyValue != null) {
-                const response = getValue(handleArray(await onEdit(instance), properties));
-                setEditValue(merge(instance, response));
+                const response = getValue(handleArray(await onEdit(submit), properties));
+                setEditValue(merge(form, response));
             } else {
-                const response = getValue(handleArray(await onAdd(instance), properties));
+                const response = getValue(handleArray(await onAdd(submit), properties));
                 setKeyValue(lodashGet(response, `${resultSet}.${keyField}`));
-                setEditValue(merge(instance, response));
+                setEditValue(merge(form, response));
             }
         }, [keyValue, onEdit, getValue, onAdd, keyField, resultSet, properties]
     );

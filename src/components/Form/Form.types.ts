@@ -3,7 +3,7 @@ import React from 'react';
 import type { Schema as Validation } from 'joi';
 
 import {Schema, Editors, Cards, Dropdowns} from '../types';
-export interface Props extends React.HTMLAttributes<HTMLFormElement> {
+export interface Props extends Omit<React.HTMLAttributes<HTMLFormElement>, 'onSubmit'> {
     className?: string;
     schema: Schema;
     editors?: Editors;
@@ -13,7 +13,7 @@ export interface Props extends React.HTMLAttributes<HTMLFormElement> {
     loading?: string;
     validation?: Validation;
     design?: boolean;
-    onSubmit: (form: {}) => void;
+    onSubmit: (data: {form: {}, submit: {}}) => void;
     setTrigger?: (trigger: (event: {}) => void) => void;
     value?: any;
 }

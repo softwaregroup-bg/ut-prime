@@ -46,8 +46,8 @@ const Report: StyledType = ({
     useLoad(async() => {
         setDropdown(await onDropdown(dropdownNames));
     });
-    const [filter, setFilter] = React.useState({});
-    const explorerFilter = React.useMemo(() => ({[resultSet]: filter}), [filter, resultSet]);
+    const [filter, setFilter] = React.useState({form: {}, submit: {}});
+    const explorerFilter = React.useMemo(() => ({[resultSet]: filter.submit}), [filter, resultSet]);
     return (
         <>
             <div className={`flex align-items-center ${classes.report}`}>
@@ -58,7 +58,7 @@ const Report: StyledType = ({
                     cards={cards}
                     layout={paramsLayout}
                     onSubmit={setFilter}
-                    value={filter}
+                    value={filter.form}
                     dropdowns={dropdowns}
                     setTrigger={setTrigger}
                 />

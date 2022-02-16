@@ -169,9 +169,9 @@ const Form: StyledType = ({
                     });
                     formData.append('.', JSON.stringify(value, (key, value) => skip.includes(value) ? undefined : value));
                     files.forEach(([name, file]) => file && formData.append(name, file));
-                    return await onSubmit({formData});
+                    return await onSubmit({form, submit: {formData}});
                 } else {
-                    return await onSubmit(value);
+                    return await onSubmit({form, submit: value});
                 }
             } catch (error) {
                 if (!Array.isArray(error.validation)) throw error;
