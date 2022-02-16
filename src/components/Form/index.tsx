@@ -1,7 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
 import get from 'lodash.get';
-import set from 'lodash.set';
 import clonedeep from 'lodash.clonedeep';
 import { joiResolver } from '@hookform/resolvers/joi';
 import { DevTool } from '@hookform/devtools';
@@ -151,28 +150,7 @@ const Form: StyledType = ({
         async form => {
             try {
                 clearErrors();
-                const {$, ...value} = form;
-                idx.tables.forEach(name => {
-                    const table = get(value, name);
-                    if (Array.isArray(table)) set(value, name, table.filter(Boolean));
-                });
-                if (idx.files.length) {
-                    const formData = new FormData();
-                    const files = [];
-                    const skip = [];
-                    idx.files.forEach(name => {
-                        const file = get(value, name);
-                        if (file != null) {
-                            files.push([name, file[0]]);
-                            skip.push(file);
-                        }
-                    });
-                    formData.append('.', JSON.stringify(value, (key, value) => skip.includes(value) ? undefined : value));
-                    files.forEach(([name, file]) => file && formData.append(name, file));
-                    return await onSubmit({form, submit: {formData}});
-                } else {
-                    return await onSubmit({form, submit: value});
-                }
+                return await onSubmit([form, idx]);
             } catch (error) {
                 if (!Array.isArray(error.validation)) throw error;
                 error.validation.forEach(({path = '', message = ''} = {}) => {

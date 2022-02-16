@@ -13,7 +13,7 @@ export interface Props extends React.HTMLAttributes<HTMLFormElement> {
     loading?: string;
     validation?: Validation;
     design?: boolean;
-    onSubmit: (data: {}) => void;
+    onSubmit: (data: {}) => void | Promise<void>;
     setTrigger?: (trigger: (event: {}) => void) => void;
     value?: any;
 }

@@ -7,6 +7,7 @@ import { DataTable, Column, Button, Toolbar, Splitter, SplitterPanel } from '../
 import Permission from '../Permission';
 import useToggle from '../hooks/useToggle';
 import columnProps, {TableFilter} from '../lib/column';
+import prepareSubmit from '../lib/prepareSubmit';
 
 import { Styled, StyledType } from './Explorer.types';
 
@@ -29,6 +30,7 @@ const Explorer: StyledType = ({
     details,
     actions,
     filter,
+    index,
     onDropdown,
     showFilter = true,
     pageSize = 10,
@@ -99,7 +101,7 @@ const Explorer: StyledType = ({
             } else {
                 setLoading(true);
                 try {
-                    const items = await fetch(merge(
+                    const items = await fetch(prepareSubmit([merge(
                         {},
                         filter,
                         {
@@ -117,7 +119,7 @@ const Explorer: StyledType = ({
                                 pageNumber: Math.floor(tableFilter.first / pageSize) + 1
                             }
                         }
-                    ));
+                    ), index]));
                     const records = resultSet ? items[resultSet] : items;
                     let total = items.pagination && items.pagination.recordsTotal;
                     if (total == null) {
@@ -141,7 +143,7 @@ const Explorer: StyledType = ({
                 }), totalRecords]);
             });
         }
-    }, [fetch, tableFilter, filter, subscribe, resultSet, pageSize, onDropdown, keyField, dropdownNames]);
+    }, [fetch, tableFilter, filter, subscribe, resultSet, pageSize, onDropdown, keyField, dropdownNames, index]);
     const detailsPanel = React.useMemo(() => detailsOpened && details &&
         <SplitterPanel key='details' size={10}>
             <div style={splitterWidth}>{

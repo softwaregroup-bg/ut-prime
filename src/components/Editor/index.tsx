@@ -13,6 +13,7 @@ import {Toolbar, Button, Card} from '../prime';
 import useToggle from '../hooks/useToggle';
 import useLoad from '../hooks/useLoad';
 import {ConfigField, ConfigCard} from '../Form/DragDrop';
+import prepareSubmit from '../lib/prepareSubmit';
 
 const backgroundNone = {background: 'none'};
 
@@ -137,14 +138,14 @@ const Editor: StyledType = ({
     }
 
     const handleSubmit = React.useCallback(
-        async function handleSubmit({form, submit}) {
+        async function handleSubmit(data) {
             if (keyValue != null) {
-                const response = getValue(handleArray(await onEdit(submit), properties));
-                setEditValue(merge(form, response));
+                const response = getValue(handleArray(await onEdit(prepareSubmit(data)), properties));
+                setEditValue(merge(data[0], response));
             } else {
-                const response = getValue(handleArray(await onAdd(submit), properties));
+                const response = getValue(handleArray(await onAdd(prepareSubmit(data)), properties));
                 setKeyValue(lodashGet(response, `${resultSet}.${keyField}`));
-                setEditValue(merge(form, response));
+                setEditValue(merge(data[0], response));
             }
         }, [keyValue, onEdit, getValue, onAdd, keyField, resultSet, properties]
     );

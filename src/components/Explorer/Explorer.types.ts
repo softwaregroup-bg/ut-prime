@@ -31,6 +31,7 @@ export interface Props {
     details?: {};
     actions?: Action[];
     filter?: {};
+    index?: {};
     showFilter?: boolean;
     pageSize?: number;
     table?: DataTableProps;
