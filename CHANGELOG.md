@@ -1,3 +1,12 @@
+## [1.60.2](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.60.1...v1.60.2) (2022-02-16)
+
+
+### Bug Fixes
+
+* improve formData handling ([36f3bf3](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/36f3bf39650324f247ce80a96e190f6bb2cc8049))
+
+
+
 ## [1.60.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.60.0...v1.60.1) (2022-02-16)
 
 
