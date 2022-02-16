@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import get from 'lodash.get';
+import set from 'lodash.set';
 import clonedeep from 'lodash.clonedeep';
 import { joiResolver } from '@hookform/resolvers/joi';
 import { DevTool } from '@hookform/devtools';
@@ -17,6 +18,7 @@ import useSubmit from '../hooks/useSubmit';
 import Controller from '../Controller';
 import getValidation from './schema';
 import {CHANGE} from './const';
+import getType from '../lib/getType';
 
 const inputClass = (index, classes, name, className) => ({
     ...classes?.default,
@@ -42,9 +44,13 @@ const flatten = (properties: Properties, editors: Editors, root: string = '') : 
     {...editors}
 );
 
+const propertyType = property => property?.widget?.type || property?.format || getType(property?.type);
+
 const getIndex = (properties: Properties, editors: Editors) : {
     properties: PropertyEditors,
-    children: {[parent: string]: string[]}
+    children: {[parent: string]: string[]},
+    files: string[],
+    tables: string[]
 } => {
     const index = flatten(properties, editors);
     return {
@@ -57,7 +63,9 @@ const getIndex = (properties: Properties, editors: Editors) : {
                 else prev[parent] = [name];
             }
             return prev;
-        }, {})
+        }, {}),
+        files: Object.entries(index).map(([name, property]) => propertyType(property) === 'file' && name).filter(Boolean),
+        tables: Object.entries(index).map(([name, property]) => propertyType(property) === 'table' && name).filter(Boolean)
     };
 };
 
@@ -144,7 +152,27 @@ const Form: StyledType = ({
             try {
                 clearErrors();
                 const {$, ...value} = form;
-                return await onSubmit(value);
+                idx.tables.forEach(name => {
+                    const table = get(value, name);
+                    if (Array.isArray(table)) set(value, name, table.filter(Boolean));
+                });
+                if (idx.files.length) {
+                    const formData = new FormData();
+                    const files = [];
+                    const skip = [];
+                    idx.files.forEach(name => {
+                        const file = get(value, name);
+                        if (file != null) {
+                            files.push([name, file[0]]);
+                            skip.push(file);
+                        }
+                    });
+                    formData.append('.', JSON.stringify(value, (key, value) => skip.includes(value) ? undefined : value));
+                    files.forEach(([name, file]) => file && formData.append(name, file));
+                    return await onSubmit({formData});
+                } else {
+                    return await onSubmit(value);
+                }
             } catch (error) {
                 if (!Array.isArray(error.validation)) throw error;
                 error.validation.forEach(({path = '', message = ''} = {}) => {
@@ -152,7 +180,7 @@ const Form: StyledType = ({
                 });
             }
         },
-        [onSubmit, setError, clearErrors]
+        [onSubmit, setError, clearErrors, idx]
     );
 
     React.useEffect(() => {

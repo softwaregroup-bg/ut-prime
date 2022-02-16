@@ -2329,60 +2329,6 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     </div>
                                   </th>
                                   <th
-                                    class="text-right"
-                                    role="columnheader"
-                                  >
-                                    <div
-                                      class="p-column-header-content"
-                                    >
-                                      <span
-                                        class="p-column-title"
-                                      >
-                                        <span
-                                          data-testid="table1.numberTitle"
-                                        >
-                                          Number
-                                        </span>
-                                      </span>
-                                    </div>
-                                  </th>
-                                  <th
-                                    class=""
-                                    role="columnheader"
-                                  >
-                                    <div
-                                      class="p-column-header-content"
-                                    >
-                                      <span
-                                        class="p-column-title"
-                                      >
-                                        <span
-                                          data-testid="table1.currencyTitle"
-                                        >
-                                          Currency
-                                        </span>
-                                      </span>
-                                    </div>
-                                  </th>
-                                  <th
-                                    class="text-right"
-                                    role="columnheader"
-                                  >
-                                    <div
-                                      class="p-column-header-content"
-                                    >
-                                      <span
-                                        class="p-column-title"
-                                      >
-                                        <span
-                                          data-testid="table1.integerTitle"
-                                        >
-                                          Integer
-                                        </span>
-                                      </span>
-                                    </div>
-                                  </th>
-                                  <th
                                     class=""
                                     role="columnheader"
                                     style="width: 7rem;"
@@ -2669,98 +2615,6 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     </span>
                                   </td>
                                   <td
-                                    class="text-right text-right p-editable-column p-cell-editing"
-                                    role="cell"
-                                  >
-                                    <span
-                                      class="p-column-title"
-                                    >
-                                      <span
-                                        data-testid="table1.numberTitle"
-                                      >
-                                        Number
-                                      </span>
-                                    </span>
-                                    <input
-                                      class="p-inputtext p-component w-full"
-                                      id="table1[0].number"
-                                      name="table1[0].number"
-                                      type="text"
-                                      value=""
-                                    />
-                                  </td>
-                                  <td
-                                    class="p-editable-column p-cell-editing"
-                                    role="cell"
-                                  >
-                                    <span
-                                      class="p-column-title"
-                                    >
-                                      <span
-                                        data-testid="table1.currencyTitle"
-                                      >
-                                        Currency
-                                      </span>
-                                    </span>
-                                    <input
-                                      class="p-inputtext p-component w-full"
-                                      currency="USD"
-                                      id="table1[0].currency"
-                                      name="table1[0].currency"
-                                      type="text"
-                                      value=""
-                                    />
-                                  </td>
-                                  <td
-                                    class="text-right text-right p-editable-column p-cell-editing"
-                                    role="cell"
-                                  >
-                                    <span
-                                      class="p-column-title"
-                                    >
-                                      <span
-                                        data-testid="table1.integerTitle"
-                                      >
-                                        Integer
-                                      </span>
-                                    </span>
-                                    <span
-                                      class="p-inputnumber p-component p-inputwrapper w-full p-inputnumber-buttons-stacked"
-                                    >
-                                      <input
-                                        class="p-inputtext p-component p-inputnumber-input"
-                                        id="table1[0].integer"
-                                        inputmode="numeric"
-                                        name="table1[0].integer"
-                                        role="spinbutton"
-                                        type="text"
-                                        value=""
-                                      />
-                                      <span
-                                        class="p-inputnumber-button-group"
-                                      >
-                                        <button
-                                          class="p-inputnumber-button p-inputnumber-button-up p-button p-button-icon-only p-component"
-                                          tabindex="-1"
-                                          type="button"
-                                        >
-                                          <span
-                                            class="p-button-icon pi pi-angle-up"
-                                          />
-                                        </button>
-                                        <button
-                                          class="p-inputnumber-button p-inputnumber-button-down p-button p-button-icon-only p-component"
-                                          tabindex="-1"
-                                          type="button"
-                                        >
-                                          <span
-                                            class="p-button-icon pi pi-angle-down"
-                                          />
-                                        </button>
-                                      </span>
-                                    </span>
-                                  </td>
-                                  <td
                                     class=""
                                     role="cell"
                                     style="text-align: center;"
@@ -2891,6 +2745,60 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     </div>
                                   </th>
                                   <th
+                                    class="text-right"
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table2.numberTitle"
+                                        >
+                                          Number
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table2.currencyTitle"
+                                        >
+                                          Currency
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class="text-right"
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table2.integerTitle"
+                                        >
+                                          Integer
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
                                     class=""
                                     role="columnheader"
                                   >
@@ -2904,78 +2812,6 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                           data-testid="table2.imageTitle"
                                         >
                                           Image
-                                        </span>
-                                      </span>
-                                    </div>
-                                  </th>
-                                  <th
-                                    class=""
-                                    role="columnheader"
-                                  >
-                                    <div
-                                      class="p-column-header-content"
-                                    >
-                                      <span
-                                        class="p-column-title"
-                                      >
-                                        <span
-                                          data-testid="table2.dropdownTitle"
-                                        >
-                                          Dropdown
-                                        </span>
-                                      </span>
-                                    </div>
-                                  </th>
-                                  <th
-                                    class=""
-                                    role="columnheader"
-                                  >
-                                    <div
-                                      class="p-column-header-content"
-                                    >
-                                      <span
-                                        class="p-column-title"
-                                      >
-                                        <span
-                                          data-testid="table2.dropdownTreeTitle"
-                                        >
-                                          Dropdown Tree
-                                        </span>
-                                      </span>
-                                    </div>
-                                  </th>
-                                  <th
-                                    class=""
-                                    role="columnheader"
-                                  >
-                                    <div
-                                      class="p-column-header-content"
-                                    >
-                                      <span
-                                        class="p-column-title"
-                                      >
-                                        <span
-                                          data-testid="table2.multiSelectTitle"
-                                        >
-                                          Multi Select
-                                        </span>
-                                      </span>
-                                    </div>
-                                  </th>
-                                  <th
-                                    class=""
-                                    role="columnheader"
-                                  >
-                                    <div
-                                      class="p-column-header-content"
-                                    >
-                                      <span
-                                        class="p-column-title"
-                                      >
-                                        <span
-                                          data-testid="table2.multiSelectTreeTitle"
-                                        >
-                                          Multi Select Tree
                                         </span>
                                       </span>
                                     </div>
@@ -3079,6 +2915,98 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     </div>
                                   </td>
                                   <td
+                                    class="text-right text-right p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table2.numberTitle"
+                                      >
+                                        Number
+                                      </span>
+                                    </span>
+                                    <input
+                                      class="p-inputtext p-component w-full"
+                                      id="table2[0].number"
+                                      name="table2[0].number"
+                                      type="text"
+                                      value=""
+                                    />
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table2.currencyTitle"
+                                      >
+                                        Currency
+                                      </span>
+                                    </span>
+                                    <input
+                                      class="p-inputtext p-component w-full"
+                                      currency="USD"
+                                      id="table2[0].currency"
+                                      name="table2[0].currency"
+                                      type="text"
+                                      value=""
+                                    />
+                                  </td>
+                                  <td
+                                    class="text-right text-right p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table2.integerTitle"
+                                      >
+                                        Integer
+                                      </span>
+                                    </span>
+                                    <span
+                                      class="p-inputnumber p-component p-inputwrapper w-full p-inputnumber-buttons-stacked"
+                                    >
+                                      <input
+                                        class="p-inputtext p-component p-inputnumber-input"
+                                        id="table2[0].integer"
+                                        inputmode="numeric"
+                                        name="table2[0].integer"
+                                        role="spinbutton"
+                                        type="text"
+                                        value=""
+                                      />
+                                      <span
+                                        class="p-inputnumber-button-group"
+                                      >
+                                        <button
+                                          class="p-inputnumber-button p-inputnumber-button-up p-button p-button-icon-only p-component"
+                                          tabindex="-1"
+                                          type="button"
+                                        >
+                                          <span
+                                            class="p-button-icon pi pi-angle-up"
+                                          />
+                                        </button>
+                                        <button
+                                          class="p-inputnumber-button p-inputnumber-button-down p-button p-button-icon-only p-component"
+                                          tabindex="-1"
+                                          type="button"
+                                        >
+                                          <span
+                                            class="p-button-icon pi pi-angle-down"
+                                          />
+                                        </button>
+                                      </span>
+                                    </span>
+                                  </td>
+                                  <td
                                     class="p-editable-column p-cell-editing"
                                     role="cell"
                                   >
@@ -3095,130 +3023,6 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                       class="p-inputtext p-component w-full"
                                       id="table2[0].image"
                                       name="table2[0].image"
-                                      type="text"
-                                      value=""
-                                    />
-                                  </td>
-                                  <td
-                                    class="p-editable-column p-cell-editing"
-                                    role="cell"
-                                  >
-                                    <span
-                                      class="p-column-title"
-                                    >
-                                      <span
-                                        data-testid="table2.dropdownTitle"
-                                      >
-                                        Dropdown
-                                      </span>
-                                    </span>
-                                    <div
-                                      class="p-dropdown p-component p-inputwrapper w-full p-dropdown-clearable"
-                                    >
-                                      <div
-                                        class="p-hidden-accessible"
-                                      >
-                                        <input
-                                          aria-haspopup="listbox"
-                                          id="table2[0].dropdown"
-                                          readonly=""
-                                          type="text"
-                                        />
-                                      </div>
-                                      <div
-                                        class="p-hidden-accessible p-dropdown-hidden-select"
-                                      >
-                                        <select
-                                          aria-hidden="true"
-                                          name="table2[0].dropdown"
-                                          tabindex="-1"
-                                        >
-                                          <option
-                                            value=""
-                                          />
-                                        </select>
-                                      </div>
-                                      <span
-                                        class="w-full inline-flex"
-                                        data-testid="table2[0].dropdown"
-                                      >
-                                        <span
-                                          class="p-dropdown-label p-inputtext p-dropdown-label-empty"
-                                        >
-                                          empty
-                                        </span>
-                                      </span>
-                                      <div
-                                        aria-expanded="false"
-                                        aria-haspopup="listbox"
-                                        class="p-dropdown-trigger"
-                                        role="button"
-                                      >
-                                        <span
-                                          class="p-dropdown-trigger-icon p-clickable pi pi-chevron-down"
-                                        />
-                                      </div>
-                                    </div>
-                                  </td>
-                                  <td
-                                    class="p-editable-column p-cell-editing"
-                                    role="cell"
-                                  >
-                                    <span
-                                      class="p-column-title"
-                                    >
-                                      <span
-                                        data-testid="table2.dropdownTreeTitle"
-                                      >
-                                        Dropdown Tree
-                                      </span>
-                                    </span>
-                                    <input
-                                      class="p-inputtext p-component w-full"
-                                      id="table2[0].dropdownTree"
-                                      name="table2[0].dropdownTree"
-                                      type="text"
-                                      value=""
-                                    />
-                                  </td>
-                                  <td
-                                    class="p-editable-column p-cell-editing"
-                                    role="cell"
-                                  >
-                                    <span
-                                      class="p-column-title"
-                                    >
-                                      <span
-                                        data-testid="table2.multiSelectTitle"
-                                      >
-                                        Multi Select
-                                      </span>
-                                    </span>
-                                    <input
-                                      class="p-inputtext p-component w-full"
-                                      id="table2[0].multiSelect"
-                                      name="table2[0].multiSelect"
-                                      type="text"
-                                      value=""
-                                    />
-                                  </td>
-                                  <td
-                                    class="p-editable-column p-cell-editing"
-                                    role="cell"
-                                  >
-                                    <span
-                                      class="p-column-title"
-                                    >
-                                      <span
-                                        data-testid="table2.multiSelectTreeTitle"
-                                      >
-                                        Multi Select Tree
-                                      </span>
-                                    </span>
-                                    <input
-                                      class="p-inputtext p-component w-full"
-                                      id="table2[0].multiSelectTree"
-                                      name="table2[0].multiSelectTree"
                                       type="text"
                                       value=""
                                     />
@@ -3485,7 +3289,377 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                         class="p-column-title"
                                       >
                                         <span
-                                          data-testid="table3.input.selectTableTitle"
+                                          data-testid="table3.dropdownTitle"
+                                        >
+                                          Dropdown
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table3.dropdownTreeTitle"
+                                        >
+                                          Dropdown Tree
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table3.multiSelectTitle"
+                                        >
+                                          Multi Select
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table3.multiSelectTreeTitle"
+                                        >
+                                          Multi Select Tree
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                    style="width: 7rem;"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                    </div>
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody
+                                class="p-datatable-tbody"
+                              >
+                                <tr
+                                  class=""
+                                  role="row"
+                                >
+                                  <td
+                                    class="p-selection-column"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    />
+                                    <div
+                                      class="p-checkbox p-component"
+                                    >
+                                      <div
+                                        aria-checked="false"
+                                        class="p-checkbox-box p-component"
+                                        role="checkbox"
+                                        tabindex="0"
+                                      >
+                                        <span
+                                          class="p-checkbox-icon"
+                                        />
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table3.dropdownTitle"
+                                      >
+                                        Dropdown
+                                      </span>
+                                    </span>
+                                    <div
+                                      class="p-dropdown p-component p-inputwrapper w-full p-dropdown-clearable"
+                                    >
+                                      <div
+                                        class="p-hidden-accessible"
+                                      >
+                                        <input
+                                          aria-haspopup="listbox"
+                                          id="table3[0].dropdown"
+                                          readonly=""
+                                          type="text"
+                                        />
+                                      </div>
+                                      <div
+                                        class="p-hidden-accessible p-dropdown-hidden-select"
+                                      >
+                                        <select
+                                          aria-hidden="true"
+                                          name="table3[0].dropdown"
+                                          tabindex="-1"
+                                        >
+                                          <option
+                                            value=""
+                                          />
+                                        </select>
+                                      </div>
+                                      <span
+                                        class="w-full inline-flex"
+                                        data-testid="table3[0].dropdown"
+                                      >
+                                        <span
+                                          class="p-dropdown-label p-inputtext p-dropdown-label-empty"
+                                        >
+                                          empty
+                                        </span>
+                                      </span>
+                                      <div
+                                        aria-expanded="false"
+                                        aria-haspopup="listbox"
+                                        class="p-dropdown-trigger"
+                                        role="button"
+                                      >
+                                        <span
+                                          class="p-dropdown-trigger-icon p-clickable pi pi-chevron-down"
+                                        />
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table3.dropdownTreeTitle"
+                                      >
+                                        Dropdown Tree
+                                      </span>
+                                    </span>
+                                    <input
+                                      class="p-inputtext p-component w-full"
+                                      id="table3[0].dropdownTree"
+                                      name="table3[0].dropdownTree"
+                                      type="text"
+                                      value=""
+                                    />
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table3.multiSelectTitle"
+                                      >
+                                        Multi Select
+                                      </span>
+                                    </span>
+                                    <input
+                                      class="p-inputtext p-component w-full"
+                                      id="table3[0].multiSelect"
+                                      name="table3[0].multiSelect"
+                                      type="text"
+                                      value=""
+                                    />
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table3.multiSelectTreeTitle"
+                                      >
+                                        Multi Select Tree
+                                      </span>
+                                    </span>
+                                    <input
+                                      class="p-inputtext p-component w-full"
+                                      id="table3[0].multiSelectTree"
+                                      name="table3[0].multiSelectTree"
+                                      type="text"
+                                      value=""
+                                    />
+                                  </td>
+                                  <td
+                                    class=""
+                                    role="cell"
+                                    style="text-align: center;"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    />
+                                    <button
+                                      class="p-row-editor-save p-link"
+                                      tabindex="0"
+                                      type="button"
+                                    >
+                                      <span
+                                        class="p-row-editor-save-icon pi pi-fw pi-check"
+                                      />
+                                    </button>
+                                    <button
+                                      class="p-row-editor-cancel p-link"
+                                      tabindex="0"
+                                      type="button"
+                                    >
+                                      <span
+                                        class="p-row-editor-cancel-icon pi pi-fw pi-times"
+                                      />
+                                    </button>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="field grid"
+                  >
+                    <div
+                      class="col-12"
+                    >
+                      <div
+                        class="p-toolbar p-component p-0 border-none"
+                        role="toolbar"
+                        style="background: none;"
+                      >
+                        <div
+                          class="p-toolbar-group-left"
+                        >
+                          <button
+                            class="p-button p-component p-button mr-2"
+                            data-testid="table4.addButton"
+                          >
+                            <span
+                              class="p-button-icon p-c p-button-icon-left pi pi-plus"
+                            />
+                            <span
+                              class="p-button-label p-c"
+                            >
+                              Add
+                            </span>
+                          </button>
+                          <button
+                            class="p-button p-component p-button p-disabled"
+                            data-testid="table4.saveButton"
+                            disabled=""
+                          >
+                            <span
+                              class="p-button-icon p-c p-button-icon-left pi pi-trash"
+                            />
+                            <span
+                              class="p-button-label p-c"
+                            >
+                              Delete
+                            </span>
+                          </button>
+                        </div>
+                        <div
+                          class="p-toolbar-group-right"
+                        />
+                      </div>
+                      <div
+                        class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full"
+                        data-scrollselectors=".p-datatable-wrapper"
+                        id="table4"
+                        pr_id_8=""
+                      >
+                        <span
+                          class="w-full"
+                          data-testid="table4"
+                        >
+                          <div
+                            class="p-datatable-wrapper"
+                          >
+                            <table
+                              class="p-datatable-table"
+                              role="table"
+                            >
+                              <thead
+                                class="p-datatable-thead"
+                              >
+                                <tr
+                                  role="row"
+                                >
+                                  <th
+                                    class="p-selection-column"
+                                    role="columnheader"
+                                    style="width: 3rem;"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                      <div
+                                        class="p-checkbox p-component"
+                                      >
+                                        <div
+                                          class="p-checkbox-box p-component"
+                                          role="checkbox"
+                                          tabindex="0"
+                                        >
+                                          <span
+                                            class="p-checkbox-icon"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table4.input.selectTableTitle"
                                         >
                                           Select Table
                                         </span>
@@ -3503,7 +3677,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                         class="p-column-title"
                                       >
                                         <span
-                                          data-testid="table3.input.multiSelectPanelTitle"
+                                          data-testid="table4.input.multiSelectPanelTitle"
                                         >
                                           Multi Select Panel
                                         </span>
@@ -3521,7 +3695,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                         class="p-column-title"
                                       >
                                         <span
-                                          data-testid="table3.input.multiSelectTreeTableTitle"
+                                          data-testid="table4.input.multiSelectTreeTableTitle"
                                         >
                                           Multi Select Tree Table
                                         </span>
@@ -3580,15 +3754,15 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="table3.input.selectTableTitle"
+                                        data-testid="table4.input.selectTableTitle"
                                       >
                                         Select Table
                                       </span>
                                     </span>
                                     <input
                                       class="p-inputtext p-component w-full"
-                                      id="table3[0].input.selectTable"
-                                      name="table3[0].input.selectTable"
+                                      id="table4[0].input.selectTable"
+                                      name="table4[0].input.selectTable"
                                       type="text"
                                       value=""
                                     />
@@ -3601,15 +3775,15 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="table3.input.multiSelectPanelTitle"
+                                        data-testid="table4.input.multiSelectPanelTitle"
                                       >
                                         Multi Select Panel
                                       </span>
                                     </span>
                                     <input
                                       class="p-inputtext p-component w-full"
-                                      id="table3[0].input.multiSelectPanel"
-                                      name="table3[0].input.multiSelectPanel"
+                                      id="table4[0].input.multiSelectPanel"
+                                      name="table4[0].input.multiSelectPanel"
                                       type="text"
                                       value=""
                                     />
@@ -3622,15 +3796,15 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="table3.input.multiSelectTreeTableTitle"
+                                        data-testid="table4.input.multiSelectTreeTableTitle"
                                       >
                                         Multi Select Tree Table
                                       </span>
                                     </span>
                                     <input
                                       class="p-inputtext p-component w-full"
-                                      id="table3[0].input.multiSelectTreeTable"
-                                      name="table3[0].input.multiSelectTreeTable"
+                                      id="table4[0].input.multiSelectTreeTable"
+                                      name="table4[0].input.multiSelectTreeTable"
                                       type="text"
                                       value=""
                                     />

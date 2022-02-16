@@ -337,7 +337,7 @@ export default function input(
                 {...field}
                 value={field.value}
                 onSelect={e => {
-                    field.onChange?.(e.files || null);
+                    field.onChange?.([...e.files || []]);
                 }}
                 mode='basic'
                 {...props}

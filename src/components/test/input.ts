@@ -212,20 +212,16 @@ export const input: {
                     'boolean',
                     'date',
                     'time',
-                    'datetime',
-                    'number',
-                    'currency',
-                    'integer'
+                    'datetime'
                 ]
             }, {
                 name: 'table',
                 id: 'table2',
                 widgets: [
+                    'number',
+                    'currency',
+                    'integer',
                     'image',
-                    'dropdown',
-                    'dropdownTree',
-                    'multiSelect',
-                    'multiSelectTree',
                     'radio',
                     'select',
                     'table'
@@ -233,6 +229,15 @@ export const input: {
             }, {
                 name: 'table',
                 id: 'table3',
+                widgets: [
+                    'dropdown',
+                    'dropdownTree',
+                    'multiSelect',
+                    'multiSelectTree'
+                ]
+            }, {
+                name: 'table',
+                id: 'table4',
                 widgets: [
                     'input.selectTable',
                     'input.multiSelectPanel',

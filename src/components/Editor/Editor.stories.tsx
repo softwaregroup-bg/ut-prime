@@ -42,7 +42,7 @@ Basic.args = {
     object: 'tree',
     ...tree,
     layouts: {
-        edit: ['edit', ['taxonomy', 'reproduction'], 'morphology', 'habitat']
+        edit: ['edit', ['taxonomy', 'reproduction'], ['morphology', 'links'], 'habitat']
     },
     onDropdown: names => Promise.resolve({
         'tree.type': [{value: 1, label: 'Conifer'}, {value: 2, label: 'Broadleaf'}],

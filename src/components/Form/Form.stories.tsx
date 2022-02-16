@@ -98,4 +98,5 @@ Table.play = async({canvasElement}) => {
     within(canvas.getByTestId('table1')).getByRole('button', {name: ''}).click();
     within(canvas.getByTestId('table2')).getByRole('button', {name: ''}).click();
     within(canvas.getByTestId('table3')).getByRole('button', {name: ''}).click();
+    within(canvas.getByTestId('table4')).getByRole('button', {name: ''}).click();
 };

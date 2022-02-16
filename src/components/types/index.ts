@@ -62,10 +62,7 @@ export interface Editor extends React.FC<{
     ErrorLabel: React.FC<{name: string, className?: string}>
 }> {
     title?: string,
-    widget?: {
-        parent?: string;
-        filter?: {}
-    },
+    widget?: PropertyEditor,
     properties: string[]
 }
 export interface Editors {

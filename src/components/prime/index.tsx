@@ -5,6 +5,7 @@ import {TreeSelect} from 'primereact/treeselect';
 import {TreeTable} from 'primereact/treetable';
 import {SelectButton} from 'primereact/selectbutton';
 import {DataTable} from 'primereact/datatable';
+import type {DataTableProps} from 'primereact/datatable';
 import {Checkbox} from 'primereact/checkbox';
 import { RadioButton } from 'primereact/radiobutton';
 
@@ -17,7 +18,8 @@ export { Chart } from 'primereact/chart';
 export { Checkbox } from 'primereact/checkbox';
 export { Chips } from 'primereact/chips';
 export { Column } from 'primereact/column';
-export { DataTable, DataTableProps } from 'primereact/datatable';
+export { DataTable } from 'primereact/datatable';
+export type {DataTableProps};
 export { Dialog } from 'primereact/dialog';
 export { Dropdown } from 'primereact/dropdown';
 export { FileUpload } from 'primereact/fileupload';

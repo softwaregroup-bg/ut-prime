@@ -30,14 +30,19 @@ function validation(name, field, required) {
             case 'multiSelect':
             case 'multiSelectPanel':
             case 'multiSelectTree':
+                result = Joi.array();
+                break;
             case 'table':
             case 'array':
-                result = Joi.array();
+                result = Joi.array().sparse();
                 break;
             case 'date-time':
             case 'time':
             case 'date':
                 result = Joi.date();
+                break;
+            case 'file':
+                result = Joi.any().raw();
                 break;
             case 'dropdown':
             case 'dropdownTree':
@@ -57,7 +62,7 @@ export default function getValidation(schema: Schema | Property, filter?: string
             if ('properties' in field) {
                 return prev.append({[name]: getValidation(field, filter, path ? path + '.' + name : name)});
             } else if ('items' in field) {
-                return prev.append({[name]: Joi.array().items(getValidation(field.items, filter, path ? path + '.' + name : name))});
+                return prev.append({[name]: Joi.array().sparse().items(getValidation(field.items, filter, path ? path + '.' + name : name))});
             } else {
                 if (!filter?.includes(path ? path + '.' + name : name)) return prev;
                 return prev.append({[name]: validation(name, field, schema.required)});
