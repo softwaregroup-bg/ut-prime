@@ -1,3 +1,18 @@
+# [1.61.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.60.2...v1.61.0) (2022-02-21)
+
+
+### Bug Fixes
+
+* allow column object in Explorer ([f5d4e82](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/f5d4e8291bca5dcef69c9375573695ac6835bc61))
+* file upload handling ([8df56c8](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/8df56c837d996008191b72832d56517fef7b5021))
+
+
+### Features
+
+* compare column ([5509a02](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/5509a02b5ef29d75e88d02e9c755750460d48c7f))
+
+
+
 ## [1.60.2](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.60.1...v1.60.2) (2022-02-16)
 
 
