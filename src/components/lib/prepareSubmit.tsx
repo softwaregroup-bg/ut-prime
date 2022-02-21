@@ -18,8 +18,8 @@ export default ([form, {tables = [], files = []} = {}]) => {
                 skip.push(file);
             }
         });
-        formData.append('.', JSON.stringify(value, (key, value) => skip.includes(value) ? undefined : value));
-        parts.forEach(([name, file]) => file && formData.append(name, file));
+        formData.append('$', JSON.stringify(value, (key, value) => skip.includes(value) ? undefined : value));
+        parts.forEach(([name, file]) => file && formData.append('$.' + name, file));
         return {formData};
     } else {
         return value;
