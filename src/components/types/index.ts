@@ -108,6 +108,7 @@ export interface Card {
         actions?: {},
         widgets?: any[],
         hidden?: string[],
+        compare?: string,
         filter?: {}
     })[];
     watch?: string;

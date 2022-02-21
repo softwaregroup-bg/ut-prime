@@ -47,7 +47,7 @@ export default function columnProps({
     editable?: boolean
 }) {
     const resultSetDot = resultSet ? resultSet + '.' : '';
-    const {type, dropdown, parent, column, lookup, ...props} = widget || property?.widget || {name};
+    const {type, dropdown, parent, column, lookup, compare, ...props} = widget || property?.widget || {name};
     const fieldName = name;
     let filterElement, body, editor, className, bodyClassName;
     const filterId = `${resultSetDot}${name}Filter`;
@@ -156,6 +156,19 @@ export default function columnProps({
                     : '';
             };
         }
+    }
+    if (compare) {
+        const oldBody = body;
+        body = function bodyCompare(rowData) {
+            const value0 = rowData[fieldName];
+            const value1 = rowData[compare];
+            if (value0 !== value1) {
+                return <>
+                    <div style={{color: 'var(--teal-500)'}}>{(oldBody ? oldBody(rowData) : value0) ?? <>&nbsp;</>}</div>
+                    <div style={{color: 'var(--orange-500)'}}>{(oldBody ? oldBody({[fieldName]: value1}) : value1) ?? <>&nbsp;</>}</div>
+                </>;
+            } else return oldBody ? oldBody({[fieldName]: value0}) : value0;
+        };
     }
     if (!property?.readOnly && editable) {
         editor = function editor(p) {
