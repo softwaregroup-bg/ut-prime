@@ -17,6 +17,8 @@ const backgroundNone = {background: 'none'};
 const splitterWidth = { width: '200px' };
 const actionButtonStyle = {padding: 0, minWidth: 'inherit'};
 
+const fieldName = column => typeof column === 'string' ? column : column.name;
+
 const Explorer: StyledType = ({
     classes,
     className,
@@ -38,9 +40,10 @@ const Explorer: StyledType = ({
 }) => {
     const [tableFilter, setFilters] = React.useState<TableFilter>({
         filters: columns?.reduce((prev, column) => {
-            const value = lodashGet(filter, column);
-            column = column.split('.').pop();
-            return (value === undefined) ? {...prev, [column]: {matchMode: 'contains'}} : {...prev, [column]: {value, matchMode: 'contains'}};
+            let field = fieldName(column);
+            const value = lodashGet(filter, field);
+            field = field.split('.').pop();
+            return (value === undefined) ? {...prev, [field]: {matchMode: 'contains'}} : {...prev, [field]: {value, matchMode: 'contains'}};
         }, {}),
         first: 0,
         page: 1
@@ -63,7 +66,7 @@ const Explorer: StyledType = ({
     const dropdownNames = (columns || [])
         .flat()
         .filter(Boolean)
-        .map(name => lodashGet(properties, name?.replace(/\./g, '.properties.'))?.widget?.dropdown)
+        .map(column => lodashGet(properties, fieldName(column)?.replace(/\./g, '.properties.'))?.widget?.dropdown)
         .filter(Boolean)
         .join(',');
 
