@@ -33,7 +33,7 @@ const Reset = withStyles(({fontSize = 14}: Theme) => ({
 
 let last;
 
-const App: StyledType = ({middleware, reducers, theme, portalName, state, onDispatcher, loginPage}) => {
+const App: StyledType = ({middleware, reducers, theme, devTool, portalName, state, onDispatcher, loginPage}) => {
     last?.unuse?.();
     switch (theme?.name || theme?.palette?.type) {
         case 'custom':
@@ -51,7 +51,7 @@ const App: StyledType = ({middleware, reducers, theme, portalName, state, onDisp
         default:
             last = light?.use?.();
     }
-    const context = React.useMemo(() => ({portalName}), [portalName]);
+    const context = React.useMemo(() => ({portalName, devTool}), [portalName, devTool]);
     return (
         <DndProvider backend={HTML5Backend}>
             <Store {...{middleware, reducers, state, onDispatcher}}>

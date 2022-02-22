@@ -5,6 +5,7 @@ import { Theme } from '../Theme';
 export interface Props extends StoreProps, React.HTMLAttributes<HTMLDivElement> {
     theme: Theme,
     portalName: string,
+    devTool?: boolean,
     loginPage?: string
 }
 

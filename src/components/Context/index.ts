@@ -8,10 +8,12 @@ export interface menuItem {
 }
 
 interface contextType {
-    portalName: string
+    portalName: string,
+    devTool?: boolean
 }
 
 const defaultContext: contextType = {
-    portalName: 'Administration Portal'
+    portalName: 'Administration Portal',
+    devTool: true
 };
 export default React.createContext(defaultContext);

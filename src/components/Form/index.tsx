@@ -7,6 +7,7 @@ import { DevTool } from '@hookform/devtools';
 
 import { Styled, StyledType } from './Form.types';
 import { ConfigField, ConfigCard} from './DragDrop';
+import Context from '../Context';
 import input from './input';
 
 import titleCase from '../lib/titleCase';
@@ -366,8 +367,10 @@ const Form: StyledType = ({
         );
     }
 
+    const {devTool} = React.useContext(Context);
+
     return (<>
-        <DevTool control={control} placement="top-right" />
+        {devTool ? <DevTool control={control} placement="top-right" /> : null}
         {toast}
         <form {...rest} onSubmit={formSubmit(handleSubmit)} className={clsx('grid col align-self-start', classes.component, className)}>
             {
