@@ -1,3 +1,12 @@
+# [1.62.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.61.0...v1.62.0) (2022-02-22)
+
+
+### Features
+
+* configurable devTool visibility ([9ee3733](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/9ee373336840f2506fa56d1915b8b5b5e744076c))
+
+
+
 # [1.61.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.60.2...v1.61.0) (2022-02-21)
 
 
