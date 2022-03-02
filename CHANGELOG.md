@@ -1,3 +1,12 @@
+## [1.63.2](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.63.1...v1.63.2) (2022-03-02)
+
+
+### Bug Fixes
+
+* handle boolean permission ([7da4820](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/7da48206bbb7fcfa1c24a01bad3ea8df3bd5be9b))
+
+
+
 ## [1.63.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.63.0...v1.63.1) (2022-03-02)
 
 
