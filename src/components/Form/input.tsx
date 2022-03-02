@@ -117,6 +117,7 @@ export default function input(
                     dropdowns={dropdowns}
                     getValues={getValues}
                     counter={counter}
+                    selection={props.selectionPath && (getValues(`${props.selectionPath || '$.selected'}.${field.name}`) || [])}
                     {...props}
                 />
             </div>
