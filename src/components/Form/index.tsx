@@ -90,14 +90,19 @@ const Form: StyledType = ({
     loading,
     onSubmit,
     setTrigger,
+    triggerNotDirty,
+    autoSubmit,
     value,
     dropdowns,
     validation,
     ...rest
 }) => {
     const {properties = {}} = schema;
-    const joiSchema = validation || getValidation(schema);
     // console.log(joiSchema.describe());
+    const resolver = React.useMemo(
+        () => joiResolver(validation || getValidation(schema), {stripUnknown: true, abortEarly: false}),
+        [validation, schema]
+    );
     const {
         handleSubmit: formSubmit,
         control,
@@ -111,15 +116,7 @@ const Form: StyledType = ({
         getValues,
         setError,
         clearErrors
-    } = useForm({
-        resolver: joiResolver(
-            joiSchema,
-            {
-                stripUnknown: true,
-                abortEarly: false
-            }
-        )
-    });
+    } = useForm({resolver});
     const errorFields = flat(errors);
     const counter = React.useRef(0);
     const [visibleCards, visibleProperties] = React.useMemo(() => {
@@ -162,9 +159,10 @@ const Form: StyledType = ({
         [onSubmit, setError, clearErrors, idx]
     );
 
+    const canSetTrigger = isDirty || triggerNotDirty;
     React.useEffect(() => {
-        if (setTrigger) setTrigger(isDirty ? prev => formSubmit(handleSubmit) : undefined);
-    }, [setTrigger, formSubmit, handleSubmit, isDirty]);
+        if (setTrigger) setTrigger(canSetTrigger ? prev => formSubmit(handleSubmit) : undefined);
+    }, [setTrigger, formSubmit, handleSubmit, isDirty, canSetTrigger]);
 
     React.useEffect(() => {
         const {$original, ...formValue} = value || {};

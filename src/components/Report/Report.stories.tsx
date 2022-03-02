@@ -18,7 +18,8 @@ export default {
 
 const columns: Properties = {
     name: {
-        title: 'Name'
+        title: 'Name',
+        validation: Joi.string().required()
     },
     startDate: {
         title: 'Start Date',
@@ -48,6 +49,7 @@ export const Basic = () =>
                 }
             }
         }}
+        init={{name: 'row 1'}}
         params={['name', 'startDate', 'endDate']}
         columns={['name']}
         onDropdown={names => Promise.resolve({})}

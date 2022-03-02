@@ -46,10 +46,10 @@ exports[`<Report /> render equals snapshot 1`] = `
                       class="col-12 md:col-8"
                     >
                       <input
-                        class="p-inputtext p-component w-full"
+                        class="p-inputtext p-component p-filled w-full"
                         id="name"
                         name="name"
-                        value=""
+                        value="row 1"
                       />
                     </div>
                   </div>
@@ -143,8 +143,7 @@ exports[`<Report /> render equals snapshot 1`] = `
       </div>
     </form>
     <button
-      class="p-button p-component col-1 p-button-icon-only p-disabled"
-      disabled=""
+      class="p-button p-component col-1 p-button-icon-only"
     >
       <span
         class="p-button-icon p-c pi pi-search"
@@ -187,14 +186,7 @@ exports[`<Report /> render equals snapshot 1`] = `
         </button>
         <span
           class="p-paginator-pages"
-        >
-          <button
-            class="p-paginator-page p-paginator-element p-link p-paginator-page-start p-paginator-page-end p-highlight"
-            type="button"
-          >
-            1
-          </button>
-        </span>
+        />
         <button
           class="p-paginator-next p-paginator-element p-link p-disabled"
           disabled=""
@@ -258,43 +250,14 @@ exports[`<Report /> render equals snapshot 1`] = `
             class="p-datatable-tbody"
           >
             <tr
-              class=""
+              class="p-datatable-emptymessage"
               role="row"
             >
               <td
-                class=""
+                colspan="1"
                 role="cell"
               >
-                <span
-                  class="p-column-title"
-                >
-                  <span
-                    data-testid="result.nameTitle"
-                  >
-                    Name
-                  </span>
-                </span>
-                row 1
-              </td>
-            </tr>
-            <tr
-              class="p-row-odd"
-              role="row"
-            >
-              <td
-                class=""
-                role="cell"
-              >
-                <span
-                  class="p-column-title"
-                >
-                  <span
-                    data-testid="result.nameTitle"
-                  >
-                    Name
-                  </span>
-                </span>
-                row 2
+                No available options
               </td>
             </tr>
           </tbody>

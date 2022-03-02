@@ -19,6 +19,7 @@ const Report: StyledType = ({
     schema,
     params = [],
     columns = [],
+    init = {},
     fetch,
     onDropdown,
     resultSet = 'result'
@@ -46,14 +47,14 @@ const Report: StyledType = ({
     useLoad(async() => {
         setDropdown(await onDropdown(dropdownNames));
     });
-    const [filter, setFilter] = React.useState([{}, {files: []}]);
+    const [filter, setFilter] = React.useState<[{}] | [{}, {files: []}]>([init]);
     const explorerFilter = React.useMemo(() => [
         {
             [resultSet]: filter[0]
         },
         {
             ...filter[1],
-            files: filter?.[1].files?.map(name => `${resultSet}.${name}`)
+            files: filter?.[1]?.files?.map(name => `${resultSet}.${name}`)
         }
     ], [filter, resultSet]);
     return (
@@ -69,11 +70,13 @@ const Report: StyledType = ({
                     value={filter[0]}
                     dropdowns={dropdowns}
                     setTrigger={setTrigger}
+                    triggerNotDirty
+                    autoSubmit
                 />
                 <Button className='col-1' icon='pi pi-search' onClick={trigger} disabled={!trigger}/>
             </div>
             <Explorer
-                fetch={fetch}
+                fetch={filter.length > 1 && fetch}
                 schema={schema?.properties?.result}
                 columns={columns}
                 resultSet={resultSet}

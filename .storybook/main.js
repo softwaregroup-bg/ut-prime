@@ -23,6 +23,9 @@ module.exports = {
         reactDocgen: false,
         // reactDocgen: configType === 'PRODUCTION' ? 'react-docgen-typescript' : false,
     },
+    features: {
+        postcss: false
+    },
     stories: ['../src/**/*.stories.tsx'],
     addons: [
         'storybook-readme',

@@ -15,6 +15,8 @@ export interface Props extends React.HTMLAttributes<HTMLFormElement> {
     design?: boolean;
     onSubmit: (data: {}) => void | Promise<void>;
     setTrigger?: (trigger: (event: {}) => void) => void;
+    triggerNotDirty?: boolean;
+    autoSubmit?: boolean;
     value?: any;
 }
 

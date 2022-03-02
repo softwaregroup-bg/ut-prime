@@ -8,6 +8,7 @@ export interface Props {
     schema: Schema,
     validation?: Validation,
     params: string[],
+    init?: {},
     columns: string[],
     resultSet?: string,
     onDropdown: (params: string[]) => Promise<Dropdowns>,
