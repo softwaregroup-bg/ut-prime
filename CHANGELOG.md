@@ -1,3 +1,13 @@
+# [1.63.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.62.0...v1.63.0) (2022-03-02)
+
+
+### Features
+
+* improve report init and submit ([612994a](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/612994aef14735fd95075c14b43c54a2143fe442))
+* submit Table selection ([b5953b4](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/b5953b4c93845e25b2a8c9fe4ceb4aa6b8b52469))
+
+
+
 # [1.62.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.61.0...v1.62.0) (2022-02-22)
 
 
