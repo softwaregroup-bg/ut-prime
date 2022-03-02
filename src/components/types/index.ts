@@ -104,6 +104,7 @@ export interface Card {
     widgets: (string | {
         name: string,
         id?: string,
+        selectionPath?: string,
         propertyName?: string,
         actions?: {},
         widgets?: any[],

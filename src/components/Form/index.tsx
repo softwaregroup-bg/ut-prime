@@ -247,7 +247,12 @@ const Form: StyledType = ({
                         onChange: (value, {select = false, field: changeField = true, children = true} = {}) => {
                             if (select) {
                                 const prefix = `$.edit.${propertyName}.`;
-                                setValue(`$.selected.${propertyName}`, value, {shouldDirty: false, shouldTouch: false});
+                                const selectionPrefix = widget?.selectionPath || '$.selected';
+                                setValue(
+                                    `${selectionPrefix}.${propertyName}`,
+                                    value,
+                                    selectionPrefix.startsWith('$.') ? {shouldDirty: false, shouldTouch: false} : {shouldDirty: true, shouldTouch: true}
+                                );
                                 visibleProperties.forEach(property => {
                                     if (property.startsWith(prefix)) {
                                         setValue(

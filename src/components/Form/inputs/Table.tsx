@@ -41,7 +41,7 @@ const masterFilter = (master, filter) => master && Object.fromEntries(
 const noRows = Object.freeze([]);
 const radioColumns = Object.freeze(['radio', 'select-table-radio']);
 
-export default React.forwardRef<{}, any>(({
+export default React.forwardRef<{}, any>(function Table({
     name,
     id: resultSet = name,
     onChange,
@@ -58,6 +58,7 @@ export default React.forwardRef<{}, any>(({
     children,
     disabled,
     autoSelect,
+    selectionPath = '$.selected',
     pivot: {
         dropdown = '',
         master: pivotMaster = null,
@@ -71,9 +72,9 @@ export default React.forwardRef<{}, any>(({
         allowSelect = true
     } = {},
     ...props
-}, ref) => {
+}, ref) {
     if (typeof ref === 'function') ref({});
-    const [selected, setSelected] = React.useState(getValues ? getValues(`$.selected.${props.name}`) : null);
+    const [selected, setSelected] = React.useState(getValues ? getValues(`${selectionPath}.${props.name}`) : null);
     const [editingRows, setEditingRows] = React.useState({});
     const [pendingEdit, setPendingEdit] = React.useState(null);
     const keepRows = !!props.selection;
