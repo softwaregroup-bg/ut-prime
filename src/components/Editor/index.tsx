@@ -141,11 +141,11 @@ const Editor: StyledType = ({
         async function handleSubmit(data) {
             if (keyValue != null) {
                 const response = getValue(handleArray(await onEdit(prepareSubmit(data)), properties));
-                setEditValue(merge(data[0], response));
+                setEditValue(merge({}, data[0], response));
             } else {
                 const response = getValue(handleArray(await onAdd(prepareSubmit(data)), properties));
                 setKeyValue(lodashGet(response, `${resultSet}.${keyField}`));
-                setEditValue(merge(data[0], response));
+                setEditValue(merge({}, data[0], response));
             }
         }, [keyValue, onEdit, getValue, onAdd, keyField, resultSet, properties]
     );
