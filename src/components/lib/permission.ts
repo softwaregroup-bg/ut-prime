@@ -9,7 +9,8 @@ export default permissions => {
             .join('|')
     );
 
-    return ({permission}: {permission: string | string[]}) => {
+    return ({permission}: {permission: string | string[] | boolean}) => {
+        if (typeof permission === 'boolean') return permission;
         if (!permission) return true;
         if (!Array.isArray(permission)) permission = [permission];
 
