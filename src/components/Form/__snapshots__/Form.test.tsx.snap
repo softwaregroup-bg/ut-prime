@@ -2745,7 +2745,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     </div>
                                   </th>
                                   <th
-                                    class="text-right"
+                                    class="p-align-right"
                                     role="columnheader"
                                   >
                                     <div
@@ -2781,7 +2781,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     </div>
                                   </th>
                                   <th
-                                    class="text-right"
+                                    class="p-align-right"
                                     role="columnheader"
                                   >
                                     <div
@@ -2915,7 +2915,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     </div>
                                   </td>
                                   <td
-                                    class="text-right text-right p-editable-column p-cell-editing"
+                                    class="text-right p-editable-column p-cell-editing"
                                     role="cell"
                                   >
                                     <span
@@ -2958,7 +2958,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     />
                                   </td>
                                   <td
-                                    class="text-right text-right p-editable-column p-cell-editing"
+                                    class="text-right p-editable-column p-cell-editing"
                                     role="cell"
                                   >
                                     <span

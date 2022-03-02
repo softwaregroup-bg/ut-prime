@@ -49,7 +49,7 @@ export default function columnProps({
     const resultSetDot = resultSet ? resultSet + '.' : '';
     const {type, dropdown, parent, column, lookup, compare, ...props} = widget || property?.widget || {name};
     const fieldName = name;
-    let filterElement, body, editor, className, bodyClassName;
+    let filterElement, body, editor, bodyClassName, alignHeader;
     const filterId = `${resultSetDot}${name}Filter`;
     filterElement = filterBy && <InputText
         {...props}
@@ -60,7 +60,7 @@ export default function columnProps({
     switch (type || property?.format || getType(property?.type)) {
         case 'integer':
         case 'number':
-            className = 'text-right';
+            alignHeader = 'right';
             bodyClassName = 'text-right';
             break;
         case 'boolean':
@@ -318,7 +318,7 @@ export default function columnProps({
         ...filterElement && {filterElement},
         ...body && {body},
         ...(editor != null) && {editor},
-        className,
+        alignHeader,
         bodyClassName,
         ...column
     };
