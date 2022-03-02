@@ -1,3 +1,14 @@
+## [1.63.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.63.0...v1.63.1) (2022-03-02)
+
+
+### Bug Fixes
+
+* column header align ([e71c39b](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/e71c39ba1f0fb38a01a925acce102651886f7f4d))
+* table selection handling ([c00f0b5](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/c00f0b5ab466ffbb9bacf269839ca5ed7331008b))
+* trigger change ([288bb6b](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/288bb6bc5973a30a72c2dcadfce3d0e127443a1e))
+
+
+
 # [1.63.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.62.0...v1.63.0) (2022-03-02)
 
 
