@@ -6,6 +6,7 @@ import clsx from 'clsx';
 import { DataTable, Column, Button, Toolbar, Splitter, SplitterPanel } from '../prime';
 import Permission from '../Permission';
 import useToggle from '../hooks/useToggle';
+import useSubmit from '../hooks/useSubmit';
 import columnProps, {TableFilter} from '../lib/column';
 import prepareSubmit from '../lib/prepareSubmit';
 
@@ -96,8 +97,8 @@ const Explorer: StyledType = ({
         );
     }
     ), [keyField, actions, current, selected]);
-    React.useEffect(() => {
-        async function load() {
+    const {toast, handleSubmit: load} = useSubmit(
+        async function() {
             if (!fetch) {
                 setItems([[], 0]);
                 setDropdown({});
@@ -136,7 +137,10 @@ const Explorer: StyledType = ({
                     setLoading(false);
                 }
             }
-        }
+        },
+        [dropdownNames, fetch, filter, index, onDropdown, pageSize, resultSet, tableFilter]
+    );
+    React.useEffect(() => {
         load();
         if (subscribe) {
             return subscribe(rows => {
@@ -146,7 +150,7 @@ const Explorer: StyledType = ({
                 }), totalRecords]);
             });
         }
-    }, [fetch, tableFilter, filter, subscribe, resultSet, pageSize, onDropdown, keyField, dropdownNames, index]);
+    }, [keyField, load, subscribe]);
     const detailsPanel = React.useMemo(() => detailsOpened && details &&
         <SplitterPanel key='details' size={10}>
             <div style={splitterWidth}>{
@@ -238,6 +242,7 @@ const Explorer: StyledType = ({
     const nav = children && navigationOpened && <SplitterPanel key='nav' size={15}>{children}</SplitterPanel>;
     return (
         <div className={clsx('flex', 'flex-column', 'h-full', classes.component, className)}>
+            {toast}
             {
                 buttons?.length || nav || detailsPanel
                     ? <Toolbar left={left} right={right} style={backgroundNone} />

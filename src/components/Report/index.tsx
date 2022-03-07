@@ -13,6 +13,7 @@ import type {DataTableProps} from '../prime';
 const flexGrow = {flexGrow: 1};
 const paramsLayout = ['params'];
 const table: DataTableProps = {paginatorPosition: 'top'};
+const fieldName = widget => typeof widget === 'string' ? widget : widget.name;
 
 const Report: StyledType = ({
     classes,
@@ -28,8 +29,9 @@ const Report: StyledType = ({
     const [dropdowns, setDropdown] = React.useState({});
 
     const [validation, dropdownNames] = React.useMemo(() => {
-        const validation = getValidation(schema?.properties?.params, params);
-        const dropdownNames = params
+        const fieldNames = params.map(fieldName);
+        const validation = getValidation(schema?.properties?.params, fieldNames);
+        const dropdownNames = fieldNames
             .map(name => {
                 const property = lodashGet(schema?.properties?.params?.properties, name?.replace(/\./g, '.properties.'));
                 return [

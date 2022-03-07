@@ -17,7 +17,7 @@ function call(submit, dispatch, toast) {
             } else {
                 toast?.current?.show({
                     severity: 'error',
-                    detail: <pre>{errorMessage(error)}</pre>,
+                    detail: <pre style={{whiteSpace: 'pre-line'}}>{errorMessage(error)}</pre>,
                     life: 15000
                 });
             }

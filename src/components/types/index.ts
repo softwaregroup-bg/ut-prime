@@ -99,19 +99,21 @@ export interface Schema extends JSONSchema7 {
 export interface PropertyEditors {
     [name: string]: Property | Editor
 }
+
+export type WidgetReference = string | {
+    name: string,
+    id?: string,
+    selectionPath?: string,
+    propertyName?: string,
+    actions?: {},
+    widgets?: any[],
+    hidden?: string[],
+    compare?: string,
+    filter?: {}
+}
 export interface Card {
     label?: string;
-    widgets: (string | {
-        name: string,
-        id?: string,
-        selectionPath?: string,
-        propertyName?: string,
-        actions?: {},
-        widgets?: any[],
-        hidden?: string[],
-        compare?: string,
-        filter?: {}
-    })[];
+    widgets: WidgetReference[];
     watch?: string;
     match?: any;
     className?: string;

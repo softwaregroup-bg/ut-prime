@@ -159,6 +159,11 @@ exports[`<Report /> render equals snapshot 1`] = `
     class="flex flex-column h-full Explorer-component-4"
   >
     <div
+      class="p-toast p-component p-toast-top-right"
+    >
+      <div />
+    </div>
+    <div
       class="p-datatable p-component p-datatable-auto-layout p-datatable-responsive-stack"
       data-scrollselectors=".p-datatable-wrapper"
       pr_id_1=""

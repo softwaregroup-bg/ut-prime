@@ -2,13 +2,13 @@ import {WithStyles, withStyles, createStyles} from '@material-ui/core/styles';
 import React from 'react';
 import { DataTableProps } from '../prime';
 
-import type {Schema, Dropdowns, Action} from '../types';
+import type {Schema, Dropdowns, Action, WidgetReference} from '../types';
 
 export interface Props {
     keyField?: string;
     resultSet?: string;
     schema: Schema;
-    columns: string[];
+    columns: WidgetReference[];
     fetch: (params: {
         [resultSet: string]: {},
         orderBy: {

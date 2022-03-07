@@ -2,14 +2,14 @@ import {WithStyles, withStyles, createStyles} from '@material-ui/core/styles';
 import React from 'react';
 import type { Schema as Validation } from 'joi';
 
-import type {Schema, Dropdowns} from '../types';
+import type {Schema, Dropdowns, WidgetReference} from '../types';
 
 export interface Props {
     schema: Schema,
     validation?: Validation,
-    params: string[],
+    params: WidgetReference[],
     init?: {},
-    columns: string[],
+    columns: WidgetReference[],
     resultSet?: string,
     onDropdown: (params: string[]) => Promise<Dropdowns>,
     fetch: (params: {}) => Promise<{
