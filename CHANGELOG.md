@@ -1,3 +1,12 @@
+## [1.63.3](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.63.2...v1.63.3) (2022-03-07)
+
+
+### Bug Fixes
+
+* Explorer error handling ([f2c8ec6](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/f2c8ec6c4a722f1eed32fc310730fedcedb7ea44))
+
+
+
 ## [1.63.2](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.63.1...v1.63.2) (2022-03-02)
 
 
