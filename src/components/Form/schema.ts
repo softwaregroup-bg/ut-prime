@@ -1,10 +1,11 @@
 import Joi from 'joi';
 import { Schema, Property } from '../types';
+import getType from '../lib/getType';
 
 function validation(name, field, required) {
     let result = field.validation;
     if (!result) {
-        switch (field?.widget?.type || field.type || field.format || 'unknown') {
+        switch (field?.widget?.type || field.format || getType(field.type) || 'unknown') {
             case 'mask':
             case 'text':
             case 'password':
