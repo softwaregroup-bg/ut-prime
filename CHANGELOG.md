@@ -1,3 +1,12 @@
+## [1.63.4](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.63.3...v1.63.4) (2022-03-08)
+
+
+### Bug Fixes
+
+* validations when format and type are set ([bc7935a](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/bc7935a8952b8075c5abeed0785508aa277db7b5))
+
+
+
 ## [1.63.3](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.63.2...v1.63.3) (2022-03-07)
 
 
