@@ -1,3 +1,12 @@
+# [1.64.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.63.4...v1.64.0) (2022-03-14)
+
+
+### Features
+
+* single selection actions, #UTCORE-121 ([#11](https://github.com/softwaregroup-bg/ut-front-devextreme/issues/11)) ([2550b3e](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/2550b3ef2a1ac74d4e1c49216a04fd5d94174863)), closes [#UTCORE-121](https://github.com/softwaregroup-bg/ut-front-devextreme/issues/UTCORE-121)
+
+
+
 ## [1.63.4](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.63.3...v1.63.4) (2022-03-08)
 
 
