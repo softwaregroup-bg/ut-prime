@@ -77,6 +77,7 @@ const Explorer: StyledType = ({
             switch (enabled) {
                 case 'current': return !!current;
                 case 'selected': return selected && selected.length > 0;
+                case 'single': return selected && selected.length === 1;
                 default: return false;
             }
         };
