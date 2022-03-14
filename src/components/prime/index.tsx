@@ -8,6 +8,7 @@ import {DataTable} from 'primereact/datatable';
 import type {DataTableProps} from 'primereact/datatable';
 import {Checkbox} from 'primereact/checkbox';
 import { RadioButton } from 'primereact/radiobutton';
+import { AutoComplete } from 'primereact/autocomplete';
 
 export { AutoComplete } from 'primereact/autocomplete';
 export { Button } from 'primereact/button';
@@ -116,3 +117,11 @@ export class RadioButtonTest extends RadioButton {
         return <span className='w-full' data-testid={this.props.id} onChange={this.onChange}>{super.render(...params)}</span>;
     }
 };
+
+export class AutoCompleteTest extends AutoComplete {
+    render(...params) {
+        // @ts-ignore
+        // eslint-disable-next-line react/jsx-handler-names
+        return <span className='w-full' data-testid={this.props.id} onChange={this.onChange}>{super.render(...params)}</span>;
+    }
+}

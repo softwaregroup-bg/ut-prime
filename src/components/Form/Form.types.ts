@@ -18,6 +18,7 @@ export interface Props extends React.HTMLAttributes<HTMLFormElement> {
     triggerNotDirty?: boolean;
     autoSubmit?: boolean;
     value?: any;
+    methods?: any;
 }
 
 const styles = createStyles({

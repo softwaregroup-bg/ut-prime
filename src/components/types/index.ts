@@ -6,6 +6,7 @@ import type { ColumnProps } from 'primereact/column';
 
 export interface PropertyEditor {
     type?:
+        'autocomplete' |
         'boolean' |
         'date-time' |
         'date' |

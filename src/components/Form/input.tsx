@@ -15,7 +15,8 @@ import {
     Skeleton,
     SelectButtonTest,
     FileUpload,
-    Column
+    Column,
+    AutoCompleteTest
 } from '../prime';
 import { RefCallBack } from 'react-hook-form';
 
@@ -55,7 +56,8 @@ export default function input(
     parentValue,
     loading: string,
     getValues: (name: any) => any,
-    counter
+    counter,
+    methods
 ) {
     if (loading) return <>{label}<div className={inputClass}><Skeleton className='p-inputtext'/></div></>;
     props.disabled = schema?.readOnly || (parentField && !parentValue);
@@ -122,6 +124,31 @@ export default function input(
                 />
             </div>
         </>;
+        case 'autocomplete': {
+            const {autocomplete} = schema.widget;
+            const handleComplete = async({query}) => (
+                autocomplete && field.onChange({...field.value, ...await methods[autocomplete]({query})})
+            );
+            const handleChange = ({value}) => field.onChange({value});
+            const handleSelect = ({value}) => field.onChange(value);
+            const handleClear = () => field.onChange({});
+            const template = ({value}) => value;
+            return <Field {...{label, error, inputClass}}>
+                <AutoCompleteTest
+                    {...field}
+                    inputClassName='w-full'
+                    suggestions={field.value?.suggestions}
+                    value={field.value?.value}
+                    completeMethod={handleComplete}
+                    onSelect={handleSelect}
+                    onChange={handleChange}
+                    onClear={handleClear}
+                    itemTemplate={template}
+                    selectedItemTemplate={template}
+                    {...props}
+                />
+            </Field>;
+        }
         case 'dropdown': return <Field {...{label, error, inputClass}}>
             <DropdownTest
                 {...field}

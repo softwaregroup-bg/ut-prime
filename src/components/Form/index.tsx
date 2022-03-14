@@ -88,6 +88,7 @@ const Form: StyledType = ({
     cards,
     layout,
     loading,
+    methods,
     onSubmit,
     setTrigger,
     triggerNotDirty,
@@ -285,11 +286,12 @@ const Form: StyledType = ({
                     parentWatch,
                     loading,
                     getValues,
-                    counter
+                    counter,
+                    methods
                 )}
             />
         );
-    }, [classes, control, dropdowns, idx, loading, setValue, watch, getValues, visibleProperties]);
+    }, [classes, control, dropdowns, idx, loading, setValue, watch, getValues, visibleProperties, methods]);
 
     const InputWrapEdit = React.useCallback(
         function InputEdit({name, ...props}) {

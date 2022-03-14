@@ -43,6 +43,7 @@ const Editor: StyledType = ({
     keyField = object + 'Id',
     resultSet = object,
     design: designDefault,
+    methods,
     onDropdown,
     onAdd,
     onGet,
@@ -200,6 +201,7 @@ const Editor: StyledType = ({
                         cards={cards}
                         layout={layout || filter?.widgets || []}
                         onSubmit={handleSubmit}
+                        methods={methods}
                         value={value}
                         dropdowns={dropdowns}
                         loading={loading}
