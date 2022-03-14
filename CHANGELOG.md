@@ -1,3 +1,12 @@
+# [1.65.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.64.0...v1.65.0) (2022-03-14)
+
+
+### Features
+
+* autocomplete component ([#12](https://github.com/softwaregroup-bg/ut-front-devextreme/issues/12)) ([e659c5c](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/e659c5cf117d42795cc1f18995ea5c76f6a8430e))
+
+
+
 # [1.64.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.63.4...v1.64.0) (2022-03-14)
 
 
