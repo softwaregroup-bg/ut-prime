@@ -25,6 +25,29 @@ import { Theme } from '../Theme';
 
 const Reset = withStyles(({fontSize = 14}: Theme) => ({
     '@global': {
+        '@font-face': [{
+            fontFamily: 'Roboto',
+            fontWeight: 'normal',
+            src: `url(${require('./Roboto-Regular.ttf').default}) format('truetype')`
+        }, {
+            fontFamily: 'Roboto',
+            fontWeight: 'normal',
+            fontStyle: 'italic',
+            src: `url(${require('./Roboto-LightItalic.ttf').default}) format('truetype')`
+        }, {
+            fontFamily: 'Roboto',
+            fontWeight: 'bold',
+            fontStyle: 'italic',
+            src: `url(${require('./Roboto-MediumItalic.ttf').default}) format('truetype')`
+        }, {
+            fontFamily: 'Roboto',
+            fontWeight: 600,
+            src: `url(${require('./Roboto-Medium.ttf').default}) format('truetype')`
+        }, {
+            fontFamily: 'Roboto',
+            fontWeight: 'bold',
+            src: `url(${require('./Roboto-Bold.ttf').default}) format('truetype')`
+        }],
         html: {
             fontSize
         }

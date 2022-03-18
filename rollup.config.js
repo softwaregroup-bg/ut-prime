@@ -31,7 +31,10 @@ function build() {
             typescript(),
             url(),
             copy({
-                targets: [{ src: 'src/assets/*', dest: 'core/assets' }]
+                targets: [
+                    { src: 'src/assets/*', dest: 'core/assets' },
+                    { src: 'src/components/App/*.ttf', dest: 'core/App' }
+                ]
             })
         ]
     }];
