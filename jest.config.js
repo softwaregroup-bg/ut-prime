@@ -14,7 +14,7 @@ module.exports = {
     transformIgnorePatterns: ['<rootDir>/node_modules/(?!(impl|ut)-)', notUt],
     testEnvironment: 'jsdom',
     moduleNameMapper: {
-        '^.+\\.(css|less|scss|png)$': 'babel-jest'
+        '^.+\\.(css|less|scss|png|ttf)$': 'babel-jest'
     },
     transform: {
         '\\.[jt]sx?$': 'babel-jest',
