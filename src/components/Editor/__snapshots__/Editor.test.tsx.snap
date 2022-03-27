@@ -214,13 +214,6 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                 >
                   Taxonomy
                 </div>
-                <div
-                  class="p-card-content"
-                >
-                  <div
-                    class=""
-                  />
-                </div>
               </div>
             </div>
           </div>
@@ -324,13 +317,6 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                   class="p-card-title"
                 >
                   Morphology
-                </div>
-                <div
-                  class="p-card-content"
-                >
-                  <div
-                    class=""
-                  />
                 </div>
               </div>
             </div>
@@ -1080,9 +1066,6 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                   class="p-card-content"
                 >
                   <div
-                    class=""
-                  />
-                  <div
                     class="field grid"
                     style="background: transparent; outline: none;"
                   >
@@ -1266,9 +1249,6 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                 <div
                   class="p-card-content"
                 >
-                  <div
-                    class=""
-                  />
                   <div
                     class="field grid"
                     style="background: transparent; outline: none;"
@@ -2208,13 +2188,6 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
                 >
                   Taxonomy
                 </div>
-                <div
-                  class="p-card-content"
-                >
-                  <div
-                    class=""
-                  />
-                </div>
               </div>
             </div>
           </div>
@@ -2312,13 +2285,6 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
                   class="p-card-title"
                 >
                   Morphology
-                </div>
-                <div
-                  class="p-card-content"
-                >
-                  <div
-                    class=""
-                  />
                 </div>
               </div>
             </div>

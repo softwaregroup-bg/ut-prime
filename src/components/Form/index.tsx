@@ -85,6 +85,7 @@ const Form: StyledType = ({
     schema = {},
     editors,
     design,
+    debug,
     cards,
     layout,
     loading,
@@ -134,7 +135,7 @@ const Form: StyledType = ({
                 visibleCards.map(id => {
                     const nested = [].concat(id);
                     return nested.map(
-                        cardName => cards[typeof cardName === 'string' ? cardName : cardName.name]?.widgets.map(widgetNames)
+                        cardName => cards[typeof cardName === 'string' ? cardName : cardName.name]?.widgets?.map(widgetNames)
                     );
                 }).flat(10).filter(Boolean)
             ))
@@ -321,7 +322,7 @@ const Form: StyledType = ({
         const {label, widgets = [], flex, hidden, classes} = (cards[cardName] || {label: '❌ ' + cardName});
         return (
             <ConfigCard title={label} key={`${index1}-${index2}`} className='card mb-3' card={cardName} id={cardName} index1={index1} index2={index2} move={move} flex={flex} design={design} hidden={hidden}>
-                <div className={clsx(flex && 'flex flex-wrap')}>
+                {widgets.length > 0 && <div className={clsx(flex && 'flex flex-wrap')}>
                     {widgets.map((widget, ind) => {
                         if (typeof widget === 'string') widget = {name: widget};
                         const {
@@ -367,7 +368,7 @@ const Form: StyledType = ({
                             {Field()}
                         </ConfigField> : <div className="field grid" key={name}>❌ {name}</div>;
                     })}
-                </div>
+                </div>}
             </ConfigCard>
         );
     }
@@ -397,7 +398,7 @@ const Form: StyledType = ({
 
                 if (!nestedCards.length) return null;
                 return (
-                    <div key={level1} className={clsx('col-12', firstCard?.className || (!firstCard?.hidden && 'xl:col-6'))} {...design && {style: outline}}>
+                    <div key={level1} className={clsx('col-12', firstCard?.className || (!firstCard?.hidden && 'xl:col-6'))} {...(design || debug) && {style: outline}}>
                         {nestedCards}
                         <ConfigCard
                             title='[ add card ]'

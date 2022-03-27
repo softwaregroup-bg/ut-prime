@@ -34,6 +34,7 @@ const Editor: StyledType = ({
     id,
     schema = {},
     editors,
+    debug,
     type,
     typeField,
     cards,
@@ -67,7 +68,7 @@ const Editor: StyledType = ({
     const [trigger, setTrigger] = React.useState();
     const [value, setEditValue] = React.useState({});
     const [dropdowns, setDropdown] = React.useState({});
-    const [[items, layout, orientation], setIndex] = React.useState(getLayout(layoutName));
+    const [[items, layout, orientation], setIndex] = React.useState(() => getLayout(layoutName));
     const [filter, setFilter] = React.useState(items?.[0]?.items?.[0] || items?.[0]);
     const [loading, setLoading] = React.useState('');
     const [validation, dropdownNames, getValue] = React.useMemo(() => {
@@ -196,6 +197,7 @@ const Editor: StyledType = ({
                 <div className='flex flex-grow-1'>
                     <Form
                         schema={schema}
+                        debug={debug}
                         editors={editors}
                         design={design}
                         cards={cards}

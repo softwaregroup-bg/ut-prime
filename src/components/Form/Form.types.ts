@@ -5,7 +5,7 @@ import type { Schema as Validation } from 'joi';
 import {Schema, Editors, Cards, Dropdowns} from '../types';
 export interface Props extends React.HTMLAttributes<HTMLFormElement> {
     className?: string;
-    schema: Schema;
+    schema?: Schema;
     editors?: Editors;
     cards: Cards;
     dropdowns?: Dropdowns,
@@ -13,7 +13,8 @@ export interface Props extends React.HTMLAttributes<HTMLFormElement> {
     loading?: string;
     validation?: Validation;
     design?: boolean;
-    onSubmit: (data: {}) => void | Promise<void>;
+    debug?: boolean;
+    onSubmit?: (data: {}) => void | Promise<void>;
     setTrigger?: (trigger: (event: {}) => void) => void;
     triggerNotDirty?: boolean;
     autoSubmit?: boolean;

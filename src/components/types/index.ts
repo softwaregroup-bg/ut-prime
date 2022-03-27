@@ -48,6 +48,7 @@ export interface Dropdowns {
         value: any;
         className?: string;
         title?: string;
+        parent?: any;
         disabled?: boolean
     }[] | {
         key: any;
@@ -114,7 +115,7 @@ export type WidgetReference = string | {
 }
 export interface Card {
     label?: string;
-    widgets: WidgetReference[];
+    widgets?: WidgetReference[];
     watch?: string;
     match?: any;
     className?: string;

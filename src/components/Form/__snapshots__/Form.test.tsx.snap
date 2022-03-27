@@ -4019,13 +4019,6 @@ exports[`<Form /> render equals snapshot 1`] = `
               >
                 Taxonomy
               </div>
-              <div
-                class="p-card-content"
-              >
-                <div
-                  class=""
-                />
-              </div>
             </div>
           </div>
         </div>
@@ -4323,13 +4316,6 @@ exports[`<Form /> render equals snapshot 1`] = `
                 class="p-card-title"
               >
                 Morphology
-              </div>
-              <div
-                class="p-card-content"
-              >
-                <div
-                  class=""
-                />
               </div>
             </div>
           </div>
