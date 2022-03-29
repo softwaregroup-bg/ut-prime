@@ -1,3 +1,4 @@
+import { userEvent, within } from '@storybook/testing-library';
 import React from 'react';
 import Editor from '..';
 export {default} from '../Editor.stories';
@@ -54,3 +55,14 @@ export const CascadedDropdowns = () =>
         })}
         layouts={{edit: ['edit']}}
     />;
+
+CascadedDropdowns.play = async({canvasElement}) => {
+    const canvas = within(canvasElement);
+    const body = within(document.body);
+    userEvent.click(canvas.getByTestId('continent'));
+    userEvent.click(body.getByText('Europe'));
+    userEvent.click(canvas.getByTestId('country'));
+    userEvent.click(body.getByText('France'));
+    userEvent.click(canvas.getByTestId('city'));
+    userEvent.click(body.getByText('Paris'));
+};

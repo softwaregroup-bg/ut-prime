@@ -1,3 +1,4 @@
+import { userEvent, within } from '@storybook/testing-library';
 import React from 'react';
 import Editor from '..';
 export {default} from '../Editor.stories';
@@ -124,3 +125,9 @@ export const CascadedTables = () =>
         }}
         layouts={{edit: ['person', 'document', 'attachment']}}
     />;
+
+CascadedTables.play = async({canvasElement}) => {
+    const canvas = within(canvasElement);
+    userEvent.click(canvas.getByText('John Doe'));
+    userEvent.click(canvas.getByText('Driving License'));
+};

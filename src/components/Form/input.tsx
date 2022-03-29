@@ -89,6 +89,7 @@ export default function input(
         case 'currency': return <Field {...{label, error, inputClass}}>
             <InputNumber
                 {...field}
+                inputClassName='text-right'
                 inputRef={field.ref}
                 onChange={e => field.onChange?.(e.value)}
                 minFractionDigits={2}
@@ -323,6 +324,7 @@ export default function input(
         case 'number': return <Field {...{label, error, inputClass}}>
             <InputNumber
                 {...field}
+                inputClassName='text-right'
                 inputRef={field.ref}
                 onChange={e => field.onChange?.(e.value)}
                 inputId={field.name}
@@ -332,7 +334,7 @@ export default function input(
         case 'integer': return <Field {...{label, error, inputClass}}>
             <InputNumber
                 {...field}
-                inputClassName='w-full'
+                inputClassName='w-full text-right'
                 inputRef={field.ref}
                 onChange={e => field.onChange?.(e.value)}
                 showButtons

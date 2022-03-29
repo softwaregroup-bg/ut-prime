@@ -27,7 +27,7 @@ const props = {
     }
 };
 
-export const TypedLayout = () =>
+export const PolymorphicLayout = () =>
     <div className='flex flex-row'>
         <div className='flex-col flex-grow-1'>
             <Editor

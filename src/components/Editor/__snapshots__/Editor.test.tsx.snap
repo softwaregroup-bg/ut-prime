@@ -783,6 +783,944 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
 </div>
 `;
 
+exports[`<Editor /> CascadedDropdowns render equals snapshot 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  <div
+    class="p-toolbar p-component"
+    role="toolbar"
+    style="background: none;"
+  >
+    <div
+      class="p-toolbar-group-left"
+    >
+      <button
+        aria-label="save"
+        class="p-button p-component p-button-icon-only p-disabled"
+        data-testid="saveButton"
+        disabled=""
+      >
+        <span
+          class="p-button-icon p-c pi pi-save"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
+    </div>
+    <div
+      class="p-toolbar-group-right"
+    >
+      <button
+        aria-label="design"
+        class="p-button p-component mr-2 p-button-icon-only"
+        data-testid="designButton"
+      >
+        <span
+          class="p-button-icon p-c pi pi-cog"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="flex overflow-x-hidden w-full"
+  >
+    <div
+      class="flex flex-grow-1"
+    >
+      <div
+        class="p-toast p-component p-toast-top-right"
+      >
+        <div />
+      </div>
+      <form
+        class="grid col align-self-start Form-component-25"
+      >
+        <div
+          class="col-12 xl:col-3"
+        >
+          <div>
+            <div
+              class="p-card p-component card mb-3"
+              id="edit"
+            >
+              <div
+                class="p-card-body"
+              >
+                <div
+                  class="p-card-content"
+                >
+                  <div
+                    class=""
+                  >
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="continent"
+                      >
+                        Continent
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <div
+                          class="p-dropdown p-component p-inputwrapper w-full"
+                          id="continent"
+                        >
+                          <div
+                            class="p-hidden-accessible"
+                          >
+                            <input
+                              aria-haspopup="listbox"
+                              readonly=""
+                              type="text"
+                            />
+                          </div>
+                          <div
+                            class="p-hidden-accessible p-dropdown-hidden-select"
+                          >
+                            <select
+                              aria-hidden="true"
+                              name="continent"
+                              tabindex="-1"
+                            >
+                              <option
+                                value=""
+                              />
+                            </select>
+                          </div>
+                          <span
+                            class="w-full inline-flex"
+                            data-testid="continent"
+                          >
+                            <span
+                              class="p-dropdown-label p-inputtext p-dropdown-label-empty"
+                            >
+                              empty
+                            </span>
+                          </span>
+                          <div
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            class="p-dropdown-trigger"
+                            role="button"
+                          >
+                            <span
+                              class="p-dropdown-trigger-icon p-clickable pi pi-chevron-down"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="country"
+                      >
+                        Country
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <div
+                          class="p-dropdown p-component p-inputwrapper w-full p-disabled"
+                          id="country"
+                        >
+                          <div
+                            class="p-hidden-accessible"
+                          >
+                            <input
+                              aria-haspopup="listbox"
+                              disabled=""
+                              readonly=""
+                              type="text"
+                            />
+                          </div>
+                          <div
+                            class="p-hidden-accessible p-dropdown-hidden-select"
+                          >
+                            <select
+                              aria-hidden="true"
+                              name="country"
+                              tabindex="-1"
+                            >
+                              <option
+                                value=""
+                              />
+                            </select>
+                          </div>
+                          <span
+                            class="w-full inline-flex"
+                            data-testid="country"
+                          >
+                            <span
+                              class="p-dropdown-label p-inputtext p-dropdown-label-empty"
+                            >
+                              empty
+                            </span>
+                          </span>
+                          <div
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            class="p-dropdown-trigger"
+                            role="button"
+                          >
+                            <span
+                              class="p-dropdown-trigger-icon p-clickable pi pi-chevron-down"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="city"
+                      >
+                        City
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <div
+                          class="p-dropdown p-component p-inputwrapper w-full p-disabled"
+                          id="city"
+                        >
+                          <div
+                            class="p-hidden-accessible"
+                          >
+                            <input
+                              aria-haspopup="listbox"
+                              disabled=""
+                              readonly=""
+                              type="text"
+                            />
+                          </div>
+                          <div
+                            class="p-hidden-accessible p-dropdown-hidden-select"
+                          >
+                            <select
+                              aria-hidden="true"
+                              name="city"
+                              tabindex="-1"
+                            >
+                              <option
+                                value=""
+                              />
+                            </select>
+                          </div>
+                          <span
+                            class="w-full inline-flex"
+                            data-testid="city"
+                          >
+                            <span
+                              class="p-dropdown-label p-inputtext p-dropdown-label-empty"
+                            >
+                              empty
+                            </span>
+                          </span>
+                          <div
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            class="p-dropdown-trigger"
+                            role="button"
+                          >
+                            <span
+                              class="p-dropdown-trigger-icon p-clickable pi pi-chevron-down"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  <div
+    class="p-toolbar p-component"
+    role="toolbar"
+    style="background: none;"
+  >
+    <div
+      class="p-toolbar-group-left"
+    >
+      <button
+        aria-label="save"
+        class="p-button p-component p-button-icon-only p-disabled"
+        data-testid="saveButton"
+        disabled=""
+      >
+        <span
+          class="p-button-icon p-c pi pi-save"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
+    </div>
+    <div
+      class="p-toolbar-group-right"
+    >
+      <button
+        aria-label="design"
+        class="p-button p-component mr-2 p-button-icon-only"
+        data-testid="designButton"
+      >
+        <span
+          class="p-button-icon p-c pi pi-cog"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="flex overflow-x-hidden w-full"
+  >
+    <div
+      class="flex flex-grow-1"
+    >
+      <div
+        class="p-toast p-component p-toast-top-right"
+      >
+        <div />
+      </div>
+      <form
+        class="grid col align-self-start Form-component-27"
+      >
+        <div
+          class="col-12 xl:col-4"
+        >
+          <div>
+            <div
+              class="p-card p-component card mb-3"
+              id="person"
+            >
+              <div
+                class="p-card-body"
+              >
+                <div
+                  class="p-card-title"
+                >
+                  Person
+                </div>
+                <div
+                  class="p-card-content"
+                >
+                  <div
+                    class=""
+                  >
+                    <div
+                      class="field grid"
+                    >
+                      <div
+                        class="col-12"
+                      >
+                        <div
+                          class="p-toolbar p-component p-0 border-none"
+                          role="toolbar"
+                          style="background: none;"
+                        >
+                          <div
+                            class="p-toolbar-group-left"
+                          >
+                            <button
+                              class="p-button p-component p-button mr-2"
+                              data-testid="person.addButton"
+                            >
+                              <span
+                                class="p-button-icon p-c p-button-icon-left pi pi-plus"
+                              />
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                Add
+                              </span>
+                            </button>
+                            <button
+                              class="p-button p-component p-button p-disabled"
+                              data-testid="person.saveButton"
+                              disabled=""
+                            >
+                              <span
+                                class="p-button-icon p-c p-button-icon-left pi pi-trash"
+                              />
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                Delete
+                              </span>
+                            </button>
+                          </div>
+                          <div
+                            class="p-toolbar-group-right"
+                          />
+                        </div>
+                        <div
+                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full"
+                          data-scrollselectors=".p-datatable-wrapper"
+                          id="person"
+                          pr_id_7=""
+                        >
+                          <span
+                            class="w-full"
+                            data-testid="person"
+                          >
+                            <div
+                              class="p-datatable-wrapper"
+                            >
+                              <table
+                                class="p-datatable-table"
+                                role="table"
+                              >
+                                <thead
+                                  class="p-datatable-thead"
+                                >
+                                  <tr
+                                    role="row"
+                                  >
+                                    <th
+                                      class=""
+                                      role="columnheader"
+                                    >
+                                      <div
+                                        class="p-column-header-content"
+                                      >
+                                        <span
+                                          class="p-column-title"
+                                        >
+                                          <span
+                                            data-testid="person.fullNameTitle"
+                                          >
+                                            Full Name
+                                          </span>
+                                        </span>
+                                      </div>
+                                    </th>
+                                    <th
+                                      class=""
+                                      role="columnheader"
+                                    >
+                                      <div
+                                        class="p-column-header-content"
+                                      >
+                                        <span
+                                          class="p-column-title"
+                                        >
+                                          <span
+                                            data-testid="person.nationalIdTitle"
+                                          >
+                                            National ID
+                                          </span>
+                                        </span>
+                                      </div>
+                                    </th>
+                                    <th
+                                      class=""
+                                      role="columnheader"
+                                    >
+                                      <div
+                                        class="p-column-header-content"
+                                      >
+                                        <span
+                                          class="p-column-title"
+                                        >
+                                          <span
+                                            data-testid="person.birthDateTitle"
+                                          >
+                                            Birth Date
+                                          </span>
+                                        </span>
+                                      </div>
+                                    </th>
+                                    <th
+                                      class=""
+                                      role="columnheader"
+                                      style="width: 7rem;"
+                                    >
+                                      <div
+                                        class="p-column-header-content"
+                                      >
+                                        <span
+                                          class="p-column-title"
+                                        />
+                                      </div>
+                                    </th>
+                                  </tr>
+                                </thead>
+                                <tbody
+                                  class="p-datatable-tbody"
+                                >
+                                  <tr
+                                    class="p-selectable-row"
+                                    role="row"
+                                    tabindex="0"
+                                  >
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="person.fullNameTitle"
+                                        >
+                                          Full Name
+                                        </span>
+                                      </span>
+                                      John Doe
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="person.nationalIdTitle"
+                                        >
+                                          National ID
+                                        </span>
+                                      </span>
+                                      777777777
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="person.birthDateTitle"
+                                        >
+                                          Birth Date
+                                        </span>
+                                      </span>
+                                      1/8/2000
+                                    </td>
+                                    <td
+                                      class=""
+                                      role="cell"
+                                      style="text-align: center;"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                      <button
+                                        class="p-row-editor-init p-link"
+                                        tabindex="0"
+                                        type="button"
+                                      >
+                                        <span
+                                          class="p-row-editor-init-icon pi pi-fw pi-pencil"
+                                        />
+                                      </button>
+                                    </td>
+                                  </tr>
+                                  <tr
+                                    class="p-selectable-row p-row-odd"
+                                    role="row"
+                                    tabindex="-1"
+                                  >
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="person.fullNameTitle"
+                                        >
+                                          Full Name
+                                        </span>
+                                      </span>
+                                      Jane Doe
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="person.nationalIdTitle"
+                                        >
+                                          National ID
+                                        </span>
+                                      </span>
+                                      888888888
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="person.birthDateTitle"
+                                        >
+                                          Birth Date
+                                        </span>
+                                      </span>
+                                      3/18/2002
+                                    </td>
+                                    <td
+                                      class=""
+                                      role="cell"
+                                      style="text-align: center;"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                      <button
+                                        class="p-row-editor-init p-link"
+                                        tabindex="0"
+                                        type="button"
+                                      >
+                                        <span
+                                          class="p-row-editor-init-icon pi pi-fw pi-pencil"
+                                        />
+                                      </button>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-12 xl:col-4"
+        >
+          <div>
+            <div
+              class="p-card p-component card mb-3"
+              id="document"
+            >
+              <div
+                class="p-card-body"
+              >
+                <div
+                  class="p-card-title"
+                >
+                  Document
+                </div>
+                <div
+                  class="p-card-content"
+                >
+                  <div
+                    class=""
+                  >
+                    <div
+                      class="field grid"
+                    >
+                      <div
+                        class="col-12"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-12 xl:col-4"
+        >
+          <div>
+            <div
+              class="p-card p-component card mb-3"
+              id="attachment"
+            >
+              <div
+                class="p-card-body"
+              >
+                <div
+                  class="p-card-title"
+                >
+                  Attachment
+                </div>
+                <div
+                  class="p-card-content"
+                >
+                  <div
+                    class=""
+                  >
+                    <div
+                      class="field grid"
+                    >
+                      <div
+                        class="col-12"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Editor /> CustomEditors render equals snapshot 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  <div
+    class="p-toolbar p-component"
+    role="toolbar"
+    style="background: none;"
+  >
+    <div
+      class="p-toolbar-group-left"
+    >
+      <button
+        aria-label="save"
+        class="p-button p-component p-button-icon-only p-disabled"
+        data-testid="saveButton"
+        disabled=""
+      >
+        <span
+          class="p-button-icon p-c pi pi-save"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
+    </div>
+    <div
+      class="p-toolbar-group-right"
+    >
+      <button
+        aria-label="design"
+        class="p-button p-component mr-2 p-button-icon-only"
+        data-testid="designButton"
+      >
+        <span
+          class="p-button-icon p-c pi pi-cog"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="flex overflow-x-hidden w-full"
+  >
+    <div
+      class="flex flex-grow-1"
+    >
+      <div
+        class="p-toast p-component p-toast-top-right"
+      >
+        <div />
+      </div>
+      <form
+        class="grid col align-self-start Form-component-29"
+      >
+        <div
+          class="col-12 xl:col-6"
+        >
+          <div>
+            <div
+              class="p-card p-component card mb-3"
+              id="edit"
+            >
+              <div
+                class="p-card-body"
+              >
+                <div
+                  class="p-card-content"
+                >
+                  <div
+                    class=""
+                  >
+                    <div
+                      class="grid"
+                    >
+                      <div
+                        class="field grid w-full mx-0"
+                      >
+                        <label
+                          class="col-12 md:col-2"
+                          for="period"
+                        >
+                          Expiration period
+                        </label>
+                        <div
+                          class="col-12 md:col-5"
+                        >
+                          <span
+                            class="p-inputnumber p-component p-inputwrapper w-full p-inputwrapper-filled p-inputnumber-buttons-stacked"
+                            id="period"
+                          >
+                            <input
+                              aria-valuenow="5"
+                              class="p-inputtext p-component p-filled p-inputnumber-input w-full text-right"
+                              id="period"
+                              inputmode="numeric"
+                              name="period"
+                              role="spinbutton"
+                              type="text"
+                              value="5"
+                            />
+                            <span
+                              class="p-inputnumber-button-group"
+                            >
+                              <button
+                                class="p-inputnumber-button p-inputnumber-button-up p-button p-button-icon-only p-component"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                <span
+                                  class="p-button-icon pi pi-angle-up"
+                                />
+                              </button>
+                              <button
+                                class="p-inputnumber-button p-inputnumber-button-down p-button p-button-icon-only p-component"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                <span
+                                  class="p-button-icon pi pi-angle-down"
+                                />
+                              </button>
+                            </span>
+                          </span>
+                        </div>
+                        <div
+                          class="col-12 md:col-5"
+                        >
+                          <div
+                            class="p-selectbutton p-buttonset p-component w-full"
+                            id="unit"
+                            role="group"
+                          >
+                            <span
+                              class="w-full inline-flex"
+                              data-testid="unit"
+                            >
+                              <div
+                                aria-label="Minutes"
+                                aria-pressed="false"
+                                class="p-button p-component"
+                                role="button"
+                                tabindex="0"
+                              >
+                                <span
+                                  class="p-button-label p-c"
+                                >
+                                  Minutes
+                                </span>
+                              </div>
+                              <div
+                                aria-label="Hours"
+                                aria-pressed="false"
+                                class="p-button p-component"
+                                role="button"
+                                tabindex="0"
+                              >
+                                <span
+                                  class="p-button-label p-c"
+                                >
+                                  Hours
+                                </span>
+                              </div>
+                              <div
+                                aria-label="Days"
+                                aria-pressed="true"
+                                class="p-button p-component p-highlight"
+                                role="button"
+                                tabindex="0"
+                              >
+                                <span
+                                  class="p-button-label p-c"
+                                >
+                                  Days
+                                </span>
+                              </div>
+                              <div
+                                aria-label="Months"
+                                aria-pressed="false"
+                                class="p-button p-component"
+                                role="button"
+                                tabindex="0"
+                              >
+                                <span
+                                  class="p-button-label p-c"
+                                >
+                                  Months
+                                </span>
+                              </div>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`<Editor /> Design render equals snapshot 1`] = `
 <div
   data-testid="ut-front-test"
@@ -2372,6 +3310,2782 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
 </div>
 `;
 
+exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  <div
+    class="p-toolbar p-component"
+    role="toolbar"
+    style="background: none;"
+  >
+    <div
+      class="p-toolbar-group-left"
+    >
+      <button
+        aria-label="save"
+        class="p-button p-component p-button-icon-only p-disabled"
+        data-testid="saveButton"
+        disabled=""
+      >
+        <span
+          class="p-button-icon p-c pi pi-save"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
+    </div>
+    <div
+      class="p-toolbar-group-right"
+    >
+      <button
+        aria-label="design"
+        class="p-button p-component mr-2 p-button-icon-only"
+        data-testid="designButton"
+      >
+        <span
+          class="p-button-icon p-c pi pi-cog"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="flex overflow-x-hidden w-full"
+  >
+    <div
+      class="flex flex-grow-1"
+    >
+      <div
+        class="p-toast p-component p-toast-top-right"
+      >
+        <div />
+      </div>
+      <form
+        class="grid col align-self-start Form-component-31"
+      >
+        <div
+          class="col-12 xl:col-2"
+        >
+          <div>
+            <div
+              class="p-card p-component card mb-3"
+              id="master"
+            >
+              <div
+                class="p-card-body"
+              >
+                <div
+                  class="p-card-title"
+                >
+                  Persons
+                </div>
+                <div
+                  class="p-card-content"
+                >
+                  <div
+                    class=""
+                  >
+                    <div
+                      class="field grid"
+                    >
+                      <div
+                        class="col-12"
+                      >
+                        <div
+                          class="p-toolbar p-component p-0 border-none"
+                          role="toolbar"
+                          style="background: none;"
+                        >
+                          <div
+                            class="p-toolbar-group-left"
+                          >
+                            <button
+                              class="p-button p-component p-button mr-2"
+                              data-testid="person.addButton"
+                            >
+                              <span
+                                class="p-button-icon p-c p-button-icon-left pi pi-plus"
+                              />
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                Add
+                              </span>
+                            </button>
+                            <button
+                              class="p-button p-component p-button p-disabled"
+                              data-testid="person.saveButton"
+                              disabled=""
+                            >
+                              <span
+                                class="p-button-icon p-c p-button-icon-left pi pi-trash"
+                              />
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                Delete
+                              </span>
+                            </button>
+                          </div>
+                          <div
+                            class="p-toolbar-group-right"
+                          />
+                        </div>
+                        <div
+                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full"
+                          data-scrollselectors=".p-datatable-wrapper"
+                          id="person"
+                          pr_id_9=""
+                        >
+                          <span
+                            class="w-full"
+                            data-testid="person"
+                          >
+                            <div
+                              class="p-datatable-wrapper"
+                            >
+                              <table
+                                class="p-datatable-table"
+                                role="table"
+                              >
+                                <thead
+                                  class="p-datatable-thead"
+                                >
+                                  <tr
+                                    role="row"
+                                  >
+                                    <th
+                                      class=""
+                                      role="columnheader"
+                                    >
+                                      <div
+                                        class="p-column-header-content"
+                                      >
+                                        <span
+                                          class="p-column-title"
+                                        >
+                                          <span
+                                            data-testid="person.fullNameTitle"
+                                          >
+                                            Full Name
+                                          </span>
+                                        </span>
+                                      </div>
+                                    </th>
+                                  </tr>
+                                </thead>
+                                <tbody
+                                  class="p-datatable-tbody"
+                                >
+                                  <tr
+                                    class="p-selectable-row"
+                                    role="row"
+                                    tabindex="0"
+                                  >
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="person.fullNameTitle"
+                                        >
+                                          Full Name
+                                        </span>
+                                      </span>
+                                      John Doe
+                                    </td>
+                                  </tr>
+                                  <tr
+                                    class="p-selectable-row p-row-odd"
+                                    role="row"
+                                    tabindex="-1"
+                                  >
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="person.fullNameTitle"
+                                        >
+                                          Full Name
+                                        </span>
+                                      </span>
+                                      Jane Doe
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-12 xl:col-3"
+        >
+          <div>
+            <div
+              class="p-card p-component card mb-3"
+              id="detail"
+            >
+              <div
+                class="p-card-body"
+              >
+                <div
+                  class="p-card-title"
+                >
+                  Personal Information
+                </div>
+                <div
+                  class="p-card-content"
+                >
+                  <div
+                    class=""
+                  >
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="person.fullName"
+                      >
+                        Full Name
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <input
+                          class="p-inputtext p-component p-disabled w-full"
+                          disabled=""
+                          id="$.edit.person.fullName"
+                          name="$.edit.person.fullName"
+                          value=""
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="person.birthDate"
+                      >
+                        Birth Date
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <span
+                          class="p-calendar p-component p-inputwrapper w-full p-calendar-w-btn p-calendar-w-btn-right p-calendar-disabled"
+                          id="$.edit.person.birthDate"
+                        >
+                          <input
+                            autocomplete="off"
+                            class="p-inputtext p-component p-disabled"
+                            disabled=""
+                            id="$.edit.person.birthDate"
+                            inputmode="none"
+                            name="$.edit.person.birthDate"
+                            type="text"
+                          />
+                          <button
+                            class="p-button p-component p-datepicker-trigger p-button-icon-only p-disabled"
+                            disabled=""
+                            tabindex="-1"
+                            type="button"
+                          >
+                            <span
+                              class="p-button-icon p-c pi pi-calendar"
+                            />
+                            <span
+                              class="p-button-label p-c"
+                            >
+                               
+                            </span>
+                          </button>
+                        </span>
+                      </div>
+                    </div>
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="person.nationalId"
+                      >
+                        National ID
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <input
+                          class="p-inputtext p-component p-disabled w-full"
+                          disabled=""
+                          id="$.edit.person.nationalId"
+                          name="$.edit.person.nationalId"
+                          value=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  <div
+    class="p-toolbar p-component"
+    role="toolbar"
+    style="background: none;"
+  >
+    <div
+      class="p-toolbar-group-left"
+    >
+      <button
+        aria-label="save"
+        class="p-button p-component p-button-icon-only p-disabled"
+        data-testid="saveButton"
+        disabled=""
+      >
+        <span
+          class="p-button-icon p-c pi pi-save"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
+    </div>
+    <div
+      class="p-toolbar-group-right"
+    >
+      <button
+        aria-label="design"
+        class="p-button p-component mr-2 p-button-icon-only"
+        data-testid="designButton"
+      >
+        <span
+          class="p-button-icon p-c pi pi-cog"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="flex overflow-x-hidden w-full"
+  >
+    <div
+      class="flex flex-grow-1"
+    >
+      <div
+        class="p-toast p-component p-toast-top-right"
+      >
+        <div />
+      </div>
+      <form
+        class="grid col align-self-start Form-component-33"
+      >
+        <div
+          class="col-12 xl:col-2"
+        >
+          <div>
+            <div
+              class="p-card p-component card mb-3"
+              id="shapes"
+            >
+              <div
+                class="p-card-body"
+              >
+                <div
+                  class="p-card-title"
+                >
+                  Shapes
+                </div>
+                <div
+                  class="p-card-content"
+                >
+                  <div
+                    class=""
+                  >
+                    <div
+                      class="field grid"
+                    >
+                      <div
+                        class="col-12"
+                      >
+                        <div
+                          class="p-toolbar p-component p-0 border-none"
+                          role="toolbar"
+                          style="background: none;"
+                        >
+                          <div
+                            class="p-toolbar-group-left"
+                          >
+                            <button
+                              class="p-button p-component p-button mr-2"
+                              data-testid="shape.addButton"
+                            >
+                              <span
+                                class="p-button-icon p-c p-button-icon-left pi pi-plus"
+                              />
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                Add
+                              </span>
+                            </button>
+                            <button
+                              class="p-button p-component p-button p-disabled"
+                              data-testid="shape.saveButton"
+                              disabled=""
+                            >
+                              <span
+                                class="p-button-icon p-c p-button-icon-left pi pi-trash"
+                              />
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                Delete
+                              </span>
+                            </button>
+                          </div>
+                          <div
+                            class="p-toolbar-group-right"
+                          />
+                        </div>
+                        <div
+                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full"
+                          data-scrollselectors=".p-datatable-wrapper"
+                          id="shape"
+                          pr_id_11=""
+                        >
+                          <span
+                            class="w-full"
+                            data-testid="shape"
+                          >
+                            <div
+                              class="p-datatable-wrapper"
+                            >
+                              <table
+                                class="p-datatable-table"
+                                role="table"
+                              >
+                                <thead
+                                  class="p-datatable-thead"
+                                >
+                                  <tr
+                                    role="row"
+                                  >
+                                    <th
+                                      class=""
+                                      role="columnheader"
+                                    >
+                                      <div
+                                        class="p-column-header-content"
+                                      >
+                                        <span
+                                          class="p-column-title"
+                                        >
+                                          <span
+                                            data-testid="shape.nameTitle"
+                                          >
+                                            Name
+                                          </span>
+                                        </span>
+                                      </div>
+                                    </th>
+                                  </tr>
+                                </thead>
+                                <tbody
+                                  class="p-datatable-tbody"
+                                >
+                                  <tr
+                                    class="p-selectable-row"
+                                    role="row"
+                                    tabindex="0"
+                                  >
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="shape.nameTitle"
+                                        >
+                                          Name
+                                        </span>
+                                      </span>
+                                      Big circle
+                                    </td>
+                                  </tr>
+                                  <tr
+                                    class="p-selectable-row p-row-odd"
+                                    role="row"
+                                    tabindex="-1"
+                                  >
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="shape.nameTitle"
+                                        >
+                                          Name
+                                        </span>
+                                      </span>
+                                      Small ellipse
+                                    </td>
+                                  </tr>
+                                  <tr
+                                    class="p-selectable-row"
+                                    role="row"
+                                    tabindex="-1"
+                                  >
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="shape.nameTitle"
+                                        >
+                                          Name
+                                        </span>
+                                      </span>
+                                      Big square
+                                    </td>
+                                  </tr>
+                                  <tr
+                                    class="p-selectable-row p-row-odd"
+                                    role="row"
+                                    tabindex="-1"
+                                  >
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="shape.nameTitle"
+                                        >
+                                          Name
+                                        </span>
+                                      </span>
+                                      Medium triangle
+                                    </td>
+                                  </tr>
+                                  <tr
+                                    class="p-selectable-row"
+                                    role="row"
+                                    tabindex="-1"
+                                  >
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="shape.nameTitle"
+                                        >
+                                          Name
+                                        </span>
+                                      </span>
+                                      Small rectangle
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Editor /> Pivot render equals snapshot 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  <div
+    class="p-toolbar p-component"
+    role="toolbar"
+    style="background: none;"
+  >
+    <div
+      class="p-toolbar-group-left"
+    >
+      <button
+        aria-label="save"
+        class="p-button p-component p-button-icon-only p-disabled"
+        data-testid="saveButton"
+        disabled=""
+      >
+        <span
+          class="p-button-icon p-c pi pi-save"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
+    </div>
+    <div
+      class="p-toolbar-group-right"
+    >
+      <button
+        aria-label="design"
+        class="p-button p-component mr-2 p-button-icon-only"
+        data-testid="designButton"
+      >
+        <span
+          class="p-button-icon p-c pi pi-cog"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="flex overflow-x-hidden w-full"
+  >
+    <div
+      class="flex flex-grow-1"
+    >
+      <div
+        class="p-toast p-component p-toast-top-right"
+      >
+        <div />
+      </div>
+      <form
+        class="grid col align-self-start Form-component-35"
+      >
+        <div
+          class="col-12 xl:col-6"
+        >
+          <div>
+            <div
+              class="p-card p-component card mb-3"
+              id="schedule"
+            >
+              <div
+                class="p-card-body"
+              >
+                <div
+                  class="p-card-title"
+                >
+                  Schedule (hardcoded pivot)
+                </div>
+                <div
+                  class="p-card-content"
+                >
+                  <div
+                    class=""
+                  >
+                    <div
+                      class="field grid"
+                    >
+                      <div
+                        class="col-12"
+                      >
+                        <div
+                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full"
+                          data-scrollselectors=".p-datatable-wrapper"
+                          id="schedule"
+                          pr_id_14=""
+                        >
+                          <span
+                            class="w-full"
+                            data-testid="schedule"
+                          >
+                            <div
+                              class="p-datatable-wrapper"
+                            >
+                              <table
+                                class="p-datatable-table"
+                                role="table"
+                              >
+                                <thead
+                                  class="p-datatable-thead"
+                                >
+                                  <tr
+                                    role="row"
+                                  >
+                                    <th
+                                      class=""
+                                      role="columnheader"
+                                    >
+                                      <div
+                                        class="p-column-header-content"
+                                      >
+                                        <span
+                                          class="p-column-title"
+                                        >
+                                          <span
+                                            data-testid="schedule.weekdayNameTitle"
+                                          >
+                                            Weekday Name
+                                          </span>
+                                        </span>
+                                      </div>
+                                    </th>
+                                    <th
+                                      class=""
+                                      role="columnheader"
+                                    >
+                                      <div
+                                        class="p-column-header-content"
+                                      >
+                                        <span
+                                          class="p-column-title"
+                                        >
+                                          <span
+                                            data-testid="schedule.startTimeTitle"
+                                          >
+                                            Start Time
+                                          </span>
+                                        </span>
+                                      </div>
+                                    </th>
+                                    <th
+                                      class=""
+                                      role="columnheader"
+                                    >
+                                      <div
+                                        class="p-column-header-content"
+                                      >
+                                        <span
+                                          class="p-column-title"
+                                        >
+                                          <span
+                                            data-testid="schedule.endTimeTitle"
+                                          >
+                                            End Time
+                                          </span>
+                                        </span>
+                                      </div>
+                                    </th>
+                                    <th
+                                      class=""
+                                      role="columnheader"
+                                      style="width: 7rem;"
+                                    >
+                                      <div
+                                        class="p-column-header-content"
+                                      >
+                                        <span
+                                          class="p-column-title"
+                                        />
+                                      </div>
+                                    </th>
+                                  </tr>
+                                </thead>
+                                <tbody
+                                  class="p-datatable-tbody"
+                                >
+                                  <tr
+                                    class="p-selectable-row"
+                                    role="row"
+                                    tabindex="0"
+                                  >
+                                    <td
+                                      class=""
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule.weekdayNameTitle"
+                                        >
+                                          Weekday Name
+                                        </span>
+                                      </span>
+                                      Monday
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule.startTimeTitle"
+                                        >
+                                          Start Time
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule.endTimeTitle"
+                                        >
+                                          End Time
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class=""
+                                      role="cell"
+                                      style="text-align: center;"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                      <button
+                                        class="p-row-editor-init p-link"
+                                        tabindex="0"
+                                        type="button"
+                                      >
+                                        <span
+                                          class="p-row-editor-init-icon pi pi-fw pi-pencil"
+                                        />
+                                      </button>
+                                    </td>
+                                  </tr>
+                                  <tr
+                                    class="p-selectable-row p-row-odd"
+                                    role="row"
+                                    tabindex="-1"
+                                  >
+                                    <td
+                                      class=""
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule.weekdayNameTitle"
+                                        >
+                                          Weekday Name
+                                        </span>
+                                      </span>
+                                      Tuesday
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule.startTimeTitle"
+                                        >
+                                          Start Time
+                                        </span>
+                                      </span>
+                                      16:00
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule.endTimeTitle"
+                                        >
+                                          End Time
+                                        </span>
+                                      </span>
+                                      17:00
+                                    </td>
+                                    <td
+                                      class=""
+                                      role="cell"
+                                      style="text-align: center;"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                      <button
+                                        class="p-row-editor-init p-link"
+                                        tabindex="0"
+                                        type="button"
+                                      >
+                                        <span
+                                          class="p-row-editor-init-icon pi pi-fw pi-pencil"
+                                        />
+                                      </button>
+                                    </td>
+                                  </tr>
+                                  <tr
+                                    class="p-selectable-row"
+                                    role="row"
+                                    tabindex="-1"
+                                  >
+                                    <td
+                                      class=""
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule.weekdayNameTitle"
+                                        >
+                                          Weekday Name
+                                        </span>
+                                      </span>
+                                      Wednesday
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule.startTimeTitle"
+                                        >
+                                          Start Time
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule.endTimeTitle"
+                                        >
+                                          End Time
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class=""
+                                      role="cell"
+                                      style="text-align: center;"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                      <button
+                                        class="p-row-editor-init p-link"
+                                        tabindex="0"
+                                        type="button"
+                                      >
+                                        <span
+                                          class="p-row-editor-init-icon pi pi-fw pi-pencil"
+                                        />
+                                      </button>
+                                    </td>
+                                  </tr>
+                                  <tr
+                                    class="p-selectable-row p-row-odd"
+                                    role="row"
+                                    tabindex="-1"
+                                  >
+                                    <td
+                                      class=""
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule.weekdayNameTitle"
+                                        >
+                                          Weekday Name
+                                        </span>
+                                      </span>
+                                      Thursday
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule.startTimeTitle"
+                                        >
+                                          Start Time
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule.endTimeTitle"
+                                        >
+                                          End Time
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class=""
+                                      role="cell"
+                                      style="text-align: center;"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                      <button
+                                        class="p-row-editor-init p-link"
+                                        tabindex="0"
+                                        type="button"
+                                      >
+                                        <span
+                                          class="p-row-editor-init-icon pi pi-fw pi-pencil"
+                                        />
+                                      </button>
+                                    </td>
+                                  </tr>
+                                  <tr
+                                    class="p-selectable-row"
+                                    role="row"
+                                    tabindex="-1"
+                                  >
+                                    <td
+                                      class=""
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule.weekdayNameTitle"
+                                        >
+                                          Weekday Name
+                                        </span>
+                                      </span>
+                                      Friday
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule.startTimeTitle"
+                                        >
+                                          Start Time
+                                        </span>
+                                      </span>
+                                      09:00
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule.endTimeTitle"
+                                        >
+                                          End Time
+                                        </span>
+                                      </span>
+                                      10:00
+                                    </td>
+                                    <td
+                                      class=""
+                                      role="cell"
+                                      style="text-align: center;"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                      <button
+                                        class="p-row-editor-init p-link"
+                                        tabindex="0"
+                                        type="button"
+                                      >
+                                        <span
+                                          class="p-row-editor-init-icon pi pi-fw pi-pencil"
+                                        />
+                                      </button>
+                                    </td>
+                                  </tr>
+                                  <tr
+                                    class="p-selectable-row p-row-odd"
+                                    role="row"
+                                    tabindex="-1"
+                                  >
+                                    <td
+                                      class=""
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule.weekdayNameTitle"
+                                        >
+                                          Weekday Name
+                                        </span>
+                                      </span>
+                                      Saturday
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule.startTimeTitle"
+                                        >
+                                          Start Time
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule.endTimeTitle"
+                                        >
+                                          End Time
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class=""
+                                      role="cell"
+                                      style="text-align: center;"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                      <button
+                                        class="p-row-editor-init p-link"
+                                        tabindex="0"
+                                        type="button"
+                                      >
+                                        <span
+                                          class="p-row-editor-init-icon pi pi-fw pi-pencil"
+                                        />
+                                      </button>
+                                    </td>
+                                  </tr>
+                                  <tr
+                                    class="p-selectable-row"
+                                    role="row"
+                                    tabindex="-1"
+                                  >
+                                    <td
+                                      class=""
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule.weekdayNameTitle"
+                                        >
+                                          Weekday Name
+                                        </span>
+                                      </span>
+                                      Sunday
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule.startTimeTitle"
+                                        >
+                                          Start Time
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule.endTimeTitle"
+                                        >
+                                          End Time
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class=""
+                                      role="cell"
+                                      style="text-align: center;"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                      <button
+                                        class="p-row-editor-init p-link"
+                                        tabindex="0"
+                                        type="button"
+                                      >
+                                        <span
+                                          class="p-row-editor-init-icon pi pi-fw pi-pencil"
+                                        />
+                                      </button>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-12 xl:col-6"
+        >
+          <div>
+            <div
+              class="p-card p-component card mb-3"
+              id="permission"
+            >
+              <div
+                class="p-card-body"
+              >
+                <div
+                  class="p-card-title"
+                >
+                  Permission (dynamic pivot)
+                </div>
+                <div
+                  class="p-card-content"
+                >
+                  <div
+                    class=""
+                  >
+                    <div
+                      class="field grid"
+                    >
+                      <div
+                        class="col-12"
+                      >
+                        <div
+                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full"
+                          data-scrollselectors=".p-datatable-wrapper"
+                          id="permission"
+                          pr_id_15=""
+                        >
+                          <span
+                            class="w-full"
+                            data-testid="permission"
+                          >
+                            <div
+                              class="p-datatable-wrapper"
+                            >
+                              <table
+                                class="p-datatable-table"
+                                role="table"
+                              >
+                                <thead
+                                  class="p-datatable-thead"
+                                >
+                                  <tr
+                                    role="row"
+                                  >
+                                    <th
+                                      class=""
+                                      role="columnheader"
+                                    >
+                                      <div
+                                        class="p-column-header-content"
+                                      >
+                                        <span
+                                          class="p-column-title"
+                                        >
+                                          <span
+                                            data-testid="permission.entityNameTitle"
+                                          >
+                                            Entity Name
+                                          </span>
+                                        </span>
+                                      </div>
+                                    </th>
+                                    <th
+                                      class=""
+                                      role="columnheader"
+                                    >
+                                      <div
+                                        class="p-column-header-content"
+                                      >
+                                        <span
+                                          class="p-column-title"
+                                        >
+                                          <span
+                                            data-testid="permission.viewTitle"
+                                          >
+                                            View
+                                          </span>
+                                        </span>
+                                      </div>
+                                    </th>
+                                    <th
+                                      class=""
+                                      role="columnheader"
+                                    >
+                                      <div
+                                        class="p-column-header-content"
+                                      >
+                                        <span
+                                          class="p-column-title"
+                                        >
+                                          <span
+                                            data-testid="permission.createTitle"
+                                          >
+                                            Create
+                                          </span>
+                                        </span>
+                                      </div>
+                                    </th>
+                                    <th
+                                      class=""
+                                      role="columnheader"
+                                    >
+                                      <div
+                                        class="p-column-header-content"
+                                      >
+                                        <span
+                                          class="p-column-title"
+                                        >
+                                          <span
+                                            data-testid="permission.editTitle"
+                                          >
+                                            Edit
+                                          </span>
+                                        </span>
+                                      </div>
+                                    </th>
+                                    <th
+                                      class=""
+                                      role="columnheader"
+                                    >
+                                      <div
+                                        class="p-column-header-content"
+                                      >
+                                        <span
+                                          class="p-column-title"
+                                        >
+                                          <span
+                                            data-testid="permission.deleteTitle"
+                                          >
+                                            Delete
+                                          </span>
+                                        </span>
+                                      </div>
+                                    </th>
+                                    <th
+                                      class=""
+                                      role="columnheader"
+                                      style="width: 7rem;"
+                                    >
+                                      <div
+                                        class="p-column-header-content"
+                                      >
+                                        <span
+                                          class="p-column-title"
+                                        />
+                                      </div>
+                                    </th>
+                                  </tr>
+                                </thead>
+                                <tbody
+                                  class="p-datatable-tbody"
+                                >
+                                  <tr
+                                    class="p-selectable-row"
+                                    role="row"
+                                    tabindex="0"
+                                  >
+                                    <td
+                                      class=""
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission.entityNameTitle"
+                                        >
+                                          Entity Name
+                                        </span>
+                                      </span>
+                                      Organization
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission.viewTitle"
+                                        >
+                                          View
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission.createTitle"
+                                        >
+                                          Create
+                                        </span>
+                                      </span>
+                                      <i
+                                        class="pi pi-check"
+                                      />
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission.editTitle"
+                                        >
+                                          Edit
+                                        </span>
+                                      </span>
+                                      <i
+                                        class="pi pi-check"
+                                      />
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission.deleteTitle"
+                                        >
+                                          Delete
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class=""
+                                      role="cell"
+                                      style="text-align: center;"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                      <button
+                                        class="p-row-editor-init p-link"
+                                        tabindex="0"
+                                        type="button"
+                                      >
+                                        <span
+                                          class="p-row-editor-init-icon pi pi-fw pi-pencil"
+                                        />
+                                      </button>
+                                    </td>
+                                  </tr>
+                                  <tr
+                                    class="p-selectable-row p-row-odd"
+                                    role="row"
+                                    tabindex="-1"
+                                  >
+                                    <td
+                                      class=""
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission.entityNameTitle"
+                                        >
+                                          Entity Name
+                                        </span>
+                                      </span>
+                                      Role
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission.viewTitle"
+                                        >
+                                          View
+                                        </span>
+                                      </span>
+                                      <i
+                                        class="pi pi-check"
+                                      />
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission.createTitle"
+                                        >
+                                          Create
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission.editTitle"
+                                        >
+                                          Edit
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission.deleteTitle"
+                                        >
+                                          Delete
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class=""
+                                      role="cell"
+                                      style="text-align: center;"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                      <button
+                                        class="p-row-editor-init p-link"
+                                        tabindex="0"
+                                        type="button"
+                                      >
+                                        <span
+                                          class="p-row-editor-init-icon pi pi-fw pi-pencil"
+                                        />
+                                      </button>
+                                    </td>
+                                  </tr>
+                                  <tr
+                                    class="p-selectable-row"
+                                    role="row"
+                                    tabindex="-1"
+                                  >
+                                    <td
+                                      class=""
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission.entityNameTitle"
+                                        >
+                                          Entity Name
+                                        </span>
+                                      </span>
+                                      User
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission.viewTitle"
+                                        >
+                                          View
+                                        </span>
+                                      </span>
+                                      <i
+                                        class="pi pi-check"
+                                      />
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission.createTitle"
+                                        >
+                                          Create
+                                        </span>
+                                      </span>
+                                      <i
+                                        class="pi pi-check"
+                                      />
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission.editTitle"
+                                        >
+                                          Edit
+                                        </span>
+                                      </span>
+                                      <i
+                                        class="pi pi-check"
+                                      />
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission.deleteTitle"
+                                        >
+                                          Delete
+                                        </span>
+                                      </span>
+                                      <i
+                                        class="pi pi-check"
+                                      />
+                                    </td>
+                                    <td
+                                      class=""
+                                      role="cell"
+                                      style="text-align: center;"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                      <button
+                                        class="p-row-editor-init p-link"
+                                        tabindex="0"
+                                        type="button"
+                                      >
+                                        <span
+                                          class="p-row-editor-init-icon pi pi-fw pi-pencil"
+                                        />
+                                      </button>
+                                    </td>
+                                  </tr>
+                                  <tr
+                                    class="p-selectable-row p-row-odd"
+                                    role="row"
+                                    tabindex="-1"
+                                  >
+                                    <td
+                                      class=""
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission.entityNameTitle"
+                                        >
+                                          Entity Name
+                                        </span>
+                                      </span>
+                                      Product
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission.viewTitle"
+                                        >
+                                          View
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission.createTitle"
+                                        >
+                                          Create
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission.editTitle"
+                                        >
+                                          Edit
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission.deleteTitle"
+                                        >
+                                          Delete
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class=""
+                                      role="cell"
+                                      style="text-align: center;"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                      <button
+                                        class="p-row-editor-init p-link"
+                                        tabindex="0"
+                                        type="button"
+                                      >
+                                        <span
+                                          class="p-row-editor-init-icon pi pi-fw pi-pencil"
+                                        />
+                                      </button>
+                                    </td>
+                                  </tr>
+                                  <tr
+                                    class="p-selectable-row"
+                                    role="row"
+                                    tabindex="-1"
+                                  >
+                                    <td
+                                      class=""
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission.entityNameTitle"
+                                        >
+                                          Entity Name
+                                        </span>
+                                      </span>
+                                      Account
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission.viewTitle"
+                                        >
+                                          View
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission.createTitle"
+                                        >
+                                          Create
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission.editTitle"
+                                        >
+                                          Edit
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission.deleteTitle"
+                                        >
+                                          Delete
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class=""
+                                      role="cell"
+                                      style="text-align: center;"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                      <button
+                                        class="p-row-editor-init p-link"
+                                        tabindex="0"
+                                        type="button"
+                                      >
+                                        <span
+                                          class="p-row-editor-init-icon pi pi-fw pi-pencil"
+                                        />
+                                      </button>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  <div
+    class="flex flex-row"
+  >
+    <div
+      class="flex-col flex-grow-1"
+    >
+      <div
+        class="p-toolbar p-component"
+        role="toolbar"
+        style="background: none;"
+      >
+        <div
+          class="p-toolbar-group-left"
+        >
+          <button
+            aria-label="save"
+            class="p-button p-component p-button-icon-only p-disabled"
+            data-testid="saveButton"
+            disabled=""
+          >
+            <span
+              class="p-button-icon p-c pi pi-save"
+            />
+            <span
+              class="p-button-label p-c"
+            >
+               
+            </span>
+          </button>
+        </div>
+        <div
+          class="p-toolbar-group-right"
+        >
+          <button
+            aria-label="design"
+            class="p-button p-component mr-2 p-button-icon-only"
+            data-testid="designButton"
+          >
+            <span
+              class="p-button-icon p-c pi pi-cog"
+            />
+            <span
+              class="p-button-label p-c"
+            >
+               
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="flex overflow-x-hidden w-full"
+      >
+        <div
+          class="flex flex-grow-1"
+        >
+          <div
+            class="p-toast p-component p-toast-top-right"
+          >
+            <div />
+          </div>
+          <form
+            class="grid col align-self-start Form-component-37"
+          >
+            <div
+              class="col-12 col-12"
+            >
+              <div>
+                <div
+                  class="p-card p-component card mb-3"
+                  id="editPerson"
+                >
+                  <div
+                    class="p-card-body"
+                  >
+                    <div
+                      class="p-card-title"
+                    >
+                      Person
+                    </div>
+                    <div
+                      class="p-card-content"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div
+                          class="field grid"
+                        >
+                          <label
+                            class="col-12 md:col-4"
+                            for="name"
+                          >
+                            Name
+                          </label>
+                          <div
+                            class="col-12 md:col-8"
+                          >
+                            <input
+                              class="p-inputtext p-component w-full"
+                              id="name"
+                              name="name"
+                              value=""
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="field grid"
+                        >
+                          <label
+                            class="col-12 md:col-4"
+                            for="role"
+                          >
+                            Role
+                          </label>
+                          <div
+                            class="col-12 md:col-8"
+                          >
+                            <input
+                              class="p-inputtext p-component w-full"
+                              id="role"
+                              name="role"
+                              value=""
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex-col flex-grow-1"
+    >
+      <div
+        class="p-toolbar p-component"
+        role="toolbar"
+        style="background: none;"
+      >
+        <div
+          class="p-toolbar-group-left"
+        >
+          <button
+            aria-label="save"
+            class="p-button p-component p-button-icon-only p-disabled"
+            data-testid="saveButton"
+            disabled=""
+          >
+            <span
+              class="p-button-icon p-c pi pi-save"
+            />
+            <span
+              class="p-button-label p-c"
+            >
+               
+            </span>
+          </button>
+        </div>
+        <div
+          class="p-toolbar-group-right"
+        >
+          <button
+            aria-label="design"
+            class="p-button p-component mr-2 p-button-icon-only"
+            data-testid="designButton"
+          >
+            <span
+              class="p-button-icon p-c pi pi-cog"
+            />
+            <span
+              class="p-button-label p-c"
+            >
+               
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="flex overflow-x-hidden w-full"
+      >
+        <div
+          class="flex flex-grow-1"
+        >
+          <div
+            class="p-toast p-component p-toast-top-right"
+          >
+            <div />
+          </div>
+          <form
+            class="grid col align-self-start Form-component-37"
+          >
+            <div
+              class="col-12 col-12"
+            >
+              <div>
+                <div
+                  class="p-card p-component card mb-3"
+                  id="editOrganization"
+                >
+                  <div
+                    class="p-card-body"
+                  >
+                    <div
+                      class="p-card-title"
+                    >
+                      Organization
+                    </div>
+                    <div
+                      class="p-card-content"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div
+                          class="field grid"
+                        >
+                          <label
+                            class="col-12 md:col-4"
+                            for="name"
+                          >
+                            Name
+                          </label>
+                          <div
+                            class="col-12 md:col-8"
+                          >
+                            <input
+                              class="p-inputtext p-component w-full"
+                              id="name"
+                              name="name"
+                              value=""
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="field grid"
+                        >
+                          <label
+                            class="col-12 md:col-4"
+                            for="registrationNumber"
+                          >
+                            Registration Number
+                          </label>
+                          <div
+                            class="col-12 md:col-8"
+                          >
+                            <input
+                              class="p-inputtext p-component w-full"
+                              id="registrationNumber"
+                              name="registrationNumber"
+                              value=""
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  <div
+    class="p-toolbar p-component"
+    role="toolbar"
+    style="background: none;"
+  >
+    <div
+      class="p-toolbar-group-left"
+    >
+      <button
+        aria-label="save"
+        class="p-button p-component p-button-icon-only p-disabled"
+        data-testid="saveButton"
+        disabled=""
+      >
+        <span
+          class="p-button-icon p-c pi pi-save"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
+    </div>
+    <div
+      class="p-toolbar-group-right"
+    >
+      <button
+        aria-label="design"
+        class="p-button p-component mr-2 p-button-icon-only"
+        data-testid="designButton"
+      >
+        <span
+          class="p-button-icon p-c pi pi-cog"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="flex overflow-x-hidden w-full"
+  >
+    <div
+      class="flex flex-grow-1"
+    >
+      <div
+        class="p-toast p-component p-toast-top-right"
+      >
+        <div />
+      </div>
+      <form
+        class="grid col align-self-start Form-component-39"
+      >
+        <div
+          class="col-12 sm:col-6 xl:col-4"
+          style="outline: 1px dotted #ffff0030;"
+        >
+          <div>
+            <div
+              class="p-card p-component card mb-3"
+              id="a1"
+            >
+              <div
+                class="p-card-body"
+              >
+                <div
+                  class="p-card-title"
+                >
+                  A 1
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div
+              class="p-card p-component card mb-3"
+              id="a2"
+            >
+              <div
+                class="p-card-body"
+              >
+                <div
+                  class="p-card-title"
+                >
+                  A 2
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-12 sm:col-6 xl:col-4"
+          style="outline: 1px dotted #ffff0030;"
+        >
+          <div>
+            <div
+              class="p-card p-component card mb-3"
+              id="b1"
+            >
+              <div
+                class="p-card-body"
+              >
+                <div
+                  class="p-card-title"
+                >
+                  B 1
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div
+              class="p-card p-component card mb-3"
+              id="b2"
+            >
+              <div
+                class="p-card-body"
+              >
+                <div
+                  class="p-card-title"
+                >
+                  B 2
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div
+              class="p-card p-component card mb-3"
+              id="b3"
+            >
+              <div
+                class="p-card-body"
+              >
+                <div
+                  class="p-card-title"
+                >
+                  B 3
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-12 md:col-6 xl:col-4"
+          style="outline: 1px dotted #ffff0030;"
+        >
+          <div>
+            <div
+              class="p-card p-component card mb-3"
+              id="c"
+            >
+              <div
+                class="p-card-body"
+              >
+                <div
+                  class="p-card-title"
+                >
+                  C
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-12 md:col-6 xl:col-4"
+          style="outline: 1px dotted #ffff0030;"
+        >
+          <div>
+            <div
+              class="p-card p-component card mb-3"
+              id="d"
+            >
+              <div
+                class="p-card-body"
+              >
+                <div
+                  class="p-card-title"
+                >
+                  D
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-12 md:col-4"
+          style="outline: 1px dotted #ffff0030;"
+        >
+          <div>
+            <div
+              class="p-card p-component card mb-3"
+              id="e"
+            >
+              <div
+                class="p-card-body"
+              >
+                <div
+                  class="p-card-title"
+                >
+                  E
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-12 md:col-4"
+          style="outline: 1px dotted #ffff0030;"
+        >
+          <div>
+            <div
+              class="p-card p-component card mb-3"
+              id="f1"
+            >
+              <div
+                class="p-card-body"
+              >
+                <div
+                  class="p-card-title"
+                >
+                  F 1
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div
+              class="p-card p-component card mb-3"
+              id="f2"
+            >
+              <div
+                class="p-card-body"
+              >
+                <div
+                  class="p-card-title"
+                >
+                  F 2
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-12 md:col-4"
+          style="outline: 1px dotted #ffff0030;"
+        >
+          <div>
+            <div
+              class="p-card p-component card mb-3"
+              id="g"
+            >
+              <div
+                class="p-card-body"
+              >
+                <div
+                  class="p-card-title"
+                >
+                  G
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  <div
+    class="p-toolbar p-component"
+    role="toolbar"
+    style="background: none;"
+  >
+    <div
+      class="p-toolbar-group-left"
+    >
+      <button
+        aria-label="save"
+        class="p-button p-component p-button-icon-only p-disabled"
+        data-testid="saveButton"
+        disabled=""
+      >
+        <span
+          class="p-button-icon p-c pi pi-save"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
+    </div>
+    <div
+      class="p-toolbar-group-right"
+    >
+      <button
+        aria-label="design"
+        class="p-button p-component mr-2 p-button-icon-only"
+        data-testid="designButton"
+      >
+        <span
+          class="p-button-icon p-c pi pi-cog"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="flex overflow-x-hidden w-full flex-column"
+  >
+    <div
+      class="flex flex-row"
+    >
+      <div
+        class="p-tabmenu p-component"
+      >
+        <ul
+          class="p-tabmenu-nav p-reset"
+          role="tablist"
+        >
+          <li
+            aria-expanded="true"
+            aria-selected="true"
+            class="p-tabmenuitem p-highlight"
+            role="tab"
+          >
+            <a
+              class="p-menuitem-link"
+              href="#"
+              role="presentation"
+            >
+              <span
+                class="p-menuitem-text"
+                data-testid="abTab"
+              >
+                A and B
+              </span>
+            </a>
+          </li>
+          <li
+            aria-expanded="false"
+            aria-selected="false"
+            class="p-tabmenuitem"
+            role="tab"
+          >
+            <a
+              class="p-menuitem-link"
+              href="#"
+              role="presentation"
+            >
+              <span
+                class="p-menuitem-text"
+                data-testid="cdTab"
+              >
+                C and D
+              </span>
+            </a>
+          </li>
+          <li
+            aria-expanded="false"
+            aria-selected="false"
+            class="p-tabmenuitem"
+            role="tab"
+          >
+            <a
+              class="p-menuitem-link"
+              href="#"
+              role="presentation"
+            >
+              <span
+                class="p-menuitem-text"
+                data-testid="efgTab"
+              >
+                E, F and G
+              </span>
+            </a>
+          </li>
+          <li
+            class="p-tabmenu-ink-bar"
+            style="left: 0px;"
+          />
+        </ul>
+      </div>
+    </div>
+    <div
+      class="flex flex-grow-1"
+    >
+      <div
+        class="p-toast p-component p-toast-top-right"
+      >
+        <div />
+      </div>
+      <form
+        class="grid col align-self-start Form-component-42"
+      >
+        <div
+          class="col-12 xl:col-6"
+          style="outline: 1px dotted #ffff0030;"
+        >
+          <div>
+            <div
+              class="p-card p-component card mb-3"
+              id="a1"
+            >
+              <div
+                class="p-card-body"
+              >
+                <div
+                  class="p-card-title"
+                >
+                  A 1
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div
+              class="p-card p-component card mb-3"
+              id="a2"
+            >
+              <div
+                class="p-card-body"
+              >
+                <div
+                  class="p-card-title"
+                >
+                  A 2
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-12 xl:col-6"
+          style="outline: 1px dotted #ffff0030;"
+        >
+          <div>
+            <div
+              class="p-card p-component card mb-3"
+              id="b1"
+            >
+              <div
+                class="p-card-body"
+              >
+                <div
+                  class="p-card-title"
+                >
+                  B 1
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div
+              class="p-card p-component card mb-3"
+              id="b2"
+            >
+              <div
+                class="p-card-body"
+              >
+                <div
+                  class="p-card-title"
+                >
+                  B 2
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div
+              class="p-card p-component card mb-3"
+              id="b3"
+            >
+              <div
+                class="p-card-body"
+              >
+                <div
+                  class="p-card-title"
+                >
+                  B 3
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`<Editor /> Tabs render equals snapshot 1`] = `
 <div
   data-testid="ut-front-test"
@@ -2905,6 +6619,272 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  <div
+    class="p-toolbar p-component"
+    role="toolbar"
+    style="background: none;"
+  >
+    <div
+      class="p-toolbar-group-left"
+    >
+      <button
+        aria-label="save"
+        class="p-button p-component p-button-icon-only p-disabled"
+        data-testid="saveButton"
+        disabled=""
+      >
+        <span
+          class="p-button-icon p-c pi pi-save"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
+    </div>
+    <div
+      class="p-toolbar-group-right"
+    >
+      <button
+        aria-label="design"
+        class="p-button p-component mr-2 p-button-icon-only"
+        data-testid="designButton"
+      >
+        <span
+          class="p-button-icon p-c pi pi-cog"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="flex overflow-x-hidden w-full"
+  >
+    <div
+      class="flex flex-row lg:col-2"
+    >
+      <div
+        class="p-listbox p-component border-none"
+      >
+        <div
+          class="p-listbox-list-wrapper"
+        >
+          <ul
+            aria-multiselectable="false"
+            class="p-listbox-list"
+            role="listbox"
+          >
+            <li
+              aria-label="[object Object]"
+              aria-selected="false"
+              class="p-listbox-item"
+              role="option"
+              tabindex="0"
+            >
+              <i
+                class="pi pi-user"
+              >
+                 
+              </i>
+            </li>
+            <li
+              aria-label="[object Object]"
+              aria-selected="false"
+              class="p-listbox-item"
+              role="option"
+              tabindex="0"
+            >
+              <i
+                class="pi pi-id-card"
+              >
+                 
+              </i>
+            </li>
+            <li
+              aria-label="[object Object]"
+              aria-selected="false"
+              class="p-listbox-item"
+              role="option"
+              tabindex="0"
+            >
+              <i
+                class="pi pi-list"
+              >
+                 
+              </i>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="p-panelmenu p-component flex-1"
+      >
+        <div
+          class="p-panelmenu-panel"
+        >
+          <div
+            class="p-component p-panelmenu-header p-highlight"
+          >
+            <a
+              aria-controls="pr_id_16content"
+              aria-expanded="true"
+              class="p-panelmenu-header-link"
+              href="#"
+              id="pr_id_16_header"
+            >
+              <span
+                class="p-panelmenu-icon pi  pi-chevron-down"
+              />
+              <span
+                class="p-menuitem-text"
+              >
+                A
+              </span>
+            </a>
+          </div>
+          <div
+            aria-labelledby="pr_id_16_header"
+            class="p-toggleable-content"
+            id="pr_id_16_content"
+            role="region"
+          >
+            <div
+              class="p-panelmenu-content"
+            >
+              <ul
+                class="p-submenu-list p-panelmenu-root-submenu"
+                role="tree"
+              >
+                <li
+                  class="p-menuitem"
+                  role="none"
+                >
+                  <a
+                    class="p-menuitem-link"
+                    href="#"
+                    role="menuitem"
+                  >
+                    <span
+                      class="p-menuitem-text"
+                    >
+                      A 1
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="p-menuitem"
+                  role="none"
+                >
+                  <a
+                    class="p-menuitem-link"
+                    href="#"
+                    role="menuitem"
+                  >
+                    <span
+                      class="p-menuitem-text"
+                    >
+                      A 2
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div
+          class="p-panelmenu-panel"
+        >
+          <div
+            class="p-component p-panelmenu-header"
+          >
+            <a
+              aria-controls="pr_id_16content"
+              aria-expanded="false"
+              class="p-panelmenu-header-link"
+              href="#"
+              id="pr_id_16_header"
+            >
+              <span
+                class="p-panelmenu-icon pi pi-chevron-right"
+              />
+              <span
+                class="p-menuitem-text"
+              >
+                B
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex flex-grow-1"
+    >
+      <div
+        class="p-toast p-component p-toast-top-right"
+      >
+        <div />
+      </div>
+      <form
+        class="grid col align-self-start Form-component-45"
+      >
+        <div
+          class="col-12 xl:col-6"
+          style="outline: 1px dotted #ffff0030;"
+        >
+          <div>
+            <div
+              class="p-card p-component card mb-3"
+              id="a1"
+            >
+              <div
+                class="p-card-body"
+              >
+                <div
+                  class="p-card-title"
+                >
+                  A 1
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-12 xl:col-6"
+          style="outline: 1px dotted #ffff0030;"
+        >
+          <div>
+            <div
+              class="p-card p-component card mb-3"
+              id="a2"
+            >
+              <div
+                class="p-card-body"
+              >
+                <div
+                  class="p-card-title"
+                >
+                  A 2
                 </div>
               </div>
             </div>

@@ -1,3 +1,4 @@
+import { userEvent, within } from '@storybook/testing-library';
 import React from 'react';
 import Editor from '..';
 export {default} from '../Editor.stories';
@@ -60,3 +61,8 @@ export const MasterDetail = () =>
             edit: ['master', 'detail']
         }}
     />;
+
+MasterDetail.play = async({canvasElement}) => {
+    const canvas = within(canvasElement);
+    userEvent.click(canvas.getByText('John Doe'));
+};
