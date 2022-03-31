@@ -1,3 +1,12 @@
+# [1.67.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.66.2...v1.67.0) (2022-03-31)
+
+
+### Features
+
+* **VFM-1881:** interpolate error message with print and params ([#13](https://github.com/softwaregroup-bg/ut-front-devextreme/issues/13)) ([e5de158](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/e5de158e364651a17d3ce5a6b94b31077bd10e76))
+
+
+
 ## [1.66.2](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.66.1...v1.66.2) (2022-03-29)
 
 
