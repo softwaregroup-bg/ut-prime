@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<Error /> interpolate equals snapshot 1`] = `
+<span>
+  Error dynamic param
+</span>
+`;
+
 exports[`<Error /> render equals snapshot 1`] = `
 <div
   aria-describedby="pr_id_2_content"

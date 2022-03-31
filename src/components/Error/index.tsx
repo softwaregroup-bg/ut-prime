@@ -13,11 +13,11 @@ const selectError = (state: State) => state.error;
 const breakpoints = {'960px': '75vw', '640px': '95vw'};
 const width = {width: '30vw'};
 
-const Error: StyledType = ({ classes, message: errorMessage }) => {
+const Error: StyledType = ({ classes, message: errorMessage, params: errorParams }) => {
     let closable = true;
     let actionButtons;
 
-    const {open, title: header, message, type, statusCode} = useSelector(selectError);
+    const {open, title: header, message, type, statusCode, params} = useSelector(selectError);
     const dispatch = useDispatch();
     const unauthorized = (type === 'identity.invalidCredentials') || (statusCode === 401);
     const handleClose = React.useCallback(() => dispatch(unauthorized ? logout() : {type: 'front.error.close'}), [dispatch, unauthorized]);
@@ -39,7 +39,7 @@ const Error: StyledType = ({ classes, message: errorMessage }) => {
         >
             <div className={clsx(classes.errorIconWrap, classes.errorIcon)} />
             <div className={classes.errorMessageWrap}>
-                <Text>{errorMessage || message}</Text>
+                <Text params={errorParams || params}>{errorMessage || message}</Text>
             </div>
             <div className={classes.errorButtonWrap}>
                 {actionButtons}

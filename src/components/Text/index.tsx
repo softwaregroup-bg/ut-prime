@@ -1,31 +1,9 @@
 import React, { useContext } from 'react';
+import interpolate from 'ut-function.interpolate';
 
 import Context from './context';
 
 import { StyledType } from './Text.types';
-
-const TOKEN = /\${([\w]*)}/g;
-/**
- * A very simple template scheme:
- * template = 'This ${item} costs ${price}'
- * params = {item: 'boots', price: '100'})
- * result: 'This boots costs 100, John'
- */
-function applyTemplate(template, params) {
-    if (typeof template === 'string' && params) {
-        return template.replace(TOKEN, function(wholeMatch, key) {
-            return (key in params &&
-                    typeof params[key] !== 'object' &&
-                    typeof params[key] !== 'function' &&
-                    typeof params[key] !== 'undefined')
-                ? params[key]
-                : wholeMatch;
-        });
-    } else {
-        // We cannot do any processing - just return the original
-        return template;
-    }
-}
 
 const Text: StyledType = ({ params, prefix, children }) => {
     const {translate, language} = useContext(Context);
@@ -39,7 +17,7 @@ const Text: StyledType = ({ params, prefix, children }) => {
             template = children;
         }
     }
-    return <span>{applyTemplate(template, params)}</span>;
+    return <span>{interpolate(template, params)}</span>;
 };
 
 export default Text;

@@ -3,7 +3,8 @@ import React from 'react';
 import error from '../images/error.png';
 
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
-    message?: React.ReactNode
+    message?: React.ReactNode,
+    params?: {}
 }
 
 const styles = createStyles({

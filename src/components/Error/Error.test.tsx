@@ -10,4 +10,9 @@ describe('<Error />', () => {
         await waitFor(() => expect(getByRole('dialog').querySelector('div.p-dialog-title')).toBeTruthy());
         expect(getByRole('dialog')).toMatchSnapshot();
     });
+    it('interpolate equals snapshot', async() => {
+        const { getByText } = render(<Error />, {error: {open: true, message: 'Error {message}', params: {message: 'dynamic param'}}});
+        await waitFor(() => expect(getByText('Error dynamic param')).toBeTruthy());
+        expect(getByText('Error dynamic param')).toMatchSnapshot();
+    });
 });

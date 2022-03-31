@@ -21,6 +21,7 @@ export interface State {
         message: string;
         type: string;
         statusCode: number;
+        params: {};
     };
     loader?: {
         toJS: () => {
