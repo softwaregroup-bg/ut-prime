@@ -7,9 +7,9 @@ function Period({name, Input, Label, ErrorLabel}) {
         <>
             <ErrorLabel/>
             <div className='field grid w-full mx-0'>
-                <Label className='col-12 md:col-2' name='period' />
-                <Input className='md:col-5' name='period' />
-                <Input className='md:col-5' name='unit' />
+                <Label className='md:col-2' name='period' />
+                <Input className='md:col-4' name='period' />
+                <Input className='md:col-6' name='unit' />
             </div>
         </>
     );

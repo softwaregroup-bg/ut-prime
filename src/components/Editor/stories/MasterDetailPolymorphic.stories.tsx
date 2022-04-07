@@ -4,7 +4,7 @@ import Editor from '..';
 export {default} from '../Editor.stories';
 
 const common = {
-    className: 'xl:col-3',
+    className: 'md:col-4',
     label: 'Shape properties',
     watch: '$.selected.shape'
 };
@@ -54,7 +54,7 @@ export const MasterDetailPolymorphic = () =>
         cards={{
             shapes: {
                 label: 'Shapes',
-                className: 'xl:col-2',
+                className: 'md:col-4',
                 widgets: [{
                     name: 'shape',
                     widgets: ['name']
