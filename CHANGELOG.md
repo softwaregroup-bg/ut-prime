@@ -1,3 +1,13 @@
+## [1.67.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.67.0...v1.67.1) (2022-04-08)
+
+
+### Bug Fixes
+
+* snapshot ([fb961a1](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/fb961a192ebcaac57d381345128aeacf5266c042))
+* table selection handling ([cbb2675](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/cbb26751b725b94318dfe5fce09c3d102200933b))
+
+
+
 # [1.67.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.66.2...v1.67.0) (2022-03-31)
 
 
