@@ -1594,13 +1594,13 @@ exports[`<Editor /> CustomEditors render equals snapshot 1`] = `
                         class="field grid w-full mx-0"
                       >
                         <label
-                          class="col-12 md:col-2"
+                          class="md:col-2"
                           for="period"
                         >
                           Expiration period
                         </label>
                         <div
-                          class="col-12 md:col-5"
+                          class="col-12 md:col-4"
                         >
                           <span
                             class="p-inputnumber p-component p-inputwrapper w-full p-inputwrapper-filled p-inputnumber-buttons-stacked"
@@ -1641,7 +1641,7 @@ exports[`<Editor /> CustomEditors render equals snapshot 1`] = `
                           </span>
                         </div>
                         <div
-                          class="col-12 md:col-5"
+                          class="col-12 md:col-6"
                         >
                           <div
                             class="p-selectbutton p-buttonset p-component w-full"
@@ -1948,9 +1948,9 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                     <label
                       class="col-12"
                     >
-                      
+
                        
-                      
+
                     </label>
                   </div>
                 </div>
@@ -2010,9 +2010,9 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                     <label
                       class="col-12"
                     >
-                      
+
                        
-                      
+
                     </label>
                   </div>
                 </div>
@@ -2132,9 +2132,9 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                     <label
                       class="col-12"
                     >
-                      
+
                        
-                      
+
                     </label>
                   </div>
                 </div>
@@ -2194,9 +2194,9 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                     <label
                       class="col-12"
                     >
-                      
+
                        
-                      
+
                     </label>
                   </div>
                 </div>
@@ -2408,9 +2408,9 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                     <label
                       class="col-12"
                     >
-                      
+
                        
-                      
+
                     </label>
                   </div>
                 </div>
@@ -2718,9 +2718,9 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                     <label
                       class="col-12"
                     >
-                      
+
                        
-                      
+
                     </label>
                   </div>
                 </div>
@@ -3721,7 +3721,7 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
         class="grid col align-self-start Form-component-33"
       >
         <div
-          class="col-12 xl:col-2"
+          class="col-12 xl:col-4"
         >
           <div>
             <div
@@ -6704,7 +6704,7 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
               <i
                 class="pi pi-user"
               >
-                 
+
               </i>
             </li>
             <li
@@ -6717,7 +6717,7 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
               <i
                 class="pi pi-id-card"
               >
-                 
+
               </i>
             </li>
             <li
@@ -6730,7 +6730,7 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
               <i
                 class="pi pi-list"
               >
-                 
+
               </i>
             </li>
           </ul>
