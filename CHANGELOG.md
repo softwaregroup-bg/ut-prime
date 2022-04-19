@@ -1,3 +1,12 @@
+# [1.68.0](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.67.1...v1.68.0) (2022-04-19)
+
+
+### Features
+
+* autocomplete children ([#14](https://github.com/softwaregroup-bg/ut-front-devextreme/issues/14)) ([bc57cb0](https://github.com/softwaregroup-bg/ut-front-devextreme/commit/bc57cb0ac9176eb2ea4c87ff39d7784987a5486c))
+
+
+
 ## [1.67.1](https://github.com/softwaregroup-bg/ut-front-devextreme/compare/v1.67.0...v1.67.1) (2022-04-08)
 
 
