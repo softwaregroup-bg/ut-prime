@@ -266,7 +266,15 @@ const Form: StyledType = ({
                             try {
                                 if (children) {
                                     const items = idx.children[propertyName];
-                                    if (items) items.forEach(child => setValue(child, null));
+                                    if (items) {
+                                        items.forEach(child => {
+                                            let childValue = null;
+                                            const autocompleteProp = child.split('.').pop();
+                                            const autocomplete = value?.value?.[autocompleteProp] || value?.[autocompleteProp];
+                                            if (idx.properties[propertyName]?.widget?.type === 'autocomplete' && autocomplete) childValue = autocomplete;
+                                            setValue(child, childValue);
+                                        });
+                                    }
                                 }
                             } finally {
                                 if (changeField) {
