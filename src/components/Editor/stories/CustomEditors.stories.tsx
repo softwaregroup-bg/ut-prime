@@ -2,23 +2,23 @@ import React from 'react';
 import Editor from '..';
 export {default} from '../Editor.stories';
 
-function Period({name, Input, Label, ErrorLabel}) {
-    return (
-        <>
-            <ErrorLabel/>
-            <div className='field grid w-full mx-0'>
-                <Label className='md:col-2' name='period' />
-                <Input className='md:col-4' name='period' />
-                <Input className='md:col-6' name='unit' />
-            </div>
-        </>
-    );
-}
+export const CustomEditors = () => {
+    function Period({Input, Label, ErrorLabel}) {
+        return (
+            <>
+                <ErrorLabel/>
+                <div className='field grid w-full mx-0'>
+                    <Label className='md:col-2' name='period' />
+                    <Input className='md:col-4' name='period' />
+                    <Input className='md:col-6' name='unit' />
+                </div>
+            </>
+        );
+    }
 
-Period.properties = ['period', 'unit'];
+    Period.properties = ['period', 'unit'];
 
-export const CustomEditors = () =>
-    <Editor
+    return (<Editor
         id={1}
         onGet={() => Promise.resolve({
             period: 5,
@@ -52,4 +52,5 @@ export const CustomEditors = () =>
         editors={{
             Period
         }}
-    />;
+    />);
+};

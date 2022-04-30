@@ -3,26 +3,25 @@ import {
     InputText,
     Password,
     InputTextarea,
-    DropdownTest,
-    MultiSelectTest,
-    TreeSelectTest,
-    TreeTableTest,
+    Dropdown,
+    MultiSelect,
+    TreeSelect,
+    TreeTable,
     InputMask,
     InputNumber,
     Calendar,
-    CheckboxTest,
+    Checkbox,
     Image,
     Skeleton,
-    SelectButtonTest,
+    SelectButton,
     FileUpload,
     Column,
-    AutoCompleteTest
+    AutoComplete
 } from '../prime';
 import { RefCallBack } from 'react-hook-form';
 
 import getType from '../lib/getType';
 import Table from './inputs/Table';
-import MultiSelectPanel from './inputs/MultiSelectPanel';
 const noActions = {allowAdd: false, allowEdit: false, allowDelete: false};
 
 const Field = ({children, label, error, inputClass}) => <>
@@ -64,11 +63,12 @@ export default function input(
     const filterBy = item => (!parentField && !optionsFilter) || Object.entries({...optionsFilter, parent: parentValue}).every(([name, value]) => String(item[name]) === String(value));
     switch (type || schema?.format || getType(schema?.type)) {
         case 'dropdownTree': return <Field {...{label, error, inputClass}}>
-            <TreeSelectTest
+            <TreeSelect
                 {...field}
                 value={field.value == null ? field.value : String(field.value)}
                 options={dropdowns?.[dropdown]?.filter(filterBy) || []}
                 inputId={field.name}
+                data-testid={field.name}
                 {...props}
             />
         </Field>;
@@ -99,12 +99,13 @@ export default function input(
             />
         </Field>;
         case 'boolean': return <Field {...{label, error, inputClass}}>
-            <CheckboxTest
+            <Checkbox
                 {...field}
                 inputRef={field.ref}
                 onChange={e => field.onChange?.(e.checked)}
                 checked={field.value}
                 id={field.name}
+                data-testid={props.id || field.name}
                 {...props}
             />
         </Field>;
@@ -135,8 +136,9 @@ export default function input(
             const handleClear = () => field.onChange({});
             const template = ({value}) => value;
             return <Field {...{label, error, inputClass}}>
-                <AutoCompleteTest
+                <AutoComplete
                     {...field}
+                    data-testid={props.id}
                     inputClassName='w-full'
                     suggestions={field.value?.suggestions}
                     value={field.value?.value}
@@ -151,31 +153,34 @@ export default function input(
             </Field>;
         }
         case 'dropdown': return <Field {...{label, error, inputClass}}>
-            <DropdownTest
+            <Dropdown
                 {...field}
                 options={dropdowns?.[dropdown]?.filter(filterBy) || []}
+                data-testid={field.name}
                 {...props}
             />
         </Field>;
         case 'multiSelect': return <Field {...{label, error, inputClass}}>
-            <MultiSelectTest
+            <MultiSelect
                 {...field}
                 options={dropdowns?.[dropdown]?.filter(filterBy) || []}
                 display='chip'
+                data-testid={field.name}
                 {...props}
             />
         </Field>;
         case 'select': return <Field {...{label, error, inputClass}}>
-            <SelectButtonTest
+            <SelectButton
                 {...field}
                 options={dropdowns?.[dropdown]?.filter(filterBy) || []}
                 value={props?.split ? field.value?.split(props.split).filter(Boolean) : field.value}
                 onChange={event => field.onChange(props?.split ? event.value.join(props.split) || null : event.value)}
+                data-testid={props.id}
                 {...props}
             />
         </Field>;
         case 'multiSelectTree': return <Field {...{label, error, inputClass}}>
-            <TreeSelectTest
+            <TreeSelect
                 {...field}
                 options={dropdowns?.[dropdown]?.filter(filterBy) || []}
                 display='chip'
@@ -184,17 +189,21 @@ export default function input(
                 onChange={e => {
                     field.onChange?.(Object.keys(e.value));
                 }}
+                data-testid={field.name}
                 value={field.value?.map && Object.fromEntries(field.value?.map(value => [value, true]))}
                 {...props}
             />
         </Field>;
         case 'multiSelectPanel': return <Field {...{label, error, inputClass}}>
-            <MultiSelectPanel
-                appendTo='self'
+            <MultiSelect
                 {...field}
                 value={props?.split ? field.value?.split(props.split).filter(Boolean) : field.value}
                 onChange={event => field.onChange(props?.split ? event.value.join(props.split) || null : event.value)}
                 options={dropdowns?.[dropdown]?.filter(filterBy) || []}
+                data-testid={props.id}
+                inline
+                flex
+                itemClassName='col-3'
                 {...props}
             />
         </Field>;
@@ -280,16 +289,18 @@ export default function input(
             {error}
             {label}
             <div className={inputClass}>
-                <TreeTableTest
+                <TreeTable
                     {...field}
                     value={dropdowns?.[dropdown]?.filter(filterBy) || []}
                     selectionKeys={field.value}
+                    onChange={undefined}
                     onSelectionChange={e => field.onChange?.(e.value)}
                     selectionMode='checkbox'
+                    data-testid={props.id}
                     {...props}
                 >
                     <Column field='label' expander/>
-                </TreeTableTest>
+                </TreeTable>
             </div>
         </>;
         case 'date-time': return <Field {...{label, error, inputClass}}>
@@ -365,6 +376,7 @@ export default function input(
         case 'file': return <Field {...{label, error, inputClass}}>
             <FileUpload
                 {...field}
+                onChange={undefined}
                 value={field.value}
                 onSelect={e => {
                     field.onChange?.([...e.files || []]);

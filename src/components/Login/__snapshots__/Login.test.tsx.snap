@@ -68,6 +68,7 @@ exports[`<Login /> render equals snapshot 1`] = `
           class="field col-12 p-2"
         >
           <button
+            aria-label="Login"
             class="p-button p-component w-full"
             type="submit"
           >

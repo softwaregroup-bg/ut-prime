@@ -3,14 +3,13 @@ import React from 'react';
 import Editor from '..';
 export {default} from '../Editor.stories';
 
-const common = {
-    className: 'md:col-4',
-    label: 'Shape properties',
-    watch: '$.selected.shape'
-};
-
-export const MasterDetailPolymorphic = () =>
-    <Editor
+export const MasterDetailPolymorphic = () => {
+    const common = {
+        className: 'md:col-4',
+        label: 'Shape properties',
+        watch: '$.selected.shape'
+    };
+    return (<Editor
         id={1}
         onGet={() => Promise.resolve({
             shape: [
@@ -103,9 +102,10 @@ export const MasterDetailPolymorphic = () =>
         layouts={{
             edit: ['shapes', ['shapeCircle', 'shapeSquare', 'shapeTriangle', 'shapeRectangle', 'shapeEllipse']]
         }}
-    />;
+    />);
+};
 
 MasterDetailPolymorphic.play = async({canvasElement}) => {
     const canvas = within(canvasElement);
-    userEvent.click(canvas.getByText('Small ellipse'));
+    userEvent.click(await canvas.findByText('Small ellipse'));
 };

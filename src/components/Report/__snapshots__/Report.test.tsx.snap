@@ -78,6 +78,7 @@ exports[`<Report /> render equals snapshot 1`] = `
                           type="text"
                         />
                         <button
+                          aria-label=""
                           class="p-button p-component p-datepicker-trigger p-button-icon-only"
                           tabindex="-1"
                           type="button"
@@ -119,6 +120,7 @@ exports[`<Report /> render equals snapshot 1`] = `
                           type="text"
                         />
                         <button
+                          aria-label=""
                           class="p-button p-component p-datepicker-trigger p-button-icon-only"
                           tabindex="-1"
                           type="button"
@@ -143,6 +145,7 @@ exports[`<Report /> render equals snapshot 1`] = `
       </div>
     </form>
     <button
+      aria-label=""
       class="p-button p-component col-1 p-button-icon-only"
     >
       <span
@@ -166,7 +169,7 @@ exports[`<Report /> render equals snapshot 1`] = `
     <div
       class="p-datatable p-component p-datatable-auto-layout p-datatable-responsive-stack"
       data-scrollselectors=".p-datatable-wrapper"
-      pr_id_1=""
+      pr_id_3=""
     >
       <div
         class="p-paginator p-component p-paginator-top"
@@ -262,7 +265,7 @@ exports[`<Report /> render equals snapshot 1`] = `
                 colspan="1"
                 role="cell"
               >
-                No available options
+                No results found
               </td>
             </tr>
           </tbody>

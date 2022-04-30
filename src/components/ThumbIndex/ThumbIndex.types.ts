@@ -3,6 +3,7 @@ import React from 'react';
 import type { MenuItem } from 'primereact/menuitem';
 
 interface Item extends MenuItem {
+    id?: string;
     filter?: string | string[] | RegExp
 }
 

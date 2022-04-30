@@ -120,6 +120,7 @@ exports[`<Portal /> render equals snapshot 1`] = `
       >
         <div
           class="p-tabview-nav-content"
+          id="pr_id_1"
         >
           <ul
             class="p-tabview-nav"

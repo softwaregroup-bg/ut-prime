@@ -88,14 +88,14 @@ export const Table = () =>
             {...input}
             layout={['table']}
             dropdowns={dropdowns}
-            value={{table: [{}]}}
+            value={{table: [{input: 'test'}]}}
             onSubmit={() => {}}
         />
     </div>;
 
 Table.play = async({canvasElement}) => {
     const canvas = within(canvasElement);
-    within(canvas.getByTestId('table1')).getByRole('button', {name: ''}).click();
+    (await within(within(canvas.getByTestId('table1')).getByRole('table')).findByRole('button')).click();
     within(canvas.getByTestId('table2')).getByRole('button', {name: ''}).click();
     within(canvas.getByTestId('table3')).getByRole('button', {name: ''}).click();
     within(canvas.getByTestId('table4')).getByRole('button', {name: ''}).click();

@@ -40,7 +40,6 @@ export const Pivot = () =>
                     },
                     widget: {
                         type: 'table',
-                        keyColumn: 'scheduleId',
                         pivot: {
                             join: {
                                 weekdayName: 'weekdayName'
@@ -77,7 +76,6 @@ export const Pivot = () =>
                     },
                     widget: {
                         type: 'table',
-                        keyColumn: 'itemId',
                         pivot: {
                             dropdown: 'entity',
                             join: {

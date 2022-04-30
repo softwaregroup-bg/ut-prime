@@ -24,6 +24,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
         class="p-toolbar-group-right"
       >
         <button
+          aria-label=""
           class="p-button p-component mr-2 p-button-icon-only"
           data-testid="items.details.toggleButton"
         >

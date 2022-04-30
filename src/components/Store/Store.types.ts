@@ -12,6 +12,8 @@ export interface MenuItem extends PrimeMenuItem {
     params?: {
         id: string | number
     },
+    permission?: string | string[],
+    items?: MenuItem[] | MenuItem[][];
     action?: () => AnyAction
 }
 export interface State {

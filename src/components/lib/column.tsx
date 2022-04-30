@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckboxTest, DropdownTest, SelectButton, RadioButtonTest, Calendar, InputMask, InputText, InputTextarea, InputNumber, Password } from '../prime';
+import { Checkbox, Dropdown, SelectButton, RadioButton, Calendar, InputMask, InputText, InputTextarea, InputNumber, Password } from '../prime';
 import { Property } from '../types';
 import titleCase from './titleCase';
 import getType from './getType';
@@ -64,9 +64,10 @@ export default function columnProps({
             bodyClassName = 'text-right';
             break;
         case 'boolean':
-            filterElement = filterBy && <CheckboxTest
+            filterElement = filterBy && <Checkbox
                 checked={tableFilter?.filters?.[fieldName]?.value}
                 onChange={filterBy(fieldName, 'checked')}
+                data-testid={filterId}
                 {...props}
                 id={filterId}
                 name={filterId}
@@ -78,12 +79,13 @@ export default function columnProps({
             };
             break;
         case 'dropdown':
-            filterElement = filterBy && <DropdownTest
+            filterElement = filterBy && <Dropdown
                 className='w-full'
                 options={dropdowns?.[dropdown] || []}
                 value={tableFilter?.filters?.[fieldName]?.value}
                 onChange={filterBy(fieldName, 'value')}
                 showClear
+                data-testid={filterId}
                 {...props}
                 name={filterId}
             />;
@@ -106,9 +108,10 @@ export default function columnProps({
             break;
         case 'radio':
             body = function body(rowData) {
-                return <RadioButtonTest
+                return <RadioButton
                     checked={rowData[fieldName]}
                     disabled
+                    data-testid={props.id}
                     // onChange={(e) => {}}
                     {...props}
                     name={filterId}
@@ -117,7 +120,7 @@ export default function columnProps({
             break;
         case 'select-table-radio':
             body = function body(rowData, {props}) {
-                return <RadioButtonTest
+                return <RadioButton
                     checked={rowData[fieldName]}
                     disabled={!props?.selection?.filter(selected => selected[props.dataKey] === rowData[props.dataKey])?.length}
                     onChange={event => {
@@ -126,7 +129,7 @@ export default function columnProps({
                         rowData[fieldName] = event.checked;
                         return props.onRowEditComplete({data, newData: rowData});
                     }}
-                    {...props}
+                    data-testid={props.id}
                     className=""
                     name={filterId}
                 />;
@@ -176,16 +179,16 @@ export default function columnProps({
             const inputId = `${resultSet}[${p.rowData[KEY]}].${fieldName}`;
             switch (widget?.type || type || property?.format || getType(property?.type)) {
                 case 'boolean':
-                    return <CheckboxTest
+                    return <Checkbox
                         checked={p.rowData[fieldName]}
                         onChange={event => p.editorCallback(event.checked)}
                         id={inputId}
+                        data-testid={props.id || inputId}
                         {...props}
                         name={inputId}
                     />;
                 case 'integer':
                     return <InputNumber
-                        autoFocus={true}
                         value={p.rowData[fieldName]}
                         onChange={event => p.editorCallback(event.value)}
                         disabled={property?.readOnly}
@@ -196,7 +199,7 @@ export default function columnProps({
                         name={inputId}
                     />;
                 case 'dropdown':
-                    return <DropdownTest
+                    return <Dropdown
                         className='w-full'
                         options={dropdowns?.[dropdown] || []}
                         value={p.rowData[fieldName]}
@@ -214,6 +217,7 @@ export default function columnProps({
                         }}
                         showClear
                         inputId={inputId}
+                        data-testid={inputId}
                         {...props}
                         name={inputId}
                     />;
@@ -228,10 +232,11 @@ export default function columnProps({
                         name={inputId}
                     />;
                 case 'radio':
-                    return <RadioButtonTest
+                    return <RadioButton
                         checked={p.rowData[fieldName]}
                         onChange={event => p.editorCallback(event.checked)}
                         inputId={inputId}
+                        data-testid={props.id}
                         {...props}
                         name={inputId}
                     />;

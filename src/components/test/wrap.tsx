@@ -37,7 +37,7 @@ function Wrap({
             <Store state={merge({}, defaultState, state)}>
                 <ThemeProvider theme={theme}>
                     <CssBaseline />
-                    <Context.Provider value={{portalName}}>
+                    <Context.Provider value={{portalName, devTool: true}}>
                         {children}
                     </Context.Provider>
                 </ThemeProvider>

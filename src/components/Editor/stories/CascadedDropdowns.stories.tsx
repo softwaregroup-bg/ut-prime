@@ -59,7 +59,7 @@ export const CascadedDropdowns = () =>
 CascadedDropdowns.play = async({canvasElement}) => {
     const canvas = within(canvasElement);
     const body = within(document.body);
-    userEvent.click(canvas.getByTestId('continent'));
+    userEvent.click(await canvas.findByTestId('continent'));
     userEvent.click(body.getByText('Europe'));
     userEvent.click(canvas.getByTestId('country'));
     userEvent.click(body.getByText('France'));

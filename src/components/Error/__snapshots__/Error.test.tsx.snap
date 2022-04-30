@@ -8,12 +8,11 @@ exports[`<Error /> interpolate equals snapshot 1`] = `
 
 exports[`<Error /> render equals snapshot 1`] = `
 <div
-  aria-describedby="pr_id_2_content"
-  aria-labelledby="pr_id_2_header"
+  aria-describedby="pr_id_1_content"
+  aria-labelledby="pr_id_1_header"
   aria-modal="true"
-  class="p-dialog p-component p-dialog-enter p-dialog-enter-active"
-  id="pr_id_2"
-  pr_id_1=""
+  class="p-dialog p-component p-dialog-enter-done"
+  id="pr_id_1"
   role="dialog"
   style="width: 30vw;"
 >
@@ -22,7 +21,7 @@ exports[`<Error /> render equals snapshot 1`] = `
   >
     <div
       class="p-dialog-title"
-      id="pr_id_2_header"
+      id="pr_id_1_header"
     />
     <div
       class="p-dialog-header-icons"
@@ -40,7 +39,7 @@ exports[`<Error /> render equals snapshot 1`] = `
   </div>
   <div
     class="p-dialog-content"
-    id="pr_id_2_content"
+    id="pr_id_1_content"
   >
     <div
       class="Error-errorIconWrap-1 Error-errorIcon-2"
@@ -54,6 +53,7 @@ exports[`<Error /> render equals snapshot 1`] = `
       class="Error-errorButtonWrap-4"
     >
       <button
+        aria-label="Close"
         class="p-button p-component"
       >
         <span

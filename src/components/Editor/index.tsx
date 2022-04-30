@@ -67,10 +67,11 @@ const Editor: StyledType = ({
     const [keyValue, setKeyValue] = React.useState(id);
     const [trigger, setTrigger] = React.useState();
     const [value, setEditValue] = React.useState({});
+    const [loadedValue, setLoadedValue] = React.useState<{}>();
     const [dropdowns, setDropdown] = React.useState({});
     const [[items, layout, orientation], setIndex] = React.useState(() => getLayout(layoutName));
     const [filter, setFilter] = React.useState(items?.[0]?.items?.[0] || items?.[0]);
-    const [loading, setLoading] = React.useState('');
+    const [loading, setLoading] = React.useState('loading');
     const [validation, dropdownNames, getValue] = React.useMemo(() => {
         const columns = (propertyName, property) => []
             .concat(property?.hidden)
@@ -130,7 +131,7 @@ const Editor: StyledType = ({
         handleArray(result, properties);
         if (typeField) setIndex(getLayout(lodashGet(result, typeField)));
         setDropdown(await onDropdown(dropdownNames));
-        setEditValue(getValue(result));
+        setLoadedValue(result);
         setLoading('');
     }
     async function init() {
@@ -138,6 +139,10 @@ const Editor: StyledType = ({
         setDropdown(await onDropdown(dropdownNames));
         setLoading('');
     }
+
+    React.useEffect(() => {
+        if (loadedValue !== undefined) setEditValue(getValue(loadedValue));
+    }, [loadedValue, getValue, setEditValue]);
 
     const handleSubmit = React.useCallback(
         async function handleSubmit(data) {

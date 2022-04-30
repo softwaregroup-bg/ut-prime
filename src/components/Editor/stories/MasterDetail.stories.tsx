@@ -64,5 +64,5 @@ export const MasterDetail = () =>
 
 MasterDetail.play = async({canvasElement}) => {
     const canvas = within(canvasElement);
-    userEvent.click(canvas.getByText('John Doe'));
+    userEvent.click(await canvas.findByText('John Doe'));
 };

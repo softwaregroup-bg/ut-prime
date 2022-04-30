@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { render } from '../test';
-import { Basic, Loading, Design, Tabs } from './Editor.stories';
+import { Basic, Loading, Design, Tabs, Submit, Validation } from './Editor.stories';
 import {CascadedDropdowns} from './stories/CascadedDropdowns.stories';
 import {CascadedTables} from './stories/CascadedTables.stories';
 import {CustomEditors} from './stories/CustomEditors.stories';
@@ -12,6 +12,9 @@ import {PolymorphicLayout} from './stories/PolymorphicLayout.stories';
 import {ResponsiveLayout} from './stories/ResponsiveLayout.stories';
 import {TabbedLayout} from './stories/TabbedLayout.stories';
 import {ThumbIndexLayout} from './stories/ThumbIndexLayout.stories';
+import { config } from 'react-transition-group';
+
+config.disabled = true;
 
 describe('<Editor />', () => {
     it('Basic render equals snapshot', async() => {
@@ -31,11 +34,13 @@ describe('<Editor />', () => {
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
     it('CascadedDropdowns render equals snapshot', async() => {
-        const { findByTestId } = render(<CascadedDropdowns />);
+        const { findByTestId, container } = render(<CascadedDropdowns />);
+        await CascadedDropdowns.play({canvasElement: container});
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
     it('CascadedTables render equals snapshot', async() => {
-        const { findByTestId } = render(<CascadedTables />);
+        const { findByTestId, container } = render(<CascadedTables />);
+        await CascadedTables.play({canvasElement: container});
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
     it('CustomEditors render equals snapshot', async() => {
@@ -43,11 +48,13 @@ describe('<Editor />', () => {
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
     it('MasterDetail render equals snapshot', async() => {
-        const { findByTestId } = render(<MasterDetail />);
+        const { findByTestId, container } = render(<MasterDetail />);
+        await MasterDetail.play({canvasElement: container});
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
     it('MasterDetailPolymorphic render equals snapshot', async() => {
-        const { findByTestId } = render(<MasterDetailPolymorphic />);
+        const { findByTestId, container } = render(<MasterDetailPolymorphic />);
+        await MasterDetailPolymorphic.play({canvasElement: container});
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
     it('Pivot render equals snapshot', async() => {
@@ -68,6 +75,16 @@ describe('<Editor />', () => {
     });
     it('ThumbIndexLayout render equals snapshot', async() => {
         const { findByTestId } = render(<ThumbIndexLayout />);
+        expect(await findByTestId('ut-front-test')).toMatchSnapshot();
+    });
+    it('Submit render equals snapshot', async() => {
+        const { findByTestId, container } = render(<Submit {...Submit.args} />);
+        await Submit.play({canvasElement: container});
+        expect(await findByTestId('ut-front-test')).toMatchSnapshot();
+    });
+    it('Validation render equals snapshot', async() => {
+        const { findByTestId, container } = render(<Validation {...Validation.args} />);
+        await Validation.play({canvasElement: container});
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
 });

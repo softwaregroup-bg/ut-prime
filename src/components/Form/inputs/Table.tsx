@@ -1,7 +1,7 @@
 import React from 'react';
 import lodashGet from 'lodash.get';
 
-import {DataTableTest, Column, Toolbar, Button} from '../../prime';
+import {DataTable, Column, Toolbar, Button} from '../../prime';
 import columnProps from '../../lib/column';
 import {CHANGE, INDEX, KEY, NEW} from '../const';
 import type {Properties} from '../../types';
@@ -47,6 +47,7 @@ export default React.forwardRef<{}, any>(function Table({
     onChange,
     getValues,
     counter,
+    hidden,
     widgets,
     value: allRows = noRows,
     identity,
@@ -220,7 +221,7 @@ export default React.forwardRef<{}, any>(function Table({
     return (
         <>
             {!disabled && (allowAdd || allowDelete) && <Toolbar className="p-0 border-none" left={leftToolbarTemplate} right={null} style={backgroundNone}></Toolbar>}
-            <DataTableTest
+            <DataTable
                 editMode='row'
                 className='editable-cells-table'
                 emptyMessage=''
@@ -228,6 +229,7 @@ export default React.forwardRef<{}, any>(function Table({
                 onSelectionChange={handleSelected}
                 dataKey={KEY}
                 id={resultSet}
+                data-testid={props.id || resultSet}
                 {...props}
                 value={rows}
                 onRowEditComplete={complete}
@@ -249,7 +251,7 @@ export default React.forwardRef<{}, any>(function Table({
                     })
                 }
                 {allowEdit && <Column rowEditor headerStyle={editStyle} bodyStyle={editBodyStyle}></Column>}
-            </DataTableTest>
+            </DataTable>
         </>
     );
 });

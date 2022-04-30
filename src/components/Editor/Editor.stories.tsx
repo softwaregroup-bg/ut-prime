@@ -99,6 +99,7 @@ export const Submit: Story<Props> = Template.bind({});
 Submit.args = Basic.args;
 Submit.play = async({canvasElement}) => {
     const canvas = within(canvasElement);
+    await canvas.findByDisplayValue('Oak'); // wait for the data to be loaded
     userEvent.type(canvas.getByLabelText('Description'), 'test');
     userEvent.click(canvas.getByLabelText('save'));
 };
@@ -107,6 +108,7 @@ export const Validation: Story<Props> = Template.bind({});
 Validation.args = Basic.args;
 Validation.play = async({canvasElement}) => {
     const canvas = within(canvasElement);
+    await canvas.findByDisplayValue('Oak'); // wait for the data to be loaded
     userEvent.clear(canvas.getByLabelText('Name'));
     userEvent.click(canvas.getByLabelText('save'));
 };
