@@ -5,7 +5,7 @@ Component to show text, that can be optionally translated to other languages.
 ## How to use
 
 ```jsx
-import Text from 'ut-front-devextreme/core/Text';
+import Text from 'ut-prime/core/Text';
 
 <Text>Text content, which can be translated</Text>
 ```

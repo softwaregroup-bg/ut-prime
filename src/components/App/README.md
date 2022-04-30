@@ -5,7 +5,7 @@ The application component, usually passed to ReactDOM.render
 ## How to use
 
 ```jsx
-import App from 'ut-front-devextreme/core/App';
+import App from 'ut-prime/core/App';
 
 <App
     portalName='test app'

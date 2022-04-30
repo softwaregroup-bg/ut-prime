@@ -5,7 +5,7 @@ Show a login form
 ## How to use
 
 ```jsx
-import Login from 'ut-front-devextreme/core/Login';
+import Login from 'ut-prime/core/Login';
 
 <Login />
 ```

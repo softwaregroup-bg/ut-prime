@@ -4,7 +4,7 @@ module.exports = (componentName) => ({
 ## How to use
 
 \`\`\`jsx
-import ${componentName} from 'ut-front-devextreme/core/${componentName}';
+import ${componentName} from 'ut-prime/core/${componentName}';
 
 <${componentName} className='name' />;
 \`\`\`

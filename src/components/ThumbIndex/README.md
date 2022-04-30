@@ -3,7 +3,7 @@
 ## How to use
 
 ```jsx
-import ThumbIndex from 'ut-front-devextreme/core/ThumbIndex';
+import ThumbIndex from 'ut-prime/core/ThumbIndex';
 
 <ThumbIndex className='name' />;
 ```

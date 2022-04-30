@@ -3,7 +3,7 @@
 ## How to use
 
 ```jsx
-import Button from 'ut-front-devextreme/core/Button';
+import Button from 'ut-prime/core/Button';
 
 <Button onClick={handlerOnClick}>Hello Button</Button>;
 ```

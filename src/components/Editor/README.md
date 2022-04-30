@@ -3,7 +3,7 @@
 ## How to use
 
 ```jsx
-import Editor from 'ut-front-devextreme/core/Editor';
+import Editor from 'ut-prime/core/Editor';
 
 <Editor className='name' />;
 ```

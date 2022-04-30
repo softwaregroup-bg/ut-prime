@@ -10,7 +10,7 @@ in Windows File Explorer.
 ## How to use
 
 ```jsx
-import Navigator from 'ut-front-devextreme/core/Navigator';
+import Navigator from 'ut-prime/core/Navigator';
 
 <Navigator
     fetch={fetch}

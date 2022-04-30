@@ -6,7 +6,7 @@ Alternative to React.Suspense and React.lazy.
 ## How to use
 
 ```jsx
-import Async from 'ut-front-devextreme/core/Async';
+import Async from 'ut-prime/core/Async';
 
 <Async component={asyncFn} />;
 ```

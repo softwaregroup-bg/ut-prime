@@ -3,7 +3,7 @@
 ## How to use
 
 ```jsx
-import Form from 'ut-front-devextreme/core/Form';
+import Form from 'ut-prime/core/Form';
 
 <Form className='name' />;
 ```

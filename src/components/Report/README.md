@@ -3,7 +3,7 @@
 ## How to use
 
 ```jsx
-import Report from 'ut-front-devextreme/core/Report';
+import Report from 'ut-prime/core/Report';
 
 <Report className='name' />;
 ```

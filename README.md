@@ -1,8 +1,8 @@
-# UT React component library `ut-front-devextreme`
+# UT React component library `ut-prime`
 
 This module implements React components, for use in building
-web applications with the UT framework. The library exports wrapped
-`Material-UI` and `DevExtreme` components
+web applications with the UT framework. The library exports
+wrapped `PrimeReact` components
 and also locally developed components, which are called `UT components`.
 
 The idea of `wrapped components` is to have a central place
@@ -13,7 +13,7 @@ to handle tasks like:
 - Extending external components with additional functionality
 
 The idea of `UT components` is to create components
-for functionality not available in `Material-UI` and `DevExtreme`
+for functionality not available in `PrimeReact`
 or higher order components based on existing ones.
 
 All the `UT components` must follow these rules:
@@ -36,7 +36,7 @@ so that it can be used with Webpack, but without the need to use Babel.
 Import individual components using this pattern:
 
 ```js
-import SomeComponent from 'ut-front-devextreme/core/SomeComponent';
+import SomeComponent from 'ut-prime/core/SomeComponent';
 ```
 
 Check `README.md` files of the components for further info.
@@ -45,8 +45,8 @@ the project links below.
 
 ## Project links
 
-- [Continuous Integration (Jenkins)](https://jenkins.softwaregroup.com/view/ut/view/master/job/ut/job/ut-front-devextreme/)
-- [Static Code Analysis (SonarQube)](https://sonar.softwaregroup.com/dashboard?id=ut-front-devextreme%3Aorigin%2Fmaster)
+- [Continuous Integration (Jenkins)](https://jenkins.softwaregroup.com/view/ut/view/master/job/ut/job/ut-prime/)
+- [Static Code Analysis (SonarQube)](https://sonar.softwaregroup.com/dashboard?id=ut-prime%3Aorigin%2Fmaster)
 - [Component library storybook (Chromatic)](https://www.chromatic.com/library?appId=6064dffb57787f0021be7b17)
 
 ### Library development tasks
@@ -69,13 +69,9 @@ the project links below.
    node runjest
    ```
 
-1) Expose a wrapped `Material-UI` component:
+1) Expose a wrapped `PrimeReact` component:
 
-   Add it to [./src/components/mui/index.ts](./src/components/mui/index.ts)
-
-1) Expose a wrapped `DevExtreme` component:
-
-   Add it to [./src/components/dx/index.ts](./src/components/dx/index.ts)
+   Add it to [./src/components/prime/index.ts](./src/components/prime/index.ts)
 
 1) Create a new `UT component`:
 

@@ -8,7 +8,7 @@ the information for the active tabs is stored.
 
 ```jsx
 import {Provider} from 'react-redux';
-import Portal from 'ut-front-devextreme/core/Portal';
+import Portal from 'ut-prime/core/Portal';
 
 <Provider store={store}>
     <Portal />

@@ -10,7 +10,7 @@ aims to have similarities.
 ## How to use
 
 ```jsx
-import Explorer from 'ut-front-devextreme/core/Explorer';
+import Explorer from 'ut-prime/core/Explorer';
 
 <Explorer
     fetch={fetch}
