@@ -1,6 +1,5 @@
 import React from 'react';
 import {State} from '../Store/Store.types';
-import Immutable from 'immutable';
 
 const defaultState: State = {
     error: {
@@ -11,7 +10,7 @@ const defaultState: State = {
         statusCode: 200,
         params: {}
     },
-    login: Immutable.fromJS({
+    login: {
         profile: {
             initials: 'SA'
         },
@@ -22,7 +21,7 @@ const defaultState: State = {
                 actionId: 'page%'
             }]
         }
-    }),
+    },
     portal: {
         menu: [{
             title: ' 🏠 ',

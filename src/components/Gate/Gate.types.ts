@@ -4,7 +4,7 @@ import React from 'react';
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     loginPage?: string,
     cookieCheck?: ({appId: string}) => {result?: {}, error?: {}};
-    fetchTranslations?: (params: {languageId: number, dictName: string[]}) => Promise<any>;
+    fetchTranslations?: (params: {languageId: string | number, dictName: string[]}) => Promise<any>;
 }
 
 export const useStyles = createUseStyles({

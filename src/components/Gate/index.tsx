@@ -19,13 +19,12 @@ const fetchTranslations: ((params: any) => any) = params => ({
 const Gate: ComponentProps = ({ children, cookieCheck, fetchTranslations, loginPage = '#/login' }) => {
     const [loaded, setLoaded] = useState(null);
     const [cookieChecked, setCookieChecked] = useState(false);
-    const login = useSelector((state: State) => state.login || false);
+    const login = useSelector((state: State) => state.login);
     const {appId} = useParams();
     const loginHash = !loginPage || loginPage.startsWith('#');
 
     useEffect(() => {
         async function load() {
-            // setPermissions(result.get('permission.get').toJS());
             const language = login?.language?.languageId;
             const translations = await fetchTranslations({
                 languageId: language,

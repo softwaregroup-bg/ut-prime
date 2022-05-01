@@ -12,7 +12,7 @@ export default {
     args: {
         state: {
             loader: {
-                toJS: () => ({open: false})
+                open: false
             },
             portal: {
                 tabs: [{

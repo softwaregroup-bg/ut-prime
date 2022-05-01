@@ -9,7 +9,7 @@ import { State } from '../Store/Store.types';
 
 const Loader: ComponentProps = ({ className, message, open }) => {
     const classes = useStyles();
-    const loader = useSelector((state: State) => state?.loader?.toJS?.());
+    const loader = useSelector((state: State) => state?.loader);
     return (
         ((loader && loader.open) || open) && <div className={clsx(classes.loaderContainer, className)}>
             <div className={classes.overlay} />

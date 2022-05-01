@@ -12,7 +12,8 @@ export default {
     args: {
         state: {
             loader: {
-                toJS: () => ({open: true, message: 'loading ...'})
+                open: true,
+                message: 'loading ...'
             }
         }
     }

@@ -26,13 +26,21 @@ export interface State {
         params: {};
     };
     loader?: {
-        toJS: () => {
-            open: boolean;
-            requests: number;
-            message: string;
+        open: boolean;
+        requests?: number;
+        message: string;
+    };
+    login?: {
+        language?: {
+            languageId: string | number;
+        },
+        profile?: {
+            initials: string;
+        };
+        result?: {
+            'permission.get': {actionId: string}[]
         }
     };
-    login?: any;
     portal?: {
         tabs: {
             title: string;

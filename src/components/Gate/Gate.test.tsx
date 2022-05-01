@@ -1,5 +1,4 @@
 import React from 'react';
-import immutable from 'immutable';
 
 import { render } from '../test';
 import Gate from './index';
@@ -9,10 +8,10 @@ describe('<Gate />', () => {
         const { getByTestId, findByText } = render(
             <Gate>ready</Gate>, {
                 login: {},
-                loader: immutable.fromJS({
+                loader: {
                     open: true,
                     message: 'Loading...'
-                })
+                }
             }
         );
         expect(getByTestId('ut-front-test')).toMatchSnapshot('Loading');

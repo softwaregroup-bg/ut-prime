@@ -2,7 +2,6 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useLocation, useHistory } from 'react-router-dom';
 import clsx from 'clsx';
-import Immutable from 'immutable';
 import { useTheme } from 'react-jss';
 import {ErrorBoundary} from 'react-error-boundary';
 
@@ -46,7 +45,7 @@ const template = (item, {onClick, onKeyDown, className, iconClassName, labelClas
 
 const filterMenu = (permissions, command, items) => items
     .filter(Boolean)
-    .filter(permissions ? permissionCheck(permissions.toJS()) : Boolean)
+    .filter(permissions ? permissionCheck(permissions) : Boolean)
     .map(({title, items, ...item}) => ({
         ...(item.path || item.id) && {template},
         title,
@@ -77,8 +76,8 @@ const Portal: ComponentProps = ({ children }) => {
         rightMenuItems: undefined
     });
     const login = useSelector(({login}: State) => login);
-    const initials = Immutable.getIn(login, ['profile', 'initials'], 'N/A');
-    const permissions = Immutable.getIn(login, ['result', 'permission.get'], false);
+    const initials = login?.profile?.initials || 'N/A';
+    const permissions = login?.result?.['permission.get'] || false;
     const dispatch = useDispatch();
     const location = useLocation();
     const history = useHistory();
