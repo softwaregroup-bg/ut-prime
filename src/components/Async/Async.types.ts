@@ -9,4 +9,4 @@ export interface Props {
     component: asyncComponent
 };
 
-export type StyledType = React.FC<Props>
+export type ComponentProps = React.FC<Props>

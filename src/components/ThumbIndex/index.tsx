@@ -2,9 +2,9 @@ import React from 'react';
 import clsx from 'clsx';
 
 import { ListBox, PanelMenu, TabMenu, Ripple } from '../prime';
-import { Styled, StyledType } from './ThumbIndex.types';
+import { ComponentProps } from './ThumbIndex.types';
 
-const ThumbIndex: StyledType = ({ name, classes, className, items, orientation = 'left', children, onFilter, ...rest }) => {
+const ThumbIndex: ComponentProps = ({ name, className, items, orientation = 'left', children, onFilter, ...rest }) => {
     const [[selectedList, activeIndex], setList] = React.useState([items[0], 0]);
     const handleListChange = React.useCallback(({value, index}) => {
         if (index === undefined) index = value.index;
@@ -61,4 +61,4 @@ const ThumbIndex: StyledType = ({ name, classes, className, items, orientation =
     );
 };
 
-export default Styled(ThumbIndex);
+export default ThumbIndex;

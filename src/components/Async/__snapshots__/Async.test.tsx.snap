@@ -14,7 +14,9 @@ exports[`<Async /> render equals snapshot: loading 1`] = `
 <div
   data-testid="ut-front-test"
 >
-  <div>
+  <div
+    class="p-component"
+  >
     Loading...
   </div>
 </div>

@@ -2,13 +2,9 @@ import React from 'react';
 import clsx from 'clsx';
 import { Tree } from '../prime';
 
-import {
-    Styled,
-    StyledType
-} from './Navigator.types';
+import { ComponentProps } from './Navigator.types';
 
-const Navigator: StyledType = ({
-    classes,
+const Navigator: ComponentProps = ({
     className,
     fetch,
     field,
@@ -49,7 +45,7 @@ const Navigator: StyledType = ({
     }, [fetch, keyField, parentField, resultSet, select]);
     return (
         items.length ? <Tree
-            className={clsx('border-none', 'p-0', classes.component, className)}
+            className={clsx('border-none', 'p-0', className)}
             value={items}
             nodeTemplate={nodeTemplate}
             selectionMode='single'
@@ -60,4 +56,4 @@ const Navigator: StyledType = ({
     );
 };
 
-export default Styled(Navigator);
+export default Navigator;

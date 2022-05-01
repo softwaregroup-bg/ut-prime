@@ -1,4 +1,4 @@
-import {WithStyles, withStyles, createStyles} from '@material-ui/core/styles';
+import {createUseStyles} from 'react-jss';
 import React from 'react';
 
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
@@ -7,10 +7,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     fetchTranslations?: (params: {languageId: number, dictName: string[]}) => Promise<any>;
 }
 
-const styles = createStyles({
-    component: {
-    }
+export const useStyles = createUseStyles({
 });
 
-export const Styled = withStyles(styles);
-export type StyledType = React.FC<Props & WithStyles<typeof styles>>
+export type ComponentProps = React.FC<Props>

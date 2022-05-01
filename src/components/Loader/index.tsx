@@ -4,10 +4,11 @@ import { useSelector } from 'react-redux';
 
 import Text from '../Text';
 
-import { Styled, StyledType } from './Loader.types';
+import { useStyles, ComponentProps } from './Loader.types';
 import { State } from '../Store/Store.types';
 
-const Loader: StyledType = ({ classes, className, message, open }) => {
+const Loader: ComponentProps = ({ className, message, open }) => {
+    const classes = useStyles();
     const loader = useSelector((state: State) => state?.loader?.toJS?.());
     return (
         ((loader && loader.open) || open) && <div className={clsx(classes.loaderContainer, className)}>
@@ -18,4 +19,4 @@ const Loader: StyledType = ({ classes, className, message, open }) => {
     ) || null;
 };
 
-export default Styled(Loader);
+export default Loader;

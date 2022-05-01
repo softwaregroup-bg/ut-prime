@@ -42,15 +42,15 @@ exports[`<Error /> render equals snapshot 1`] = `
     id="pr_id_1_content"
   >
     <div
-      class="Error-errorIconWrap-1 Error-errorIcon-2"
+      class="errorIconWrap-0-2-1 errorIcon-0-2-2"
     />
     <div
-      class="Error-errorMessageWrap-3"
+      class="errorMessageWrap-0-2-3"
     >
       <span />
     </div>
     <div
-      class="Error-errorButtonWrap-4"
+      class="errorButtonWrap-0-2-4"
     >
       <button
         aria-label="Close"

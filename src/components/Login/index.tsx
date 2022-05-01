@@ -2,16 +2,15 @@ import React from 'react';
 import { connect, useSelector } from 'react-redux';
 import clsx from 'clsx';
 import { Redirect } from 'react-router-dom';
-import { Box } from '@material-ui/core';
-import { useTheme } from '@material-ui/core/styles';
+import { useTheme } from 'react-jss';
 
-import { Theme } from '../Theme';
+import type { Theme } from '../Theme';
 import { Password, InputText, Button } from '../prime';
 import Text from '../Text';
 import { Validator } from '../lib/validator';
 import { State } from '../Store/Store.types';
 
-import { Styled, StyledType } from './Login.types';
+import { useStyles, ComponentProps } from './Login.types';
 import { identityCheck } from './actions';
 
 const inputTypes = {
@@ -208,9 +207,10 @@ const initialState: LoginState = {
     inputs: [inputTypes.username, inputTypes.password]
 };
 
-const Login: StyledType = ({
-    identityCheck,
-    classes: {
+const Login: ComponentProps = ({
+    identityCheck
+}) => {
+    const {
         loginContainer,
         loginLogo,
         loginPageFooter,
@@ -221,8 +221,7 @@ const Login: StyledType = ({
         errorIcon,
         errorMessage,
         formContainer
-    }
-}) => {
+    } = useStyles();
     const {ut} = useTheme<Theme>();
     const authenticated = useSelector((state: State) => state.login);
 
@@ -244,9 +243,9 @@ const Login: StyledType = ({
 
     const autoFocus = inputs.find(({disabled}) => !disabled)?.name;
 
-    return (<div className={loginContainer}>
+    return (<div className={clsx('p-component', loginContainer)}>
         <div className={clsx(loginLogo, loginPageHeader, ut?.classes?.loginTop)} />
-        <Box className={loginForm} boxShadow={3} bgcolor='background.paper' borderColor='divider'>
+        <div className={clsx(loginForm, 'shadow-3')}>
             {title && <div className={loginTitle}><Text>{title}</Text></div>}
             {error && <div className={formError}>
                 <div className={errorIcon} />
@@ -282,7 +281,7 @@ const Login: StyledType = ({
                     <Button label={buttonLabel} type='submit' className='w-full'/>
                 </div>
             </form>
-        </Box>
+        </div>
         <div className={clsx(loginLogo, loginPageFooter, ut?.classes?.loginBottom)} />
     </div>
     );
@@ -291,4 +290,4 @@ const Login: StyledType = ({
 export default connect(
     null,
     { identityCheck }
-)(Styled(Login));
+)(Login);

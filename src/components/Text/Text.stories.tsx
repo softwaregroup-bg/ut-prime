@@ -16,4 +16,4 @@ export default {
 };
 
 export const Basic: React.FC<{}> = () =>
-    <Text>Text content, which can be translated</Text>;
+    <div className='p-component'><Text>Text content, which can be translated</Text></div>;

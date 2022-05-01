@@ -3,9 +3,9 @@ import interpolate from 'ut-function.interpolate';
 
 import Context from './context';
 
-import { StyledType } from './Text.types';
+import { ComponentProps } from './Text.types';
 
-const Text: StyledType = ({ params, prefix, children }) => {
+const Text: ComponentProps = ({ params, prefix, children }) => {
     const {translate, language} = useContext(Context);
     if (typeof children !== 'string') return <>{children}</>;
     let template = children;

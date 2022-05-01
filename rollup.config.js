@@ -33,7 +33,8 @@ function build() {
             copy({
                 targets: [
                     { src: 'src/assets/*', dest: 'core/assets' },
-                    { src: 'src/components/App/*.ttf', dest: 'core/App' }
+                    { src: 'src/components/prime/multiselect/*.css', dest: 'core/prime/multiselect' },
+                    { src: 'src/components/Theme/*.ttf', dest: 'core/Theme' }
                 ]
             })
         ]

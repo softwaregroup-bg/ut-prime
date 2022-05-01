@@ -1,4 +1,4 @@
-import {WithStyles, withStyles, createStyles} from '@material-ui/core/styles';
+import {createUseStyles} from 'react-jss';
 import React from 'react';
 import error from '../images/error.png';
 
@@ -7,7 +7,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     params?: {}
 }
 
-const styles = createStyles({
+export const useStyles = createUseStyles({
     errorIconWrap: {
         display: 'block',
         width: 40,
@@ -33,5 +33,4 @@ const styles = createStyles({
     }
 });
 
-export const Styled = withStyles(styles);
-export type StyledType = React.FC<Props & WithStyles<typeof styles>>
+export type ComponentProps = React.FC<Props>

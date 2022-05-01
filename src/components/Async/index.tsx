@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { StyledType, asyncComponent, asyncComponentParams } from './Async.types';
+import { ComponentProps, asyncComponent, asyncComponentParams } from './Async.types';
 
 // adapted from https://usehooks.com/useAsync/
 const useAsync = (asyncFunction: asyncComponent, params: asyncComponentParams) => {
@@ -32,12 +32,12 @@ const useAsync = (asyncFunction: asyncComponent, params: asyncComponentParams) =
     return { execute, status, Component: value && value.component, error };
 };
 
-const Async: StyledType = ({component, params, children}) => {
+const Async: ComponentProps = ({component, params, children}) => {
     const { status, Component, error } = useAsync(component, params);
     switch (status) {
         case 'error': return <div>{JSON.stringify(error)}</div>;
         case 'success': return <Component {...params}>{children}</Component>;
-        default: return <div>Loading...</div>;
+        default: return <div className='p-component'>Loading...</div>;
     }
 };
 

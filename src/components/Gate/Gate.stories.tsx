@@ -25,4 +25,4 @@ export default {
 };
 
 export const Basic: React.FC<{}> = () =>
-    <Gate>Gate body</Gate>;
+    <Gate><div className='p-component'>Gate body</div></Gate>;

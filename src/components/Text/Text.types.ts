@@ -5,4 +5,4 @@ export interface Props extends React.HTMLAttributes<HTMLSpanElement> {
     params?: {};
 }
 
-export type StyledType = React.FC<Props>
+export type ComponentProps = React.FC<Props>

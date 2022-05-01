@@ -11,7 +11,7 @@ export default {
     decorators: [withReadme(README)]
 };
 
-const Loaded = () => <div>async component loaded</div>;
+const Loaded = () => <div className='p-component'>async component loaded</div>;
 const Delay = () => new Promise<React.FC>((resolve, reject) => {
     setTimeout(() => resolve(Loaded), 1000);
 });

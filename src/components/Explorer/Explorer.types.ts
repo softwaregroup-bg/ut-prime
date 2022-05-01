@@ -1,4 +1,4 @@
-import {WithStyles, withStyles, createStyles} from '@material-ui/core/styles';
+import {createUseStyles} from 'react-jss';
 import React from 'react';
 import { DataTableProps } from '../prime';
 
@@ -37,8 +37,8 @@ export interface Props {
     table?: DataTableProps;
 }
 
-const styles = createStyles({
-    component: {
+export const useStyles = createUseStyles({
+    explorer: {
         '& .p-datatable-wrapper': {
             overflowX: 'auto'
         }
@@ -50,5 +50,4 @@ const styles = createStyles({
     detailsValue: {}
 });
 
-export const Styled = withStyles(styles);
-export type StyledType = React.FC<Props & WithStyles<typeof styles>>
+export type ComponentProps = React.FC<Props>

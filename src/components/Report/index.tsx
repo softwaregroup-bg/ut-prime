@@ -1,7 +1,7 @@
 import React from 'react';
 import lodashGet from 'lodash.get';
 
-import { Styled, StyledType } from './Report.types';
+import { useStyles, ComponentProps } from './Report.types';
 
 import { Button } from '../prime';
 import Form from '../Form';
@@ -15,8 +15,7 @@ const paramsLayout = ['params'];
 const table: DataTableProps = {paginatorPosition: 'top'};
 const fieldName = widget => typeof widget === 'string' ? widget : widget.name;
 
-const Report: StyledType = ({
-    classes,
+const Report: ComponentProps = ({
     schema,
     params = [],
     columns = [],
@@ -25,6 +24,7 @@ const Report: StyledType = ({
     onDropdown,
     resultSet = 'result'
 }) => {
+    const classes = useStyles();
     const [trigger, setTrigger] = React.useState();
     const [dropdowns, setDropdown] = React.useState({});
 
@@ -93,4 +93,4 @@ const Report: StyledType = ({
     );
 };
 
-export default Styled(Report);
+export default Report;

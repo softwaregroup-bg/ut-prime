@@ -1,4 +1,4 @@
-import {WithStyles, withStyles, createStyles} from '@material-ui/core/styles';
+import {createUseStyles} from 'react-jss';
 import React from 'react';
 
 export interface Props extends React.HTMLAttributes<HTMLButtonElement> {
@@ -8,7 +8,7 @@ export interface Props extends React.HTMLAttributes<HTMLButtonElement> {
     fullWidth?: boolean;
 }
 
-const styles = createStyles({
+export const useStyles = createUseStyles({
     btn: {
         textTransform: 'uppercase',
         fontSize: 14,
@@ -118,5 +118,4 @@ const styles = createStyles({
     }
 });
 
-export const Styled = withStyles(styles);
-export type StyledType = React.FC<Props & WithStyles<typeof styles>>
+export type ComponentProps = React.FC<Props>

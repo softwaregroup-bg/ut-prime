@@ -1,6 +1,6 @@
 import { config } from 'react-transition-group';
 import React from 'react';
-import { ThemeProvider, createTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from 'react-jss';
 import { render as testRender, RenderResult } from '@testing-library/react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
@@ -14,12 +14,12 @@ config.disabled = true;
 window.HTMLElement.prototype.scrollIntoView = function() {};
 
 export function render(children: React.ReactNode, initialStore: State = {}) : RenderResult {
-    const theme = createTheme({}, {
+    const theme = {
         ut: {
             classes: {},
             portalName: 'Administration'
         }
-    });
+    };
     const store = <DndProvider backend={HTML5Backend}>
         <Store state={merge({}, defaultState, initialStore)}>
             <ThemeProvider theme={theme}>

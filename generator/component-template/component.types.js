@@ -1,18 +1,17 @@
 module.exports = () => ({
-    content: `import {WithStyles, withStyles, createStyles} from '@material-ui/core/styles';
+    content: `import {createUseStyles} from 'react-jss';
 import React from 'react';
 
 export interface Props {
     className?: string;
 }
 
-const styles = createStyles({
+export const useStyles = createUseStyles({
     component: {
     }
 });
 
-export const Styled = withStyles(styles);
-export type StyledType = React.FC<Props & WithStyles<typeof styles>>
+export type ComponentProps = React.FC<Props>
 `,
     extension: '.types.ts'
 });

@@ -4,7 +4,7 @@ import lodashSet from 'lodash.set';
 import merge from 'ut-function.merge';
 import clsx from 'clsx';
 
-import { Styled, StyledType } from './Editor.types';
+import { ComponentProps } from './Editor.types';
 
 import Form from '../Form';
 import getValidation from '../Form/schema';
@@ -29,7 +29,7 @@ function handleArray(result: {}, properties) {
 
 const empty = {title: undefined};
 
-const Editor: StyledType = ({
+const Editor: ComponentProps = ({
     object,
     id,
     schema = {},
@@ -254,4 +254,4 @@ const Editor: StyledType = ({
     );
 };
 
-export default Styled(Editor);
+export default Editor;

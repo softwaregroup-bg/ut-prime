@@ -10,8 +10,12 @@ exports[`<Permission /> Basic render equals snapshot 1`] = `
 <div
   data-testid="ut-front-test"
 >
-  Permissions checked: 
-  undefined
+  <div
+    class="p-component"
+  >
+    Permissions checked: 
+    undefined
+  </div>
 </div>
 `;
 
@@ -25,8 +29,12 @@ exports[`<Permission /> Granted render equals snapshot 1`] = `
 <div
   data-testid="ut-front-test"
 >
-  Permissions checked: 
-  granted
+  <div
+    class="p-component"
+  >
+    Permissions checked: 
+    granted
+  </div>
 </div>
 `;
 
@@ -34,8 +42,12 @@ exports[`<Permission /> Multiple render equals snapshot 1`] = `
 <div
   data-testid="ut-front-test"
 >
-  Permissions checked: 
-  granted,pageXYZ
+  <div
+    class="p-component"
+  >
+    Permissions checked: 
+    granted,pageXYZ
+  </div>
 </div>
 `;
 
@@ -43,7 +55,11 @@ exports[`<Permission /> Wildcard render equals snapshot 1`] = `
 <div
   data-testid="ut-front-test"
 >
-  Permissions checked: 
-  pageXYZ
+  <div
+    class="p-component"
+  >
+    Permissions checked: 
+    pageXYZ
+  </div>
 </div>
 `;

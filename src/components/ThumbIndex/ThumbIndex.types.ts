@@ -1,4 +1,4 @@
-import {WithStyles, withStyles, createStyles} from '@material-ui/core/styles';
+import {createUseStyles} from 'react-jss';
 import React from 'react';
 import type { MenuItem } from 'primereact/menuitem';
 
@@ -15,10 +15,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     onFilter: (filter: any) => void
 }
 
-const styles = createStyles({
-    component: {
-    }
+export const useStyles = createUseStyles({
 });
 
-export const Styled = withStyles(styles);
-export type StyledType = React.FC<Props & WithStyles<typeof styles>>
+export type ComponentProps = React.FC<Props>

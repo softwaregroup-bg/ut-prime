@@ -1,4 +1,4 @@
-import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
+import {createUseStyles} from 'react-jss';
 import React from 'react';
 
 import topImage from './images/topLogo.png';
@@ -9,7 +9,7 @@ export interface ILoginProps {
     identityCheck: ({}) => Promise<{}>;
 }
 
-const styles = createStyles({
+export const useStyles = createUseStyles({
     loginContainer: {
         display: 'flex',
         position: 'absolute',
@@ -35,6 +35,7 @@ const styles = createStyles({
         boxSizing: 'border-box',
         width: 420,
         padding: '30px 60px',
+        backgroundColor: 'var(--surface-50)',
         borderWidth: 1,
         borderType: 'solid'
     },
@@ -71,5 +72,4 @@ const styles = createStyles({
     }
 });
 
-export const Styled = withStyles(styles);
-export type StyledType = React.FC<ILoginProps & WithStyles<typeof styles>>
+export type ComponentProps = React.FC<ILoginProps>

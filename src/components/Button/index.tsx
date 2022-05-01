@@ -1,9 +1,10 @@
 import React from 'react';
 import clsx from 'clsx';
 
-import { Styled, StyledType } from './Button.types';
+import { useStyles, ComponentProps } from './Button.types';
 
-const Button: StyledType = ({ classes, children, button, sizeType, fullWidth = false, ...props }) => {
+const Button: ComponentProps = ({ children, button, sizeType, fullWidth = false, ...props }) => {
+    let classes = useStyles();
     let sizeTypeClass;
 
     switch (sizeType) {
@@ -62,4 +63,4 @@ const Button: StyledType = ({ classes, children, button, sizeType, fullWidth = f
     );
 };
 
-export default Styled(Button);
+export default Button;

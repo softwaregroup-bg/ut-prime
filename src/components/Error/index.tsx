@@ -6,14 +6,15 @@ import { Dialog, Button } from '../prime';
 import Text from '../Text';
 import { logout } from '../Login/actions';
 
-import { Styled, StyledType } from './Error.types';
+import { useStyles, ComponentProps } from './Error.types';
 import { State } from '../Store/Store.types';
 
 const selectError = (state: State) => state.error;
 const breakpoints = {'960px': '75vw', '640px': '95vw'};
 const width = {width: '30vw'};
 
-const Error: StyledType = ({ classes, message: errorMessage, params: errorParams }) => {
+const Error: ComponentProps = ({ message: errorMessage, params: errorParams }) => {
+    const classes = useStyles();
     let closable = true;
     let actionButtons;
 
@@ -48,4 +49,4 @@ const Error: StyledType = ({ classes, message: errorMessage, params: errorParams
     ) : null;
 };
 
-export default Styled(Error);
+export default Error;

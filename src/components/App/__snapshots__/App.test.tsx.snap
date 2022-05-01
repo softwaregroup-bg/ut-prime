@@ -15,23 +15,23 @@ exports[`<App /> render equals snapshot 1`] = `
         style="height: 768px;"
       >
         <div
-          class="Portal-headerContainer-7"
+          class="headerContainer-0-2-6"
         >
           <div
             class="flex align-items-center justify-content-center"
           >
             <div
-              class="hidden lg:block Portal-headerLogo-9"
+              class="hidden p-component lg:block headerLogo-0-2-8"
             />
             <div
-              class="hidden lg:block Portal-headerTitle-8"
+              class="hidden p-component text-lg lg:block headerTitle-0-2-7"
             >
               <span>
                 test
               </span>
             </div>
             <div
-              class="p-menubar p-component Portal-menuGrow-11"
+              class="p-menubar p-component menuGrow-0-2-10"
               style="background: none;"
             >
               <a
@@ -165,7 +165,7 @@ exports[`<App /> render equals snapshot 1`] = `
               </ul>
             </div>
             <div
-              class="p-menubar p-component Portal-menu-12"
+              class="p-menubar p-component menu-0-2-11"
               style="background: none;"
             >
               <a
@@ -268,7 +268,7 @@ exports[`<App /> render equals snapshot 1`] = `
           </div>
         </div>
         <div
-          class="p-tabview p-component Portal-tabs-10"
+          class="p-tabview p-component tabs-0-2-9"
         >
           <div
             class="p-tabview-nav-container"

@@ -4,4 +4,4 @@ export interface Props {
     permission: string | string[];
 }
 
-export type StyledType = React.FC<Props>
+export type ComponentProps = React.FC<Props>

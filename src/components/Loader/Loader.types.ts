@@ -1,4 +1,4 @@
-import {WithStyles, withStyles, createStyles, Theme} from '@material-ui/core/styles';
+import {createUseStyles} from 'react-jss';
 import React from 'react';
 
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
@@ -7,7 +7,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     open?: boolean;
 }
 
-const styles = (theme: Theme) => createStyles({
+export const useStyles = createUseStyles({
     '@keyframes rotate': {
         from: {
             transform: 'rotate(0deg)',
@@ -43,7 +43,7 @@ const styles = (theme: Theme) => createStyles({
         left: '0',
         height: '100%',
         width: '100%',
-        backgroundColor: theme.palette.background.default,
+        backgroundColor: 'var(--surface-50)',
         opacity: 0.7
     },
     loader: {
@@ -63,5 +63,4 @@ const styles = (theme: Theme) => createStyles({
     }
 });
 
-export const Styled = withStyles(styles);
-export type StyledType = React.FC<Props & WithStyles<typeof styles>>
+export type ComponentProps = React.FC<Props>

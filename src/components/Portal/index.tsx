@@ -3,10 +3,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useLocation, useHistory } from 'react-router-dom';
 import clsx from 'clsx';
 import Immutable from 'immutable';
-import { useTheme } from '@material-ui/core/styles';
+import { useTheme } from 'react-jss';
 import {ErrorBoundary} from 'react-error-boundary';
 
-import { Theme } from '../Theme';
+import type { Theme } from '../Theme';
 import { Menubar, TabView, TabPanel, Ripple } from '../prime';
 import Context from '../Context';
 import Text from '../Text';
@@ -14,7 +14,7 @@ import {logout} from '../Login/actions';
 import permissionCheck from '../lib/permission';
 import {State} from '../Store/Store.types';
 
-import { Styled, StyledType } from './Portal.types';
+import { useStyles, ComponentProps } from './Portal.types';
 import { useWindowSize } from '../hooks';
 const backgroundNone = {background: 'none'};
 
@@ -56,7 +56,8 @@ const filterMenu = (permissions, command, items) => items
     }))
     .filter(item => item?.items?.length || item.component || item.action);
 
-const Portal: StyledType = ({ classes, children }) => {
+const Portal: ComponentProps = ({ children }) => {
+    const classes = useStyles();
     const {ut} = useTheme<Theme>();
     const {
         tabs = [],
@@ -132,8 +133,8 @@ const Portal: StyledType = ({ classes, children }) => {
         <div className='flex flex-column' style={style}>
             <div className={classes.headerContainer}>
                 <div className='flex align-items-center justify-content-center'>
-                    <div className={clsx('hidden lg:block', classes.headerLogo, ut?.classes?.headerLogo)}></div>
-                    <div className={clsx('hidden lg:block', classes.headerTitle)}>
+                    <div className={clsx('hidden p-component lg:block', classes.headerLogo, ut?.classes?.headerLogo)}></div>
+                    <div className={clsx('hidden p-component text-lg lg:block', classes.headerTitle)}>
                         <Text>{portalName}</Text>
                     </div>
                     <Menubar model={menuEnabled} className={classes[menuClass]} style={backgroundNone}/>
@@ -157,4 +158,4 @@ const Portal: StyledType = ({ classes, children }) => {
     );
 };
 
-export default Styled(Portal);
+export default Portal;

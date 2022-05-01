@@ -1,6 +1,6 @@
 import React from 'react';
 import { Props as StoreProps } from '../Store/Store.types';
-import { Theme } from '../Theme';
+import type { Theme } from '../Theme';
 
 export interface Props extends StoreProps, React.HTMLAttributes<HTMLDivElement> {
     theme: Theme,
@@ -9,4 +9,4 @@ export interface Props extends StoreProps, React.HTMLAttributes<HTMLDivElement> 
     loginPage?: string
 }
 
-export type StyledType = React.FC<Props>
+export type ComponentProps = React.FC<Props>

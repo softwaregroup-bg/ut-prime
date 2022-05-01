@@ -5,7 +5,7 @@ exports[`<Button /> render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <button
-    class="Button-btn-1 Button-btnNormal-2 Button-btnGreen-5"
+    class="btn-0-2-1 btnNormal-0-2-2 btnGreen-0-2-5"
     tabindex="0"
     type="button"
   />

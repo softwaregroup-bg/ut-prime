@@ -5,16 +5,16 @@ exports[`<Login /> render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="Login-loginContainer-1"
+    class="p-component loginContainer-0-2-1"
   >
     <div
-      class="Login-loginLogo-2 Login-loginPageHeader-3"
+      class="loginLogo-0-2-2 loginPageHeader-0-2-3"
     />
     <div
-      class="MuiBox-root MuiBox-root-12 Login-loginForm-5"
+      class="loginForm-0-2-5 shadow-3"
     >
       <div
-        class="Login-loginTitle-8"
+        class="loginTitle-0-2-8"
       >
         <span>
           Login with password
@@ -23,7 +23,7 @@ exports[`<Login /> render equals snapshot 1`] = `
       
       <form
         autocomplete="off"
-        class="card Login-formContainer-6"
+        class="card formContainer-0-2-6"
       >
         <div
           class="field col-12 p-2"
@@ -82,7 +82,7 @@ exports[`<Login /> render equals snapshot 1`] = `
       </form>
     </div>
     <div
-      class="Login-loginLogo-2 Login-loginPageFooter-4"
+      class="loginLogo-0-2-2 loginPageFooter-0-2-4"
     />
   </div>
 </div>

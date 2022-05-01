@@ -10,7 +10,7 @@ import useSubmit from '../hooks/useSubmit';
 import columnProps, {TableFilter} from '../lib/column';
 import prepareSubmit from '../lib/prepareSubmit';
 
-import { Styled, StyledType } from './Explorer.types';
+import { useStyles, ComponentProps } from './Explorer.types';
 
 const flexGrow = {flexGrow: 1};
 const selectionWidth = {width: '3em'};
@@ -20,8 +20,7 @@ const actionButtonStyle = {padding: 0, minWidth: 'inherit'};
 
 const fieldName = column => typeof column === 'string' ? column : column.name;
 
-const Explorer: StyledType = ({
-    classes,
+const Explorer: ComponentProps = ({
     className,
     keyField,
     fetch,
@@ -39,6 +38,7 @@ const Explorer: StyledType = ({
     pageSize = 10,
     table: tableProps
 }) => {
+    const classes = useStyles();
     const [tableFilter, setFilters] = React.useState<TableFilter>({
         filters: columns?.reduce((prev, column) => {
             let field = fieldName(column);
@@ -242,7 +242,7 @@ const Explorer: StyledType = ({
     </DataTable>;
     const nav = children && navigationOpened && <SplitterPanel key='nav' size={15}>{children}</SplitterPanel>;
     return (
-        <div className={clsx('flex', 'flex-column', 'h-full', classes.component, className)}>
+        <div className={clsx('flex', 'flex-column', 'h-full', classes.explorer, className)}>
             {toast}
             {
                 buttons?.length || nav || detailsPanel
@@ -266,4 +266,4 @@ const Explorer: StyledType = ({
     );
 };
 
-export default Styled(Explorer);
+export default Explorer;

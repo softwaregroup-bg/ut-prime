@@ -1,4 +1,4 @@
-import {WithStyles, withStyles, createStyles} from '@material-ui/core/styles';
+import {createUseStyles} from 'react-jss';
 import React from 'react';
 import type { Schema as Validation } from 'joi';
 
@@ -20,9 +20,7 @@ export interface Props {
     }>;
 }
 
-const styles = createStyles({
-    component: {
-    },
+export const useStyles = createUseStyles({
     report: {
         '& .p-card .p-card-body': {
             padding: 0
@@ -30,5 +28,4 @@ const styles = createStyles({
     }
 });
 
-export const Styled = withStyles(styles);
-export type StyledType = React.FC<Props & WithStyles<typeof styles>>
+export type ComponentProps = React.FC<Props>

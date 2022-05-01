@@ -7,7 +7,7 @@ import Loader from '../Loader';
 import Context from '../Text/context';
 
 import Permission from './Permission';
-import { Styled, StyledType } from './Gate.types';
+import { ComponentProps } from './Gate.types';
 import { State } from '../Store/Store.types';
 
 const fetchTranslations: ((params: any) => any) = params => ({
@@ -16,7 +16,7 @@ const fetchTranslations: ((params: any) => any) = params => ({
     params
 });
 
-const Gate: StyledType = ({ classes, children, cookieCheck, fetchTranslations, loginPage = '#/login' }) => {
+const Gate: ComponentProps = ({ children, cookieCheck, fetchTranslations, loginPage = '#/login' }) => {
     const [loaded, setLoaded] = useState(null);
     const [cookieChecked, setCookieChecked] = useState(false);
     const login = useSelector((state: State) => state.login || false);
@@ -83,4 +83,4 @@ const Gate: StyledType = ({ classes, children, cookieCheck, fetchTranslations, l
 export default connect(
     null,
     { cookieCheck, fetchTranslations }
-)(Styled(Gate));
+)(Gate);

@@ -19,7 +19,12 @@ const meta: Meta = {
 };
 export default meta;
 
-const Template: Story<Props & {state: {}}> = ({state, ...args}) => <Permission {...args}>Permissions checked: {String(args.permission)}</Permission>;
+const Template: Story<Props & {state: {}}> = ({state, ...args}) =>
+    <Permission {...args}>
+        <div className='p-component'>
+            Permissions checked: {String(args.permission)}
+        </div>
+    </Permission>;
 
 export const Basic: Story<Props> = Template.bind({});
 Basic.args = {

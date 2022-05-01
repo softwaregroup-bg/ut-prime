@@ -6,7 +6,7 @@ import { Tooltip } from 'primereact/tooltip';
 import { classNames, DomHandler, IconUtils, ObjectUtils, ZIndexUtils } from 'primereact/utils';
 import { MultiSelectPanel } from './MultiSelectPanel';
 
-require('./MultiSelect.css');
+require('./MultiSelect.global.css');
 
 export const MultiSelect = React.memo(React.forwardRef((props, ref) => {
     const [filterState, setFilterState] = React.useState('');

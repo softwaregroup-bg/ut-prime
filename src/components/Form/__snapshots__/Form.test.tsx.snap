@@ -14,7 +14,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
       <div />
     </div>
     <form
-      class="grid col align-self-start Form-component-2"
+      class="grid col align-self-start form-0-2-1"
     >
       <div
         class="col-12 xl:col-4"
@@ -1950,7 +1950,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
       <div />
     </div>
     <form
-      class="grid col align-self-start Form-component-3"
+      class="grid col align-self-start form-0-2-1"
     >
       <div
         class="col-12 xl:col-12"
@@ -3735,7 +3735,7 @@ exports[`<Form /> render equals snapshot 1`] = `
       <div />
     </div>
     <form
-      class="grid col align-self-start Form-component-1"
+      class="grid col align-self-start form-0-2-1"
     >
       <div
         class="col-12 xl:col-6"

@@ -21,7 +21,7 @@ export const Basic: React.FC<{}> = ({children}) => {
                 classes: {}
             },
             palette: {
-                type: 'dark'
+                type: 'dark-compact'
             }
         }}
     >

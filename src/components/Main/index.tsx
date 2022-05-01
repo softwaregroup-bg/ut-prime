@@ -5,9 +5,9 @@ import Error from '../Error';
 import Gate from '../Gate';
 import Portal from '../Portal';
 
-import { StyledType } from './Main.types';
+import { ComponentProps } from './Main.types';
 
-const Main: StyledType = props => <Gate {...props}>
+const Main: ComponentProps = props => <Gate {...props}>
     <div className='border-noround surface-0 h-full'>
         <Portal />
         <Loader />

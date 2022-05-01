@@ -5,7 +5,7 @@ import clonedeep from 'lodash.clonedeep';
 import { joiResolver } from '@hookform/resolvers/joi';
 import { DevTool } from '@hookform/devtools';
 
-import { Styled, StyledType } from './Form.types';
+import { useStyles, ComponentProps } from './Form.types';
 import { ConfigField, ConfigCard} from './DragDrop';
 import Context from '../Context';
 import input from './input';
@@ -79,8 +79,7 @@ const flat = (e: Errors, path = '') => Object.entries(e).map(
 
 const outline = {outline: '1px dotted #ffff0030'};
 
-const Form: StyledType = ({
-    classes,
+const Form: ComponentProps = ({
     className,
     schema = {},
     editors,
@@ -99,6 +98,7 @@ const Form: StyledType = ({
     validation,
     ...rest
 }) => {
+    const classes = useStyles();
     const {properties = {}} = schema;
     // console.log(joiSchema.describe());
     const resolver = React.useMemo(
@@ -386,7 +386,7 @@ const Form: StyledType = ({
     return (<>
         {devTool ? <DevTool control={control} placement="top-right" /> : null}
         {toast}
-        <form {...rest} onSubmit={formSubmit(handleSubmit)} className={clsx('grid col align-self-start', classes.component, className)}>
+        <form {...rest} onSubmit={formSubmit(handleSubmit)} className={clsx('grid col align-self-start', classes.form, className)}>
             {
                 !!Object.keys(errors).length && <div className='col-12'>
                     {errorFields.map(name => !visibleProperties.includes(name) && <><small className="p-error">{get(errors, name)?.message}</small><br /></>)}
@@ -439,4 +439,4 @@ const Form: StyledType = ({
     </>);
 };
 
-export default Styled(Form);
+export default Form;

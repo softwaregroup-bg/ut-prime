@@ -9,23 +9,23 @@ exports[`<Portal /> render equals snapshot 1`] = `
     style="height: 768px;"
   >
     <div
-      class="Portal-headerContainer-1"
+      class="headerContainer-0-2-1"
     >
       <div
         class="flex align-items-center justify-content-center"
       >
         <div
-          class="hidden lg:block Portal-headerLogo-3"
+          class="hidden p-component lg:block headerLogo-0-2-3"
         />
         <div
-          class="hidden lg:block Portal-headerTitle-2"
+          class="hidden p-component text-lg lg:block headerTitle-0-2-2"
         >
           <span>
             Administration Portal
           </span>
         </div>
         <div
-          class="p-menubar p-component Portal-menuGrow-5"
+          class="p-menubar p-component menuGrow-0-2-5"
           style="background: none;"
         >
           <a
@@ -44,7 +44,7 @@ exports[`<Portal /> render equals snapshot 1`] = `
           />
         </div>
         <div
-          class="p-menubar p-component Portal-menu-6"
+          class="p-menubar p-component menu-0-2-6"
           style="background: none;"
         >
           <a
@@ -113,7 +113,7 @@ exports[`<Portal /> render equals snapshot 1`] = `
       </div>
     </div>
     <div
-      class="p-tabview p-component Portal-tabs-4"
+      class="p-tabview p-component tabs-0-2-4"
     >
       <div
         class="p-tabview-nav-container"

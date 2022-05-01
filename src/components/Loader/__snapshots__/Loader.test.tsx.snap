@@ -5,16 +5,16 @@ exports[`<Loader /> render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="Loader-loaderContainer-2"
+    class="loaderContainer-0-2-2"
   >
     <div
-      class="Loader-overlay-3"
+      class="overlay-0-2-3"
     />
     <div
-      class="Loader-loader-4"
+      class="loader-0-2-4"
     />
     <div
-      class="Loader-message-5"
+      class="message-0-2-5"
     >
       <span>
         Loading...

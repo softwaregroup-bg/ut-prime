@@ -1,4 +1,4 @@
-import {WithStyles, withStyles, createStyles} from '@material-ui/core/styles';
+import {createUseStyles} from 'react-jss';
 import React from 'react';
 
 import logo from '../images/logo.png';
@@ -6,15 +6,13 @@ import logo from '../images/logo.png';
 export interface Props {
 }
 
-const styles = createStyles({
+export const useStyles = createUseStyles({
     headerContainer: {
         zIndex: 2,
         cursor: 'default'
     },
     headerTitle: {
         paddingLeft: 16,
-        paddingRight: 16,
-        fontSize: 15,
         fontWeight: 700,
         lineHeight: '16px'
     },
@@ -49,5 +47,4 @@ const styles = createStyles({
     }
 });
 
-export const Styled = withStyles(styles);
-export type StyledType = React.FC<Props & WithStyles<typeof styles>>
+export type ComponentProps = React.FC<Props>
