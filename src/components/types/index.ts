@@ -134,9 +134,14 @@ export interface Cards {
     [name: string]: Card
 }
 
+interface IndexItem extends MenuItem {
+    id: string;
+    widgets?: string[];
+}
+
 interface Index extends MenuItem {
-    orientation?: 'left' |
-    'top';
+    orientation?: 'left' | 'top';
+    items?: IndexItem[];
 }
 export interface Layouts {
     [name: string]: (string | string[])[] | Index

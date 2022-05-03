@@ -27,7 +27,7 @@ export interface State {
     };
     loader?: {
         open: boolean;
-        requests?: number;
+        requests: number;
         message: string;
     };
     login?: {
