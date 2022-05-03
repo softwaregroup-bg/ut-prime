@@ -205,7 +205,7 @@ export default function input(
                 inline
                 flex
                 itemClassName='col-3'
-                {...columns && {itemClassName: [undefined, 'col-12', 'col-6', 'col-4', 'col-3', undefined, 'col-2'][columns]}}
+                {...columns && {itemClassName: [undefined, 'w-12', 'w-6', 'w-4', 'w-3', undefined, 'w-2'][columns]}}
                 {...props}
             />
         </Field>;

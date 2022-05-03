@@ -71,7 +71,11 @@ export const useStyles = createUseStyles(({fontSize = 14}: Theme) => ({
         html: {
             fontSize,
             fontFamily: 'Roboto',
-            color: 'var(--text-color)'
+            color: 'var(--text-color)',
+            backgroundColor: 'var(--surface-0)'
+        },
+        body: {
+            margin: 0
         }
     }
 }));
