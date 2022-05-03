@@ -1,3 +1,12 @@
+## [2.1.7](https://github.com/softwaregroup-bg/ut-prime/compare/v2.1.6...v2.1.7) (2022-05-03)
+
+
+### Bug Fixes
+
+* styles ([398d7b3](https://github.com/softwaregroup-bg/ut-prime/commit/398d7b38370fcb231fb8670ab7d2288e87de441b))
+
+
+
 ## [2.1.6](https://github.com/softwaregroup-bg/ut-prime/compare/v2.1.5...v2.1.6) (2022-05-03)
 
 
