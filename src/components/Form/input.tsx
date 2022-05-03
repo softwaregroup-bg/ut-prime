@@ -48,6 +48,7 @@ export default function input(
         parent: parentField = '',
         optionsFilter = null,
         title = '',
+        columns,
         ...props
     }: any = {id: field?.name},
     schema,
@@ -204,6 +205,7 @@ export default function input(
                 inline
                 flex
                 itemClassName='col-3'
+                {...columns && {itemClassName: [undefined, 'col-12', 'col-6', 'col-4', 'col-3', undefined, 'col-2'][columns]}}
                 {...props}
             />
         </Field>;

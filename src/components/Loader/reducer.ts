@@ -19,7 +19,7 @@ export default (state = defaultState, action) => {
         if (state.requests <= 1) {
             return {
                 ...state,
-                open: true,
+                open: false,
                 requests: 0
             };
         } else {
