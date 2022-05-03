@@ -1,3 +1,12 @@
+## [2.1.6](https://github.com/softwaregroup-bg/ut-prime/compare/v2.1.5...v2.1.6) (2022-05-03)
+
+
+### Bug Fixes
+
+* typo ([0289150](https://github.com/softwaregroup-bg/ut-prime/commit/02891509ba0463402755686c83ebdc1300c38da3))
+
+
+
 ## [2.1.5](https://github.com/softwaregroup-bg/ut-prime/compare/v2.1.4...v2.1.5) (2022-05-03)
 
 
