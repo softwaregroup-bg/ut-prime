@@ -14,7 +14,8 @@
     "**/*.css"
   ],
   "files": [
-    "core/*"
+    "core/*",
+    "core/node_modules/*"
   ],
   "scripts": {
     "build": "rollup -c",
