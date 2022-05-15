@@ -1,3 +1,12 @@
+# [2.2.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.1.7...v2.2.0) (2022-05-15)
+
+
+### Features
+
+* DocsPage, testid improvements ([18a9319](https://github.com/softwaregroup-bg/ut-prime/commit/18a931986e8a5240257c173ed3e32115c2cb79d5))
+
+
+
 ## [2.1.7](https://github.com/softwaregroup-bg/ut-prime/compare/v2.1.6...v2.1.7) (2022-05-03)
 
 
