@@ -1,10 +1,9 @@
 import React from 'react';
-import { withReadme } from 'storybook-readme';
 import type { Story, Meta } from '@storybook/react';
 import { userEvent, within } from '@storybook/testing-library';
 
 // @ts-ignore: md file and not a module
-import README from './README.md';
+import page from './README.mdx';
 import Editor from './index';
 import type { Props } from './Editor.types';
 import tree from '../test/tree';
@@ -13,7 +12,7 @@ import useToast from '../hooks/useToast';
 const meta: Meta = {
     title: 'Editor',
     component: Editor,
-    decorators: [withReadme(README)],
+    parameters: {docs: {page}},
     args: {
         state: {}
     }
@@ -80,14 +79,17 @@ Tabs.args = {
         edit: {
             orientation: 'top',
             items: [{
+                id: 'general',
                 icon: 'pi pi-user',
                 label: 'General',
                 widgets: ['edit', 'habitat']
             }, {
+                id: 'details',
                 label: 'Details',
                 icon: 'pi pi-book',
                 widgets: ['taxonomy', 'morphology']
             }, {
+                id: 'history',
                 icon: 'pi pi-clock',
                 widgets: ['history']
             }]

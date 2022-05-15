@@ -1,23 +1,24 @@
 import React from 'react';
-import { withReadme } from 'storybook-readme';
+import type { Meta } from '@storybook/react';
 import Joi from 'joi';
 
 // @ts-ignore: md file and not a module
-import README from './README.md';
+import page from './README.mdx';
 import ThumbIndex from './index';
 import Form from '../Form';
 import {Schema, PropertyEditor} from '../types';
 import {Toolbar, Button} from '../prime';
 import useToast from '../hooks/useToast';
 
-export default {
+const meta: Meta = {
     title: 'ThumbIndex',
     component: ThumbIndex,
-    decorators: [withReadme(README)],
+    parameters: {docs: {page}},
     args: {
         state: {}
     }
 };
+export default meta;
 
 const data = {
     identifierType: 1,

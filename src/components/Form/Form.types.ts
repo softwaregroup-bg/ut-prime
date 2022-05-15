@@ -7,6 +7,9 @@ export interface Props extends React.HTMLAttributes<HTMLFormElement> {
     className?: string;
     schema?: Schema;
     editors?: Editors;
+    /**
+     * Defines layout of the cards
+     */
     cards: Cards;
     dropdowns?: Dropdowns,
     layout?: (string | string[])[];

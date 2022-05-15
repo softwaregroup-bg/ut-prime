@@ -7,6 +7,7 @@
         "confirmdialog",
         "csstype",
         "datatable",
+        "docgen",
         "Dropdowns",
         "hookform",
         "iban",
@@ -24,6 +25,7 @@
         "radiobutton",
         "Roboto",
         "Scroller",
+        "storysource",
         "submenu",
         "tabview",
         "testid",
@@ -31,6 +33,7 @@
         "treeselect",
         "truetype",
         "Unmount",
-        "unuse"
+        "unuse",
+        "vite"
     ]
 }

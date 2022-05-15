@@ -1,15 +1,16 @@
 import React from 'react';
-import { withReadme } from 'storybook-readme';
+import type { Meta } from '@storybook/react';
 
 // @ts-ignore: md file and not a module
-import README from './README.md';
+import page from './README.mdx';
 import Navigator from './index';
 
-export default {
+const meta: Meta = {
     title: 'Navigator',
     component: Navigator,
-    decorators: [withReadme(README)]
+    parameters: {docs: {page}}
 };
+export default meta;
 
 export const Basic: React.FC<{}> = () =>
     <div style={{height: 500}}>

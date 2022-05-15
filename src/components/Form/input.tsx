@@ -21,7 +21,9 @@ import {
 import { RefCallBack } from 'react-hook-form';
 
 import getType from '../lib/getType';
+import testid from '../lib/testid';
 import Table from './inputs/Table';
+
 const noActions = {allowAdd: false, allowEdit: false, allowDelete: false};
 
 const Field = ({children, label, error, inputClass}) => <>
@@ -68,8 +70,8 @@ export default function input(
                 {...field}
                 value={field.value == null ? field.value : String(field.value)}
                 options={dropdowns?.[dropdown]?.filter(filterBy) || []}
-                inputId={field.name}
-                data-testid={field.name}
+                inputId={props.id}
+                {...testid(field.name)}
                 {...props}
             />
         </Field>;
@@ -95,7 +97,7 @@ export default function input(
                 onChange={e => field.onChange?.(e.value)}
                 minFractionDigits={2}
                 maxFractionDigits={4}
-                inputId={field.name}
+                inputId={props.id}
                 {...props}
             />
         </Field>;
@@ -105,8 +107,8 @@ export default function input(
                 inputRef={field.ref}
                 onChange={e => field.onChange?.(e.checked)}
                 checked={field.value}
-                id={field.name}
-                data-testid={props.id || field.name}
+                inputId={props.id}
+                {...testid(props.id)}
                 {...props}
             />
         </Field>;
@@ -139,7 +141,7 @@ export default function input(
             return <Field {...{label, error, inputClass}}>
                 <AutoComplete
                     {...field}
-                    data-testid={props.id}
+                    {...testid(props.id)}
                     inputClassName='w-full'
                     suggestions={field.value?.suggestions}
                     value={field.value?.value}
@@ -157,7 +159,7 @@ export default function input(
             <Dropdown
                 {...field}
                 options={dropdowns?.[dropdown]?.filter(filterBy) || []}
-                data-testid={field.name}
+                {...testid(field.name)}
                 {...props}
             />
         </Field>;
@@ -166,7 +168,7 @@ export default function input(
                 {...field}
                 options={dropdowns?.[dropdown]?.filter(filterBy) || []}
                 display='chip'
-                data-testid={field.name}
+                {...testid(field.name)}
                 {...props}
             />
         </Field>;
@@ -176,7 +178,7 @@ export default function input(
                 options={dropdowns?.[dropdown]?.filter(filterBy) || []}
                 value={props?.split ? field.value?.split(props.split).filter(Boolean) : field.value}
                 onChange={event => field.onChange(props?.split ? event.value.join(props.split) || null : event.value)}
-                data-testid={props.id}
+                {...testid(props.id)}
                 {...props}
             />
         </Field>;
@@ -190,7 +192,7 @@ export default function input(
                 onChange={e => {
                     field.onChange?.(Object.keys(e.value));
                 }}
-                data-testid={field.name}
+                {...testid(field.name)}
                 value={field.value?.map && Object.fromEntries(field.value?.map(value => [value, true]))}
                 {...props}
             />
@@ -201,7 +203,7 @@ export default function input(
                 value={props?.split ? field.value?.split(props.split).filter(Boolean) : field.value}
                 onChange={event => field.onChange(props?.split ? event.value.join(props.split) || null : event.value)}
                 options={dropdowns?.[dropdown]?.filter(filterBy) || []}
-                data-testid={props.id}
+                {...testid(props.id)}
                 inline
                 flex
                 itemClassName='col-3'
@@ -298,7 +300,7 @@ export default function input(
                     onChange={undefined}
                     onSelectionChange={e => field.onChange?.(e.value)}
                     selectionMode='checkbox'
-                    data-testid={props.id}
+                    {...testid(props.id)}
                     {...props}
                 >
                     <Column field='label' expander/>
@@ -311,7 +313,7 @@ export default function input(
                 showTime
                 showIcon
                 value={field.value != null ? new Date(field.value) : field.value}
-                inputId={field.name}
+                inputId={props.id}
                 {...props}
             />
         </Field>;
@@ -321,7 +323,7 @@ export default function input(
                 timeOnly
                 showIcon
                 value={field.value != null ? new Date(field.value) : field.value}
-                inputId={field.name}
+                inputId={props.id}
                 {...props}
             />
         </Field>;
@@ -330,7 +332,7 @@ export default function input(
                 {...field}
                 showIcon
                 value={field.value != null ? new Date(field.value) : field.value}
-                inputId={field.name}
+                inputId={props.id}
                 {...props}
             />
         </Field>;
@@ -340,7 +342,7 @@ export default function input(
                 inputClassName='text-right'
                 inputRef={field.ref}
                 onChange={e => field.onChange?.(e.value)}
-                inputId={field.name}
+                inputId={props.id}
                 {...props}
             />
         </Field>;
@@ -351,7 +353,7 @@ export default function input(
                 inputRef={field.ref}
                 onChange={e => field.onChange?.(e.value)}
                 showButtons
-                inputId={field.name}
+                inputId={props.id}
                 {...props}
             />
         </Field>;
@@ -371,7 +373,7 @@ export default function input(
                 role='textbox'
                 feedback={false}
                 inputClassName='w-full'
-                inputId={field.name}
+                inputId={props.id}
                 {...props}
             />
         </Field>;

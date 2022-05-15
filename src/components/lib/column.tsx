@@ -4,6 +4,7 @@ import { Property } from '../types';
 import titleCase from './titleCase';
 import getType from './getType';
 import {KEY, INDEX} from '../Form/const';
+import testid from '../lib/testid';
 export interface TableFilter {
     filters?: {
         [name: string]: {
@@ -67,7 +68,7 @@ export default function columnProps({
             filterElement = filterBy && <Checkbox
                 checked={tableFilter?.filters?.[fieldName]?.value}
                 onChange={filterBy(fieldName, 'checked')}
-                data-testid={filterId}
+                {...testid(filterId)}
                 {...props}
                 id={filterId}
                 name={filterId}
@@ -85,7 +86,7 @@ export default function columnProps({
                 value={tableFilter?.filters?.[fieldName]?.value}
                 onChange={filterBy(fieldName, 'value')}
                 showClear
-                data-testid={filterId}
+                {...testid(filterId)}
                 {...props}
                 name={filterId}
             />;
@@ -111,7 +112,7 @@ export default function columnProps({
                 return <RadioButton
                     checked={rowData[fieldName]}
                     disabled
-                    data-testid={props.id}
+                    {...testid(props.id)}
                     // onChange={(e) => {}}
                     {...props}
                     name={filterId}
@@ -129,7 +130,7 @@ export default function columnProps({
                         rowData[fieldName] = event.checked;
                         return props.onRowEditComplete({data, newData: rowData});
                     }}
-                    data-testid={props.id}
+                    {...testid(props.id)}
                     className=""
                     name={filterId}
                 />;
@@ -176,16 +177,17 @@ export default function columnProps({
     if (!property?.readOnly && editable) {
         editor = function editor(p) {
             const widget = p.rowData?.$pivot?.[fieldName]?.widget || p.rowData?.$pivot?.widget;
-            const inputId = `${resultSet}[${p.rowData[KEY]}].${fieldName}`;
+            const inputName = `${resultSet}[${p.rowData[KEY]}].${fieldName}`;
+            const inputId = `${resultSet}-${p.rowData[KEY]}-${fieldName}`;
             switch (widget?.type || type || property?.format || getType(property?.type)) {
                 case 'boolean':
                     return <Checkbox
                         checked={p.rowData[fieldName]}
                         onChange={event => p.editorCallback(event.checked)}
                         id={inputId}
-                        data-testid={props.id || inputId}
+                        {...testid(inputId)}
                         {...props}
-                        name={inputId}
+                        name={inputName}
                     />;
                 case 'integer':
                     return <InputNumber
@@ -195,8 +197,9 @@ export default function columnProps({
                         className='w-full'
                         showButtons
                         inputId={inputId}
+                        {...testid(inputId)}
                         {...props}
-                        name={inputId}
+                        name={inputName}
                     />;
                 case 'dropdown':
                     return <Dropdown
@@ -217,9 +220,9 @@ export default function columnProps({
                         }}
                         showClear
                         inputId={inputId}
-                        data-testid={inputId}
+                        {...testid(inputId)}
                         {...props}
-                        name={inputId}
+                        name={inputName}
                     />;
                 case 'select':
                     return <SelectButton
@@ -228,17 +231,18 @@ export default function columnProps({
                         value={props?.split ? p.rowData[fieldName]?.split(props.split).filter(Boolean) : p.rowData[fieldName]}
                         onChange={event => p.editorCallback(props?.split ? event.value.join(props.split) || null : event.value)}
                         id={inputId}
+                        {...testid(inputId)}
                         {...props}
-                        name={inputId}
+                        name={inputName}
                     />;
                 case 'radio':
                     return <RadioButton
                         checked={p.rowData[fieldName]}
                         onChange={event => p.editorCallback(event.checked)}
                         inputId={inputId}
-                        data-testid={props.id}
+                        {...testid(inputId)}
                         {...props}
-                        name={inputId}
+                        name={inputName}
                     />;
                 case 'date':
                     return <Calendar
@@ -247,8 +251,9 @@ export default function columnProps({
                         onChange={event => p.editorCallback(event.value)}
                         showIcon
                         inputId={inputId}
+                        {...testid(inputId)}
                         {...props}
-                        name={inputId}
+                        name={inputName}
                     />;
                 case 'time':
                     return <Calendar
@@ -258,8 +263,9 @@ export default function columnProps({
                         timeOnly
                         showIcon
                         inputId={inputId}
+                        {...testid(inputId)}
                         {...props}
-                        name={inputId}
+                        name={inputName}
                     />;
                 case 'date-time':
                     return <Calendar
@@ -269,8 +275,9 @@ export default function columnProps({
                         showTime
                         showIcon
                         inputId={inputId}
+                        {...testid(inputId)}
                         {...props}
-                        name={inputId}
+                        name={inputName}
                     />;
                 case 'mask':
                     return <InputMask
@@ -278,8 +285,9 @@ export default function columnProps({
                         value={p.rowData[fieldName] ?? ''}
                         onChange={event => p.editorCallback(event.value)}
                         id={inputId}
+                        {...testid(inputId)}
                         {...props}
-                        name={inputId}
+                        name={inputName}
                     />;
                 case 'password':
                     return <Password
@@ -287,8 +295,9 @@ export default function columnProps({
                         onInput={event => p.editorCallback(event.currentTarget.value)}
                         id={inputId}
                         feedback={false}
+                        {...testid(inputId)}
                         {...props}
-                        name={inputId}
+                        name={inputName}
                     />;
                 case 'text':
                     return <InputTextarea
@@ -297,8 +306,9 @@ export default function columnProps({
                         value={p.rowData[fieldName] ?? ''}
                         onChange={event => p.editorCallback(event.target.value)}
                         id={inputId}
+                        {...testid(inputId)}
                         {...props}
-                        name={inputId}
+                        name={inputName}
                     />;
                 default:
                     return <InputText
@@ -309,8 +319,9 @@ export default function columnProps({
                         disabled={property?.readOnly}
                         className='w-full'
                         id={inputId}
+                        {...testid(inputId)}
                         {...props}
-                        name={inputId}
+                        name={inputName}
                     />;
             };
         };
@@ -319,7 +330,7 @@ export default function columnProps({
         showClearButton: true,
         showFilterMenu: false,
         field: name,
-        header: <span data-testid={`${resultSetDot}${name}Title`}>{property?.title || titleCase(name.split('.').pop())}</span>,
+        header: <span {...testid(`${resultSetDot}${name}Title`)}>{property?.title || titleCase(name.split('.').pop())}</span>,
         ...filterElement && {filterElement},
         ...body && {body},
         ...(editor != null) && {editor},

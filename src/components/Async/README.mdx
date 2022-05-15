@@ -1,0 +1,21 @@
+# Async
+import { Canvas, Story, ArgsTable } from "@storybook/addon-docs";
+
+Renders a component returned by an async function.
+Alternative to React.Suspense and React.lazy.
+
+## How to use
+
+```jsx
+import Async from 'ut-prime/core/Async';
+
+<Async component={asyncFn} />;
+```
+
+<Canvas>
+    <Story id="async--basic" />
+</Canvas>
+
+## Properties
+
+<ArgsTable story="."/>

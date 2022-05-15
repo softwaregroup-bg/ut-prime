@@ -1,4 +1,5 @@
 # Portal
+import { Canvas, Story, ArgsTable } from "@storybook/addon-docs";
 
 `Portal` shows application pages in a tabbed UI.
 It must be wrapped in a Redux Provider, where
@@ -15,9 +16,10 @@ import Portal from 'ut-prime/core/Portal';
 </Provider>
 ```
 
-See the [storybook source](./Portal.stories.tsx) for examples.
+<Canvas>
+    <Story id="portal--basic" />
+</Canvas>
 
-## Props
+## Properties
 
-| propName  | propType | defaultValue | isRequired |
-| --------- | -------- | ------------ | ---------- |
+<ArgsTable story="."/>

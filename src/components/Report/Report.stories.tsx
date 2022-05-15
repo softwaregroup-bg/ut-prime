@@ -1,20 +1,21 @@
 import React from 'react';
-import { withReadme } from 'storybook-readme';
+import type { Meta } from '@storybook/react';
 import Joi from 'joi';
 
 // @ts-ignore: md file and not a module
-import README from './README.md';
+import page from './README.mdx';
 import Report from './index';
 import { Properties } from '../types';
 
-export default {
+const meta: Meta = {
     title: 'Report',
     component: Report,
-    decorators: [withReadme(README)],
+    parameters: {docs: {page}},
     args: {
         state: {}
     }
 };
+export default meta;
 
 const columns: Properties = {
     name: {

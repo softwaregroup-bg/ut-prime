@@ -39,17 +39,15 @@ module.exports = {
     },
     typescript: {
         check: false,
-        reactDocgen: false,
-        // reactDocgen: configType === 'PRODUCTION' ? 'react-docgen-typescript' : false,
+        reactDocgen: 'react-docgen-typescript'
     },
     // core: { builder: "@storybook/builder-vite" },
     features: {
         postcss: false
     },
-    stories: ['../src/**/*.stories.tsx'],
+    stories: ['../src/**/*.stories.(tsx|mdx)'],
     addons: [
         // 'storybook-addon-swc',
-        'storybook-readme',
         '@storybook/addon-essentials',
         '@storybook/addon-interactions',
         '@storybook/addon-a11y',

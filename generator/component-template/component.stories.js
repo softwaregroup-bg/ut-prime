@@ -1,17 +1,16 @@
 module.exports = (componentName) => ({
     content: `import React from 'react';
-import { withReadme } from 'storybook-readme';
 import type { Story, Meta } from '@storybook/react';
 
-// @ts-ignore: md file and not a module
-import README from './README.md';
-import ${componentName} from './index';
+// @ts-ignore: mdx file and not a module
+import page from './README.mdx';
 import type { Props } from './${componentName}.types';
+import ${componentName} from './index';
 
 const meta: Meta = {
     title: '${componentName}',
     component: ${componentName},
-    decorators: [withReadme(README)],
+    parameters: {docs: {page}},
     args: {
         state: {}
     }

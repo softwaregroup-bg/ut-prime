@@ -1,44 +1,49 @@
 import React from 'react';
-import { withReadme } from 'storybook-readme';
+import type { Story, Meta } from '@storybook/react';
 import { userEvent } from '@storybook/testing-library';
 import { within } from '@testing-library/react';
 
 // @ts-ignore: md file and not a module
-import README from './README.md';
+import page from './README.mdx';
+import type { Props } from './Form.types';
 import Form from './index';
 import tree from '../test/tree';
 import {input, dropdowns} from '../test/input';
 
-export default {
+const meta: Meta = {
     title: 'Form',
     component: Form,
-    decorators: [withReadme(README)],
+    parameters: {docs: {page}},
     args: {
         state: {}
     }
 };
+export default meta;
 
-export const Basic: React.FC<{}> = () =>
+const Template: Story<Props> = args =>
     <div className='flex' style={{overflowX: 'hidden', width: '100%'}}>
-        <Form
-            {...tree}
-            layout={['edit', ['taxonomy', 'reproduction'], 'links', 'morphology']}
-            dropdowns={{'tree.type': [{value: 1, label: 'Conifer'}, {value: 2, label: 'Broadleaf'}]}}
-            value={{tree: {treeName: 'Oak', treeId: 1, treeType: 1}}}
-            onSubmit={() => {}}
-        />
+        <Form {...args} />
     </div>;
 
-export const Input = () =>
-    <div className='flex' style={{overflowX: 'hidden', width: '100%'}}>
-        <Form
-            {...input}
-            layout={['left', 'center', 'right']}
-            dropdowns={dropdowns}
-            value={{input: {}}}
-            onSubmit={() => {}}
-        />
-    </div>;
+export const Basic: Story<Props> = Template.bind({});
+
+Basic.args = {
+    ...tree,
+    layout: ['edit', ['taxonomy', 'reproduction'], 'links', 'morphology'],
+    dropdowns: {'tree.type': [{value: 1, label: 'Conifer'}, {value: 2, label: 'Broadleaf'}]},
+    value: {tree: {treeName: 'Oak', treeId: 1, treeType: 1}},
+    onSubmit: () => {}
+};
+
+export const Input: Story<Props> = Template.bind({});
+
+Input.args = {
+    ...input,
+    layout: ['left', 'center', 'right'],
+    dropdowns: dropdowns,
+    value: {input: {}},
+    onSubmit: () => {}
+};
 
 Input.play = async({canvasElement}) => {
     const canvas = within(canvasElement);
@@ -52,46 +57,44 @@ Input.play = async({canvasElement}) => {
     const clickWithin = (id, name, role = 'option') => within(canvas.getByTestId(id)).getByRole(role, {name}).click();
 
     // left
-    type('textbox', 'input.input', 'input');
-    type('textbox', 'input.text', 'text');
-    type('textbox', 'input.mask', '192168000001');
-    type('textbox', 'input.date', '01/31/2022');
-    type('textbox', 'input.time', '20:00');
-    click('input.boolean');
-    type('textbox', 'input.datetime', '01/31/2022 20:00');
-    type('spinbutton', 'input.currency', '1234567.89');
-    type('spinbutton', 'input.number', '12345.67890');
-    type('spinbutton', 'input.integer', '1234567890');
-    type('textbox', 'input.password', '123');
+    type('textbox', 'input-input', 'input');
+    type('textbox', 'input-text', 'text');
+    type('textbox', 'input-mask', '192168000001');
+    type('textbox', 'input-date', '01/31/2022');
+    type('textbox', 'input-time', '20:00');
+    click('input-boolean');
+    type('textbox', 'input-datetime', '01/31/2022 20:00');
+    type('spinbutton', 'input-currency', '1234567.89');
+    type('spinbutton', 'input-number', '12345.67890');
+    type('spinbutton', 'input-integer', '1234567890');
+    type('textbox', 'input-password', '123');
 
     // center
-    clickOption('input.dropdown', 'EUR');
-    clickOption('input.dropdownTree', 'Asia', 'treeitem');
-    clickOption('input.multiSelect', 'Rome');
-    click('input.multiSelect'); // close the multiselect dropdown
-    clickOption('input.multiSelectTree', 'Earth', 'treeitem');
-    click('input.multiSelectTree'); // close the multiselect dropdown
-    click('input.table.addButton');
-    type('textbox', 'input.table[0].name', 'name');
-    type('textbox', 'input.table[0].value', 'value');
+    clickOption('input-dropdown', 'EUR');
+    clickOption('input-dropdownTree', 'Asia', 'treeitem');
+    clickOption('input-multiSelect', 'Rome');
+    click('input-multiSelect'); // close the multiselect dropdown
+    clickOption('input-multiSelectTree', 'Earth', 'treeitem');
+    click('input-multiSelectTree'); // close the multiselect dropdown
+    click('input-table-addButton');
+    type('textbox', 'input-table-0-name', 'name');
+    type('textbox', 'input-table-0-value', 'value');
 
     // right
-    clickWithin('input.select', 'One', 'button');
-    clickWithin('input.selectTable', 'One', 'cell');
-    clickWithin('input.multiSelectPanel', 'One', 'option');
-    within(within(canvas.getByTestId('input.multiSelectTreeTable')).getByRole('row', {name: 'One'})).getAllByRole('checkbox')[0].click();
+    clickWithin('input-select', 'One', 'button');
+    clickWithin('input-selectTable', 'One', 'cell');
+    clickWithin('input-multiSelectPanel', 'One', 'option');
+    within(within(canvas.getByTestId('input-multiSelectTreeTable')).getByRole('row', {name: 'One'})).getAllByRole('checkbox')[0].click();
 };
 
-export const Table = () =>
-    <div className='flex' style={{overflowX: 'hidden', width: '100%'}}>
-        <Form
-            {...input}
-            layout={['table']}
-            dropdowns={dropdowns}
-            value={{table: [{input: 'test'}]}}
-            onSubmit={() => {}}
-        />
-    </div>;
+export const Table: Story<Props> = Template.bind({});
+Table.args = {
+    ...input,
+    layout: ['table'],
+    dropdowns: dropdowns,
+    value: {table: [{input: 'test'}]},
+    onSubmit: () => {}
+};
 
 Table.play = async({canvasElement}) => {
     const canvas = within(canvasElement);

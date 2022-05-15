@@ -78,7 +78,6 @@ exports[`<Report /> render equals snapshot 1`] = `
                           type="text"
                         />
                         <button
-                          aria-label=""
                           class="p-button p-component p-datepicker-trigger p-button-icon-only"
                           tabindex="-1"
                           type="button"
@@ -120,7 +119,6 @@ exports[`<Report /> render equals snapshot 1`] = `
                           type="text"
                         />
                         <button
-                          aria-label=""
                           class="p-button p-component p-datepicker-trigger p-button-icon-only"
                           tabindex="-1"
                           type="button"
@@ -145,7 +143,6 @@ exports[`<Report /> render equals snapshot 1`] = `
       </div>
     </form>
     <button
-      aria-label=""
       class="p-button p-component col-1 p-button-icon-only"
     >
       <span
@@ -175,43 +172,67 @@ exports[`<Report /> render equals snapshot 1`] = `
         class="p-paginator p-component p-paginator-top"
       >
         <button
-          class="p-paginator-first p-paginator-element p-link p-disabled"
+          aria-label="First Page"
+          class="p-button p-component p-paginator-first p-paginator-element p-link p-disabled p-button-icon-only p-disabled"
           disabled=""
           type="button"
         >
           <span
-            class="p-paginator-icon pi pi-angle-double-left"
+            class="p-button-icon p-c p-paginator-icon pi pi-angle-double-left"
           />
+          <span
+            class="p-button-label p-c"
+          >
+             
+          </span>
         </button>
         <button
-          class="p-paginator-prev p-paginator-element p-link p-disabled"
+          aria-label="Previous Page"
+          class="p-button p-component p-paginator-prev p-paginator-element p-link p-disabled p-button-icon-only p-disabled"
           disabled=""
           type="button"
         >
           <span
-            class="p-paginator-icon pi pi-angle-left"
+            class="p-button-icon p-c p-paginator-icon pi pi-angle-left"
           />
+          <span
+            class="p-button-label p-c"
+          >
+             
+          </span>
         </button>
         <span
           class="p-paginator-pages"
         />
         <button
-          class="p-paginator-next p-paginator-element p-link p-disabled"
+          aria-label="Next Page"
+          class="p-button p-component p-paginator-next p-paginator-element p-link p-disabled p-button-icon-only p-disabled"
           disabled=""
           type="button"
         >
           <span
-            class="p-paginator-icon pi pi-angle-right"
+            class="p-button-icon p-c p-paginator-icon pi pi-angle-right"
           />
+          <span
+            class="p-button-label p-c"
+          >
+             
+          </span>
         </button>
         <button
-          class="p-paginator-last p-paginator-element p-link p-disabled"
+          aria-label="Last Page"
+          class="p-button p-component p-paginator-last p-paginator-element p-link p-disabled p-button-icon-only p-disabled"
           disabled=""
           type="button"
         >
           <span
-            class="p-paginator-icon pi pi-angle-double-right"
+            class="p-button-icon p-c p-paginator-icon pi pi-angle-double-right"
           />
+          <span
+            class="p-button-label p-c"
+          >
+             
+          </span>
         </button>
       </div>
       <div
@@ -238,7 +259,7 @@ exports[`<Report /> render equals snapshot 1`] = `
                     class="p-column-title"
                   >
                     <span
-                      data-testid="result.nameTitle"
+                      data-testid="result-nameTitle"
                     >
                       Name
                     </span>

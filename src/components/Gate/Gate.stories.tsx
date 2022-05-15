@@ -1,14 +1,14 @@
 import React from 'react';
-import { withReadme } from 'storybook-readme';
+import type { Meta } from '@storybook/react';
 
 // @ts-ignore: md file and not a module
-import README from './README.md';
+import page from './README.mdx';
 import Gate from './index';
 
-export default {
-    title: 'Gate',
+const meta: Meta = {
+    title: 'Internal/Gate',
     component: Gate,
-    decorators: [withReadme(README)],
+    parameters: {docs: {page}},
     args: {
         state: {
             login: {
@@ -23,6 +23,7 @@ export default {
         }
     }
 };
+export default meta;
 
 export const Basic: React.FC<{}> = () =>
     <Gate><div className='p-component'>Gate body</div></Gate>;

@@ -1,14 +1,14 @@
 import React from 'react';
-import { withReadme } from 'storybook-readme';
+import type { Meta } from '@storybook/react';
 
 // @ts-ignore: md file and not a module
-import README from './README.md';
+import page from './README.mdx';
 import Error from './index';
 
-export default {
+const meta: Meta = {
     title: 'Error',
     component: Error,
-    decorators: [withReadme(README)],
+    parameters: {docs: {page}},
     args: {
         state: {
             error: {
@@ -17,6 +17,7 @@ export default {
         }
     }
 };
+export default meta;
 
 export const Basic = () => <Error message='Error message' />;
 export const InvalidCredentials = () => <Error />;

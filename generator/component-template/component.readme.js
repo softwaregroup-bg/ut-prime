@@ -9,14 +9,14 @@ import ${componentName} from 'ut-prime/core/${componentName}';
 <${componentName} className='name' />;
 \`\`\`
 
-## Props
+<Canvas>
+    <Story id="${componentName.toLowerCase()}--basic" />
+</Canvas>
 
-- **className** - class applied to root \`${componentName}\` html element.
+## Properties
 
-| propName  | propType | defaultValue | isRequired |
-| --------- | -------- | ------------ | ---------- |
-| className | string   |              | no         |
+<ArgsTable story="."/>
 `,
     fileName: 'README',
-    extension: '.md'
+    extension: '.mdx'
 });

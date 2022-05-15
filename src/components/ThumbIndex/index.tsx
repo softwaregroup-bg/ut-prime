@@ -3,6 +3,7 @@ import clsx from 'clsx';
 
 import { ListBox, PanelMenu, TabMenu, Ripple } from '../prime';
 import { ComponentProps } from './ThumbIndex.types';
+import testid from '../lib/testid';
 
 const ThumbIndex: ComponentProps = ({ name, className, items, orientation = 'left', children, onFilter, ...rest }) => {
     const [[selectedList, activeIndex], setList] = React.useState([items[0], 0]);
@@ -31,7 +32,7 @@ const ThumbIndex: ComponentProps = ({ name, className, items, orientation = 'lef
                 role="presentation"
             >
                 {item.icon && <span className={iconClassName}></span>}
-                {item.label && <span className={labelClassName} data-testid={(name || '') + item.id + 'Tab'}>{item.label}</span>}
+                {item.label && <span className={labelClassName} {...testid((name || '') + item.id + 'Tab')}>{item.label}</span>}
                 <Ripple />
             </a>
         );

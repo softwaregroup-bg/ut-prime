@@ -28,6 +28,7 @@ const defaultState: State = {
             action: () => ({type: 'test'})
         }, {
             title: 'Main',
+            path: '/main',
             items: [{
                 title: 'Page 1',
                 permission: 'page1',

@@ -72,11 +72,13 @@ exports[`<App /> render equals snapshot 1`] = `
                   <a
                     aria-haspopup="true"
                     class="p-menuitem-link"
+                    data-testid="portal-menu_main"
                     href="#"
                     role="menuitem"
                   >
                     <span
                       class="p-menuitem-text"
+                      data-testid="portal-menu-label_main"
                     >
                       Main
                     </span>
@@ -95,12 +97,13 @@ exports[`<App /> render equals snapshot 1`] = `
                       <a
                         aria-haspopup="false"
                         class="p-menuitem-link"
+                        data-testid="portal-menu_page1"
                         href="#"
                         role="menuitem"
                       >
                         <span
                           class="p-menuitem-text"
-                          data-testid="portal.menu/page1"
+                          data-testid="portal-menu-label_page1"
                         >
                           Page 1
                         </span>
@@ -113,12 +116,13 @@ exports[`<App /> render equals snapshot 1`] = `
                       <a
                         aria-haspopup="false"
                         class="p-menuitem-link"
+                        data-testid="portal-menu_page2"
                         href="#"
                         role="menuitem"
                       >
                         <span
                           class="p-menuitem-text"
-                          data-testid="portal.menu/page2"
+                          data-testid="portal-menu-label_page2"
                         >
                           Page 2
                         </span>
@@ -133,12 +137,13 @@ exports[`<App /> render equals snapshot 1`] = `
                   <a
                     aria-haspopup="false"
                     class="p-menuitem-link"
+                    data-testid="portal-menu_page3"
                     href="#"
                     role="menuitem"
                   >
                     <span
                       class="p-menuitem-text"
-                      data-testid="portal.menu/page3"
+                      data-testid="portal-menu-label_page3"
                     >
                       Page 3
                     </span>
@@ -151,12 +156,13 @@ exports[`<App /> render equals snapshot 1`] = `
                   <a
                     aria-haspopup="false"
                     class="p-menuitem-link"
+                    data-testid="portal-menu_granted"
                     href="#"
                     role="menuitem"
                   >
                     <span
                       class="p-menuitem-text"
-                      data-testid="portal.menu/granted"
+                      data-testid="portal-menu-label_granted"
                     >
                       Granted
                     </span>
@@ -189,6 +195,7 @@ exports[`<App /> render equals snapshot 1`] = `
                   <a
                     aria-haspopup="true"
                     class="p-menuitem-link"
+                    data-testid="portal-menu_profile"
                     href="#"
                     role="menuitem"
                   >
@@ -197,7 +204,7 @@ exports[`<App /> render equals snapshot 1`] = `
                     />
                     <span
                       class="p-menuitem-text"
-                      data-testid="portal.menu/profile"
+                      data-testid="portal-menu-label_profile"
                     >
                       SA
                     </span>
@@ -250,12 +257,13 @@ exports[`<App /> render equals snapshot 1`] = `
                       <a
                         aria-haspopup="false"
                         class="p-menuitem-link"
+                        data-testid="portal-menu_logout"
                         href="#"
                         role="menuitem"
                       >
                         <span
                           class="p-menuitem-text"
-                          data-testid="portal.menu/logout"
+                          data-testid="portal-menu-label_logout"
                         >
                           Logout
                         </span>
@@ -297,7 +305,7 @@ exports[`<App /> render equals snapshot 1`] = `
                       class="p-tabview-title"
                     >
                       <span
-                        data-testid="portal.tab/"
+                        data-testid="portal-tab_"
                       >
                         Dashboard
                           

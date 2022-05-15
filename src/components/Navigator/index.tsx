@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import { Tree } from '../prime';
 
 import { ComponentProps } from './Navigator.types';
+import testid from '../lib/testid';
 
 const Navigator: ComponentProps = ({
     className,
@@ -15,7 +16,7 @@ const Navigator: ComponentProps = ({
     onSelect
 }) => {
     const [{items, expanded}, setItems] = React.useState({items: [], expanded: {}});
-    const nodeTemplate = React.useCallback(node => <span data-testid={`navigator.${resultSet}Item/${node[keyField]}`}>{node[field]}</span>, [field, keyField, resultSet]);
+    const nodeTemplate = React.useCallback(node => <span {...testid(`navigator.${resultSet}Item/${node[keyField]}`)}>{node[field]}</span>, [field, keyField, resultSet]);
     const [selectedNodeKey, setSelectedNodeKey] = React.useState(null);
     const select = React.useCallback(e => {
         if (onSelect) onSelect(e.value);

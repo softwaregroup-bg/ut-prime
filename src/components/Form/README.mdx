@@ -1,0 +1,29 @@
+# Form
+import { Canvas, Story, ArgsTable } from "@storybook/addon-docs";
+import {Input, Table} from "./Form.stories";
+
+## Importing
+
+```jsx
+import Form from 'ut-prime/core/Form';
+```
+
+## Basic
+<Canvas>
+    <Story id="form--basic" />
+</Canvas>
+
+## Properties
+
+<ArgsTable story="."/>
+
+## Input editors
+
+<Canvas>
+    <Story id="form--input" play={Input.play} />
+</Canvas>
+
+## Table editors
+<Canvas>
+    <Story id="form--table" />
+</Canvas>

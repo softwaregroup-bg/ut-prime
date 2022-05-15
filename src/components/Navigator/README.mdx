@@ -1,0 +1,33 @@
+# Navigator
+import { Canvas, Story, ArgsTable } from "@storybook/addon-docs";
+
+Shows a hierarchical data as a tree, to enable
+navigating collections of items related to that
+tree.
+
+Navigator is named after the `Navigation pane`
+in Windows File Explorer.
+
+## How to use
+
+```jsx
+import Navigator from 'ut-prime/core/Navigator';
+
+<Navigator
+    fetch={fetch}
+    keyField='id'
+    resultSet='items'
+    field='name'
+    title='Name'
+>
+    body
+</Navigator>
+```
+
+<Canvas>
+    <Story id="navigator--basic" />
+</Canvas>
+
+## Properties
+
+<ArgsTable story="."/>

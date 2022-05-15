@@ -61,6 +61,9 @@ export interface Props {
     reducers?: {
         [key: string]: Reducer
     },
+    /**
+     * The initial Redux state.
+     */
     state?: State,
     middleware?: Middleware[],
     onDispatcher?: (fn: (action: Action) => Action) => boolean

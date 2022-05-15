@@ -1,14 +1,14 @@
 import React from 'react';
-import { withReadme } from 'storybook-readme';
+import type { Meta } from '@storybook/react';
 
 // @ts-ignore: md file and not a module
-import README from './README.md';
+import page from './README.mdx';
 import Loader from './index';
 
-export default {
-    title: 'Loader',
+const meta: Meta = {
+    title: 'Internal/Loader',
     component: Loader,
-    decorators: [withReadme(README)],
+    parameters: {docs: {page}},
     args: {
         state: {
             loader: {
@@ -18,6 +18,7 @@ export default {
         }
     }
 };
+export default meta;
 
 export const Basic: React.FC<{}> = () =>
     <Loader>Hello Loader</Loader>;

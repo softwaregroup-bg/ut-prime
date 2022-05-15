@@ -1,0 +1,33 @@
+# Explorer
+
+import { Canvas, Story, ArgsTable } from "@storybook/addon-docs";
+
+Shows a collection of items in a tabular format,
+allowing filtering, and performing actions on one or multiple items.
+Item details can be shown in the side pane.
+
+It is named after the Windows File Explorer, with which it
+aims to have similarities.
+
+## How to use
+
+```jsx
+import Explorer from 'ut-prime/core/Explorer';
+
+<Explorer
+    fetch={fetch}
+    keyField='id'
+    resultSet='items'
+    properties={properties}
+    columns={columns}
+    details={details}
+/>
+```
+
+<Canvas>
+    <Story id="explorer--basic" />
+</Canvas>
+
+## Properties
+
+<ArgsTable story="."/>

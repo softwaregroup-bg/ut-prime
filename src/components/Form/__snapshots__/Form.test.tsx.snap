@@ -38,7 +38,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                   >
                     <label
                       class="col-12 md:col-4"
-                      for="input.input"
+                      for="input-input"
                     >
                       Input
                     </label>
@@ -47,7 +47,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                     >
                       <input
                         class="p-inputtext p-component p-filled w-full"
-                        id="input.input"
+                        id="input-input"
                         name="input.input"
                         value="input"
                       />
@@ -58,7 +58,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                   >
                     <label
                       class="col-12 md:col-4"
-                      for="input.password"
+                      for="input-password"
                     >
                       Password
                     </label>
@@ -67,11 +67,11 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                     >
                       <div
                         class="p-password p-component p-inputwrapper p-inputwrapper-filled w-full"
-                        id="input.password"
+                        id="input-password"
                       >
                         <input
                           class="p-inputtext p-component p-filled p-password-input w-full"
-                          id="input.password"
+                          id="input-password"
                           name="input.password"
                           role="textbox"
                           type="password"
@@ -85,7 +85,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                   >
                     <label
                       class="col-12 md:col-4"
-                      for="input.text"
+                      for="input-text"
                     >
                       Text
                     </label>
@@ -94,7 +94,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                     >
                       <textarea
                         class="p-inputtextarea p-inputtext p-component p-filled w-full"
-                        id="input.text"
+                        id="input-text"
                         name="input.text"
                       >
                         text
@@ -106,7 +106,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                   >
                     <label
                       class="col-12 md:col-4"
-                      for="input.mask"
+                      for="input-mask"
                     >
                       Mask
                     </label>
@@ -115,7 +115,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                     >
                       <input
                         class="p-inputtext p-component p-inputmask w-full p-filled"
-                        id="input.mask"
+                        id="input-mask"
                         name="input.mask"
                         type="text"
                       />
@@ -126,7 +126,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                   >
                     <label
                       class="col-12 md:col-4"
-                      for="input.boolean"
+                      for="input-boolean"
                     >
                       Boolean
                     </label>
@@ -135,14 +135,15 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                     >
                       <div
                         class="p-checkbox p-component p-checkbox-checked"
-                        data-testid="input.boolean"
-                        id="input.boolean"
+                        data-testid="input-boolean"
+                        id="input-boolean"
                       >
                         <div
                           class="p-hidden-accessible"
                         >
                           <input
                             checked=""
+                            id="input-boolean"
                             name="input.boolean"
                             type="checkbox"
                           />
@@ -162,7 +163,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                   >
                     <label
                       class="col-12 md:col-4"
-                      for="input.date"
+                      for="input-date"
                     >
                       Date
                     </label>
@@ -171,18 +172,17 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                     >
                       <span
                         class="p-calendar p-component p-inputwrapper w-full p-calendar-w-btn p-calendar-w-btn-right p-inputwrapper-filled"
-                        id="input.date"
+                        id="input-date"
                       >
                         <input
                           autocomplete="off"
                           class="p-inputtext p-component p-filled"
-                          id="input.date"
+                          id="input-date"
                           inputmode="none"
                           name="input.date"
                           type="text"
                         />
                         <button
-                          aria-label=""
                           class="p-button p-component p-datepicker-trigger p-button-icon-only"
                           tabindex="-1"
                           type="button"
@@ -204,7 +204,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                   >
                     <label
                       class="col-12 md:col-4"
-                      for="input.time"
+                      for="input-time"
                     >
                       Time
                     </label>
@@ -213,18 +213,17 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                     >
                       <span
                         class="p-calendar p-component p-inputwrapper w-full p-calendar-w-btn p-calendar-w-btn-right p-calendar-timeonly p-inputwrapper-filled"
-                        id="input.time"
+                        id="input-time"
                       >
                         <input
                           autocomplete="off"
                           class="p-inputtext p-component p-filled"
-                          id="input.time"
+                          id="input-time"
                           inputmode="none"
                           name="input.time"
                           type="text"
                         />
                         <button
-                          aria-label=""
                           class="p-button p-component p-datepicker-trigger p-button-icon-only"
                           tabindex="-1"
                           type="button"
@@ -246,7 +245,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                   >
                     <label
                       class="col-12 md:col-4"
-                      for="input.datetime"
+                      for="input-datetime"
                     >
                       Datetime
                     </label>
@@ -255,18 +254,17 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                     >
                       <span
                         class="p-calendar p-component p-inputwrapper w-full p-calendar-w-btn p-calendar-w-btn-right p-inputwrapper-filled"
-                        id="input.datetime"
+                        id="input-datetime"
                       >
                         <input
                           autocomplete="off"
                           class="p-inputtext p-component p-filled"
-                          id="input.datetime"
+                          id="input-datetime"
                           inputmode="none"
                           name="input.datetime"
                           type="text"
                         />
                         <button
-                          aria-label=""
                           class="p-button p-component p-datepicker-trigger p-button-icon-only"
                           tabindex="-1"
                           type="button"
@@ -288,7 +286,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                   >
                     <label
                       class="col-12 md:col-4"
-                      for="input.number"
+                      for="input-number"
                     >
                       Number
                     </label>
@@ -297,12 +295,12 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                     >
                       <span
                         class="p-inputnumber p-component p-inputwrapper w-full"
-                        id="input.number"
+                        id="input-number"
                       >
                         <input
                           aria-valuenow="1234567890"
                           class="p-inputtext p-component p-inputnumber-input text-right p-filled"
-                          id="input.number"
+                          id="input-number"
                           inputmode="numeric"
                           name="input.number"
                           role="spinbutton"
@@ -317,7 +315,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                   >
                     <label
                       class="col-12 md:col-4"
-                      for="input.currency"
+                      for="input-currency"
                     >
                       Currency
                     </label>
@@ -326,12 +324,12 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                     >
                       <span
                         class="p-inputnumber p-component p-inputwrapper w-full"
-                        id="input.currency"
+                        id="input-currency"
                       >
                         <input
                           aria-valuenow="123456789"
                           class="p-inputtext p-component p-inputnumber-input text-right p-filled"
-                          id="input.currency"
+                          id="input-currency"
                           inputmode="decimal"
                           name="input.currency"
                           role="spinbutton"
@@ -346,7 +344,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                   >
                     <label
                       class="col-12 md:col-4"
-                      for="input.integer"
+                      for="input-integer"
                     >
                       Integer
                     </label>
@@ -355,12 +353,12 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                     >
                       <span
                         class="p-inputnumber p-component p-inputwrapper p-inputnumber-buttons-stacked w-full"
-                        id="input.integer"
+                        id="input-integer"
                       >
                         <input
                           aria-valuenow="1234567890"
                           class="p-inputtext p-component p-inputnumber-input w-full text-right p-filled"
-                          id="input.integer"
+                          id="input-integer"
                           inputmode="numeric"
                           name="input.integer"
                           role="spinbutton"
@@ -420,7 +418,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                   >
                     <label
                       class="col-12 md:col-4"
-                      for="input.image"
+                      for="input-image"
                     >
                       Image
                     </label>
@@ -429,7 +427,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                     >
                       <span
                         class="p-image p-component p-image-preview-container"
-                        id="input.image"
+                        id="input-image"
                       >
                         <img
                           class="w-full"
@@ -449,7 +447,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                   >
                     <label
                       class="col-12 md:col-4"
-                      for="input.dropdown"
+                      for="input-dropdown"
                     >
                       Dropdown
                     </label>
@@ -458,8 +456,8 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                     >
                       <div
                         class="p-dropdown p-component p-inputwrapper p-inputwrapper-filled w-full"
-                        data-testid="input.dropdown"
-                        id="input.dropdown"
+                        data-testid="input-dropdown"
+                        id="input-dropdown"
                       >
                         <div
                           class="p-hidden-accessible"
@@ -511,7 +509,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                   >
                     <label
                       class="col-12 md:col-4"
-                      for="input.dropdownTree"
+                      for="input-dropdownTree"
                     >
                       Dropdown Tree
                     </label>
@@ -520,15 +518,15 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                     >
                       <div
                         class="p-treeselect p-component p-inputwrapper p-inputwrapper-filled w-full"
-                        data-testid="input.dropdownTree"
-                        id="input.dropdownTree"
+                        data-testid="input-dropdownTree"
+                        id="input-dropdownTree"
                       >
                         <div
                           class="p-hidden-accessible"
                         >
                           <input
                             aria-expanded="false"
-                            id="input.dropdownTree"
+                            id="input-dropdownTree"
                             readonly=""
                             role="listbox"
                             type="text"
@@ -561,7 +559,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                   >
                     <label
                       class="col-12 md:col-4"
-                      for="input.multiSelect"
+                      for="input-multiSelect"
                     >
                       Multi Select
                     </label>
@@ -570,8 +568,8 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                     >
                       <div
                         class="p-multiselect p-component p-inputwrapper p-multiselect-chip p-inputwrapper-filled w-full"
-                        data-testid="input.multiSelect"
-                        id="input.multiSelect"
+                        data-testid="input-multiSelect"
+                        id="input-multiSelect"
                       >
                         <div
                           class="p-hidden-accessible"
@@ -620,7 +618,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                   >
                     <label
                       class="col-12 md:col-4"
-                      for="input.multiSelectTree"
+                      for="input-multiSelectTree"
                     >
                       Multi Select Tree
                     </label>
@@ -629,8 +627,8 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                     >
                       <div
                         class="p-treeselect p-component p-inputwrapper p-treeselect-chip p-inputwrapper-filled w-full"
-                        data-testid="input.multiSelectTree"
-                        id="input.multiSelectTree"
+                        data-testid="input-multiSelectTree"
+                        id="input-multiSelectTree"
                       >
                         <div
                           class="p-hidden-accessible"
@@ -677,7 +675,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                   >
                     <label
                       class="col-12 md:col-4"
-                      for="input.select"
+                      for="input-select"
                     >
                       Select
                     </label>
@@ -686,8 +684,8 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                     >
                       <div
                         class="p-selectbutton p-buttonset p-component w-full"
-                        data-testid="input.select"
-                        id="input.select"
+                        data-testid="input-select"
+                        id="input-select"
                         name="input.select"
                         role="group"
                       >
@@ -738,7 +736,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                   >
                     <label
                       class="col-12 md:col-4"
-                      for="input.table"
+                      for="input-table"
                     >
                       Table
                     </label>
@@ -756,7 +754,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                           <button
                             aria-label="Add"
                             class="p-button p-component p-button mr-2"
-                            data-testid="input.table.addButton"
+                            data-testid="input-table-addButton"
                           >
                             <span
                               class="p-button-icon p-c p-button-icon-left pi pi-plus"
@@ -770,7 +768,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                           <button
                             aria-label="Delete"
                             class="p-button p-component p-button p-disabled"
-                            data-testid="input.table.saveButton"
+                            data-testid="input-table-deleteButton"
                             disabled=""
                           >
                             <span
@@ -790,8 +788,8 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       <div
                         class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full"
                         data-scrollselectors=".p-datatable-wrapper"
-                        data-testid="input.table"
-                        id="input.table"
+                        data-testid="input-table"
+                        id="input-table"
                         pr_id_5=""
                       >
                         <div
@@ -844,7 +842,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="input.table.nameTitle"
+                                        data-testid="input-table-nameTitle"
                                       >
                                         Name
                                       </span>
@@ -862,7 +860,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="input.table.valueTitle"
+                                        data-testid="input-table-valueTitle"
                                       >
                                         Value
                                       </span>
@@ -922,15 +920,16 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                     class="p-column-title"
                                   >
                                     <span
-                                      data-testid="input.table.nameTitle"
+                                      data-testid="input-table-nameTitle"
                                     >
                                       Name
                                     </span>
                                   </span>
                                   <input
                                     class="p-inputtext p-component p-filled w-full"
-                                    id="input.table[0].name"
-                                    name="input.table[0].name"
+                                    data-testid="input-table-0-name"
+                                    id="input-table-0-name"
+                                    name="input-table[0].name"
                                     type="text"
                                     value="name"
                                   />
@@ -943,15 +942,16 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                     class="p-column-title"
                                   >
                                     <span
-                                      data-testid="input.table.valueTitle"
+                                      data-testid="input-table-valueTitle"
                                     >
                                       Value
                                     </span>
                                   </span>
                                   <input
                                     class="p-inputtext p-component p-filled w-full"
-                                    id="input.table[0].value"
-                                    name="input.table[0].value"
+                                    data-testid="input-table-0-value"
+                                    id="input-table-0-value"
+                                    name="input-table[0].value"
                                     type="text"
                                     value="value"
                                   />
@@ -966,6 +966,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                   />
                                   <button
                                     class="p-row-editor-save p-link"
+                                    name="row-save"
                                     tabindex="0"
                                     type="button"
                                   >
@@ -975,6 +976,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                   </button>
                                   <button
                                     class="p-row-editor-cancel p-link"
+                                    name="row-cancel"
                                     tabindex="0"
                                     type="button"
                                   >
@@ -1018,7 +1020,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                   >
                     <label
                       class="col-12 md:col-4"
-                      for="input.selectTable"
+                      for="input-selectTable"
                     >
                       Select Table
                     </label>
@@ -1028,8 +1030,8 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       <div
                         class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full"
                         data-scrollselectors=".p-datatable-wrapper"
-                        data-testid="input.selectTable"
-                        id="input.selectTable"
+                        data-testid="input-selectTable"
+                        id="input-selectTable"
                         pr_id_6=""
                       >
                         <div
@@ -1208,7 +1210,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                   >
                     <label
                       class="col-12 md:col-4"
-                      for="input.multiSelectPanel"
+                      for="input-multiSelectPanel"
                     >
                       Multi Select Panel
                     </label>
@@ -1217,8 +1219,8 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                     >
                       <div
                         class="p-multiselect p-component p-inputwrapper p-inputwrapper-filled p-inputwrapper-focus w-full"
-                        data-testid="input.multiSelectPanel"
-                        id="input.multiSelectPanel"
+                        data-testid="input-multiSelectPanel"
+                        id="input-multiSelectPanel"
                       >
                         <div
                           class="p-hidden-accessible"
@@ -1318,7 +1320,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                   >
                     <label
                       class="col-12 md:col-4"
-                      for="input.multiSelectTreeTable"
+                      for="input-multiSelectTreeTable"
                     >
                       Multi Select Tree Table
                     </label>
@@ -1328,8 +1330,8 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       <div
                         class="p-treetable p-component w-full"
                         data-scrollselectors=".p-treetable-scrollable-body"
-                        data-testid="input.multiSelectTreeTable"
-                        id="input.multiSelectTreeTable"
+                        data-testid="input-multiSelectTreeTable"
+                        id="input-multiSelectTreeTable"
                         name="input.multiSelectTreeTable"
                       >
                         <div
@@ -1481,7 +1483,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                   >
                     <label
                       class="col-12 md:col-4"
-                      for="input.selectTableWithFlags"
+                      for="input-selectTableWithFlags"
                     >
                       Select Table With Flags
                     </label>
@@ -1491,8 +1493,8 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       <div
                         class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full"
                         data-scrollselectors=".p-datatable-wrapper"
-                        data-testid="input.selectTableWithFlags"
-                        id="input.selectTableWithFlags"
+                        data-testid="input-selectTableWithFlags"
+                        id="input-selectTableWithFlags"
                         items="[object Object]"
                         pr_id_7=""
                       >
@@ -1559,7 +1561,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="input.selectTableWithFlags.flag1Title"
+                                        data-testid="input-selectTableWithFlags-flag1Title"
                                       >
                                         Flag1
                                       </span>
@@ -1577,7 +1579,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="input.selectTableWithFlags.flag2Title"
+                                        data-testid="input-selectTableWithFlags-flag2Title"
                                       >
                                         Flag2
                                       </span>
@@ -1632,28 +1634,26 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                     class="p-column-title"
                                   >
                                     <span
-                                      data-testid="input.selectTableWithFlags.flag1Title"
+                                      data-testid="input-selectTableWithFlags-flag1Title"
                                     >
                                       Flag1
                                     </span>
                                   </span>
                                   <div
                                     class="p-radiobutton p-component p-radiobutton-disabled"
-                                    data-testid="input.selectTableWithFlags"
+                                    data-testid="input-selectTableWithFlags"
                                   >
                                     <div
                                       class="p-hidden-accessible"
                                     >
                                       <input
                                         disabled=""
-                                        name="input.selectTableWithFlags.flag1Filter"
+                                        name="input-selectTableWithFlags.flag1Filter"
                                         type="radio"
                                       />
                                     </div>
                                     <div
-                                      aria-checked="false"
                                       class="p-radiobutton-box p-disabled"
-                                      role="radio"
                                     >
                                       <div
                                         class="p-radiobutton-icon"
@@ -1669,28 +1669,26 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                     class="p-column-title"
                                   >
                                     <span
-                                      data-testid="input.selectTableWithFlags.flag2Title"
+                                      data-testid="input-selectTableWithFlags-flag2Title"
                                     >
                                       Flag2
                                     </span>
                                   </span>
                                   <div
                                     class="p-radiobutton p-component p-radiobutton-disabled"
-                                    data-testid="input.selectTableWithFlags"
+                                    data-testid="input-selectTableWithFlags"
                                   >
                                     <div
                                       class="p-hidden-accessible"
                                     >
                                       <input
                                         disabled=""
-                                        name="input.selectTableWithFlags.flag2Filter"
+                                        name="input-selectTableWithFlags.flag2Filter"
                                         type="radio"
                                       />
                                     </div>
                                     <div
-                                      aria-checked="false"
                                       class="p-radiobutton-box p-disabled"
-                                      role="radio"
                                     >
                                       <div
                                         class="p-radiobutton-icon"
@@ -1742,28 +1740,26 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                     class="p-column-title"
                                   >
                                     <span
-                                      data-testid="input.selectTableWithFlags.flag1Title"
+                                      data-testid="input-selectTableWithFlags-flag1Title"
                                     >
                                       Flag1
                                     </span>
                                   </span>
                                   <div
                                     class="p-radiobutton p-component p-radiobutton-disabled"
-                                    data-testid="input.selectTableWithFlags"
+                                    data-testid="input-selectTableWithFlags"
                                   >
                                     <div
                                       class="p-hidden-accessible"
                                     >
                                       <input
                                         disabled=""
-                                        name="input.selectTableWithFlags.flag1Filter"
+                                        name="input-selectTableWithFlags.flag1Filter"
                                         type="radio"
                                       />
                                     </div>
                                     <div
-                                      aria-checked="false"
                                       class="p-radiobutton-box p-disabled"
-                                      role="radio"
                                     >
                                       <div
                                         class="p-radiobutton-icon"
@@ -1779,28 +1775,26 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                     class="p-column-title"
                                   >
                                     <span
-                                      data-testid="input.selectTableWithFlags.flag2Title"
+                                      data-testid="input-selectTableWithFlags-flag2Title"
                                     >
                                       Flag2
                                     </span>
                                   </span>
                                   <div
                                     class="p-radiobutton p-component p-radiobutton-disabled"
-                                    data-testid="input.selectTableWithFlags"
+                                    data-testid="input-selectTableWithFlags"
                                   >
                                     <div
                                       class="p-hidden-accessible"
                                     >
                                       <input
                                         disabled=""
-                                        name="input.selectTableWithFlags.flag2Filter"
+                                        name="input-selectTableWithFlags.flag2Filter"
                                         type="radio"
                                       />
                                     </div>
                                     <div
-                                      aria-checked="false"
                                       class="p-radiobutton-box p-disabled"
-                                      role="radio"
                                     >
                                       <div
                                         class="p-radiobutton-icon"
@@ -1852,28 +1846,26 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                     class="p-column-title"
                                   >
                                     <span
-                                      data-testid="input.selectTableWithFlags.flag1Title"
+                                      data-testid="input-selectTableWithFlags-flag1Title"
                                     >
                                       Flag1
                                     </span>
                                   </span>
                                   <div
                                     class="p-radiobutton p-component p-radiobutton-disabled"
-                                    data-testid="input.selectTableWithFlags"
+                                    data-testid="input-selectTableWithFlags"
                                   >
                                     <div
                                       class="p-hidden-accessible"
                                     >
                                       <input
                                         disabled=""
-                                        name="input.selectTableWithFlags.flag1Filter"
+                                        name="input-selectTableWithFlags.flag1Filter"
                                         type="radio"
                                       />
                                     </div>
                                     <div
-                                      aria-checked="false"
                                       class="p-radiobutton-box p-disabled"
-                                      role="radio"
                                     >
                                       <div
                                         class="p-radiobutton-icon"
@@ -1889,28 +1881,26 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                     class="p-column-title"
                                   >
                                     <span
-                                      data-testid="input.selectTableWithFlags.flag2Title"
+                                      data-testid="input-selectTableWithFlags-flag2Title"
                                     >
                                       Flag2
                                     </span>
                                   </span>
                                   <div
                                     class="p-radiobutton p-component p-radiobutton-disabled"
-                                    data-testid="input.selectTableWithFlags"
+                                    data-testid="input-selectTableWithFlags"
                                   >
                                     <div
                                       class="p-hidden-accessible"
                                     >
                                       <input
                                         disabled=""
-                                        name="input.selectTableWithFlags.flag2Filter"
+                                        name="input-selectTableWithFlags.flag2Filter"
                                         type="radio"
                                       />
                                     </div>
                                     <div
-                                      aria-checked="false"
                                       class="p-radiobutton-box p-disabled"
-                                      role="radio"
                                     >
                                       <div
                                         class="p-radiobutton-icon"
@@ -1986,7 +1976,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                           <button
                             aria-label="Add"
                             class="p-button p-component p-button mr-2"
-                            data-testid="table1.addButton"
+                            data-testid="table1-addButton"
                           >
                             <span
                               class="p-button-icon p-c p-button-icon-left pi pi-plus"
@@ -2000,7 +1990,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                           <button
                             aria-label="Delete"
                             class="p-button p-component p-button p-disabled"
-                            data-testid="table1.saveButton"
+                            data-testid="table1-deleteButton"
                             disabled=""
                           >
                             <span
@@ -2074,7 +2064,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="table1.inputTitle"
+                                        data-testid="table1-inputTitle"
                                       >
                                         Input
                                       </span>
@@ -2092,7 +2082,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="table1.passwordTitle"
+                                        data-testid="table1-passwordTitle"
                                       >
                                         Password
                                       </span>
@@ -2110,7 +2100,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="table1.textTitle"
+                                        data-testid="table1-textTitle"
                                       >
                                         Text
                                       </span>
@@ -2128,7 +2118,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="table1.maskTitle"
+                                        data-testid="table1-maskTitle"
                                       >
                                         Mask
                                       </span>
@@ -2146,7 +2136,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="table1.booleanTitle"
+                                        data-testid="table1-booleanTitle"
                                       >
                                         Boolean
                                       </span>
@@ -2164,7 +2154,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="table1.dateTitle"
+                                        data-testid="table1-dateTitle"
                                       >
                                         Date
                                       </span>
@@ -2182,7 +2172,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="table1.timeTitle"
+                                        data-testid="table1-timeTitle"
                                       >
                                         Time
                                       </span>
@@ -2200,7 +2190,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="table1.datetimeTitle"
+                                        data-testid="table1-datetimeTitle"
                                       >
                                         Datetime
                                       </span>
@@ -2259,14 +2249,15 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     class="p-column-title"
                                   >
                                     <span
-                                      data-testid="table1.inputTitle"
+                                      data-testid="table1-inputTitle"
                                     >
                                       Input
                                     </span>
                                   </span>
                                   <input
                                     class="p-inputtext p-component p-filled w-full"
-                                    id="table1[0].input"
+                                    data-testid="table1-0-input"
+                                    id="table1-0-input"
                                     name="table1[0].input"
                                     type="text"
                                     value="test"
@@ -2280,17 +2271,18 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     class="p-column-title"
                                   >
                                     <span
-                                      data-testid="table1.passwordTitle"
+                                      data-testid="table1-passwordTitle"
                                     >
                                       Password
                                     </span>
                                   </span>
                                   <div
                                     class="p-password p-component p-inputwrapper"
-                                    id="table1[0].password"
+                                    id="table1-0-password"
                                   >
                                     <input
                                       class="p-inputtext p-component p-password-input"
+                                      data-testid="table1-0-password"
                                       name="table1[0].password"
                                       type="password"
                                       value=""
@@ -2305,14 +2297,15 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     class="p-column-title"
                                   >
                                     <span
-                                      data-testid="table1.textTitle"
+                                      data-testid="table1-textTitle"
                                     >
                                       Text
                                     </span>
                                   </span>
                                   <textarea
                                     class="p-inputtextarea p-inputtext p-component w-full"
-                                    id="table1[0].text"
+                                    data-testid="table1-0-text"
+                                    id="table1-0-text"
                                     name="table1[0].text"
                                   />
                                 </td>
@@ -2324,14 +2317,15 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     class="p-column-title"
                                   >
                                     <span
-                                      data-testid="table1.maskTitle"
+                                      data-testid="table1-maskTitle"
                                     >
                                       Mask
                                     </span>
                                   </span>
                                   <input
                                     class="p-inputtext p-component p-inputmask w-full"
-                                    id="table1[0].mask"
+                                    data-testid="table1-0-mask"
+                                    id="table1-0-mask"
                                     name="table1[0].mask"
                                     type="text"
                                   />
@@ -2344,15 +2338,15 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     class="p-column-title"
                                   >
                                     <span
-                                      data-testid="table1.booleanTitle"
+                                      data-testid="table1-booleanTitle"
                                     >
                                       Boolean
                                     </span>
                                   </span>
                                   <div
                                     class="p-checkbox p-component"
-                                    data-testid="table1[0].boolean"
-                                    id="table1[0].boolean"
+                                    data-testid="table1-0-boolean"
+                                    id="table1-0-boolean"
                                   >
                                     <div
                                       class="p-hidden-accessible"
@@ -2379,24 +2373,24 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     class="p-column-title"
                                   >
                                     <span
-                                      data-testid="table1.dateTitle"
+                                      data-testid="table1-dateTitle"
                                     >
                                       Date
                                     </span>
                                   </span>
                                   <span
                                     class="p-calendar p-component p-inputwrapper p-calendar-w-btn p-calendar-w-btn-right"
+                                    data-testid="table1-0-date"
                                   >
                                     <input
                                       autocomplete="off"
                                       class="p-inputtext p-component"
-                                      id="table1[0].date"
+                                      id="table1-0-date"
                                       inputmode="none"
                                       name="table1[0].date"
                                       type="text"
                                     />
                                     <button
-                                      aria-label=""
                                       class="p-button p-component p-datepicker-trigger p-button-icon-only"
                                       tabindex="-1"
                                       type="button"
@@ -2420,24 +2414,24 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     class="p-column-title"
                                   >
                                     <span
-                                      data-testid="table1.timeTitle"
+                                      data-testid="table1-timeTitle"
                                     >
                                       Time
                                     </span>
                                   </span>
                                   <span
                                     class="p-calendar p-component p-inputwrapper p-calendar-w-btn p-calendar-w-btn-right p-calendar-timeonly p-inputwrapper-filled"
+                                    data-testid="table1-0-time"
                                   >
                                     <input
                                       autocomplete="off"
                                       class="p-inputtext p-component"
-                                      id="table1[0].time"
+                                      id="table1-0-time"
                                       inputmode="none"
                                       name="table1[0].time"
                                       type="text"
                                     />
                                     <button
-                                      aria-label=""
                                       class="p-button p-component p-datepicker-trigger p-button-icon-only"
                                       tabindex="-1"
                                       type="button"
@@ -2461,24 +2455,24 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     class="p-column-title"
                                   >
                                     <span
-                                      data-testid="table1.datetimeTitle"
+                                      data-testid="table1-datetimeTitle"
                                     >
                                       Datetime
                                     </span>
                                   </span>
                                   <span
                                     class="p-calendar p-component p-inputwrapper p-calendar-w-btn p-calendar-w-btn-right"
+                                    data-testid="table1-0-datetime"
                                   >
                                     <input
                                       autocomplete="off"
                                       class="p-inputtext p-component"
-                                      id="table1[0].datetime"
+                                      id="table1-0-datetime"
                                       inputmode="none"
                                       name="table1[0].datetime"
                                       type="text"
                                     />
                                     <button
-                                      aria-label=""
                                       class="p-button p-component p-datepicker-trigger p-button-icon-only"
                                       tabindex="-1"
                                       type="button"
@@ -2504,6 +2498,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                   />
                                   <button
                                     class="p-row-editor-save p-link"
+                                    name="row-save"
                                     tabindex="0"
                                     type="button"
                                   >
@@ -2513,6 +2508,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                   </button>
                                   <button
                                     class="p-row-editor-cancel p-link"
+                                    name="row-cancel"
                                     tabindex="0"
                                     type="button"
                                   >
@@ -2545,7 +2541,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                           <button
                             aria-label="Add"
                             class="p-button p-component p-button mr-2"
-                            data-testid="table2.addButton"
+                            data-testid="table2-addButton"
                           >
                             <span
                               class="p-button-icon p-c p-button-icon-left pi pi-plus"
@@ -2559,7 +2555,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                           <button
                             aria-label="Delete"
                             class="p-button p-component p-button p-disabled"
-                            data-testid="table2.saveButton"
+                            data-testid="table2-deleteButton"
                             disabled=""
                           >
                             <span
@@ -2633,7 +2629,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="table2.numberTitle"
+                                        data-testid="table2-numberTitle"
                                       >
                                         Number
                                       </span>
@@ -2651,7 +2647,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="table2.currencyTitle"
+                                        data-testid="table2-currencyTitle"
                                       >
                                         Currency
                                       </span>
@@ -2669,7 +2665,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="table2.integerTitle"
+                                        data-testid="table2-integerTitle"
                                       >
                                         Integer
                                       </span>
@@ -2687,7 +2683,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="table2.imageTitle"
+                                        data-testid="table2-imageTitle"
                                       >
                                         Image
                                       </span>
@@ -2705,7 +2701,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="table2.radioTitle"
+                                        data-testid="table2-radioTitle"
                                       >
                                         Radio
                                       </span>
@@ -2723,7 +2719,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="table2.selectTitle"
+                                        data-testid="table2-selectTitle"
                                       >
                                         Select
                                       </span>
@@ -2741,7 +2737,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="table2.tableTitle"
+                                        data-testid="table2-tableTitle"
                                       >
                                         Table
                                       </span>
@@ -2800,14 +2796,15 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     class="p-column-title"
                                   >
                                     <span
-                                      data-testid="table2.numberTitle"
+                                      data-testid="table2-numberTitle"
                                     >
                                       Number
                                     </span>
                                   </span>
                                   <input
                                     class="p-inputtext p-component w-full"
-                                    id="table2[0].number"
+                                    data-testid="table2-0-number"
+                                    id="table2-0-number"
                                     name="table2[0].number"
                                     type="text"
                                     value=""
@@ -2821,7 +2818,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     class="p-column-title"
                                   >
                                     <span
-                                      data-testid="table2.currencyTitle"
+                                      data-testid="table2-currencyTitle"
                                     >
                                       Currency
                                     </span>
@@ -2829,7 +2826,8 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                   <input
                                     class="p-inputtext p-component w-full"
                                     currency="USD"
-                                    id="table2[0].currency"
+                                    data-testid="table2-0-currency"
+                                    id="table2-0-currency"
                                     name="table2[0].currency"
                                     type="text"
                                     value=""
@@ -2843,17 +2841,18 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     class="p-column-title"
                                   >
                                     <span
-                                      data-testid="table2.integerTitle"
+                                      data-testid="table2-integerTitle"
                                     >
                                       Integer
                                     </span>
                                   </span>
                                   <span
                                     class="p-inputnumber p-component p-inputwrapper p-inputnumber-buttons-stacked w-full"
+                                    data-testid="table2-0-integer"
                                   >
                                     <input
                                       class="p-inputtext p-component p-inputnumber-input"
-                                      id="table2[0].integer"
+                                      id="table2-0-integer"
                                       inputmode="numeric"
                                       name="table2[0].integer"
                                       role="spinbutton"
@@ -2892,14 +2891,15 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     class="p-column-title"
                                   >
                                     <span
-                                      data-testid="table2.imageTitle"
+                                      data-testid="table2-imageTitle"
                                     >
                                       Image
                                     </span>
                                   </span>
                                   <input
                                     class="p-inputtext p-component w-full"
-                                    id="table2[0].image"
+                                    data-testid="table2-0-image"
+                                    id="table2-0-image"
                                     name="table2[0].image"
                                     type="text"
                                     value=""
@@ -2913,27 +2913,26 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     class="p-column-title"
                                   >
                                     <span
-                                      data-testid="table2.radioTitle"
+                                      data-testid="table2-radioTitle"
                                     >
                                       Radio
                                     </span>
                                   </span>
                                   <div
                                     class="p-radiobutton p-component"
+                                    data-testid="table2-0-radio"
                                   >
                                     <div
                                       class="p-hidden-accessible"
                                     >
                                       <input
-                                        id="table2[0].radio"
+                                        id="table2-0-radio"
                                         name="table2[0].radio"
                                         type="radio"
                                       />
                                     </div>
                                     <div
-                                      aria-checked="false"
                                       class="p-radiobutton-box"
-                                      role="radio"
                                     >
                                       <div
                                         class="p-radiobutton-icon"
@@ -2949,14 +2948,15 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     class="p-column-title"
                                   >
                                     <span
-                                      data-testid="table2.selectTitle"
+                                      data-testid="table2-selectTitle"
                                     >
                                       Select
                                     </span>
                                   </span>
                                   <div
                                     class="p-selectbutton p-buttonset p-component w-full white-space-nowrap"
-                                    id="table2[0].select"
+                                    data-testid="table2-0-select"
+                                    id="table2-0-select"
                                     name="table2[0].select"
                                     role="group"
                                   >
@@ -3009,14 +3009,15 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     class="p-column-title"
                                   >
                                     <span
-                                      data-testid="table2.tableTitle"
+                                      data-testid="table2-tableTitle"
                                     >
                                       Table
                                     </span>
                                   </span>
                                   <input
                                     class="p-inputtext p-component w-full"
-                                    id="table2[0].table"
+                                    data-testid="table2-0-table"
+                                    id="table2-0-table"
                                     name="table2[0].table"
                                     type="text"
                                     value=""
@@ -3033,6 +3034,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                   />
                                   <button
                                     class="p-row-editor-save p-link"
+                                    name="row-save"
                                     tabindex="0"
                                     type="button"
                                   >
@@ -3042,6 +3044,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                   </button>
                                   <button
                                     class="p-row-editor-cancel p-link"
+                                    name="row-cancel"
                                     tabindex="0"
                                     type="button"
                                   >
@@ -3074,7 +3077,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                           <button
                             aria-label="Add"
                             class="p-button p-component p-button mr-2"
-                            data-testid="table3.addButton"
+                            data-testid="table3-addButton"
                           >
                             <span
                               class="p-button-icon p-c p-button-icon-left pi pi-plus"
@@ -3088,7 +3091,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                           <button
                             aria-label="Delete"
                             class="p-button p-component p-button p-disabled"
-                            data-testid="table3.saveButton"
+                            data-testid="table3-deleteButton"
                             disabled=""
                           >
                             <span
@@ -3162,7 +3165,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="table3.dropdownTitle"
+                                        data-testid="table3-dropdownTitle"
                                       >
                                         Dropdown
                                       </span>
@@ -3180,7 +3183,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="table3.dropdownTreeTitle"
+                                        data-testid="table3-dropdownTreeTitle"
                                       >
                                         Dropdown Tree
                                       </span>
@@ -3198,7 +3201,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="table3.multiSelectTitle"
+                                        data-testid="table3-multiSelectTitle"
                                       >
                                         Multi Select
                                       </span>
@@ -3216,7 +3219,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="table3.multiSelectTreeTitle"
+                                        data-testid="table3-multiSelectTreeTitle"
                                       >
                                         Multi Select Tree
                                       </span>
@@ -3275,21 +3278,21 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     class="p-column-title"
                                   >
                                     <span
-                                      data-testid="table3.dropdownTitle"
+                                      data-testid="table3-dropdownTitle"
                                     >
                                       Dropdown
                                     </span>
                                   </span>
                                   <div
                                     class="p-dropdown p-component p-inputwrapper p-dropdown-clearable w-full"
-                                    data-testid="table3[0].dropdown"
+                                    data-testid="table3-0-dropdown"
                                   >
                                     <div
                                       class="p-hidden-accessible"
                                     >
                                       <input
                                         aria-haspopup="listbox"
-                                        id="table3[0].dropdown"
+                                        id="table3-0-dropdown"
                                         readonly=""
                                         type="text"
                                       />
@@ -3332,14 +3335,15 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     class="p-column-title"
                                   >
                                     <span
-                                      data-testid="table3.dropdownTreeTitle"
+                                      data-testid="table3-dropdownTreeTitle"
                                     >
                                       Dropdown Tree
                                     </span>
                                   </span>
                                   <input
                                     class="p-inputtext p-component w-full"
-                                    id="table3[0].dropdownTree"
+                                    data-testid="table3-0-dropdownTree"
+                                    id="table3-0-dropdownTree"
                                     name="table3[0].dropdownTree"
                                     type="text"
                                     value=""
@@ -3353,14 +3357,15 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     class="p-column-title"
                                   >
                                     <span
-                                      data-testid="table3.multiSelectTitle"
+                                      data-testid="table3-multiSelectTitle"
                                     >
                                       Multi Select
                                     </span>
                                   </span>
                                   <input
                                     class="p-inputtext p-component w-full"
-                                    id="table3[0].multiSelect"
+                                    data-testid="table3-0-multiSelect"
+                                    id="table3-0-multiSelect"
                                     name="table3[0].multiSelect"
                                     type="text"
                                     value=""
@@ -3374,14 +3379,15 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     class="p-column-title"
                                   >
                                     <span
-                                      data-testid="table3.multiSelectTreeTitle"
+                                      data-testid="table3-multiSelectTreeTitle"
                                     >
                                       Multi Select Tree
                                     </span>
                                   </span>
                                   <input
                                     class="p-inputtext p-component w-full"
-                                    id="table3[0].multiSelectTree"
+                                    data-testid="table3-0-multiSelectTree"
+                                    id="table3-0-multiSelectTree"
                                     name="table3[0].multiSelectTree"
                                     type="text"
                                     value=""
@@ -3397,6 +3403,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                   />
                                   <button
                                     class="p-row-editor-save p-link"
+                                    name="row-save"
                                     tabindex="0"
                                     type="button"
                                   >
@@ -3406,6 +3413,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                   </button>
                                   <button
                                     class="p-row-editor-cancel p-link"
+                                    name="row-cancel"
                                     tabindex="0"
                                     type="button"
                                   >
@@ -3438,7 +3446,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                           <button
                             aria-label="Add"
                             class="p-button p-component p-button mr-2"
-                            data-testid="table4.addButton"
+                            data-testid="table4-addButton"
                           >
                             <span
                               class="p-button-icon p-c p-button-icon-left pi pi-plus"
@@ -3452,7 +3460,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                           <button
                             aria-label="Delete"
                             class="p-button p-component p-button p-disabled"
-                            data-testid="table4.saveButton"
+                            data-testid="table4-deleteButton"
                             disabled=""
                           >
                             <span
@@ -3526,7 +3534,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="table4.input.selectTableTitle"
+                                        data-testid="table4-input-selectTableTitle"
                                       >
                                         Select Table
                                       </span>
@@ -3544,7 +3552,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="table4.input.multiSelectPanelTitle"
+                                        data-testid="table4-input-multiSelectPanelTitle"
                                       >
                                         Multi Select Panel
                                       </span>
@@ -3562,7 +3570,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="table4.input.multiSelectTreeTableTitle"
+                                        data-testid="table4-input-multiSelectTreeTableTitle"
                                       >
                                         Multi Select Tree Table
                                       </span>
@@ -3621,14 +3629,15 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     class="p-column-title"
                                   >
                                     <span
-                                      data-testid="table4.input.selectTableTitle"
+                                      data-testid="table4-input-selectTableTitle"
                                     >
                                       Select Table
                                     </span>
                                   </span>
                                   <input
                                     class="p-inputtext p-component w-full"
-                                    id="table4[0].input.selectTable"
+                                    data-testid="table4-0-input-selectTable"
+                                    id="table4-0-input.selectTable"
                                     name="table4[0].input.selectTable"
                                     type="text"
                                     value=""
@@ -3642,14 +3651,15 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     class="p-column-title"
                                   >
                                     <span
-                                      data-testid="table4.input.multiSelectPanelTitle"
+                                      data-testid="table4-input-multiSelectPanelTitle"
                                     >
                                       Multi Select Panel
                                     </span>
                                   </span>
                                   <input
                                     class="p-inputtext p-component w-full"
-                                    id="table4[0].input.multiSelectPanel"
+                                    data-testid="table4-0-input-multiSelectPanel"
+                                    id="table4-0-input.multiSelectPanel"
                                     name="table4[0].input.multiSelectPanel"
                                     type="text"
                                     value=""
@@ -3663,14 +3673,15 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     class="p-column-title"
                                   >
                                     <span
-                                      data-testid="table4.input.multiSelectTreeTableTitle"
+                                      data-testid="table4-input-multiSelectTreeTableTitle"
                                     >
                                       Multi Select Tree Table
                                     </span>
                                   </span>
                                   <input
                                     class="p-inputtext p-component w-full"
-                                    id="table4[0].input.multiSelectTreeTable"
+                                    data-testid="table4-0-input-multiSelectTreeTable"
+                                    id="table4-0-input.multiSelectTreeTable"
                                     name="table4[0].input.multiSelectTreeTable"
                                     type="text"
                                     value=""
@@ -3686,6 +3697,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                   />
                                   <button
                                     class="p-row-editor-save p-link"
+                                    name="row-save"
                                     tabindex="0"
                                     type="button"
                                   >
@@ -3695,6 +3707,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                   </button>
                                   <button
                                     class="p-row-editor-cancel p-link"
+                                    name="row-cancel"
                                     tabindex="0"
                                     type="button"
                                   >
@@ -3764,7 +3777,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                   >
                     <label
                       class="col-12 md:col-4"
-                      for="tree.treeName"
+                      for="tree-treeName"
                     >
                       Name
                     </label>
@@ -3773,7 +3786,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                     >
                       <input
                         class="p-inputtext p-component p-filled w-full"
-                        id="tree.treeName"
+                        id="tree-treeName"
                         name="tree.treeName"
                         value="Oak"
                       />
@@ -3784,7 +3797,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                   >
                     <label
                       class="col-12 md:col-4"
-                      for="tree.treeDescription"
+                      for="tree-treeDescription"
                     >
                       Description
                     </label>
@@ -3793,7 +3806,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                     >
                       <textarea
                         class="p-inputtextarea p-inputtext p-component w-full"
-                        id="tree.treeDescription"
+                        id="tree-treeDescription"
                         name="tree.treeDescription"
                       />
                     </div>
@@ -3803,7 +3816,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                   >
                     <label
                       class="col-12 md:col-4"
-                      for="tree.treeType"
+                      for="tree-treeType"
                     >
                       Type
                     </label>
@@ -3812,8 +3825,8 @@ exports[`<Form /> render equals snapshot 1`] = `
                     >
                       <div
                         class="p-dropdown p-component p-inputwrapper p-inputwrapper-filled w-full"
-                        data-testid="tree.treeType"
-                        id="tree.treeType"
+                        data-testid="tree-treeType"
+                        id="tree-treeType"
                       >
                         <div
                           class="p-hidden-accessible"
@@ -3909,7 +3922,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                   >
                     <label
                       class="col-12 md:col-4"
-                      for="tree.seedDescription"
+                      for="tree-seedDescription"
                     >
                       Seed
                     </label>
@@ -3918,7 +3931,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                     >
                       <input
                         class="p-inputtext p-component w-full"
-                        id="tree.seedDescription"
+                        id="tree-seedDescription"
                         name="tree.seedDescription"
                         value=""
                       />
@@ -3929,7 +3942,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                   >
                     <label
                       class="col-12 md:col-4"
-                      for="tree.flowerDescription"
+                      for="tree-flowerDescription"
                     >
                       Flower
                     </label>
@@ -3938,7 +3951,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                     >
                       <input
                         class="p-inputtext p-component w-full"
-                        id="tree.flowerDescription"
+                        id="tree-flowerDescription"
                         name="tree.flowerDescription"
                         value=""
                       />
@@ -3949,7 +3962,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                   >
                     <label
                       class="col-12 md:col-4"
-                      for="tree.fruitName"
+                      for="tree-fruitName"
                     >
                       Fruit
                     </label>
@@ -3958,7 +3971,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                     >
                       <input
                         class="p-inputtext p-component w-full"
-                        id="tree.fruitName"
+                        id="tree-fruitName"
                         name="tree.fruitName"
                         value=""
                       />
@@ -4009,7 +4022,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                           <button
                             aria-label="Add"
                             class="p-button p-component p-button mr-2"
-                            data-testid="tree.links.addButton"
+                            data-testid="tree-links-addButton"
                           >
                             <span
                               class="p-button-icon p-c p-button-icon-left pi pi-plus"
@@ -4023,7 +4036,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                           <button
                             aria-label="Delete"
                             class="p-button p-component p-button p-disabled"
-                            data-testid="tree.links.saveButton"
+                            data-testid="tree-links-deleteButton"
                             disabled=""
                           >
                             <span
@@ -4043,8 +4056,8 @@ exports[`<Form /> render equals snapshot 1`] = `
                       <div
                         class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full"
                         data-scrollselectors=".p-datatable-wrapper"
-                        data-testid="tree.links"
-                        id="tree.links"
+                        data-testid="tree-links"
+                        id="tree-links"
                         pr_id_1=""
                       >
                         <div
@@ -4096,7 +4109,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="tree.links.titleTitle"
+                                        data-testid="tree-links-titleTitle"
                                       >
                                         Title
                                       </span>
@@ -4114,7 +4127,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="tree.links.urlTitle"
+                                        data-testid="tree-links-urlTitle"
                                       >
                                         Url
                                       </span>

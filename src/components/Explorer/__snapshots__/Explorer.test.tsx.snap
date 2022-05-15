@@ -24,9 +24,8 @@ exports[`<Explorer /> render equals snapshot 1`] = `
         class="p-toolbar-group-right"
       >
         <button
-          aria-label=""
           class="p-button p-component mr-2 p-button-icon-only"
-          data-testid="items.details.toggleButton"
+          data-testid="items-details-toggleButton"
         >
           <span
             class="p-button-icon p-c pi pi-bars"
@@ -91,7 +90,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                         class="p-column-title"
                       >
                         <span
-                          data-testid="items.nameTitle"
+                          data-testid="items-nameTitle"
                         >
                           Name
                         </span>
@@ -114,7 +113,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                         class="p-column-title"
                       >
                         <span
-                          data-testid="items.sizeTitle"
+                          data-testid="items-sizeTitle"
                         >
                           Size
                         </span>
@@ -236,7 +235,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                       class="p-column-title"
                     >
                       <span
-                        data-testid="items.nameTitle"
+                        data-testid="items-nameTitle"
                       >
                         Name
                       </span>
@@ -251,7 +250,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                       class="p-column-title"
                     >
                       <span
-                        data-testid="items.sizeTitle"
+                        data-testid="items-sizeTitle"
                       >
                         Size
                       </span>
@@ -294,7 +293,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                       class="p-column-title"
                     >
                       <span
-                        data-testid="items.nameTitle"
+                        data-testid="items-nameTitle"
                       >
                         Name
                       </span>
@@ -309,7 +308,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                       class="p-column-title"
                     >
                       <span
-                        data-testid="items.sizeTitle"
+                        data-testid="items-sizeTitle"
                       >
                         Size
                       </span>
@@ -352,7 +351,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                       class="p-column-title"
                     >
                       <span
-                        data-testid="items.nameTitle"
+                        data-testid="items-nameTitle"
                       >
                         Name
                       </span>
@@ -367,7 +366,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                       class="p-column-title"
                     >
                       <span
-                        data-testid="items.sizeTitle"
+                        data-testid="items-sizeTitle"
                       >
                         Size
                       </span>
@@ -410,7 +409,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                       class="p-column-title"
                     >
                       <span
-                        data-testid="items.nameTitle"
+                        data-testid="items-nameTitle"
                       >
                         Name
                       </span>
@@ -425,7 +424,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                       class="p-column-title"
                     >
                       <span
-                        data-testid="items.sizeTitle"
+                        data-testid="items-sizeTitle"
                       >
                         Size
                       </span>
@@ -468,7 +467,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                       class="p-column-title"
                     >
                       <span
-                        data-testid="items.nameTitle"
+                        data-testid="items-nameTitle"
                       >
                         Name
                       </span>
@@ -483,7 +482,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                       class="p-column-title"
                     >
                       <span
-                        data-testid="items.sizeTitle"
+                        data-testid="items-sizeTitle"
                       >
                         Size
                       </span>
@@ -526,7 +525,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                       class="p-column-title"
                     >
                       <span
-                        data-testid="items.nameTitle"
+                        data-testid="items-nameTitle"
                       >
                         Name
                       </span>
@@ -541,7 +540,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                       class="p-column-title"
                     >
                       <span
-                        data-testid="items.sizeTitle"
+                        data-testid="items-sizeTitle"
                       >
                         Size
                       </span>
@@ -584,7 +583,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                       class="p-column-title"
                     >
                       <span
-                        data-testid="items.nameTitle"
+                        data-testid="items-nameTitle"
                       >
                         Name
                       </span>
@@ -599,7 +598,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                       class="p-column-title"
                     >
                       <span
-                        data-testid="items.sizeTitle"
+                        data-testid="items-sizeTitle"
                       >
                         Size
                       </span>
@@ -642,7 +641,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                       class="p-column-title"
                     >
                       <span
-                        data-testid="items.nameTitle"
+                        data-testid="items-nameTitle"
                       >
                         Name
                       </span>
@@ -657,7 +656,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                       class="p-column-title"
                     >
                       <span
-                        data-testid="items.sizeTitle"
+                        data-testid="items-sizeTitle"
                       >
                         Size
                       </span>
@@ -700,7 +699,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                       class="p-column-title"
                     >
                       <span
-                        data-testid="items.nameTitle"
+                        data-testid="items-nameTitle"
                       >
                         Name
                       </span>
@@ -715,7 +714,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                       class="p-column-title"
                     >
                       <span
-                        data-testid="items.sizeTitle"
+                        data-testid="items-sizeTitle"
                       >
                         Size
                       </span>
@@ -758,7 +757,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                       class="p-column-title"
                     >
                       <span
-                        data-testid="items.nameTitle"
+                        data-testid="items-nameTitle"
                       >
                         Name
                       </span>
@@ -773,7 +772,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                       class="p-column-title"
                     >
                       <span
-                        data-testid="items.sizeTitle"
+                        data-testid="items-sizeTitle"
                       >
                         Size
                       </span>
@@ -788,72 +787,101 @@ exports[`<Explorer /> render equals snapshot 1`] = `
             class="p-paginator p-component p-paginator-bottom"
           >
             <button
-              class="p-paginator-first p-paginator-element p-link p-disabled"
+              aria-label="First Page"
+              class="p-button p-component p-paginator-first p-paginator-element p-link p-disabled p-button-icon-only p-disabled"
               disabled=""
               type="button"
             >
               <span
-                class="p-paginator-icon pi pi-angle-double-left"
+                class="p-button-icon p-c p-paginator-icon pi pi-angle-double-left"
               />
+              <span
+                class="p-button-label p-c"
+              >
+                 
+              </span>
             </button>
             <button
-              class="p-paginator-prev p-paginator-element p-link p-disabled"
+              aria-label="Previous Page"
+              class="p-button p-component p-paginator-prev p-paginator-element p-link p-disabled p-button-icon-only p-disabled"
               disabled=""
               type="button"
             >
               <span
-                class="p-paginator-icon pi pi-angle-left"
+                class="p-button-icon p-c p-paginator-icon pi pi-angle-left"
               />
+              <span
+                class="p-button-label p-c"
+              >
+                 
+              </span>
             </button>
             <span
               class="p-paginator-pages"
             >
               <button
-                class="p-paginator-page p-paginator-element p-link p-paginator-page-start p-highlight"
+                aria-label="Page 2"
+                class="p-button p-component p-paginator-page p-paginator-element p-link p-paginator-page-start p-highlight"
                 type="button"
               >
                 1
               </button>
               <button
-                class="p-paginator-page p-paginator-element p-link"
+                aria-label="Page 3"
+                class="p-button p-component p-paginator-page p-paginator-element p-link"
                 type="button"
               >
                 2
               </button>
               <button
-                class="p-paginator-page p-paginator-element p-link"
+                aria-label="Page 4"
+                class="p-button p-component p-paginator-page p-paginator-element p-link"
                 type="button"
               >
                 3
               </button>
               <button
-                class="p-paginator-page p-paginator-element p-link"
+                aria-label="Page 5"
+                class="p-button p-component p-paginator-page p-paginator-element p-link"
                 type="button"
               >
                 4
               </button>
               <button
-                class="p-paginator-page p-paginator-element p-link p-paginator-page-end"
+                aria-label="Page 6"
+                class="p-button p-component p-paginator-page p-paginator-element p-link p-paginator-page-end"
                 type="button"
               >
                 5
               </button>
             </span>
             <button
-              class="p-paginator-next p-paginator-element p-link"
+              aria-label="Next Page"
+              class="p-button p-component p-paginator-next p-paginator-element p-link p-button-icon-only"
               type="button"
             >
               <span
-                class="p-paginator-icon pi pi-angle-right"
+                class="p-button-icon p-c p-paginator-icon pi pi-angle-right"
               />
+              <span
+                class="p-button-label p-c"
+              >
+                 
+              </span>
             </button>
             <button
-              class="p-paginator-last p-paginator-element p-link"
+              aria-label="Last Page"
+              class="p-button p-component p-paginator-last p-paginator-element p-link p-button-icon-only"
               type="button"
             >
               <span
-                class="p-paginator-icon pi pi-angle-double-right"
+                class="p-button-icon p-c p-paginator-icon pi pi-angle-double-right"
               />
+              <span
+                class="p-button-label p-c"
+              >
+                 
+              </span>
             </button>
           </div>
         </div>

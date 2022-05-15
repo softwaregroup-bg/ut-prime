@@ -3,7 +3,13 @@ import React from 'react';
 import error from '../images/error.png';
 
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
+    /**
+     * Default error message to be shown.
+     */
     message?: React.ReactNode,
+    /**
+     * Default params for the message
+     */
     params?: {}
 }
 

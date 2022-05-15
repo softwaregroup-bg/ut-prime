@@ -15,6 +15,8 @@ import {State} from '../Store/Store.types';
 
 import { useStyles, ComponentProps } from './Portal.types';
 import { useWindowSize } from '../hooks';
+import testid from '../lib/testid';
+
 const backgroundNone = {background: 'none'};
 
 function ErrorFallback({error}) {
@@ -35,9 +37,10 @@ const template = (item, {onClick, onKeyDown, className, iconClassName, labelClas
         aria-haspopup={item.items != null}
         onClick={onClick}
         onKeyDown={onKeyDown}
+        {...testid(`portal.menu${item.path || item.id}`)}
     >
         {item.icon && <span className={iconClassName}></span>}
-        {item.label && <span className={labelClassName} data-testid={`portal.menu${item.path || item.id}`}>{item.label}</span>}
+        {item.label && <span className={labelClassName} {...testid(`portal.menu.label${item.path || item.id}`)}>{item.label}</span>}
         {item.items && <span className={submenuIconClassName}></span>}
         <Ripple />
     </a>
@@ -144,7 +147,7 @@ const Portal: ComponentProps = ({ children }) => {
                 ? (({Component, params}) => <Component {...params}/>)(tabs[tabIndex || 0] || {Component() { return null; }, params: undefined})
                 : <TabView activeIndex={tabIndex} onTabChange={handleTabSelect} className={classes.tabs} renderActiveOnly={false}>
                     {tabs.map(({title, path, Component, params}) =>
-                        <TabPanel key={path} header={<span data-testid={`portal.tab${path}`}>{title}&nbsp;&nbsp;</span>} rightIcon='pi pi-times'>
+                        <TabPanel key={path} header={<span {...testid(`portal.tab${path}`)}>{title}&nbsp;&nbsp;</span>} rightIcon='pi pi-times'>
                             <ErrorBoundary FallbackComponent={ErrorFallback}>
                                 <Component {...params}/>
                             </ErrorBoundary>

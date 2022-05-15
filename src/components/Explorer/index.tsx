@@ -11,6 +11,7 @@ import columnProps, {TableFilter} from '../lib/column';
 import prepareSubmit from '../lib/prepareSubmit';
 
 import { useStyles, ComponentProps } from './Explorer.types';
+import testid from '../lib/testid';
 
 const flexGrow = {flexGrow: 1};
 const selectionWidth = {width: '3em'};
@@ -84,7 +85,7 @@ const Explorer: ComponentProps = ({
         return (
             <Permission key={index} permission={permission}>
                 <Button
-                    data-testid={`${permission ? (permission + 'Button') : ('button' + index)}`}
+                    {...testid(`${permission ? (permission + 'Button') : ('button' + index)}`)}
                     label={title}
                     onClick={() => action({
                         id: current && current[keyField],
@@ -190,7 +191,7 @@ const Explorer: ComponentProps = ({
             <Column
                 key={name}
                 body={property?.action && (row => <Button
-                    data-testid={`${resultSet || 'filterBy'}.${field}Item/${row && row[keyField]}`}
+                    {...testid(`${resultSet || 'filterBy'}.${field}Item/${row && row[keyField]}`)}
                     label={row[field]}
                     style={actionButtonStyle}
                     className='p-button-link'
@@ -208,11 +209,11 @@ const Explorer: ComponentProps = ({
     }), [columns, properties, showFilter, dropdowns, tableFilter, keyField, resultSet]);
     const hasChildren = !!children;
     const left = React.useMemo(() => <>
-        {hasChildren && <Button data-testid={`${resultSet}.navigator.toggleButton`} icon="pi pi-bars" className="mr-2" onClick={navigationToggle}/>}
+        {hasChildren && <Button {...testid(`${resultSet}.navigator.toggleButton`)} icon="pi pi-bars" className="mr-2" onClick={navigationToggle}/>}
         {buttons}
     </>, [navigationToggle, buttons, hasChildren, resultSet]);
     const right = React.useMemo(() =>
-        details && <Button data-testid={`${resultSet}.details.toggleButton`} icon="pi pi-bars" className="mr-2" onClick={detailsToggle}/>,
+        details && <Button {...testid(`${resultSet}.details.toggleButton`)} icon="pi pi-bars" className="mr-2" onClick={detailsToggle}/>,
     [details, detailsToggle, resultSet]);
 
     const table = <DataTable

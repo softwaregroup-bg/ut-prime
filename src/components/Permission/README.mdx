@@ -1,4 +1,5 @@
 # Permission
+import { Canvas, Story, ArgsTable } from "@storybook/addon-docs";
 
 Render children when permission is granted
 
@@ -11,10 +12,10 @@ import Permission from 'ut-prime/core/Permission';
 <Permission permission={['a.b.c', 'x.y.z']}>content when a.b.c and x.y.z are allowed</Permission>
 ```
 
-## Props
+<Canvas>
+    <Story id="permission--basic" />
+</Canvas>
 
-- **permission** - permission(s) to check
+## Properties
 
-| propName   | propType          | defaultValue | isRequired |
-| ---------- | ----------------- | ------------ | ---------- |
-| permission | string | string[] |              | no         |
+<ArgsTable story="."/>

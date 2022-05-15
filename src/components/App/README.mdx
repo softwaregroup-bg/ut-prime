@@ -1,0 +1,31 @@
+# App
+import { Canvas, Story, ArgsTable } from "@storybook/addon-docs";
+
+The application component, usually passed to ReactDOM.render
+
+## How to use
+
+```jsx
+import App from 'ut-prime/core/App';
+
+<App
+    portalName='test app'
+    state={state}
+    theme={{
+        ut: {
+            classes: {}
+        },
+        palette: {
+            type: 'dark'
+        }
+    }}
+/>
+```
+
+<Canvas>
+    <Story id="app--basic" />
+</Canvas>
+
+## Properties
+
+<ArgsTable story="."/>

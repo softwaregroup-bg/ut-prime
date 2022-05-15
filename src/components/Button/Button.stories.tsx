@@ -1,15 +1,19 @@
 import React from 'react';
-import { withReadme } from 'storybook-readme';
+import type { Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 // @ts-ignore: md file and not a module
-import README from './README.md';
+import page from './README.mdx';
 import Button from './index';
 
-export default {
+const meta: Meta = {
     title: 'Button',
     component: Button,
-    decorators: [withReadme(README)]
+    parameters: {docs: {page}}
 };
+export default meta;
 
-export const Basic: React.FC<{}> = () => <Button onClick={action('clicked')}>Hello Button</Button>;
+export const Basic: React.FC<{}> = () => <Button onClick={action('clicked')}>Button</Button>;
+export const Add: React.FC<{}> = () => <Button onClick={action('clicked')} button='save'>Save</Button>;
+export const Cancel: React.FC<{}> = () => <Button onClick={action('clicked')} button='cancel'>Cancel</Button>;
+export const Next: React.FC<{}> = () => <Button onClick={action('clicked')} button='next'>Next</Button>;

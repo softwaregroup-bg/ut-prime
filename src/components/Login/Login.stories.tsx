@@ -1,20 +1,23 @@
 import React from 'react';
-import { withReadme } from 'storybook-readme';
+import type { Meta } from '@storybook/react';
 
 // @ts-ignore: md file and not a module
-import README from './README.md';
+import page from './README.mdx';
 import Login from './index';
 
-export default {
+const meta: Meta = {
     title: 'Login',
     component: Login,
-    decorators: [withReadme(README)],
+    parameters: {docs: {page}},
     args: {
         state: {
             login: false
         }
     }
 };
+export default meta;
 
 export const Basic: React.FC<{}> = () =>
-    <Login />;
+    <div className='flex' style={{height: 600}}>
+        <Login />
+    </div>;

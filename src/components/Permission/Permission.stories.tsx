@@ -1,9 +1,8 @@
 import React from 'react';
-import { withReadme } from 'storybook-readme';
 import type { Story, Meta } from '@storybook/react';
 
 // @ts-ignore: md file and not a module
-import README from './README.md';
+import page from './README.mdx';
 import Permission from './index';
 import type { Props } from './Permission.types';
 
@@ -12,7 +11,7 @@ import state from '../test/state';
 const meta: Meta = {
     title: 'Permission',
     component: Permission,
-    decorators: [withReadme(README)],
+    parameters: {docs: {page}},
     args: {
         state
     }

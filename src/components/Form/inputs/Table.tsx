@@ -5,6 +5,7 @@ import {DataTable, Column, Toolbar, Button} from '../../prime';
 import columnProps from '../../lib/column';
 import {CHANGE, INDEX, KEY, NEW} from '../const';
 import type {Properties} from '../../types';
+import testid from '../../lib/testid';
 
 const getDefault = (key, value, rows) => {
     if (!value || !('default' in value)) return;
@@ -200,7 +201,7 @@ export default React.forwardRef<{}, any>(function Table({
                     icon="pi pi-plus"
                     className="p-button mr-2"
                     onClick={addNewRow}
-                    data-testid={`${resultSet}.addButton`}
+                    {...testid(`${resultSet}.addButton`)}
                 />}
                 {allowDelete && <Button
                     label="Delete"
@@ -208,7 +209,7 @@ export default React.forwardRef<{}, any>(function Table({
                     className="p-button"
                     onClick={deleteRow}
                     disabled={!selected}
-                    data-testid={`${resultSet}.saveButton`}
+                    {...testid(`${resultSet}.deleteButton`)}
                 />}
             </React.Fragment>
         );
@@ -229,7 +230,7 @@ export default React.forwardRef<{}, any>(function Table({
                 onSelectionChange={handleSelected}
                 dataKey={KEY}
                 id={resultSet}
-                data-testid={props.id || resultSet}
+                {...testid(props.id || resultSet)}
                 {...props}
                 value={rows}
                 onRowEditComplete={complete}

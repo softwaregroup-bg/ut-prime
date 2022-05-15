@@ -1,17 +1,16 @@
 import React from 'react';
-import { withReadme } from 'storybook-readme';
 import type { Story, Meta } from '@storybook/react';
 
 // @ts-ignore: md file and not a module
-import README from './README.md';
-import Portal from './index';
+import page from './README.mdx';
 import type { Props } from './Portal.types';
+import Portal from './index';
 import Explorer from '../Explorer';
 
 const meta: Meta = {
     title: 'Portal',
     component: Portal,
-    decorators: [withReadme(README)],
+    parameters: {docs: {page}},
     args: {
         state: {}
     }

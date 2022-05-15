@@ -14,6 +14,7 @@ import useToggle from '../hooks/useToggle';
 import useLoad from '../hooks/useLoad';
 import {ConfigField, ConfigCard} from '../Form/DragDrop';
 import prepareSubmit from '../lib/prepareSubmit';
+import testid from '../lib/testid';
 
 const backgroundNone = {background: 'none'};
 
@@ -183,7 +184,7 @@ const Editor: ComponentProps = ({
                         onClick={trigger}
                         disabled={!trigger || !!loading}
                         aria-label='save'
-                        data-testid={name + 'saveButton'}
+                        {...testid(name + 'saveButton')}
                     />
                 }
                 right={<>
@@ -192,7 +193,7 @@ const Editor: ComponentProps = ({
                         onClick={toggleDesign}
                         disabled={!!loading}
                         aria-label='design'
-                        data-testid={name + 'designButton'}
+                        {...testid(name + 'designButton')}
                         className={clsx('mr-2', design && 'p-button-success')}
                     />
                 </>}

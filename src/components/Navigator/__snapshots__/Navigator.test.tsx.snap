@@ -35,7 +35,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             />
           </button>
           <span
-            data-testid="navigator.itemsItem/0"
+            data-testid="navigator-itemsItem_0"
           >
             Item 0
           </span>
@@ -64,7 +64,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/10"
+                data-testid="navigator-itemsItem_10"
               >
                 Item 10
               </span>
@@ -90,7 +90,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/20"
+                data-testid="navigator-itemsItem_20"
               >
                 Item 20
               </span>
@@ -116,7 +116,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/30"
+                data-testid="navigator-itemsItem_30"
               >
                 Item 30
               </span>
@@ -142,7 +142,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/40"
+                data-testid="navigator-itemsItem_40"
               >
                 Item 40
               </span>
@@ -171,7 +171,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             />
           </button>
           <span
-            data-testid="navigator.itemsItem/1"
+            data-testid="navigator-itemsItem_1"
           >
             Item 1
           </span>
@@ -200,7 +200,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/11"
+                data-testid="navigator-itemsItem_11"
               >
                 Item 11
               </span>
@@ -226,7 +226,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/21"
+                data-testid="navigator-itemsItem_21"
               >
                 Item 21
               </span>
@@ -252,7 +252,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/31"
+                data-testid="navigator-itemsItem_31"
               >
                 Item 31
               </span>
@@ -278,7 +278,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/41"
+                data-testid="navigator-itemsItem_41"
               >
                 Item 41
               </span>
@@ -307,7 +307,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             />
           </button>
           <span
-            data-testid="navigator.itemsItem/2"
+            data-testid="navigator-itemsItem_2"
           >
             Item 2
           </span>
@@ -336,7 +336,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/12"
+                data-testid="navigator-itemsItem_12"
               >
                 Item 12
               </span>
@@ -362,7 +362,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/22"
+                data-testid="navigator-itemsItem_22"
               >
                 Item 22
               </span>
@@ -388,7 +388,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/32"
+                data-testid="navigator-itemsItem_32"
               >
                 Item 32
               </span>
@@ -414,7 +414,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/42"
+                data-testid="navigator-itemsItem_42"
               >
                 Item 42
               </span>
@@ -443,7 +443,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             />
           </button>
           <span
-            data-testid="navigator.itemsItem/3"
+            data-testid="navigator-itemsItem_3"
           >
             Item 3
           </span>
@@ -472,7 +472,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/13"
+                data-testid="navigator-itemsItem_13"
               >
                 Item 13
               </span>
@@ -498,7 +498,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/23"
+                data-testid="navigator-itemsItem_23"
               >
                 Item 23
               </span>
@@ -524,7 +524,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/33"
+                data-testid="navigator-itemsItem_33"
               >
                 Item 33
               </span>
@@ -550,7 +550,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/43"
+                data-testid="navigator-itemsItem_43"
               >
                 Item 43
               </span>
@@ -579,7 +579,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             />
           </button>
           <span
-            data-testid="navigator.itemsItem/4"
+            data-testid="navigator-itemsItem_4"
           >
             Item 4
           </span>
@@ -608,7 +608,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/14"
+                data-testid="navigator-itemsItem_14"
               >
                 Item 14
               </span>
@@ -634,7 +634,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/24"
+                data-testid="navigator-itemsItem_24"
               >
                 Item 24
               </span>
@@ -660,7 +660,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/34"
+                data-testid="navigator-itemsItem_34"
               >
                 Item 34
               </span>
@@ -686,7 +686,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/44"
+                data-testid="navigator-itemsItem_44"
               >
                 Item 44
               </span>
@@ -715,7 +715,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             />
           </button>
           <span
-            data-testid="navigator.itemsItem/5"
+            data-testid="navigator-itemsItem_5"
           >
             Item 5
           </span>
@@ -744,7 +744,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/15"
+                data-testid="navigator-itemsItem_15"
               >
                 Item 15
               </span>
@@ -770,7 +770,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/25"
+                data-testid="navigator-itemsItem_25"
               >
                 Item 25
               </span>
@@ -796,7 +796,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/35"
+                data-testid="navigator-itemsItem_35"
               >
                 Item 35
               </span>
@@ -822,7 +822,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/45"
+                data-testid="navigator-itemsItem_45"
               >
                 Item 45
               </span>
@@ -851,7 +851,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             />
           </button>
           <span
-            data-testid="navigator.itemsItem/6"
+            data-testid="navigator-itemsItem_6"
           >
             Item 6
           </span>
@@ -880,7 +880,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/16"
+                data-testid="navigator-itemsItem_16"
               >
                 Item 16
               </span>
@@ -906,7 +906,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/26"
+                data-testid="navigator-itemsItem_26"
               >
                 Item 26
               </span>
@@ -932,7 +932,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/36"
+                data-testid="navigator-itemsItem_36"
               >
                 Item 36
               </span>
@@ -958,7 +958,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/46"
+                data-testid="navigator-itemsItem_46"
               >
                 Item 46
               </span>
@@ -987,7 +987,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             />
           </button>
           <span
-            data-testid="navigator.itemsItem/7"
+            data-testid="navigator-itemsItem_7"
           >
             Item 7
           </span>
@@ -1016,7 +1016,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/17"
+                data-testid="navigator-itemsItem_17"
               >
                 Item 17
               </span>
@@ -1042,7 +1042,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/27"
+                data-testid="navigator-itemsItem_27"
               >
                 Item 27
               </span>
@@ -1068,7 +1068,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/37"
+                data-testid="navigator-itemsItem_37"
               >
                 Item 37
               </span>
@@ -1094,7 +1094,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/47"
+                data-testid="navigator-itemsItem_47"
               >
                 Item 47
               </span>
@@ -1123,7 +1123,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             />
           </button>
           <span
-            data-testid="navigator.itemsItem/8"
+            data-testid="navigator-itemsItem_8"
           >
             Item 8
           </span>
@@ -1152,7 +1152,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/18"
+                data-testid="navigator-itemsItem_18"
               >
                 Item 18
               </span>
@@ -1178,7 +1178,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/28"
+                data-testid="navigator-itemsItem_28"
               >
                 Item 28
               </span>
@@ -1204,7 +1204,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/38"
+                data-testid="navigator-itemsItem_38"
               >
                 Item 38
               </span>
@@ -1230,7 +1230,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/48"
+                data-testid="navigator-itemsItem_48"
               >
                 Item 48
               </span>
@@ -1259,7 +1259,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
             />
           </button>
           <span
-            data-testid="navigator.itemsItem/9"
+            data-testid="navigator-itemsItem_9"
           >
             Item 9
           </span>
@@ -1288,7 +1288,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/19"
+                data-testid="navigator-itemsItem_19"
               >
                 Item 19
               </span>
@@ -1314,7 +1314,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/29"
+                data-testid="navigator-itemsItem_29"
               >
                 Item 29
               </span>
@@ -1340,7 +1340,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/39"
+                data-testid="navigator-itemsItem_39"
               >
                 Item 39
               </span>
@@ -1366,7 +1366,7 @@ exports[`<Navigator /> render equals snapshot 1`] = `
                 />
               </button>
               <span
-                data-testid="navigator.itemsItem/49"
+                data-testid="navigator-itemsItem_49"
               >
                 Item 49
               </span>

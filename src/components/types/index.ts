@@ -136,7 +136,7 @@ export interface Cards {
 
 interface IndexItem extends MenuItem {
     id: string;
-    widgets?: string[];
+    widgets?: string[] | string[][];
 }
 
 interface Index extends MenuItem {

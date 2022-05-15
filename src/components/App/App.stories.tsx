@@ -1,16 +1,17 @@
 import React from 'react';
-import { withReadme } from 'storybook-readme';
+import type { Meta } from '@storybook/react';
 
 // @ts-ignore: md file and not a module
-import README from './README.md';
+import page from './README.mdx';
 import App from './index';
 import state from '../test/state';
 
-export default {
+const meta: Meta = {
     title: 'App',
     component: App,
-    decorators: [withReadme(README)]
+    parameters: {docs: {page}}
 };
+export default meta;
 
 export const Basic: React.FC<{}> = ({children}) => {
     return <App

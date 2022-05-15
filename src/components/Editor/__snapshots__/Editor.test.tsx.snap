@@ -93,7 +93,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="tree.treeName"
+                        for="tree-treeName"
                       >
                         Name
                       </label>
@@ -102,7 +102,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                       >
                         <input
                           class="p-inputtext p-component p-filled w-full"
-                          id="tree.treeName"
+                          id="tree-treeName"
                           name="tree.treeName"
                           value="Oak"
                         />
@@ -113,7 +113,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="tree.treeDescription"
+                        for="tree-treeDescription"
                       >
                         Description
                       </label>
@@ -122,7 +122,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                       >
                         <textarea
                           class="p-inputtextarea p-inputtext p-component w-full"
-                          id="tree.treeDescription"
+                          id="tree-treeDescription"
                           name="tree.treeDescription"
                         />
                       </div>
@@ -132,7 +132,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="tree.treeType"
+                        for="tree-treeType"
                       >
                         Type
                       </label>
@@ -141,8 +141,8 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                       >
                         <div
                           class="p-dropdown p-component p-inputwrapper p-inputwrapper-filled w-full"
-                          data-testid="tree.treeType"
-                          id="tree.treeType"
+                          data-testid="tree-treeType"
+                          id="tree-treeType"
                         >
                           <div
                             class="p-hidden-accessible"
@@ -238,7 +238,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="tree.seedDescription"
+                        for="tree-seedDescription"
                       >
                         Seed
                       </label>
@@ -247,7 +247,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                       >
                         <input
                           class="p-inputtext p-component w-full"
-                          id="tree.seedDescription"
+                          id="tree-seedDescription"
                           name="tree.seedDescription"
                           value=""
                         />
@@ -258,7 +258,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="tree.flowerDescription"
+                        for="tree-flowerDescription"
                       >
                         Flower
                       </label>
@@ -267,7 +267,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                       >
                         <input
                           class="p-inputtext p-component w-full"
-                          id="tree.flowerDescription"
+                          id="tree-flowerDescription"
                           name="tree.flowerDescription"
                           value=""
                         />
@@ -278,7 +278,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="tree.fruitName"
+                        for="tree-fruitName"
                       >
                         Fruit
                       </label>
@@ -287,7 +287,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                       >
                         <input
                           class="p-inputtext p-component w-full"
-                          id="tree.fruitName"
+                          id="tree-fruitName"
                           name="tree.fruitName"
                           value=""
                         />
@@ -354,7 +354,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                             <button
                               aria-label="Add"
                               class="p-button p-component p-button mr-2"
-                              data-testid="tree.links.addButton"
+                              data-testid="tree-links-addButton"
                             >
                               <span
                                 class="p-button-icon p-c p-button-icon-left pi pi-plus"
@@ -368,7 +368,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                             <button
                               aria-label="Delete"
                               class="p-button p-component p-button p-disabled"
-                              data-testid="tree.links.saveButton"
+                              data-testid="tree-links-deleteButton"
                               disabled=""
                             >
                               <span
@@ -388,8 +388,8 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                         <div
                           class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full"
                           data-scrollselectors=".p-datatable-wrapper"
-                          data-testid="tree.links"
-                          id="tree.links"
+                          data-testid="tree-links"
+                          id="tree-links"
                           pr_id_1=""
                         >
                           <div
@@ -441,7 +441,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                                         class="p-column-title"
                                       >
                                         <span
-                                          data-testid="tree.links.titleTitle"
+                                          data-testid="tree-links-titleTitle"
                                         >
                                           Title
                                         </span>
@@ -459,7 +459,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                                         class="p-column-title"
                                       >
                                         <span
-                                          data-testid="tree.links.urlTitle"
+                                          data-testid="tree-links-urlTitle"
                                         >
                                           Url
                                         </span>
@@ -537,8 +537,8 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                       >
                         <div
                           class="p-multiselect p-component p-inputwrapper p-inputwrapper-focus w-full"
-                          data-testid="tree.habitat"
-                          id="tree.habitat"
+                          data-testid="tree-habitat"
+                          id="tree-habitat"
                         >
                           <div
                             class="p-hidden-accessible"
@@ -1103,7 +1103,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                             <button
                               aria-label="Add"
                               class="p-button p-component p-button mr-2"
-                              data-testid="person.addButton"
+                              data-testid="person-addButton"
                             >
                               <span
                                 class="p-button-icon p-c p-button-icon-left pi pi-plus"
@@ -1117,7 +1117,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                             <button
                               aria-label="Delete"
                               class="p-button p-component p-button"
-                              data-testid="person.saveButton"
+                              data-testid="person-deleteButton"
                             >
                               <span
                                 class="p-button-icon p-c p-button-icon-left pi pi-trash"
@@ -1164,7 +1164,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                         class="p-column-title"
                                       >
                                         <span
-                                          data-testid="person.fullNameTitle"
+                                          data-testid="person-fullNameTitle"
                                         >
                                           Full Name
                                         </span>
@@ -1182,7 +1182,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                         class="p-column-title"
                                       >
                                         <span
-                                          data-testid="person.nationalIdTitle"
+                                          data-testid="person-nationalIdTitle"
                                         >
                                           National ID
                                         </span>
@@ -1200,7 +1200,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                         class="p-column-title"
                                       >
                                         <span
-                                          data-testid="person.birthDateTitle"
+                                          data-testid="person-birthDateTitle"
                                         >
                                           Birth Date
                                         </span>
@@ -1239,7 +1239,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="person.fullNameTitle"
+                                        data-testid="person-fullNameTitle"
                                       >
                                         Full Name
                                       </span>
@@ -1254,7 +1254,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="person.nationalIdTitle"
+                                        data-testid="person-nationalIdTitle"
                                       >
                                         National ID
                                       </span>
@@ -1269,7 +1269,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="person.birthDateTitle"
+                                        data-testid="person-birthDateTitle"
                                       >
                                         Birth Date
                                       </span>
@@ -1286,6 +1286,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                     />
                                     <button
                                       class="p-row-editor-init p-link"
+                                      name="row-edit"
                                       tabindex="0"
                                       type="button"
                                     >
@@ -1308,7 +1309,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="person.fullNameTitle"
+                                        data-testid="person-fullNameTitle"
                                       >
                                         Full Name
                                       </span>
@@ -1323,7 +1324,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="person.nationalIdTitle"
+                                        data-testid="person-nationalIdTitle"
                                       >
                                         National ID
                                       </span>
@@ -1338,7 +1339,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="person.birthDateTitle"
+                                        data-testid="person-birthDateTitle"
                                       >
                                         Birth Date
                                       </span>
@@ -1355,6 +1356,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                     />
                                     <button
                                       class="p-row-editor-init p-link"
+                                      name="row-edit"
                                       tabindex="0"
                                       type="button"
                                     >
@@ -1415,7 +1417,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                             <button
                               aria-label="Add"
                               class="p-button p-component p-button mr-2"
-                              data-testid="document.addButton"
+                              data-testid="document-addButton"
                             >
                               <span
                                 class="p-button-icon p-c p-button-icon-left pi pi-plus"
@@ -1429,7 +1431,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                             <button
                               aria-label="Delete"
                               class="p-button p-component p-button"
-                              data-testid="document.saveButton"
+                              data-testid="document-deleteButton"
                             >
                               <span
                                 class="p-button-icon p-c p-button-icon-left pi pi-trash"
@@ -1476,7 +1478,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                         class="p-column-title"
                                       >
                                         <span
-                                          data-testid="document.documentTypeIdTitle"
+                                          data-testid="document-documentTypeIdTitle"
                                         >
                                           Document Type
                                         </span>
@@ -1494,7 +1496,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                         class="p-column-title"
                                       >
                                         <span
-                                          data-testid="document.issueDateTitle"
+                                          data-testid="document-issueDateTitle"
                                         >
                                           Issue Date
                                         </span>
@@ -1512,7 +1514,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                         class="p-column-title"
                                       >
                                         <span
-                                          data-testid="document.expiryDateTitle"
+                                          data-testid="document-expiryDateTitle"
                                         >
                                           Expiry Date
                                         </span>
@@ -1550,7 +1552,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="document.documentTypeIdTitle"
+                                        data-testid="document-documentTypeIdTitle"
                                       >
                                         Document Type
                                       </span>
@@ -1565,7 +1567,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="document.issueDateTitle"
+                                        data-testid="document-issueDateTitle"
                                       >
                                         Issue Date
                                       </span>
@@ -1580,7 +1582,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="document.expiryDateTitle"
+                                        data-testid="document-expiryDateTitle"
                                       >
                                         Expiry Date
                                       </span>
@@ -1597,6 +1599,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                     />
                                     <button
                                       class="p-row-editor-init p-link"
+                                      name="row-edit"
                                       tabindex="0"
                                       type="button"
                                     >
@@ -1620,7 +1623,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="document.documentTypeIdTitle"
+                                        data-testid="document-documentTypeIdTitle"
                                       >
                                         Document Type
                                       </span>
@@ -1635,7 +1638,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="document.issueDateTitle"
+                                        data-testid="document-issueDateTitle"
                                       >
                                         Issue Date
                                       </span>
@@ -1650,7 +1653,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="document.expiryDateTitle"
+                                        data-testid="document-expiryDateTitle"
                                       >
                                         Expiry Date
                                       </span>
@@ -1667,6 +1670,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                     />
                                     <button
                                       class="p-row-editor-init p-link"
+                                      name="row-edit"
                                       tabindex="0"
                                       type="button"
                                     >
@@ -1689,7 +1693,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="document.documentTypeIdTitle"
+                                        data-testid="document-documentTypeIdTitle"
                                       >
                                         Document Type
                                       </span>
@@ -1704,7 +1708,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="document.issueDateTitle"
+                                        data-testid="document-issueDateTitle"
                                       >
                                         Issue Date
                                       </span>
@@ -1719,7 +1723,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="document.expiryDateTitle"
+                                        data-testid="document-expiryDateTitle"
                                       >
                                         Expiry Date
                                       </span>
@@ -1736,6 +1740,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                     />
                                     <button
                                       class="p-row-editor-init p-link"
+                                      name="row-edit"
                                       tabindex="0"
                                       type="button"
                                     >
@@ -1796,7 +1801,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                             <button
                               aria-label="Add"
                               class="p-button p-component p-button mr-2"
-                              data-testid="attachment.addButton"
+                              data-testid="attachment-addButton"
                             >
                               <span
                                 class="p-button-icon p-c p-button-icon-left pi pi-plus"
@@ -1810,7 +1815,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                             <button
                               aria-label="Delete"
                               class="p-button p-component p-button p-disabled"
-                              data-testid="attachment.saveButton"
+                              data-testid="attachment-deleteButton"
                               disabled=""
                             >
                               <span
@@ -1858,7 +1863,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                         class="p-column-title"
                                       >
                                         <span
-                                          data-testid="attachment.pageNumberTitle"
+                                          data-testid="attachment-pageNumberTitle"
                                         >
                                           Page Number
                                         </span>
@@ -1876,7 +1881,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                         class="p-column-title"
                                       >
                                         <span
-                                          data-testid="attachment.contentTypeTitle"
+                                          data-testid="attachment-contentTypeTitle"
                                         >
                                           Content Type
                                         </span>
@@ -1894,7 +1899,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                         class="p-column-title"
                                       >
                                         <span
-                                          data-testid="attachment.sizeBytesTitle"
+                                          data-testid="attachment-sizeBytesTitle"
                                         >
                                           Size (bytes)
                                         </span>
@@ -1932,7 +1937,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="attachment.pageNumberTitle"
+                                        data-testid="attachment-pageNumberTitle"
                                       >
                                         Page Number
                                       </span>
@@ -1947,7 +1952,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="attachment.contentTypeTitle"
+                                        data-testid="attachment-contentTypeTitle"
                                       >
                                         Content Type
                                       </span>
@@ -1962,7 +1967,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="attachment.sizeBytesTitle"
+                                        data-testid="attachment-sizeBytesTitle"
                                       >
                                         Size (bytes)
                                       </span>
@@ -1979,6 +1984,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                     />
                                     <button
                                       class="p-row-editor-init p-link"
+                                      name="row-edit"
                                       tabindex="0"
                                       type="button"
                                     >
@@ -2001,7 +2007,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="attachment.pageNumberTitle"
+                                        data-testid="attachment-pageNumberTitle"
                                       >
                                         Page Number
                                       </span>
@@ -2016,7 +2022,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="attachment.contentTypeTitle"
+                                        data-testid="attachment-contentTypeTitle"
                                       >
                                         Content Type
                                       </span>
@@ -2031,7 +2037,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="attachment.sizeBytesTitle"
+                                        data-testid="attachment-sizeBytesTitle"
                                       >
                                         Size (bytes)
                                       </span>
@@ -2048,6 +2054,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                     />
                                     <button
                                       class="p-row-editor-init p-link"
+                                      name="row-edit"
                                       tabindex="0"
                                       type="button"
                                     >
@@ -2390,7 +2397,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                       </label>
                       <label
                         class="col-12 md:col-4"
-                        for="tree.treeName"
+                        for="tree-treeName"
                       >
                         Name
                       </label>
@@ -2399,7 +2406,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                       >
                         <input
                           class="p-inputtext p-component p-filled w-full"
-                          id="tree.treeName"
+                          id="tree-treeName"
                           name="tree.treeName"
                           value="Oak"
                         />
@@ -2417,7 +2424,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                       </label>
                       <label
                         class="col-12 md:col-4"
-                        for="tree.treeDescription"
+                        for="tree-treeDescription"
                       >
                         Description
                       </label>
@@ -2426,7 +2433,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                       >
                         <textarea
                           class="p-inputtextarea p-inputtext p-component w-full"
-                          id="tree.treeDescription"
+                          id="tree-treeDescription"
                           name="tree.treeDescription"
                         />
                       </div>
@@ -2443,7 +2450,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                       </label>
                       <label
                         class="col-12 md:col-4"
-                        for="tree.treeType"
+                        for="tree-treeType"
                       >
                         Type
                       </label>
@@ -2452,8 +2459,8 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                       >
                         <div
                           class="p-dropdown p-component p-inputwrapper p-inputwrapper-filled w-full"
-                          data-testid="tree.treeType"
-                          id="tree.treeType"
+                          data-testid="tree-treeType"
+                          id="tree-treeType"
                         >
                           <div
                             class="p-hidden-accessible"
@@ -2615,7 +2622,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                       </label>
                       <label
                         class="col-12 md:col-4"
-                        for="tree.seedDescription"
+                        for="tree-seedDescription"
                       >
                         Seed
                       </label>
@@ -2624,7 +2631,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                       >
                         <input
                           class="p-inputtext p-component w-full"
-                          id="tree.seedDescription"
+                          id="tree-seedDescription"
                           name="tree.seedDescription"
                           value=""
                         />
@@ -2642,7 +2649,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                       </label>
                       <label
                         class="col-12 md:col-4"
-                        for="tree.flowerDescription"
+                        for="tree-flowerDescription"
                       >
                         Flower
                       </label>
@@ -2651,7 +2658,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                       >
                         <input
                           class="p-inputtext p-component w-full"
-                          id="tree.flowerDescription"
+                          id="tree-flowerDescription"
                           name="tree.flowerDescription"
                           value=""
                         />
@@ -2669,7 +2676,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                       </label>
                       <label
                         class="col-12 md:col-4"
-                        for="tree.fruitName"
+                        for="tree-fruitName"
                       >
                         Fruit
                       </label>
@@ -2678,7 +2685,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                       >
                         <input
                           class="p-inputtext p-component w-full"
-                          id="tree.fruitName"
+                          id="tree-fruitName"
                           name="tree.fruitName"
                           value=""
                         />
@@ -2811,7 +2818,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                             <button
                               aria-label="Add"
                               class="p-button p-component p-button mr-2"
-                              data-testid="tree.links.addButton"
+                              data-testid="tree-links-addButton"
                             >
                               <span
                                 class="p-button-icon p-c p-button-icon-left pi pi-plus"
@@ -2825,7 +2832,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                             <button
                               aria-label="Delete"
                               class="p-button p-component p-button p-disabled"
-                              data-testid="tree.links.saveButton"
+                              data-testid="tree-links-deleteButton"
                               disabled=""
                             >
                               <span
@@ -2845,8 +2852,8 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                         <div
                           class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full"
                           data-scrollselectors=".p-datatable-wrapper"
-                          data-testid="tree.links"
-                          id="tree.links"
+                          data-testid="tree-links"
+                          id="tree-links"
                           pr_id_2=""
                         >
                           <div
@@ -2898,7 +2905,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                                         class="p-column-title"
                                       >
                                         <span
-                                          data-testid="tree.links.titleTitle"
+                                          data-testid="tree-links-titleTitle"
                                         >
                                           Title
                                         </span>
@@ -2916,7 +2923,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                                         class="p-column-title"
                                       >
                                         <span
-                                          data-testid="tree.links.urlTitle"
+                                          data-testid="tree-links-urlTitle"
                                         >
                                           Url
                                         </span>
@@ -3039,8 +3046,8 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                       >
                         <div
                           class="p-multiselect p-component p-inputwrapper p-inputwrapper-focus w-full"
-                          data-testid="tree.habitat"
-                          id="tree.habitat"
+                          data-testid="tree-habitat"
+                          id="tree-habitat"
                         >
                           <div
                             class="p-hidden-accessible"
@@ -3564,7 +3571,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="tree.treeName"
+                        for="tree-treeName"
                       >
                         Name
                       </label>
@@ -3582,7 +3589,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="tree.treeDescription"
+                        for="tree-treeDescription"
                       >
                         Description
                       </label>
@@ -3600,7 +3607,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="tree.treeType"
+                        for="tree-treeType"
                       >
                         Type
                       </label>
@@ -3662,7 +3669,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="tree.seedDescription"
+                        for="tree-seedDescription"
                       >
                         Seed
                       </label>
@@ -3680,7 +3687,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="tree.flowerDescription"
+                        for="tree-flowerDescription"
                       >
                         Flower
                       </label>
@@ -3698,7 +3705,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="tree.fruitName"
+                        for="tree-fruitName"
                       >
                         Fruit
                       </label>
@@ -3919,7 +3926,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
                             <button
                               aria-label="Add"
                               class="p-button p-component p-button mr-2"
-                              data-testid="person.addButton"
+                              data-testid="person-addButton"
                             >
                               <span
                                 class="p-button-icon p-c p-button-icon-left pi pi-plus"
@@ -3933,7 +3940,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
                             <button
                               aria-label="Delete"
                               class="p-button p-component p-button"
-                              data-testid="person.saveButton"
+                              data-testid="person-deleteButton"
                             >
                               <span
                                 class="p-button-icon p-c p-button-icon-left pi pi-trash"
@@ -3980,7 +3987,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
                                         class="p-column-title"
                                       >
                                         <span
-                                          data-testid="person.fullNameTitle"
+                                          data-testid="person-fullNameTitle"
                                         >
                                           Full Name
                                         </span>
@@ -4006,7 +4013,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="person.fullNameTitle"
+                                        data-testid="person-fullNameTitle"
                                       >
                                         Full Name
                                       </span>
@@ -4027,7 +4034,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="person.fullNameTitle"
+                                        data-testid="person-fullNameTitle"
                                       >
                                         Full Name
                                       </span>
@@ -4074,7 +4081,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="person.fullName"
+                        for="person-fullName"
                       >
                         Full Name
                       </label>
@@ -4083,7 +4090,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
                       >
                         <input
                           class="p-inputtext p-component p-filled w-full"
-                          id="$.edit.person.fullName"
+                          id="$-edit-person-fullName"
                           name="$.edit.person.fullName"
                           value="John Doe"
                         />
@@ -4094,7 +4101,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="person.birthDate"
+                        for="person-birthDate"
                       >
                         Birth Date
                       </label>
@@ -4103,18 +4110,17 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
                       >
                         <span
                           class="p-calendar p-component p-inputwrapper w-full p-calendar-w-btn p-calendar-w-btn-right p-inputwrapper-filled"
-                          id="$.edit.person.birthDate"
+                          id="$-edit-person-birthDate"
                         >
                           <input
                             autocomplete="off"
                             class="p-inputtext p-component"
-                            id="$.edit.person.birthDate"
+                            id="$-edit-person-birthDate"
                             inputmode="none"
                             name="$.edit.person.birthDate"
                             type="text"
                           />
                           <button
-                            aria-label=""
                             class="p-button p-component p-datepicker-trigger p-button-icon-only"
                             tabindex="-1"
                             type="button"
@@ -4136,7 +4142,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="person.nationalId"
+                        for="person-nationalId"
                       >
                         National ID
                       </label>
@@ -4145,7 +4151,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
                       >
                         <input
                           class="p-inputtext p-component p-filled w-full"
-                          id="$.edit.person.nationalId"
+                          id="$-edit-person-nationalId"
                           name="$.edit.person.nationalId"
                           value="777777777"
                         />
@@ -4263,7 +4269,7 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
                             <button
                               aria-label="Add"
                               class="p-button p-component p-button mr-2"
-                              data-testid="shape.addButton"
+                              data-testid="shape-addButton"
                             >
                               <span
                                 class="p-button-icon p-c p-button-icon-left pi pi-plus"
@@ -4277,7 +4283,7 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
                             <button
                               aria-label="Delete"
                               class="p-button p-component p-button"
-                              data-testid="shape.saveButton"
+                              data-testid="shape-deleteButton"
                             >
                               <span
                                 class="p-button-icon p-c p-button-icon-left pi pi-trash"
@@ -4324,7 +4330,7 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
                                         class="p-column-title"
                                       >
                                         <span
-                                          data-testid="shape.nameTitle"
+                                          data-testid="shape-nameTitle"
                                         >
                                           Name
                                         </span>
@@ -4349,7 +4355,7 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="shape.nameTitle"
+                                        data-testid="shape-nameTitle"
                                       >
                                         Name
                                       </span>
@@ -4371,7 +4377,7 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="shape.nameTitle"
+                                        data-testid="shape-nameTitle"
                                       >
                                         Name
                                       </span>
@@ -4392,7 +4398,7 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="shape.nameTitle"
+                                        data-testid="shape-nameTitle"
                                       >
                                         Name
                                       </span>
@@ -4413,7 +4419,7 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="shape.nameTitle"
+                                        data-testid="shape-nameTitle"
                                       >
                                         Name
                                       </span>
@@ -4434,7 +4440,7 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="shape.nameTitle"
+                                        data-testid="shape-nameTitle"
                                       >
                                         Name
                                       </span>
@@ -4481,7 +4487,7 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="shape.radius"
+                        for="shape-radius"
                       >
                         Radius
                       </label>
@@ -4490,12 +4496,12 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
                       >
                         <span
                           class="p-inputnumber p-component p-inputwrapper p-inputwrapper-filled w-full"
-                          id="$.edit.shape.radius"
+                          id="$-edit-shape-radius"
                         >
                           <input
                             aria-valuenow="5"
                             class="p-inputtext p-component p-filled p-inputnumber-input text-right"
-                            id="$.edit.shape.radius"
+                            id="$-edit-shape-radius"
                             inputmode="numeric"
                             name="$.edit.shape.radius"
                             role="spinbutton"
@@ -4510,7 +4516,7 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="shape.secondRadius"
+                        for="shape-secondRadius"
                       >
                         Second radius
                       </label>
@@ -4519,12 +4525,12 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
                       >
                         <span
                           class="p-inputnumber p-component p-inputwrapper p-inputwrapper-filled w-full"
-                          id="$.edit.shape.secondRadius"
+                          id="$-edit-shape-secondRadius"
                         >
                           <input
                             aria-valuenow="4"
                             class="p-inputtext p-component p-filled p-inputnumber-input text-right"
-                            id="$.edit.shape.secondRadius"
+                            id="$-edit-shape-secondRadius"
                             inputmode="numeric"
                             name="$.edit.shape.secondRadius"
                             role="spinbutton"
@@ -4666,7 +4672,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                         class="p-column-title"
                                       >
                                         <span
-                                          data-testid="schedule.weekdayNameTitle"
+                                          data-testid="schedule-weekdayNameTitle"
                                         >
                                           Weekday Name
                                         </span>
@@ -4684,7 +4690,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                         class="p-column-title"
                                       >
                                         <span
-                                          data-testid="schedule.startTimeTitle"
+                                          data-testid="schedule-startTimeTitle"
                                         >
                                           Start Time
                                         </span>
@@ -4702,7 +4708,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                         class="p-column-title"
                                       >
                                         <span
-                                          data-testid="schedule.endTimeTitle"
+                                          data-testid="schedule-endTimeTitle"
                                         >
                                           End Time
                                         </span>
@@ -4740,7 +4746,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="schedule.weekdayNameTitle"
+                                        data-testid="schedule-weekdayNameTitle"
                                       >
                                         Weekday Name
                                       </span>
@@ -4755,7 +4761,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="schedule.startTimeTitle"
+                                        data-testid="schedule-startTimeTitle"
                                       >
                                         Start Time
                                       </span>
@@ -4769,7 +4775,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="schedule.endTimeTitle"
+                                        data-testid="schedule-endTimeTitle"
                                       >
                                         End Time
                                       </span>
@@ -4785,6 +4791,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                     />
                                     <button
                                       class="p-row-editor-init p-link"
+                                      name="row-edit"
                                       tabindex="0"
                                       type="button"
                                     >
@@ -4807,7 +4814,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="schedule.weekdayNameTitle"
+                                        data-testid="schedule-weekdayNameTitle"
                                       >
                                         Weekday Name
                                       </span>
@@ -4822,7 +4829,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="schedule.startTimeTitle"
+                                        data-testid="schedule-startTimeTitle"
                                       >
                                         Start Time
                                       </span>
@@ -4837,7 +4844,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="schedule.endTimeTitle"
+                                        data-testid="schedule-endTimeTitle"
                                       >
                                         End Time
                                       </span>
@@ -4854,6 +4861,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                     />
                                     <button
                                       class="p-row-editor-init p-link"
+                                      name="row-edit"
                                       tabindex="0"
                                       type="button"
                                     >
@@ -4876,7 +4884,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="schedule.weekdayNameTitle"
+                                        data-testid="schedule-weekdayNameTitle"
                                       >
                                         Weekday Name
                                       </span>
@@ -4891,7 +4899,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="schedule.startTimeTitle"
+                                        data-testid="schedule-startTimeTitle"
                                       >
                                         Start Time
                                       </span>
@@ -4905,7 +4913,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="schedule.endTimeTitle"
+                                        data-testid="schedule-endTimeTitle"
                                       >
                                         End Time
                                       </span>
@@ -4921,6 +4929,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                     />
                                     <button
                                       class="p-row-editor-init p-link"
+                                      name="row-edit"
                                       tabindex="0"
                                       type="button"
                                     >
@@ -4943,7 +4952,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="schedule.weekdayNameTitle"
+                                        data-testid="schedule-weekdayNameTitle"
                                       >
                                         Weekday Name
                                       </span>
@@ -4958,7 +4967,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="schedule.startTimeTitle"
+                                        data-testid="schedule-startTimeTitle"
                                       >
                                         Start Time
                                       </span>
@@ -4972,7 +4981,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="schedule.endTimeTitle"
+                                        data-testid="schedule-endTimeTitle"
                                       >
                                         End Time
                                       </span>
@@ -4988,6 +4997,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                     />
                                     <button
                                       class="p-row-editor-init p-link"
+                                      name="row-edit"
                                       tabindex="0"
                                       type="button"
                                     >
@@ -5010,7 +5020,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="schedule.weekdayNameTitle"
+                                        data-testid="schedule-weekdayNameTitle"
                                       >
                                         Weekday Name
                                       </span>
@@ -5025,7 +5035,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="schedule.startTimeTitle"
+                                        data-testid="schedule-startTimeTitle"
                                       >
                                         Start Time
                                       </span>
@@ -5040,7 +5050,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="schedule.endTimeTitle"
+                                        data-testid="schedule-endTimeTitle"
                                       >
                                         End Time
                                       </span>
@@ -5057,6 +5067,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                     />
                                     <button
                                       class="p-row-editor-init p-link"
+                                      name="row-edit"
                                       tabindex="0"
                                       type="button"
                                     >
@@ -5079,7 +5090,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="schedule.weekdayNameTitle"
+                                        data-testid="schedule-weekdayNameTitle"
                                       >
                                         Weekday Name
                                       </span>
@@ -5094,7 +5105,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="schedule.startTimeTitle"
+                                        data-testid="schedule-startTimeTitle"
                                       >
                                         Start Time
                                       </span>
@@ -5108,7 +5119,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="schedule.endTimeTitle"
+                                        data-testid="schedule-endTimeTitle"
                                       >
                                         End Time
                                       </span>
@@ -5124,6 +5135,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                     />
                                     <button
                                       class="p-row-editor-init p-link"
+                                      name="row-edit"
                                       tabindex="0"
                                       type="button"
                                     >
@@ -5146,7 +5158,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="schedule.weekdayNameTitle"
+                                        data-testid="schedule-weekdayNameTitle"
                                       >
                                         Weekday Name
                                       </span>
@@ -5161,7 +5173,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="schedule.startTimeTitle"
+                                        data-testid="schedule-startTimeTitle"
                                       >
                                         Start Time
                                       </span>
@@ -5175,7 +5187,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="schedule.endTimeTitle"
+                                        data-testid="schedule-endTimeTitle"
                                       >
                                         End Time
                                       </span>
@@ -5191,6 +5203,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                     />
                                     <button
                                       class="p-row-editor-init p-link"
+                                      name="row-edit"
                                       tabindex="0"
                                       type="button"
                                     >
@@ -5271,7 +5284,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                         class="p-column-title"
                                       >
                                         <span
-                                          data-testid="permission.entityNameTitle"
+                                          data-testid="permission-entityNameTitle"
                                         >
                                           Entity Name
                                         </span>
@@ -5289,7 +5302,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                         class="p-column-title"
                                       >
                                         <span
-                                          data-testid="permission.viewTitle"
+                                          data-testid="permission-viewTitle"
                                         >
                                           View
                                         </span>
@@ -5307,7 +5320,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                         class="p-column-title"
                                       >
                                         <span
-                                          data-testid="permission.createTitle"
+                                          data-testid="permission-createTitle"
                                         >
                                           Create
                                         </span>
@@ -5325,7 +5338,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                         class="p-column-title"
                                       >
                                         <span
-                                          data-testid="permission.editTitle"
+                                          data-testid="permission-editTitle"
                                         >
                                           Edit
                                         </span>
@@ -5343,7 +5356,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                         class="p-column-title"
                                       >
                                         <span
-                                          data-testid="permission.deleteTitle"
+                                          data-testid="permission-deleteTitle"
                                         >
                                           Delete
                                         </span>
@@ -5381,7 +5394,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="permission.entityNameTitle"
+                                        data-testid="permission-entityNameTitle"
                                       >
                                         Entity Name
                                       </span>
@@ -5396,7 +5409,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="permission.viewTitle"
+                                        data-testid="permission-viewTitle"
                                       >
                                         View
                                       </span>
@@ -5410,7 +5423,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="permission.createTitle"
+                                        data-testid="permission-createTitle"
                                       >
                                         Create
                                       </span>
@@ -5427,7 +5440,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="permission.editTitle"
+                                        data-testid="permission-editTitle"
                                       >
                                         Edit
                                       </span>
@@ -5444,7 +5457,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="permission.deleteTitle"
+                                        data-testid="permission-deleteTitle"
                                       >
                                         Delete
                                       </span>
@@ -5460,6 +5473,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                     />
                                     <button
                                       class="p-row-editor-init p-link"
+                                      name="row-edit"
                                       tabindex="0"
                                       type="button"
                                     >
@@ -5482,7 +5496,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="permission.entityNameTitle"
+                                        data-testid="permission-entityNameTitle"
                                       >
                                         Entity Name
                                       </span>
@@ -5497,7 +5511,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="permission.viewTitle"
+                                        data-testid="permission-viewTitle"
                                       >
                                         View
                                       </span>
@@ -5514,7 +5528,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="permission.createTitle"
+                                        data-testid="permission-createTitle"
                                       >
                                         Create
                                       </span>
@@ -5528,7 +5542,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="permission.editTitle"
+                                        data-testid="permission-editTitle"
                                       >
                                         Edit
                                       </span>
@@ -5542,7 +5556,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="permission.deleteTitle"
+                                        data-testid="permission-deleteTitle"
                                       >
                                         Delete
                                       </span>
@@ -5558,6 +5572,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                     />
                                     <button
                                       class="p-row-editor-init p-link"
+                                      name="row-edit"
                                       tabindex="0"
                                       type="button"
                                     >
@@ -5580,7 +5595,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="permission.entityNameTitle"
+                                        data-testid="permission-entityNameTitle"
                                       >
                                         Entity Name
                                       </span>
@@ -5595,7 +5610,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="permission.viewTitle"
+                                        data-testid="permission-viewTitle"
                                       >
                                         View
                                       </span>
@@ -5612,7 +5627,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="permission.createTitle"
+                                        data-testid="permission-createTitle"
                                       >
                                         Create
                                       </span>
@@ -5629,7 +5644,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="permission.editTitle"
+                                        data-testid="permission-editTitle"
                                       >
                                         Edit
                                       </span>
@@ -5646,7 +5661,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="permission.deleteTitle"
+                                        data-testid="permission-deleteTitle"
                                       >
                                         Delete
                                       </span>
@@ -5665,6 +5680,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                     />
                                     <button
                                       class="p-row-editor-init p-link"
+                                      name="row-edit"
                                       tabindex="0"
                                       type="button"
                                     >
@@ -5687,7 +5703,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="permission.entityNameTitle"
+                                        data-testid="permission-entityNameTitle"
                                       >
                                         Entity Name
                                       </span>
@@ -5702,7 +5718,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="permission.viewTitle"
+                                        data-testid="permission-viewTitle"
                                       >
                                         View
                                       </span>
@@ -5716,7 +5732,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="permission.createTitle"
+                                        data-testid="permission-createTitle"
                                       >
                                         Create
                                       </span>
@@ -5730,7 +5746,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="permission.editTitle"
+                                        data-testid="permission-editTitle"
                                       >
                                         Edit
                                       </span>
@@ -5744,7 +5760,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="permission.deleteTitle"
+                                        data-testid="permission-deleteTitle"
                                       >
                                         Delete
                                       </span>
@@ -5760,6 +5776,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                     />
                                     <button
                                       class="p-row-editor-init p-link"
+                                      name="row-edit"
                                       tabindex="0"
                                       type="button"
                                     >
@@ -5782,7 +5799,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="permission.entityNameTitle"
+                                        data-testid="permission-entityNameTitle"
                                       >
                                         Entity Name
                                       </span>
@@ -5797,7 +5814,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="permission.viewTitle"
+                                        data-testid="permission-viewTitle"
                                       >
                                         View
                                       </span>
@@ -5811,7 +5828,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="permission.createTitle"
+                                        data-testid="permission-createTitle"
                                       >
                                         Create
                                       </span>
@@ -5825,7 +5842,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="permission.editTitle"
+                                        data-testid="permission-editTitle"
                                       >
                                         Edit
                                       </span>
@@ -5839,7 +5856,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                       class="p-column-title"
                                     >
                                       <span
-                                        data-testid="permission.deleteTitle"
+                                        data-testid="permission-deleteTitle"
                                       >
                                         Delete
                                       </span>
@@ -5855,6 +5872,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                     />
                                     <button
                                       class="p-row-editor-init p-link"
+                                      name="row-edit"
                                       tabindex="0"
                                       type="button"
                                     >
@@ -6574,7 +6592,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="tree.treeName"
+                        for="tree-treeName"
                       >
                         Name
                       </label>
@@ -6583,7 +6601,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                       >
                         <input
                           class="p-inputtext p-component p-filled w-full"
-                          id="tree.treeName"
+                          id="tree-treeName"
                           name="tree.treeName"
                           value="Oak"
                         />
@@ -6594,7 +6612,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="tree.treeDescription"
+                        for="tree-treeDescription"
                       >
                         Description
                       </label>
@@ -6603,7 +6621,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                       >
                         <textarea
                           class="p-inputtextarea p-inputtext p-component p-filled w-full"
-                          id="tree.treeDescription"
+                          id="tree-treeDescription"
                           name="tree.treeDescription"
                         >
                           test
@@ -6615,7 +6633,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="tree.treeType"
+                        for="tree-treeType"
                       >
                         Type
                       </label>
@@ -6624,8 +6642,8 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                       >
                         <div
                           class="p-dropdown p-component p-inputwrapper p-inputwrapper-filled w-full"
-                          data-testid="tree.treeType"
-                          id="tree.treeType"
+                          data-testid="tree-treeType"
+                          id="tree-treeType"
                         >
                           <div
                             class="p-hidden-accessible"
@@ -6721,7 +6739,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="tree.seedDescription"
+                        for="tree-seedDescription"
                       >
                         Seed
                       </label>
@@ -6730,7 +6748,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                       >
                         <input
                           class="p-inputtext p-component w-full"
-                          id="tree.seedDescription"
+                          id="tree-seedDescription"
                           name="tree.seedDescription"
                           value=""
                         />
@@ -6741,7 +6759,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="tree.flowerDescription"
+                        for="tree-flowerDescription"
                       >
                         Flower
                       </label>
@@ -6750,7 +6768,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                       >
                         <input
                           class="p-inputtext p-component w-full"
-                          id="tree.flowerDescription"
+                          id="tree-flowerDescription"
                           name="tree.flowerDescription"
                           value=""
                         />
@@ -6761,7 +6779,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="tree.fruitName"
+                        for="tree-fruitName"
                       >
                         Fruit
                       </label>
@@ -6770,7 +6788,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                       >
                         <input
                           class="p-inputtext p-component w-full"
-                          id="tree.fruitName"
+                          id="tree-fruitName"
                           name="tree.fruitName"
                           value=""
                         />
@@ -6837,7 +6855,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                             <button
                               aria-label="Add"
                               class="p-button p-component p-button mr-2"
-                              data-testid="tree.links.addButton"
+                              data-testid="tree-links-addButton"
                             >
                               <span
                                 class="p-button-icon p-c p-button-icon-left pi pi-plus"
@@ -6851,7 +6869,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                             <button
                               aria-label="Delete"
                               class="p-button p-component p-button p-disabled"
-                              data-testid="tree.links.saveButton"
+                              data-testid="tree-links-deleteButton"
                               disabled=""
                             >
                               <span
@@ -6871,8 +6889,8 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                         <div
                           class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full"
                           data-scrollselectors=".p-datatable-wrapper"
-                          data-testid="tree.links"
-                          id="tree.links"
+                          data-testid="tree-links"
+                          id="tree-links"
                           pr_id_15=""
                         >
                           <div
@@ -6924,7 +6942,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                                         class="p-column-title"
                                       >
                                         <span
-                                          data-testid="tree.links.titleTitle"
+                                          data-testid="tree-links-titleTitle"
                                         >
                                           Title
                                         </span>
@@ -6942,7 +6960,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                                         class="p-column-title"
                                       >
                                         <span
-                                          data-testid="tree.links.urlTitle"
+                                          data-testid="tree-links-urlTitle"
                                         >
                                           Url
                                         </span>
@@ -7020,8 +7038,8 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                       >
                         <div
                           class="p-multiselect p-component p-inputwrapper p-inputwrapper-focus w-full"
-                          data-testid="tree.habitat"
-                          id="tree.habitat"
+                          data-testid="tree-habitat"
+                          id="tree-habitat"
                         >
                           <div
                             class="p-hidden-accessible"
@@ -7524,6 +7542,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
               />
               <span
                 class="p-menuitem-text"
+                data-testid="generalTab"
               >
                 General
               </span>
@@ -7545,6 +7564,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
               />
               <span
                 class="p-menuitem-text"
+                data-testid="detailsTab"
               >
                 Details
               </span>
@@ -7611,7 +7631,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="tree.treeName"
+                        for="tree-treeName"
                       >
                         Name
                       </label>
@@ -7620,7 +7640,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                       >
                         <input
                           class="p-inputtext p-component p-filled w-full"
-                          id="tree.treeName"
+                          id="tree-treeName"
                           name="tree.treeName"
                           value="Oak"
                         />
@@ -7631,7 +7651,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="tree.treeDescription"
+                        for="tree-treeDescription"
                       >
                         Description
                       </label>
@@ -7640,7 +7660,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                       >
                         <textarea
                           class="p-inputtextarea p-inputtext p-component w-full"
-                          id="tree.treeDescription"
+                          id="tree-treeDescription"
                           name="tree.treeDescription"
                         />
                       </div>
@@ -7650,7 +7670,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="tree.treeType"
+                        for="tree-treeType"
                       >
                         Type
                       </label>
@@ -7659,8 +7679,8 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                       >
                         <div
                           class="p-dropdown p-component p-inputwrapper p-inputwrapper-filled w-full"
-                          data-testid="tree.treeType"
-                          id="tree.treeType"
+                          data-testid="tree-treeType"
+                          id="tree-treeType"
                         >
                           <div
                             class="p-hidden-accessible"
@@ -7743,8 +7763,8 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                       >
                         <div
                           class="p-multiselect p-component p-inputwrapper p-inputwrapper-focus w-full"
-                          data-testid="tree.habitat"
-                          id="tree.habitat"
+                          data-testid="tree-habitat"
+                          id="tree-habitat"
                         >
                           <div
                             class="p-hidden-accessible"
@@ -8000,11 +8020,12 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
             role="listbox"
           >
             <li
+              aria-disabled="false"
               aria-label="[object Object]"
               aria-selected="false"
               class="p-listbox-item"
               role="option"
-              tabindex="0"
+              tabindex="-1"
             >
               <i
                 class="pi pi-user"
@@ -8013,11 +8034,12 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
               </i>
             </li>
             <li
+              aria-disabled="false"
               aria-label="[object Object]"
               aria-selected="false"
               class="p-listbox-item"
               role="option"
-              tabindex="0"
+              tabindex="-1"
             >
               <i
                 class="pi pi-id-card"
@@ -8026,11 +8048,12 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
               </i>
             </li>
             <li
+              aria-disabled="false"
               aria-label="[object Object]"
               aria-selected="false"
               class="p-listbox-item"
               role="option"
-              tabindex="0"
+              tabindex="-1"
             >
               <i
                 class="pi pi-list"
@@ -8296,7 +8319,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="tree.treeName"
+                        for="tree-treeName"
                       >
                         Name
                       </label>
@@ -8305,7 +8328,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                       >
                         <input
                           class="p-inputtext p-component p-filled w-full p-invalid"
-                          id="tree.treeName"
+                          id="tree-treeName"
                           name="tree.treeName"
                           type="text"
                           value=""
@@ -8325,7 +8348,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="tree.treeDescription"
+                        for="tree-treeDescription"
                       >
                         Description
                       </label>
@@ -8334,7 +8357,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                       >
                         <textarea
                           class="p-inputtextarea p-inputtext p-component w-full"
-                          id="tree.treeDescription"
+                          id="tree-treeDescription"
                           name="tree.treeDescription"
                         />
                       </div>
@@ -8344,7 +8367,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="tree.treeType"
+                        for="tree-treeType"
                       >
                         Type
                       </label>
@@ -8353,8 +8376,8 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                       >
                         <div
                           class="p-dropdown p-component p-inputwrapper p-inputwrapper-filled w-full"
-                          data-testid="tree.treeType"
-                          id="tree.treeType"
+                          data-testid="tree-treeType"
+                          id="tree-treeType"
                         >
                           <div
                             class="p-hidden-accessible"
@@ -8450,7 +8473,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="tree.seedDescription"
+                        for="tree-seedDescription"
                       >
                         Seed
                       </label>
@@ -8459,7 +8482,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                       >
                         <input
                           class="p-inputtext p-component w-full"
-                          id="tree.seedDescription"
+                          id="tree-seedDescription"
                           name="tree.seedDescription"
                           value=""
                         />
@@ -8470,7 +8493,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="tree.flowerDescription"
+                        for="tree-flowerDescription"
                       >
                         Flower
                       </label>
@@ -8479,7 +8502,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                       >
                         <input
                           class="p-inputtext p-component w-full"
-                          id="tree.flowerDescription"
+                          id="tree-flowerDescription"
                           name="tree.flowerDescription"
                           value=""
                         />
@@ -8490,7 +8513,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                     >
                       <label
                         class="col-12 md:col-4"
-                        for="tree.fruitName"
+                        for="tree-fruitName"
                       >
                         Fruit
                       </label>
@@ -8499,7 +8522,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                       >
                         <input
                           class="p-inputtext p-component w-full"
-                          id="tree.fruitName"
+                          id="tree-fruitName"
                           name="tree.fruitName"
                           value=""
                         />
@@ -8566,7 +8589,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                             <button
                               aria-label="Add"
                               class="p-button p-component p-button mr-2"
-                              data-testid="tree.links.addButton"
+                              data-testid="tree-links-addButton"
                             >
                               <span
                                 class="p-button-icon p-c p-button-icon-left pi pi-plus"
@@ -8580,7 +8603,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                             <button
                               aria-label="Delete"
                               class="p-button p-component p-button p-disabled"
-                              data-testid="tree.links.saveButton"
+                              data-testid="tree-links-deleteButton"
                               disabled=""
                             >
                               <span
@@ -8600,8 +8623,8 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                         <div
                           class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full"
                           data-scrollselectors=".p-datatable-wrapper"
-                          data-testid="tree.links"
-                          id="tree.links"
+                          data-testid="tree-links"
+                          id="tree-links"
                           pr_id_16=""
                         >
                           <div
@@ -8653,7 +8676,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                                         class="p-column-title"
                                       >
                                         <span
-                                          data-testid="tree.links.titleTitle"
+                                          data-testid="tree-links-titleTitle"
                                         >
                                           Title
                                         </span>
@@ -8671,7 +8694,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                                         class="p-column-title"
                                       >
                                         <span
-                                          data-testid="tree.links.urlTitle"
+                                          data-testid="tree-links-urlTitle"
                                         >
                                           Url
                                         </span>
@@ -8749,8 +8772,8 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                       >
                         <div
                           class="p-multiselect p-component p-inputwrapper p-inputwrapper-focus w-full"
-                          data-testid="tree.habitat"
-                          id="tree.habitat"
+                          data-testid="tree-habitat"
+                          id="tree-habitat"
                         >
                           <div
                             class="p-hidden-accessible"

@@ -233,7 +233,7 @@ const Form: ComponentProps = ({
         widget.parent = widget.parent || name.match(/^\$\.edit\.[^.]+/)?.[0].replace('.edit.', '.selected.');
         const parent = widget.parent || idx.properties[propertyName]?.widget?.parent;
         const parentWatch = parent && watch(parent);
-        const inputWidget = {id: name, ...idx.properties[propertyName]?.widget, ...widget, parent};
+        const inputWidget = {id: name.replace(/\./g, '-'), ...idx.properties[propertyName]?.widget, ...widget, parent};
         return (
             <Controller
                 control={control}
@@ -314,7 +314,7 @@ const Form: ComponentProps = ({
         let label = idx.properties?.[name]?.title;
         if (label === undefined) label = titleCase(name.split('.').pop());
         return label
-            ? <label className={className} htmlFor={name}>{label}</label>
+            ? <label className={className} htmlFor={name.replace(/\./g, '-')}>{label}</label>
             : null;
     }, [idx]);
 

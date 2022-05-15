@@ -1,21 +1,21 @@
 import React from 'react';
-import { withReadme } from 'storybook-readme';
-import type { Story } from '@storybook/react';
+import type { Story, Meta } from '@storybook/react';
 import {Toast} from '../prime';
 
 // @ts-ignore: md file and not a module
-import README from './README.md';
+import page from './README.mdx';
 import Explorer from './index';
 import {fetchItems, updateItems} from './mock';
 
-export default {
+const meta: Meta = {
     title: 'Explorer',
     component: Explorer,
-    decorators: [withReadme(README)],
+    parameters: {docs: {page}},
     args: {
         state: {}
     }
 };
+export default meta;
 
 const Template: Story<{
     createPermission?: string,
