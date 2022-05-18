@@ -52,7 +52,7 @@ const Editor: ComponentProps = ({
     onEdit
 }) => {
     const {properties = empty} = schema;
-    function getLayout(name = '') {
+    const getLayout = React.useCallback((name = '') => {
         let items: any = layouts?.['edit' + capital(name)];
         let layout;
         const orientation = items?.orientation;
@@ -62,7 +62,7 @@ const Editor: ComponentProps = ({
             items = false;
         } else layout = !items && ['edit' + capital(name)];
         return [items, layout, orientation || 'left'];
-    }
+    }, [layouts]);
     name = name ? name + '.' : '';
 
     const [keyValue, setKeyValue] = React.useState(id);
@@ -71,6 +71,7 @@ const Editor: ComponentProps = ({
     const [loadedValue, setLoadedValue] = React.useState<{}>();
     const [dropdowns, setDropdown] = React.useState({});
     const [[items, layout, orientation], setIndex] = React.useState(() => getLayout(layoutName));
+    const resultLayout = React.useMemo(() => layouts?.editResult && getLayout('result'), [layouts, getLayout]);
     const [filter, setFilter] = React.useState(items?.[0]?.items?.[0] || items?.[0]);
     const [loading, setLoading] = React.useState('loading');
     const [validation, dropdownNames, getValue] = React.useMemo(() => {
@@ -155,7 +156,8 @@ const Editor: ComponentProps = ({
                 setKeyValue(lodashGet(response, `${resultSet}.${keyField}`));
                 setEditValue(merge({}, data[0], response));
             }
-        }, [keyValue, onEdit, getValue, onAdd, keyField, resultSet, properties]
+            if (resultLayout) setIndex(resultLayout);
+        }, [keyValue, onEdit, getValue, onAdd, keyField, resultSet, properties, resultLayout]
     );
 
     useLoad(async() => {
