@@ -71,9 +71,9 @@ const Editor: ComponentProps = ({
     const [loadedValue, setLoadedValue] = React.useState<{}>();
     const [dropdowns, setDropdown] = React.useState({});
     const [[items, layout, orientation], setIndex] = React.useState(() => getLayout(layoutName));
-    const resultLayout = React.useMemo(() => layouts?.editResult && getLayout('result'), [layouts, getLayout]);
     const [filter, setFilter] = React.useState(items?.[0]?.items?.[0] || items?.[0]);
     const [loading, setLoading] = React.useState('loading');
+    const resultLayout = React.useMemo(() => layouts?.editResult && getLayout('result'), [layouts, getLayout]);
     const [validation, dropdownNames, getValue] = React.useMemo(() => {
         const columns = (propertyName, property) => []
             .concat(property?.hidden)
@@ -148,15 +148,22 @@ const Editor: ComponentProps = ({
 
     const handleSubmit = React.useCallback(
         async function handleSubmit(data) {
-            if (keyValue != null) {
-                const response = getValue(handleArray(await onEdit(prepareSubmit(data)), properties));
-                setEditValue(merge({}, data[0], response));
-            } else {
-                const response = getValue(handleArray(await onAdd(prepareSubmit(data)), properties));
-                setKeyValue(lodashGet(response, `${resultSet}.${keyField}`));
-                setEditValue(merge({}, data[0], response));
+            setLoading('loading');
+            try {
+                if (keyValue != null) {
+                    const response = getValue(handleArray(await onEdit(prepareSubmit(data)), properties));
+                    setEditValue(merge({}, data[0], response));
+                } else {
+                    const response = getValue(handleArray(await onAdd(prepareSubmit(data)), properties));
+                    setKeyValue(lodashGet(response, `${resultSet}.${keyField}`));
+                    setEditValue(merge({}, data[0], response));
+                }
+                if (resultLayout) setIndex(resultLayout);
+            } catch (e) {
+                setLoading('');
+                throw e;
             }
-            if (resultLayout) setIndex(resultLayout);
+            setLoading('');
         }, [keyValue, onEdit, getValue, onAdd, keyField, resultSet, properties, resultLayout]
     );
 
