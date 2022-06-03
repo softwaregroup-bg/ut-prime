@@ -230,7 +230,7 @@ const Form: ComponentProps = ({
         className,
         ...widget
     }) {
-        widget.parent = widget.parent || name.match(/^\$\.edit\.[^.]+/)?.[0].replace('.edit.', '.selected.');
+        widget.parent = widget.parent || name.match(/^\$\.edit\.[^.]+/)?.[0].replace('.edit.', '.selected.') || widget?.selectionPath;
         const parent = widget.parent || idx.properties[propertyName]?.widget?.parent;
         const parentWatch = parent && watch(parent);
         const inputWidget = {id: name.replace(/\./g, '-'), ...idx.properties[propertyName]?.widget, ...widget, parent};

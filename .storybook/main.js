@@ -45,7 +45,7 @@ module.exports = {
     features: {
         postcss: false
     },
-    stories: ['../src/**/*.stories.(tsx|mdx)'],
+    stories: ['../src/**/*.stories.@(tsx|mdx)'],
     addons: [
         // 'storybook-addon-swc',
         '@storybook/addon-essentials',
