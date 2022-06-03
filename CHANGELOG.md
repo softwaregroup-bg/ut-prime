@@ -1,3 +1,12 @@
+## [2.2.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.2.1...v2.2.2) (2022-06-03)
+
+
+### Bug Fixes
+
+* watch selectionPath ([4b7e856](https://github.com/softwaregroup-bg/ut-prime/commit/4b7e85678bd366e0909d71ab68125a1daab6e614))
+
+
+
 ## [2.2.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.2.0...v2.2.1) (2022-05-29)
 
 
