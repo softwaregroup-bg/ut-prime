@@ -21,8 +21,8 @@ export const Pivot = () =>
                 {value: 1, label: 'Organization'},
                 {value: 2, label: 'Role'},
                 {value: 3, label: 'User'},
-                {value: 3, label: 'Product'},
-                {value: 3, label: 'Account'}
+                {value: 4, label: 'Product'},
+                {value: 5, label: 'Account'}
             ]
         })}
         schema={{

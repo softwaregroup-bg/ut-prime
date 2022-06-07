@@ -71,10 +71,10 @@ Input.play = async({canvasElement}) => {
 
     // center
     clickOption('input-dropdown', 'EUR');
-    clickOption('input-dropdownTree', 'Asia', 'treeitem');
+    clickOption('input-dropdownTree', 'Europe', 'treeitem');
     clickOption('input-multiSelect', 'Rome');
     click('input-multiSelect'); // close the multiselect dropdown
-    clickOption('input-multiSelectTree', 'Earth', 'treeitem');
+    clickOption('input-multiSelectTree', 'Solar system', 'treeitem');
     click('input-multiSelectTree'); // close the multiselect dropdown
     click('input-table-addButton');
     type('textbox', 'input-table-0-name', 'name');

@@ -6208,8 +6208,9 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
     >
       <button
         aria-label="design"
-        class="p-button p-component mr-2 p-button-icon-only"
+        class="p-button p-component mr-2 p-button-icon-only p-disabled"
         data-testid="designButton"
+        disabled=""
       >
         <span
           class="p-button-icon p-c pi pi-cog"
@@ -6253,6 +6254,68 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
                 >
                   A 1
                 </div>
+                <div
+                  class="p-card-content"
+                >
+                  <div
+                    class=""
+                  >
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-mock"
+                      >
+                        នៅក្រោមដើមឈើ
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <div
+                          class="p-skeleton p-component p-inputtext"
+                          style="width: 100%; height: 1rem;"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-mock"
+                      >
+                        នៅក្រោមដើមឈើ
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <div
+                          class="p-skeleton p-component p-inputtext"
+                          style="width: 100%; height: 1rem;"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-mock"
+                      >
+                        នៅក្រោមដើមឈើ
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <div
+                          class="p-skeleton p-component p-inputtext"
+                          style="width: 100%; height: 1rem;"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -6268,6 +6331,50 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
                   class="p-card-title"
                 >
                   A 2
+                </div>
+                <div
+                  class="p-card-content"
+                >
+                  <div
+                    class=""
+                  >
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-mock"
+                      >
+                        នៅក្រោមដើមឈើ
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <div
+                          class="p-skeleton p-component p-inputtext"
+                          style="width: 100%; height: 1rem;"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-mock"
+                      >
+                        នៅក្រោមដើមឈើ
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <div
+                          class="p-skeleton p-component p-inputtext"
+                          style="width: 100%; height: 1rem;"
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -6290,6 +6397,50 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
                 >
                   B 1
                 </div>
+                <div
+                  class="p-card-content"
+                >
+                  <div
+                    class=""
+                  >
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-mock"
+                      >
+                        នៅក្រោមដើមឈើ
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <div
+                          class="p-skeleton p-component p-inputtext"
+                          style="width: 100%; height: 1rem;"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-mock"
+                      >
+                        នៅក្រោមដើមឈើ
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <div
+                          class="p-skeleton p-component p-inputtext"
+                          style="width: 100%; height: 1rem;"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -6306,21 +6457,31 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
                 >
                   B 2
                 </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="p-card p-component card mb-3"
-              id="b3"
-            >
-              <div
-                class="p-card-body"
-              >
                 <div
-                  class="p-card-title"
+                  class="p-card-content"
                 >
-                  B 3
+                  <div
+                    class=""
+                  >
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-mock"
+                      >
+                        នៅក្រោមដើមឈើ
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <div
+                          class="p-skeleton p-component p-inputtext"
+                          style="width: 100%; height: 1rem;"
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -6333,7 +6494,7 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
           <div>
             <div
               class="p-card p-component card mb-3"
-              id="c"
+              id="c1"
             >
               <div
                 class="p-card-body"
@@ -6341,7 +6502,129 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
                 <div
                   class="p-card-title"
                 >
-                  C
+                  C 1
+                </div>
+                <div
+                  class="p-card-content"
+                >
+                  <div
+                    class=""
+                  >
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-mock"
+                      >
+                        នៅក្រោមដើមឈើ
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <div
+                          class="p-skeleton p-component p-inputtext"
+                          style="width: 100%; height: 1rem;"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-mock"
+                      >
+                        នៅក្រោមដើមឈើ
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <div
+                          class="p-skeleton p-component p-inputtext"
+                          style="width: 100%; height: 1rem;"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-mock"
+                      >
+                        នៅក្រោមដើមឈើ
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <div
+                          class="p-skeleton p-component p-inputtext"
+                          style="width: 100%; height: 1rem;"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-mock"
+                      >
+                        នៅក្រោមដើមឈើ
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <div
+                          class="p-skeleton p-component p-inputtext"
+                          style="width: 100%; height: 1rem;"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div
+              class="p-card p-component card mb-3"
+              id="c2"
+            >
+              <div
+                class="p-card-body"
+              >
+                <div
+                  class="p-card-title"
+                >
+                  C 2
+                </div>
+                <div
+                  class="p-card-content"
+                >
+                  <div
+                    class=""
+                  >
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-mock"
+                      >
+                        នៅក្រោមដើមឈើ
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <div
+                          class="p-skeleton p-component p-inputtext"
+                          style="width: 100%; height: 1rem;"
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -6364,6 +6647,86 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
                 >
                   D
                 </div>
+                <div
+                  class="p-card-content"
+                >
+                  <div
+                    class=""
+                  >
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-mock"
+                      >
+                        នៅក្រោមដើមឈើ
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <div
+                          class="p-skeleton p-component p-inputtext"
+                          style="width: 100%; height: 1rem;"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-mock"
+                      >
+                        នៅក្រោមដើមឈើ
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <div
+                          class="p-skeleton p-component p-inputtext"
+                          style="width: 100%; height: 1rem;"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-mock"
+                      >
+                        នៅក្រោមដើមឈើ
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <div
+                          class="p-skeleton p-component p-inputtext"
+                          style="width: 100%; height: 1rem;"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-mock"
+                      >
+                        នៅក្រោមដើមឈើ
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <div
+                          class="p-skeleton p-component p-inputtext"
+                          style="width: 100%; height: 1rem;"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -6384,6 +6747,50 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
                   class="p-card-title"
                 >
                   E
+                </div>
+                <div
+                  class="p-card-content"
+                >
+                  <div
+                    class=""
+                  >
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-mock"
+                      >
+                        នៅក្រោមដើមឈើ
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <div
+                          class="p-skeleton p-component p-inputtext"
+                          style="width: 100%; height: 1rem;"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-mock"
+                      >
+                        នៅក្រោមដើមឈើ
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <div
+                          class="p-skeleton p-component p-inputtext"
+                          style="width: 100%; height: 1rem;"
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -6406,6 +6813,32 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
                 >
                   F 1
                 </div>
+                <div
+                  class="p-card-content"
+                >
+                  <div
+                    class=""
+                  >
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-mock"
+                      >
+                        នៅក្រោមដើមឈើ
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <div
+                          class="p-skeleton p-component p-inputtext"
+                          style="width: 100%; height: 1rem;"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -6421,6 +6854,32 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
                   class="p-card-title"
                 >
                   F 2
+                </div>
+                <div
+                  class="p-card-content"
+                >
+                  <div
+                    class=""
+                  >
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-mock"
+                      >
+                        នៅក្រោមដើមឈើ
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <div
+                          class="p-skeleton p-component p-inputtext"
+                          style="width: 100%; height: 1rem;"
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -6442,6 +6901,32 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
                   class="p-card-title"
                 >
                   G
+                </div>
+                <div
+                  class="p-card-content"
+                >
+                  <div
+                    class=""
+                  >
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-mock"
+                      >
+                        នៅក្រោមដើមឈើ
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <div
+                          class="p-skeleton p-component p-inputtext"
+                          style="width: 100%; height: 1rem;"
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -7263,8 +7748,9 @@ exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
     >
       <button
         aria-label="design"
-        class="p-button p-component mr-2 p-button-icon-only"
+        class="p-button p-component mr-2 p-button-icon-only p-disabled"
         data-testid="designButton"
+        disabled=""
       >
         <span
           class="p-button-icon p-c pi pi-cog"
@@ -7382,6 +7868,68 @@ exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
                 >
                   A 1
                 </div>
+                <div
+                  class="p-card-content"
+                >
+                  <div
+                    class=""
+                  >
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-mock"
+                      >
+                        នៅក្រោមដើមឈើ
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <div
+                          class="p-skeleton p-component p-inputtext"
+                          style="width: 100%; height: 1rem;"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-mock"
+                      >
+                        នៅក្រោមដើមឈើ
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <div
+                          class="p-skeleton p-component p-inputtext"
+                          style="width: 100%; height: 1rem;"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-mock"
+                      >
+                        នៅក្រោមដើមឈើ
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <div
+                          class="p-skeleton p-component p-inputtext"
+                          style="width: 100%; height: 1rem;"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -7397,6 +7945,50 @@ exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
                   class="p-card-title"
                 >
                   A 2
+                </div>
+                <div
+                  class="p-card-content"
+                >
+                  <div
+                    class=""
+                  >
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-mock"
+                      >
+                        នៅក្រោមដើមឈើ
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <div
+                          class="p-skeleton p-component p-inputtext"
+                          style="width: 100%; height: 1rem;"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-mock"
+                      >
+                        នៅក្រោមដើមឈើ
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <div
+                          class="p-skeleton p-component p-inputtext"
+                          style="width: 100%; height: 1rem;"
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -7419,6 +8011,50 @@ exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
                 >
                   B 1
                 </div>
+                <div
+                  class="p-card-content"
+                >
+                  <div
+                    class=""
+                  >
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-mock"
+                      >
+                        នៅក្រោមដើមឈើ
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <div
+                          class="p-skeleton p-component p-inputtext"
+                          style="width: 100%; height: 1rem;"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-mock"
+                      >
+                        នៅក្រោមដើមឈើ
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <div
+                          class="p-skeleton p-component p-inputtext"
+                          style="width: 100%; height: 1rem;"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -7435,21 +8071,31 @@ exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
                 >
                   B 2
                 </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="p-card p-component card mb-3"
-              id="b3"
-            >
-              <div
-                class="p-card-body"
-              >
                 <div
-                  class="p-card-title"
+                  class="p-card-content"
                 >
-                  B 3
+                  <div
+                    class=""
+                  >
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-mock"
+                      >
+                        នៅក្រោមដើមឈើ
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <div
+                          class="p-skeleton p-component p-inputtext"
+                          style="width: 100%; height: 1rem;"
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -7988,8 +8634,9 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
     >
       <button
         aria-label="design"
-        class="p-button p-component mr-2 p-button-icon-only"
+        class="p-button p-component mr-2 p-button-icon-only p-disabled"
         data-testid="designButton"
+        disabled=""
       >
         <span
           class="p-button-icon p-c pi pi-cog"
@@ -8193,6 +8840,68 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
                 >
                   A 1
                 </div>
+                <div
+                  class="p-card-content"
+                >
+                  <div
+                    class=""
+                  >
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-mock"
+                      >
+                        នៅក្រោមដើមឈើ
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <div
+                          class="p-skeleton p-component p-inputtext"
+                          style="width: 100%; height: 1rem;"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-mock"
+                      >
+                        នៅក្រោមដើមឈើ
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <div
+                          class="p-skeleton p-component p-inputtext"
+                          style="width: 100%; height: 1rem;"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-mock"
+                      >
+                        នៅក្រោមដើមឈើ
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <div
+                          class="p-skeleton p-component p-inputtext"
+                          style="width: 100%; height: 1rem;"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -8213,6 +8922,50 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
                   class="p-card-title"
                 >
                   A 2
+                </div>
+                <div
+                  class="p-card-content"
+                >
+                  <div
+                    class=""
+                  >
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-mock"
+                      >
+                        នៅក្រោមដើមឈើ
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <div
+                          class="p-skeleton p-component p-inputtext"
+                          style="width: 100%; height: 1rem;"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-mock"
+                      >
+                        នៅក្រោមដើមឈើ
+                      </label>
+                      <div
+                        class="col-12 md:col-8"
+                      >
+                        <div
+                          class="p-skeleton p-component p-inputtext"
+                          style="width: 100%; height: 1rem;"
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

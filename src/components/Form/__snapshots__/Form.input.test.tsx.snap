@@ -538,7 +538,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                           <div
                             class="p-treeselect-label"
                           >
-                            Asia
+                            Europe
                           </div>
                         </div>
                         <div
@@ -652,7 +652,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                               <span
                                 class="p-treeselect-token-label"
                               >
-                                Earth
+                                Solar system
                               </span>
                             </div>
                           </div>
@@ -1363,7 +1363,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                 >
                                   <button
                                     class="p-treetable-toggler p-link p-unselectable-text"
-                                    style="margin-left: 0px; visibility: hidden;"
+                                    style="margin-left: 0px; visibility: visible;"
                                     tabindex="-1"
                                     type="button"
                                   >
@@ -1392,84 +1392,6 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                     </div>
                                   </div>
                                   One
-                                </td>
-                              </tr>
-                              <tr
-                                class=""
-                                tabindex="0"
-                              >
-                                <td
-                                  class=""
-                                >
-                                  <button
-                                    class="p-treetable-toggler p-link p-unselectable-text"
-                                    style="margin-left: 0px; visibility: hidden;"
-                                    tabindex="-1"
-                                    type="button"
-                                  >
-                                    <i
-                                      class="p-treetable-toggler-icon pi pi-fw pi-chevron-right"
-                                    />
-                                  </button>
-                                  <div
-                                    class="p-checkbox p-treetable-checkbox p-component"
-                                    role="checkbox"
-                                  >
-                                    <div
-                                      class="p-hidden-accessible"
-                                    >
-                                      <input
-                                        type="checkbox"
-                                      />
-                                    </div>
-                                    <div
-                                      class="p-checkbox-box"
-                                    >
-                                      <span
-                                        class="p-checkbox-icon p-c"
-                                      />
-                                    </div>
-                                  </div>
-                                  Two
-                                </td>
-                              </tr>
-                              <tr
-                                class=""
-                                tabindex="0"
-                              >
-                                <td
-                                  class=""
-                                >
-                                  <button
-                                    class="p-treetable-toggler p-link p-unselectable-text"
-                                    style="margin-left: 0px; visibility: hidden;"
-                                    tabindex="-1"
-                                    type="button"
-                                  >
-                                    <i
-                                      class="p-treetable-toggler-icon pi pi-fw pi-chevron-right"
-                                    />
-                                  </button>
-                                  <div
-                                    class="p-checkbox p-treetable-checkbox p-component"
-                                    role="checkbox"
-                                  >
-                                    <div
-                                      class="p-hidden-accessible"
-                                    >
-                                      <input
-                                        type="checkbox"
-                                      />
-                                    </div>
-                                    <div
-                                      class="p-checkbox-box"
-                                    >
-                                      <span
-                                        class="p-checkbox-icon p-c"
-                                      />
-                                    </div>
-                                  </div>
-                                  Three
                                 </td>
                               </tr>
                             </tbody>

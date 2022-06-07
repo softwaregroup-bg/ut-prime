@@ -291,10 +291,20 @@ export const dropdowns = {
         {value: 2, label: 'USD'},
         {value: 3, label: 'BGN'}
     ],
-    dropdownTree: [
-        {key: 1, label: 'Asia'},
-        {key: 2, label: 'Europe'},
-        {key: 3, label: 'Australia'}
+    dropdownTree: [{
+        key: 1,
+        label: 'Europe',
+        children: [{
+            key: 2,
+            label: 'France',
+            parent: 1,
+            children: [{
+                key: 3,
+                label: 'Paris',
+                parent: 2
+            }]
+        }]
+    }
     ],
     multiSelect: [
         {value: 1, label: 'Rome'},
@@ -306,14 +316,30 @@ export const dropdowns = {
         {value: 2, label: 'Two'},
         {value: 3, label: 'Three'}
     ],
-    multiSelectTreeTable: [
-        {key: 1, data: {label: 'One'}},
-        {key: 2, data: {label: 'Two'}},
-        {key: 3, data: {label: 'Three'}}
+    multiSelectTreeTable: [{
+        key: 1,
+        data: {label: 'One'},
+        children: [{
+            key: 2,
+            data: {label: 'Two'},
+            children: [{
+                key: 3,
+                data: {label: 'Three'}
+            }]
+        }]
+    }
     ],
-    multiSelectTree: [
-        {key: 1, label: 'Earth'},
-        {key: 2, label: 'Mars'},
-        {key: 3, label: 'Australia'}
+    multiSelectTree: [{
+        key: 1,
+        label: 'Solar system',
+        children: [{
+            key: 2,
+            label: 'Earth',
+            children: [{
+                key: 3,
+                label: 'Australia'
+            }]
+        }]
+    }
     ]
 };

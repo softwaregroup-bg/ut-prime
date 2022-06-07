@@ -39,6 +39,9 @@ const tree: {schema: Schema, cards: Cards} = {
                     fruitName: {
                         title: 'Fruit'
                     },
+                    mock: {
+                        title: 'នៅក្រោមដើមឈើ'
+                    },
                     habitat: {
                         title: '',
                         widget: {
