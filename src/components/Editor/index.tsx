@@ -15,6 +15,7 @@ import useLoad from '../hooks/useLoad';
 import {ConfigField, ConfigCard} from '../Form/DragDrop';
 import prepareSubmit from '../lib/prepareSubmit';
 import testid from '../lib/testid';
+import type {Cards, Layouts} from '../types';
 
 const backgroundNone = {background: 'none'};
 
@@ -29,6 +30,23 @@ function handleArray(result: {}, properties) {
 }
 
 const empty = {title: undefined};
+
+function getLayout(cards: Cards, layouts: Layouts, mode: 'create' | 'edit', name = '') {
+    let layoutName = mode + capital(name);
+    let items: any = layouts?.[layoutName];
+    if (!items && mode !== 'edit' && !cards[layoutName]) {
+        layoutName = 'edit' + capital(name);
+        items = layouts?.[layoutName];
+    }
+    let layout: string[];
+    const orientation = items?.orientation;
+    if (orientation) items = items.items;
+    if (typeof (items?.[0]?.[0] || items?.[0]) === 'string') {
+        layout = items;
+        items = false;
+    } else layout = !items && [layoutName];
+    return [items, layout, orientation || 'left'];
+}
 
 const Editor: ComponentProps = ({
     object,
@@ -52,17 +70,6 @@ const Editor: ComponentProps = ({
     onEdit
 }) => {
     const {properties = empty} = schema;
-    function getLayout(name = '') {
-        let items: any = layouts?.['edit' + capital(name)];
-        let layout;
-        const orientation = items?.orientation;
-        if (orientation) items = items.items;
-        if (typeof (items?.[0]?.[0] || items?.[0]) === 'string') {
-            layout = items;
-            items = false;
-        } else layout = !items && ['edit' + capital(name)];
-        return [items, layout, orientation || 'left'];
-    }
     name = name ? name + '.' : '';
 
     const [keyValue, setKeyValue] = React.useState(id);
@@ -70,7 +77,7 @@ const Editor: ComponentProps = ({
     const [value, setEditValue] = React.useState({});
     const [loadedValue, setLoadedValue] = React.useState<{}>();
     const [dropdowns, setDropdown] = React.useState({});
-    const [[items, layout, orientation], setIndex] = React.useState(() => getLayout(layoutName));
+    const [[items, layout, orientation], setIndex] = React.useState(() => getLayout(cards, layouts, id == null ? 'create' : 'edit', layoutName));
     const [filter, setFilter] = React.useState(items?.[0]?.items?.[0] || items?.[0]);
     const [loading, setLoading] = React.useState('loading');
     const [validation, dropdownNames, getValue] = React.useMemo(() => {
@@ -130,7 +137,7 @@ const Editor: ComponentProps = ({
         setLoading('loading');
         const result = (await onGet({[keyField]: keyValue}));
         handleArray(result, properties);
-        if (typeField) setIndex(getLayout(lodashGet(result, typeField)));
+        if (typeField) setIndex(getLayout(cards, layouts, 'edit', lodashGet(result, typeField)));
         setDropdown(await onDropdown(dropdownNames));
         setLoadedValue(result);
         setLoading('');
@@ -147,15 +154,17 @@ const Editor: ComponentProps = ({
 
     const handleSubmit = React.useCallback(
         async function handleSubmit(data) {
+            let response;
             if (keyValue != null) {
-                const response = getValue(handleArray(await onEdit(prepareSubmit(data)), properties));
-                setEditValue(merge({}, data[0], response));
+                response = getValue(handleArray(await onEdit(prepareSubmit(data)), properties));
             } else {
-                const response = getValue(handleArray(await onAdd(prepareSubmit(data)), properties));
+                response = getValue(handleArray(await onAdd(prepareSubmit(data)), properties));
                 setKeyValue(lodashGet(response, `${resultSet}.${keyField}`));
-                setEditValue(merge({}, data[0], response));
             }
-        }, [keyValue, onEdit, getValue, onAdd, keyField, resultSet, properties]
+            const value = merge({}, data[0], response);
+            setEditValue(value);
+            setIndex(getLayout(cards, layouts, 'edit', typeField ? lodashGet(value, typeField) : ''));
+        }, [keyValue, onEdit, getValue, onAdd, keyField, resultSet, properties, layouts, cards, typeField]
     );
 
     useLoad(async() => {

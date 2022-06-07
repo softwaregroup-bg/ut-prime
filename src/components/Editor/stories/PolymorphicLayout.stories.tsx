@@ -15,21 +15,26 @@ export const PolymorphicLayout = () => {
             }
         },
         cards: {
+            createOrganization: {
+                label: 'Create Organization',
+                className: 'col-12',
+                widgets: ['name', 'registrationNumber']
+            },
             editPerson: {
                 label: 'Person',
                 className: 'col-12',
                 widgets: ['name', 'role']
             },
             editOrganization: {
-                label: 'Organization',
+                label: 'Edit Organization',
                 className: 'col-12',
-                widgets: ['name', 'registrationNumber']
+                widgets: ['name', {name: 'registrationNumber', disabled: true}]
             }
         }
     };
 
     return (<div className='flex flex-row'>
-        <div className='flex-col flex-grow-1'>
+        <div className='flex-col col'>
             <Editor
                 id={1}
                 onGet={() => Promise.resolve({
@@ -41,7 +46,7 @@ export const PolymorphicLayout = () => {
                 {...props}
             />
         </div>
-        <div className='flex-col flex-grow-1'>
+        <div className='flex-col col'>
             <Editor
                 id={2}
                 onGet={() => Promise.resolve({
@@ -50,6 +55,12 @@ export const PolymorphicLayout = () => {
                     name: 'Acme Inc.',
                     registrationNumber: '111-111-111'
                 })}
+                {...props}
+            />
+        </div>
+        <div className='flex-col col'>
+            <Editor
+                layoutName='organization'
                 {...props}
             />
         </div>

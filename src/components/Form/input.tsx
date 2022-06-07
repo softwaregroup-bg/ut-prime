@@ -62,7 +62,7 @@ export default function input(
     methods
 ) {
     if (loading) return <>{label}<div className={inputClass}><Skeleton className='p-inputtext'/></div></>;
-    props.disabled = schema?.readOnly || (parentField && !parentValue);
+    props.disabled ??= schema?.readOnly || (parentField && !parentValue);
     const filterBy = item => (!parentField && !optionsFilter) || Object.entries({...optionsFilter, parent: parentValue}).every(([name, value]) => String(item[name]) === String(value));
     switch (type || schema?.format || getType(schema?.type)) {
         case 'dropdownTree': return <Field {...{label, error, inputClass}}>

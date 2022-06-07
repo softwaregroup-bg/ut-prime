@@ -5908,7 +5908,7 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
     class="flex flex-row"
   >
     <div
-      class="flex-col flex-grow-1"
+      class="flex-col col"
     >
       <div
         class="p-toolbar p-component"
@@ -6040,7 +6040,7 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
       </div>
     </div>
     <div
-      class="flex-col flex-grow-1"
+      class="flex-col col"
     >
       <div
         class="p-toolbar p-component"
@@ -6113,7 +6113,7 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
                     <div
                       class="p-card-title"
                     >
-                      Organization
+                      Edit Organization
                     </div>
                     <div
                       class="p-card-content"
@@ -6154,10 +6154,143 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
                             class="col-12 md:col-8"
                           >
                             <input
-                              class="p-inputtext p-component p-filled w-full"
+                              class="p-inputtext p-component p-disabled p-filled w-full"
+                              disabled=""
                               id="registrationNumber"
                               name="registrationNumber"
                               value="111-111-111"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex-col col"
+    >
+      <div
+        class="p-toolbar p-component"
+        role="toolbar"
+        style="background: none;"
+      >
+        <div
+          class="p-toolbar-group-left"
+        >
+          <button
+            aria-label="save"
+            class="p-button p-component p-button-icon-only p-disabled"
+            data-testid="saveButton"
+            disabled=""
+          >
+            <span
+              class="p-button-icon p-c pi pi-save"
+            />
+            <span
+              class="p-button-label p-c"
+            >
+               
+            </span>
+          </button>
+        </div>
+        <div
+          class="p-toolbar-group-right"
+        >
+          <button
+            aria-label="design"
+            class="p-button p-component mr-2 p-button-icon-only"
+            data-testid="designButton"
+          >
+            <span
+              class="p-button-icon p-c pi pi-cog"
+            />
+            <span
+              class="p-button-label p-c"
+            >
+               
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="flex overflow-x-hidden w-full"
+      >
+        <div
+          class="flex flex-grow-1"
+        >
+          <div
+            class="p-toast p-component p-toast-top-right"
+          >
+            <div />
+          </div>
+          <form
+            class="grid col align-self-start form-0-2-1"
+          >
+            <div
+              class="col-12 col-12"
+            >
+              <div>
+                <div
+                  class="p-card p-component card mb-3"
+                  id="createOrganization"
+                >
+                  <div
+                    class="p-card-body"
+                  >
+                    <div
+                      class="p-card-title"
+                    >
+                      Create Organization
+                    </div>
+                    <div
+                      class="p-card-content"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div
+                          class="field grid"
+                        >
+                          <label
+                            class="col-12 md:col-4"
+                            for="name"
+                          >
+                            Name
+                          </label>
+                          <div
+                            class="col-12 md:col-8"
+                          >
+                            <input
+                              class="p-inputtext p-component w-full"
+                              id="name"
+                              name="name"
+                              value=""
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="field grid"
+                        >
+                          <label
+                            class="col-12 md:col-4"
+                            for="registrationNumber"
+                          >
+                            Registration Number
+                          </label>
+                          <div
+                            class="col-12 md:col-8"
+                          >
+                            <input
+                              class="p-inputtext p-component w-full"
+                              id="registrationNumber"
+                              name="registrationNumber"
+                              value=""
                             />
                           </div>
                         </div>

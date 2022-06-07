@@ -111,7 +111,8 @@ export type WidgetReference = string | {
     widgets?: any[],
     hidden?: string[],
     compare?: string,
-    filter?: {}
+    filter?: {},
+    disabled?: boolean
 }
 export interface Card {
     label?: string;
