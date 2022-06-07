@@ -1,3 +1,12 @@
+# [2.3.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.2.2...v2.3.0) (2022-06-07)
+
+
+### Features
+
+* enable diffirent edit / create layouts ([a01f47f](https://github.com/softwaregroup-bg/ut-prime/commit/a01f47f5194bec05afbc9a891aaed1edc1a46d98))
+
+
+
 ## [2.2.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.2.1...v2.2.2) (2022-06-03)
 
 
