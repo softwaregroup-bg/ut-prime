@@ -1,3 +1,12 @@
+# [2.4.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.3.0...v2.4.0) (2022-06-16)
+
+
+### Features
+
+* ActionButton ([9ca195a](https://github.com/softwaregroup-bg/ut-prime/commit/9ca195a4358a976aa3557d6359a4e36391222b6c))
+
+
+
 # [2.3.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.2.2...v2.3.0) (2022-06-07)
 
 
