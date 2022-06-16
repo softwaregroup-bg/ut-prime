@@ -42,9 +42,9 @@ export default function columnProps({
     name: string,
     property: Property,
     widget?: any,
-    dropdowns: {},
+    dropdowns: object,
     tableFilter?: TableFilter,
-    filterBy?: (name: string, value: string) => (e: {}) => void,
+    filterBy?: (name: string, value: string) => (e: object) => void,
     editable?: boolean
 }) {
     const resultSetDot = resultSet ? resultSet + '.' : '';
@@ -323,7 +323,7 @@ export default function columnProps({
                         {...props}
                         name={inputName}
                     />;
-            };
+            }
         };
     }
     return {

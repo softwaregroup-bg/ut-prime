@@ -1,7 +1,6 @@
 import React from 'react';
 import type { Meta } from '@storybook/react';
 
-// @ts-ignore: md file and not a module
 import page from './README.mdx';
 import Navigator from './index';
 
@@ -12,11 +11,11 @@ const meta: Meta = {
 };
 export default meta;
 
-export const Basic: React.FC<{}> = () =>
+export const Basic: React.FC = () =>
     <div style={{height: 500}}>
         <Navigator
             fetch={() => Promise.resolve({
-                items: [...Array(50).keys()].map(number => ({
+                items: Array.from(Array(50).keys()).map(number => ({
                     id: String(number),
                     name: `Item ${number}`,
                     parent: number >= 10 ? String(number % 10) : undefined

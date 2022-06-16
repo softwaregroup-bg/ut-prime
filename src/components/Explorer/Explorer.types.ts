@@ -1,4 +1,3 @@
-import {createUseStyles} from 'react-jss';
 import React from 'react';
 import { DataTableProps } from '../prime';
 
@@ -25,7 +24,7 @@ export interface Props {
      * Data fetching async function.
      */
     fetch: (params: {
-        [resultSet: string]: {},
+        [resultSet: string]: object,
         orderBy: {
             field: string,
             dir: string
@@ -46,26 +45,13 @@ export interface Props {
     /**
      * Fields to show in the details pane.
      */
-    details?: {};
-    actions?: Action[];
-    filter?: {};
-    index?: {};
+    details?: boolean | object;
+    toolbar?: Action[];
+    filter?: object;
+    index?: object;
     showFilter?: boolean;
     pageSize?: number;
     table?: DataTableProps;
 }
-
-export const useStyles = createUseStyles({
-    explorer: {
-        '& .p-datatable-wrapper': {
-            overflowX: 'auto'
-        }
-    },
-    details: {
-        marginBottom: 15
-    },
-    detailsLabel: {},
-    detailsValue: {}
-});
 
 export type ComponentProps = React.FC<Props>

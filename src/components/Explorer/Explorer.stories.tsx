@@ -2,7 +2,6 @@ import React from 'react';
 import type { Story, Meta } from '@storybook/react';
 import {Toast} from '../prime';
 
-// @ts-ignore: md file and not a module
 import page from './README.mdx';
 import Explorer from './index';
 import {fetchItems, updateItems} from './mock';
@@ -21,7 +20,7 @@ const Template: Story<{
     createPermission?: string,
     editPermission?: string,
     deletePermission?: string,
-    details?: {},
+    details?: object,
     children?: React.ReactNode
 }> = ({
     createPermission,
@@ -62,7 +61,7 @@ const Template: Story<{
                     subscribe={updateItems}
                     details={details}
                     filter={{}}
-                    actions={[{
+                    toolbar={[{
                         title: 'Create',
                         permission: createPermission,
                         action: () => {}

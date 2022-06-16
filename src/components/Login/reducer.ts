@@ -16,10 +16,10 @@ const initials = ({
 };
 
 export default (state = null, action: {
-    type: Symbol,
+    type: symbol,
     methodRequestState: string,
     result: {
-        language: {},
+        language: object,
         person: {
             firstName: string,
             lastName: string

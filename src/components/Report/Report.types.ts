@@ -8,11 +8,11 @@ export interface Props {
     schema: Schema,
     validation?: Validation,
     params: WidgetReference[],
-    init?: {},
+    init?: object,
     columns: WidgetReference[],
     resultSet?: string,
     onDropdown: (params: string[]) => Promise<Dropdowns>,
-    fetch: (params: {}) => Promise<{
+    fetch: (params: object) => Promise<{
         pagination?: {
             recordsTotal: number
         },

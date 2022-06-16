@@ -9,3 +9,8 @@ declare module "*.png" {
   const path: string;
   export default path;
 }
+
+declare module '*.mdx' {
+  let MDXComponent: (props) => JSX.Element;
+  export default MDXComponent;
+}

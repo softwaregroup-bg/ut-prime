@@ -13,7 +13,7 @@ describe('<Login />', () => {
         const {
             getByTestId
         } = render(<Login />, {
-            login: false
+            login: null
         });
         expect(getByTestId('ut-front-test')).toMatchSnapshot();
     });

@@ -2,15 +2,17 @@ import React from 'react';
 import lodashGet from 'lodash.get';
 import merge from 'ut-function.merge';
 import clsx from 'clsx';
+import {createUseStyles} from 'react-jss';
 
-import { DataTable, Column, Button, Toolbar, Splitter, SplitterPanel } from '../prime';
+import { Button, DataTable, Column, Toolbar, Splitter, SplitterPanel } from '../prime';
+import ActionButton from '../ActionButton';
 import Permission from '../Permission';
 import useToggle from '../hooks/useToggle';
 import useSubmit from '../hooks/useSubmit';
 import columnProps, {TableFilter} from '../lib/column';
 import prepareSubmit from '../lib/prepareSubmit';
 
-import { useStyles, ComponentProps } from './Explorer.types';
+import { ComponentProps } from './Explorer.types';
 import testid from '../lib/testid';
 
 const flexGrow = {flexGrow: 1};
@@ -20,6 +22,19 @@ const splitterWidth = { width: '200px' };
 const actionButtonStyle = {padding: 0, minWidth: 'inherit'};
 
 const fieldName = column => typeof column === 'string' ? column : column.name;
+
+const useStyles = createUseStyles({
+    explorer: {
+        '& .p-datatable-wrapper': {
+            overflowX: 'auto'
+        }
+    },
+    details: {
+        marginBottom: 15
+    },
+    detailsLabel: {},
+    detailsValue: {}
+});
 
 const Explorer: ComponentProps = ({
     className,
@@ -31,7 +46,7 @@ const Explorer: ComponentProps = ({
     resultSet,
     children,
     details,
-    actions,
+    toolbar,
     filter,
     index,
     onDropdown,
@@ -41,7 +56,7 @@ const Explorer: ComponentProps = ({
 }) => {
     const classes = useStyles();
     const [tableFilter, setFilters] = React.useState<TableFilter>({
-        filters: columns?.reduce((prev, column) => {
+        filters: columns?.reduce((prev : object, column) => {
             let field = fieldName(column);
             const value = lodashGet(filter, field);
             field = field.split('.').pop();
@@ -72,7 +87,13 @@ const Explorer: ComponentProps = ({
         .filter(Boolean)
         .join(',');
 
-    const buttons = React.useMemo(() => (actions || []).map(({title, action, enabled = true, permission}, index) => {
+    const getValues = React.useMemo(() => () => ({
+        id: current && current[keyField],
+        current,
+        selected
+    }), [current, keyField, selected]);
+
+    const buttons = React.useMemo(() => (toolbar || []).map(({title, action, params, enabled = true, permission}, index) => {
         const isEnabled = enabled => {
             if (typeof enabled !== 'string') return !!enabled;
             switch (enabled) {
@@ -84,21 +105,19 @@ const Explorer: ComponentProps = ({
         };
         return (
             <Permission key={index} permission={permission}>
-                <Button
+                <ActionButton
                     {...testid(`${permission ? (permission + 'Button') : ('button' + index)}`)}
                     label={title}
-                    onClick={() => action({
-                        id: current && current[keyField],
-                        current,
-                        selected
-                    })}
+                    action={action}
+                    params={params}
+                    getValues={getValues}
                     disabled={!isEnabled(enabled)}
                     className="mr-2"
                 />
             </Permission>
         );
     }
-    ), [keyField, actions, current, selected]);
+    ), [toolbar, current, selected, getValues]);
     const {toast, handleSubmit: load} = useSubmit(
         async function() {
             if (!fetch) {
@@ -238,7 +257,7 @@ const Explorer: ComponentProps = ({
         onRowSelect={handleRowSelect}
         {...tableProps}
     >
-        {keyField && <Column selectionMode="multiple" style={selectionWidth}/>}
+        {keyField && (!tableProps?.selectionMode || tableProps?.selectionMode === 'checkbox') && <Column selectionMode="multiple" style={selectionWidth}/>}
         {Columns}
     </DataTable>;
     const nav = children && navigationOpened && <SplitterPanel key='nav' size={15}>{children}</SplitterPanel>;
@@ -247,7 +266,7 @@ const Explorer: ComponentProps = ({
             {toast}
             {
                 buttons?.length || nav || detailsPanel
-                    ? <Toolbar left={left} right={right} style={backgroundNone} />
+                    ? <Toolbar left={left} right={right} style={backgroundNone} className='border-none' />
                     : null
             }
             {

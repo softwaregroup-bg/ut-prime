@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+    Button,
     InputText,
     Password,
     InputTextarea,
@@ -23,6 +24,7 @@ import { RefCallBack } from 'react-hook-form';
 import getType from '../lib/getType';
 import testid from '../lib/testid';
 import Table from './inputs/Table';
+import ActionButton from '../ActionButton';
 
 const noActions = {allowAdd: false, allowEdit: false, allowDelete: false};
 
@@ -61,10 +63,20 @@ export default function input(
     counter,
     methods
 ) {
-    if (loading) return <>{label}<div className={inputClass}><Skeleton className='p-inputtext'/></div></>;
+    const widgetType = type || schema?.format || getType(schema?.type);
+    if (loading) {
+        if (widgetType === 'button') return <Button className={inputClass ?? 'mr-2'} label={label} {...props} disabled/>;
+        return <>{label}<div className={inputClass}><Skeleton className='p-inputtext'/></div></>;
+    }
     props.disabled ??= schema?.readOnly || (parentField && !parentValue);
     const filterBy = item => (!parentField && !optionsFilter) || Object.entries({...optionsFilter, parent: parentValue}).every(([name, value]) => String(item[name]) === String(value));
-    switch (type || schema?.format || getType(schema?.type)) {
+    switch (widgetType) {
+        case 'button': return <ActionButton
+            className={inputClass ?? 'mr-2'}
+            label={label}
+            {...props}
+            getValues={getValues}
+        />;
         case 'dropdownTree': return <Field {...{label, error, inputClass}}>
             <TreeSelect
                 {...field}

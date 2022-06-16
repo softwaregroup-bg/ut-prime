@@ -2,7 +2,6 @@ import React from 'react';
 import type { Meta } from '@storybook/react';
 import Joi from 'joi';
 
-// @ts-ignore: md file and not a module
 import page from './README.mdx';
 import ThumbIndex from './index';
 import Form from '../Form';
@@ -153,9 +152,9 @@ const cards = {
 
 const sticky = {sticky: true};
 
-export const Basic: React.FC<{}> = () => {
+export const Basic: React.FC = () => {
     const [filter, setFilter] = React.useState(items?.[0]?.items?.[0]);
-    const [trigger, setTrigger] = React.useState<(event: {}) => void>();
+    const [trigger, setTrigger] = React.useState<(event: object) => void>();
     const {toast, submit} = useToast(sticky);
     return (
         <>

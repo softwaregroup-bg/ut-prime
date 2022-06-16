@@ -1,7 +1,7 @@
 export default permissions => {
     const cache = {};
 
-    if (permissions.find(({actionId}) => actionId === '%')) return () => true;
+    if (permissions.find(({actionId}) => actionId === '%')) return ({permission}) => (typeof permission === 'boolean') ? permission : true;
 
     const regexp = new RegExp(
         permissions

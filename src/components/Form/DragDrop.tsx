@@ -140,9 +140,9 @@ export function ConfigField({design, children = null, name, index, card = '', la
     return (
         design ? <DragDropField {...{name, index, card, move, label, ...props}}>
             {children}
-        </DragDropField> : <div {...props}>
+        </DragDropField> : props.className ? <div {...props}>
             {children}
-        </div>
+        </div> : children
     );
 }
 

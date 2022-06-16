@@ -1,14 +1,17 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import clsx from 'clsx';
 import get from 'lodash.get';
 import clonedeep from 'lodash.clonedeep';
 import { joiResolver } from '@hookform/resolvers/joi';
 import { DevTool } from '@hookform/devtools';
+import {createUseStyles} from 'react-jss';
 
-import { useStyles, ComponentProps } from './Form.types';
+import { ComponentProps } from './Form.types';
 import { ConfigField, ConfigCard} from './DragDrop';
 import Context from '../Context';
 import input from './input';
+import type {Card} from '../types';
 
 import titleCase from '../lib/titleCase';
 import { Properties, Editors, PropertyEditors } from '../types';
@@ -20,14 +23,22 @@ import getValidation from './schema';
 import {CHANGE} from './const';
 import getType from '../lib/getType';
 
+const useStyles = createUseStyles({
+    form: {
+        '& .p-datatable-wrapper': {
+            overflowX: 'auto'
+        }
+    }
+});
+
 const inputClass = (index, classes, name, className) => ({
     ...classes?.default,
     ...classes?.[name]
-}.input || ((index.properties[name]?.title !== '' || className) ? `col-12 ${className || 'md:col-8'}` : 'col-12'));
+}.input || name === '' ? className : ((index.properties[name]?.title !== '' || className) ? `col-12 ${className || 'md:col-8'}` : 'col-12'));
 
 const widgetName = name => typeof name === 'string' ? name : name.name;
 
-const flatten = (properties: Properties, editors: Editors, root: string = '') : PropertyEditors => Object.entries(properties || {}).reduce(
+const flatten = (properties: Properties, editors: Editors, root = '') : PropertyEditors => Object.entries(properties || {}).reduce(
     (map, [name, property]) => {
         return ('properties' in property) ? {
             ...map,
@@ -93,6 +104,8 @@ const Form: ComponentProps = ({
     setTrigger,
     triggerNotDirty,
     autoSubmit,
+    toolbarRef,
+    toolbar = 'toolbar',
     value,
     dropdowns,
     validation,
@@ -163,7 +176,7 @@ const Form: ComponentProps = ({
 
     const canSetTrigger = isDirty || triggerNotDirty;
     React.useEffect(() => {
-        if (setTrigger) setTrigger(canSetTrigger ? prev => formSubmit(handleSubmit) : undefined);
+        if (setTrigger) setTrigger(canSetTrigger ? () => formSubmit(handleSubmit) : undefined);
     }, [setTrigger, formSubmit, handleSubmit, isDirty, canSetTrigger]);
 
     React.useEffect(() => {
@@ -233,73 +246,72 @@ const Form: ComponentProps = ({
         widget.parent = widget.parent || name.match(/^\$\.edit\.[^.]+/)?.[0].replace('.edit.', '.selected.') || widget?.selectionPath;
         const parent = widget.parent || idx.properties[propertyName]?.widget?.parent;
         const parentWatch = parent && watch(parent);
-        const inputWidget = {id: name.replace(/\./g, '-'), ...idx.properties[propertyName]?.widget, ...widget, parent};
-        return (
-            <Controller
-                control={control}
-                name={name}
-                render={({field, fieldState}) => input(
-                    label,
-                    error,
-                    {
-                        className: clsx({'w-full': !['boolean'].includes(inputWidget.type)}, { 'p-invalid': fieldState.error }),
-                        ...field,
-                        onChange: (value, {select = false, field: changeField = true, children = true} = {}) => {
-                            if (select) {
-                                const prefix = `$.edit.${propertyName}.`;
-                                const selectionPrefix = widget?.selectionPath || '$.selected';
+        const inputWidget = {id: name.replace(/\./g, '-') || label, ...idx.properties[propertyName]?.widget, ...widget, parent};
+        const render = ({field, fieldState}) => input(
+            label,
+            error,
+            {
+                className: clsx({'w-full': !['boolean'].includes(inputWidget.type)}, { 'p-invalid': fieldState.error }),
+                ...field,
+                onChange: (value, {select = false, field: changeField = true, children = true} = {}) => {
+                    if (select) {
+                        const prefix = `$.edit.${propertyName}.`;
+                        const selectionPrefix = widget?.selectionPath || '$.selected';
+                        setValue(
+                            `${selectionPrefix}.${propertyName}`,
+                            value,
+                            selectionPrefix.startsWith('$.') ? {shouldDirty: false, shouldTouch: false} : {shouldDirty: true, shouldTouch: true}
+                        );
+                        visibleProperties.forEach(property => {
+                            if (property.startsWith(prefix)) {
                                 setValue(
-                                    `${selectionPrefix}.${propertyName}`,
-                                    value,
-                                    selectionPrefix.startsWith('$.') ? {shouldDirty: false, shouldTouch: false} : {shouldDirty: true, shouldTouch: true}
+                                    property,
+                                    value?.[property.substr(prefix.length)],
+                                    {shouldDirty: false, shouldTouch: false}
                                 );
-                                visibleProperties.forEach(property => {
-                                    if (property.startsWith(prefix)) {
-                                        setValue(
-                                            property,
-                                            value?.[property.substr(prefix.length)],
-                                            {shouldDirty: false, shouldTouch: false}
-                                        );
-                                    }
+                            }
+                        });
+                    }
+                    try {
+                        if (children) {
+                            const items = idx.children[propertyName];
+                            if (items) {
+                                items.forEach(child => {
+                                    let childValue = null;
+                                    const autocompleteProp = child.split('.').pop();
+                                    const autocomplete = value?.value?.[autocompleteProp] || value?.[autocompleteProp];
+                                    if (idx.properties[propertyName]?.widget?.type === 'autocomplete' && autocomplete) childValue = autocomplete;
+                                    setValue(child, childValue);
                                 });
                             }
-                            try {
-                                if (children) {
-                                    const items = idx.children[propertyName];
-                                    if (items) {
-                                        items.forEach(child => {
-                                            let childValue = null;
-                                            const autocompleteProp = child.split('.').pop();
-                                            const autocomplete = value?.value?.[autocompleteProp] || value?.[autocompleteProp];
-                                            if (idx.properties[propertyName]?.widget?.type === 'autocomplete' && autocomplete) childValue = autocomplete;
-                                            setValue(child, childValue);
-                                        });
-                                    }
-                                }
-                            } finally {
-                                if (changeField) {
-                                    field.onChange(value);
-                                    if (parentWatch?.[CHANGE] && name.startsWith('$.edit.')) {
-                                        const old = {...parentWatch};
-                                        parentWatch[name.split('.').pop()] = value;
-                                        parentWatch[CHANGE]({data: old, newData: parentWatch});
-                                    }
-                                }
+                        }
+                    } finally {
+                        if (changeField) {
+                            field.onChange(value);
+                            if (parentWatch?.[CHANGE] && name.startsWith('$.edit.')) {
+                                const old = {...parentWatch};
+                                parentWatch[name.split('.').pop()] = value;
+                                parentWatch[CHANGE]({data: old, newData: parentWatch});
                             }
                         }
-                    },
-                    inputClass(idx, classes, propertyName, className),
-                    inputWidget,
-                    idx.properties[propertyName],
-                    dropdowns,
-                    parentWatch,
-                    loading,
-                    getValues,
-                    counter,
-                    methods
-                )}
-            />
+                    }
+                }
+            },
+            inputClass(idx, classes, propertyName, className),
+            inputWidget,
+            idx.properties[propertyName],
+            dropdowns,
+            parentWatch,
+            loading,
+            getValues,
+            counter,
+            methods
         );
+        return name ? <Controller
+            control={control}
+            name={name}
+            render={render}
+        /> : render({field: {}, fieldState: {}});
     }, [classes, control, dropdowns, idx, loading, setValue, watch, getValues, visibleProperties, methods]);
 
     const InputWrapEdit = React.useCallback(
@@ -325,67 +337,79 @@ const Form: ComponentProps = ({
             : null;
     }, [errors]);
 
+    const field = (flex: string, cardName: string, classes: Card['classes'], init = {}) => function field(widget, ind) {
+        if (typeof widget === 'string') widget = {name: widget};
+        const {
+            name = '',
+            id,
+            propertyName = name.replace('$.edit.', '')
+        } = widget;
+        const parent = name.match(/^\$\.edit\.[^.]+/)?.[0].replace('.edit.', '.selected.');
+        const property = idx.properties[propertyName];
+        const {
+            field: fieldClass = (typeof property === 'function') ? 'grid' : 'field grid',
+            label: labelClass
+        } = {...init, ...classes?.default, ...classes?.[propertyName]};
+        function Field() {
+            if (typeof property === 'function') {
+                return property({
+                    name,
+                    Input: name.startsWith('$.edit.') ? InputWrapEdit : InputWrap,
+                    Label,
+                    ErrorLabel
+                });
+            }
+            return (
+                <InputWrap
+                    label={<Label name={propertyName} className={labelClass}/>}
+                    error={<ErrorLabel name={propertyName} className={labelClass} />}
+                    propertyName={propertyName}
+                    parent={parent}
+                    name=''
+                    {...widget as object}
+                />
+            );
+        }
+        return (property || name === '') ? <ConfigField
+            className={clsx(fieldClass, flex)}
+            key={id || name || widget.label}
+            index={ind}
+            card={cardName}
+            move={move}
+            design={design}
+            name={name}
+            label={property?.title}
+        >
+            {Field()}
+        </ConfigField> : <div className="field grid" key={name}>❌ {name}</div>;
+    };
+
     function card(cardName, index1, index2) {
         if (typeof cardName === 'object') cardName = cardName.name;
-        const {label, widgets = [], flex, hidden, classes} = (cards[cardName] || {label: '❌ ' + cardName});
+        const {label, widgets = [], flex, hidden, classes, type} = (cards[cardName] || {label: '❌ ' + cardName});
+        if (type === 'toolbar') {
+            return widgets.length > 0 && widgets.map(field(flex, cardName, classes, {field: '', label: ''}));
+        }
         return (
             <ConfigCard title={label} key={`${index1}-${index2}`} className='card mb-3' card={cardName} id={cardName} index1={index1} index2={index2} move={move} flex={flex} design={design} hidden={hidden}>
                 {widgets.length > 0 && <div className={clsx(flex && 'flex flex-wrap')}>
-                    {widgets.map((widget, ind) => {
-                        if (typeof widget === 'string') widget = {name: widget};
-                        const {
-                            name,
-                            id,
-                            propertyName = name.replace('$.edit.', '')
-                        } = widget;
-                        const parent = name.match(/^\$\.edit\.[^.]+/)?.[0].replace('.edit.', '.selected.');
-                        const property = idx.properties[propertyName];
-                        const {
-                            field: fieldClass = (typeof property === 'function') ? 'grid' : 'field grid',
-                            label: labelClass
-                        } = {...classes?.default, ...classes?.[propertyName]};
-                        function Field() {
-                            if (typeof property === 'function') {
-                                return property({
-                                    name,
-                                    Input: name.startsWith('$.edit.') ? InputWrapEdit : InputWrap,
-                                    Label,
-                                    ErrorLabel
-                                });
-                            }
-                            return (
-                                <InputWrap
-                                    label={<Label name={propertyName} className={labelClass}/>}
-                                    error={<ErrorLabel name={propertyName} className={labelClass} />}
-                                    propertyName={propertyName}
-                                    parent={parent}
-                                    {...widget}
-                                />
-                            );
-                        }
-                        return property ? <ConfigField
-                            className={clsx(fieldClass, flex)}
-                            key={id || name}
-                            index={ind}
-                            card={cardName}
-                            move={move}
-                            design={design}
-                            name={name}
-                            label={property.title}
-                        >
-                            {Field()}
-                        </ConfigField> : <div className="field grid" key={name}>❌ {name}</div>;
-                    })}
+                    {widgets.map(field(flex, cardName, classes))}
                 </div>}
             </ConfigCard>
         );
     }
 
     const {devTool} = React.useContext(Context);
+    let toolbarElement = null;
+    if (toolbarRef?.current && cards[toolbar]) {
+        const {widgets = [], flex, classes} = cards[toolbar];
+        if (widgets.length) toolbarElement = ReactDOM.createPortal(widgets.map(field(flex, toolbar, classes, {field: '', label: ''})), toolbarRef.current);
+    }
 
     return (<>
         {devTool ? <DevTool control={control} placement="top-right" /> : null}
         {toast}
+        {toolbarElement}
         <form {...rest} onSubmit={formSubmit(handleSubmit)} className={clsx('grid col align-self-start', classes.form, className)}>
             {
                 !!Object.keys(errors).length && <div className='col-12'>

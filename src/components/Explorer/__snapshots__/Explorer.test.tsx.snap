@@ -13,7 +13,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
       <div />
     </div>
     <div
-      class="p-toolbar p-component"
+      class="p-toolbar p-component border-none"
       role="toolbar"
       style="background: none;"
     >

@@ -8,7 +8,7 @@ describe('<Navigator />', () => {
     it('render equals snapshot', async() => {
         const { getByTestId } = render(<Navigator
             fetch={() => Promise.resolve({
-                items: [...Array(50).keys()].map(number => ({
+                items: Array.from(Array(50).keys()).map(number => ({
                     id: String(number),
                     name: `Item ${number}`,
                     parent: number >= 10 ? String(number % 10) : undefined

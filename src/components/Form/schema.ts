@@ -57,7 +57,7 @@ function validation(name, field, required) {
     return result.label(field.title || name);
 }
 
-export default function getValidation(schema: Schema | Property, filter?: string[], path: string = '') : Joi.Schema {
+export default function getValidation(schema: Schema | Property, filter?: string[], path = '') : Joi.Schema {
     return Object.entries(schema?.properties || {}).reduce(
         (prev, [name, field]) => {
             if ('properties' in field) {
@@ -75,4 +75,4 @@ export default function getValidation(schema: Schema | Property, filter?: string
             ...filter?.includes('$original') && {$original: Joi.any()}
         })
     );
-};
+}

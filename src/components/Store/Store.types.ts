@@ -5,7 +5,7 @@ export interface MenuItem extends PrimeMenuItem {
     title: string;
     path?: string;
     component?: () => any;
-    tab?: ({}) => Promise<{
+    tab?: (params: object) => Promise<{
         title: string;
         component?: () => any
     }>,
@@ -23,7 +23,7 @@ export interface State {
         message: string;
         type: string;
         statusCode: number;
-        params: {};
+        params: object;
     };
     loader?: {
         open: boolean;
@@ -46,7 +46,7 @@ export interface State {
             title: string;
             path: string;
             Component: React.FC;
-            params?: {}
+            params?: object
         }[];
         hideTabs?: boolean;
         menu: MenuItem[];

@@ -5,4 +5,4 @@ const toggle = state => !state;
 
 export default function useToggle(initialValue = false) {
     return useReducer(toggle, initialValue);
-};
+}

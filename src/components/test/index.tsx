@@ -30,4 +30,4 @@ export function render(children: React.ReactNode, initialStore: State = {}) : Re
         </Store>
     </DndProvider>;
     return testRender(store);
-};
+}

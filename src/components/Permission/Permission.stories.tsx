@@ -1,7 +1,6 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
 
-// @ts-ignore: md file and not a module
 import page from './README.mdx';
 import Permission from './index';
 import type { Props } from './Permission.types';
@@ -18,43 +17,43 @@ const meta: Meta = {
 };
 export default meta;
 
-const Template: Story<Props & {state: {}}> = ({state, ...args}) =>
+const Template: Story<Props & {state: object}> = ({state, ...args}) =>
     <Permission {...args}>
         <div className='p-component'>
             Permissions checked: {String(args.permission)}
         </div>
     </Permission>;
 
-export const Basic: Story<Props> = Template.bind({});
+export const Basic: Story<Partial<Props>> = Template.bind({});
 Basic.args = {
     permission: undefined
 };
 
-export const Granted: Story<Props> = Template.bind({});
+export const Granted: Story<Partial<Props>> = Template.bind({});
 Granted.args = {
     ...Basic.args,
     permission: 'granted'
 };
 
-export const Multiple: Story<Props> = Template.bind({});
+export const Multiple: Story<Partial<Props>> = Template.bind({});
 Multiple.args = {
     ...Basic.args,
     permission: ['granted', 'pageXYZ']
 };
 
-export const Wildcard: Story<Props> = Template.bind({});
+export const Wildcard: Story<Partial<Props>> = Template.bind({});
 Wildcard.args = {
     ...Basic.args,
     permission: 'pageXYZ'
 };
 
-export const Denied: Story<Props> = Template.bind({});
+export const Denied: Story<Partial<Props>> = Template.bind({});
 Denied.args = {
     ...Basic.args,
     permission: 'denied'
 };
 
-export const AnyDenied: Story<Props> = Template.bind({});
+export const AnyDenied: Story<Partial<Props>> = Template.bind({});
 AnyDenied.args = {
     ...Basic.args,
     permission: ['denied', 'granted']

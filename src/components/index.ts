@@ -3,6 +3,7 @@ import * as hooks from './hooks';
 
 export { hooks, prime };
 
+export { default as ActionButton } from './ActionButton';
 export { default as App } from './App';
 export { default as Async } from './Async';
 export { default as Button } from './Button';

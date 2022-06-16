@@ -10,6 +10,7 @@ describe('<Loader />', () => {
         } = render(<Loader />, {
             loader: {
                 open: true,
+                requests: 0,
                 message: 'Loading...'
             }
         });

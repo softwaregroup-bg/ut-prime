@@ -10,7 +10,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /**
      * Default params for the message
      */
-    params?: {}
+    params?: object
 }
 
 export const useStyles = createUseStyles({

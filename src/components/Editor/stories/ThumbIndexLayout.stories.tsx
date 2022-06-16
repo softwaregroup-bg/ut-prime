@@ -54,20 +54,17 @@ export const ThumbIndexLayout = () =>
                 }, {
                     id: 'efg',
                     icon: 'pi pi-list',
-                    items: [
-                        {
-                            label: 'E and F',
-                            id: 'ef',
-                            items: [{label: 'E', id: 'e'}, {label: 'F', id: 'f'}],
-                            widgets: ['e', ['f1', 'f2']]
-                        },
-                        {
-                            label: 'G',
-                            id: 'g',
-                            items: [{label: 'G', id: 'g'}],
-                            widgets: ['g']
-                        }
-                    ]
+                    items: [{
+                        label: 'E and F',
+                        id: 'ef',
+                        items: [{label: 'E', id: 'e'}, {label: 'F', id: 'f'}],
+                        widgets: ['e', ['f1', 'f2']]
+                    }, {
+                        label: 'G',
+                        id: 'g',
+                        items: [{label: 'G', id: 'g'}],
+                        widgets: ['g']
+                    }]
                 }]
             }
         }}

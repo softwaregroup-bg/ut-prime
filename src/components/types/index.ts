@@ -2,12 +2,16 @@ import type React from 'react';
 import type { JSONSchema7 } from 'json-schema'; // eslint-disable-line
 import type { Schema as Validation } from 'joi';
 import type { MenuItem } from 'primereact/menuitem';
+import type { DataTableProps } from 'primereact/datatable';
 import type { ColumnProps } from 'primereact/column';
+
+export type DataTable = Omit<DataTableProps, 'children'>;
 
 export interface PropertyEditor {
     type?:
         'autocomplete' |
         'boolean' |
+        'button' |
         'date-time' |
         'date' |
         'dropdown' |
@@ -35,9 +39,9 @@ export interface PropertyEditor {
     column?: ColumnProps;
     pivot?: {
         dropdown?: string;
-        examples?: {}[];
-        master?: {};
-        join: {}
+        examples?: object[];
+        master?: object;
+        join: object
     };
     [editorProperties: string]: any
 }
@@ -76,8 +80,8 @@ export interface Property extends JSONSchema7 {
     sort?: boolean;
     action?: ({
         id: any,
-        current: {},
-        selected: []
+        current: object,
+        selected: array
     }) => void;
     body?: string;
     widget?: PropertyEditor,
@@ -103,15 +107,21 @@ export interface PropertyEditors {
 }
 
 export type WidgetReference = string | {
-    name: string,
+    name?: string,
     id?: string,
+    label?: string,
+    type?: PropertyEditor['type'],
+    className?: string,
+    permission?: string,
+    action?: string,
+    params?: object,
     selectionPath?: string,
     propertyName?: string,
-    actions?: {},
-    widgets?: any[],
+    actions?: object,
+    widgets?: string[],
     hidden?: string[],
     compare?: string,
-    filter?: {},
+    filter?: object,
     disabled?: boolean
 }
 export interface Card {
@@ -120,6 +130,7 @@ export interface Card {
     watch?: string;
     match?: any;
     className?: string;
+    type?: 'toolbar' | 'card';
     classes?: {
         [name: string]: {
             field?: string,
@@ -136,9 +147,13 @@ export interface Cards {
 }
 
 interface IndexItem extends MenuItem {
-    id: string;
+    id?: string;
     items?: IndexItem[];
     widgets?: (string | string[])[];
+}
+
+interface IndexItemId extends IndexItem {
+    id: string;
 }
 
 interface Index extends MenuItem {
@@ -146,7 +161,7 @@ interface Index extends MenuItem {
     items?: IndexItem[];
 }
 export interface Layouts {
-    [name: string]: (string | string[])[] | Index
+    [name: string]: (string | string[])[] | Index | IndexItemId[]
 }
 
 export interface Action {
@@ -155,7 +170,8 @@ export interface Action {
     enabled?: string | boolean;
     action: ({
         id: any,
-        current: {},
-        selected: []
-    }) => void;
+        current: object,
+        selected: array
+    }) => void | string;
+    params?: object;
 }

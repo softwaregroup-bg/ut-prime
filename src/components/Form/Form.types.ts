@@ -1,4 +1,3 @@
-import {createUseStyles} from 'react-jss';
 import React from 'react';
 import type { Schema as Validation } from 'joi';
 
@@ -17,20 +16,14 @@ export interface Props extends React.HTMLAttributes<HTMLFormElement> {
     validation?: Validation;
     design?: boolean;
     debug?: boolean;
-    onSubmit?: (data: {}) => void | Promise<void>;
-    setTrigger?: (trigger: (event: {}) => void) => void;
+    onSubmit?: (data: object) => void | Promise<void>;
+    setTrigger?: (trigger: (event: object) => void) => void;
     triggerNotDirty?: boolean;
     autoSubmit?: boolean;
+    toolbarRef?: React.MutableRefObject<HTMLDivElement>;
+    toolbar?: string;
     value?: any;
-    methods?: any;
+    methods?: object;
 }
-
-export const useStyles = createUseStyles({
-    form: {
-        '& .p-datatable-wrapper': {
-            overflowX: 'auto'
-        }
-    }
-});
 
 export type ComponentProps = React.FC<Props>

@@ -1,7 +1,6 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
 
-// @ts-ignore: md file and not a module
 import page from './README.mdx';
 import type { Props } from './Portal.types';
 import Portal from './index';
@@ -17,7 +16,7 @@ const meta: Meta = {
 };
 export default meta;
 
-const Template: Story<Props & {state: {}}> = ({state, ...args}) => <Portal {...args} />;
+const Template: Story<Props & {state: object}> = ({state, ...args}) => <Portal {...args} />;
 
 export const Basic: Story<Props> = Template.bind({});
 Basic.args = {
@@ -30,7 +29,7 @@ Basic.args = {
                     return (
                         <Explorer
                             fetch={() => Promise.resolve({
-                                items: [...Array(50).keys()].map(number => ({
+                                items: Array.from(Array(50).keys()).map(number => ({
                                     id: number,
                                     name: `Item ${number}`,
                                     size: number * 10

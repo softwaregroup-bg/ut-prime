@@ -2,7 +2,6 @@ import React from 'react';
 import type { Meta } from '@storybook/react';
 import Joi from 'joi';
 
-// @ts-ignore: md file and not a module
 import page from './README.mdx';
 import Report from './index';
 import { Properties } from '../types';

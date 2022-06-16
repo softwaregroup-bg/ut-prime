@@ -10,7 +10,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
     <div />
   </div>
   <div
-    class="p-toolbar p-component"
+    class="p-toolbar p-component border-none border-bottom-1 border-50"
     role="toolbar"
     style="background: none;"
   >
@@ -19,7 +19,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
     >
       <button
         aria-label="save"
-        class="p-button p-component p-button-icon-only p-disabled"
+        class="p-button p-component mr-2 p-button-icon-only p-disabled"
         data-testid="saveButton"
         disabled=""
       >
@@ -32,6 +32,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
            
         </span>
       </button>
+      <div />
     </div>
     <div
       class="p-toolbar-group-right"
@@ -734,7 +735,7 @@ exports[`<Editor /> CascadedDropdowns render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="p-toolbar p-component"
+    class="p-toolbar p-component border-none border-bottom-1 border-50"
     role="toolbar"
     style="background: none;"
   >
@@ -743,7 +744,7 @@ exports[`<Editor /> CascadedDropdowns render equals snapshot 1`] = `
     >
       <button
         aria-label="save"
-        class="p-button p-component p-button-icon-only"
+        class="p-button p-component mr-2 p-button-icon-only"
         data-testid="saveButton"
       >
         <span
@@ -755,6 +756,7 @@ exports[`<Editor /> CascadedDropdowns render equals snapshot 1`] = `
            
         </span>
       </button>
+      <div />
     </div>
     <div
       class="p-toolbar-group-right"
@@ -1009,7 +1011,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="p-toolbar p-component"
+    class="p-toolbar p-component border-none border-bottom-1 border-50"
     role="toolbar"
     style="background: none;"
   >
@@ -1018,7 +1020,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
     >
       <button
         aria-label="save"
-        class="p-button p-component p-button-icon-only"
+        class="p-button p-component mr-2 p-button-icon-only"
         data-testid="saveButton"
       >
         <span
@@ -1030,6 +1032,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
            
         </span>
       </button>
+      <div />
     </div>
     <div
       class="p-toolbar-group-right"
@@ -2087,7 +2090,7 @@ exports[`<Editor /> CustomEditors render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="p-toolbar p-component"
+    class="p-toolbar p-component border-none border-bottom-1 border-50"
     role="toolbar"
     style="background: none;"
   >
@@ -2096,7 +2099,7 @@ exports[`<Editor /> CustomEditors render equals snapshot 1`] = `
     >
       <button
         aria-label="save"
-        class="p-button p-component p-button-icon-only p-disabled"
+        class="p-button p-component mr-2 p-button-icon-only p-disabled"
         data-testid="saveButton"
         disabled=""
       >
@@ -2109,6 +2112,7 @@ exports[`<Editor /> CustomEditors render equals snapshot 1`] = `
            
         </span>
       </button>
+      <div />
     </div>
     <div
       class="p-toolbar-group-right"
@@ -2301,7 +2305,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
     <div />
   </div>
   <div
-    class="p-toolbar p-component"
+    class="p-toolbar p-component border-none border-bottom-1 border-50"
     role="toolbar"
     style="background: none;"
   >
@@ -2310,7 +2314,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
     >
       <button
         aria-label="save"
-        class="p-button p-component p-button-icon-only p-disabled"
+        class="p-button p-component mr-2 p-button-icon-only p-disabled"
         data-testid="saveButton"
         disabled=""
       >
@@ -2323,6 +2327,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
            
         </span>
       </button>
+      <div />
     </div>
     <div
       class="p-toolbar-group-right"
@@ -3487,7 +3492,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
     <div />
   </div>
   <div
-    class="p-toolbar p-component"
+    class="p-toolbar p-component border-none border-bottom-1 border-50"
     role="toolbar"
     style="background: none;"
   >
@@ -3496,7 +3501,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
     >
       <button
         aria-label="save"
-        class="p-button p-component p-button-icon-only p-disabled"
+        class="p-button p-component mr-2 p-button-icon-only p-disabled"
         data-testid="saveButton"
         disabled=""
       >
@@ -3509,6 +3514,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
            
         </span>
       </button>
+      <div />
     </div>
     <div
       class="p-toolbar-group-right"
@@ -3831,7 +3837,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="p-toolbar p-component"
+    class="p-toolbar p-component border-none border-bottom-1 border-50"
     role="toolbar"
     style="background: none;"
   >
@@ -3840,7 +3846,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
     >
       <button
         aria-label="save"
-        class="p-button p-component p-button-icon-only p-disabled"
+        class="p-button p-component mr-2 p-button-icon-only p-disabled"
         data-testid="saveButton"
         disabled=""
       >
@@ -3853,6 +3859,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
            
         </span>
       </button>
+      <div />
     </div>
     <div
       class="p-toolbar-group-right"
@@ -4174,7 +4181,7 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="p-toolbar p-component"
+    class="p-toolbar p-component border-none border-bottom-1 border-50"
     role="toolbar"
     style="background: none;"
   >
@@ -4183,7 +4190,7 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
     >
       <button
         aria-label="save"
-        class="p-button p-component p-button-icon-only p-disabled"
+        class="p-button p-component mr-2 p-button-icon-only p-disabled"
         data-testid="saveButton"
         disabled=""
       >
@@ -4196,6 +4203,7 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
            
         </span>
       </button>
+      <div />
     </div>
     <div
       class="p-toolbar-group-right"
@@ -4557,7 +4565,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="p-toolbar p-component"
+    class="p-toolbar p-component border-none border-bottom-1 border-50"
     role="toolbar"
     style="background: none;"
   >
@@ -4566,7 +4574,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
     >
       <button
         aria-label="save"
-        class="p-button p-component p-button-icon-only p-disabled"
+        class="p-button p-component mr-2 p-button-icon-only p-disabled"
         data-testid="saveButton"
         disabled=""
       >
@@ -4579,6 +4587,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
            
         </span>
       </button>
+      <div />
     </div>
     <div
       class="p-toolbar-group-right"
@@ -4627,7 +4636,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                 <div
                   class="p-card-title"
                 >
-                  Schedule (hardcoded pivot)
+                  Schedule (static pivot)
                 </div>
                 <div
                   class="p-card-content"
@@ -5911,7 +5920,7 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
       class="flex-col col"
     >
       <div
-        class="p-toolbar p-component"
+        class="p-toolbar p-component border-none border-bottom-1 border-50"
         role="toolbar"
         style="background: none;"
       >
@@ -5920,7 +5929,7 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
         >
           <button
             aria-label="save"
-            class="p-button p-component p-button-icon-only p-disabled"
+            class="p-button p-component mr-2 p-button-icon-only p-disabled"
             data-testid="saveButton"
             disabled=""
           >
@@ -5933,6 +5942,7 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
                
             </span>
           </button>
+          <div />
         </div>
         <div
           class="p-toolbar-group-right"
@@ -6043,7 +6053,7 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
       class="flex-col col"
     >
       <div
-        class="p-toolbar p-component"
+        class="p-toolbar p-component border-none border-bottom-1 border-50"
         role="toolbar"
         style="background: none;"
       >
@@ -6052,7 +6062,7 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
         >
           <button
             aria-label="save"
-            class="p-button p-component p-button-icon-only p-disabled"
+            class="p-button p-component mr-2 p-button-icon-only p-disabled"
             data-testid="saveButton"
             disabled=""
           >
@@ -6065,6 +6075,7 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
                
             </span>
           </button>
+          <div />
         </div>
         <div
           class="p-toolbar-group-right"
@@ -6176,7 +6187,7 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
       class="flex-col col"
     >
       <div
-        class="p-toolbar p-component"
+        class="p-toolbar p-component border-none border-bottom-1 border-50"
         role="toolbar"
         style="background: none;"
       >
@@ -6185,7 +6196,7 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
         >
           <button
             aria-label="save"
-            class="p-button p-component p-button-icon-only p-disabled"
+            class="p-button p-component mr-2 p-button-icon-only p-disabled"
             data-testid="saveButton"
             disabled=""
           >
@@ -6198,6 +6209,7 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
                
             </span>
           </button>
+          <div />
         </div>
         <div
           class="p-toolbar-group-right"
@@ -6313,7 +6325,7 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="p-toolbar p-component"
+    class="p-toolbar p-component border-none border-bottom-1 border-50"
     role="toolbar"
     style="background: none;"
   >
@@ -6322,7 +6334,7 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
     >
       <button
         aria-label="save"
-        class="p-button p-component p-button-icon-only p-disabled"
+        class="p-button p-component mr-2 p-button-icon-only p-disabled"
         data-testid="saveButton"
         disabled=""
       >
@@ -6335,6 +6347,7 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
            
         </span>
       </button>
+      <div />
     </div>
     <div
       class="p-toolbar-group-right"
@@ -7127,7 +7140,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="p-toolbar p-component"
+    class="p-toolbar p-component border-none border-bottom-1 border-50"
     role="toolbar"
     style="background: none;"
   >
@@ -7136,7 +7149,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
     >
       <button
         aria-label="save"
-        class="p-button p-component p-button-icon-only p-disabled"
+        class="p-button p-component mr-2 p-button-icon-only p-disabled"
         data-testid="saveButton"
         disabled=""
       >
@@ -7149,6 +7162,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
            
         </span>
       </button>
+      <div />
     </div>
     <div
       class="p-toolbar-group-right"
@@ -7853,7 +7867,7 @@ exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="p-toolbar p-component"
+    class="p-toolbar p-component border-none border-bottom-1 border-50"
     role="toolbar"
     style="background: none;"
   >
@@ -7862,7 +7876,7 @@ exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
     >
       <button
         aria-label="save"
-        class="p-button p-component p-button-icon-only p-disabled"
+        class="p-button p-component mr-2 p-button-icon-only p-disabled"
         data-testid="saveButton"
         disabled=""
       >
@@ -7875,6 +7889,7 @@ exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
            
         </span>
       </button>
+      <div />
     </div>
     <div
       class="p-toolbar-group-right"
@@ -8250,7 +8265,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
     <div />
   </div>
   <div
-    class="p-toolbar p-component"
+    class="p-toolbar p-component border-none border-bottom-1 border-50"
     role="toolbar"
     style="background: none;"
   >
@@ -8259,7 +8274,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
     >
       <button
         aria-label="save"
-        class="p-button p-component p-button-icon-only p-disabled"
+        class="p-button p-component mr-2 p-button-icon-only p-disabled"
         data-testid="saveButton"
         disabled=""
       >
@@ -8272,6 +8287,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
            
         </span>
       </button>
+      <div />
     </div>
     <div
       class="p-toolbar-group-right"
@@ -8739,7 +8755,7 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="p-toolbar p-component"
+    class="p-toolbar p-component border-none border-bottom-1 border-50"
     role="toolbar"
     style="background: none;"
   >
@@ -8748,7 +8764,7 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
     >
       <button
         aria-label="save"
-        class="p-button p-component p-button-icon-only p-disabled"
+        class="p-button p-component mr-2 p-button-icon-only p-disabled"
         data-testid="saveButton"
         disabled=""
       >
@@ -8761,6 +8777,7 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
            
         </span>
       </button>
+      <div />
     </div>
     <div
       class="p-toolbar-group-right"
@@ -9120,7 +9137,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
     <div />
   </div>
   <div
-    class="p-toolbar p-component"
+    class="p-toolbar p-component border-none border-bottom-1 border-50"
     role="toolbar"
     style="background: none;"
   >
@@ -9129,7 +9146,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
     >
       <button
         aria-label="save"
-        class="p-button p-component p-button-icon-only"
+        class="p-button p-component mr-2 p-button-icon-only"
         data-testid="saveButton"
       >
         <span
@@ -9141,6 +9158,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
            
         </span>
       </button>
+      <div />
     </div>
     <div
       class="p-toolbar-group-right"

@@ -32,7 +32,7 @@ export default (state = {open: false, title: '', message: '', type: '', params: 
         return {
             ...state,
             open: true,
-            title: title,
+            title,
             message: msg,
             statusCode,
             type,

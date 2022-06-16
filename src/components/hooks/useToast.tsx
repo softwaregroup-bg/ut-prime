@@ -17,4 +17,4 @@ export default function useToast(props) {
         toast: <Toast ref={toast}/>,
         submit
     };
-};
+}

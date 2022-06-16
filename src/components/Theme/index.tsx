@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import React from 'react';
 import { ThemeProvider as Provider, createUseStyles } from 'react-jss';
 import merge from 'ut-function.merge';
@@ -38,7 +39,7 @@ export interface Theme {
     },
     fontSize?: number;
     name?: string,
-    palette: {
+    palette?: {
         type: 'dark' | 'light' | 'dark-compact' | 'light-compact';
     }
 }

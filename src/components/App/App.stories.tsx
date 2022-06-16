@@ -1,7 +1,6 @@
 import React from 'react';
 import type { Meta } from '@storybook/react';
 
-// @ts-ignore: md file and not a module
 import page from './README.mdx';
 import App from './index';
 import state from '../test/state';
@@ -13,7 +12,7 @@ const meta: Meta = {
 };
 export default meta;
 
-export const Basic: React.FC<{}> = ({children}) => {
+export const Basic: React.FC<object> = ({children}) => {
     return <App
         portalName='test app'
         state={state}

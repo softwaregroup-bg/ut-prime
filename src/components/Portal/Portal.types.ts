@@ -3,8 +3,7 @@ import React from 'react';
 
 import logo from '../images/logo.png';
 
-export interface Props {
-}
+export type Props = object
 
 export const useStyles = createUseStyles({
     headerContainer: {

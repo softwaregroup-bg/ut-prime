@@ -9,7 +9,7 @@ async function call(callback, dispatch) {
             type: 'front.error.open',
             error
         });
-    };
+    }
 }
 
 export default function useLoad(callback, dependencies = []) {

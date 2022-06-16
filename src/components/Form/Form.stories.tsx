@@ -3,7 +3,6 @@ import type { Story, Meta } from '@storybook/react';
 import { userEvent } from '@storybook/testing-library';
 import { within } from '@testing-library/react';
 
-// @ts-ignore: md file and not a module
 import page from './README.mdx';
 import type { Props } from './Form.types';
 import Form from './index';
@@ -25,7 +24,7 @@ const Template: Story<Props> = args =>
         <Form {...args} />
     </div>;
 
-export const Basic: Story<Props> = Template.bind({});
+export const Basic: Story<Partial<Props>> = Template.bind({});
 
 Basic.args = {
     ...tree,
@@ -35,12 +34,12 @@ Basic.args = {
     onSubmit: () => {}
 };
 
-export const Input: Story<Props> = Template.bind({});
+export const Input: Story<Partial<Props>> = Template.bind({});
 
 Input.args = {
     ...input,
     layout: ['left', 'center', 'right'],
-    dropdowns: dropdowns,
+    dropdowns,
     value: {input: {}},
     onSubmit: () => {}
 };
@@ -87,11 +86,11 @@ Input.play = async({canvasElement}) => {
     within(within(canvas.getByTestId('input-multiSelectTreeTable')).getByRole('row', {name: 'One'})).getAllByRole('checkbox')[0].click();
 };
 
-export const Table: Story<Props> = Template.bind({});
+export const Table: Story<Partial<Props>> = Template.bind({});
 Table.args = {
     ...input,
     layout: ['table'],
-    dropdowns: dropdowns,
+    dropdowns,
     value: {table: [{input: 'test'}]},
     onSubmit: () => {}
 };

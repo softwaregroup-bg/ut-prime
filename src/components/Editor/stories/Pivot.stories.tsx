@@ -95,7 +95,7 @@ export const Pivot = () =>
         }}
         cards={{
             schedule: {
-                label: 'Schedule (hardcoded pivot)',
+                label: 'Schedule (static pivot)',
                 widgets: [{
                     name: 'schedule',
                     widgets: ['weekdayName', 'startTime', 'endTime']

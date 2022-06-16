@@ -55,7 +55,7 @@ const defaultErrorMessagingMapping = {
 };
 
 export class Validator {
-    config: {};
+    config: object;
     errorMapping: any;
 
     constructor(config) {

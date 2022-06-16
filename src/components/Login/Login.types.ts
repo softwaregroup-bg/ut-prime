@@ -6,7 +6,7 @@ import bottomImage from './images/bottomLogo.png';
 import error from '../images/error.png';
 
 export interface ILoginProps {
-    identityCheck: ({}) => Promise<{}>;
+    identityCheck: (params: object) => Promise<object>;
 }
 
 export const useStyles = createUseStyles({

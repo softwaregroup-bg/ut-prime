@@ -25,7 +25,7 @@ const editStyle = { width: '7rem' };
 const editBodyStyle = { textAlign: 'center' };
 const sameString = (a, b) => a === b || (a != null && b != null && String(a) === String(b));
 
-const defaults = (properties : Properties, rows: {}[]) =>
+const defaults = (properties : Properties, rows: object[]) =>
     Object.fromEntries(
         Object.entries(properties)
             .map(([key, value]) => getDefault(key, value, rows)).filter(Boolean));
@@ -42,7 +42,7 @@ const masterFilter = (master, filter) => master && Object.fromEntries(
 const noRows = Object.freeze([]);
 const radioColumns = Object.freeze(['radio', 'select-table-radio']);
 
-export default React.forwardRef<{}, any>(function Table({
+export default React.forwardRef<object, any>(function Table({
     name,
     id: resultSet = name,
     onChange,
@@ -131,8 +131,7 @@ export default React.forwardRef<{}, any>(function Table({
         const originalIndex = data[INDEX];
         const {[NEW]: ignore, $pivot, [KEY]: key, [CHANGE]: change, [INDEX]: index, ...values} = newData;
         for (const [key, value] of Object.entries(properties)) {
-            // @ts-ignore Property 'widget' does not exist on type 'unknown'
-            if (!radioColumns.includes(value?.widget?.type) || !values[key]) continue;
+            if (!radioColumns.includes((value as any)?.widget?.type) || !values[key]) continue;
             for (let id = 0; id < changed.length; id++) {
                 if (!changed[id][key]) continue;
                 if (id !== originalIndex) changed[id][key] = false;

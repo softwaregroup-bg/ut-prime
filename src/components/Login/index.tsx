@@ -149,7 +149,7 @@ type Action = {
         type: string,
         message: string
     },
-    result?: {}
+    result?: object
 } | {
     type: 'logout'
 } | {
@@ -163,7 +163,7 @@ const updateLoginStep = (state, step) => {
     const loginStep = loginSteps[step];
     const currentInputs = state.inputs;
 
-    const inputs = Object.entries(loginStep.inputs).map(([name, input]: [string, {}]) => ({
+    const inputs = Object.entries(loginStep.inputs).map(([name, input]: [string, object]) => ({
         ...input,
         value: currentInputs[name]?.value,
         disabled: loginStep.disabledFields.includes(name)

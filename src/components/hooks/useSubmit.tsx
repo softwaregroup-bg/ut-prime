@@ -21,7 +21,7 @@ function call(submit, dispatch, toast) {
                     life: 15000
                 });
             }
-        };
+        }
     };
 }
 

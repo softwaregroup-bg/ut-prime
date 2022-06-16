@@ -2,7 +2,6 @@ import React from 'react';
 import type { Story, Meta } from '@storybook/react';
 import { userEvent, within } from '@storybook/testing-library';
 
-// @ts-ignore: md file and not a module
 import page from './README.mdx';
 import Editor from './index';
 import type { Props } from './Editor.types';
@@ -35,7 +34,7 @@ const Template: Story<Props> = args => {
     );
 };
 
-export const Basic: Story<Props> = Template.bind({});
+export const Basic: Story<Partial<Props>> = Template.bind({});
 Basic.args = {
     id: 1,
     object: 'tree',
@@ -60,19 +59,19 @@ Basic.args = {
     })
 };
 
-export const Loading: Story<Props> = Template.bind({});
+export const Loading: Story<Partial<Props>> = Template.bind({});
 Loading.args = {
     ...Basic.args,
     onGet: params => new Promise((resolve, reject) => {})
 };
 
-export const Design: Story<Props> = Template.bind({});
+export const Design: Story<Partial<Props>> = Template.bind({});
 Design.args = {
     ...Basic.args,
     design: true
 };
 
-export const Tabs: Story<Props> = Template.bind({});
+export const Tabs: Story<Partial<Props>> = Template.bind({});
 Tabs.args = {
     ...Basic.args,
     layouts: {
@@ -97,7 +96,7 @@ Tabs.args = {
     }
 };
 
-export const Submit: Story<Props> = Template.bind({});
+export const Submit: Story<Partial<Props>> = Template.bind({});
 Submit.args = Basic.args;
 Submit.play = async({canvasElement}) => {
     const canvas = within(canvasElement);
@@ -106,11 +105,35 @@ Submit.play = async({canvasElement}) => {
     userEvent.click(canvas.getByLabelText('save'));
 };
 
-export const Validation: Story<Props> = Template.bind({});
+export const Validation: Story<Partial<Props>> = Template.bind({});
 Validation.args = Basic.args;
 Validation.play = async({canvasElement}) => {
     const canvas = within(canvasElement);
     await canvas.findByDisplayValue('Oak'); // wait for the data to be loaded
     userEvent.clear(canvas.getByLabelText('Name'));
     userEvent.click(canvas.getByLabelText('save'));
+};
+
+export const Toolbar: Story<Partial<Props>> = Template.bind({});
+Toolbar.args = {
+    ...Basic.args,
+    cards: {
+        ...Basic.args.cards,
+        toolbar: {
+            type: 'toolbar',
+            widgets: [{
+                type: 'button',
+                id: 'button1',
+                action: 'subject.object.predicate',
+                params: {},
+                label: 'Browse'
+            }, {
+                type: 'button',
+                id: 'button1',
+                action: 'subject.object.predicate',
+                params: {id: 1},
+                label: 'Open'
+            }]
+        }
+    }
 };

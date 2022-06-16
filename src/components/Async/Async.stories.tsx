@@ -1,7 +1,6 @@
 import React from 'react';
 import type { Meta } from '@storybook/react';
 
-// @ts-ignore: md file and not a module
 import page from './README.mdx';
 import Async from './index';
 
@@ -17,4 +16,4 @@ const Delay = () => new Promise<React.FC>((resolve, reject) => {
     setTimeout(() => resolve(Loaded), 1000);
 });
 
-export const Basic: React.FC<{}> = () => <Async component={Delay} />;
+export const Basic: React.FC = () => <Async component={Delay} />;

@@ -9,7 +9,7 @@ class Permission extends Component {
         numberFormat: PropTypes.func,
         checkPermission: PropTypes.func,
         implementationStyle: PropTypes.object
-    }
+    };
 
     getChildContext() {
         return {

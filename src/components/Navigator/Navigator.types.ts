@@ -1,4 +1,3 @@
-import {createUseStyles} from 'react-jss';
 import React from 'react';
 
 export interface Props {
@@ -21,16 +20,13 @@ export interface Props {
     /**
      * Data fetching async function.
      */
-    fetch: (params: {}) => Promise<{}>;
+    fetch: (params: object) => Promise<object>;
     className?: string;
     /**
      * Name of the field, which defines the parent-child relation in the hierarchy
      */
     parentField?: string;
-    onSelect?: (key: any) => void;
+    onSelect?: (key: string | number) => void;
 }
-
-export const useStyles = createUseStyles({
-});
 
 export type ComponentProps = React.FC<Props>

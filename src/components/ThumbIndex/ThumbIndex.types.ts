@@ -1,4 +1,3 @@
-import {createUseStyles} from 'react-jss';
 import React from 'react';
 import type { MenuItem } from 'primereact/menuitem';
 
@@ -14,8 +13,5 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     orientation?: 'left' | 'top',
     onFilter: (filter: any) => void
 }
-
-export const useStyles = createUseStyles({
-});
 
 export type ComponentProps = React.FC<Props>

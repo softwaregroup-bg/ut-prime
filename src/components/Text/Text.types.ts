@@ -2,7 +2,7 @@ import React from 'react';
 
 export interface Props extends React.HTMLAttributes<HTMLSpanElement> {
     prefix?: string;
-    params?: {};
+    params?: object;
 }
 
 export type ComponentProps = React.FC<Props>

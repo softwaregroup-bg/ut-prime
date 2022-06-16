@@ -1,7 +1,6 @@
 import React from 'react';
 import type { Meta } from '@storybook/react';
 
-// @ts-ignore: md file and not a module
 import page from './README.mdx';
 import Gate from './index';
 
@@ -25,5 +24,5 @@ const meta: Meta = {
 };
 export default meta;
 
-export const Basic: React.FC<{}> = () =>
+export const Basic: React.FC = () =>
     <Gate><div className='p-component'>Gate body</div></Gate>;

@@ -1,4 +1,5 @@
 import { push } from 'connected-react-router';
+import flatten from 'ut-function.flatten';
 
 export default store => next => async action => {
     switch (action.type) {
@@ -8,7 +9,7 @@ export default store => next => async action => {
             if (!action.path) {
                 let query;
                 if (Object.keys(params).length) {
-                    query = new URLSearchParams(params);
+                    query = new URLSearchParams(flatten(params, 5));
                     query.sort();
                     query = '?' + query.toString();
                 } else query = '';

@@ -21,7 +21,7 @@ const backgroundNone = {background: 'none'};
 
 const capital = (string: string) => string.charAt(0).toUpperCase() + string.slice(1);
 
-function handleArray(result: {}, properties) {
+function handleArray(result: object, properties) {
     Object.entries(result).forEach(([name, value]) => {
         // back end wrongly returned an array with a single item
         if (Array.isArray(value) && properties[name]?.properties) result[name] = value[0];
@@ -33,6 +33,7 @@ const empty = {title: undefined};
 
 function getLayout(cards: Cards, layouts: Layouts, mode: 'create' | 'edit', name = '') {
     let layoutName = mode + capital(name);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let items: any = layouts?.[layoutName];
     if (!items && mode !== 'edit' && !cards[layoutName]) {
         layoutName = 'edit' + capital(name);
@@ -45,12 +46,17 @@ function getLayout(cards: Cards, layouts: Layouts, mode: 'create' | 'edit', name
         layout = items;
         items = false;
     } else layout = !items && [layoutName];
-    return [items, layout, orientation || 'left'];
+    let toolbar = `toolbar${capital(mode)}${capital(name)}`;
+    if (!cards[toolbar]) toolbar = `toolbar${capital(name)}`;
+    if (!cards[toolbar]) toolbar = `toolbar${capital(mode)}`;
+    if (!cards[toolbar]) toolbar = 'toolbar';
+    return [items, layout, orientation || 'left', toolbar];
 }
 
 const Editor: ComponentProps = ({
     object,
     id,
+    init: initValue,
     schema = {},
     editors,
     debug,
@@ -75,9 +81,9 @@ const Editor: ComponentProps = ({
     const [keyValue, setKeyValue] = React.useState(id);
     const [trigger, setTrigger] = React.useState();
     const [value, setEditValue] = React.useState({});
-    const [loadedValue, setLoadedValue] = React.useState<{}>();
+    const [loadedValue, setLoadedValue] = React.useState<object>();
     const [dropdowns, setDropdown] = React.useState({});
-    const [[items, layout, orientation], setIndex] = React.useState(() => getLayout(cards, layouts, id == null ? 'create' : 'edit', layoutName));
+    const [[items, layout, orientation, toolbar], setIndex] = React.useState(() => getLayout(cards, layouts, id == null ? 'create' : 'edit', layoutName));
     const [filter, setFilter] = React.useState(items?.[0]?.items?.[0] || items?.[0]);
     const [loading, setLoading] = React.useState('loading');
     const [validation, dropdownNames, getValue] = React.useMemo(() => {
@@ -145,8 +151,11 @@ const Editor: ComponentProps = ({
     async function init() {
         setLoading('loading');
         setDropdown(await onDropdown(dropdownNames));
+        if (initValue !== undefined) setEditValue(getValue(initValue));
         setLoading('');
     }
+
+    const toolbarRef = React.useRef(null);
 
     React.useEffect(() => {
         if (loadedValue !== undefined) setEditValue(getValue(loadedValue));
@@ -186,16 +195,19 @@ const Editor: ComponentProps = ({
     return (
         <>
             <Toolbar
+                className='border-none border-bottom-1 border-50'
                 style={backgroundNone}
-                left={
+                left={<>
                     <Button
                         icon='pi pi-save'
                         onClick={trigger}
                         disabled={!trigger || !!loading}
                         aria-label='save'
+                        className='mr-2'
                         {...testid(name + 'saveButton')}
                     />
-                }
+                    <div ref={toolbarRef}></div>
+                </>}
                 right={<>
                     <Button
                         icon='pi pi-cog'
@@ -224,6 +236,8 @@ const Editor: ComponentProps = ({
                         loading={loading}
                         setTrigger={setTrigger}
                         validation={validation}
+                        toolbarRef={toolbarRef}
+                        toolbar={toolbar}
                     />
                     {design && <div className='col-2 flex-column'>
                         <Card title='Fields' className='mb-2'>

@@ -12,12 +12,10 @@ import { StoreComponent } from './Store.types';
 
 const composeEnhancers = composeWithDevTools({
     serialize: true,
-    actionSanitizer: action => {
-        // @ts-ignore
+    actionSanitizer: (action: any) => {
         if (action.type.toString() === 'Symbol(REDUCE)' && action.reducer) {
             return {
                 ...action,
-                // @ts-ignore
                 type: `handler ${action.reducer.name}`
             };
         } else if (typeof action.type === 'symbol') {

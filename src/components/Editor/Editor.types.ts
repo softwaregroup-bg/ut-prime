@@ -1,10 +1,10 @@
-import {createUseStyles} from 'react-jss';
 import React from 'react';
 
 import type {Schema, Editors, Cards, Dropdowns, Layouts} from '../types';
 export interface Props {
     object?: string,
-    id?: any,
+    id?: string | number,
+    init?: object,
     schema?: Schema,
     editors?: Editors,
     type?: string,
@@ -18,14 +18,13 @@ export interface Props {
     keyField?: string,
     resultSet?: string,
     design?: boolean,
-    methods?: any,
+    methods?: {
+        [key: string]: (params: object) => Promise<void>
+    },
     onDropdown?: (params: string[]) => Promise<Dropdowns>,
-    onAdd?: (params: {}) => Promise<{}>,
-    onGet?: (params: {}) => Promise<{}>,
-    onEdit?: (params: {}) => Promise<{}>
+    onAdd?: (params: object) => Promise<object>,
+    onGet?: (params: object) => Promise<object>,
+    onEdit?: (params: object) => Promise<object>
 }
-
-export const useStyles = createUseStyles({
-});
 
 export type ComponentProps = React.FC<Props>
