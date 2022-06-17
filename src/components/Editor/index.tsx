@@ -172,8 +172,8 @@ const Editor: ComponentProps = ({
             }
             const value = merge({}, data[0], response);
             setEditValue(value);
-            setIndex(getLayout(cards, layouts, 'edit', typeField ? lodashGet(value, typeField) : ''));
-        }, [keyValue, onEdit, getValue, onAdd, keyField, resultSet, properties, layouts, cards, typeField]
+            setIndex(getLayout(cards, layouts, 'edit', layoutName || (typeField ? lodashGet(value, typeField) : '')));
+        }, [keyValue, onEdit, getValue, onAdd, keyField, resultSet, properties, layouts, cards, typeField, layoutName]
     );
 
     useLoad(async() => {

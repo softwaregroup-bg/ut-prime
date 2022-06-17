@@ -9,6 +9,7 @@ export type DataTable = Omit<DataTableProps, 'children'>;
 
 export interface PropertyEditor {
     type?:
+        'string' |
         'autocomplete' |
         'boolean' |
         'button' |
