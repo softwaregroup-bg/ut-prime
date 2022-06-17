@@ -2,13 +2,14 @@ import {LOGOUT} from '../Login/actions';
 
 import errorMessage from './errorMessage';
 
-export default (state = {open: false, title: '', message: '', type: '', params: {}}, action) => {
+export default (state = {open: false, title: '', message: '', details: '', type: '', params: {}}, action) => {
     if (['front.error.close', LOGOUT].includes(action.type)) {
         return {
             ...state,
             open: false,
             title: '',
             message: '',
+            details: '',
             statusCode: 200,
             type: '',
             params: {}
@@ -18,6 +19,7 @@ export default (state = {open: false, title: '', message: '', type: '', params: 
         if (action.suppressErrorWindow) return state;
         const msg = (errorMessage(action.error) || errorMessage(state.message));
         const params = action.error.params || {};
+        const details = msg === 'Unexpected error' ? action.error?.message : '';
         const statusMessage = action.error.statusMessage;
         const statusCode = action.error.statusCode;
         let title = 'Error';
@@ -34,6 +36,7 @@ export default (state = {open: false, title: '', message: '', type: '', params: 
             open: true,
             title,
             message: msg,
+            details,
             statusCode,
             type,
             params

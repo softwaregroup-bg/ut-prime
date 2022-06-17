@@ -14,6 +14,7 @@ describe('<Error />', () => {
                 title: '',
                 type: '',
                 message: '',
+                details: '',
                 params: {},
                 statusCode: 200
             }
@@ -30,6 +31,7 @@ describe('<Error />', () => {
                 title: '',
                 type: '',
                 message: 'Error {message}',
+                details: '',
                 params: {
                     message: 'dynamic param'
                 },

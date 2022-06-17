@@ -21,6 +21,7 @@ export interface State {
         open: boolean;
         title: string;
         message: string;
+        details: string;
         type: string;
         statusCode: number;
         params: object;

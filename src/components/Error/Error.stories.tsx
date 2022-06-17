@@ -22,6 +22,7 @@ export const Basic = () => <Error message='Error message' />;
 export const InvalidCredentials = () => <Error />;
 export const InterpolateProps = () => <Error message='Error {message}' params={{message: 'message'}} />;
 export const InterpolateRedux = () => <Error />;
+export const Details = () => <Error />;
 
 InvalidCredentials.args = {
     state: {
@@ -42,6 +43,18 @@ InterpolateRedux.args = {
             params: {
                 message: 'dynamic'
             },
+            title: 'Error'
+        }
+    }
+};
+
+Details.args = {
+    state: {
+        error: {
+            open: true,
+            message: 'Unknown error',
+            details: 'Details',
+            type: 'core.throttle',
             title: 'Error'
         }
     }

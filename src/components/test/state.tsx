@@ -7,6 +7,7 @@ const defaultState: State = {
         title: '',
         message: '',
         type: '',
+        details: '',
         statusCode: 200,
         params: {}
     },

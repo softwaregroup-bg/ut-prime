@@ -18,7 +18,7 @@ const Error: ComponentProps = ({ message: errorMessage, params: errorParams }) =
     let closable = true;
     let actionButtons;
 
-    const {open, title: header, message, type, statusCode, params} = useSelector(selectError);
+    const {open, title: header, message, type, statusCode, params, details} = useSelector(selectError);
     const dispatch = useDispatch();
     const unauthorized = (type === 'identity.invalidCredentials') || (statusCode === 401);
     const handleClose = React.useCallback(() => dispatch(unauthorized ? logout() : {type: 'front.error.close'}), [dispatch, unauthorized]);
@@ -45,6 +45,9 @@ const Error: ComponentProps = ({ message: errorMessage, params: errorParams }) =
             <div className={classes.errorButtonWrap}>
                 {actionButtons}
             </div>
+            {details ? <div>
+                {details}
+            </div> : null}
         </Dialog>
     ) : null;
 };
