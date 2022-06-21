@@ -1,3 +1,12 @@
+## [2.5.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.5.0...v2.5.1) (2022-06-21)
+
+
+### Bug Fixes
+
+* server validation path array ([06e4488](https://github.com/softwaregroup-bg/ut-prime/commit/06e4488503aa262854c9255e1bf764c99cbf6f08))
+
+
+
 # [2.5.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.4.1...v2.5.0) (2022-06-17)
 
 
