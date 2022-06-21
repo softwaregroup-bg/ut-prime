@@ -114,6 +114,34 @@ Validation.play = async({canvasElement}) => {
     userEvent.click(canvas.getByLabelText('save'));
 };
 
+const serverError = () => {
+    interface ValidationError extends Error {
+        validation: {path: string[], message: string}[];
+    }
+    const error = new Error('Server error');
+    (error as ValidationError).validation = [{
+        path: ['tree', 'treeName'],
+        message: 'Duplicate name'
+    }, {
+        path: ['tree', 'treeType'],
+        message: 'Invalid Type'
+    }];
+    throw error;
+};
+
+export const ServerValidation: Story<Partial<Props>> = Template.bind({});
+ServerValidation.args = {
+    ...Basic.args,
+    onAdd: serverError,
+    onEdit: serverError
+};
+ServerValidation.play = async({canvasElement}) => {
+    const canvas = within(canvasElement);
+    await canvas.findByDisplayValue('Oak'); // wait for the data to be loaded
+    userEvent.type(canvas.getByLabelText('Description'), 'test');
+    userEvent.click(canvas.getByLabelText('save'));
+};
+
 export const Toolbar: Story<Partial<Props>> = Template.bind({});
 Toolbar.args = {
     ...Basic.args,

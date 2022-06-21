@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { render } from '../test';
-import { Basic, Loading, Design, Tabs, Submit, Validation } from './Editor.stories';
+import { Basic, Loading, Design, Tabs, Submit, Validation, ServerValidation } from './Editor.stories';
 import {CascadedDropdowns} from './stories/CascadedDropdowns.stories';
 import {CascadedTables} from './stories/CascadedTables.stories';
 import {CustomEditors} from './stories/CustomEditors.stories';
@@ -85,6 +85,11 @@ describe('<Editor />', () => {
     it('Validation render equals snapshot', async() => {
         const { findByTestId, container } = render(<Validation {...Validation.args} />);
         await Validation.play({canvasElement: container});
+        expect(await findByTestId('ut-front-test')).toMatchSnapshot();
+    });
+    it('Server validation render equals snapshot', async() => {
+        const { findByTestId, container } = render(<ServerValidation {...ServerValidation.args} />);
+        await ServerValidation.play({canvasElement: container});
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
 });

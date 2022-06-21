@@ -167,7 +167,7 @@ const Form: ComponentProps = ({
             } catch (error) {
                 if (!Array.isArray(error.validation)) throw error;
                 error.validation.forEach(({path = '', message = ''} = {}) => {
-                    if (path && message) setError(path, {message});
+                    if (path && message) setError(Array.isArray(path) ? path.join('.') : path, {message});
                 });
             }
         },
