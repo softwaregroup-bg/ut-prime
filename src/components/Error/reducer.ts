@@ -19,7 +19,7 @@ export default (state = {open: false, title: '', message: '', details: '', type:
         if (action.suppressErrorWindow) return state;
         const msg = (errorMessage(action.error) || errorMessage(state.message));
         const params = action.error.params || {};
-        const details = msg === 'Unexpected error' ? action.error?.message : '';
+        const details = action.error.print ? '' : action.error?.message;
         const statusMessage = action.error.statusMessage;
         const statusCode = action.error.statusCode;
         let title = 'Error';

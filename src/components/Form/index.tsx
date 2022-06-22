@@ -166,8 +166,12 @@ const Form: ComponentProps = ({
                 return await onSubmit([form, idx]);
             } catch (error) {
                 if (!Array.isArray(error.validation)) throw error;
-                error.validation.forEach(({path = '', message = ''} = {}) => {
-                    if (path && message) setError(Array.isArray(path) ? path.join('.') : path, {message});
+                error.validation.forEach(({path = [], message = ''} = {}) => {
+                    if (path && message) {
+                        if (Array.isArray(path)) {
+                            if (path[0] === 'params') setError(path.slice(1).join('.'), {message});
+                        } else setError(path, {message});
+                    }
                 });
             }
         },

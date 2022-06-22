@@ -120,10 +120,10 @@ const serverError = () => {
     }
     const error = new Error('Server error');
     (error as ValidationError).validation = [{
-        path: ['tree', 'treeName'],
+        path: ['params', 'tree', 'treeName'],
         message: 'Duplicate name'
     }, {
-        path: ['tree', 'treeType'],
+        path: ['params', 'tree', 'treeType'],
         message: 'Invalid Type'
     }];
     throw error;
