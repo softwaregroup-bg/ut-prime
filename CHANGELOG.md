@@ -1,3 +1,12 @@
+## [2.5.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.5.1...v2.5.2) (2022-06-22)
+
+
+### Bug Fixes
+
+* error handling ([5a0fc22](https://github.com/softwaregroup-bg/ut-prime/commit/5a0fc22b10a290a7cfcab942ba4730bf32bbb342))
+
+
+
 ## [2.5.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.5.0...v2.5.1) (2022-06-21)
 
 
