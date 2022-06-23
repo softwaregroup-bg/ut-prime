@@ -144,7 +144,7 @@ export default function input(
         case 'autocomplete': {
             const {autocomplete} = schema.widget;
             const handleComplete = async({query}) => (
-                autocomplete && field.onChange({...field.value, ...await methods[autocomplete]({query})})
+                autocomplete && field.onChange({...field.value, value: query, ...await methods[autocomplete]({query})})
             );
             const handleChange = ({value}) => field.onChange({value});
             const handleSelect = ({value}) => field.onChange(value);
