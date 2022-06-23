@@ -1,3 +1,12 @@
+## [2.6.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.6.0...v2.6.1) (2022-06-23)
+
+
+### Bug Fixes
+
+* set latest value ([bf35ed0](https://github.com/softwaregroup-bg/ut-prime/commit/bf35ed0cd44a0f2f8a271754cd6d66bd1dc141fb))
+
+
+
 # [2.6.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.5.2...v2.6.0) (2022-06-23)
 
 
