@@ -1,4 +1,4 @@
-const lazy = /(primereact[/\\]resources[/\\]themes[/\\].+\.css$)/i;
+const lazy = /primereact[/\\]resources[/\\]themes[/\\].+\.css$/i;
 
 module.exports = {
     webpackFinal: (config) => {

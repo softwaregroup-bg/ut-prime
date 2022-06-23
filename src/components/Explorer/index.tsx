@@ -232,8 +232,11 @@ const Explorer: ComponentProps = ({
         {buttons}
     </>, [navigationToggle, buttons, hasChildren, resultSet]);
     const right = React.useMemo(() =>
-        details && <Button {...testid(`${resultSet}.details.toggleButton`)} icon="pi pi-bars" className="mr-2" onClick={detailsToggle}/>,
-    [details, detailsToggle, resultSet]);
+        <>
+            <Button icon="pi pi-refresh" className="mr-2" onClick={load} />
+            {details && <Button {...testid(`${resultSet}.details.toggleButton`)} icon="pi pi-bars" className="mr-2" onClick={detailsToggle}/>}
+        </>,
+    [details, detailsToggle, resultSet, load]);
 
     const table = <DataTable
         autoLayout

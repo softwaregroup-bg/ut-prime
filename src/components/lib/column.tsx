@@ -1,5 +1,5 @@
 import React from 'react';
-import { Checkbox, Dropdown, SelectButton, RadioButton, Calendar, InputMask, InputText, InputTextarea, InputNumber, Password } from '../prime';
+import { Checkbox, Dropdown, SelectButton, RadioButton, Calendar, DateRange, InputMask, InputText, InputTextarea, InputNumber, Password } from '../prime';
 import { Property } from '../types';
 import titleCase from './titleCase';
 import getType from './getType';
@@ -137,16 +137,45 @@ export default function columnProps({
             };
             break;
         case 'date':
+            filterElement = filterBy && <DateRange
+                value={tableFilter?.filters?.[fieldName]?.value}
+                onChange={filterBy(fieldName, 'value')}
+                {...testid(filterId)}
+                {...props}
+                id={filterId}
+                name={filterId}
+            />;
             body = function body(rowData) {
                 return dateOrNull(rowData[fieldName])?.toLocaleDateString();
             };
             break;
         case 'time':
+            filterElement = filterBy && <DateRange
+                value={tableFilter?.filters?.[fieldName]?.value}
+                onChange={filterBy(fieldName, 'value')}
+                showTime
+                showSeconds
+                timeOnly
+                {...testid(filterId)}
+                {...props}
+                id={filterId}
+                name={filterId}
+            />;
             body = function body(rowData) {
-                return dateOrNull(rowData[fieldName])?.toLocaleTimeString();
+                return dateOrNull(rowData[fieldName])?.toISOString().slice(11, 19);
             };
             break;
         case 'date-time':
+            filterElement = filterBy && <DateRange
+                value={tableFilter?.filters?.[fieldName]?.value}
+                onChange={filterBy(fieldName, 'value')}
+                showTime
+                showSeconds
+                {...testid(filterId)}
+                {...props}
+                id={filterId}
+                name={filterId}
+            />;
             body = function body(rowData) {
                 const value = rowData[fieldName];
                 if (value == null) return null;

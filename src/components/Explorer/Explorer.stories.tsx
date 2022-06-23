@@ -21,13 +21,15 @@ const Template: Story<{
     editPermission?: string,
     deletePermission?: string,
     details?: object,
-    children?: React.ReactNode
+    children?: React.ReactNode,
+    columns?: string[]
 }> = ({
     createPermission,
     editPermission,
     deletePermission,
     details,
-    children
+    children,
+    columns = ['name', 'size']
 }) => {
     const toast = React.useRef(null);
     const show = action => data => toast.current.show({
@@ -50,6 +52,24 @@ const Template: Story<{
                                 filter: true,
                                 sort: true
                             },
+                            date: {
+                                title: 'Date',
+                                filter: true,
+                                sort: true,
+                                format: 'date'
+                            },
+                            time: {
+                                title: 'Time',
+                                filter: true,
+                                sort: true,
+                                format: 'time'
+                            },
+                            dateTime: {
+                                title: 'Date and time',
+                                filter: true,
+                                sort: true,
+                                format: 'date-time'
+                            },
                             size: {
                                 title: 'Size',
                                 filter: true,
@@ -57,7 +77,7 @@ const Template: Story<{
                             }
                         }
                     }}
-                    columns = {['name', 'size']}
+                    columns = {columns}
                     subscribe={updateItems}
                     details={details}
                     filter={{}}
@@ -107,4 +127,10 @@ ActionPermissions.args = {
     createPermission: 'forbidden',
     editPermission: 'granted',
     deletePermission: 'forbidden'
+};
+
+export const DateTimeFilter = Template.bind({});
+DateTimeFilter.args = {
+    ...Basic.args,
+    columns: ['date', 'time', 'dateTime']
 };

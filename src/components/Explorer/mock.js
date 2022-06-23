@@ -1,11 +1,18 @@
+const startDate = new Date(2022, 5, 22).getTime();
 const filteredItems = (filterBy) => {
     return Object.entries(filterBy).reduce((items, [key, value]) => {
         return items.filter(i => {
-            return value === undefined || i[key] === value || (typeof value === 'string' && i[key].toString().toLowerCase().includes(value.toLowerCase()));
+            if (Array.isArray(value) && (value[0] instanceof Date || value[1] instanceof Date)) {
+                return (value[0] == null || value[0] <= i[key]) && (value[1] == null || i[key] < value[1]);
+            }
+            return value == null || i[key] === value || (typeof value === 'string' && i[key].toString().toLowerCase().includes(value.toLowerCase()));
         });
     }, [...Array(55).keys()].map(number => ({
         id: number,
         name: `Item ${number}`,
+        date: new Date(startDate + 1000 * 60 * 60 * 24 * number),
+        dateTime: new Date(startDate + 1000 * 60 * 60 * number),
+        time: new Date(1000 * 60 * 10 * number),
         size: number * 10
     })));
 };

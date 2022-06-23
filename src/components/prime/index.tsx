@@ -1,5 +1,7 @@
+import React from 'react';
 import type {DataTableProps} from 'primereact/datatable';
 
+import { Calendar } from 'primereact/calendar';
 export { AutoComplete } from 'primereact/autocomplete';
 export { Button } from 'primereact/button';
 export { Calendar } from 'primereact/calendar';
@@ -36,3 +38,28 @@ export { Toolbar } from 'primereact/toolbar';
 export { Tree } from 'primereact/tree';
 export { TreeSelect } from 'primereact/treeselect';
 export { TreeTable } from 'primereact/treetable';
+
+function dateRange(timeOnly) {
+    const today = timeOnly ? new Date(0) : new Date();
+    if (!timeOnly) today.setHours(0, 0, 0, 0);
+    return [today, new Date(today.getTime() + timeOnly ? 0 : 86400000)];
+}
+
+export const DateRange = props => {
+    const [visible, setVisible] = React.useState(false);
+    const value = React.useMemo(() => (visible && !props.value) ? dateRange(props.timeOnly) : props.value, [visible, props.value, props.timeOnly]);
+    const onVisibleChange = React.useCallback(event => {
+        setVisible(event.visible);
+    }, [setVisible]);
+    return <Calendar
+        showButtonBar
+        selectionMode='range'
+        showOnFocus={false}
+        showIcon
+        todayButtonClassName='hidden'
+        {...props}
+        visible={visible}
+        value={value}
+        onVisibleChange={onVisibleChange}
+    />;
+};
