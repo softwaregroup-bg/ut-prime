@@ -1,3 +1,12 @@
+# [2.6.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.5.2...v2.6.0) (2022-06-23)
+
+
+### Features
+
+* reload button, date filters ([a535123](https://github.com/softwaregroup-bg/ut-prime/commit/a535123f720f003856f58158a20bf5d67baa1ceb))
+
+
+
 ## [2.5.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.5.1...v2.5.2) (2022-06-22)
 
 
