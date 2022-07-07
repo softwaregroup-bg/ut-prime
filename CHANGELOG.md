@@ -1,3 +1,17 @@
+# [2.7.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.6.1...v2.7.0) (2022-07-07)
+
+
+### Bug Fixes
+
+* allow overriding widget label ([0b9fbb4](https://github.com/softwaregroup-bg/ut-prime/commit/0b9fbb4987ef8950fd708bf3882c909ec78c6cd0))
+
+
+### Features
+
+* Editor.onInit handler ([4d52cf3](https://github.com/softwaregroup-bg/ut-prime/commit/4d52cf3d3425f65b672919817f682201c164d70d))
+
+
+
 ## [2.6.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.6.0...v2.6.1) (2022-06-23)
 
 
