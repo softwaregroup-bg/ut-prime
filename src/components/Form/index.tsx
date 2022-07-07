@@ -326,8 +326,7 @@ const Form: ComponentProps = ({
         [InputWrap]
     );
 
-    const Label = React.useCallback(({name, className = 'col-12 md:col-4'}) => {
-        let label = idx.properties?.[name]?.title;
+    const Label = React.useCallback(({name, className = 'col-12 md:col-4', label = idx.properties?.[name]?.title}) => {
         if (label === undefined) label = titleCase(name.split('.').pop());
         return label
             ? <label className={className} htmlFor={name.replace(/\./g, '-')}>{label}</label>
@@ -365,12 +364,12 @@ const Form: ComponentProps = ({
             }
             return (
                 <InputWrap
-                    label={<Label name={propertyName} className={labelClass}/>}
-                    error={<ErrorLabel name={propertyName} className={labelClass} />}
                     propertyName={propertyName}
                     parent={parent}
                     name=''
                     {...widget as object}
+                    label={<Label name={propertyName} className={labelClass} label={widget.label}/>}
+                    error={<ErrorLabel name={propertyName} className={labelClass} />}
                 />
             );
         }
