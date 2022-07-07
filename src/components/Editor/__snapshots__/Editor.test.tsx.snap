@@ -2520,9 +2520,9 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                     <label
                       class="col-12"
                     >
-                      
+
                        
-                      
+
                     </label>
                   </div>
                 </div>
@@ -2582,9 +2582,9 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                     <label
                       class="col-12"
                     >
-                      
+
                        
-                      
+
                     </label>
                   </div>
                 </div>
@@ -2704,9 +2704,9 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                     <label
                       class="col-12"
                     >
-                      
+
                        
-                      
+
                     </label>
                   </div>
                 </div>
@@ -2766,9 +2766,9 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                     <label
                       class="col-12"
                     >
-                      
+
                        
-                      
+
                     </label>
                   </div>
                 </div>
@@ -2978,9 +2978,9 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                     <label
                       class="col-12"
                     >
-                      
+
                        
-                      
+
                     </label>
                   </div>
                 </div>
@@ -3239,9 +3239,9 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                     <label
                       class="col-12"
                     >
-                      
+
                        
-                      
+
                     </label>
                   </div>
                 </div>
@@ -9577,7 +9577,7 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
               <i
                 class="pi pi-user"
               >
-                 
+
               </i>
             </li>
             <li
@@ -9591,7 +9591,7 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
               <i
                 class="pi pi-id-card"
               >
-                 
+
               </i>
             </li>
             <li
@@ -9605,7 +9605,7 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
               <i
                 class="pi pi-list"
               >
-                 
+
               </i>
             </li>
           </ul>
@@ -9983,7 +9983,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                         class="col-12 md:col-8"
                       >
                         <input
-                          class="p-inputtext p-component w-full p-invalid"
+                          class="p-inputtext p-component p-filled w-full p-invalid"
                           id="tree-treeName"
                           name="tree.treeName"
                           type="text"
