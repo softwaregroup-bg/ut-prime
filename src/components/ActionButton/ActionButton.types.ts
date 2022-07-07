@@ -4,7 +4,11 @@ import type {ButtonProps} from 'primereact/button';
 export interface Props extends ButtonProps {
     permission?: string;
     enabled?: string | boolean;
-    action: string | ((params : object) => void);
+    action: (({
+        id: any,
+        current: object,
+        selected: array
+    }) => void) | string | ((params: object, $meta: object) => Promise<object>);
     params?: object;
     getValues: () => object;
 }

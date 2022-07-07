@@ -169,10 +169,10 @@ export interface Action {
     title: string;
     permission?: string;
     enabled?: string | boolean;
-    action: ({
+    action: (({
         id: any,
         current: object,
         selected: array
-    }) => void | string;
+    }) => void) | string | ((params: object, $meta: object) => Promise<object>);
     params?: object;
 }
