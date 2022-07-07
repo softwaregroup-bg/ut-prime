@@ -63,6 +63,7 @@ exports[`<Portal /> render equals snapshot 1`] = `
           >
             <li
               class="p-menuitem"
+              id="/profile"
               role="none"
             >
               <a
@@ -91,6 +92,7 @@ exports[`<Portal /> render equals snapshot 1`] = `
               >
                 <li
                   class="p-menuitem"
+                  id="/logout"
                   role="none"
                 >
                   <a

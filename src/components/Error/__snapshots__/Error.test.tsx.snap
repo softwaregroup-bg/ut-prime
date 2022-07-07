@@ -64,7 +64,7 @@ exports[`<Error /> render equals snapshot 1`] = `
       </button>
     </div>
   </div>
-  <div
+  <span
     class="p-resizable-handle"
     style="z-index: 90;"
   />
