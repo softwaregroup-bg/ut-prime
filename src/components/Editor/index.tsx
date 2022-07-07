@@ -71,6 +71,7 @@ const Editor: ComponentProps = ({
     design: designDefault,
     methods,
     onDropdown,
+    onInit,
     onAdd,
     onGet,
     onEdit
@@ -151,6 +152,7 @@ const Editor: ComponentProps = ({
     async function init() {
         setLoading('loading');
         setDropdown(await onDropdown(dropdownNames));
+        if (onInit) initValue = merge({}, initValue, await onInit(initValue));
         if (initValue !== undefined) setEditValue(getValue(initValue));
         setLoading('');
     }

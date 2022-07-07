@@ -22,6 +22,7 @@ export interface Props {
         [key: string]: (params: object) => Promise<void>
     },
     onDropdown?: (params: string[]) => Promise<Dropdowns>,
+    onInit?: (params: object) => Promise<object>,
     onAdd?: (params: object) => Promise<object>,
     onGet?: (params: object) => Promise<object>,
     onEdit?: (params: object) => Promise<object>
