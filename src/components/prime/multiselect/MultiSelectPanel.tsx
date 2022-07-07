@@ -7,7 +7,7 @@ import { VirtualScroller } from 'primereact/virtualscroller';
 import { MultiSelectHeader } from './MultiSelectHeader';
 import { MultiSelectItem } from './MultiSelectItem';
 
-export const MultiSelectPanel = React.memo(React.forwardRef((props, ref) => {
+export const MultiSelectPanel = React.memo(React.forwardRef((props: any, ref) => {
     const virtualScrollerRef = React.useRef(null);
 
     const onEnter = () => {

@@ -5,11 +5,13 @@ import page from './README.mdx';
 import type { Props } from './Portal.types';
 import Portal from './index';
 import Explorer from '../Explorer';
+import decorators from '../test/decorator';
 
 const meta: Meta = {
     title: 'Portal',
     component: Portal,
     parameters: {docs: {page}},
+    decorators,
     args: {
         state: {}
     }

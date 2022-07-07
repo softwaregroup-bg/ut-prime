@@ -5,11 +5,13 @@ import {Toast} from '../prime';
 import page from './README.mdx';
 import Explorer from './index';
 import {fetchItems, updateItems} from './mock';
+import decorators from '../test/decorator';
 
 const meta: Meta = {
     title: 'Explorer',
     component: Explorer,
     parameters: {docs: {page}},
+    decorators,
     args: {
         state: {}
     }

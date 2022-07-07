@@ -8,7 +8,8 @@ import { MultiSelectPanel } from './MultiSelectPanel';
 
 require('./MultiSelect.global.css');
 
-export const MultiSelect = React.memo(React.forwardRef((props, ref) => {
+
+export const MultiSelect: any = React.memo(React.forwardRef((props: any, ref) => {
     const [filterState, setFilterState] = React.useState('');
     const [focusedState, setFocusedState] = React.useState(false);
     const [overlayVisibleState, setOverlayVisibleState] = React.useState(props.inline);
@@ -21,7 +22,7 @@ export const MultiSelect = React.memo(React.forwardRef((props, ref) => {
     const equalityKey = props.optionValue ? null : props.dataKey;
 
     const [bindOverlayListener, unbindOverlayListener] = useOverlayListener({
-        target: elementRef, overlay: overlayRef, listener: (event, { type, valid }) => {
+        target: elementRef, overlay: overlayRef, listener: (event, { type, valid }: any) => {
             if (valid) {
                 (type === 'outside') ? !isClearClicked(event) && hide() : hide();
             }

@@ -8,11 +8,13 @@ import type { Props } from './Form.types';
 import Form from './index';
 import tree from '../test/tree';
 import {input, dropdowns} from '../test/input';
+import decorators from '../test/decorator';
 
 const meta: Meta = {
     title: 'Form',
     component: Form,
     parameters: {docs: {page}},
+    decorators,
     args: {
         state: {}
     }

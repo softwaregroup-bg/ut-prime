@@ -6,11 +6,13 @@ import Permission from './index';
 import type { Props } from './Permission.types';
 
 import state from '../test/state';
+import decorators from '../test/decorator';
 
 const meta: Meta = {
     title: 'Permission',
     component: Permission,
     parameters: {docs: {page}},
+    decorators,
     args: {
         state
     }

@@ -6,12 +6,14 @@ import page from './README.mdx';
 import Editor from './index';
 import type { Props } from './Editor.types';
 import tree from '../test/tree';
+import decorators from '../test/decorator';
 import useToast from '../hooks/useToast';
 
 const meta: Meta = {
     title: 'Editor',
     component: Editor,
     parameters: {docs: {page}},
+    decorators,
     args: {
         state: {}
     }

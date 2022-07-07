@@ -3,11 +3,13 @@ import type { Meta } from '@storybook/react';
 
 import page from './README.mdx';
 import Gate from './index';
+import decorators from '../test/decorator';
 
 const meta: Meta = {
     title: 'Internal/Gate',
     component: Gate,
     parameters: {docs: {page}},
+    decorators,
     args: {
         state: {
             login: {

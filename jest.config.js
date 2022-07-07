@@ -17,7 +17,7 @@ module.exports = {
         '^.+\\.(css|less|scss|png|ttf)$': 'babel-jest'
     },
     transform: {
-        '\\.[jt]sx?$': 'babel-jest',
+        '\\.[jt]sx?$': ['babel-jest', {configFile: require.resolve('./jest.babel.json')}],
         '^.+\\.mdx?$': './stub'
     }
 };

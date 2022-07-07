@@ -8,11 +8,13 @@ import Form from '../Form';
 import {Schema, PropertyEditor} from '../types';
 import {Toolbar, Button} from '../prime';
 import useToast from '../hooks/useToast';
+import decorators from '../test/decorator';
 
 const meta: Meta = {
     title: 'ThumbIndex',
     component: ThumbIndex,
     parameters: {docs: {page}},
+    decorators,
     args: {
         state: {}
     }

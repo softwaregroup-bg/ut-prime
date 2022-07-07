@@ -5,11 +5,13 @@ import Joi from 'joi';
 import page from './README.mdx';
 import Report from './index';
 import { Properties } from '../types';
+import decorators from '../test/decorator';
 
 const meta: Meta = {
     title: 'Report',
     component: Report,
     parameters: {docs: {page}},
+    decorators,
     args: {
         state: {}
     }

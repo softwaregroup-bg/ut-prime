@@ -4,7 +4,7 @@ import { InputText } from 'primereact/inputtext';
 import { Ripple } from 'primereact/ripple';
 import { ObjectUtils } from 'primereact/utils';
 
-export const MultiSelectHeader = React.memo((props) => {
+export const MultiSelectHeader: any = React.memo((props: any) => {
 
     const onFilter = (event) => {
         if (props.onFilter) {

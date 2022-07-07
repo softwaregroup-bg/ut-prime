@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Ripple } from 'primereact/ripple';
 import { classNames, ObjectUtils } from 'primereact/utils';
 
-export const MultiSelectItem = React.memo((props) => {
+export const MultiSelectItem: any = React.memo((props: any) => {
 
     const onClick = (event) => {
         if (props.onClick) {

@@ -3,11 +3,13 @@ import type { Meta } from '@storybook/react';
 
 import page from './README.mdx';
 import Error from './index';
+import decorators from '../test/decorator';
 
 const meta: Meta = {
     title: 'Error',
     component: Error,
     parameters: {docs: {page}},
+    decorators,
     args: {
         state: {
             error: {
