@@ -1,3 +1,13 @@
+## [2.7.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.7.0...v2.7.1) (2022-07-15)
+
+
+### Bug Fixes
+
+* remove hardcoded password length validation ([5a5e126](https://github.com/softwaregroup-bg/ut-prime/commit/5a5e12614640aea8c1b1bc87feaa5f67df52e0e4))
+* tab close testid ([eb2eb10](https://github.com/softwaregroup-bg/ut-prime/commit/eb2eb101bdad29b90a5438f2a08a683110bc0947))
+
+
+
 # [2.7.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.6.1...v2.7.0) (2022-07-07)
 
 
