@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { render } from '../test';
+import { render, act } from '../test';
 import { Basic, Loading, Design, Tabs, Submit, Validation, ServerValidation } from './Editor.stories';
 import {CascadedDropdowns} from './stories/CascadedDropdowns.stories';
 import {CascadedTables} from './stories/CascadedTables.stories';
@@ -35,12 +35,12 @@ describe('<Editor />', () => {
     });
     it('CascadedDropdowns render equals snapshot', async() => {
         const { findByTestId, container } = render(<CascadedDropdowns />);
-        await CascadedDropdowns.play({canvasElement: container});
+        await act(() => CascadedDropdowns.play({canvasElement: container}));
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
     it('CascadedTables render equals snapshot', async() => {
         const { findByTestId, container } = render(<CascadedTables />);
-        await CascadedTables.play({canvasElement: container});
+        await act(() => CascadedTables.play({canvasElement: container}));
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
     it('CustomEditors render equals snapshot', async() => {
@@ -49,12 +49,12 @@ describe('<Editor />', () => {
     });
     it('MasterDetail render equals snapshot', async() => {
         const { findByTestId, container } = render(<MasterDetail />);
-        await MasterDetail.play({canvasElement: container});
+        await act(() => MasterDetail.play({canvasElement: container}));
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
     it('MasterDetailPolymorphic render equals snapshot', async() => {
         const { findByTestId, container } = render(<MasterDetailPolymorphic />);
-        await MasterDetailPolymorphic.play({canvasElement: container});
+        await act(() => MasterDetailPolymorphic.play({canvasElement: container}));
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
     it('Pivot render equals snapshot', async() => {
@@ -79,17 +79,17 @@ describe('<Editor />', () => {
     });
     it('Submit render equals snapshot', async() => {
         const { findByTestId, container } = render(<Submit {...Submit.args} />);
-        await Submit.play({canvasElement: container});
+        await act(() => Submit.play({canvasElement: container}));
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
     it('Validation render equals snapshot', async() => {
         const { findByTestId, container } = render(<Validation {...Validation.args} />);
-        await Validation.play({canvasElement: container});
+        await act(() => Validation.play({canvasElement: container}));
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
     it('Server validation render equals snapshot', async() => {
         const { findByTestId, container } = render(<ServerValidation {...ServerValidation.args} />);
-        await ServerValidation.play({canvasElement: container});
+        await act(() => ServerValidation.play({canvasElement: container}));
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
 });

@@ -9,6 +9,7 @@ import merge from 'ut-function.merge';
 import Store from '../Store';
 import {State} from '../Store/Store.types';
 import defaultState from './state';
+export { act } from '@testing-library/react';
 
 config.disabled = true;
 window.HTMLElement.prototype.scrollIntoView = function() {};
