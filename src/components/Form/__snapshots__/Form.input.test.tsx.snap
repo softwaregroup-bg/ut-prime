@@ -49,6 +49,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                         class="p-inputtext p-component p-filled w-full"
                         id="input-input"
                         name="input.input"
+                        type="text"
                         value="input"
                       />
                     </div>

@@ -103,8 +103,8 @@ Submit.args = Basic.args;
 Submit.play = async({canvasElement}) => {
     const canvas = within(canvasElement);
     await canvas.findByDisplayValue('Oak'); // wait for the data to be loaded
-    userEvent.type(canvas.getByLabelText('Description'), 'test');
-    userEvent.click(canvas.getByLabelText('save'));
+    await userEvent.type(canvas.getByLabelText('Description'), 'test');
+    await userEvent.click(canvas.getByLabelText('save'));
 };
 
 export const Validation: Story<Partial<Props>> = Template.bind({});
@@ -112,8 +112,8 @@ Validation.args = Basic.args;
 Validation.play = async({canvasElement}) => {
     const canvas = within(canvasElement);
     await canvas.findByDisplayValue('Oak'); // wait for the data to be loaded
-    userEvent.clear(canvas.getByLabelText('Name'));
-    userEvent.click(canvas.getByLabelText('save'));
+    await userEvent.clear(canvas.getByLabelText('Name'));
+    await userEvent.click(canvas.getByLabelText('save'));
 };
 
 const serverError = () => {
@@ -140,8 +140,8 @@ ServerValidation.args = {
 ServerValidation.play = async({canvasElement}) => {
     const canvas = within(canvasElement);
     await canvas.findByDisplayValue('Oak'); // wait for the data to be loaded
-    userEvent.type(canvas.getByLabelText('Description'), 'test');
-    userEvent.click(canvas.getByLabelText('save'));
+    await userEvent.type(canvas.getByLabelText('Description'), 'test');
+    await userEvent.click(canvas.getByLabelText('save'));
 };
 
 export const Toolbar: Story<Partial<Props>> = Template.bind({});
