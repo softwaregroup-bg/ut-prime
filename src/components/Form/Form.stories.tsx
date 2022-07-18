@@ -49,8 +49,8 @@ Input.args = {
 Input.play = async({canvasElement}) => {
     const canvas = within(canvasElement);
     const body = within(document.body);
-    const clear = (role, id) => userEvent.clear(canvas.getByRole(role, {name: (name, el) => el.id === id}));
-    const type = (role, id, text) => userEvent.type(canvas.getByRole(role, {name: (name, el) => el.id === id}), text);
+    const clear = async(role, id) => userEvent.clear(await canvas.findByRole(role, {name: (name, el) => el.id === id}));
+    const type = async(role, id, text) => userEvent.type(await canvas.findByRole(role, {name: (name, el) => el.id === id}), text);
     const click = (id) => userEvent.click(canvas.getByTestId(id));
     const clickOption = async(id, name, role = 'option') => {
         id && click(id);
