@@ -1,7 +1,6 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
-import { within } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { userEvent, within } from '@storybook/testing-library';
 
 import page from './README.mdx';
 import Editor from './index';
