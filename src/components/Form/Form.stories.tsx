@@ -1,7 +1,6 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
-import userEvent from '@testing-library/user-event';
-import { within } from '@testing-library/react';
+import { userEvent, within } from '@storybook/testing-library';
 
 import page from './README.mdx';
 import type { Props } from './Form.types';
@@ -62,7 +61,7 @@ Input.play = async({canvasElement}) => {
     await clear('textbox', 'input-input');
     await type('textbox', 'input-input', 'input');
     await type('textbox', 'input-text', 'text');
-    await type('textbox', 'input-mask', '192168000001');
+    // await type('textbox', 'input-mask', '192168000001');
     await type('textbox', 'input-date', '01/31/2022');
     await type('textbox', 'input-time', '20:00');
     await click('input-boolean');
