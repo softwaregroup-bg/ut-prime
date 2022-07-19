@@ -9986,7 +9986,6 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                           class="p-inputtext p-component w-full p-invalid"
                           id="tree-treeName"
                           name="tree.treeName"
-                          type="text"
                           value=""
                         />
                       </div>
