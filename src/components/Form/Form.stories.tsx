@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
-import { userEvent, within } from '@storybook/testing-library';
+import userEvent from '@testing-library/user-event';
+import { within } from '@testing-library/react';
 
 import page from './README.mdx';
 import type { Props } from './Form.types';
