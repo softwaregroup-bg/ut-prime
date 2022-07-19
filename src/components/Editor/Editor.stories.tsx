@@ -114,7 +114,7 @@ Validation.play = async({canvasElement}) => {
     await canvas.findByDisplayValue('Oak'); // wait for the data to be loaded
     await userEvent.clear(canvas.getByLabelText('Name'));
     await userEvent.click(canvas.getByLabelText('save'));
-    await canvas.findByLabelText('Name', {selector: '.p-invalid'});
+    await canvas.findByRole('textbox', {name: 'Name', selector: '.p-invalid'});
 };
 
 const serverError = () => {
