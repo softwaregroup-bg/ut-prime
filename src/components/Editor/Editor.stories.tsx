@@ -116,6 +116,7 @@ Validation.play = async({canvasElement}) => {
     await userEvent.clear(canvas.getByLabelText('Name'));
     await userEvent.type(canvas.getByLabelText('Description'), 'test');
     await userEvent.click(canvas.getByLabelText('save'));
+    await new Promise(resolve => setTimeout(resolve, 1000));
 };
 
 const serverError = () => {
