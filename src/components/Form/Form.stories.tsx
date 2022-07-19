@@ -53,7 +53,7 @@ Input.play = async({canvasElement}) => {
     const type = async(role, id, text) => userEvent.type(await canvas.findByRole(role, {name: (name, el) => el.id === id}), text);
     const click = (id) => userEvent.click(canvas.getByTestId(id));
     const clickOption = async(id, name, role = 'option') => {
-        id && click(id);
+        id && await click(id);
         return (await body.findByRole(role, {name})).click();
     };
     const clickWithin = (id, name, role = 'option') => within(canvas.getByTestId(id)).getByRole(role, {name}).click();
