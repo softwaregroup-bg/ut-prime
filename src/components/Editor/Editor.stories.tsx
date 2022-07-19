@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
-import { userEvent, within } from '@storybook/testing-library';
+import { within } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import page from './README.mdx';
 import Editor from './index';
@@ -113,8 +114,8 @@ Validation.play = async({canvasElement}) => {
     const canvas = within(canvasElement);
     await canvas.findByDisplayValue('Oak'); // wait for the data to be loaded
     await userEvent.clear(canvas.getByLabelText('Name'));
+    await userEvent.type(canvas.getByLabelText('Description'), 'test');
     await userEvent.click(canvas.getByLabelText('save'));
-    await canvas.findByText('"Name" is required');
 };
 
 const serverError = () => {
