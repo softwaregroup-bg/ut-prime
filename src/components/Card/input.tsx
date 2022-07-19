@@ -18,13 +18,13 @@ import {
     FileUpload,
     Column,
     AutoComplete
-} from '../prime';
+} from 'ut-prime/src/components/prime';
 import { RefCallBack } from 'react-hook-form';
 
-import getType from '../lib/getType';
-import testid from '../lib/testid';
+import getType from 'ut-prime/src/components/lib/getType';
+import testid from 'ut-prime/src/components/lib/testid';
 import Table from './inputs/Table';
-import ActionButton from '../ActionButton';
+import ActionButton from 'ut-prime/src/components/ActionButton';
 
 const noActions = {allowAdd: false, allowEdit: false, allowDelete: false};
 
@@ -136,7 +136,7 @@ export default function input(
                     dropdowns={dropdowns}
                     getValues={getValues}
                     counter={counter}
-                    {...props.selectionPath && {selection: getValues(`${props.selectionPath}.${field.name}`) || []}}
+                    {...props.selectionPath && getValues && {selection: getValues(`${props.selectionPath}.${field.name}`) || []}}
                     {...props}
                 />
             </div>
@@ -144,7 +144,7 @@ export default function input(
         case 'autocomplete': {
             const {autocomplete} = schema.widget;
             const handleComplete = async({query}) => (
-                autocomplete && field.onChange({...field.value, value: query, ...await methods[autocomplete]({query})})
+                autocomplete && field.onChange({...field.value, value: query, ...await methods?.[autocomplete]({query})})
             );
             const handleChange = ({value}) => field.onChange({value});
             const handleSelect = ({value}) => field.onChange(value);

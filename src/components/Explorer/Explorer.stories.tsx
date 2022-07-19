@@ -31,7 +31,8 @@ const Template: Story<{
     deletePermission,
     details,
     children,
-    columns = ['name', 'size']
+    columns = ['name', 'size'],
+    ...props
 }) => {
     const toast = React.useRef(null);
     const show = action => data => toast.current.show({
@@ -98,6 +99,7 @@ const Template: Story<{
                         enabled: 'selected',
                         action: show('delete')
                     }]}
+                    {...props}
                 >
                     {children}
                 </Explorer>
@@ -135,4 +137,16 @@ export const DateTimeFilter = Template.bind({});
 DateTimeFilter.args = {
     ...Basic.args,
     columns: ['date', 'time', 'dateTime']
+};
+
+export const Grid = Template.bind({});
+Grid.args = {
+    ...Basic.args,
+    cards: {
+        grid: {
+            type: 'grid',
+            widgets: ['name']
+        }
+    },
+    layout: ['grid']
 };

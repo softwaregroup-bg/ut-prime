@@ -4,11 +4,13 @@ import merge from 'ut-function.merge';
 import clsx from 'clsx';
 import {createUseStyles} from 'react-jss';
 
-import { Button, DataTable, Column, Toolbar, Splitter, SplitterPanel } from '../prime';
+import Card from '../Card';
+import { Button, DataTable, DataView, Column, Toolbar, Splitter, SplitterPanel } from '../prime';
 import ActionButton from '../ActionButton';
 import Permission from '../Permission';
 import useToggle from '../hooks/useToggle';
 import useSubmit from '../hooks/useSubmit';
+import useLayout from '../hooks/useLayout';
 import columnProps, {TableFilter} from '../lib/column';
 import prepareSubmit from '../lib/prepareSubmit';
 
@@ -41,7 +43,7 @@ const Explorer: ComponentProps = ({
     keyField,
     fetch,
     subscribe,
-    schema: {properties = {}} = {},
+    schema,
     columns,
     resultSet,
     children,
@@ -52,9 +54,14 @@ const Explorer: ComponentProps = ({
     onDropdown,
     showFilter = true,
     pageSize = 10,
-    table: tableProps
+    table: tableProps,
+    layout,
+    cards,
+    editors,
+    methods
 }) => {
     const classes = useStyles();
+    const {properties} = schema;
     const [tableFilter, setFilters] = React.useState<TableFilter>({
         filters: columns?.reduce((prev : object, column) => {
             let field = fieldName(column);
@@ -237,8 +244,35 @@ const Explorer: ComponentProps = ({
             {details && <Button {...testid(`${resultSet}.details.toggleButton`)} icon="pi pi-bars" className="mr-2" onClick={detailsToggle}/>}
         </>,
     [details, detailsToggle, resultSet, load]);
+    const layoutState = useLayout(schema, cards, layout, editors);
+    const itemTemplate = React.useMemo(() => (item) => {
+        function renderItem() {
+            return <Card
+                index1={0}
+                index2={0}
+                cards={cards}
+                cardName={layout[0]}
+                layoutState={layoutState}
+                dropdowns={dropdowns}
+                methods={methods}
+            />;
+        }
+        return renderItem();
+    }, [cards, layout, layoutState, dropdowns, methods]);
 
-    const table = <DataTable
+    const table = layout ? <DataView
+        layout='grid'
+        lazy
+        rows={pageSize}
+        totalRecords={totalRecords}
+        paginator
+        first={tableFilter.first}
+        sortField={tableFilter.sortField}
+        sortOrder={tableFilter.sortOrder}
+        value={items}
+        onPage={handleFilterPageSort}
+        itemTemplate={itemTemplate}
+    /> : <DataTable
         autoLayout
         lazy
         rows={pageSize}

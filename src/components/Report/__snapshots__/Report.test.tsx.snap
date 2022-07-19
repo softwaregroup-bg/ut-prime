@@ -156,7 +156,7 @@ exports[`<Report /> render equals snapshot 1`] = `
     </button>
   </div>
   <div
-    class="flex flex-column h-full explorer-0-2-3"
+    class="flex flex-column h-full explorer-0-2-4"
   >
     <div
       class="p-toast p-component p-toast-top-right"
