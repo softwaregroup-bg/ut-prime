@@ -184,23 +184,23 @@ const Editor: ComponentProps = ({
     );
 
     const handleReset = React.useCallback(
-        async function handleReset (event) {
+        async function handleReset(event) {
             const accept = () => {
                 const value = loadedValue ? getValue(loadedValue) : {[resultSet]: null};
                 setEditValue(value);
                 setIndex(getLayout(cards, layouts, 'edit', layoutName || (typeField ? lodashGet(value, typeField) : '')));
                 setDidSubmit(false);
-            }
+            };
             if (!trigger) return accept();
             return confirmPopup({
                 target: event.currentTarget,
                 message: 'Changed data will not be saved. Are you sure you want to proceed?',
                 icon: 'pi pi-exclamation-triangle',
                 reject: () => {},
-                accept,
-            })
-        }, [trigger, cards, layouts, layoutName, typeField, loadedValue, getValue]
-    )
+                accept
+            });
+        }, [trigger, cards, layouts, layoutName, typeField, loadedValue, resultSet, getValue]
+    );
 
     useLoad(async() => {
         if (keyValue) await get();
