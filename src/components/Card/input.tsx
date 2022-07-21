@@ -19,13 +19,13 @@ import {
     FileUpload,
     Column,
     AutoComplete
-} from 'ut-prime/src/components/prime';
+} from '../prime';
 import { RefCallBack } from 'react-hook-form';
 
-import getType from 'ut-prime/src/components/lib/getType';
-import testid from 'ut-prime/src/components/lib/testid';
+import getType from '../lib/getType';
+import testid from '../lib/testid';
 import Table from './inputs/Table';
-import ActionButton from 'ut-prime/src/components/ActionButton';
+import ActionButton from '../ActionButton';
 
 const noActions = {allowAdd: false, allowEdit: false, allowDelete: false};
 
