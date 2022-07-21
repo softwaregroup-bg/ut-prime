@@ -38,6 +38,7 @@ export { Toolbar } from 'primereact/toolbar';
 export { Tree } from 'primereact/tree';
 export { TreeSelect } from 'primereact/treeselect';
 export { TreeTable } from 'primereact/treetable';
+export { ConfirmPopup, confirmPopup } from 'primereact/confirmpopup';
 
 function dateRange(timeOnly) {
     const today = timeOnly ? new Date(0) : new Date();

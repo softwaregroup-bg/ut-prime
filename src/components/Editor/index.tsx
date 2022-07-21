@@ -9,7 +9,7 @@ import { ComponentProps } from './Editor.types';
 import Form from '../Form';
 import getValidation from '../Form/schema';
 import ThumbIndex from '../ThumbIndex';
-import {Toolbar, Button, Card} from '../prime';
+import {Toolbar, Button, Card, ConfirmPopup, confirmPopup} from '../prime';
 import useToggle from '../hooks/useToggle';
 import useLoad from '../hooks/useLoad';
 import {ConfigField, ConfigCard} from '../Form/DragDrop';
@@ -81,6 +81,7 @@ const Editor: ComponentProps = ({
 
     const [keyValue, setKeyValue] = React.useState(id);
     const [trigger, setTrigger] = React.useState();
+    const [didSubmit, setDidSubmit] = React.useState(false);
     const [value, setEditValue] = React.useState({});
     const [loadedValue, setLoadedValue] = React.useState<object>();
     const [dropdowns, setDropdown] = React.useState({});
@@ -166,17 +167,40 @@ const Editor: ComponentProps = ({
     const handleSubmit = React.useCallback(
         async function handleSubmit(data) {
             let response;
+            let key = keyValue;
             if (keyValue != null) {
                 response = getValue(handleArray(await onEdit(prepareSubmit(data)), properties));
             } else {
                 response = getValue(handleArray(await onAdd(prepareSubmit(data)), properties));
-                setKeyValue(lodashGet(response, `${resultSet}.${keyField}`));
+                key = lodashGet(response, `${resultSet}.${keyField}`);
+                setKeyValue(key);
             }
+            setDidSubmit(true);
             const value = merge({}, data[0], response);
             setEditValue(value);
+            if (key) setLoadedValue(getValue(value));
             setIndex(getLayout(cards, layouts, 'edit', layoutName || (typeField ? lodashGet(value, typeField) : '')));
         }, [keyValue, onEdit, getValue, onAdd, keyField, resultSet, properties, layouts, cards, typeField, layoutName]
     );
+
+    const handleReset = React.useCallback(
+        async function handleReset (event) {
+            const accept = () => {
+                const value = loadedValue ? getValue(loadedValue) : {[resultSet]: null};
+                setEditValue(value);
+                setIndex(getLayout(cards, layouts, 'edit', layoutName || (typeField ? lodashGet(value, typeField) : '')));
+                setDidSubmit(false);
+            }
+            if (!trigger) return accept();
+            return confirmPopup({
+                target: event.currentTarget,
+                message: 'Changed data will not be saved. Are you sure you want to proceed?',
+                icon: 'pi pi-exclamation-triangle',
+                reject: () => {},
+                accept,
+            })
+        }, [trigger, cards, layouts, layoutName, typeField, loadedValue, getValue]
+    )
 
     useLoad(async() => {
         if (keyValue) await get();
@@ -196,6 +220,7 @@ const Editor: ComponentProps = ({
     const [design, toggleDesign] = useToggle(designDefault);
     return (
         <>
+            <ConfirmPopup />
             <Toolbar
                 className='border-none border-bottom-1 border-50'
                 style={backgroundNone}
@@ -207,6 +232,14 @@ const Editor: ComponentProps = ({
                         aria-label='save'
                         className='mr-2'
                         {...testid(name + 'saveButton')}
+                    />
+                    <Button
+                        icon='pi pi-replay'
+                        onClick={handleReset}
+                        disabled={(!trigger && (!didSubmit || !!loadedValue)) || !!loading}
+                        aria-label='reset'
+                        className='mr-2'
+                        {...testid(name + 'resetButton')}
                     />
                     <div ref={toolbarRef}></div>
                 </>}

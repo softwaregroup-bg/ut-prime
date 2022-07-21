@@ -32,6 +32,21 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
            
         </span>
       </button>
+      <button
+        aria-label="reset"
+        class="p-button p-component mr-2 p-button-icon-only p-disabled"
+        data-testid="resetButton"
+        disabled=""
+      >
+        <span
+          class="p-button-icon p-c pi pi-replay"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
       <div />
     </div>
     <div
@@ -756,6 +771,20 @@ exports[`<Editor /> CascadedDropdowns render equals snapshot 1`] = `
            
         </span>
       </button>
+      <button
+        aria-label="reset"
+        class="p-button p-component mr-2 p-button-icon-only"
+        data-testid="resetButton"
+      >
+        <span
+          class="p-button-icon p-c pi pi-replay"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
       <div />
     </div>
     <div
@@ -1025,6 +1054,20 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
       >
         <span
           class="p-button-icon p-c pi pi-save"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
+      <button
+        aria-label="reset"
+        class="p-button p-component mr-2 p-button-icon-only"
+        data-testid="resetButton"
+      >
+        <span
+          class="p-button-icon p-c pi pi-replay"
         />
         <span
           class="p-button-label p-c"
@@ -2112,6 +2155,21 @@ exports[`<Editor /> CustomEditors render equals snapshot 1`] = `
            
         </span>
       </button>
+      <button
+        aria-label="reset"
+        class="p-button p-component mr-2 p-button-icon-only p-disabled"
+        data-testid="resetButton"
+        disabled=""
+      >
+        <span
+          class="p-button-icon p-c pi pi-replay"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
       <div />
     </div>
     <div
@@ -2320,6 +2378,21 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
       >
         <span
           class="p-button-icon p-c pi pi-save"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
+      <button
+        aria-label="reset"
+        class="p-button p-component mr-2 p-button-icon-only p-disabled"
+        data-testid="resetButton"
+        disabled=""
+      >
+        <span
+          class="p-button-icon p-c pi pi-replay"
         />
         <span
           class="p-button-label p-c"
@@ -3514,6 +3587,21 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
            
         </span>
       </button>
+      <button
+        aria-label="reset"
+        class="p-button p-component mr-2 p-button-icon-only p-disabled"
+        data-testid="resetButton"
+        disabled=""
+      >
+        <span
+          class="p-button-icon p-c pi pi-replay"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
       <div />
     </div>
     <div
@@ -3859,6 +3947,21 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
            
         </span>
       </button>
+      <button
+        aria-label="reset"
+        class="p-button p-component mr-2 p-button-icon-only p-disabled"
+        data-testid="resetButton"
+        disabled=""
+      >
+        <span
+          class="p-button-icon p-c pi pi-replay"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
       <div />
     </div>
     <div
@@ -4196,6 +4299,21 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
       >
         <span
           class="p-button-icon p-c pi pi-save"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
+      <button
+        aria-label="reset"
+        class="p-button p-component mr-2 p-button-icon-only p-disabled"
+        data-testid="resetButton"
+        disabled=""
+      >
+        <span
+          class="p-button-icon p-c pi pi-replay"
         />
         <span
           class="p-button-label p-c"
@@ -4580,6 +4698,21 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
       >
         <span
           class="p-button-icon p-c pi pi-save"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
+      <button
+        aria-label="reset"
+        class="p-button p-component mr-2 p-button-icon-only p-disabled"
+        data-testid="resetButton"
+        disabled=""
+      >
+        <span
+          class="p-button-icon p-c pi pi-replay"
         />
         <span
           class="p-button-label p-c"
@@ -5942,6 +6075,21 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
                
             </span>
           </button>
+          <button
+            aria-label="reset"
+            class="p-button p-component mr-2 p-button-icon-only p-disabled"
+            data-testid="resetButton"
+            disabled=""
+          >
+            <span
+              class="p-button-icon p-c pi pi-replay"
+            />
+            <span
+              class="p-button-label p-c"
+            >
+               
+            </span>
+          </button>
           <div />
         </div>
         <div
@@ -6068,6 +6216,21 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
           >
             <span
               class="p-button-icon p-c pi pi-save"
+            />
+            <span
+              class="p-button-label p-c"
+            >
+               
+            </span>
+          </button>
+          <button
+            aria-label="reset"
+            class="p-button p-component mr-2 p-button-icon-only p-disabled"
+            data-testid="resetButton"
+            disabled=""
+          >
+            <span
+              class="p-button-icon p-c pi pi-replay"
             />
             <span
               class="p-button-label p-c"
@@ -6209,6 +6372,21 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
                
             </span>
           </button>
+          <button
+            aria-label="reset"
+            class="p-button p-component mr-2 p-button-icon-only p-disabled"
+            data-testid="resetButton"
+            disabled=""
+          >
+            <span
+              class="p-button-icon p-c pi pi-replay"
+            />
+            <span
+              class="p-button-label p-c"
+            >
+               
+            </span>
+          </button>
           <div />
         </div>
         <div
@@ -6340,6 +6518,21 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
       >
         <span
           class="p-button-icon p-c pi pi-save"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
+      <button
+        aria-label="reset"
+        class="p-button p-component mr-2 p-button-icon-only p-disabled"
+        data-testid="resetButton"
+        disabled=""
+      >
+        <span
+          class="p-button-icon p-c pi pi-replay"
         />
         <span
           class="p-button-label p-c"
@@ -7108,6 +7301,20 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
       >
         <span
           class="p-button-icon p-c pi pi-save"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
+      <button
+        aria-label="reset"
+        class="p-button p-component mr-2 p-button-icon-only"
+        data-testid="resetButton"
+      >
+        <span
+          class="p-button-icon p-c pi pi-replay"
         />
         <span
           class="p-button-label p-c"
@@ -7912,6 +8119,21 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
            
         </span>
       </button>
+      <button
+        aria-label="reset"
+        class="p-button p-component mr-2 p-button-icon-only p-disabled"
+        data-testid="resetButton"
+        disabled=""
+      >
+        <span
+          class="p-button-icon p-c pi pi-replay"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
       <div />
     </div>
     <div
@@ -8639,6 +8861,21 @@ exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
            
         </span>
       </button>
+      <button
+        aria-label="reset"
+        class="p-button p-component mr-2 p-button-icon-only p-disabled"
+        data-testid="resetButton"
+        disabled=""
+      >
+        <span
+          class="p-button-icon p-c pi pi-replay"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
       <div />
     </div>
     <div
@@ -9030,6 +9267,21 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
       >
         <span
           class="p-button-icon p-c pi pi-save"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
+      <button
+        aria-label="reset"
+        class="p-button p-component mr-2 p-button-icon-only p-disabled"
+        data-testid="resetButton"
+        disabled=""
+      >
+        <span
+          class="p-button-icon p-c pi pi-replay"
         />
         <span
           class="p-button-label p-c"
@@ -9527,6 +9779,21 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
            
         </span>
       </button>
+      <button
+        aria-label="reset"
+        class="p-button p-component mr-2 p-button-icon-only p-disabled"
+        data-testid="resetButton"
+        disabled=""
+      >
+        <span
+          class="p-button-icon p-c pi pi-replay"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
       <div />
     </div>
     <div
@@ -9903,6 +10170,20 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
       >
         <span
           class="p-button-icon p-c pi pi-save"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
+      <button
+        aria-label="reset"
+        class="p-button p-component mr-2 p-button-icon-only"
+        data-testid="resetButton"
+      >
+        <span
+          class="p-button-icon p-c pi pi-replay"
         />
         <span
           class="p-button-label p-c"
