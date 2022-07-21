@@ -1,7 +1,6 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
-import { userEvent } from '@storybook/testing-library';
-import { within } from '@testing-library/react';
+import { userEvent, within } from '@storybook/testing-library';
 
 import page from './README.mdx';
 import type { Props } from './Form.types';
@@ -49,43 +48,45 @@ Input.args = {
 Input.play = async({canvasElement}) => {
     const canvas = within(canvasElement);
     const body = within(document.body);
-    const type = (role, id, text) => userEvent.type(canvas.getByRole(role, {name: (name, el) => el.id === id}), text);
+    const clear = async(role, id) => userEvent.clear(await canvas.findByRole(role, {name: (name, el) => el.id === id}));
+    const type = async(role, id, text) => userEvent.type(await canvas.findByRole(role, {name: (name, el) => el.id === id}), text);
     const click = (id) => userEvent.click(canvas.getByTestId(id));
-    const clickOption = (id, name, role = 'option') => {
-        id && click(id);
-        body.getByRole(role, {name}).click();
+    const clickOption = async(id, name, role = 'option') => {
+        id && await click(id);
+        return (await body.findByRole(role, {name})).click();
     };
     const clickWithin = (id, name, role = 'option') => within(canvas.getByTestId(id)).getByRole(role, {name}).click();
 
     // left
-    type('textbox', 'input-input', 'input');
-    type('textbox', 'input-text', 'text');
-    type('textbox', 'input-mask', '192168000001');
-    type('textbox', 'input-date', '01/31/2022');
-    type('textbox', 'input-time', '20:00');
-    click('input-boolean');
-    type('textbox', 'input-datetime', '01/31/2022 20:00');
-    type('spinbutton', 'input-currency', '1234567.89');
-    type('spinbutton', 'input-number', '12345.67890');
-    type('spinbutton', 'input-integer', '1234567890');
-    type('textbox', 'input-password', '123');
+    await clear('textbox', 'input-input');
+    await type('textbox', 'input-input', 'input');
+    await type('textbox', 'input-text', 'text');
+    // await type('textbox', 'input-mask', '192168000001');
+    await type('textbox', 'input-date', '01/31/2022');
+    await type('textbox', 'input-time', '20:00');
+    await click('input-boolean');
+    await type('textbox', 'input-datetime', '01/31/2022 20:00');
+    await type('spinbutton', 'input-currency', '1234567.89');
+    await type('spinbutton', 'input-number', '12345.67890');
+    await type('spinbutton', 'input-integer', '1234567890');
+    await type('textbox', 'input-password', '123');
 
     // center
-    clickOption('input-dropdown', 'EUR');
-    clickOption('input-dropdownTree', 'Europe', 'treeitem');
-    clickOption('input-multiSelect', 'Rome');
-    click('input-multiSelect'); // close the multiselect dropdown
-    clickOption('input-multiSelectTree', 'Solar system', 'treeitem');
-    click('input-multiSelectTree'); // close the multiselect dropdown
-    click('input-table-addButton');
-    type('textbox', 'input-table-0-name', 'name');
-    type('textbox', 'input-table-0-value', 'value');
+    await clickOption('input-dropdown', 'EUR');
+    await clickOption('input-dropdownTree', 'Europe', 'treeitem');
+    await clickOption('input-multiSelect', 'Rome');
+    await click('input-multiSelect'); // close the multiselect dropdown
+    await clickOption('input-multiSelectTree', 'Solar system', 'treeitem');
+    await click('input-multiSelectTree'); // close the multiselect dropdown
+    await click('input-table-addButton');
+    await type('textbox', 'input-table-0-name', 'name');
+    await type('textbox', 'input-table-0-value', 'value');
 
     // right
-    clickWithin('input-select', 'One', 'button');
-    clickWithin('input-selectTable', 'One', 'cell');
-    clickWithin('input-multiSelectPanel', 'One', 'option');
-    within(within(canvas.getByTestId('input-multiSelectTreeTable')).getByRole('row', {name: 'One'})).getAllByRole('checkbox')[0].click();
+    await clickWithin('input-select', 'One', 'button');
+    await clickWithin('input-selectTable', 'One', 'cell');
+    await clickWithin('input-multiSelectPanel', 'One', 'option');
+    await within(within(canvas.getByTestId('input-multiSelectTreeTable')).getByRole('row', {name: 'One'})).getAllByRole('checkbox')[0].click();
 };
 
 export const Table: Story<Partial<Props>> = Template.bind({});

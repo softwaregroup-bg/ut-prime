@@ -311,11 +311,12 @@ exports[`<App /> render equals snapshot 1`] = `
                       >
                         Dashboard
                           
+                        <i
+                          class="pi pi-times vertical-align-bottom"
+                          data-testid="portal-tab-close_"
+                        />
                       </span>
                     </span>
-                    <i
-                      class="pi pi-times"
-                    />
                   </a>
                 </li>
                 <li

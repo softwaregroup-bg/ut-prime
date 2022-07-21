@@ -10293,10 +10293,12 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                         class="col-12 md:col-8"
                       >
                         <textarea
-                          class="p-inputtextarea p-inputtext p-component w-full"
+                          class="p-inputtextarea p-inputtext p-component p-filled w-full"
                           id="tree-treeDescription"
                           name="tree.treeDescription"
-                        />
+                        >
+                          test
+                        </textarea>
                       </div>
                     </div>
                     <div
