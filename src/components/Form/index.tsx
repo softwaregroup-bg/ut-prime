@@ -175,6 +175,7 @@ const Form: ComponentProps = ({
             formApi={formApi}
             methods={methods}
             move={move}
+            toolbar
         />, toolbarRef.current);
     }
 

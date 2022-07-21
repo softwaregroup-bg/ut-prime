@@ -165,7 +165,7 @@ Toolbar.args = {
                 label: 'Browse'
             }, {
                 type: 'button',
-                id: 'button1',
+                id: 'button2',
                 action: 'subject.object.predicate',
                 params: {id: 1},
                 label: 'Open'

@@ -21,6 +21,7 @@ export interface Props {
         source: object,
         destination: object
     ) => void,
+    toolbar?: boolean,
     classNames?: object
 }
 
