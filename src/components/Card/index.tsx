@@ -11,7 +11,6 @@ import { ConfigField, ConfigCard} from '../Form/DragDrop';
 import input from './input';
 import {CHANGE} from './const';
 import Controller from '../Controller';
-import useToggle from '../hooks/useToggle';
 
 const inputClass = (index, classes, name, className) => ({
     ...classes?.default,
@@ -19,9 +18,11 @@ const inputClass = (index, classes, name, className) => ({
 }.input || name === '' ? className : ((index.properties[name]?.title !== '' || className) ? `col-12 ${className || 'md:col-8'}` : 'col-12'));
 
 const useStyles = createUseStyles({
-    form: {
-        '& .p-datatable-wrapper': {
-            overflowX: 'auto'
+    card: {
+        '& .p-card-body': {
+            '& .p-card-content': {
+                paddingBottom: 0
+            }
         }
     }
 });
@@ -36,7 +37,10 @@ const Card: ComponentProps = ({
     methods,
     loading,
     design,
-    formApi
+    formApi,
+    value,
+    move,
+    classNames
 }) => {
     const classes = useStyles();
     const counter = React.useRef(0);
@@ -104,6 +108,7 @@ const Card: ComponentProps = ({
                 }
             },
             inputClass(layoutState.index, classes, propertyName, className),
+            className,
             inputWidget,
             layoutState.index.properties[propertyName],
             dropdowns,
@@ -111,13 +116,14 @@ const Card: ComponentProps = ({
             loading,
             getValues,
             counter,
-            methods
+            methods,
+            !getValues && 'label'
         );
         return (name && control) ? <Controller
             control={control}
             name={name}
             render={render}
-        /> : render({field: {}, fieldState: {}});
+        /> : render({field: value ? {value: get(value, name.split('.').pop()), name} : {}, fieldState: {}});
     }, [
         layoutState.index,
         layoutState.visibleProperties,
@@ -128,7 +134,8 @@ const Card: ComponentProps = ({
         getValues,
         setValue,
         control,
-        watch
+        watch,
+        value
     ]);
 
     const InputWrapEdit = React.useCallback(
@@ -153,59 +160,7 @@ const Card: ComponentProps = ({
             : null;
     }, [formState?.errors]);
 
-    const [, moved] = useToggle();
-    const move = React.useCallback((type: 'card' | 'field', source, destination) => {
-        if (type === 'field') {
-            const destinationList = cards[destination.card].widgets;
-            if (source.card === '/') {
-                destinationList.splice(destination.index, 0, source.index);
-            } else {
-                const sourceList = cards[source.card].widgets;
-                destinationList.splice(destination.index, 0, sourceList.splice(source.index, 1)[0]);
-            }
-        } else if (type === 'card') {
-            let [
-                destinationList,
-                destinationIndex
-            ] = (destination.index[1] === false) ? [
-                layoutState.visibleCards,
-                destination.index[0]
-            ] : [
-                layoutState.visibleCards[destination.index[0]],
-                destination.index[1]
-            ];
-            if (!Array.isArray(destinationList)) {
-                const card = layoutState.visibleCards[destination.index[0]];
-                if (typeof card === 'string') destinationList = layoutState.visibleCards[destination.index[0]] = [card];
-            }
-            if (source.index[0] === false && Array.isArray(destinationList)) {
-                destinationList.splice(destinationIndex, 0, source.card);
-                moved();
-                return;
-            }
-            const [
-                sourceList,
-                sourceIndex,
-                sourceNested
-            ] = (source.index[1] === false) ? [
-                layoutState.visibleCards,
-                source.index[0],
-                false
-            ] : [
-                layoutState.visibleCards[source.index[0]],
-                source.index[1],
-                true
-            ];
-            if (Array.isArray(sourceList) && Array.isArray(destinationList)) {
-                const removed = sourceList.splice(sourceIndex, 1)[0];
-                if (sourceList.length === 1 && sourceNested && sourceList !== destinationList) layoutState.visibleCards[source.index[0]] = sourceList[0];
-                destinationList.splice(destinationIndex, 0, removed);
-            }
-        }
-        moved();
-    }, [cards, moved, layoutState.visibleCards]);
-
-    const field = (flex: string, cardName: string, classes: CardType['classes'], init = {}) => function field(widget, ind) {
+    const field = (length: number, flex: string, cardName: string, classes: CardType['classes'], init = {}) => function field(widget, ind: number) {
         if (typeof widget === 'string') widget = {name: widget};
         const {
             name = '',
@@ -239,7 +194,7 @@ const Card: ComponentProps = ({
             );
         }
         return (property || name === '') ? <ConfigField
-            className={clsx(fieldClass, flex)}
+            className={clsx(fieldClass, flex, !design && (ind === length - 1) && 'mb-0')}
             key={id || name || widget.label}
             index={ind}
             card={cardName}
@@ -256,13 +211,13 @@ const Card: ComponentProps = ({
     const {label, widgets = [], flex, hidden, classes: cardClasses, type} = (cards[cardName] || {label: '❌ ' + cardName});
     if (type === 'toolbar') {
         return <>
-            {widgets.length > 0 && widgets.map(field(flex, cardName, cardClasses, {field: '', label: ''}))}
+            {widgets.length > 0 && widgets.map(field(widgets.length, flex, cardName, cardClasses, {field: '', label: ''}))}
         </>;
     }
     return (
-        <ConfigCard title={label} key={`${index1}-${index2}`} className='card mb-3' card={cardName} id={cardName} index1={index1} index2={index2} move={move} flex={flex} design={design} hidden={hidden}>
-            {widgets.length > 0 && <div className={clsx(flex && 'flex flex-wrap')}>
-                {widgets.map(field(flex, cardName, cardClasses))}
+        <ConfigCard title={label} key={`${index1}-${index2}`} className={clsx('card', formApi && 'mb-3', classes.card)} card={cardName} id={cardName} index1={index1} index2={index2} move={move} flex={flex} design={design} hidden={hidden}>
+            {widgets.length > 0 && <div className={clsx(flex && 'flex flex-wrap', cardClasses?.default?.root)}>
+                {widgets.map(field(widgets.length, flex, cardName, cardClasses, classNames))}
             </div>}
         </ConfigCard>
     );

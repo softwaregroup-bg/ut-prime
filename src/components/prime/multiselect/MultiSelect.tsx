@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as React from 'react';
 import PrimeReact, { FilterService } from 'primereact/api';
 import { useOverlayListener, useUnmountEffect, useUpdateEffect } from 'primereact/hooks';

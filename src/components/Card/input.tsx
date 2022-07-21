@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import {
     Button,
     InputText,
@@ -28,7 +29,7 @@ import ActionButton from 'ut-prime/src/components/ActionButton';
 
 const noActions = {allowAdd: false, allowEdit: false, allowDelete: false};
 
-const Field = ({children, label, error, inputClass}) => <>
+const Field = ({children = undefined, label = undefined, error = undefined, inputClass = undefined}) => <>
     {label}
     <div className={inputClass}>{children}</div>
     {error}
@@ -46,6 +47,7 @@ export default function input(
         className: string;
     },
     inputClass,
+    widgetClassName,
     {
         type,
         dropdown = '',
@@ -61,9 +63,10 @@ export default function input(
     loading: string,
     getValues: (name: any) => any,
     counter,
-    methods
+    methods,
+    defaultWidgetType
 ) {
-    const widgetType = type || schema?.format || getType(schema?.type);
+    const widgetType = type || defaultWidgetType || schema?.format || getType(schema?.type);
     if (loading) {
         if (widgetType === 'button') return <Button className={inputClass ?? 'mr-2'} label={label} {...props} disabled/>;
         return <>{label}<div className={inputClass}><Skeleton className='p-inputtext'/></div></>;
@@ -144,11 +147,11 @@ export default function input(
         case 'autocomplete': {
             const {autocomplete} = schema.widget;
             const handleComplete = async({query}) => (
-                autocomplete && field.onChange({...field.value, value: query, ...await methods?.[autocomplete]({query})})
+                autocomplete && field.onChange?.({...field.value, value: query, ...await methods?.[autocomplete]({query})})
             );
-            const handleChange = ({value}) => field.onChange({value});
-            const handleSelect = ({value}) => field.onChange(value);
-            const handleClear = () => field.onChange({});
+            const handleChange = ({value}) => field.onChange?.({value});
+            const handleSelect = ({value}) => field.onChange?.(value);
+            const handleClear = () => field.onChange?.({});
             const template = ({value}) => value;
             return <Field {...{label, error, inputClass}}>
                 <AutoComplete
@@ -189,7 +192,7 @@ export default function input(
                 {...field}
                 options={dropdowns?.[dropdown]?.filter(filterBy) || []}
                 value={props?.split ? field.value?.split(props.split).filter(Boolean) : field.value}
-                onChange={event => field.onChange(props?.split ? event.value.join(props.split) || null : event.value)}
+                onChange={event => field.onChange?.(props?.split ? event.value.join(props.split) || null : event.value)}
                 {...testid(props.id)}
                 {...props}
             />
@@ -213,7 +216,7 @@ export default function input(
             <MultiSelect
                 {...field}
                 value={props?.split ? field.value?.split(props.split).filter(Boolean) : field.value}
-                onChange={event => field.onChange(props?.split ? event.value.join(props.split) || null : event.value)}
+                onChange={event => field.onChange?.(props?.split ? event.value.join(props.split) || null : event.value)}
                 options={dropdowns?.[dropdown]?.filter(filterBy) || []}
                 {...testid(props.id)}
                 inline
@@ -401,6 +404,8 @@ export default function input(
                 {...props}
             />
         </Field>;
+        case 'label': return (field?.name || title) ? <Field inputClass={widgetClassName}>{field?.value ?? title}</Field> : null;
+        case 'icon': return (field?.name || title) ? <i className={clsx('pi', field?.value ?? title, widgetClassName)}/> : null;
         default: return <Field {...{label, error, inputClass}}>
             <InputText
                 {...field}

@@ -1,16 +1,13 @@
 import React from 'react';
 import type {ButtonProps} from 'primereact/button';
 
+import type {ActionHandler, Selection} from '../types';
 export interface Props extends ButtonProps {
     permission?: string;
     enabled?: string | boolean;
-    action: (({
-        id: any,
-        current: object,
-        selected: array
-    }) => void) | string | ((params: object, $meta: object) => Promise<object>);
+    action: ActionHandler;
     params?: object;
-    getValues: () => object;
+    getValues: () => Selection;
 }
 
 export type ComponentProps = React.FC<Props>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { DataTableProps, DataViewProps } from '../prime';
 
-import type {Schema, Cards, Editors, Dropdowns, Action, WidgetReference} from '../types';
+import type {Schema, Cards, Editors, Dropdowns, Action, WidgetReference, Layout} from '../types';
 
 export interface Props {
     /**
@@ -55,7 +55,7 @@ export interface Props {
     editors?: Editors;
     view?: DataViewProps;
     cards?: Cards;
-    layout?: (string | string[])[],
+    layout?: Layout,
     layouts?: string[];
     methods?: object;
 }

@@ -29,6 +29,19 @@ const useStyles = createUseStyles({
     explorer: {
         '& .p-datatable-wrapper': {
             overflowX: 'auto'
+        },
+        '& .p-grid': {
+            margin: '0.5em'
+        },
+        '& .p-dataview': {
+            '& .p-dataview-content': {
+                background: 'none',
+                '& .p-card': {
+                    '& .p-card-content': {
+                        padding: 0
+                    }
+                }
+            }
         }
     },
     details: {
@@ -55,6 +68,7 @@ const Explorer: ComponentProps = ({
     showFilter = true,
     pageSize = 10,
     table: tableProps,
+    view: viewProps,
     layout,
     cards,
     editors,
@@ -244,25 +258,36 @@ const Explorer: ComponentProps = ({
             {details && <Button {...testid(`${resultSet}.details.toggleButton`)} icon="pi pi-bars" className="mr-2" onClick={detailsToggle}/>}
         </>,
     [details, detailsToggle, resultSet, load]);
-    const layoutState = useLayout(schema, cards, layout, editors);
-    const itemTemplate = React.useMemo(() => (item) => {
+    const layoutState = useLayout(schema, cards, layout, editors, keyField);
+    const cardName = layout?.flat()[0];
+    const itemTemplate = React.useMemo(() => item => {
         function renderItem() {
-            return <Card
+            const card = <Card
                 index1={0}
                 index2={0}
                 cards={cards}
-                cardName={layout[0]}
+                cardName={cardName}
                 layoutState={layoutState}
                 dropdowns={dropdowns}
                 methods={methods}
+                value={item}
+                classNames={{
+                    field: 'grid field justify-content-center'
+                }}
             />;
+            return keyField ? <div
+                {...testid(`${resultSet || 'filterBy'}.${keyField}/${item && item[keyField]}`)}
+                className={clsx('cursor-pointer', (cardName && cards?.[typeof cardName === 'string' ? cardName : cardName.name]?.className) || 'col-6 lg:col-2 md:col-3 sm:col-4')}
+                onClick={layoutState.open?.(item)}
+            >{card}</div> : card;
         }
         return renderItem();
-    }, [cards, layout, layoutState, dropdowns, methods]);
+    }, [cards, layoutState, dropdowns, methods, keyField, resultSet, cardName]);
 
     const table = layout ? <DataView
         layout='grid'
         lazy
+        gutter
         rows={pageSize}
         totalRecords={totalRecords}
         paginator
@@ -272,6 +297,7 @@ const Explorer: ComponentProps = ({
         value={items}
         onPage={handleFilterPageSort}
         itemTemplate={itemTemplate}
+        {...viewProps}
     /> : <DataTable
         autoLayout
         lazy

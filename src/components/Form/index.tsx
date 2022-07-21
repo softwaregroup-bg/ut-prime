@@ -174,6 +174,7 @@ const Form: ComponentProps = ({
             loading={loading}
             formApi={formApi}
             methods={methods}
+            move={move}
         />, toolbarRef.current);
     }
 
@@ -209,6 +210,7 @@ const Form: ComponentProps = ({
                                 loading={loading}
                                 formApi={formApi}
                                 methods={methods}
+                                move={move}
                         />
                         : null;
                 }).filter(Boolean);

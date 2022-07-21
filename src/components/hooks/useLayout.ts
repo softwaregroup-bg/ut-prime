@@ -1,6 +1,7 @@
 import React from 'react';
+import lodashGet from 'lodash.get';
 
-import type { Properties, Editors, PropertyEditors, Cards, Schema } from '../types';
+import type { Properties, Editors, PropertyEditors, Cards, Schema, Layout } from '../types';
 import getType from '../lib/getType';
 
 const flatten = (properties: Properties, editors: Editors, root = '') : PropertyEditors => Object.entries(properties || {}).reduce(
@@ -48,17 +49,19 @@ const getIndex = (properties: Properties, editors: Editors) : {
 export default (
     schema: Schema,
     cards: Cards,
-    layout: (string | string[])[],
-    editors: Editors
+    layout: Layout,
+    editors: Editors,
+    keyField: string = undefined
 ) => React.useMemo(() => {
     if (!layout) return;
-    const visibleCards: (string | string[])[] = (layout || Object.keys(cards));
+    const visibleCards: Layout = (layout || Object.keys(cards));
     const widgetNames = widget => {
         widget = typeof widget === 'string' ? widget : widget.name;
         const editor = editors?.[widget.replace('$.edit.', '')];
         if (!editor) return widget;
         return widget.startsWith('$.edit.') ? editor.properties.map(name => '$.edit.' + name) : editor.properties;
     };
+    const keyFieldAction = lodashGet(schema.properties, keyField?.replace(/\./g, '.properties.'))?.action;
     return {
         index: getIndex(schema.properties, editors),
         visibleCards,
@@ -69,6 +72,11 @@ export default (
                     cardName => cards[typeof cardName === 'string' ? cardName : cardName.name]?.widgets?.map(widgetNames)
                 );
             }).flat(10).filter(Boolean)
-        ))
+        )),
+        open: keyFieldAction ? row => () => keyFieldAction({
+            id: row && row[keyField],
+            current: row,
+            selected: [row]
+        }) : undefined
     };
-}, [schema, cards, layout, editors]);
+}, [schema, cards, layout, editors, keyField]);

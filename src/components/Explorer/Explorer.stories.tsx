@@ -50,6 +50,9 @@ const Template: Story<{
                     resultSet='items'
                     schema={{
                         properties: {
+                            id: {
+                                action: show('action')
+                            },
                             name: {
                                 title: 'Name',
                                 filter: true,
@@ -145,8 +148,39 @@ Grid.args = {
     cards: {
         grid: {
             type: 'grid',
-            widgets: ['name']
+            widgets: [{
+                name: 'name', type: 'label'
+            }, {
+                name: 'size', type: 'label'
+            }]
         }
     },
+    pageSize: 36,
+    layout: ['grid']
+};
+
+export const GridFlex = Template.bind({});
+GridFlex.args = {
+    ...Basic.args,
+    cards: {
+        grid: {
+            type: 'grid',
+            className: 'col-6 md:col-3',
+            classes: {
+                default: {
+                    root: 'grid m-0',
+                    field: 'text-center col-4 mb-0'
+                }
+            },
+            widgets: [{
+                type: 'icon', title: 'pi-paperclip'
+            }, {
+                name: 'name', type: 'label'
+            }, {
+                name: 'size', type: 'label'
+            }]
+        }
+    },
+    pageSize: 24,
     layout: ['grid']
 };

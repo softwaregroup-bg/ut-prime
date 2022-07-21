@@ -19,9 +19,11 @@ exports[`<Report /> render equals snapshot 1`] = `
       <div
         class="col-12 col-12"
       >
-        <div>
+        <div
+          class="w-full"
+        >
           <div
-            class="p-card p-component card mb-3"
+            class="p-card p-component card mb-3 card-0-2-3"
             id="params"
           >
             <div
@@ -95,7 +97,7 @@ exports[`<Report /> render equals snapshot 1`] = `
                     </div>
                   </div>
                   <div
-                    class="field grid col-12 md:col-4 xl:col-3 mb-0"
+                    class="field grid col-12 md:col-4 xl:col-3 mb-0 mb-0"
                   >
                     <label
                       class="col-12 md:col-4"

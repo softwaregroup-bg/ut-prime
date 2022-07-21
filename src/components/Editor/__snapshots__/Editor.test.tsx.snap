@@ -70,9 +70,11 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
         <div
           class="col-12 xl:col-6"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="edit"
             >
               <div
@@ -129,7 +131,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <label
                         class="col-12 md:col-4"
@@ -199,9 +201,11 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
         <div
           class="col-12 xl:col-6"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="taxonomy"
             >
               <div
@@ -215,9 +219,11 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="reproduction"
             >
               <div
@@ -275,7 +281,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <label
                         class="col-12 md:col-4"
@@ -303,9 +309,11 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
         <div
           class="col-12 xl:col-6"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="morphology"
             >
               <div
@@ -319,9 +327,11 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="links"
             >
               <div
@@ -339,7 +349,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                     class=""
                   >
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <div
                         class="col-12"
@@ -511,9 +521,11 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
         <div
           class="col-12 xl:col-6"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="habitat"
             >
               <div
@@ -531,7 +543,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                     class=""
                   >
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <div
                         class="col-12"
@@ -794,9 +806,11 @@ exports[`<Editor /> CascadedDropdowns render equals snapshot 1`] = `
         <div
           class="col-12 xl:col-3"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="edit"
             >
               <div
@@ -933,7 +947,7 @@ exports[`<Editor /> CascadedDropdowns render equals snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <label
                         class="col-12 md:col-4"
@@ -1070,9 +1084,11 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
         <div
           class="col-12 xl:col-4"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="person"
             >
               <div
@@ -1090,7 +1106,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                     class=""
                   >
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <div
                         class="col-12"
@@ -1384,9 +1400,11 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
         <div
           class="col-12 xl:col-4"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="document"
             >
               <div
@@ -1404,7 +1422,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                     class=""
                   >
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <div
                         class="col-12"
@@ -1768,9 +1786,11 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
         <div
           class="col-12 xl:col-4"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="attachment"
             >
               <div
@@ -1788,7 +1808,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                     class=""
                   >
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <div
                         class="col-12"
@@ -2150,9 +2170,11 @@ exports[`<Editor /> CustomEditors render equals snapshot 1`] = `
         <div
           class="col-12 xl:col-6"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="edit"
             >
               <div
@@ -2165,7 +2187,7 @@ exports[`<Editor /> CustomEditors render equals snapshot 1`] = `
                     class=""
                   >
                     <div
-                      class="grid"
+                      class="grid mb-0"
                     >
                       <div
                         class="field grid w-full mx-0"
@@ -2368,7 +2390,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
         >
           <div>
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="edit"
             >
               <div
@@ -2514,7 +2536,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                     </div>
                   </div>
                   <div
-                    class="field grid"
+                    class="field grid mb-0"
                     style="background: transparent; outline: none;"
                   >
                     <label
@@ -2556,7 +2578,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
         >
           <div>
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="taxonomy"
             >
               <div
@@ -2576,7 +2598,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                   class="p-card-content"
                 >
                   <div
-                    class="field grid"
+                    class="field grid mb-0"
                     style="background: transparent; outline: none;"
                   >
                     <label
@@ -2593,7 +2615,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
           </div>
           <div>
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="reproduction"
             >
               <div
@@ -2698,7 +2720,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                     </div>
                   </div>
                   <div
-                    class="field grid"
+                    class="field grid mb-0"
                     style="background: transparent; outline: none;"
                   >
                     <label
@@ -2740,7 +2762,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
         >
           <div>
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="morphology"
             >
               <div
@@ -2760,7 +2782,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                   class="p-card-content"
                 >
                   <div
-                    class="field grid"
+                    class="field grid mb-0"
                     style="background: transparent; outline: none;"
                   >
                     <label
@@ -2777,7 +2799,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
           </div>
           <div>
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="links"
             >
               <div
@@ -2972,7 +2994,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                     </div>
                   </div>
                   <div
-                    class="field grid"
+                    class="field grid mb-0"
                     style="background: transparent; outline: none;"
                   >
                     <label
@@ -3014,7 +3036,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
         >
           <div>
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="habitat"
             >
               <div
@@ -3233,7 +3255,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                     </div>
                   </div>
                   <div
-                    class="field grid"
+                    class="field grid mb-0"
                     style="background: transparent; outline: none;"
                   >
                     <label
@@ -3553,9 +3575,11 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
         <div
           class="col-12 xl:col-6"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="edit"
             >
               <div
@@ -3609,7 +3633,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <label
                         class="col-12 md:col-4"
@@ -3635,9 +3659,11 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
         <div
           class="col-12 xl:col-6"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="taxonomy"
             >
               <div
@@ -3651,9 +3677,11 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="reproduction"
             >
               <div
@@ -3707,7 +3735,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <label
                         class="col-12 md:col-4"
@@ -3733,9 +3761,11 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
         <div
           class="col-12 xl:col-6"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="morphology"
             >
               <div
@@ -3749,9 +3779,11 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="links"
             >
               <div
@@ -3769,7 +3801,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
                     class=""
                   >
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <div
                         class="col-12"
@@ -3789,9 +3821,11 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
         <div
           class="col-12 xl:col-6"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="habitat"
             >
               <div
@@ -3809,7 +3843,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
                     class=""
                   >
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <div
                         class="col-12"
@@ -3897,9 +3931,11 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
         <div
           class="col-12 xl:col-2"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="master"
             >
               <div
@@ -3917,7 +3953,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
                     class=""
                   >
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <div
                         class="col-12"
@@ -4064,9 +4100,11 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
         <div
           class="col-12 xl:col-3"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="detail"
             >
               <div
@@ -4145,7 +4183,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <label
                         class="col-12 md:col-4"
@@ -4241,9 +4279,11 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
         <div
           class="col-12 md:col-4"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="shapes"
             >
               <div
@@ -4261,7 +4301,7 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
                     class=""
                   >
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <div
                         class="col-12"
@@ -4471,9 +4511,11 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
         <div
           class="col-12 md:col-4"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="shapeEllipse"
             >
               <div
@@ -4520,7 +4562,7 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <label
                         class="col-12 md:col-4"
@@ -4625,9 +4667,11 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
         <div
           class="col-12 xl:col-6"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="schedule"
             >
               <div
@@ -4645,7 +4689,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                     class=""
                   >
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <div
                         class="col-12"
@@ -5237,9 +5281,11 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
         <div
           class="col-12 xl:col-6"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="permission"
             >
               <div
@@ -5257,7 +5303,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                     class=""
                   >
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <div
                         class="col-12"
@@ -5980,9 +6026,11 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
             <div
               class="col-12 col-12"
             >
-              <div>
+              <div
+                class="w-full"
+              >
                 <div
-                  class="p-card p-component card mb-3"
+                  class="p-card p-component card mb-3 card-0-2-2"
                   id="editPerson"
                 >
                   <div
@@ -6020,7 +6068,7 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
                           </div>
                         </div>
                         <div
-                          class="field grid"
+                          class="field grid mb-0"
                         >
                           <label
                             class="col-12 md:col-4"
@@ -6113,9 +6161,11 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
             <div
               class="col-12 col-12"
             >
-              <div>
+              <div
+                class="w-full"
+              >
                 <div
-                  class="p-card p-component card mb-3"
+                  class="p-card p-component card mb-3 card-0-2-2"
                   id="editOrganization"
                 >
                   <div
@@ -6153,7 +6203,7 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
                           </div>
                         </div>
                         <div
-                          class="field grid"
+                          class="field grid mb-0"
                         >
                           <label
                             class="col-12 md:col-4"
@@ -6247,9 +6297,11 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
             <div
               class="col-12 col-12"
             >
-              <div>
+              <div
+                class="w-full"
+              >
                 <div
-                  class="p-card p-component card mb-3"
+                  class="p-card p-component card mb-3 card-0-2-2"
                   id="createOrganization"
                 >
                   <div
@@ -6287,7 +6339,7 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
                           </div>
                         </div>
                         <div
-                          class="field grid"
+                          class="field grid mb-0"
                         >
                           <label
                             class="col-12 md:col-4"
@@ -6387,9 +6439,11 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
           class="col-12 sm:col-6 xl:col-4"
           style="outline: 1px dotted #ffff0030;"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="a1"
             >
               <div
@@ -6443,7 +6497,7 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <label
                         class="col-12 md:col-4"
@@ -6465,9 +6519,11 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="a2"
             >
               <div
@@ -6503,7 +6559,7 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <label
                         class="col-12 md:col-4"
@@ -6530,9 +6586,11 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
           class="col-12 sm:col-6 xl:col-4"
           style="outline: 1px dotted #ffff0030;"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="b1"
             >
               <div
@@ -6568,7 +6626,7 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <label
                         class="col-12 md:col-4"
@@ -6590,9 +6648,11 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="b2"
             >
               <div
@@ -6610,7 +6670,7 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
                     class=""
                   >
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <label
                         class="col-12 md:col-4"
@@ -6637,9 +6697,11 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
           class="col-12 md:col-6 xl:col-4"
           style="outline: 1px dotted #ffff0030;"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="c1"
             >
               <div
@@ -6711,7 +6773,7 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <label
                         class="col-12 md:col-4"
@@ -6733,9 +6795,11 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="c2"
             >
               <div
@@ -6753,7 +6817,7 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
                     class=""
                   >
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <label
                         class="col-12 md:col-4"
@@ -6780,9 +6844,11 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
           class="col-12 md:col-6 xl:col-4"
           style="outline: 1px dotted #ffff0030;"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="d"
             >
               <div
@@ -6854,7 +6920,7 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <label
                         class="col-12 md:col-4"
@@ -6881,9 +6947,11 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
           class="col-12 md:col-4"
           style="outline: 1px dotted #ffff0030;"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="e"
             >
               <div
@@ -6919,7 +6987,7 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <label
                         class="col-12 md:col-4"
@@ -6946,9 +7014,11 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
           class="col-12 md:col-4"
           style="outline: 1px dotted #ffff0030;"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="f1"
             >
               <div
@@ -6966,7 +7036,7 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
                     class=""
                   >
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <label
                         class="col-12 md:col-4"
@@ -6988,9 +7058,11 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="f2"
             >
               <div
@@ -7008,7 +7080,7 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
                     class=""
                   >
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <label
                         class="col-12 md:col-4"
@@ -7035,9 +7107,11 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
           class="col-12 md:col-4"
           style="outline: 1px dotted #ffff0030;"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="g"
             >
               <div
@@ -7055,7 +7129,7 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
                     class=""
                   >
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <label
                         class="col-12 md:col-4"
@@ -7156,9 +7230,11 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
         <div
           class="col-12 xl:col-6"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="edit"
             >
               <div
@@ -7225,7 +7301,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <label
                         class="col-12 md:col-4"
@@ -7303,9 +7379,11 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
         <div
           class="col-12 xl:col-6"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="taxonomy"
             >
               <div
@@ -7319,9 +7397,11 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="reproduction"
             >
               <div
@@ -7379,7 +7459,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <label
                         class="col-12 md:col-4"
@@ -7407,9 +7487,11 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
         <div
           class="col-12 xl:col-6"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="morphology"
             >
               <div
@@ -7423,9 +7505,11 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="links"
             >
               <div
@@ -7443,7 +7527,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
                     class=""
                   >
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <div
                         class="col-12"
@@ -7615,9 +7699,11 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
         <div
           class="col-12 xl:col-6"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="habitat"
             >
               <div
@@ -7635,7 +7721,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
                     class=""
                   >
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <div
                         class="col-12"
@@ -7950,9 +8036,11 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
         <div
           class="col-12 xl:col-6"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="edit"
             >
               <div
@@ -8011,7 +8099,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <label
                         class="col-12 md:col-4"
@@ -8081,9 +8169,11 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
         <div
           class="col-12 xl:col-6"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="taxonomy"
             >
               <div
@@ -8097,9 +8187,11 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="reproduction"
             >
               <div
@@ -8157,7 +8249,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <label
                         class="col-12 md:col-4"
@@ -8185,9 +8277,11 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
         <div
           class="col-12 xl:col-6"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="morphology"
             >
               <div
@@ -8201,9 +8295,11 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="links"
             >
               <div
@@ -8221,7 +8317,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                     class=""
                   >
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <div
                         class="col-12"
@@ -8393,9 +8489,11 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
         <div
           class="col-12 xl:col-6"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="habitat"
             >
               <div
@@ -8413,7 +8511,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                     class=""
                   >
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <div
                         class="col-12"
@@ -8753,9 +8851,11 @@ exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
           class="col-12 xl:col-6"
           style="outline: 1px dotted #ffff0030;"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="a1"
             >
               <div
@@ -8809,7 +8909,7 @@ exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <label
                         class="col-12 md:col-4"
@@ -8831,9 +8931,11 @@ exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="a2"
             >
               <div
@@ -8869,7 +8971,7 @@ exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <label
                         class="col-12 md:col-4"
@@ -8896,9 +8998,11 @@ exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
           class="col-12 xl:col-6"
           style="outline: 1px dotted #ffff0030;"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="b1"
             >
               <div
@@ -8934,7 +9038,7 @@ exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <label
                         class="col-12 md:col-4"
@@ -8956,9 +9060,11 @@ exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="b2"
             >
               <div
@@ -8976,7 +9082,7 @@ exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
                     class=""
                   >
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <label
                         class="col-12 md:col-4"
@@ -9152,9 +9258,11 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
         <div
           class="col-12 xl:col-6"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="edit"
             >
               <div
@@ -9211,7 +9319,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <label
                         class="col-12 md:col-4"
@@ -9281,9 +9389,11 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
         <div
           class="col-12 xl:col-6"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="habitat"
             >
               <div
@@ -9301,7 +9411,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                     class=""
                   >
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <div
                         class="col-12"
@@ -9729,9 +9839,11 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
           class="col-12 xl:col-6"
           style="outline: 1px dotted #ffff0030;"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="a1"
             >
               <div
@@ -9785,7 +9897,7 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <label
                         class="col-12 md:col-4"
@@ -9812,9 +9924,11 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
           class="col-12 xl:col-6"
           style="outline: 1px dotted #ffff0030;"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="a2"
             >
               <div
@@ -9850,7 +9964,7 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <label
                         class="col-12 md:col-4"
@@ -9951,9 +10065,11 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
         <div
           class="col-12 xl:col-6"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="edit"
             >
               <div
@@ -10021,7 +10137,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <label
                         class="col-12 md:col-4"
@@ -10091,9 +10207,11 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
         <div
           class="col-12 xl:col-6"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="taxonomy"
             >
               <div
@@ -10107,9 +10225,11 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="reproduction"
             >
               <div
@@ -10167,7 +10287,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <label
                         class="col-12 md:col-4"
@@ -10195,9 +10315,11 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
         <div
           class="col-12 xl:col-6"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="morphology"
             >
               <div
@@ -10211,9 +10333,11 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="links"
             >
               <div
@@ -10231,7 +10355,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                     class=""
                   >
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <div
                         class="col-12"
@@ -10403,9 +10527,11 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
         <div
           class="col-12 xl:col-6"
         >
-          <div>
+          <div
+            class="w-full"
+          >
             <div
-              class="p-card p-component card mb-3"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="habitat"
             >
               <div
@@ -10423,7 +10549,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                     class=""
                   >
                     <div
-                      class="field grid"
+                      class="field grid mb-0"
                     >
                       <div
                         class="col-12"

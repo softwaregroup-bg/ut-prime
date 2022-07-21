@@ -1,11 +1,11 @@
 import React from 'react';
 
-import type {Cards, Dropdowns} from '../types';
+import type {Cards, Dropdowns, WidgetReference} from '../types';
 import useForm from '../hooks/useForm';
 import useLayout from '../hooks/useLayout';
 
 export interface Props {
-    cardName: string | {name: string},
+    cardName: WidgetReference,
     index1?: number,
     index2?: number | boolean,
     cards: Cards,
@@ -14,7 +14,14 @@ export interface Props {
     loading?: string,
     design?: boolean,
     layoutState: ReturnType<typeof useLayout>,
-    formApi?: ReturnType<typeof useForm>
+    formApi?: ReturnType<typeof useForm>,
+    value?: object,
+    move?: (
+        type: 'card' | 'field',
+        source: object,
+        destination: object
+    ) => void,
+    classNames?: object
 }
 
 export type ComponentProps = React.FC<Props>

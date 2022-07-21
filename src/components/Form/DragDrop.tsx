@@ -117,7 +117,7 @@ export function DragDropCard({children, card, index1, index2, move, flex, hidden
     title = (drop && canDropCard) ? '👉 ' + dragTitle : <div ref={dragCard} style={drop ? {} : {cursor: 'move'}}>{title}</div>;
     const dropZone: ReactElement<HTMLDivElement> = !drop && <div
         ref={dropField}
-        className={clsx('field grid', flex)}
+        className={clsx('field', 'grid', 'mb-0', flex)}
         style={{
             background: isOverField && canDropField ? '#00ffff80' : 'transparent',
             outline: canDropField ? '1px dashed #00ffff80' : 'none'
@@ -151,7 +151,7 @@ export function ConfigCard({children = null, card, index1, index2, move = undefi
     return (
         design ? <DragDropCard {...{card, index1, index2, move, flex, hidden, drag, drop, title, ...props}}>
             {children}
-        </DragDropCard> : <div>
+        </DragDropCard> : <div className='w-full'>
             <Card title={title} {...props}>
                 {children}
             </Card>
