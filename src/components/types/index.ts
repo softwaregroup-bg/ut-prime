@@ -3,35 +3,39 @@ import type { JSONSchema7 } from 'json-schema'; // eslint-disable-line
 import type { Schema as Validation } from 'joi';
 import type { MenuItem } from 'primereact/menuitem';
 import type { DataTableProps } from 'primereact/datatable';
+import type { DataViewProps } from 'primereact/dataview';
 import type { ColumnProps } from 'primereact/column';
 
 export type DataTable = Omit<DataTableProps, 'children'>;
+export type DataView = Omit<DataViewProps, 'children'>;
 
 export interface PropertyEditor {
     type?:
-        'string' |
         'autocomplete' |
         'boolean' |
         'button' |
+        'currency' |
         'date-time' |
         'date' |
         'dropdown' |
         'dropdownTree' |
         'file' |
-        'integer' |
-        'number' |
+        'icon' |
         'image' |
+        'integer' |
+        'label' |
         'mask' |
         'multiSelect' |
         'multiSelectPanel' |
         'multiSelectTree' |
         'multiSelectTreeTable' |
+        'number' |
         'password' |
         'radio' |
         'select-table-radio' |
         'select' |
         'selectTable' |
-        'currency' |
+        'string' |
         'table' |
         'text' |
         'time';
@@ -111,6 +115,7 @@ export type WidgetReference = string | {
     name?: string,
     id?: string,
     label?: string,
+    title?: string,
     type?: PropertyEditor['type'],
     className?: string,
     permission?: string,
@@ -134,6 +139,7 @@ export interface Card {
     type?: 'toolbar' | 'card';
     classes?: {
         [name: string]: {
+            root?: string,
             field?: string,
             label?: string,
             input?: string
@@ -165,14 +171,19 @@ export interface Layouts {
     [name: string]: (string | string[])[] | Index | IndexItemId[]
 }
 
+export type Selection = {
+    id: string | number,
+    current: object,
+    selected: object[]
+}
+
+export type ActionHandler = ((item: Selection) => void) | string
 export interface Action {
     title: string;
     permission?: string;
     enabled?: string | boolean;
-    action: (({
-        id: any,
-        current: object,
-        selected: array
-    }) => void) | string | ((params: object, $meta: object) => Promise<object>);
+    action: ActionHandler;
     params?: object;
 }
+
+export type Layout = (WidgetReference | WidgetReference[])[];

@@ -20,12 +20,16 @@ const meta: Meta = {
 };
 export default meta;
 
+declare type StoryTemplate = Story<Partial<Props>> & {
+    play: (context: {canvasElement: HTMLElement}) => Promise<void>
+}
+
 const Template: Story<Props> = args =>
     <div className='flex' style={{overflowX: 'hidden', width: '100%'}}>
         <Form {...args} />
     </div>;
 
-export const Basic: Story<Partial<Props>> = Template.bind({});
+export const Basic: StoryTemplate = Template.bind({});
 
 Basic.args = {
     ...tree,
@@ -35,7 +39,7 @@ Basic.args = {
     onSubmit: () => {}
 };
 
-export const Input: Story<Partial<Props>> = Template.bind({});
+export const Input: StoryTemplate = Template.bind({});
 
 Input.args = {
     ...input,
@@ -89,7 +93,7 @@ Input.play = async({canvasElement}) => {
     await within(within(canvas.getByTestId('input-multiSelectTreeTable')).getByRole('row', {name: 'One'})).getAllByRole('checkbox')[0].click();
 };
 
-export const Table: Story<Partial<Props>> = Template.bind({});
+export const Table: StoryTemplate = Template.bind({});
 Table.args = {
     ...input,
     layout: ['table'],

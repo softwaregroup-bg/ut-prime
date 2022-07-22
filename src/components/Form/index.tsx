@@ -8,20 +8,15 @@ import { DevTool } from '@hookform/devtools';
 import {createUseStyles} from 'react-jss';
 
 import { ComponentProps } from './Form.types';
-import { ConfigField, ConfigCard} from './DragDrop';
+import { ConfigCard} from './DragDrop';
 import Context from '../Context';
-import input from './input';
-import type {Card} from '../types';
+import Card from '../Card';
 
-import titleCase from '../lib/titleCase';
-import { Properties, Editors, PropertyEditors } from '../types';
 import useForm from '../hooks/useForm';
 import useToggle from '../hooks/useToggle';
 import useSubmit from '../hooks/useSubmit';
-import Controller from '../Controller';
+import useLayout from '../hooks/useLayout';
 import getValidation from './schema';
-import {CHANGE} from './const';
-import getType from '../lib/getType';
 
 const useStyles = createUseStyles({
     form: {
@@ -31,54 +26,7 @@ const useStyles = createUseStyles({
     }
 });
 
-const inputClass = (index, classes, name, className) => ({
-    ...classes?.default,
-    ...classes?.[name]
-}.input || name === '' ? className : ((index.properties[name]?.title !== '' || className) ? `col-12 ${className || 'md:col-8'}` : 'col-12'));
-
 const widgetName = name => typeof name === 'string' ? name : name.name;
-
-const flatten = (properties: Properties, editors: Editors, root = '') : PropertyEditors => Object.entries(properties || {}).reduce(
-    (map, [name, property]) => {
-        return ('properties' in property) ? {
-            ...map,
-            ...flatten(property.properties, {}, root + name + '.')
-        } : ('items' in property) ? {
-            ...map,
-            [root + name]: property,
-            ...flatten(property.items.properties, {}, root + name + '.')
-        } : {
-            ...map,
-            [root + name]: property
-        };
-    },
-    {...editors}
-);
-
-const propertyType = property => property?.widget?.type || property?.format || getType(property?.type);
-
-const getIndex = (properties: Properties, editors: Editors) : {
-    properties: PropertyEditors,
-    children: {[parent: string]: string[]},
-    files: string[],
-    tables: string[]
-} => {
-    const index = flatten(properties, editors);
-    return {
-        properties: index,
-        children: Object.entries(index).reduce((prev, [name, property]) => {
-            const parent = property?.widget?.parent;
-            if (parent) {
-                const items = prev[parent];
-                if (items) items.push(name);
-                else prev[parent] = [name];
-            }
-            return prev;
-        }, {}),
-        files: Object.entries(index).map(([name, property]) => propertyType(property) === 'file' && name).filter(Boolean),
-        tables: Object.entries(index).map(([name, property]) => propertyType(property) === 'table' && name).filter(Boolean)
-    };
-};
 
 interface Errors {
     message?: string
@@ -112,12 +60,12 @@ const Form: ComponentProps = ({
     ...rest
 }) => {
     const classes = useStyles();
-    const {properties = {}} = schema;
     // console.log(joiSchema.describe());
     const resolver = React.useMemo(
         () => joiResolver(validation || getValidation(schema), {stripUnknown: true, abortEarly: false}),
         [validation, schema]
     );
+    const formApi = useForm({resolver});
     const {
         handleSubmit: formSubmit,
         control,
@@ -127,43 +75,18 @@ const Form: ComponentProps = ({
             isDirty
         },
         watch,
-        setValue,
-        getValues,
         setError,
         clearErrors
-    } = useForm({resolver});
+    } = formApi;
     const errorFields = flat(errors);
-    const counter = React.useRef(0);
-    const [visibleCards, visibleProperties] = React.useMemo(() => {
-        const visibleCards: (string | string[])[] = (layout || Object.keys(cards));
-        const widgetNames = widget => {
-            widget = typeof widget === 'string' ? widget : widget.name;
-            const editor = editors?.[widget.replace('$.edit.', '')];
-            if (!editor) return widget;
-            return widget.startsWith('$.edit.') ? editor.properties.map(name => '$.edit.' + name) : editor.properties;
-        };
-        return [
-            visibleCards,
-            Array.from(new Set(
-                visibleCards.map(id => {
-                    const nested = [].concat(id);
-                    return nested.map(
-                        cardName => cards[typeof cardName === 'string' ? cardName : cardName.name]?.widgets?.map(widgetNames)
-                    );
-                }).flat(10).filter(Boolean)
-            ))
-        ];
-    }, [cards, layout, editors]);
-
     const [, moved] = useToggle();
-
-    const idx = React.useMemo(() => getIndex(properties, editors), [properties, editors]);
+    const layoutState = useLayout(schema, cards, layout, editors);
 
     const {handleSubmit, toast} = useSubmit(
         async form => {
             try {
                 clearErrors();
-                return await onSubmit([form, idx]);
+                return await onSubmit([form, layoutState.index]);
             } catch (error) {
                 if (!Array.isArray(error.validation)) throw error;
                 error.validation.forEach(({path = [], message = ''} = {}) => {
@@ -175,7 +98,7 @@ const Form: ComponentProps = ({
                 });
             }
         },
-        [onSubmit, setError, clearErrors, idx]
+        [onSubmit, setError, clearErrors, layoutState.index]
     );
 
     const canSetTrigger = isDirty || triggerNotDirty;
@@ -202,15 +125,15 @@ const Form: ComponentProps = ({
                 destinationList,
                 destinationIndex
             ] = (destination.index[1] === false) ? [
-                visibleCards,
+                layoutState.visibleCards,
                 destination.index[0]
             ] : [
-                visibleCards[destination.index[0]],
+                layoutState.visibleCards[destination.index[0]],
                 destination.index[1]
             ];
             if (!Array.isArray(destinationList)) {
-                const card = visibleCards[destination.index[0]];
-                if (typeof card === 'string') destinationList = visibleCards[destination.index[0]] = [card];
+                const card = layoutState.visibleCards[destination.index[0]];
+                if (typeof card === 'string') destinationList = layoutState.visibleCards[destination.index[0]] = [card];
             }
             if (source.index[0] === false && Array.isArray(destinationList)) {
                 destinationList.splice(destinationIndex, 0, source.card);
@@ -222,191 +145,38 @@ const Form: ComponentProps = ({
                 sourceIndex,
                 sourceNested
             ] = (source.index[1] === false) ? [
-                visibleCards,
+                layoutState.visibleCards,
                 source.index[0],
                 false
             ] : [
-                visibleCards[source.index[0]],
+                layoutState.visibleCards[source.index[0]],
                 source.index[1],
                 true
             ];
             if (Array.isArray(sourceList) && Array.isArray(destinationList)) {
                 const removed = sourceList.splice(sourceIndex, 1)[0];
-                if (sourceList.length === 1 && sourceNested && sourceList !== destinationList) visibleCards[source.index[0]] = sourceList[0];
+                if (sourceList.length === 1 && sourceNested && sourceList !== destinationList) layoutState.visibleCards[source.index[0]] = sourceList[0];
                 destinationList.splice(destinationIndex, 0, removed);
             }
         }
         moved();
-    }, [cards, moved, visibleCards]);
-
-    const InputWrap = React.useCallback(function Input({
-        label,
-        error,
-        name,
-        propertyName = name.replace('$.edit.', ''),
-        className,
-        ...widget
-    }) {
-        widget.parent = widget.parent || name.match(/^\$\.edit\.[^.]+/)?.[0].replace('.edit.', '.selected.') || widget?.selectionPath;
-        const parent = widget.parent || idx.properties[propertyName]?.widget?.parent;
-        const parentWatch = parent && watch(parent);
-        const inputWidget = {id: name.replace(/\./g, '-') || label, ...idx.properties[propertyName]?.widget, ...widget, parent};
-        const render = ({field, fieldState}) => input(
-            label,
-            error,
-            {
-                className: clsx({'w-full': !['boolean'].includes(inputWidget.type)}, { 'p-invalid': fieldState.error }),
-                ...field,
-                onChange: (value, {select = false, field: changeField = true, children = true} = {}) => {
-                    if (select) {
-                        const prefix = `$.edit.${propertyName}.`;
-                        const selectionPrefix = widget?.selectionPath || '$.selected';
-                        setValue(
-                            `${selectionPrefix}.${propertyName}`,
-                            value,
-                            selectionPrefix.startsWith('$.') ? {shouldDirty: false, shouldTouch: false} : {shouldDirty: true, shouldTouch: true}
-                        );
-                        visibleProperties.forEach(property => {
-                            if (property.startsWith(prefix)) {
-                                setValue(
-                                    property,
-                                    value?.[property.substr(prefix.length)],
-                                    {shouldDirty: false, shouldTouch: false}
-                                );
-                            }
-                        });
-                    }
-                    try {
-                        if (children) {
-                            const items = idx.children[propertyName];
-                            if (items) {
-                                items.forEach(child => {
-                                    let childValue = null;
-                                    const autocompleteProp = child.split('.').pop();
-                                    const autocomplete = value?.value?.[autocompleteProp] || value?.[autocompleteProp];
-                                    if (idx.properties[propertyName]?.widget?.type === 'autocomplete' && autocomplete) childValue = autocomplete;
-                                    setValue(child, childValue);
-                                });
-                            }
-                        }
-                    } finally {
-                        if (changeField) {
-                            field.onChange(value);
-                            if (parentWatch?.[CHANGE] && name.startsWith('$.edit.')) {
-                                const old = {...parentWatch};
-                                parentWatch[name.split('.').pop()] = value;
-                                parentWatch[CHANGE]({data: old, newData: parentWatch});
-                            }
-                        }
-                    }
-                }
-            },
-            inputClass(idx, classes, propertyName, className),
-            inputWidget,
-            idx.properties[propertyName],
-            dropdowns,
-            parentWatch,
-            loading,
-            getValues,
-            counter,
-            methods
-        );
-        return name ? <Controller
-            control={control}
-            name={name}
-            render={render}
-        /> : render({field: {}, fieldState: {}});
-    }, [classes, control, dropdowns, idx, loading, setValue, watch, getValues, visibleProperties, methods]);
-
-    const InputWrapEdit = React.useCallback(
-        function InputEdit({name, ...props}) {
-            const Component = InputWrap; // this is to please eslint-plugin-react-hooks
-            return <Component name={'$.edit.' + name} {...props}/>;
-        },
-        [InputWrap]
-    );
-
-    const Label = React.useCallback(({name, className = 'col-12 md:col-4', label = idx.properties?.[name]?.title}) => {
-        if (label === undefined) label = titleCase(name.split('.').pop());
-        return label
-            ? <label className={className} htmlFor={name.replace(/\./g, '-')}>{label}</label>
-            : null;
-    }, [idx]);
-
-    const ErrorLabel = React.useCallback(({name, className = 'col-12 md:col-4'}) => {
-        const error = get(errors, name);
-        return error
-            ? <><small className={className}/><small className='col p-error'>{error.message}</small></>
-            : null;
-    }, [errors]);
-
-    const field = (flex: string, cardName: string, classes: Card['classes'], init = {}) => function field(widget, ind) {
-        if (typeof widget === 'string') widget = {name: widget};
-        const {
-            name = '',
-            id,
-            propertyName = name.replace('$.edit.', '')
-        } = widget;
-        const parent = name.match(/^\$\.edit\.[^.]+/)?.[0].replace('.edit.', '.selected.');
-        const property = idx.properties[propertyName];
-        const {
-            field: fieldClass = (typeof property === 'function') ? 'grid' : 'field grid',
-            label: labelClass
-        } = {...init, ...classes?.default, ...classes?.[propertyName]};
-        function Field() {
-            if (typeof property === 'function') {
-                return property({
-                    name,
-                    Input: name.startsWith('$.edit.') ? InputWrapEdit : InputWrap,
-                    Label,
-                    ErrorLabel
-                });
-            }
-            return (
-                <InputWrap
-                    propertyName={propertyName}
-                    parent={parent}
-                    name=''
-                    {...widget as object}
-                    label={<Label name={propertyName} className={labelClass} label={widget.label}/>}
-                    error={<ErrorLabel name={propertyName} className={labelClass} />}
-                />
-            );
-        }
-        return (property || name === '') ? <ConfigField
-            className={clsx(fieldClass, flex)}
-            key={id || name || widget.label}
-            index={ind}
-            card={cardName}
-            move={move}
-            design={design}
-            name={name}
-            label={property?.title}
-        >
-            {Field()}
-        </ConfigField> : <div className="field grid" key={name}>❌ {name}</div>;
-    };
-
-    function card(cardName, index1, index2) {
-        if (typeof cardName === 'object') cardName = cardName.name;
-        const {label, widgets = [], flex, hidden, classes, type} = (cards[cardName] || {label: '❌ ' + cardName});
-        if (type === 'toolbar') {
-            return widgets.length > 0 && widgets.map(field(flex, cardName, classes, {field: '', label: ''}));
-        }
-        return (
-            <ConfigCard title={label} key={`${index1}-${index2}`} className='card mb-3' card={cardName} id={cardName} index1={index1} index2={index2} move={move} flex={flex} design={design} hidden={hidden}>
-                {widgets.length > 0 && <div className={clsx(flex && 'flex flex-wrap')}>
-                    {widgets.map(field(flex, cardName, classes))}
-                </div>}
-            </ConfigCard>
-        );
-    }
+    }, [cards, moved, layoutState.visibleCards]);
 
     const {devTool} = React.useContext(Context);
     let toolbarElement = null;
-    if (toolbarRef?.current && cards[toolbar]) {
-        const {widgets = [], flex, classes} = cards[toolbar];
-        if (widgets.length) toolbarElement = ReactDOM.createPortal(widgets.map(field(flex, toolbar, classes, {field: '', label: ''})), toolbarRef.current);
+    if (toolbarRef?.current && cards[toolbar]?.widgets?.length) {
+        toolbarElement = ReactDOM.createPortal(<Card
+            cardName={toolbar}
+            cards={cards}
+            layoutState={layoutState}
+            dropdowns={dropdowns}
+            design={design}
+            loading={loading}
+            formApi={formApi}
+            methods={methods}
+            move={move}
+            toolbar
+        />, toolbarRef.current);
     }
 
     return (<>
@@ -416,10 +186,10 @@ const Form: ComponentProps = ({
         <form {...rest} onSubmit={formSubmit(handleSubmit)} className={clsx('grid col align-self-start', classes.form, className)}>
             {
                 !!Object.keys(errors).length && <div className='col-12'>
-                    {errorFields.map(name => !visibleProperties.includes(name) && <><small className="p-error">{get(errors, name)?.message}</small><br /></>)}
+                    {errorFields.map(name => !layoutState.visibleProperties.includes(name) && <><small className="p-error">{get(errors, name)?.message}</small><br /></>)}
                 </div>
             }
-            {visibleCards.map((id1, level1) => {
+            {layoutState.visibleCards.map((id1, level1) => {
                 const nested = [].concat(id1);
                 const firstCard = cards[widgetName(nested[0])];
                 const nestedCards = nested.map((widget, level2) => {
@@ -428,7 +198,22 @@ const Form: ComponentProps = ({
                     if (currentCard?.hidden && !design) return null;
                     const watched = currentCard?.watch && watch(currentCard.watch);
                     const match = currentCard?.match;
-                    return (!match || (typeof match === 'object' ? Object.entries(match).every(([key, value]) => watched?.[key] === value) : match === watched)) ? card(widget, level1, Array.isArray(id1) && level2) : null;
+                    return (!match || (typeof match === 'object' ? Object.entries(match).every(([key, value]) => watched?.[key] === value) : match === watched))
+                        ? <Card
+                                key={`${level1}-${Array.isArray(id1) && level2}`}
+                                cardName={widget}
+                                index1={level1}
+                                index2={Array.isArray(id1) && level2}
+                                cards={cards}
+                                layoutState={layoutState}
+                                dropdowns={dropdowns}
+                                design={design}
+                                loading={loading}
+                                formApi={formApi}
+                                methods={methods}
+                                move={move}
+                        />
+                        : null;
                 }).filter(Boolean);
 
                 if (!nestedCards.length) return null;
@@ -454,8 +239,8 @@ const Form: ComponentProps = ({
                     title='[ add card ]'
                     className='card mb-3'
                     card=''
-                    key={`${visibleCards.length}-drop`}
-                    index1={visibleCards.length}
+                    key={`${layoutState.visibleCards.length}-drop`}
+                    index1={layoutState.visibleCards.length}
                     index2={false}
                     move={move}
                     design={design}

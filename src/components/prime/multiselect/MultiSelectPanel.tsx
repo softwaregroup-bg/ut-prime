@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as React from 'react';
 import { localeOption } from 'primereact/api';
 import { CSSTransition } from 'primereact/csstransition';

@@ -31,7 +31,8 @@ const Template: Story<{
     deletePermission,
     details,
     children,
-    columns = ['name', 'size']
+    columns = ['name', 'size'],
+    ...props
 }) => {
     const toast = React.useRef(null);
     const show = action => data => toast.current.show({
@@ -49,6 +50,9 @@ const Template: Story<{
                     resultSet='items'
                     schema={{
                         properties: {
+                            id: {
+                                action: show('action')
+                            },
                             name: {
                                 title: 'Name',
                                 filter: true,
@@ -98,6 +102,7 @@ const Template: Story<{
                         enabled: 'selected',
                         action: show('delete')
                     }]}
+                    {...props}
                 >
                     {children}
                 </Explorer>
@@ -135,4 +140,47 @@ export const DateTimeFilter = Template.bind({});
 DateTimeFilter.args = {
     ...Basic.args,
     columns: ['date', 'time', 'dateTime']
+};
+
+export const Grid = Template.bind({});
+Grid.args = {
+    ...Basic.args,
+    cards: {
+        grid: {
+            type: 'grid',
+            widgets: [{
+                name: 'name', type: 'label'
+            }, {
+                name: 'size', type: 'label'
+            }]
+        }
+    },
+    pageSize: 36,
+    layout: ['grid']
+};
+
+export const GridFlex = Template.bind({});
+GridFlex.args = {
+    ...Basic.args,
+    cards: {
+        grid: {
+            type: 'grid',
+            className: 'col-6 md:col-3',
+            classes: {
+                default: {
+                    root: 'grid m-0',
+                    field: 'text-center col-4 mb-0'
+                }
+            },
+            widgets: [{
+                type: 'icon', title: 'pi-paperclip'
+            }, {
+                name: 'name', type: 'label'
+            }, {
+                name: 'size', type: 'label'
+            }]
+        }
+    },
+    pageSize: 24,
+    layout: ['grid']
 };

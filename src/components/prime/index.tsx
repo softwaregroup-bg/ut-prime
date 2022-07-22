@@ -1,5 +1,6 @@
 import React from 'react';
 import type {DataTableProps} from 'primereact/datatable';
+import type {DataViewProps} from 'primereact/dataview';
 
 import { Calendar } from 'primereact/calendar';
 export { AutoComplete } from 'primereact/autocomplete';
@@ -12,7 +13,9 @@ export { Checkbox } from 'primereact/checkbox';
 export { Chips } from 'primereact/chips';
 export { Column } from 'primereact/column';
 export { DataTable } from 'primereact/datatable';
+export { DataView } from 'primereact/dataview';
 export type {DataTableProps};
+export type {DataViewProps};
 export { Dialog } from 'primereact/dialog';
 export { Dropdown } from 'primereact/dropdown';
 export { FileUpload } from 'primereact/fileupload';

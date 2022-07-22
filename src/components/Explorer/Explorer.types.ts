@@ -1,7 +1,7 @@
 import React from 'react';
-import { DataTableProps } from '../prime';
+import { DataTableProps, DataViewProps } from '../prime';
 
-import type {Schema, Dropdowns, Action, WidgetReference} from '../types';
+import type {Schema, Cards, Editors, Dropdowns, Action, WidgetReference, Layout} from '../types';
 
 export interface Props {
     /**
@@ -52,6 +52,12 @@ export interface Props {
     showFilter?: boolean;
     pageSize?: number;
     table?: DataTableProps;
+    editors?: Editors;
+    view?: DataViewProps;
+    cards?: Cards;
+    layout?: Layout,
+    layouts?: string[];
+    methods?: object;
 }
 
 export type ComponentProps = React.FC<Props>

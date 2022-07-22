@@ -17,7 +17,7 @@ const filteredItems = (filterBy) => {
     })));
 };
 
-const compare = ({field, dir, smaller = {ASC: -1, DESC: 1}[dir]}) => function compare(a, b) {
+const compare = ({field, dir, smaller = {ASC: -1, DESC: 1}[dir]}) => function compareMock(a, b) {
     if (a[field] < b[field]) return smaller;
     if (a[field] > b[field]) return -smaller;
     return 0;

@@ -19,6 +19,10 @@ const meta: Meta = {
 };
 export default meta;
 
+declare type StoryTemplate = Story<Partial<Props>> & {
+    play: (context: {canvasElement: HTMLElement}) => Promise<void>
+}
+
 const Template: Story<Props & {state: object}> = ({state, ...args}) =>
     <Permission {...args}>
         <div className='p-component'>
@@ -26,36 +30,36 @@ const Template: Story<Props & {state: object}> = ({state, ...args}) =>
         </div>
     </Permission>;
 
-export const Basic: Story<Partial<Props>> = Template.bind({});
+export const Basic: StoryTemplate = Template.bind({});
 Basic.args = {
     permission: undefined
 };
 
-export const Granted: Story<Partial<Props>> = Template.bind({});
+export const Granted: StoryTemplate = Template.bind({});
 Granted.args = {
     ...Basic.args,
     permission: 'granted'
 };
 
-export const Multiple: Story<Partial<Props>> = Template.bind({});
+export const Multiple: StoryTemplate = Template.bind({});
 Multiple.args = {
     ...Basic.args,
     permission: ['granted', 'pageXYZ']
 };
 
-export const Wildcard: Story<Partial<Props>> = Template.bind({});
+export const Wildcard: StoryTemplate = Template.bind({});
 Wildcard.args = {
     ...Basic.args,
     permission: 'pageXYZ'
 };
 
-export const Denied: Story<Partial<Props>> = Template.bind({});
+export const Denied: StoryTemplate = Template.bind({});
 Denied.args = {
     ...Basic.args,
     permission: 'denied'
 };
 
-export const AnyDenied: Story<Partial<Props>> = Template.bind({});
+export const AnyDenied: StoryTemplate = Template.bind({});
 AnyDenied.args = {
     ...Basic.args,
     permission: ['denied', 'granted']

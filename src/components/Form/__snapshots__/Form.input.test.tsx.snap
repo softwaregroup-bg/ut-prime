@@ -19,9 +19,11 @@ exports[`<Form /> Input render equals snapshot 1`] = `
       <div
         class="col-12 xl:col-4"
       >
-        <div>
+        <div
+          class="w-full"
+        >
           <div
-            class="p-card p-component card mb-3"
+            class="p-card p-component card mb-3 card-0-2-2"
             id="left"
           >
             <div
@@ -341,7 +343,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                     </div>
                   </div>
                   <div
-                    class="field grid"
+                    class="field grid mb-0"
                   >
                     <label
                       class="col-12 md:col-4"
@@ -400,9 +402,11 @@ exports[`<Form /> Input render equals snapshot 1`] = `
       <div
         class="col-12 xl:col-4"
       >
-        <div>
+        <div
+          class="w-full"
+        >
           <div
-            class="p-card p-component card mb-3"
+            class="p-card p-component card mb-3 card-0-2-2"
             id="center"
           >
             <div
@@ -733,7 +737,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                     </div>
                   </div>
                   <div
-                    class="field grid"
+                    class="field grid mb-0"
                   >
                     <label
                       class="col-12 md:col-4"
@@ -1002,9 +1006,11 @@ exports[`<Form /> Input render equals snapshot 1`] = `
       <div
         class="col-12 xl:col-4"
       >
-        <div>
+        <div
+          class="w-full"
+        >
           <div
-            class="p-card p-component card mb-3"
+            class="p-card p-component card mb-3 card-0-2-2"
             id="right"
           >
             <div
@@ -1402,7 +1408,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                     </div>
                   </div>
                   <div
-                    class="field grid"
+                    class="field grid mb-0"
                   >
                     <label
                       class="col-12 md:col-4"

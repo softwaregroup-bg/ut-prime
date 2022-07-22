@@ -20,6 +20,10 @@ const meta: Meta = {
 };
 export default meta;
 
+declare type StoryTemplate = Story<Partial<Props>> & {
+    play: (context: {canvasElement: HTMLElement}) => Promise<void>
+}
+
 const sticky = {sticky: true};
 
 const Template: Story<Props> = args => {
@@ -36,7 +40,7 @@ const Template: Story<Props> = args => {
     );
 };
 
-export const Basic: Story<Partial<Props>> = Template.bind({});
+export const Basic: StoryTemplate = Template.bind({});
 Basic.args = {
     id: 1,
     object: 'tree',
@@ -61,19 +65,19 @@ Basic.args = {
     })
 };
 
-export const Loading: Story<Partial<Props>> = Template.bind({});
+export const Loading: StoryTemplate = Template.bind({});
 Loading.args = {
     ...Basic.args,
     onGet: params => new Promise((resolve, reject) => {})
 };
 
-export const Design: Story<Partial<Props>> = Template.bind({});
+export const Design: StoryTemplate = Template.bind({});
 Design.args = {
     ...Basic.args,
     design: true
 };
 
-export const Tabs: Story<Partial<Props>> = Template.bind({});
+export const Tabs: StoryTemplate = Template.bind({});
 Tabs.args = {
     ...Basic.args,
     layouts: {
@@ -98,7 +102,7 @@ Tabs.args = {
     }
 };
 
-export const Submit: Story<Partial<Props>> = Template.bind({});
+export const Submit: StoryTemplate = Template.bind({});
 Submit.args = Basic.args;
 Submit.play = async({canvasElement}) => {
     const canvas = within(canvasElement);
@@ -107,7 +111,7 @@ Submit.play = async({canvasElement}) => {
     await userEvent.click(canvas.getByLabelText('save'));
 };
 
-export const Validation: Story<Partial<Props>> = Template.bind({});
+export const Validation: StoryTemplate = Template.bind({});
 Validation.args = Basic.args;
 Validation.play = async({canvasElement}) => {
     const canvas = within(canvasElement);
@@ -133,7 +137,7 @@ const serverError = () => {
     throw error;
 };
 
-export const ServerValidation: Story<Partial<Props>> = Template.bind({});
+export const ServerValidation: StoryTemplate = Template.bind({});
 ServerValidation.args = {
     ...Basic.args,
     onAdd: serverError,
@@ -146,7 +150,7 @@ ServerValidation.play = async({canvasElement}) => {
     await userEvent.click(canvas.getByLabelText('save'));
 };
 
-export const Toolbar: Story<Partial<Props>> = Template.bind({});
+export const Toolbar: StoryTemplate = Template.bind({});
 Toolbar.args = {
     ...Basic.args,
     cards: {
@@ -161,7 +165,7 @@ Toolbar.args = {
                 label: 'Browse'
             }, {
                 type: 'button',
-                id: 'button1',
+                id: 'button2',
                 action: 'subject.object.predicate',
                 params: {id: 1},
                 label: 'Open'
