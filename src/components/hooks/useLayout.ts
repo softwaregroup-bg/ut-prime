@@ -69,7 +69,10 @@ export default (
             visibleCards.map(id => {
                 const nested = [].concat(id);
                 return nested.map(
-                    cardName => cards[typeof cardName === 'string' ? cardName : cardName.name]?.widgets?.map(widgetNames)
+                    cardName => {
+                        const card = cards[typeof cardName === 'string' ? cardName : cardName.name];
+                        return card && !card.hidden && card?.widgets?.map(widgetNames);
+                    }
                 );
             }).flat(10).filter(Boolean)
         )),
