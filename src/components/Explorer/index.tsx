@@ -11,6 +11,8 @@ import Permission from '../Permission';
 import useToggle from '../hooks/useToggle';
 import useSubmit from '../hooks/useSubmit';
 import useLayout from '../hooks/useLayout';
+import useWindowSize from '../hooks/useWindowSize';
+import useBoundingClientRect from '../hooks/useBoundingClientRect';
 import columnProps, {TableFilter} from '../lib/column';
 import prepareSubmit from '../lib/prepareSubmit';
 
@@ -258,6 +260,11 @@ const Explorer: ComponentProps = ({
             {details && <Button {...testid(`${resultSet}.details.toggleButton`)} icon="pi pi-bars" className="mr-2" onClick={detailsToggle}/>}
         </>,
     [details, detailsToggle, resultSet, load]);
+    const windowSize = useWindowSize();
+    const {boundingClientRect, ref: boundingClientRef} = useBoundingClientRect();
+    const style = React.useMemo(() => ({
+        maxHeight: windowSize.height - (boundingClientRect.top + (boundingClientRect.bottom - boundingClientRect.height))
+    }), [windowSize.height, boundingClientRect.top]);
     const layoutState = useLayout(schema, cards, layout, editors, keyField);
     const cardName = layout?.flat()[0];
     const itemTemplate = React.useMemo(() => item => {
@@ -299,6 +306,8 @@ const Explorer: ComponentProps = ({
         itemTemplate={itemTemplate}
         {...viewProps}
     /> : <DataTable
+        scrollable
+        scrollHeight={style.maxHeight}
         autoLayout
         lazy
         rows={pageSize}
@@ -325,15 +334,15 @@ const Explorer: ComponentProps = ({
     </DataTable>;
     const nav = children && navigationOpened && <SplitterPanel key='nav' size={15}>{children}</SplitterPanel>;
     return (
-        <div className={clsx('flex', 'flex-column', 'h-full', classes.explorer, className)}>
+        <div style={style} className={clsx('flex', 'flex-column', 'h-full', classes.explorer, className)}>
             {toast}
             {
                 buttons?.length || nav || detailsPanel
                     ? <Toolbar left={left} right={right} style={backgroundNone} className='border-none' />
                     : null
             }
-            {
-                (nav || detailsPanel)
+            <div ref={boundingClientRef}>
+                {(nav || detailsPanel)
                     ? <Splitter style={flexGrow}>
                         {[
                             nav,
@@ -343,8 +352,8 @@ const Explorer: ComponentProps = ({
                             detailsPanel
                         ].filter(Boolean)}
                     </Splitter>
-                    : table
-            }
+                    : table}
+            </div>
         </div>
     );
 };
