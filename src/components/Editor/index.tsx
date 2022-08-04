@@ -12,6 +12,8 @@ import ThumbIndex from '../ThumbIndex';
 import {Toolbar, Button, Card, ConfirmPopup, confirmPopup} from '../prime';
 import useToggle from '../hooks/useToggle';
 import useLoad from '../hooks/useLoad';
+import useWindowSize from '../hooks/useWindowSize';
+import useBoundingClientRect from '../hooks/useBoundingClientRect';
 import {ConfigField, ConfigCard} from '../Form/DragDrop';
 import prepareSubmit from '../lib/prepareSubmit';
 import testid from '../lib/testid';
@@ -78,7 +80,6 @@ const Editor: ComponentProps = ({
 }) => {
     const {properties = empty} = schema;
     name = name ? name + '.' : '';
-
     const [keyValue, setKeyValue] = React.useState(id);
     const [trigger, setTrigger] = React.useState();
     const [didSubmit, setDidSubmit] = React.useState(false);
@@ -88,6 +89,11 @@ const Editor: ComponentProps = ({
     const [[items, layout, orientation, toolbar], setIndex] = React.useState(() => getLayout(cards, layouts, id == null ? 'create' : 'edit', layoutName));
     const [filter, setFilter] = React.useState(items?.[0]?.items?.[0] || items?.[0]);
     const [loading, setLoading] = React.useState('loading');
+    const windowSize = useWindowSize();
+    const {boundingClientRect, ref: boundingClientRef} = useBoundingClientRect();
+    const style = React.useMemo(() => ({
+        maxHeight: windowSize.height - boundingClientRect.top
+    }), [windowSize.height, boundingClientRect.top]);
     const [validation, dropdownNames, getValue] = React.useMemo(() => {
         const columns = (propertyName, property) => []
             .concat(property?.hidden)
@@ -254,9 +260,9 @@ const Editor: ComponentProps = ({
                     />
                 </>}
             />
-            <div className={clsx('flex', 'overflow-x-hidden', 'w-full', orientation === 'top' && 'flex-column')}>
+            <div ref={boundingClientRef} className={clsx('flex', 'overflow-x-hidden', 'w-full', orientation === 'top' && 'flex-column')}>
                 {items && <ThumbIndex name={name} items={items} orientation={orientation} onFilter={setFilter}/>}
-                <div className='flex flex-grow-1'>
+                <div style={style} className='flex flex-grow-1'>
                     <Form
                         schema={schema}
                         debug={debug}
