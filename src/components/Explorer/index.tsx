@@ -44,6 +44,10 @@ const useStyles = createUseStyles({
                     }
                 }
             }
+        },
+        '& .p-datatable-tbody': {
+            overflowY: 'auto',
+            maxHeight: 'inherit'
         }
     },
     details: {
@@ -264,7 +268,7 @@ const Explorer: ComponentProps = ({
     const {boundingClientRect, ref: boundingClientRef} = useBoundingClientRect();
     const style = React.useMemo(() => ({
         maxHeight: windowSize.height - (boundingClientRect.top + (boundingClientRect.bottom - boundingClientRect.height))
-    }), [windowSize.height, boundingClientRect.top]);
+    }), [windowSize.height, boundingClientRect.top, boundingClientRect.bottom, boundingClientRect.height]);
     const layoutState = useLayout(schema, cards, layout, editors, keyField);
     const cardName = layout?.flat()[0];
     const itemTemplate = React.useMemo(() => item => {
@@ -307,7 +311,8 @@ const Explorer: ComponentProps = ({
         {...viewProps}
     /> : <DataTable
         scrollable
-        scrollHeight={style.maxHeight}
+        scrollHeight={style.maxHeight + 'px'}
+        tableStyle={{maxHeight: style.maxHeight - boundingClientRef?.current?.querySelector?.('thead')?.getBoundingClientRect?.()?.height}}
         autoLayout
         lazy
         rows={pageSize}
@@ -334,7 +339,7 @@ const Explorer: ComponentProps = ({
     </DataTable>;
     const nav = children && navigationOpened && <SplitterPanel key='nav' size={15}>{children}</SplitterPanel>;
     return (
-        <div style={style} className={clsx('flex', 'flex-column', 'h-full', classes.explorer, className)}>
+        <div className={clsx('flex', 'flex-column', 'h-full', classes.explorer, className)}>
             {toast}
             {
                 buttons?.length || nav || detailsPanel
