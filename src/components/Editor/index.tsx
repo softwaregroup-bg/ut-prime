@@ -92,8 +92,8 @@ const Editor: ComponentProps = ({
     const windowSize = useWindowSize();
     const {boundingClientRect, ref: boundingClientRef} = useBoundingClientRect();
     const style = React.useMemo(() => ({
-        maxHeight: windowSize.height - boundingClientRect.top
-    }), [windowSize.height, boundingClientRect.top]);
+        maxHeight: windowSize.height - (boundingClientRect.top + (boundingClientRect.bottom - boundingClientRect.height))
+    }), [windowSize.height, boundingClientRect.top, boundingClientRect.bottom, boundingClientRect.height]);
     const [validation, dropdownNames, getValue] = React.useMemo(() => {
         const columns = (propertyName, property) => []
             .concat(property?.hidden)
