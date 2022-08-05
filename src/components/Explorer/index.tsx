@@ -33,10 +33,13 @@ const useStyles = createUseStyles({
             overflowX: 'auto'
         },
         '& .p-grid': {
-            margin: '0.5em'
+            margin: '0.5em',
+            overflowY: 'auto',
+            maxHeight: 'inherit'
         },
         '& .p-dataview': {
             '& .p-dataview-content': {
+                maxHeight: 'inherit',
                 background: 'none',
                 '& .p-card': {
                     '& .p-card-content': {
@@ -264,11 +267,6 @@ const Explorer: ComponentProps = ({
             {details && <Button {...testid(`${resultSet}.details.toggleButton`)} icon="pi pi-bars" className="mr-2" onClick={detailsToggle}/>}
         </>,
     [details, detailsToggle, resultSet, load]);
-    const windowSize = useWindowSize();
-    const {boundingClientRect, ref: boundingClientRef} = useBoundingClientRect();
-    const style = React.useMemo(() => ({
-        maxHeight: windowSize.height - (boundingClientRect.top + (boundingClientRect.bottom - boundingClientRect.height))
-    }), [windowSize.height, boundingClientRect.top, boundingClientRect.bottom, boundingClientRect.height]);
     const layoutState = useLayout(schema, cards, layout, editors, keyField);
     const cardName = layout?.flat()[0];
     const itemTemplate = React.useMemo(() => item => {
@@ -295,6 +293,18 @@ const Explorer: ComponentProps = ({
         return renderItem();
     }, [cards, layoutState, dropdowns, methods, keyField, resultSet, cardName]);
 
+    const windowSize = useWindowSize();
+    const {boundingClientRect, ref: boundingClientRef} = useBoundingClientRect();
+    const style = React.useMemo(() => {
+        const theadHeight = boundingClientRef.current?.querySelector?.('thead')?.clientHeight;
+        const tableHeight = boundingClientRef.current?.querySelector?.('table')?.clientHeight;
+        const delta = boundingClientRect.height - tableHeight;
+        const maxHeight = windowSize.height - (boundingClientRect.top + theadHeight + delta);
+        return {
+            maxHeight: !isNaN(maxHeight) ? maxHeight : 0
+        };
+    }, [windowSize.height, boundingClientRect.top, boundingClientRect.height, boundingClientRef.current]);
+
     const table = layout ? <DataView
         layout='grid'
         lazy
@@ -311,8 +321,7 @@ const Explorer: ComponentProps = ({
         {...viewProps}
     /> : <DataTable
         scrollable
-        scrollHeight={style.maxHeight + 'px'}
-        tableStyle={{maxHeight: style.maxHeight - boundingClientRef?.current?.querySelector?.('thead')?.getBoundingClientRect?.()?.height}}
+        tableStyle={style}
         autoLayout
         lazy
         rows={pageSize}
