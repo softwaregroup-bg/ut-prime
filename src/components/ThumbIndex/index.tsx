@@ -1,11 +1,22 @@
 import React from 'react';
 import clsx from 'clsx';
+import {createUseStyles} from 'react-jss';
 
 import { ListBox, PanelMenu, TabMenu, Ripple } from '../prime';
 import { ComponentProps } from './ThumbIndex.types';
 import testid from '../lib/testid';
 
+import useWindowSize from '../hooks/useWindowSize';
+import useBoundingClientRect from '../hooks/useBoundingClientRect';
+
+const useStyles = createUseStyles({
+    'padding-bottom-0': {
+        paddingBottom: 0
+    }
+});
+
 const ThumbIndex: ComponentProps = ({ name, className, items, orientation = 'left', children, onFilter, ...rest }) => {
+    const classes = useStyles();
     const [[selectedList, activeIndex], setList] = React.useState([items[0], 0]);
     const handleListChange = React.useCallback(({value, index}) => {
         if (index === undefined) index = value.index;
@@ -50,13 +61,27 @@ const ThumbIndex: ComponentProps = ({ name, className, items, orientation = 'lef
         activeIndex={activeIndex}
         onTabChange={handleListChange}
     />;
+
+    const windowSize = useWindowSize();
+    const {boundingClientRect: panelMenuRect, ref: panelMenuRef} = useBoundingClientRect();
+
+    const panelMenuStyle = React.useMemo(() => {
+        const maxHeight = windowSize.height - panelMenuRect?.top;
+        return {
+            maxHeight: (!isNaN(maxHeight) && maxHeight > 0) ? maxHeight : 0
+        };
+    }, [windowSize.height, panelMenuRect?.top]);
+
     return (
-        <div className={clsx('flex flex-row', {'lg:col-2': !!model?.length}, className)} {...rest}>
+        <div className={clsx('flex flex-row', {'lg:col-2': !!model?.length}, className, classes['padding-bottom-0'])} {...rest}>
             {tabs}
-            {!!model?.length && <PanelMenu
-                className='flex-1'
-                model={model}
-            />}
+            {!!model?.length && <div className='w-full' ref={panelMenuRef}>
+                <PanelMenu
+                    className={clsx('flex-1 overflow-y-auto')}
+                    model={model}
+                    style={panelMenuStyle}
+                />    
+            </div>}
             {children}
         </div>
     );
