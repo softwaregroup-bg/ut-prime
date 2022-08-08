@@ -34,11 +34,11 @@ const useStyles = createUseStyles({
         },
         '& .p-grid': {
             margin: '0.5em',
-            overflowY: 'auto',
             maxHeight: 'inherit'
         },
         '& .p-dataview': {
             '& .p-dataview-content': {
+                overflowY: 'auto',
                 maxHeight: 'inherit',
                 background: 'none',
                 '& .p-card': {
@@ -294,18 +294,28 @@ const Explorer: ComponentProps = ({
     }, [cards, layoutState, dropdowns, methods, keyField, resultSet, cardName]);
 
     const windowSize = useWindowSize();
-    const {boundingClientRect, ref: boundingClientRef} = useBoundingClientRect();
-    const style = React.useMemo(() => {
-        const theadHeight = boundingClientRef.current?.querySelector?.('thead')?.clientHeight;
-        const tableHeight = boundingClientRef.current?.querySelector?.('table')?.clientHeight;
-        const delta = boundingClientRect.height - tableHeight;
-        const maxHeight = windowSize.height - (boundingClientRect.top + theadHeight + delta);
+    const {boundingClientRect: tableWrapRect, ref: tableWrapRef} = useBoundingClientRect();
+
+    const dataViewStyle = React.useMemo(() => {
+        const delta = tableWrapRect.bottom - tableWrapRect.height;
+        const maxHeight = windowSize.height - (tableWrapRect.top + delta);
         return {
             maxHeight: !isNaN(maxHeight) ? maxHeight : 0
         };
-    }, [windowSize.height, boundingClientRect.top, boundingClientRect.height, boundingClientRef.current]);
+    }, [windowSize.height, tableWrapRect.top, tableWrapRect.bottom, tableWrapRect.height]);
+
+    const dataTableStyle = React.useMemo(() => {
+        const theadHeight = tableWrapRef.current?.querySelector?.('thead')?.clientHeight;
+        const tableHeight = tableWrapRef.current?.querySelector?.('table')?.clientHeight;
+        const delta = tableWrapRect.height - tableHeight;
+        const maxHeight = windowSize.height - (tableWrapRect.top + theadHeight + delta);
+        return {
+            maxHeight: !isNaN(maxHeight) ? maxHeight : 0
+        };
+    }, [windowSize.height, tableWrapRect.top, tableWrapRect.height, tableWrapRef.current]);
 
     const table = layout ? <DataView
+        style={dataViewStyle}
         layout='grid'
         lazy
         gutter
@@ -321,7 +331,7 @@ const Explorer: ComponentProps = ({
         {...viewProps}
     /> : <DataTable
         scrollable
-        tableStyle={style}
+        tableStyle={dataTableStyle}
         autoLayout
         lazy
         rows={pageSize}
@@ -348,14 +358,14 @@ const Explorer: ComponentProps = ({
     </DataTable>;
     const nav = children && navigationOpened && <SplitterPanel key='nav' size={15}>{children}</SplitterPanel>;
     return (
-        <div className={clsx('flex', 'flex-column', 'h-full', classes.explorer, className)}>
+        <div className={clsx('flex', 'flex-column', 'h-fit', classes.explorer, className)}>
             {toast}
             {
                 buttons?.length || nav || detailsPanel
                     ? <Toolbar left={left} right={right} style={backgroundNone} className='border-none' />
                     : null
             }
-            <div ref={boundingClientRef}>
+            <div ref={tableWrapRef}>
                 {(nav || detailsPanel)
                     ? <Splitter style={flexGrow}>
                         {[
