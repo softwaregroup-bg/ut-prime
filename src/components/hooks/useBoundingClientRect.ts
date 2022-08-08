@@ -15,7 +15,7 @@ export default function useBoundingClientRect() {
 
     React.useEffect(() => {
         function handleResize() {
-            setBoundingClientRect(ref.current.getBoundingClientRect());
+            setBoundingClientRect(ref.current?.getBoundingClientRect?.());
         }
         window.addEventListener('resize', handleResize);
         handleResize();
