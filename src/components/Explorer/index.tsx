@@ -33,11 +33,12 @@ const useStyles = createUseStyles({
             overflowX: 'auto'
         },
         '& .p-grid': {
-            margin: '0.5em'
+            margin: '0.5em' 
         },
         '& .p-dataview': {
             '& .p-dataview-content': {
                 overflow: 'auto',
+                maxHeight: 'inherit',
                 background: 'none',
                 '& .p-card': {
                     '& .p-card-content': {
@@ -208,32 +209,34 @@ const Explorer: ComponentProps = ({
     const {boundingClientRect: contentWrapRect, ref: contentWrapRef} = useBoundingClientRect();
     const {boundingClientRect: tableWrapRect, ref: tableWrapRef} = useBoundingClientRect();
 
+    const magicBorder = React.useMemo(() => {
+        return (tableWrapRect.top - contentWrapRect.top) * 2;
+    }, [tableWrapRect.top, contentWrapRect.top]);
+
     const sideStyle = React.useMemo(() => {
-        const magicBorder = (tableWrapRect.top - contentWrapRect.top) * 2; // magic border
         const maxHeight = windowSize.height - (tableWrapRect.top + magicBorder);
         return {
             maxHeight: (!isNaN(maxHeight) && maxHeight > 0) ? maxHeight : 0
         };
-    }, [windowSize.height, tableWrapRect.top, contentWrapRect.top])
+    }, [windowSize.height, tableWrapRect.top, magicBorder])
 
     const dataViewStyle = React.useMemo(() => {
         const delta = tableWrapRect.bottom - tableWrapRect.height;
-        const maxHeight = windowSize.height - (tableWrapRect.top + delta);
+        const maxHeight = windowSize.height - (tableWrapRect.top + delta + magicBorder);
         return {
             maxHeight: (!isNaN(maxHeight) && maxHeight > 0) ? maxHeight : 0
         };
-    }, [windowSize.height, tableWrapRect.top, tableWrapRect.bottom, tableWrapRect.height]);
+    }, [windowSize.height, tableWrapRect.top, tableWrapRect.bottom, tableWrapRect.height, magicBorder]);
 
     const dataTableStyle = React.useMemo(() => {
         const theadHeight = tableWrapRef.current?.querySelector?.('thead')?.clientHeight;
         const tbodyHeight = tableWrapRef.current?.querySelector?.('tbody')?.clientHeight;
-        const magicBorder = (tableWrapRect.top - contentWrapRect.top) * 2;
         const delta = tableWrapRect.height - (theadHeight + tbodyHeight);
         const maxHeight = windowSize.height - (tableWrapRect.top + theadHeight + delta + magicBorder);
         return {
             maxHeight: (!isNaN(maxHeight) && maxHeight > 0) ? maxHeight : 0
         };
-    }, [windowSize.height, tableWrapRect.top, tableWrapRect.height, tableWrapRef.current, contentWrapRect.top]);
+    }, [windowSize.height, tableWrapRect.top, tableWrapRect.height, tableWrapRef.current, magicBorder]);
 
     const detailsPanel = React.useMemo(() => detailsOpened && details &&
         <SplitterPanel style={sideStyle} key='details' size={10}>
