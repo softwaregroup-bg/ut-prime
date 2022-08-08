@@ -205,15 +205,16 @@ const Explorer: ComponentProps = ({
     }, [keyField, load, subscribe]);
 
     const windowSize = useWindowSize();
+    const {boundingClientRect: contentWrapRect, ref: contentWrapRef} = useBoundingClientRect();
     const {boundingClientRect: tableWrapRect, ref: tableWrapRef} = useBoundingClientRect();
-    
+
     const sideStyle = React.useMemo(() => {
-        const delta = 2; // magic border
-        const maxHeight = windowSize.height - (tableWrapRect.top + delta);
+        const magicBorder = (tableWrapRect.top - contentWrapRect.top) * 2; // magic border
+        const maxHeight = windowSize.height - (tableWrapRect.top + magicBorder);
         return {
             maxHeight: (!isNaN(maxHeight) && maxHeight > 0) ? maxHeight : 0
         };
-    }, [windowSize.height, tableWrapRect.top])
+    }, [windowSize.height, tableWrapRect.top, contentWrapRect.top])
 
     const dataViewStyle = React.useMemo(() => {
         const delta = tableWrapRect.bottom - tableWrapRect.height;
@@ -225,13 +226,14 @@ const Explorer: ComponentProps = ({
 
     const dataTableStyle = React.useMemo(() => {
         const theadHeight = tableWrapRef.current?.querySelector?.('thead')?.clientHeight;
-        const tableHeight = tableWrapRef.current?.querySelector?.('table')?.clientHeight;
-        const delta = tableWrapRect.height - tableHeight;
-        const maxHeight = windowSize.height - (tableWrapRect.top + theadHeight + delta);
+        const tbodyHeight = tableWrapRef.current?.querySelector?.('tbody')?.clientHeight;
+        const magicBorder = (tableWrapRect.top - contentWrapRect.top) * 2;
+        const delta = tableWrapRect.height - (theadHeight + tbodyHeight);
+        const maxHeight = windowSize.height - (tableWrapRect.top + theadHeight + delta + magicBorder);
         return {
             maxHeight: (!isNaN(maxHeight) && maxHeight > 0) ? maxHeight : 0
         };
-    }, [windowSize.height, tableWrapRect.top, tableWrapRect.height, tableWrapRef.current]);
+    }, [windowSize.height, tableWrapRect.top, tableWrapRect.height, tableWrapRef.current, contentWrapRect.top]);
 
     const detailsPanel = React.useMemo(() => detailsOpened && details &&
         <SplitterPanel style={sideStyle} key='details' size={10}>
@@ -243,7 +245,7 @@ const Explorer: ComponentProps = ({
                     </div>
                 )
             }</div>
-        </SplitterPanel>, [classes.details, classes.detailsLabel, classes.detailsValue, current, details, detailsOpened]);
+        </SplitterPanel>, [classes.details, classes.detailsLabel, classes.detailsValue, current, details, detailsOpened, sideStyle]);
 
     const filterBy = (name: string, key: string) => e => {
         const value = lodashGet(e, key);
@@ -324,48 +326,50 @@ const Explorer: ComponentProps = ({
         return renderItem();
     }, [cards, layoutState, dropdowns, methods, keyField, resultSet, cardName]);
 
-    const table = layout ? <DataView
-        style={dataViewStyle}
-        layout='grid'
-        lazy
-        gutter
-        rows={pageSize}
-        totalRecords={totalRecords}
-        paginator
-        first={tableFilter.first}
-        sortField={tableFilter.sortField}
-        sortOrder={tableFilter.sortOrder}
-        value={items}
-        onPage={handleFilterPageSort}
-        itemTemplate={itemTemplate}
-        {...viewProps}
-    /> : <DataTable
-        scrollable
-        tableStyle={dataTableStyle}
-        autoLayout
-        lazy
-        rows={pageSize}
-        totalRecords={totalRecords}
-        paginator
-        first={tableFilter.first}
-        sortField={tableFilter.sortField}
-        sortOrder={tableFilter.sortOrder}
-        filters={tableFilter.filters}
-        onPage={handleFilterPageSort}
-        onSort={handleFilterPageSort}
-        onFilter={handleFilterPageSort}
-        loading={loading}
-        dataKey={keyField}
-        value={items}
-        selection={selected}
-        filterDisplay='row'
-        onSelectionChange={handleSelectionChange}
-        onRowSelect={handleRowSelect}
-        {...tableProps}
-    >
-        {keyField && (!tableProps?.selectionMode || tableProps?.selectionMode === 'checkbox') && <Column selectionMode="multiple" style={selectionWidth}/>}
-        {Columns}
-    </DataTable>;
+    const table = <div ref={tableWrapRef}>
+        {layout ? <DataView
+            style={dataViewStyle}
+            layout='grid'
+            lazy
+            gutter
+            rows={pageSize}
+            totalRecords={totalRecords}
+            paginator
+            first={tableFilter.first}
+            sortField={tableFilter.sortField}
+            sortOrder={tableFilter.sortOrder}
+            value={items}
+            onPage={handleFilterPageSort}
+            itemTemplate={itemTemplate}
+            {...viewProps}
+        /> : <DataTable
+            scrollable
+            tableStyle={dataTableStyle}
+            autoLayout
+            lazy
+            rows={pageSize}
+            totalRecords={totalRecords}
+            paginator
+            first={tableFilter.first}
+            sortField={tableFilter.sortField}
+            sortOrder={tableFilter.sortOrder}
+            filters={tableFilter.filters}
+            onPage={handleFilterPageSort}
+            onSort={handleFilterPageSort}
+            onFilter={handleFilterPageSort}
+            loading={loading}
+            dataKey={keyField}
+            value={items}
+            selection={selected}
+            filterDisplay='row'
+            onSelectionChange={handleSelectionChange}
+            onRowSelect={handleRowSelect}
+            {...tableProps}
+        >
+            {keyField && (!tableProps?.selectionMode || tableProps?.selectionMode === 'checkbox') && <Column selectionMode="multiple" style={selectionWidth}/>}
+            {Columns}
+        </DataTable>}
+    </div>;
     const nav = children && navigationOpened && <SplitterPanel style={sideStyle} key='nav' size={15}>
         {children}
     </SplitterPanel>;
@@ -377,7 +381,7 @@ const Explorer: ComponentProps = ({
                     ? <Toolbar left={left} right={right} style={backgroundNone} className='border-none' />
                     : null
             }
-            <div className='w-full' ref={tableWrapRef}>
+            <div ref={contentWrapRef}>
                 {(nav || detailsPanel)
                     ? <Splitter style={flexGrow}>
                         {[
