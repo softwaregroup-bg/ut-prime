@@ -16,6 +16,8 @@ import useForm from '../hooks/useForm';
 import useToggle from '../hooks/useToggle';
 import useSubmit from '../hooks/useSubmit';
 import useLayout from '../hooks/useLayout';
+import useWindowSize from '../hooks/useWindowSize';
+import useBoundingClientRect from '../hooks/useBoundingClientRect';
 import getValidation from './schema';
 
 const useStyles = createUseStyles({
@@ -179,75 +181,88 @@ const Form: ComponentProps = ({
         />, toolbarRef.current);
     }
 
+    const windowSize = useWindowSize();
+    const {boundingClientRect: formWrapRect, ref: formWrapRef} = useBoundingClientRect();
+
+    const formStyle = React.useMemo(() => {
+        const maxHeight = windowSize.height - formWrapRect.top;
+        return {
+            maxHeight: !isNaN(maxHeight) ? maxHeight : 0,
+            margin: 0
+        };
+    }, [windowSize.height, formWrapRect.top]);
+
     return (<>
         {devTool ? <DevTool control={control} placement="top-right" /> : null}
         {toast}
         {toolbarElement}
-        <form {...rest} onSubmit={formSubmit(handleSubmit)} className={clsx('grid col align-self-start', classes.form, className)}>
-            {
-                !!Object.keys(errors).length && <div className='col-12'>
-                    {errorFields.map(name => !layoutState.visibleProperties.includes(name) && <><small className="p-error">{get(errors, name)?.message}</small><br /></>)}
-                </div>
-            }
-            {layoutState.visibleCards.map((id1, level1) => {
-                const nested = [].concat(id1);
-                const firstCard = cards[widgetName(nested[0])];
-                const nestedCards = nested.map((widget, level2) => {
-                    const key = widgetName(widget);
-                    const currentCard = cards?.[key];
-                    if (currentCard?.hidden && !design) return null;
-                    const watched = currentCard?.watch && watch(currentCard.watch);
-                    const match = currentCard?.match;
-                    return (!match || (typeof match === 'object' ? Object.entries(match).every(([key, value]) => watched?.[key] === value) : match === watched))
-                        ? <Card
-                                key={`${level1}-${Array.isArray(id1) && level2}`}
-                                cardName={widget}
-                                index1={level1}
-                                index2={Array.isArray(id1) && level2}
-                                cards={cards}
-                                layoutState={layoutState}
-                                dropdowns={dropdowns}
-                                design={design}
-                                loading={loading}
-                                formApi={formApi}
-                                methods={methods}
-                                move={move}
-                        />
-                        : null;
-                }).filter(Boolean);
-
-                if (!nestedCards.length) return null;
-                return (
-                    <div key={level1} className={clsx('col-12', firstCard?.className || (!firstCard?.hidden && 'xl:col-6'))} {...(design || debug) && {style: outline}}>
-                        {nestedCards}
-                        <ConfigCard
-                            title='[ add card ]'
-                            className='card mb-3'
-                            card=''
-                            key={`${level1}-drop`}
-                            index1={level1}
-                            index2={nested.length}
-                            move={move}
-                            design={design}
-                            drop
-                        />
+        <div className='w-full' ref={formWrapRef}>
+            <form {...rest} onSubmit={formSubmit(handleSubmit)} className={clsx('grid align-self-start overflow-y-auto margin-0', classes.form, className)} style={formStyle}>
+                {
+                    !!Object.keys(errors).length && <div className='col-12'>
+                        {errorFields.map(name => !layoutState.visibleProperties.includes(name) && <><small className="p-error">{get(errors, name)?.message}</small><br /></>)}
                     </div>
-                );
-            })}
-            {design && <div className='col-12 xl:col-6' style={outline}>
-                <ConfigCard
-                    title='[ add card ]'
-                    className='card mb-3'
-                    card=''
-                    key={`${layoutState.visibleCards.length}-drop`}
-                    index1={layoutState.visibleCards.length}
-                    index2={false}
-                    move={move}
-                    design={design}
-                    drop
-                />
-            </div>}
-        </form>
+                }
+                {layoutState.visibleCards.map((id1, level1) => {
+                    const nested = [].concat(id1);
+                    const firstCard = cards[widgetName(nested[0])];
+                    const nestedCards = nested.map((widget, level2) => {
+                        const key = widgetName(widget);
+                        const currentCard = cards?.[key];
+                        if (currentCard?.hidden && !design) return null;
+                        const watched = currentCard?.watch && watch(currentCard.watch);
+                        const match = currentCard?.match;
+                        return (!match || (typeof match === 'object' ? Object.entries(match).every(([key, value]) => watched?.[key] === value) : match === watched))
+                            ? <Card
+                                    key={`${level1}-${Array.isArray(id1) && level2}`}
+                                    cardName={widget}
+                                    index1={level1}
+                                    index2={Array.isArray(id1) && level2}
+                                    cards={cards}
+                                    layoutState={layoutState}
+                                    dropdowns={dropdowns}
+                                    design={design}
+                                    loading={loading}
+                                    formApi={formApi}
+                                    methods={methods}
+                                    move={move}
+                            />
+                            : null;
+                    }).filter(Boolean);
+
+                    if (!nestedCards.length) return null;
+                    return (
+                        <div key={level1} className={clsx('col-12', firstCard?.className || (!firstCard?.hidden && 'xl:col-6'))} {...(design || debug) && {style: outline}}>
+                            {nestedCards}
+                            <ConfigCard
+                                title='[ add card ]'
+                                className='card mb-3'
+                                card=''
+                                key={`${level1}-drop`}
+                                index1={level1}
+                                index2={nested.length}
+                                move={move}
+                                design={design}
+                                drop
+                            />
+                        </div>
+                    );
+                })}
+                {design && <div className='col-12 xl:col-6' style={outline}>
+                    <ConfigCard
+                        title='[ add card ]'
+                        className='card mb-3'
+                        card=''
+                        key={`${layoutState.visibleCards.length}-drop`}
+                        index1={layoutState.visibleCards.length}
+                        index2={false}
+                        move={move}
+                        design={design}
+                        drop
+                    />
+                </div>}
+            </form>
+        </div>
     </>);
 };
 
