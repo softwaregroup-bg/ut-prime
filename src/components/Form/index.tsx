@@ -197,7 +197,7 @@ const Form: ComponentProps = ({
         {toast}
         {toolbarElement}
         <div className='w-full' ref={formWrapRef}>
-            <form {...rest} onSubmit={formSubmit(handleSubmit)} className={clsx('grid align-self-start overflow-y-auto margin-0', classes.form, className)} style={formStyle}>
+            <form {...rest} onSubmit={formSubmit(handleSubmit)} className={clsx('grid col align-self-start overflow-y-auto margin-0', classes.form, className)} style={formStyle}>
                 {
                     !!Object.keys(errors).length && <div className='col-12'>
                         {errorFields.map(name => !layoutState.visibleProperties.includes(name) && <><small className="p-error">{get(errors, name)?.message}</small><br /></>)}
