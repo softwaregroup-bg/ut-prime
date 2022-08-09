@@ -218,16 +218,13 @@ const Explorer: ComponentProps = ({
             const tbodyHeight = node.querySelector('tbody')?.clientHeight;
             const nodeRect = node.getBoundingClientRect();
             const belowTableHeight = nodeRect.height - (theadHeight + tbodyHeight);
-            let splitterBorder = 0;
             if ((navigationOpened && children) || (detailsOpened && details)) { // account for splitter border
                 const splitterRect = node.parentElement.parentElement.getBoundingClientRect();
-                splitterBorder = (nodeRect.top - splitterRect.top) * 2;
-
                 setSplitterPanelHeight(maxHeight(windowSize.height - nodeRect.top));
-                setSplitterHeight(maxHeight(windowSize.height - (splitterRect.top + splitterBorder)));
+                setSplitterHeight(maxHeight(windowSize.height - splitterRect.top));
             }
-            setDataTableHeight(maxHeight(windowSize.height - (nodeRect.top + theadHeight + belowTableHeight + splitterBorder)));
-            setDataViewHeight(maxHeight(windowSize.height - (nodeRect.top + splitterBorder + (nodeRect.bottom - nodeRect.height))));
+            setDataTableHeight(maxHeight(windowSize.height - (nodeRect.top + theadHeight + belowTableHeight)));
+            setDataViewHeight(maxHeight(windowSize.height - (nodeRect.top + (nodeRect.bottom - nodeRect.height))));
         }
     }, [windowSize.height, children, navigationOpened, details, detailsOpened]);
 
@@ -322,72 +319,76 @@ const Explorer: ComponentProps = ({
         return renderItem();
     }, [cards, layoutState, dropdowns, methods, keyField, resultSet, cardName]);
 
-    const table = <div ref={tableWrapRef}>
-        {layout ? <DataView
-            style={{maxHeight: dataViewHeight}}
-            layout='grid'
-            lazy
-            gutter
-            rows={pageSize}
-            totalRecords={totalRecords}
-            paginator
-            first={tableFilter.first}
-            sortField={tableFilter.sortField}
-            sortOrder={tableFilter.sortOrder}
-            value={items}
-            onPage={handleFilterPageSort}
-            itemTemplate={itemTemplate}
-            {...viewProps}
-        /> : <DataTable
-            scrollable
-            tableStyle={{maxHeight: dataTableHeight}}
-            autoLayout
-            lazy
-            rows={pageSize}
-            totalRecords={totalRecords}
-            paginator
-            first={tableFilter.first}
-            sortField={tableFilter.sortField}
-            sortOrder={tableFilter.sortOrder}
-            filters={tableFilter.filters}
-            onPage={handleFilterPageSort}
-            onSort={handleFilterPageSort}
-            onFilter={handleFilterPageSort}
-            loading={loading}
-            dataKey={keyField}
-            value={items}
-            selection={selected}
-            filterDisplay='row'
-            onSelectionChange={handleSelectionChange}
-            onRowSelect={handleRowSelect}
-            {...tableProps}
-        >
-            {keyField && (!tableProps?.selectionMode || tableProps?.selectionMode === 'checkbox') && <Column selectionMode="multiple" style={selectionWidth}/>}
-            {Columns}
-        </DataTable>}
-    </div>;
+    const table = (
+        <div ref={tableWrapRef}>
+            {layout ? <DataView
+                style={{maxHeight: dataViewHeight}}
+                layout='grid'
+                lazy
+                gutter
+                rows={pageSize}
+                totalRecords={totalRecords}
+                paginator
+                first={tableFilter.first}
+                sortField={tableFilter.sortField}
+                sortOrder={tableFilter.sortOrder}
+                value={items}
+                onPage={handleFilterPageSort}
+                itemTemplate={itemTemplate}
+                {...viewProps}
+            /> : <DataTable
+                scrollable
+                tableStyle={{maxHeight: dataTableHeight}}
+                autoLayout
+                lazy
+                rows={pageSize}
+                totalRecords={totalRecords}
+                paginator
+                first={tableFilter.first}
+                sortField={tableFilter.sortField}
+                sortOrder={tableFilter.sortOrder}
+                filters={tableFilter.filters}
+                onPage={handleFilterPageSort}
+                onSort={handleFilterPageSort}
+                onFilter={handleFilterPageSort}
+                loading={loading}
+                dataKey={keyField}
+                value={items}
+                selection={selected}
+                filterDisplay='row'
+                onSelectionChange={handleSelectionChange}
+                onRowSelect={handleRowSelect}
+                {...tableProps}
+            >
+                {keyField && (!tableProps?.selectionMode || tableProps?.selectionMode === 'checkbox') && <Column selectionMode="multiple" style={selectionWidth}/>}
+                {Columns}
+            </DataTable>}
+        </div>
+    );
     const nav = children && navigationOpened && <SplitterPanel style={{height: splitterPanelHeight}} key='nav' size={15}>
         {children}
     </SplitterPanel>;
     return (
-        <div className={clsx('flex', 'flex-column', classes.explorer, className)}>
+        <div className={clsx('flex', 'flex-column', 'h-full', classes.explorer, className)}>
             {toast}
             {
                 buttons?.length || nav || detailsPanel
                     ? <Toolbar left={left} right={right} style={backgroundNone} className='border-none' />
                     : null
             }
-            {(nav || detailsPanel)
-                ? <Splitter style={{...flexGrow, height: splitterHeight}}>
-                    {[
-                        nav,
-                        <SplitterPanel style={{height: splitterPanelHeight}} key='items' size={nav ? detailsPanel ? 75 : 85 : 90}>
-                            {table}
-                        </SplitterPanel>,
-                        detailsPanel
-                    ].filter(Boolean)}
-                </Splitter>
-                : table}
+            {
+                (nav || detailsPanel)
+                    ? <Splitter style={{...flexGrow, height: splitterHeight}}>
+                        {[
+                            nav,
+                            <SplitterPanel style={{height: splitterPanelHeight}} key='items' size={nav ? detailsPanel ? 75 : 85 : 90}>
+                                {table}
+                            </SplitterPanel>,
+                            detailsPanel
+                        ].filter(Boolean)}
+                    </Splitter>
+                    : table
+            }
         </div>
     );
 };

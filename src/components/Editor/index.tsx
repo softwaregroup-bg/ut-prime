@@ -79,6 +79,7 @@ const Editor: ComponentProps = ({
 }) => {
     const {properties = empty} = schema;
     name = name ? name + '.' : '';
+
     const [keyValue, setKeyValue] = React.useState(id);
     const [trigger, setTrigger] = React.useState();
     const [didSubmit, setDidSubmit] = React.useState(false);
