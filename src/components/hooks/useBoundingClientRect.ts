@@ -20,7 +20,7 @@ export default function useBoundingClientRect() {
         window.addEventListener('resize', handleResize);
         handleResize();
         return () => window.removeEventListener('resize', handleResize);
-    }, []);
+    }, [ref.current]);
 
     return {boundingClientRect, ref};
 }
