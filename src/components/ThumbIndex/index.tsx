@@ -7,7 +7,6 @@ import { ComponentProps } from './ThumbIndex.types';
 import testid from '../lib/testid';
 
 import useWindowSize from '../hooks/useWindowSize';
-import useBoundingClientRect from '../hooks/useBoundingClientRect';
 
 const useStyles = createUseStyles({
     'padding-bottom-0': {
@@ -63,14 +62,13 @@ const ThumbIndex: ComponentProps = ({ name, className, items, orientation = 'lef
     />;
 
     const windowSize = useWindowSize();
-    const {boundingClientRect: panelMenuRect, ref: panelMenuRef} = useBoundingClientRect();
-
-    const panelMenuStyle = React.useMemo(() => {
-        const maxHeight = windowSize.height - panelMenuRect?.top;
-        return {
-            maxHeight: (!isNaN(maxHeight) && maxHeight > 0) ? Math.floor(maxHeight) : 0
-        };
-    }, [windowSize.height, panelMenuRect?.top]);
+    const [panelMenuHeight, setPanelMenuHeight] = React.useState(0);
+    const panelMenuRef = React.useCallback(node => {
+        if (node !== null) {
+            const maxHeight = windowSize.height - node.getBoundingClientRect().top;
+            setPanelMenuHeight((!isNaN(maxHeight) && maxHeight > 0) ? Math.floor(maxHeight) : 0);
+        }
+    }, [windowSize.height]);
 
     return (
         <div className={clsx('flex flex-row', {'lg:col-2': !!model?.length}, className, classes['padding-bottom-0'])} {...rest}>
@@ -79,7 +77,7 @@ const ThumbIndex: ComponentProps = ({ name, className, items, orientation = 'lef
                 <PanelMenu
                     className={clsx('flex-1 overflow-y-auto')}
                     model={model}
-                    style={panelMenuStyle}
+                    style={{maxHeight: panelMenuHeight}}
                 />
             </div>}
             {children}

@@ -12,7 +12,6 @@ import useToggle from '../hooks/useToggle';
 import useSubmit from '../hooks/useSubmit';
 import useLayout from '../hooks/useLayout';
 import useWindowSize from '../hooks/useWindowSize';
-import useBoundingClientRect from '../hooks/useBoundingClientRect';
 import columnProps, {TableFilter} from '../lib/column';
 import prepareSubmit from '../lib/prepareSubmit';
 
@@ -206,37 +205,34 @@ const Explorer: ComponentProps = ({
     }, [keyField, load, subscribe]);
 
     const windowSize = useWindowSize();
-    const {boundingClientRect: contentWrapRect, ref: contentWrapRef} = useBoundingClientRect();
-    const {boundingClientRect: tableWrapRect, ref: tableWrapRef} = useBoundingClientRect();
+    const [dataTableHeight, setDataTableHeight] = React.useState(0);
+    const [dataViewHeight, setDataViewHeight] = React.useState(0);
+    const [splitterHeight, setSplitterHeight] = React.useState(0);
+    const [splitterPanelHeight, setSplitterPanelHeight] = React.useState(0);
+
     const maxHeight = maxHeight => (!isNaN(maxHeight) && maxHeight > 0) ? Math.floor(maxHeight) : 0;
 
-    const splitterBorder = React.useMemo(() => (
-        tableWrapRect.top - contentWrapRect.top
-    ), [tableWrapRect.top, contentWrapRect.top]);
+    const tableWrapRef = React.useCallback(node => {
+        if (node !== null) {
+            const theadHeight = node.querySelector('thead')?.clientHeight;
+            const tbodyHeight = node.querySelector('tbody')?.clientHeight;
+            const nodeRect = node.getBoundingClientRect();
+            const belowTableHeight = nodeRect.height - (theadHeight + tbodyHeight);
+            let splitterBorder = 0;
+            if ((navigationOpened && children) || (detailsOpened && details)) { // account for splitter border
+                const splitterRect = node.parentElement.parentElement.getBoundingClientRect();
+                splitterBorder = (nodeRect.top - splitterRect.top) * 2;
 
-    const splitterPanelStyle = React.useMemo(() => ({
-        height: maxHeight(windowSize.height - tableWrapRect.top)
-    }), [windowSize.height, tableWrapRect.top]);
-
-    const dataViewStyle = React.useMemo(() => ({
-        maxHeight: maxHeight(windowSize.height - (tableWrapRect.top + splitterBorder + (tableWrapRect.bottom - tableWrapRect.height)))
-    }), [windowSize.height, tableWrapRect.top, tableWrapRect.bottom, tableWrapRect.height, splitterBorder]);
-
-    const dataTableStyle = React.useMemo(() => {
-        const theadHeight = tableWrapRef.current?.querySelector?.('thead')?.clientHeight;
-        const tbodyHeight = tableWrapRef.current?.querySelector?.('tbody')?.clientHeight;
-        const delta = tableWrapRect.height - (theadHeight + tbodyHeight);
-        return {
-            maxHeight: maxHeight(windowSize.height - (tableWrapRect.top + theadHeight + delta + splitterBorder))
-        };
-    }, [windowSize.height, tableWrapRect.top, tableWrapRect.height, tableWrapRef, splitterBorder]);
-
-    const splitterStyle = React.useMemo(() => ({
-        height: maxHeight(windowSize.height - (contentWrapRect.top + splitterBorder))
-    }), [windowSize.height, contentWrapRect.top, splitterBorder]);
+                setSplitterPanelHeight(maxHeight(windowSize.height - nodeRect.top));
+                setSplitterHeight(maxHeight(windowSize.height - (splitterRect.top + splitterBorder)));
+            }
+            setDataTableHeight(maxHeight(windowSize.height - (nodeRect.top + theadHeight + belowTableHeight + splitterBorder)));
+            setDataViewHeight(maxHeight(windowSize.height - (nodeRect.top + splitterBorder + (nodeRect.bottom - nodeRect.height))));
+        }
+    }, [windowSize.height, children, navigationOpened, details, detailsOpened]);
 
     const detailsPanel = React.useMemo(() => detailsOpened && details &&
-        <SplitterPanel style={splitterPanelStyle} key='details' size={10}>
+        <SplitterPanel style={{height: splitterPanelHeight}} key='details' size={10}>
             <div style={splitterWidth}>{
                 current && Object.entries(details).map(([name, value], index) =>
                     <div className={classes.details} key={index}>
@@ -245,7 +241,7 @@ const Explorer: ComponentProps = ({
                     </div>
                 )
             }</div>
-        </SplitterPanel>, [classes.details, classes.detailsLabel, classes.detailsValue, current, details, detailsOpened, splitterPanelStyle]);
+        </SplitterPanel>, [classes.details, classes.detailsLabel, classes.detailsValue, current, details, detailsOpened, splitterPanelHeight]);
 
     const filterBy = (name: string, key: string) => e => {
         const value = lodashGet(e, key);
@@ -328,7 +324,7 @@ const Explorer: ComponentProps = ({
 
     const table = <div ref={tableWrapRef}>
         {layout ? <DataView
-            style={dataViewStyle}
+            style={{maxHeight: dataViewHeight}}
             layout='grid'
             lazy
             gutter
@@ -344,7 +340,7 @@ const Explorer: ComponentProps = ({
             {...viewProps}
         /> : <DataTable
             scrollable
-            tableStyle={dataTableStyle}
+            tableStyle={{maxHeight: dataTableHeight}}
             autoLayout
             lazy
             rows={pageSize}
@@ -370,7 +366,7 @@ const Explorer: ComponentProps = ({
             {Columns}
         </DataTable>}
     </div>;
-    const nav = children && navigationOpened && <SplitterPanel style={splitterPanelStyle} key='nav' size={15}>
+    const nav = children && navigationOpened && <SplitterPanel style={{height: splitterPanelHeight}} key='nav' size={15}>
         {children}
     </SplitterPanel>;
     return (
@@ -381,19 +377,17 @@ const Explorer: ComponentProps = ({
                     ? <Toolbar left={left} right={right} style={backgroundNone} className='border-none' />
                     : null
             }
-            <div ref={contentWrapRef}>
-                {(nav || detailsPanel)
-                    ? <Splitter style={{...splitterStyle, ...flexGrow}}>
-                        {[
-                            nav,
-                            <SplitterPanel style={splitterPanelStyle} key='items' size={nav ? detailsPanel ? 75 : 85 : 90}>
-                                {table}
-                            </SplitterPanel>,
-                            detailsPanel
-                        ].filter(Boolean)}
-                    </Splitter>
-                    : table}
-            </div>
+            {(nav || detailsPanel)
+                ? <Splitter style={{...flexGrow, height: splitterHeight}}>
+                    {[
+                        nav,
+                        <SplitterPanel style={{height: splitterPanelHeight}} key='items' size={nav ? detailsPanel ? 75 : 85 : 90}>
+                            {table}
+                        </SplitterPanel>,
+                        detailsPanel
+                    ].filter(Boolean)}
+                </Splitter>
+                : table}
         </div>
     );
 };

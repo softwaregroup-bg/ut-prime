@@ -13,7 +13,6 @@ import {Toolbar, Button, Card, ConfirmPopup, confirmPopup} from '../prime';
 import useToggle from '../hooks/useToggle';
 import useLoad from '../hooks/useLoad';
 import useWindowSize from '../hooks/useWindowSize';
-import useBoundingClientRect from '../hooks/useBoundingClientRect';
 import {ConfigField, ConfigCard} from '../Form/DragDrop';
 import prepareSubmit from '../lib/prepareSubmit';
 import testid from '../lib/testid';
@@ -90,13 +89,15 @@ const Editor: ComponentProps = ({
     const [filter, setFilter] = React.useState(items?.[0]?.items?.[0] || items?.[0]);
     const [loading, setLoading] = React.useState('loading');
     const windowSize = useWindowSize();
-    const {boundingClientRect, ref: boundingClientRef} = useBoundingClientRect();
-    const style = React.useMemo(() => {
-        const maxHeight = windowSize.height - boundingClientRect.top;
-        return {
-            height: !isNaN(maxHeight) && maxHeight > 0 ? Math.floor(maxHeight) : 0
-        };
-    }, [windowSize.height, boundingClientRect.top]);
+
+    const [editorHeight, setEditorHeight] = React.useState(0);
+    const editorWrapRef = React.useCallback(node => {
+        if (node !== null) {
+            const maxHeight = windowSize.height - node.getBoundingClientRect().top;
+            setEditorHeight((!isNaN(maxHeight) && maxHeight > 0) ? Math.floor(maxHeight) : 0);
+        }
+    }, [windowSize.height]);
+
     const [validation, dropdownNames, getValue] = React.useMemo(() => {
         const columns = (propertyName, property) => []
             .concat(property?.hidden)
@@ -265,7 +266,7 @@ const Editor: ComponentProps = ({
             />
             <div className={clsx('flex', 'overflow-x-hidden', 'w-full', orientation === 'top' && 'flex-column')}>
                 {items && <ThumbIndex name={name} items={items} orientation={orientation} onFilter={setFilter}/>}
-                <div ref={boundingClientRef} style={style} className='flex flex-grow-1'>
+                <div ref={editorWrapRef} style={{maxHeight: editorHeight}} className='flex flex-grow-1'>
                     <Form
                         schema={schema}
                         debug={debug}
@@ -283,7 +284,7 @@ const Editor: ComponentProps = ({
                         toolbarRef={toolbarRef}
                         toolbar={toolbar}
                     />
-                    {design && <div style={style} className={clsx('col-2 flex-column overflow-y-auto')}>
+                    {design && <div style={{maxHeight: editorHeight}} className={clsx('col-2 flex-column overflow-y-auto')}>
                         <Card title='Fields' className='mb-2'>
                             <ConfigField
                                 className='field grid'

@@ -17,11 +17,11 @@ import useToggle from '../hooks/useToggle';
 import useSubmit from '../hooks/useSubmit';
 import useLayout from '../hooks/useLayout';
 import useWindowSize from '../hooks/useWindowSize';
-import useBoundingClientRect from '../hooks/useBoundingClientRect';
 import getValidation from './schema';
 
 const useStyles = createUseStyles({
     form: {
+        margin: 0,
         '& .p-datatable-wrapper': {
             overflowX: 'auto'
         }
@@ -182,22 +182,21 @@ const Form: ComponentProps = ({
     }
 
     const windowSize = useWindowSize();
-    const {boundingClientRect: formWrapRect, ref: formWrapRef} = useBoundingClientRect();
+    const [formHeight, setFormHeight] = React.useState(0);
 
-    const formStyle = React.useMemo(() => {
-        const maxHeight = windowSize.height - formWrapRect.top;
-        return {
-            maxHeight: (!isNaN(maxHeight) && maxHeight > 0) ? Math.floor(maxHeight) : 0,
-            margin: 0
-        };
-    }, [windowSize.height, formWrapRect.top]);
+    const formWrapRef = React.useCallback(node => {
+        if (node !== null) {
+            const maxHeight = windowSize.height - node.getBoundingClientRect().top;
+            setFormHeight((!isNaN(maxHeight) && maxHeight > 0) ? Math.floor(maxHeight) : 0);
+        }
+    }, [windowSize.height]);
 
     return (<>
         {devTool ? <DevTool control={control} placement="top-right" /> : null}
         {toast}
         {toolbarElement}
         <div className='w-full' ref={formWrapRef}>
-            <form {...rest} onSubmit={formSubmit(handleSubmit)} className={clsx('grid col align-self-start overflow-y-auto margin-0', classes.form, className)} style={formStyle}>
+            <form {...rest} onSubmit={formSubmit(handleSubmit)} className={clsx('grid col align-self-start overflow-y-auto', classes.form, className)} style={{maxHeight: formHeight}}>
                 {
                     !!Object.keys(errors).length && <div className='col-12'>
                         {errorFields.map(name => !layoutState.visibleProperties.includes(name) && <><small className="p-error">{get(errors, name)?.message}</small><br /></>)}
