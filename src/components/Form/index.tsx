@@ -187,7 +187,7 @@ const Form: ComponentProps = ({
     const formStyle = React.useMemo(() => {
         const maxHeight = windowSize.height - formWrapRect.top;
         return {
-            maxHeight: (!isNaN(maxHeight) && maxHeight > 0) ? maxHeight : 0,
+            maxHeight: (!isNaN(maxHeight) && maxHeight > 0) ? Math.floor(maxHeight) : 0,
             margin: 0
         };
     }, [windowSize.height, formWrapRect.top]);

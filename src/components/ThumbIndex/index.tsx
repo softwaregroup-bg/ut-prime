@@ -68,7 +68,7 @@ const ThumbIndex: ComponentProps = ({ name, className, items, orientation = 'lef
     const panelMenuStyle = React.useMemo(() => {
         const maxHeight = windowSize.height - panelMenuRect?.top;
         return {
-            maxHeight: (!isNaN(maxHeight) && maxHeight > 0) ? maxHeight : 0
+            maxHeight: (!isNaN(maxHeight) && maxHeight > 0) ? Math.floor(maxHeight) : 0
         };
     }, [windowSize.height, panelMenuRect?.top]);
 
@@ -80,7 +80,7 @@ const ThumbIndex: ComponentProps = ({ name, className, items, orientation = 'lef
                     className={clsx('flex-1 overflow-y-auto')}
                     model={model}
                     style={panelMenuStyle}
-                />    
+                />
             </div>}
             {children}
         </div>

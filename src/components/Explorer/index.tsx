@@ -33,7 +33,7 @@ const useStyles = createUseStyles({
             overflowX: 'auto'
         },
         '& .p-grid': {
-            margin: '0.5em' 
+            margin: '0.5em'
         },
         '& .p-dataview': {
             '& .p-dataview-content': {
@@ -208,38 +208,35 @@ const Explorer: ComponentProps = ({
     const windowSize = useWindowSize();
     const {boundingClientRect: contentWrapRect, ref: contentWrapRef} = useBoundingClientRect();
     const {boundingClientRect: tableWrapRect, ref: tableWrapRef} = useBoundingClientRect();
+    const maxHeight = maxHeight => (!isNaN(maxHeight) && maxHeight > 0) ? Math.floor(maxHeight) : 0;
 
-    const magicBorder = React.useMemo(() => {
-        return (tableWrapRect.top - contentWrapRect.top) * 2;
-    }, [tableWrapRect.top, contentWrapRect.top]);
+    const splitterBorder = React.useMemo(() => (
+        tableWrapRect.top - contentWrapRect.top
+    ), [tableWrapRect.top, contentWrapRect.top]);
 
-    const sideStyle = React.useMemo(() => {
-        const maxHeight = windowSize.height - (tableWrapRect.top + magicBorder);
-        return {
-            maxHeight: (!isNaN(maxHeight) && maxHeight > 0) ? maxHeight : 0
-        };
-    }, [windowSize.height, tableWrapRect.top, magicBorder])
+    const splitterPanelStyle = React.useMemo(() => ({
+        height: maxHeight(windowSize.height - tableWrapRect.top)
+    }), [windowSize.height, tableWrapRect.top]);
 
-    const dataViewStyle = React.useMemo(() => {
-        const delta = tableWrapRect.bottom - tableWrapRect.height;
-        const maxHeight = windowSize.height - (tableWrapRect.top + delta + magicBorder);
-        return {
-            maxHeight: (!isNaN(maxHeight) && maxHeight > 0) ? maxHeight : 0
-        };
-    }, [windowSize.height, tableWrapRect.top, tableWrapRect.bottom, tableWrapRect.height, magicBorder]);
+    const dataViewStyle = React.useMemo(() => ({
+        maxHeight: maxHeight(windowSize.height - (tableWrapRect.top + splitterBorder + (tableWrapRect.bottom - tableWrapRect.height)))
+    }), [windowSize.height, tableWrapRect.top, tableWrapRect.bottom, tableWrapRect.height, splitterBorder]);
 
     const dataTableStyle = React.useMemo(() => {
         const theadHeight = tableWrapRef.current?.querySelector?.('thead')?.clientHeight;
         const tbodyHeight = tableWrapRef.current?.querySelector?.('tbody')?.clientHeight;
         const delta = tableWrapRect.height - (theadHeight + tbodyHeight);
-        const maxHeight = windowSize.height - (tableWrapRect.top + theadHeight + delta + magicBorder);
         return {
-            maxHeight: (!isNaN(maxHeight) && maxHeight > 0) ? maxHeight : 0
+            maxHeight: maxHeight(windowSize.height - (tableWrapRect.top + theadHeight + delta + splitterBorder))
         };
-    }, [windowSize.height, tableWrapRect.top, tableWrapRect.height, tableWrapRef.current, magicBorder]);
+    }, [windowSize.height, tableWrapRect.top, tableWrapRect.height, tableWrapRef, splitterBorder]);
+
+    const splitterStyle = React.useMemo(() => ({
+        height: maxHeight(windowSize.height - (contentWrapRect.top + splitterBorder))
+    }), [windowSize.height, contentWrapRect.top, splitterBorder]);
 
     const detailsPanel = React.useMemo(() => detailsOpened && details &&
-        <SplitterPanel style={sideStyle} key='details' size={10}>
+        <SplitterPanel style={splitterPanelStyle} key='details' size={10}>
             <div style={splitterWidth}>{
                 current && Object.entries(details).map(([name, value], index) =>
                     <div className={classes.details} key={index}>
@@ -248,7 +245,7 @@ const Explorer: ComponentProps = ({
                     </div>
                 )
             }</div>
-        </SplitterPanel>, [classes.details, classes.detailsLabel, classes.detailsValue, current, details, detailsOpened, sideStyle]);
+        </SplitterPanel>, [classes.details, classes.detailsLabel, classes.detailsValue, current, details, detailsOpened, splitterPanelStyle]);
 
     const filterBy = (name: string, key: string) => e => {
         const value = lodashGet(e, key);
@@ -373,11 +370,11 @@ const Explorer: ComponentProps = ({
             {Columns}
         </DataTable>}
     </div>;
-    const nav = children && navigationOpened && <SplitterPanel style={sideStyle} key='nav' size={15}>
+    const nav = children && navigationOpened && <SplitterPanel style={splitterPanelStyle} key='nav' size={15}>
         {children}
     </SplitterPanel>;
     return (
-        <div className={clsx('flex', 'flex-column', 'h-fit', classes.explorer, className)}>
+        <div className={clsx('flex', 'flex-column', classes.explorer, className)}>
             {toast}
             {
                 buttons?.length || nav || detailsPanel
@@ -386,10 +383,10 @@ const Explorer: ComponentProps = ({
             }
             <div ref={contentWrapRef}>
                 {(nav || detailsPanel)
-                    ? <Splitter style={flexGrow}>
+                    ? <Splitter style={{...splitterStyle, ...flexGrow}}>
                         {[
                             nav,
-                            <SplitterPanel key='items' size={nav ? detailsPanel ? 75 : 85 : 90}>
+                            <SplitterPanel style={splitterPanelStyle} key='items' size={nav ? detailsPanel ? 75 : 85 : 90}>
                                 {table}
                             </SplitterPanel>,
                             detailsPanel

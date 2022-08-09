@@ -91,9 +91,12 @@ const Editor: ComponentProps = ({
     const [loading, setLoading] = React.useState('loading');
     const windowSize = useWindowSize();
     const {boundingClientRect, ref: boundingClientRef} = useBoundingClientRect();
-    const style = React.useMemo(() => ({
-        maxHeight: windowSize.height - boundingClientRect.top
-    }), [windowSize.height, boundingClientRect.top]);
+    const style = React.useMemo(() => {
+        const maxHeight = windowSize.height - boundingClientRect.top;
+        return {
+            height: !isNaN(maxHeight) && maxHeight > 0 ? Math.floor(maxHeight) : 0
+        };
+    }, [windowSize.height, boundingClientRect.top]);
     const [validation, dropdownNames, getValue] = React.useMemo(() => {
         const columns = (propertyName, property) => []
             .concat(property?.hidden)
@@ -260,9 +263,9 @@ const Editor: ComponentProps = ({
                     />
                 </>}
             />
-            <div ref={boundingClientRef} className={clsx('flex', 'overflow-x-hidden', 'w-full', orientation === 'top' && 'flex-column')}>
+            <div className={clsx('flex', 'overflow-x-hidden', 'w-full', orientation === 'top' && 'flex-column')}>
                 {items && <ThumbIndex name={name} items={items} orientation={orientation} onFilter={setFilter}/>}
-                <div style={style} className='flex flex-grow-1'>
+                <div ref={boundingClientRef} style={style} className='flex flex-grow-1'>
                     <Form
                         schema={schema}
                         debug={debug}
@@ -280,7 +283,7 @@ const Editor: ComponentProps = ({
                         toolbarRef={toolbarRef}
                         toolbar={toolbar}
                     />
-                    {design && <div className='col-2 flex-column'>
+                    {design && <div style={style} className={clsx('col-2 flex-column overflow-y-auto')}>
                         <Card title='Fields' className='mb-2'>
                             <ConfigField
                                 className='field grid'

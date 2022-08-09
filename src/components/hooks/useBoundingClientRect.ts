@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 export default function useBoundingClientRect() {
     const [boundingClientRect, setBoundingClientRect] = React.useState({
@@ -11,7 +11,7 @@ export default function useBoundingClientRect() {
         x: undefined,
         y: undefined
     });
-    const ref = React.useRef(null)
+    const ref = React.useRef(null);
 
     React.useEffect(() => {
         function handleResize() {
