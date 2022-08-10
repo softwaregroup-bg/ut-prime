@@ -36,7 +36,7 @@ const useStyles = createUseStyles({
         },
         '& .p-dataview': {
             '& .p-dataview-content': {
-                overflow: 'auto',
+                overflowY: 'auto',
                 maxHeight: 'inherit',
                 background: 'none',
                 '& .p-card': {
@@ -369,7 +369,7 @@ const Explorer: ComponentProps = ({
         {children}
     </SplitterPanel>;
     return (
-        <div className={clsx('flex', 'flex-column', 'h-full', classes.explorer, className)}>
+        <div className={clsx('flex', 'flex-column', classes.explorer, className)}>
             {toast}
             {
                 buttons?.length || nav || detailsPanel
