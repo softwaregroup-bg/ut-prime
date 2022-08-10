@@ -14,7 +14,8 @@ exports[`<Form /> render equals snapshot 1`] = `
       <div />
     </div>
     <form
-      class="grid col align-self-start form-0-2-1"
+      class="grid col align-self-start overflow-y-auto form-0-2-1"
+      style="max-height: 768px;"
     >
       <div
         class="col-12 xl:col-6"

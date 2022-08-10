@@ -52,51 +52,198 @@ exports[`<Explorer /> render equals snapshot 1`] = `
     </div>
     <div
       class="p-splitter p-component p-splitter-horizontal"
-      style="flex-grow: 1;"
+      style="flex-grow: 1; height: 768px;"
     >
       <div
         class="p-splitter-panel"
-        style="flex-basis: calc(90% - 4px);"
+        style="height: 768px; flex-basis: calc(90% - 4px);"
       >
-        <div
-          class="p-datatable p-component p-datatable-selectable p-datatable-auto-layout p-datatable-responsive-stack"
-          data-scrollselectors=".p-datatable-wrapper"
-          pr_id_1=""
-        >
+        <div>
           <div
-            class="p-datatable-wrapper"
+            class="p-datatable p-component p-datatable-selectable p-datatable-auto-layout p-datatable-scrollable p-datatable-scrollable-vertical p-datatable-responsive-stack"
+            data-scrollselectors=".p-datatable-wrapper"
+            pr_id_1=""
           >
-            <table
-              class="p-datatable-table"
-              role="table"
+            <div
+              class="p-datatable-wrapper"
             >
-              <thead
-                class="p-datatable-thead"
+              <table
+                class="p-datatable-table"
+                role="table"
+                style="max-height: 768px;"
               >
-                <tr
-                  role="row"
+                <thead
+                  class="p-datatable-thead"
                 >
-                  <th
-                    class="p-selection-column"
-                    role="columnheader"
-                    style="width: 3em;"
+                  <tr
+                    role="row"
                   >
-                    <div
-                      class="p-column-header-content"
+                    <th
+                      class="p-selection-column"
+                      role="columnheader"
+                      style="width: 3em;"
+                    >
+                      <div
+                        class="p-column-header-content"
+                      >
+                        <span
+                          class="p-column-title"
+                        />
+                      </div>
+                    </th>
+                    <th
+                      aria-sort="none"
+                      class="p-sortable-column"
+                      role="columnheader"
+                      tabindex="0"
+                    >
+                      <div
+                        class="p-column-header-content"
+                      >
+                        <span
+                          class="p-column-title"
+                        >
+                          <span
+                            data-testid="items-nameTitle"
+                          >
+                            Name
+                          </span>
+                        </span>
+                        <span
+                          class="p-sortable-column-icon pi pi-fw pi-sort-alt"
+                        />
+                      </div>
+                    </th>
+                    <th
+                      aria-sort="none"
+                      class="p-sortable-column"
+                      role="columnheader"
+                      tabindex="0"
+                    >
+                      <div
+                        class="p-column-header-content"
+                      >
+                        <span
+                          class="p-column-title"
+                        >
+                          <span
+                            data-testid="items-sizeTitle"
+                          >
+                            Size
+                          </span>
+                        </span>
+                        <span
+                          class="p-sortable-column-icon pi pi-fw pi-sort-alt"
+                        />
+                      </div>
+                    </th>
+                  </tr>
+                  <tr
+                    role="row"
+                  >
+                    <th
+                      class="p-filter-column"
+                      style="width: 3em;"
+                    >
+                      <div
+                        class="p-checkbox p-component"
+                      >
+                        <div
+                          class="p-checkbox-box p-component"
+                          role="checkbox"
+                          tabindex="0"
+                        >
+                          <span
+                            class="p-checkbox-icon"
+                          />
+                        </div>
+                      </div>
+                    </th>
+                    <th
+                      class="p-filter-column"
+                    >
+                      <div
+                        class="p-column-filter p-fluid p-column-filter-row"
+                      >
+                        <div
+                          class="p-fluid p-column-filter-element"
+                        >
+                          <input
+                            class="p-inputtext p-component"
+                            name="items.nameFilter"
+                            value=""
+                          />
+                        </div>
+                        <button
+                          class="p-column-filter-clear-button p-link p-hidden-space"
+                          type="button"
+                        >
+                          <span
+                            class="pi pi-filter-slash"
+                          />
+                        </button>
+                      </div>
+                    </th>
+                    <th
+                      class="p-filter-column"
+                    >
+                      <div
+                        class="p-column-filter p-fluid p-column-filter-row"
+                      >
+                        <div
+                          class="p-fluid p-column-filter-element"
+                        >
+                          <input
+                            class="p-inputtext p-component"
+                            name="items.sizeFilter"
+                            value=""
+                          />
+                        </div>
+                        <button
+                          class="p-column-filter-clear-button p-link p-hidden-space"
+                          type="button"
+                        >
+                          <span
+                            class="pi pi-filter-slash"
+                          />
+                        </button>
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  class="p-datatable-tbody"
+                >
+                  <tr
+                    class="p-selectable-row"
+                    role="row"
+                  >
+                    <td
+                      class="p-selection-column"
+                      role="cell"
+                      style="width: 3em;"
                     >
                       <span
                         class="p-column-title"
                       />
-                    </div>
-                  </th>
-                  <th
-                    aria-sort="none"
-                    class="p-sortable-column"
-                    role="columnheader"
-                    tabindex="0"
-                  >
-                    <div
-                      class="p-column-header-content"
+                      <div
+                        class="p-checkbox p-component"
+                      >
+                        <div
+                          aria-checked="false"
+                          class="p-checkbox-box p-component"
+                          role="checkbox"
+                          tabindex="0"
+                        >
+                          <span
+                            class="p-checkbox-icon"
+                          />
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      class=""
+                      role="cell"
                     >
                       <span
                         class="p-column-title"
@@ -107,19 +254,11 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                           Name
                         </span>
                       </span>
-                      <span
-                        class="p-sortable-column-icon pi pi-fw pi-sort-alt"
-                      />
-                    </div>
-                  </th>
-                  <th
-                    aria-sort="none"
-                    class="p-sortable-column"
-                    role="columnheader"
-                    tabindex="0"
-                  >
-                    <div
-                      class="p-column-header-content"
+                      Item 0
+                    </td>
+                    <td
+                      class=""
+                      role="cell"
                     >
                       <span
                         class="p-column-title"
@@ -130,771 +269,635 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                           Size
                         </span>
                       </span>
+                      0
+                    </td>
+                  </tr>
+                  <tr
+                    class="p-selectable-row p-row-odd"
+                    role="row"
+                  >
+                    <td
+                      class="p-selection-column"
+                      role="cell"
+                      style="width: 3em;"
+                    >
                       <span
-                        class="p-sortable-column-icon pi pi-fw pi-sort-alt"
+                        class="p-column-title"
                       />
-                    </div>
-                  </th>
-                </tr>
-                <tr
-                  role="row"
-                >
-                  <th
-                    class="p-filter-column"
-                    style="width: 3em;"
-                  >
-                    <div
-                      class="p-checkbox p-component"
-                    >
                       <div
-                        class="p-checkbox-box p-component"
-                        role="checkbox"
-                        tabindex="0"
+                        class="p-checkbox p-component"
+                      >
+                        <div
+                          aria-checked="false"
+                          class="p-checkbox-box p-component"
+                          role="checkbox"
+                          tabindex="0"
+                        >
+                          <span
+                            class="p-checkbox-icon"
+                          />
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      class=""
+                      role="cell"
+                    >
+                      <span
+                        class="p-column-title"
                       >
                         <span
-                          class="p-checkbox-icon"
-                        />
-                      </div>
-                    </div>
-                  </th>
-                  <th
-                    class="p-filter-column"
-                  >
-                    <div
-                      class="p-column-filter p-fluid p-column-filter-row"
+                          data-testid="items-nameTitle"
+                        >
+                          Name
+                        </span>
+                      </span>
+                      Item 1
+                    </td>
+                    <td
+                      class=""
+                      role="cell"
                     >
-                      <div
-                        class="p-fluid p-column-filter-element"
-                      >
-                        <input
-                          class="p-inputtext p-component"
-                          name="items.nameFilter"
-                          value=""
-                        />
-                      </div>
-                      <button
-                        class="p-column-filter-clear-button p-link p-hidden-space"
-                        type="button"
+                      <span
+                        class="p-column-title"
                       >
                         <span
-                          class="pi pi-filter-slash"
-                        />
-                      </button>
-                    </div>
-                  </th>
-                  <th
-                    class="p-filter-column"
+                          data-testid="items-sizeTitle"
+                        >
+                          Size
+                        </span>
+                      </span>
+                      10
+                    </td>
+                  </tr>
+                  <tr
+                    class="p-selectable-row"
+                    role="row"
                   >
-                    <div
-                      class="p-column-filter p-fluid p-column-filter-row"
+                    <td
+                      class="p-selection-column"
+                      role="cell"
+                      style="width: 3em;"
                     >
+                      <span
+                        class="p-column-title"
+                      />
                       <div
-                        class="p-fluid p-column-filter-element"
+                        class="p-checkbox p-component"
                       >
-                        <input
-                          class="p-inputtext p-component"
-                          name="items.sizeFilter"
-                          value=""
-                        />
+                        <div
+                          aria-checked="false"
+                          class="p-checkbox-box p-component"
+                          role="checkbox"
+                          tabindex="0"
+                        >
+                          <span
+                            class="p-checkbox-icon"
+                          />
+                        </div>
                       </div>
-                      <button
-                        class="p-column-filter-clear-button p-link p-hidden-space"
-                        type="button"
+                    </td>
+                    <td
+                      class=""
+                      role="cell"
+                    >
+                      <span
+                        class="p-column-title"
                       >
                         <span
-                          class="pi pi-filter-slash"
-                        />
-                      </button>
-                    </div>
-                  </th>
-                </tr>
-              </thead>
-              <tbody
-                class="p-datatable-tbody"
-              >
-                <tr
-                  class="p-selectable-row"
-                  role="row"
-                >
-                  <td
-                    class="p-selection-column"
-                    role="cell"
-                    style="width: 3em;"
-                  >
-                    <span
-                      class="p-column-title"
-                    />
-                    <div
-                      class="p-checkbox p-component"
+                          data-testid="items-nameTitle"
+                        >
+                          Name
+                        </span>
+                      </span>
+                      Item 2
+                    </td>
+                    <td
+                      class=""
+                      role="cell"
                     >
-                      <div
-                        aria-checked="false"
-                        class="p-checkbox-box p-component"
-                        role="checkbox"
-                        tabindex="0"
+                      <span
+                        class="p-column-title"
                       >
                         <span
-                          class="p-checkbox-icon"
-                        />
-                      </div>
-                    </div>
-                  </td>
-                  <td
-                    class=""
-                    role="cell"
+                          data-testid="items-sizeTitle"
+                        >
+                          Size
+                        </span>
+                      </span>
+                      20
+                    </td>
+                  </tr>
+                  <tr
+                    class="p-selectable-row p-row-odd"
+                    role="row"
                   >
-                    <span
-                      class="p-column-title"
+                    <td
+                      class="p-selection-column"
+                      role="cell"
+                      style="width: 3em;"
                     >
                       <span
-                        data-testid="items-nameTitle"
-                      >
-                        Name
-                      </span>
-                    </span>
-                    Item 0
-                  </td>
-                  <td
-                    class=""
-                    role="cell"
-                  >
-                    <span
-                      class="p-column-title"
-                    >
-                      <span
-                        data-testid="items-sizeTitle"
-                      >
-                        Size
-                      </span>
-                    </span>
-                    0
-                  </td>
-                </tr>
-                <tr
-                  class="p-selectable-row p-row-odd"
-                  role="row"
-                >
-                  <td
-                    class="p-selection-column"
-                    role="cell"
-                    style="width: 3em;"
-                  >
-                    <span
-                      class="p-column-title"
-                    />
-                    <div
-                      class="p-checkbox p-component"
-                    >
+                        class="p-column-title"
+                      />
                       <div
-                        aria-checked="false"
-                        class="p-checkbox-box p-component"
-                        role="checkbox"
-                        tabindex="0"
+                        class="p-checkbox p-component"
+                      >
+                        <div
+                          aria-checked="false"
+                          class="p-checkbox-box p-component"
+                          role="checkbox"
+                          tabindex="0"
+                        >
+                          <span
+                            class="p-checkbox-icon"
+                          />
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      class=""
+                      role="cell"
+                    >
+                      <span
+                        class="p-column-title"
                       >
                         <span
-                          class="p-checkbox-icon"
-                        />
-                      </div>
-                    </div>
-                  </td>
-                  <td
-                    class=""
-                    role="cell"
-                  >
-                    <span
-                      class="p-column-title"
+                          data-testid="items-nameTitle"
+                        >
+                          Name
+                        </span>
+                      </span>
+                      Item 3
+                    </td>
+                    <td
+                      class=""
+                      role="cell"
                     >
                       <span
-                        data-testid="items-nameTitle"
-                      >
-                        Name
-                      </span>
-                    </span>
-                    Item 1
-                  </td>
-                  <td
-                    class=""
-                    role="cell"
-                  >
-                    <span
-                      class="p-column-title"
-                    >
-                      <span
-                        data-testid="items-sizeTitle"
-                      >
-                        Size
-                      </span>
-                    </span>
-                    10
-                  </td>
-                </tr>
-                <tr
-                  class="p-selectable-row"
-                  role="row"
-                >
-                  <td
-                    class="p-selection-column"
-                    role="cell"
-                    style="width: 3em;"
-                  >
-                    <span
-                      class="p-column-title"
-                    />
-                    <div
-                      class="p-checkbox p-component"
-                    >
-                      <div
-                        aria-checked="false"
-                        class="p-checkbox-box p-component"
-                        role="checkbox"
-                        tabindex="0"
+                        class="p-column-title"
                       >
                         <span
-                          class="p-checkbox-icon"
-                        />
-                      </div>
-                    </div>
-                  </td>
-                  <td
-                    class=""
-                    role="cell"
+                          data-testid="items-sizeTitle"
+                        >
+                          Size
+                        </span>
+                      </span>
+                      30
+                    </td>
+                  </tr>
+                  <tr
+                    class="p-selectable-row"
+                    role="row"
                   >
-                    <span
-                      class="p-column-title"
+                    <td
+                      class="p-selection-column"
+                      role="cell"
+                      style="width: 3em;"
                     >
                       <span
-                        data-testid="items-nameTitle"
-                      >
-                        Name
-                      </span>
-                    </span>
-                    Item 2
-                  </td>
-                  <td
-                    class=""
-                    role="cell"
-                  >
-                    <span
-                      class="p-column-title"
-                    >
-                      <span
-                        data-testid="items-sizeTitle"
-                      >
-                        Size
-                      </span>
-                    </span>
-                    20
-                  </td>
-                </tr>
-                <tr
-                  class="p-selectable-row p-row-odd"
-                  role="row"
-                >
-                  <td
-                    class="p-selection-column"
-                    role="cell"
-                    style="width: 3em;"
-                  >
-                    <span
-                      class="p-column-title"
-                    />
-                    <div
-                      class="p-checkbox p-component"
-                    >
+                        class="p-column-title"
+                      />
                       <div
-                        aria-checked="false"
-                        class="p-checkbox-box p-component"
-                        role="checkbox"
-                        tabindex="0"
+                        class="p-checkbox p-component"
+                      >
+                        <div
+                          aria-checked="false"
+                          class="p-checkbox-box p-component"
+                          role="checkbox"
+                          tabindex="0"
+                        >
+                          <span
+                            class="p-checkbox-icon"
+                          />
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      class=""
+                      role="cell"
+                    >
+                      <span
+                        class="p-column-title"
                       >
                         <span
-                          class="p-checkbox-icon"
-                        />
-                      </div>
-                    </div>
-                  </td>
-                  <td
-                    class=""
-                    role="cell"
-                  >
-                    <span
-                      class="p-column-title"
+                          data-testid="items-nameTitle"
+                        >
+                          Name
+                        </span>
+                      </span>
+                      Item 4
+                    </td>
+                    <td
+                      class=""
+                      role="cell"
                     >
                       <span
-                        data-testid="items-nameTitle"
-                      >
-                        Name
-                      </span>
-                    </span>
-                    Item 3
-                  </td>
-                  <td
-                    class=""
-                    role="cell"
-                  >
-                    <span
-                      class="p-column-title"
-                    >
-                      <span
-                        data-testid="items-sizeTitle"
-                      >
-                        Size
-                      </span>
-                    </span>
-                    30
-                  </td>
-                </tr>
-                <tr
-                  class="p-selectable-row"
-                  role="row"
-                >
-                  <td
-                    class="p-selection-column"
-                    role="cell"
-                    style="width: 3em;"
-                  >
-                    <span
-                      class="p-column-title"
-                    />
-                    <div
-                      class="p-checkbox p-component"
-                    >
-                      <div
-                        aria-checked="false"
-                        class="p-checkbox-box p-component"
-                        role="checkbox"
-                        tabindex="0"
+                        class="p-column-title"
                       >
                         <span
-                          class="p-checkbox-icon"
-                        />
-                      </div>
-                    </div>
-                  </td>
-                  <td
-                    class=""
-                    role="cell"
+                          data-testid="items-sizeTitle"
+                        >
+                          Size
+                        </span>
+                      </span>
+                      40
+                    </td>
+                  </tr>
+                  <tr
+                    class="p-selectable-row p-row-odd"
+                    role="row"
                   >
-                    <span
-                      class="p-column-title"
+                    <td
+                      class="p-selection-column"
+                      role="cell"
+                      style="width: 3em;"
                     >
                       <span
-                        data-testid="items-nameTitle"
-                      >
-                        Name
-                      </span>
-                    </span>
-                    Item 4
-                  </td>
-                  <td
-                    class=""
-                    role="cell"
-                  >
-                    <span
-                      class="p-column-title"
-                    >
-                      <span
-                        data-testid="items-sizeTitle"
-                      >
-                        Size
-                      </span>
-                    </span>
-                    40
-                  </td>
-                </tr>
-                <tr
-                  class="p-selectable-row p-row-odd"
-                  role="row"
-                >
-                  <td
-                    class="p-selection-column"
-                    role="cell"
-                    style="width: 3em;"
-                  >
-                    <span
-                      class="p-column-title"
-                    />
-                    <div
-                      class="p-checkbox p-component"
-                    >
+                        class="p-column-title"
+                      />
                       <div
-                        aria-checked="false"
-                        class="p-checkbox-box p-component"
-                        role="checkbox"
-                        tabindex="0"
+                        class="p-checkbox p-component"
+                      >
+                        <div
+                          aria-checked="false"
+                          class="p-checkbox-box p-component"
+                          role="checkbox"
+                          tabindex="0"
+                        >
+                          <span
+                            class="p-checkbox-icon"
+                          />
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      class=""
+                      role="cell"
+                    >
+                      <span
+                        class="p-column-title"
                       >
                         <span
-                          class="p-checkbox-icon"
-                        />
-                      </div>
-                    </div>
-                  </td>
-                  <td
-                    class=""
-                    role="cell"
-                  >
-                    <span
-                      class="p-column-title"
+                          data-testid="items-nameTitle"
+                        >
+                          Name
+                        </span>
+                      </span>
+                      Item 5
+                    </td>
+                    <td
+                      class=""
+                      role="cell"
                     >
                       <span
-                        data-testid="items-nameTitle"
-                      >
-                        Name
-                      </span>
-                    </span>
-                    Item 5
-                  </td>
-                  <td
-                    class=""
-                    role="cell"
-                  >
-                    <span
-                      class="p-column-title"
-                    >
-                      <span
-                        data-testid="items-sizeTitle"
-                      >
-                        Size
-                      </span>
-                    </span>
-                    50
-                  </td>
-                </tr>
-                <tr
-                  class="p-selectable-row"
-                  role="row"
-                >
-                  <td
-                    class="p-selection-column"
-                    role="cell"
-                    style="width: 3em;"
-                  >
-                    <span
-                      class="p-column-title"
-                    />
-                    <div
-                      class="p-checkbox p-component"
-                    >
-                      <div
-                        aria-checked="false"
-                        class="p-checkbox-box p-component"
-                        role="checkbox"
-                        tabindex="0"
+                        class="p-column-title"
                       >
                         <span
-                          class="p-checkbox-icon"
-                        />
-                      </div>
-                    </div>
-                  </td>
-                  <td
-                    class=""
-                    role="cell"
+                          data-testid="items-sizeTitle"
+                        >
+                          Size
+                        </span>
+                      </span>
+                      50
+                    </td>
+                  </tr>
+                  <tr
+                    class="p-selectable-row"
+                    role="row"
                   >
-                    <span
-                      class="p-column-title"
+                    <td
+                      class="p-selection-column"
+                      role="cell"
+                      style="width: 3em;"
                     >
                       <span
-                        data-testid="items-nameTitle"
-                      >
-                        Name
-                      </span>
-                    </span>
-                    Item 6
-                  </td>
-                  <td
-                    class=""
-                    role="cell"
-                  >
-                    <span
-                      class="p-column-title"
-                    >
-                      <span
-                        data-testid="items-sizeTitle"
-                      >
-                        Size
-                      </span>
-                    </span>
-                    60
-                  </td>
-                </tr>
-                <tr
-                  class="p-selectable-row p-row-odd"
-                  role="row"
-                >
-                  <td
-                    class="p-selection-column"
-                    role="cell"
-                    style="width: 3em;"
-                  >
-                    <span
-                      class="p-column-title"
-                    />
-                    <div
-                      class="p-checkbox p-component"
-                    >
+                        class="p-column-title"
+                      />
                       <div
-                        aria-checked="false"
-                        class="p-checkbox-box p-component"
-                        role="checkbox"
-                        tabindex="0"
+                        class="p-checkbox p-component"
+                      >
+                        <div
+                          aria-checked="false"
+                          class="p-checkbox-box p-component"
+                          role="checkbox"
+                          tabindex="0"
+                        >
+                          <span
+                            class="p-checkbox-icon"
+                          />
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      class=""
+                      role="cell"
+                    >
+                      <span
+                        class="p-column-title"
                       >
                         <span
-                          class="p-checkbox-icon"
-                        />
-                      </div>
-                    </div>
-                  </td>
-                  <td
-                    class=""
-                    role="cell"
-                  >
-                    <span
-                      class="p-column-title"
+                          data-testid="items-nameTitle"
+                        >
+                          Name
+                        </span>
+                      </span>
+                      Item 6
+                    </td>
+                    <td
+                      class=""
+                      role="cell"
                     >
                       <span
-                        data-testid="items-nameTitle"
-                      >
-                        Name
-                      </span>
-                    </span>
-                    Item 7
-                  </td>
-                  <td
-                    class=""
-                    role="cell"
-                  >
-                    <span
-                      class="p-column-title"
-                    >
-                      <span
-                        data-testid="items-sizeTitle"
-                      >
-                        Size
-                      </span>
-                    </span>
-                    70
-                  </td>
-                </tr>
-                <tr
-                  class="p-selectable-row"
-                  role="row"
-                >
-                  <td
-                    class="p-selection-column"
-                    role="cell"
-                    style="width: 3em;"
-                  >
-                    <span
-                      class="p-column-title"
-                    />
-                    <div
-                      class="p-checkbox p-component"
-                    >
-                      <div
-                        aria-checked="false"
-                        class="p-checkbox-box p-component"
-                        role="checkbox"
-                        tabindex="0"
+                        class="p-column-title"
                       >
                         <span
-                          class="p-checkbox-icon"
-                        />
-                      </div>
-                    </div>
-                  </td>
-                  <td
-                    class=""
-                    role="cell"
+                          data-testid="items-sizeTitle"
+                        >
+                          Size
+                        </span>
+                      </span>
+                      60
+                    </td>
+                  </tr>
+                  <tr
+                    class="p-selectable-row p-row-odd"
+                    role="row"
                   >
-                    <span
-                      class="p-column-title"
+                    <td
+                      class="p-selection-column"
+                      role="cell"
+                      style="width: 3em;"
                     >
                       <span
-                        data-testid="items-nameTitle"
-                      >
-                        Name
-                      </span>
-                    </span>
-                    Item 8
-                  </td>
-                  <td
-                    class=""
-                    role="cell"
-                  >
-                    <span
-                      class="p-column-title"
-                    >
-                      <span
-                        data-testid="items-sizeTitle"
-                      >
-                        Size
-                      </span>
-                    </span>
-                    80
-                  </td>
-                </tr>
-                <tr
-                  class="p-selectable-row p-row-odd"
-                  role="row"
-                >
-                  <td
-                    class="p-selection-column"
-                    role="cell"
-                    style="width: 3em;"
-                  >
-                    <span
-                      class="p-column-title"
-                    />
-                    <div
-                      class="p-checkbox p-component"
-                    >
+                        class="p-column-title"
+                      />
                       <div
-                        aria-checked="false"
-                        class="p-checkbox-box p-component"
-                        role="checkbox"
-                        tabindex="0"
+                        class="p-checkbox p-component"
+                      >
+                        <div
+                          aria-checked="false"
+                          class="p-checkbox-box p-component"
+                          role="checkbox"
+                          tabindex="0"
+                        >
+                          <span
+                            class="p-checkbox-icon"
+                          />
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      class=""
+                      role="cell"
+                    >
+                      <span
+                        class="p-column-title"
                       >
                         <span
-                          class="p-checkbox-icon"
-                        />
+                          data-testid="items-nameTitle"
+                        >
+                          Name
+                        </span>
+                      </span>
+                      Item 7
+                    </td>
+                    <td
+                      class=""
+                      role="cell"
+                    >
+                      <span
+                        class="p-column-title"
+                      >
+                        <span
+                          data-testid="items-sizeTitle"
+                        >
+                          Size
+                        </span>
+                      </span>
+                      70
+                    </td>
+                  </tr>
+                  <tr
+                    class="p-selectable-row"
+                    role="row"
+                  >
+                    <td
+                      class="p-selection-column"
+                      role="cell"
+                      style="width: 3em;"
+                    >
+                      <span
+                        class="p-column-title"
+                      />
+                      <div
+                        class="p-checkbox p-component"
+                      >
+                        <div
+                          aria-checked="false"
+                          class="p-checkbox-box p-component"
+                          role="checkbox"
+                          tabindex="0"
+                        >
+                          <span
+                            class="p-checkbox-icon"
+                          />
+                        </div>
                       </div>
-                    </div>
-                  </td>
-                  <td
-                    class=""
-                    role="cell"
-                  >
-                    <span
-                      class="p-column-title"
+                    </td>
+                    <td
+                      class=""
+                      role="cell"
                     >
                       <span
-                        data-testid="items-nameTitle"
+                        class="p-column-title"
                       >
-                        Name
+                        <span
+                          data-testid="items-nameTitle"
+                        >
+                          Name
+                        </span>
                       </span>
-                    </span>
-                    Item 9
-                  </td>
-                  <td
-                    class=""
-                    role="cell"
-                  >
-                    <span
-                      class="p-column-title"
+                      Item 8
+                    </td>
+                    <td
+                      class=""
+                      role="cell"
                     >
                       <span
-                        data-testid="items-sizeTitle"
+                        class="p-column-title"
                       >
-                        Size
+                        <span
+                          data-testid="items-sizeTitle"
+                        >
+                          Size
+                        </span>
                       </span>
-                    </span>
-                    90
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div
-            class="p-paginator p-component p-paginator-bottom"
-          >
-            <button
-              aria-label="First Page"
-              class="p-button p-component p-paginator-first p-paginator-element p-link p-disabled p-button-icon-only p-disabled"
-              disabled=""
-              type="button"
+                      80
+                    </td>
+                  </tr>
+                  <tr
+                    class="p-selectable-row p-row-odd"
+                    role="row"
+                  >
+                    <td
+                      class="p-selection-column"
+                      role="cell"
+                      style="width: 3em;"
+                    >
+                      <span
+                        class="p-column-title"
+                      />
+                      <div
+                        class="p-checkbox p-component"
+                      >
+                        <div
+                          aria-checked="false"
+                          class="p-checkbox-box p-component"
+                          role="checkbox"
+                          tabindex="0"
+                        >
+                          <span
+                            class="p-checkbox-icon"
+                          />
+                        </div>
+                      </div>
+                    </td>
+                    <td
+                      class=""
+                      role="cell"
+                    >
+                      <span
+                        class="p-column-title"
+                      >
+                        <span
+                          data-testid="items-nameTitle"
+                        >
+                          Name
+                        </span>
+                      </span>
+                      Item 9
+                    </td>
+                    <td
+                      class=""
+                      role="cell"
+                    >
+                      <span
+                        class="p-column-title"
+                      >
+                        <span
+                          data-testid="items-sizeTitle"
+                        >
+                          Size
+                        </span>
+                      </span>
+                      90
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div
+              class="p-paginator p-component p-paginator-bottom"
             >
-              <span
-                class="p-button-icon p-c p-paginator-icon pi pi-angle-double-left"
-              />
-              <span
-                class="p-button-label p-c"
+              <button
+                aria-label="First Page"
+                class="p-button p-component p-paginator-first p-paginator-element p-link p-disabled p-button-icon-only p-disabled"
+                disabled=""
+                type="button"
               >
-                 
+                <span
+                  class="p-button-icon p-c p-paginator-icon pi pi-angle-double-left"
+                />
+                <span
+                  class="p-button-label p-c"
+                >
+                   
+                </span>
+              </button>
+              <button
+                aria-label="Previous Page"
+                class="p-button p-component p-paginator-prev p-paginator-element p-link p-disabled p-button-icon-only p-disabled"
+                disabled=""
+                type="button"
+              >
+                <span
+                  class="p-button-icon p-c p-paginator-icon pi pi-angle-left"
+                />
+                <span
+                  class="p-button-label p-c"
+                >
+                   
+                </span>
+              </button>
+              <span
+                class="p-paginator-pages"
+              >
+                <button
+                  aria-label="Page 2"
+                  class="p-button p-component p-paginator-page p-paginator-element p-link p-paginator-page-start p-highlight"
+                  type="button"
+                >
+                  1
+                </button>
+                <button
+                  aria-label="Page 3"
+                  class="p-button p-component p-paginator-page p-paginator-element p-link"
+                  type="button"
+                >
+                  2
+                </button>
+                <button
+                  aria-label="Page 4"
+                  class="p-button p-component p-paginator-page p-paginator-element p-link"
+                  type="button"
+                >
+                  3
+                </button>
+                <button
+                  aria-label="Page 5"
+                  class="p-button p-component p-paginator-page p-paginator-element p-link"
+                  type="button"
+                >
+                  4
+                </button>
+                <button
+                  aria-label="Page 6"
+                  class="p-button p-component p-paginator-page p-paginator-element p-link p-paginator-page-end"
+                  type="button"
+                >
+                  5
+                </button>
               </span>
-            </button>
-            <button
-              aria-label="Previous Page"
-              class="p-button p-component p-paginator-prev p-paginator-element p-link p-disabled p-button-icon-only p-disabled"
-              disabled=""
-              type="button"
-            >
-              <span
-                class="p-button-icon p-c p-paginator-icon pi pi-angle-left"
-              />
-              <span
-                class="p-button-label p-c"
-              >
-                 
-              </span>
-            </button>
-            <span
-              class="p-paginator-pages"
-            >
               <button
-                aria-label="Page 2"
-                class="p-button p-component p-paginator-page p-paginator-element p-link p-paginator-page-start p-highlight"
+                aria-label="Next Page"
+                class="p-button p-component p-paginator-next p-paginator-element p-link p-button-icon-only"
                 type="button"
               >
-                1
+                <span
+                  class="p-button-icon p-c p-paginator-icon pi pi-angle-right"
+                />
+                <span
+                  class="p-button-label p-c"
+                >
+                   
+                </span>
               </button>
               <button
-                aria-label="Page 3"
-                class="p-button p-component p-paginator-page p-paginator-element p-link"
+                aria-label="Last Page"
+                class="p-button p-component p-paginator-last p-paginator-element p-link p-button-icon-only"
                 type="button"
               >
-                2
+                <span
+                  class="p-button-icon p-c p-paginator-icon pi pi-angle-double-right"
+                />
+                <span
+                  class="p-button-label p-c"
+                >
+                   
+                </span>
               </button>
-              <button
-                aria-label="Page 4"
-                class="p-button p-component p-paginator-page p-paginator-element p-link"
-                type="button"
-              >
-                3
-              </button>
-              <button
-                aria-label="Page 5"
-                class="p-button p-component p-paginator-page p-paginator-element p-link"
-                type="button"
-              >
-                4
-              </button>
-              <button
-                aria-label="Page 6"
-                class="p-button p-component p-paginator-page p-paginator-element p-link p-paginator-page-end"
-                type="button"
-              >
-                5
-              </button>
-            </span>
-            <button
-              aria-label="Next Page"
-              class="p-button p-component p-paginator-next p-paginator-element p-link p-button-icon-only"
-              type="button"
-            >
-              <span
-                class="p-button-icon p-c p-paginator-icon pi pi-angle-right"
-              />
-              <span
-                class="p-button-label p-c"
-              >
-                 
-              </span>
-            </button>
-            <button
-              aria-label="Last Page"
-              class="p-button p-component p-paginator-last p-paginator-element p-link p-button-icon-only"
-              type="button"
-            >
-              <span
-                class="p-button-icon p-c p-paginator-icon pi pi-angle-double-right"
-              />
-              <span
-                class="p-button-label p-c"
-              >
-                 
-              </span>
-            </button>
+            </div>
           </div>
         </div>
       </div>
@@ -908,7 +911,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
       </div>
       <div
         class="p-splitter-panel"
-        style="flex-basis: calc(10% - 4px);"
+        style="height: 768px; flex-basis: calc(10% - 4px);"
       >
         <div
           style="width: 200px;"

@@ -13,8 +13,8 @@ exports[`<Report /> render equals snapshot 1`] = `
       <div />
     </div>
     <form
-      class="grid col align-self-start form-0-2-2"
-      style="flex-grow: 1;"
+      class="grid col align-self-start overflow-y-auto form-0-2-2"
+      style="max-height: 768px;"
     >
       <div
         class="col-12 col-12"
@@ -165,134 +165,137 @@ exports[`<Report /> render equals snapshot 1`] = `
     >
       <div />
     </div>
-    <div
-      class="p-datatable p-component p-datatable-auto-layout p-datatable-responsive-stack"
-      data-scrollselectors=".p-datatable-wrapper"
-      pr_id_3=""
-    >
+    <div>
       <div
-        class="p-paginator p-component p-paginator-top"
+        class="p-datatable p-component p-datatable-auto-layout p-datatable-scrollable p-datatable-scrollable-vertical p-datatable-responsive-stack"
+        data-scrollselectors=".p-datatable-wrapper"
+        pr_id_3=""
       >
-        <button
-          aria-label="First Page"
-          class="p-button p-component p-paginator-first p-paginator-element p-link p-disabled p-button-icon-only p-disabled"
-          disabled=""
-          type="button"
+        <div
+          class="p-paginator p-component p-paginator-top"
         >
-          <span
-            class="p-button-icon p-c p-paginator-icon pi pi-angle-double-left"
-          />
-          <span
-            class="p-button-label p-c"
+          <button
+            aria-label="First Page"
+            class="p-button p-component p-paginator-first p-paginator-element p-link p-disabled p-button-icon-only p-disabled"
+            disabled=""
+            type="button"
           >
-             
-          </span>
-        </button>
-        <button
-          aria-label="Previous Page"
-          class="p-button p-component p-paginator-prev p-paginator-element p-link p-disabled p-button-icon-only p-disabled"
-          disabled=""
-          type="button"
-        >
-          <span
-            class="p-button-icon p-c p-paginator-icon pi pi-angle-left"
-          />
-          <span
-            class="p-button-label p-c"
-          >
-             
-          </span>
-        </button>
-        <span
-          class="p-paginator-pages"
-        />
-        <button
-          aria-label="Next Page"
-          class="p-button p-component p-paginator-next p-paginator-element p-link p-disabled p-button-icon-only p-disabled"
-          disabled=""
-          type="button"
-        >
-          <span
-            class="p-button-icon p-c p-paginator-icon pi pi-angle-right"
-          />
-          <span
-            class="p-button-label p-c"
-          >
-             
-          </span>
-        </button>
-        <button
-          aria-label="Last Page"
-          class="p-button p-component p-paginator-last p-paginator-element p-link p-disabled p-button-icon-only p-disabled"
-          disabled=""
-          type="button"
-        >
-          <span
-            class="p-button-icon p-c p-paginator-icon pi pi-angle-double-right"
-          />
-          <span
-            class="p-button-label p-c"
-          >
-             
-          </span>
-        </button>
-      </div>
-      <div
-        class="p-datatable-wrapper"
-      >
-        <table
-          class="p-datatable-table"
-          role="table"
-        >
-          <thead
-            class="p-datatable-thead"
-          >
-            <tr
-              role="row"
+            <span
+              class="p-button-icon p-c p-paginator-icon pi pi-angle-double-left"
+            />
+            <span
+              class="p-button-label p-c"
             >
-              <th
-                class=""
-                role="columnheader"
+               
+            </span>
+          </button>
+          <button
+            aria-label="Previous Page"
+            class="p-button p-component p-paginator-prev p-paginator-element p-link p-disabled p-button-icon-only p-disabled"
+            disabled=""
+            type="button"
+          >
+            <span
+              class="p-button-icon p-c p-paginator-icon pi pi-angle-left"
+            />
+            <span
+              class="p-button-label p-c"
+            >
+               
+            </span>
+          </button>
+          <span
+            class="p-paginator-pages"
+          />
+          <button
+            aria-label="Next Page"
+            class="p-button p-component p-paginator-next p-paginator-element p-link p-disabled p-button-icon-only p-disabled"
+            disabled=""
+            type="button"
+          >
+            <span
+              class="p-button-icon p-c p-paginator-icon pi pi-angle-right"
+            />
+            <span
+              class="p-button-label p-c"
+            >
+               
+            </span>
+          </button>
+          <button
+            aria-label="Last Page"
+            class="p-button p-component p-paginator-last p-paginator-element p-link p-disabled p-button-icon-only p-disabled"
+            disabled=""
+            type="button"
+          >
+            <span
+              class="p-button-icon p-c p-paginator-icon pi pi-angle-double-right"
+            />
+            <span
+              class="p-button-label p-c"
+            >
+               
+            </span>
+          </button>
+        </div>
+        <div
+          class="p-datatable-wrapper"
+        >
+          <table
+            class="p-datatable-table"
+            role="table"
+            style="max-height: 768px;"
+          >
+            <thead
+              class="p-datatable-thead"
+            >
+              <tr
+                role="row"
               >
-                <div
-                  class="p-column-header-content"
+                <th
+                  class=""
+                  role="columnheader"
                 >
-                  <span
-                    class="p-column-title"
+                  <div
+                    class="p-column-header-content"
                   >
                     <span
-                      data-testid="result-nameTitle"
+                      class="p-column-title"
                     >
-                      Name
+                      <span
+                        data-testid="result-nameTitle"
+                      >
+                        Name
+                      </span>
                     </span>
-                  </span>
-                </div>
-              </th>
-            </tr>
-            <tr
-              role="row"
-            >
-              <th
-                class="p-filter-column"
-              />
-            </tr>
-          </thead>
-          <tbody
-            class="p-datatable-tbody"
-          >
-            <tr
-              class="p-datatable-emptymessage"
-              role="row"
-            >
-              <td
-                colspan="1"
-                role="cell"
+                  </div>
+                </th>
+              </tr>
+              <tr
+                role="row"
               >
-                No results found
-              </td>
-            </tr>
-          </tbody>
-        </table>
+                <th
+                  class="p-filter-column"
+                />
+              </tr>
+            </thead>
+            <tbody
+              class="p-datatable-tbody"
+            >
+              <tr
+                class="p-datatable-emptymessage"
+                role="row"
+              >
+                <td
+                  colspan="1"
+                  role="cell"
+                >
+                  No results found
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
