@@ -6,6 +6,7 @@ export interface Props {
     id?: string | number,
     init?: object,
     schema?: Schema,
+    schemaCreate?: Schema,
     editors?: Editors,
     type?: string,
     name?: string,

@@ -58,6 +58,7 @@ const Editor: ComponentProps = ({
     id,
     init: initValue,
     schema = {},
+    schemaCreate = {},
     editors,
     debug,
     type,
@@ -76,10 +77,11 @@ const Editor: ComponentProps = ({
     onGet,
     onEdit
 }) => {
+    const [keyValue, setKeyValue] = React.useState(id);
+    if (schemaCreate && keyValue == null) schema = schemaCreate;
     const {properties = empty} = schema;
     name = name ? name + '.' : '';
 
-    const [keyValue, setKeyValue] = React.useState(id);
     const [trigger, setTrigger] = React.useState();
     const [didSubmit, setDidSubmit] = React.useState(false);
     const [value, setEditValue] = React.useState({});
