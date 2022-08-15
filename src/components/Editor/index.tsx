@@ -58,7 +58,7 @@ const Editor: ComponentProps = ({
     id,
     init: initValue,
     schema = {},
-    schemaCreate = {},
+    schemaCreate,
     editors,
     debug,
     type,
