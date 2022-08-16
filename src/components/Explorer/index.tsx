@@ -254,7 +254,7 @@ const Explorer: ComponentProps = ({
     </>, [navigationToggle, buttons, hasChildren, resultSet]);
     const right = React.useMemo(() =>
         <>
-            <Button icon="pi pi-refresh" className="mr-2" onClick={load} />
+            <Button icon="pi pi-refresh" className="mr-2" onClick={load} {...testid(`${resultSet}.refreshButton`)}/>
             {details && <Button {...testid(`${resultSet}.details.toggleButton`)} icon="pi pi-bars" className="mr-2" onClick={detailsToggle}/>}
         </>,
     [details, detailsToggle, resultSet, load]);
