@@ -9,6 +9,7 @@ import { ComponentProps } from './Editor.types';
 import Form from '../Form';
 import getValidation from '../Form/schema';
 import ThumbIndex from '../ThumbIndex';
+import Inspector from '../Inspector';
 import {Toolbar, Button, ConfirmPopup, confirmPopup} from '../prime';
 import useToggle from '../hooks/useToggle';
 import useNow from '../hooks/useNow';
@@ -58,7 +59,7 @@ const Editor: ComponentProps = ({
     object,
     id,
     init: initValue,
-    schema = {},
+    schema: schemaEdit = {},
     schemaCreate,
     editors,
     debug,
@@ -81,8 +82,11 @@ const Editor: ComponentProps = ({
     toolbar = !!(onAdd || onEdit || onGet)
 }) => {
     const [keyValue, setKeyValue] = React.useState(id);
-    if (schemaCreate && keyValue == null) schema = schemaCreate;
-    const {properties = empty} = schema;
+    const activeSchema = (schemaCreate && keyValue == null) ? schemaCreate : schemaEdit;
+    const [override, setOverride] = React.useState({});
+    const [inspected, setInspected] = React.useState(null);
+    const mergedSchema = React.useMemo(() => merge({}, activeSchema, override), [activeSchema, override]);
+    const {properties = empty} = mergedSchema;
     name = name ? name + '.' : '';
 
     const [trigger, setTrigger] = React.useState();
@@ -102,7 +106,7 @@ const Editor: ComponentProps = ({
             .concat(propertyName);
         const widgetName = widget =>
             typeof widget === 'string'
-                ? columns(widget, lodashGet(schema?.properties, widget?.replace(/\./g, '.properties.'))?.widget)
+                ? columns(widget, lodashGet(mergedSchema?.properties, widget?.replace(/\./g, '.properties.'))?.widget)
                 : columns(widget.name, widget);
         const indexCards = items && items.map(item => [item.widgets, item?.items?.map(item => item.widgets)]).flat(2).filter(Boolean);
         const fields: string[] = Array.from(
@@ -122,12 +126,12 @@ const Editor: ComponentProps = ({
                     .filter(Boolean)
             )
         );
-        const validation = getValidation(schema, fields);
+        const validation = getValidation(mergedSchema, fields);
         const dropdownNames = fields
             .map(name => {
                 const property =
-                    lodashGet(schema.properties, name?.replace(/\./g, '.properties.')) ||
-                    lodashGet(schema.properties, name?.replace(/\./g, '.items.properties.'));
+                    lodashGet(mergedSchema.properties, name?.replace(/\./g, '.properties.')) ||
+                    lodashGet(mergedSchema.properties, name?.replace(/\./g, '.items.properties.'));
                 return [
                     property?.widget?.dropdown,
                     property?.widget?.pivot?.dropdown
@@ -144,7 +148,7 @@ const Editor: ComponentProps = ({
             return editValue;
         };
         return [validation, dropdownNames, getValue];
-    }, [cards, editors, filter?.widgets, items, layout, schema]);
+    }, [cards, editors, filter?.widgets, items, layout, mergedSchema]);
 
     async function get() {
         setLoading('loading');
@@ -307,7 +311,7 @@ const Editor: ComponentProps = ({
                 {items && <ThumbIndex name={name} items={items} orientation={orientation} onFilter={setFilter}/>}
                 <div className='flex flex-grow-1'>
                     <Form
-                        schema={schema}
+                        schema={mergedSchema}
                         debug={debug}
                         editors={editors}
                         design={design}
@@ -315,6 +319,8 @@ const Editor: ComponentProps = ({
                         layout={layout || filter?.widgets || []}
                         onSubmit={handleSubmit}
                         onChange={onChange}
+                        inspected={inspected}
+                        onInspect={setInspected}
                         methods={methods}
                         value={value}
                         dropdowns={dropdowns}
@@ -325,6 +331,12 @@ const Editor: ComponentProps = ({
                         toolbar={toolbarName}
                     />
                     {design && <div className='col-2 flex-column'>
+                        {inspected ? <Inspector
+                            className='w-full'
+                            onChange={setOverride}
+                            object={mergedSchema}
+                            property={`properties.${inspected.split('.').join('.properties.')}`}
+                        /> : null }
                         <ConfigField
                             index='trash'
                             design

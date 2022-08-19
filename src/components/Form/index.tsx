@@ -51,6 +51,8 @@ const Form: ComponentProps = ({
     loading,
     methods,
     onSubmit,
+    inspected,
+    onInspect,
     onChange,
     setTrigger,
     triggerNotDirty,
@@ -243,6 +245,8 @@ const Form: ComponentProps = ({
                                 formApi={formApi}
                                 methods={methods}
                                 move={move}
+                                inspected={inspected}
+                                onInspect={onInspect}
                         />
                         : null;
                 }).filter(Boolean);

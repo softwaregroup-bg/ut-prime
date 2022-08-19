@@ -2415,6 +2415,11 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
         class="flex"
         style="position: relative;"
       >
+        <label
+          class="absolute border-left-3 top-0 bottom-0 mb-0"
+        >
+           
+        </label>
         <button
           class="p-button p-component p-button-icon-only"
         >

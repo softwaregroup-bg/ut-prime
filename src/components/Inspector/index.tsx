@@ -49,7 +49,7 @@ const props : EditorProps = {
     },
     cards: {
         edit: {
-            className: 'xl:col-3',
+            className: 'w-full p-0',
             classes: {
                 default: {
                     field: 'field grid'
@@ -108,7 +108,7 @@ const Inspector: ComponentProps = ({
 }) => {
     const classes = useStyles();
     const handleChange = React.useCallback(({$original, ...value}) => {
-        onChange(property ? lodashSet({}, property, value) : value);
+        onChange((prev = {}) => property ? {...lodashSet(prev, property, value)} : {...prev, ...value});
     }, [property, onChange]);
     const init = React.useMemo(() => {
         return property ? lodashGet(object, property) : object;
@@ -116,6 +116,7 @@ const Inspector: ComponentProps = ({
     return <div className={clsx(className, classes.inspector)}>
         <Editor
             init={init}
+            key={String(property)}
             onChange={handleChange}
             {...props}
         />

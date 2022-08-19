@@ -26,7 +26,7 @@ const Template: Story<Props> = args => {
     const [value] = React.useState({type: 'object', properties: {}});
     const [override, setOverride] = React.useState({properties: {test: {sort: true}}});
     return <>
-        <Inspector {...args} onChange={setOverride} object={override} property='properties.test' />
+        <Inspector {...args} onChange={setOverride} object={override} property='properties.test' className='col-3' />
         <pre>{JSON.stringify(merge({}, value, override), null, 2)}</pre>
     </>;
 };

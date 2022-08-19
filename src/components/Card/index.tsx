@@ -41,6 +41,8 @@ const Card: ComponentProps = ({
     value,
     move,
     toolbar,
+    inspected,
+    onInspect,
     classNames
 }) => {
     const classes = useStyles();
@@ -202,6 +204,8 @@ const Card: ComponentProps = ({
             move={move}
             design={design}
             name={name}
+            inspected={inspected}
+            onInspect={onInspect}
             label={property?.title}
         >
             {Field()}

@@ -17,7 +17,7 @@ type CardMonitor = DropTargetMonitor<{
     index: [number, number | false]
 }>;
 
-export function DragDropField({children, name, index, card, move, label, ...props}) {
+export function DragDropField({children, name, index, card, move, label, onInspect, inspected, ...props}) {
     let labelProps;
     let isDragging = false;
     const [collected, dragField] = useDrag(
@@ -33,6 +33,7 @@ export function DragDropField({children, name, index, card, move, label, ...prop
     if (card) {
         isDragging = collected.isDragging;
         labelProps = {
+            ...onInspect && {onClick: () => onInspect(name)},
             ref: dragField
         };
     }
@@ -61,6 +62,7 @@ export function DragDropField({children, name, index, card, move, label, ...prop
     if (name === 'trash' && !canDrop) return null;
     return (
         <div {...props}>
+            {inspected === name ? <label className='absolute border-left-3 top-0 bottom-0 mb-0' style={{borderColor: 'var(--primary-color)'}}>&nbsp;</label> : null}
             {children}
             {name === 'trash' ? null : <label className='absolute border-1 border-solid border-transparent top-0 bottom-0 left-0 right-0 cursor-move mb-0' {...labelProps}>&nbsp;</label>}
         </div>
@@ -138,9 +140,9 @@ export function DragDropCard({children, card, index1, index2, move, flex, hidden
     );
 }
 
-export function ConfigField({design, children = null, name, index, card = '', label, move = null, ...props}) {
+export function ConfigField({design, children = null, name, index, card = '', label, move = null, onInspect = null, inspected = '', ...props}) {
     return (
-        design ? <DragDropField {...{name, index, card, move, label, ...props}}>
+        design ? <DragDropField {...{name, index, card, move, label, onInspect, inspected, ...props}}>
             {children}
         </DragDropField> : props.className ? <div {...props}>
             {children}

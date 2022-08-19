@@ -16,6 +16,8 @@ export interface Props {
     layoutState: ReturnType<typeof useLayout>,
     formApi?: ReturnType<typeof useForm>,
     value?: object,
+    inspected?: string;
+    onInspect?: (data: object) => void;
     move?: (
         type: 'card' | 'field',
         source: object,
