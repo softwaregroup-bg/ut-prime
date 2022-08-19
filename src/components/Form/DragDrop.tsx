@@ -33,15 +33,14 @@ export function DragDropField({children, name, index, card, move, label, ...prop
     if (card) {
         isDragging = collected.isDragging;
         labelProps = {
-            ref: dragField,
-            style: {cursor: 'move', marginLeft: '-1em'}
+            ref: dragField
         };
     }
     const [{ canDrop, isOver }, dropField] = useDrop(
         () => ({
-            accept: FIELD,
+            accept: name === 'trash' ? [FIELD, CARD] : FIELD,
             canDrop: () => !isDragging && move,
-            drop: item => move('field', item, {index, card}),
+            drop: (item, monitor) => move(monitor.getItemType() === CARD ? 'card' : 'field', item, {index, card}),
             collect: monitor => ({
                 isOver: !!monitor.isOver(),
                 canDrop: !!monitor.canDrop()
@@ -51,16 +50,19 @@ export function DragDropField({children, name, index, card, move, label, ...prop
     );
     props.ref = dropField;
     props.style = {
+        position: 'relative',
         ...isDragging && {opacity: 0.5},
         ...!isDragging && canDrop && {
-            ...isOver && {background: '#00ffff80'},
-            outline: '1px dashed #00ffff80'
+            ...isOver && {background: 'var(--primary-color)', opacity: 0.5},
+            outline: '1px dashed',
+            outlineColor: 'var(--primary-color)'
         }
     };
+    if (name === 'trash' && !canDrop) return null;
     return (
         <div {...props}>
-            <label className='absolute w-15rem col' {...labelProps}>📎</label>
             {children}
+            {name === 'trash' ? null : <label className='absolute border-1 border-solid border-transparent top-0 bottom-0 left-0 right-0 cursor-move mb-0' {...labelProps}>&nbsp;</label>}
         </div>
     );
 }
@@ -93,7 +95,7 @@ export function DragDropCard({children, card, index1, index2, move, flex, hidden
     const [{ isOverCard, canDropCard, dragTitle }, dropCard] = useDrop(
         () => ({
             accept: CARD,
-            canDrop: (item: {index: [any, any]}) => move && (item.index[0] !== index1 || (!drop && item.index[1] !== index2)),
+            canDrop: (item: {index: [unknown, unknown]}) => move && (item.index[0] !== index1 || (!drop && item.index[1] !== index2)),
             drop: item => move('card', item, {card, index: [index1, index2]}),
             collect: (monitor: CardMonitor) => ({
                 isOverCard: !!monitor.isOver(),
@@ -106,29 +108,29 @@ export function DragDropCard({children, card, index1, index2, move, flex, hidden
     props.style = {
         ...isDragging && {opacity: 0.5},
         ...!isDragging && canDropCard && {
-            ...isOverCard && {background: '#00ffff80'},
-            outline: '1px dashed #00ffff80'
+            ...isOverCard && {background: 'var(--primary-color)', opacity: 0.5},
+            outline: '1px dashed var(--primary-color)'
         },
         ...drop && {opacity: 0.5}
     };
     const divProps = {
         ref: dropCard
     };
-    title = (drop && canDropCard) ? '👉 ' + dragTitle : <div ref={dragCard} style={drop ? {} : {cursor: 'move'}}>{title}</div>;
+    title = (drop && canDropCard) ? '➕ ' + dragTitle : <div ref={dragCard} style={drop ? {} : {cursor: 'move'}}>{title}</div>;
     const dropZone: ReactElement<HTMLDivElement> = !drop && <div
         ref={dropField}
         className={clsx('field', 'grid', 'mb-0', flex)}
         style={{
-            background: isOverField && canDropField ? '#00ffff80' : 'transparent',
-            outline: canDropField ? '1px dashed #00ffff80' : 'none'
+            background: isOverField && canDropField ? 'var(--primary-color)' : 'transparent',
+            outline: canDropField ? '1px dashed var(--primary-color)' : 'none'
         }}
     >
-        <label className='col-12'>{canDropField ? '👉' : ''}&nbsp;{canDropField ? dropLabel : ''}</label>
+        <label className='col-12'>{canDropField ? '➕' : ''}&nbsp;{canDropField ? dropLabel : ''}</label>
     </div>;
 
     return (
         <div {...divProps}>{
-            (drop || drag) ? <Card title={title} {...props}/> : <Card title={title} {...props}>
+            drag ? <div ref={dragCard} className={clsx('cursor-move', props.className)}>{children}</div> : drop ? <Card title={title} {...props}>{children}</Card> : <Card title={title} {...props}>
                 {children}
                 {dropZone}
             </Card>

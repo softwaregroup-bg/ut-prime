@@ -1200,7 +1200,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                           data-scrollselectors=".p-datatable-wrapper"
                           data-testid="person"
                           id="person"
-                          pr_id_3=""
+                          pr_id_7=""
                         >
                           <div
                             class="p-datatable-wrapper"
@@ -1516,7 +1516,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                           data-scrollselectors=".p-datatable-wrapper"
                           data-testid="document"
                           id="document"
-                          pr_id_4=""
+                          pr_id_8=""
                         >
                           <div
                             class="p-datatable-wrapper"
@@ -1903,7 +1903,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                           data-scrollselectors=".p-datatable-wrapper"
                           data-testid="attachment"
                           id="attachment"
-                          pr_id_5=""
+                          pr_id_9=""
                         >
                           <div
                             class="p-datatable-wrapper"
@@ -2392,37 +2392,48 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
     <div
       class="p-toolbar-group-left"
     >
-      <button
-        aria-label="save"
-        class="p-button p-component mr-2 p-button-icon-only p-disabled"
-        data-testid="saveButton"
-        disabled=""
+      <div>
+        <div
+          class="cursor-move mr-3"
+          draggable="true"
+        >
+          <button
+            class="p-button p-component cursor-move p-button-icon-only"
+          >
+            <span
+              class="p-button-icon p-c pi pi-id-card"
+            />
+            <span
+              class="p-button-label p-c"
+            >
+               
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="flex"
+        style="position: relative;"
       >
-        <span
-          class="p-button-icon p-c pi pi-save"
-        />
-        <span
-          class="p-button-label p-c"
+        <button
+          class="p-button p-component p-button-icon-only"
+        >
+          <span
+            class="p-button-icon p-c pi pi-pencil"
+          />
+          <span
+            class="p-button-label p-c"
+          >
+             
+          </span>
+        </button>
+        <label
+          class="absolute border-1 border-solid border-transparent top-0 bottom-0 left-0 right-0 cursor-move mb-0"
+          draggable="true"
         >
            
-        </span>
-      </button>
-      <button
-        aria-label="reset"
-        class="p-button p-component mr-2 p-button-icon-only p-disabled"
-        data-testid="resetButton"
-        disabled=""
-      >
-        <span
-          class="p-button-icon p-c pi pi-replay"
-        />
-        <span
-          class="p-button-label p-c"
-        >
-           
-        </span>
-      </button>
-      <div />
+        </label>
+      </div>
     </div>
     <div
       class="p-toolbar-group-right"
@@ -2487,14 +2498,8 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                   >
                     <div
                       class="field grid"
+                      style="position: relative;"
                     >
-                      <label
-                        class="absolute w-15rem col"
-                        draggable="true"
-                        style="cursor: move; margin-left: -1em;"
-                      >
-                        📎
-                      </label>
                       <label
                         class="col-12 md:col-4"
                         for="tree-treeName"
@@ -2511,17 +2516,17 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                           value="Oak"
                         />
                       </div>
+                      <label
+                        class="absolute border-1 border-solid border-transparent top-0 bottom-0 left-0 right-0 cursor-move mb-0"
+                        draggable="true"
+                      >
+                         
+                      </label>
                     </div>
                     <div
                       class="field grid"
+                      style="position: relative;"
                     >
-                      <label
-                        class="absolute w-15rem col"
-                        draggable="true"
-                        style="cursor: move; margin-left: -1em;"
-                      >
-                        📎
-                      </label>
                       <label
                         class="col-12 md:col-4"
                         for="tree-treeDescription"
@@ -2537,17 +2542,17 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                           name="tree.treeDescription"
                         />
                       </div>
+                      <label
+                        class="absolute border-1 border-solid border-transparent top-0 bottom-0 left-0 right-0 cursor-move mb-0"
+                        draggable="true"
+                      >
+                         
+                      </label>
                     </div>
                     <div
                       class="field grid"
+                      style="position: relative;"
                     >
-                      <label
-                        class="absolute w-15rem col"
-                        draggable="true"
-                        style="cursor: move; margin-left: -1em;"
-                      >
-                        📎
-                      </label>
                       <label
                         class="col-12 md:col-4"
                         for="tree-treeType"
@@ -2606,6 +2611,12 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                           </div>
                         </div>
                       </div>
+                      <label
+                        class="absolute border-1 border-solid border-transparent top-0 bottom-0 left-0 right-0 cursor-move mb-0"
+                        draggable="true"
+                      >
+                         
+                      </label>
                     </div>
                   </div>
                   <div
@@ -2638,7 +2649,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                   <div
                     draggable="true"
                   >
-                    [ add card ]
+                     
                   </div>
                 </div>
               </div>
@@ -2712,14 +2723,8 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                   >
                     <div
                       class="field grid"
+                      style="position: relative;"
                     >
-                      <label
-                        class="absolute w-15rem col"
-                        draggable="true"
-                        style="cursor: move; margin-left: -1em;"
-                      >
-                        📎
-                      </label>
                       <label
                         class="col-12 md:col-4"
                         for="tree-seedDescription"
@@ -2736,17 +2741,17 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                           value=""
                         />
                       </div>
+                      <label
+                        class="absolute border-1 border-solid border-transparent top-0 bottom-0 left-0 right-0 cursor-move mb-0"
+                        draggable="true"
+                      >
+                         
+                      </label>
                     </div>
                     <div
                       class="field grid"
+                      style="position: relative;"
                     >
-                      <label
-                        class="absolute w-15rem col"
-                        draggable="true"
-                        style="cursor: move; margin-left: -1em;"
-                      >
-                        📎
-                      </label>
                       <label
                         class="col-12 md:col-4"
                         for="tree-flowerDescription"
@@ -2763,17 +2768,17 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                           value=""
                         />
                       </div>
+                      <label
+                        class="absolute border-1 border-solid border-transparent top-0 bottom-0 left-0 right-0 cursor-move mb-0"
+                        draggable="true"
+                      >
+                         
+                      </label>
                     </div>
                     <div
                       class="field grid"
+                      style="position: relative;"
                     >
-                      <label
-                        class="absolute w-15rem col"
-                        draggable="true"
-                        style="cursor: move; margin-left: -1em;"
-                      >
-                        📎
-                      </label>
                       <label
                         class="col-12 md:col-4"
                         for="tree-fruitName"
@@ -2790,6 +2795,12 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                           value=""
                         />
                       </div>
+                      <label
+                        class="absolute border-1 border-solid border-transparent top-0 bottom-0 left-0 right-0 cursor-move mb-0"
+                        draggable="true"
+                      >
+                         
+                      </label>
                     </div>
                   </div>
                   <div
@@ -2822,7 +2833,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                   <div
                     draggable="true"
                   >
-                    [ add card ]
+                     
                   </div>
                 </div>
               </div>
@@ -2896,14 +2907,8 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                   >
                     <div
                       class="field grid"
+                      style="position: relative;"
                     >
-                      <label
-                        class="absolute w-15rem col"
-                        draggable="true"
-                        style="cursor: move; margin-left: -1em;"
-                      >
-                        📎
-                      </label>
                       <div
                         class="col-12"
                       >
@@ -2954,7 +2959,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                           data-scrollselectors=".p-datatable-wrapper"
                           data-testid="tree-links"
                           id="tree-links"
-                          pr_id_2=""
+                          pr_id_6=""
                         >
                           <div
                             class="p-datatable-wrapper"
@@ -3064,6 +3069,12 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                           </div>
                         </div>
                       </div>
+                      <label
+                        class="absolute border-1 border-solid border-transparent top-0 bottom-0 left-0 right-0 cursor-move mb-0"
+                        draggable="true"
+                      >
+                         
+                      </label>
                     </div>
                   </div>
                   <div
@@ -3096,7 +3107,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                   <div
                     draggable="true"
                   >
-                    [ add card ]
+                     
                   </div>
                 </div>
               </div>
@@ -3133,14 +3144,8 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                   >
                     <div
                       class="field grid"
+                      style="position: relative;"
                     >
-                      <label
-                        class="absolute w-15rem col"
-                        draggable="true"
-                        style="cursor: move; margin-left: -1em;"
-                      >
-                        📎
-                      </label>
                       <div
                         class="col-12"
                       >
@@ -3325,6 +3330,12 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                           </div>
                         </div>
                       </div>
+                      <label
+                        class="absolute border-1 border-solid border-transparent top-0 bottom-0 left-0 right-0 cursor-move mb-0"
+                        draggable="true"
+                      >
+                         
+                      </label>
                     </div>
                   </div>
                   <div
@@ -3357,7 +3368,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                   <div
                     draggable="true"
                   >
-                    [ add card ]
+                     
                   </div>
                 </div>
               </div>
@@ -3382,7 +3393,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                   <div
                     draggable="true"
                   >
-                    [ add card ]
+                     
                   </div>
                 </div>
               </div>
@@ -3392,186 +3403,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
       </form>
       <div
         class="col-2 flex-column"
-      >
-        <div
-          class="p-card p-component mb-2"
-        >
-          <div
-            class="p-card-body"
-          >
-            <div
-              class="p-card-title"
-            >
-              Fields
-            </div>
-            <div
-              class="p-card-content"
-            >
-              <div
-                class="field grid"
-              >
-                <label
-                  class="absolute w-15rem col"
-                >
-                  📎
-                </label>
-                <i
-                  class="pi pi-trash m-3"
-                />
-              </div>
-              <div
-                class="field grid"
-              >
-                <label
-                  class="absolute w-15rem col"
-                  draggable="true"
-                  style="cursor: move; margin-left: -1em;"
-                >
-                  📎
-                </label>
-                tree
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="p-card p-component"
-        >
-          <div
-            class="p-card-body"
-          >
-            <div
-              class="p-card-title"
-            >
-              Cards
-            </div>
-            <div
-              class="p-card-content"
-            >
-              <div>
-                <div
-                  class="p-card p-component card mb-3"
-                >
-                  <div
-                    class="p-card-body"
-                  >
-                    <div
-                      class="p-card-title"
-                    >
-                      <div
-                        draggable="true"
-                        style="cursor: move;"
-                      >
-                        Tree
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div
-                  class="p-card p-component card mb-3"
-                >
-                  <div
-                    class="p-card-body"
-                  >
-                    <div
-                      class="p-card-title"
-                    >
-                      <div
-                        draggable="true"
-                        style="cursor: move;"
-                      >
-                        Reproduction
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div
-                  class="p-card p-component card mb-3"
-                >
-                  <div
-                    class="p-card-body"
-                  >
-                    <div
-                      class="p-card-title"
-                    >
-                      <div
-                        draggable="true"
-                        style="cursor: move;"
-                      >
-                        Taxonomy
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div
-                  class="p-card p-component card mb-3"
-                >
-                  <div
-                    class="p-card-body"
-                  >
-                    <div
-                      class="p-card-title"
-                    >
-                      <div
-                        draggable="true"
-                        style="cursor: move;"
-                      >
-                        Morphology
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div
-                  class="p-card p-component card mb-3"
-                >
-                  <div
-                    class="p-card-body"
-                  >
-                    <div
-                      class="p-card-title"
-                    >
-                      <div
-                        draggable="true"
-                        style="cursor: move;"
-                      >
-                        Links
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div
-                  class="p-card p-component card mb-3"
-                >
-                  <div
-                    class="p-card-body"
-                  >
-                    <div
-                      class="p-card-title"
-                    >
-                      <div
-                        draggable="true"
-                        style="cursor: move;"
-                      >
-                        Habitat
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      />
     </div>
   </div>
 </div>
@@ -4107,7 +3939,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
                           data-scrollselectors=".p-datatable-wrapper"
                           data-testid="person"
                           id="person"
-                          pr_id_7=""
+                          pr_id_11=""
                         >
                           <div
                             class="p-datatable-wrapper"
@@ -4470,7 +4302,7 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
                           data-scrollselectors=".p-datatable-wrapper"
                           data-testid="shape"
                           id="shape"
-                          pr_id_11=""
+                          pr_id_15=""
                         >
                           <div
                             class="p-datatable-wrapper"
@@ -4832,7 +4664,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                           data-scrollselectors=".p-datatable-wrapper"
                           data-testid="schedule"
                           id="schedule"
-                          pr_id_12=""
+                          pr_id_16=""
                         >
                           <div
                             class="p-datatable-wrapper"
@@ -5446,7 +5278,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                           data-scrollselectors=".p-datatable-wrapper"
                           data-testid="permission"
                           id="permission"
-                          pr_id_13=""
+                          pr_id_17=""
                         >
                           <div
                             class="p-datatable-wrapper"
@@ -7786,7 +7618,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
                           data-scrollselectors=".p-datatable-wrapper"
                           data-testid="tree-links"
                           id="tree-links"
-                          pr_id_17=""
+                          pr_id_21=""
                         >
                           <div
                             class="p-datatable-wrapper"
@@ -8591,7 +8423,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                           data-scrollselectors=".p-datatable-wrapper"
                           data-testid="tree-links"
                           id="tree-links"
-                          pr_id_15=""
+                          pr_id_19=""
                         >
                           <div
                             class="p-datatable-wrapper"
@@ -9998,11 +9830,11 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
             class="p-component p-panelmenu-header p-highlight"
           >
             <a
-              aria-controls="pr_id_14_content"
+              aria-controls="pr_id_18_content"
               aria-expanded="true"
               class="p-panelmenu-header-link"
               href="#"
-              id="pr_id_14_header"
+              id="pr_id_18_header"
             >
               <span
                 class="p-panelmenu-icon pi  pi-chevron-down"
@@ -10015,9 +9847,9 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
             </a>
           </div>
           <div
-            aria-labelledby="pr_id_14_header"
+            aria-labelledby="pr_id_18_header"
             class="p-toggleable-content p-toggleable-content-enter-done"
-            id="pr_id_14_content"
+            id="pr_id_18_content"
             role="region"
           >
             <div
@@ -10072,11 +9904,11 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
             class="p-component p-panelmenu-header"
           >
             <a
-              aria-controls="pr_id_14_content"
+              aria-controls="pr_id_18_content"
               aria-expanded="false"
               class="p-panelmenu-header-link"
               href="#"
-              id="pr_id_14_header"
+              id="pr_id_18_header"
             >
               <span
                 class="p-panelmenu-icon pi pi-chevron-right"
@@ -10709,7 +10541,7 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
                           data-scrollselectors=".p-datatable-wrapper"
                           data-testid="tree-links"
                           id="tree-links"
-                          pr_id_18=""
+                          pr_id_22=""
                         >
                           <div
                             class="p-datatable-wrapper"
@@ -11478,7 +11310,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                           data-scrollselectors=".p-datatable-wrapper"
                           data-testid="tree-links"
                           id="tree-links"
-                          pr_id_16=""
+                          pr_id_20=""
                         >
                           <div
                             class="p-datatable-wrapper"

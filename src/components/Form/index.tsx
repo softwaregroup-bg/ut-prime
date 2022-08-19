@@ -12,8 +12,10 @@ import { ConfigCard} from './DragDrop';
 import Context from '../Context';
 import Card from '../Card';
 
+import SelectField from './SelectField';
+import SelectCard from './SelectCard';
 import useForm from '../hooks/useForm';
-import useToggle from '../hooks/useToggle';
+import useNow from '../hooks/useNow';
 import useSubmit from '../hooks/useSubmit';
 import useLayout from '../hooks/useLayout';
 import getValidation from './schema';
@@ -49,6 +51,7 @@ const Form: ComponentProps = ({
     loading,
     methods,
     onSubmit,
+    onChange,
     setTrigger,
     triggerNotDirty,
     autoSubmit,
@@ -78,8 +81,14 @@ const Form: ComponentProps = ({
         setError,
         clearErrors
     } = formApi;
+    React.useEffect(() => {
+        if (watch && onChange) {
+            const watcher = watch(onChange);
+            return () => watcher.unsubscribe();
+        }
+    }, [onChange, watch]);
     const errorFields = flat(errors);
-    const [, moved] = useToggle();
+    const moved = useNow();
     const layoutState = useLayout(schema, cards, layout, editors);
 
     const {handleSubmit, toast} = useSubmit(
@@ -111,11 +120,14 @@ const Form: ComponentProps = ({
         reset({...formValue, $original: clonedeep(formValue)});
     }, [value, reset]);
 
+    const [addField, setAddField] = React.useState(null);
+    const [addCard, setAddCard] = React.useState(null);
+
     const move = React.useCallback((type: 'card' | 'field', source, destination) => {
         if (type === 'field') {
             const destinationList = cards[destination.card].widgets;
             if (source.card === '/') {
-                destinationList.splice(destination.index, 0, source.index);
+                setAddField({destination, destinationList});
             } else {
                 const sourceList = cards[source.card].widgets;
                 destinationList.splice(destination.index, 0, sourceList.splice(source.index, 1)[0]);
@@ -136,8 +148,7 @@ const Form: ComponentProps = ({
                 if (typeof card === 'string') destinationList = layoutState.visibleCards[destination.index[0]] = [card];
             }
             if (source.index[0] === false && Array.isArray(destinationList)) {
-                destinationList.splice(destinationIndex, 0, source.card);
-                moved();
+                setAddCard({destinationList, destinationIndex});
                 return;
             }
             const [
@@ -181,6 +192,26 @@ const Form: ComponentProps = ({
 
     return (<>
         {devTool ? <DevTool control={control} placement="top-right" /> : null}
+        {design ? <SelectField
+            schema={schema}
+            visible={!!addField}
+            onHide={() => setAddField(null)}
+            onSelect={items => {
+                const {destination, destinationList} = addField;
+                destinationList.splice(destination.index, 0, ...items);
+                moved();
+            }}
+        /> : null }
+        {design ? <SelectCard
+            cards={cards}
+            visible={!!addCard}
+            onHide={() => setAddCard(null)}
+            onSelect={item => {
+                const {destinationList, destinationIndex} = addCard;
+                destinationList.splice(destinationIndex, 0, item);
+                moved();
+            }}
+        /> : null }
         {toast}
         {toolbarElement}
         <form {...rest} onSubmit={formSubmit(handleSubmit)} className={clsx('grid col align-self-start', classes.form, className)}>
@@ -221,7 +252,7 @@ const Form: ComponentProps = ({
                     <div key={level1} className={clsx('col-12', firstCard?.className || (!firstCard?.hidden && 'xl:col-6'))} {...(design || debug) && {style: outline}}>
                         {nestedCards}
                         <ConfigCard
-                            title='[ add card ]'
+                            title='&nbsp;'
                             className='card mb-3'
                             card=''
                             key={`${level1}-drop`}
@@ -236,7 +267,7 @@ const Form: ComponentProps = ({
             })}
             {design && <div className='col-12 xl:col-6' style={outline}>
                 <ConfigCard
-                    title='[ add card ]'
+                    title='&nbsp;'
                     className='card mb-3'
                     card=''
                     key={`${layoutState.visibleCards.length}-drop`}

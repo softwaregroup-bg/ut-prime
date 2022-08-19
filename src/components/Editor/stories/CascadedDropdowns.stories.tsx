@@ -54,6 +54,7 @@ export const CascadedDropdowns = () =>
             ]
         })}
         layouts={{edit: ['edit']}}
+        toolbar
     />;
 
 CascadedDropdowns.play = async({canvasElement}) => {

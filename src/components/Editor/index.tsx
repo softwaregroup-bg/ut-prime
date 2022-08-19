@@ -9,8 +9,9 @@ import { ComponentProps } from './Editor.types';
 import Form from '../Form';
 import getValidation from '../Form/schema';
 import ThumbIndex from '../ThumbIndex';
-import {Toolbar, Button, Card, ConfirmPopup, confirmPopup} from '../prime';
+import {Toolbar, Button, ConfirmPopup, confirmPopup} from '../prime';
 import useToggle from '../hooks/useToggle';
+import useNow from '../hooks/useNow';
 import useLoad from '../hooks/useLoad';
 import {ConfigField, ConfigCard} from '../Form/DragDrop';
 import prepareSubmit from '../lib/prepareSubmit';
@@ -75,7 +76,9 @@ const Editor: ComponentProps = ({
     onInit,
     onAdd,
     onGet,
-    onEdit
+    onEdit,
+    onChange,
+    toolbar = !!(onAdd || onEdit || onGet)
 }) => {
     const [keyValue, setKeyValue] = React.useState(id);
     if (schemaCreate && keyValue == null) schema = schemaCreate;
@@ -87,7 +90,7 @@ const Editor: ComponentProps = ({
     const [value, setEditValue] = React.useState({});
     const [loadedValue, setLoadedValue] = React.useState<object>();
     const [dropdowns, setDropdown] = React.useState({});
-    const [[items, layout, orientation, toolbar], setIndex] = React.useState(() => getLayout(cards, layouts, id == null ? 'create' : 'edit', layoutName));
+    const [[items, layout, orientation, toolbarName], setIndex] = React.useState(() => getLayout(cards, layouts, id == null ? 'create' : 'edit', layoutName));
     const [filter, setFilter] = React.useState(items?.[0]?.items?.[0] || items?.[0]);
     const [loading, setLoading] = React.useState('loading');
     const [validation, dropdownNames, getValue] = React.useMemo(() => {
@@ -209,24 +212,68 @@ const Editor: ComponentProps = ({
         else await init();
     });
 
-    const [, moved] = useToggle();
+    const moved = useNow();
 
     function remove(type, source) {
-        if (source.card !== '/') {
-            const sourceList = cards[source.card].widgets;
-            sourceList.splice(source.index, 1);
+        if (type === 'card') {
+            const visibleCards = layout || Object.keys(cards);
+            const [
+                sourceList,
+                sourceIndex,
+                sourceNested
+            ] = (source.index[1] === false) ? [
+                visibleCards,
+                source.index[0],
+                false
+            ] : [
+                visibleCards[source.index[0]],
+                source.index[1],
+                true
+            ];
+            if (Array.isArray(sourceList)) {
+                sourceList.splice(sourceIndex, 1);
+                if (sourceList.length === 1 && sourceNested) visibleCards[source.index[0]] = sourceList[0];
+                moved();
+            }
+        } else if (type === 'field') {
+            if (source.card !== '/') {
+                const sourceList = cards[source.card].widgets;
+                sourceList.splice(source.index, 1);
+            }
+            moved();
         }
-        moved();
     }
 
     const [design, toggleDesign] = useToggle(designDefault);
     return (
         <>
             <ConfirmPopup />
-            <Toolbar
+            {toolbar ? <Toolbar
                 className='border-none border-bottom-1 border-50'
                 style={backgroundNone}
-                left={<>
+                left={design ? <>
+                    <ConfigCard
+                        className='mr-3'
+                        title='[ add card ]'
+                        card=''
+                        index1={false}
+                        index2={false}
+                        design
+                        drag
+                    >
+                        <Button icon='pi pi-id-card' className='cursor-move'/>
+                    </ConfigCard>
+                    <ConfigField
+                        className='flex'
+                        index={name}
+                        name={name}
+                        card='/'
+                        design
+                        label='[add field]'
+                    >
+                        <Button icon='pi pi-pencil'/>
+                    </ConfigField>
+                </> : <>
                     <Button
                         icon='pi pi-save'
                         onClick={trigger}
@@ -255,7 +302,7 @@ const Editor: ComponentProps = ({
                         className={clsx('mr-2', design && 'p-button-success')}
                     />
                 </>}
-            />
+            /> : null}
             <div className={clsx('flex', 'overflow-x-hidden', 'w-full', orientation === 'top' && 'flex-column')}>
                 {items && <ThumbIndex name={name} items={items} orientation={orientation} onFilter={setFilter}/>}
                 <div className='flex flex-grow-1'>
@@ -267,6 +314,7 @@ const Editor: ComponentProps = ({
                         cards={cards}
                         layout={layout || filter?.widgets || []}
                         onSubmit={handleSubmit}
+                        onChange={onChange}
                         methods={methods}
                         value={value}
                         dropdowns={dropdowns}
@@ -274,40 +322,17 @@ const Editor: ComponentProps = ({
                         setTrigger={setTrigger}
                         validation={validation}
                         toolbarRef={toolbarRef}
-                        toolbar={toolbar}
+                        toolbar={toolbarName}
                     />
                     {design && <div className='col-2 flex-column'>
-                        <Card title='Fields' className='mb-2'>
-                            <ConfigField
-                                className='field grid'
-                                index='trash'
-                                design
-                                move={remove}
-                                label=''
-                                name='trash'
-                            ><i className='pi pi-trash m-3'></i></ConfigField>
-                            {Object.entries(properties).map(([name, {title}], index) => <ConfigField
-                                className='field grid'
-                                key={index}
-                                index={name}
-                                name={name}
-                                card='/'
-                                design
-                                label={title}
-                            >{title || name}</ConfigField>)}
-                        </Card>
-                        <Card title='Cards'>
-                            {Object.entries(cards).map(([name, {label}], index) => <ConfigCard
-                                key={index}
-                                title={label}
-                                className='card mb-3'
-                                card={name}
-                                index1={false}
-                                index2={false}
-                                design
-                                drag
-                            />)}
-                        </Card>
+                        <ConfigField
+                            index='trash'
+                            design
+                            move={remove}
+                            label='trash'
+                            name='trash'
+                            className='text-center p-3 p-card'
+                        ><i className='pi pi-trash'/></ConfigField>
                     </div>}
                 </div>
             </div>

@@ -61,6 +61,7 @@ export const PolymorphicLayout = () => {
         <div className='flex-col col'>
             <Editor
                 layoutName='organization'
+                toolbar
                 {...props}
             />
         </div>
