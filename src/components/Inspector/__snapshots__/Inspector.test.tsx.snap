@@ -1,0 +1,311 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Inspector /> Basic render equals snapshot 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  <div
+    class="inspector-0-2-1"
+  >
+    <div
+      class="flex overflow-x-hidden w-full"
+    >
+      <div
+        class="flex flex-grow-1"
+      >
+        <div
+          class="p-toast p-component p-toast-top-right"
+        >
+          <div />
+        </div>
+        <form
+          class="grid col align-self-start form-0-2-2"
+        >
+          <div
+            class="col-12 xl:col-3"
+          >
+            <div
+              class="w-full"
+            >
+              <div
+                class="p-card p-component card mb-3 card-0-2-3"
+                id="edit"
+              >
+                <div
+                  class="p-card-body"
+                >
+                  <div
+                    class="p-card-content"
+                  >
+                    <div
+                      class=""
+                    >
+                      <div
+                        class="field grid"
+                      >
+                        <label
+                          class="col-12 md:col-4"
+                          for="title"
+                        >
+                          Title
+                        </label>
+                        <div
+                          class="col-12 md:col-8"
+                        >
+                          <input
+                            class="p-inputtext p-component w-full"
+                            id="title"
+                            name="title"
+                            value=""
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="field grid"
+                      >
+                        <label
+                          class="col-12 md:col-4"
+                          for="body"
+                        >
+                          Body
+                        </label>
+                        <div
+                          class="col-12 md:col-8"
+                        >
+                          <input
+                            class="p-inputtext p-component w-full"
+                            id="body"
+                            name="body"
+                            value=""
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="field grid"
+                      >
+                        <label
+                          class="col-12 md:col-4"
+                          for="filter"
+                        >
+                          Filter
+                        </label>
+                        <div
+                          class="col-12 md:col-8"
+                        >
+                          <div
+                            class="p-checkbox p-component w-full"
+                            data-testid="filter"
+                            id="filter"
+                          >
+                            <div
+                              class="p-hidden-accessible"
+                            >
+                              <input
+                                id="filter"
+                                name="filter"
+                                type="checkbox"
+                              />
+                            </div>
+                            <div
+                              class="p-checkbox-box"
+                            >
+                              <span
+                                class="p-checkbox-icon p-c"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="field grid"
+                      >
+                        <label
+                          class="col-12 md:col-4"
+                          for="sort"
+                        >
+                          Sort
+                        </label>
+                        <div
+                          class="col-12 md:col-8"
+                        >
+                          <div
+                            class="p-checkbox p-component p-checkbox-checked w-full"
+                            data-testid="sort"
+                            id="sort"
+                          >
+                            <div
+                              class="p-hidden-accessible"
+                            >
+                              <input
+                                checked=""
+                                id="sort"
+                                name="sort"
+                                type="checkbox"
+                              />
+                            </div>
+                            <div
+                              class="p-checkbox-box p-highlight"
+                            >
+                              <span
+                                class="p-checkbox-icon p-c pi pi-check"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="field grid"
+                      >
+                        <label
+                          class="col-12 md:col-4"
+                          for="type"
+                        >
+                          Type
+                        </label>
+                        <div
+                          class="col-12 md:col-8"
+                        >
+                          <div
+                            class="p-dropdown p-component p-inputwrapper p-dropdown-clearable w-full"
+                            data-testid="type"
+                            id="type"
+                          >
+                            <div
+                              class="p-hidden-accessible"
+                            >
+                              <input
+                                aria-haspopup="listbox"
+                                readonly=""
+                                type="text"
+                              />
+                            </div>
+                            <div
+                              class="p-hidden-accessible p-dropdown-hidden-select"
+                            >
+                              <select
+                                aria-hidden="true"
+                                name="type"
+                                tabindex="-1"
+                              >
+                                <option
+                                  value=""
+                                />
+                              </select>
+                            </div>
+                            <span
+                              class="p-dropdown-label p-inputtext p-dropdown-label-empty"
+                            >
+                              empty
+                            </span>
+                            <div
+                              aria-expanded="false"
+                              aria-haspopup="listbox"
+                              class="p-dropdown-trigger"
+                              role="button"
+                            >
+                              <span
+                                class="p-dropdown-trigger-icon p-clickable pi pi-chevron-down"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="field grid"
+                      >
+                        <label
+                          class="col-12 md:col-4"
+                          for="widget-type"
+                        >
+                          Widget
+                        </label>
+                        <div
+                          class="col-12 md:col-8"
+                        >
+                          <div
+                            class="p-dropdown p-component p-inputwrapper p-dropdown-clearable w-full"
+                            data-testid="widget-type"
+                            id="widget-type"
+                          >
+                            <div
+                              class="p-hidden-accessible"
+                            >
+                              <input
+                                aria-haspopup="listbox"
+                                readonly=""
+                                type="text"
+                              />
+                            </div>
+                            <div
+                              class="p-hidden-accessible p-dropdown-hidden-select"
+                            >
+                              <select
+                                aria-hidden="true"
+                                name="widget.type"
+                                tabindex="-1"
+                              >
+                                <option
+                                  value=""
+                                />
+                              </select>
+                            </div>
+                            <span
+                              class="p-dropdown-label p-inputtext p-dropdown-label-empty"
+                            >
+                              empty
+                            </span>
+                            <div
+                              aria-expanded="false"
+                              aria-haspopup="listbox"
+                              class="p-dropdown-trigger"
+                              role="button"
+                            >
+                              <span
+                                class="p-dropdown-trigger-icon p-clickable pi pi-chevron-down"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="field grid mb-0"
+                      >
+                        <label
+                          class="col-12 md:col-4"
+                          for="widget-parent"
+                        >
+                          Parent
+                        </label>
+                        <div
+                          class="col-12 md:col-8"
+                        >
+                          <input
+                            class="p-inputtext p-component w-full"
+                            id="widget-parent"
+                            name="widget.parent"
+                            value=""
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <pre>
+    {
+  "type": "object",
+  "properties": {
+    "test": {
+      "sort": true
+    }
+  }
+}
+  </pre>
+</div>
+`;
