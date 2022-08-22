@@ -5,7 +5,6 @@ import lodashSet from 'lodash.set';
 import lodashGet from 'lodash.get';
 import type {ComponentProps} from './Inspector.types';
 
-import Editor from '../Editor';
 import type {Props as EditorProps} from '../Editor/Editor.types';
 
 const useStyles = createUseStyles({
@@ -101,6 +100,7 @@ const props : EditorProps = {
 };
 
 const Inspector: ComponentProps = ({
+    Editor,
     className,
     object = {},
     property,

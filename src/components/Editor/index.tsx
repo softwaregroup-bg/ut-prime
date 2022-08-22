@@ -257,7 +257,7 @@ const Editor: ComponentProps = ({
                 style={backgroundNone}
                 left={design ? <>
                     <ConfigCard
-                        className='mr-3'
+                        className='mr-2'
                         title='[ add card ]'
                         card=''
                         index1={false}
@@ -332,6 +332,7 @@ const Editor: ComponentProps = ({
                     />
                     {design && <div className='col-2 flex-column'>
                         {inspected ? <Inspector
+                            Editor={Editor}
                             className='w-full'
                             onChange={setOverride}
                             object={mergedSchema}

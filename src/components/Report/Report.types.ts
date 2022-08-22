@@ -8,7 +8,7 @@ export interface Props {
     schema: Schema,
     validation?: Validation,
     params: WidgetReference[],
-    init?: object,
+    init?: Record<string, unknown>,
     columns: WidgetReference[],
     resultSet?: string,
     onDropdown: (params: string[]) => Promise<Dropdowns>,
@@ -16,7 +16,7 @@ export interface Props {
         pagination?: {
             recordsTotal: number
         },
-        [data: string]: any
+        [data: string]: unknown
     }>;
 }
 

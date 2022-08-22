@@ -5,6 +5,7 @@ import merge from 'ut-function.merge';
 import page from './README.mdx';
 import type { Props } from './Inspector.types';
 import Inspector from './index';
+import Editor from '../Editor';
 import decorators from '../test/decorator';
 
 const meta: Meta = {
@@ -26,7 +27,7 @@ const Template: Story<Props> = args => {
     const [value] = React.useState({type: 'object', properties: {}});
     const [override, setOverride] = React.useState({properties: {test: {sort: true}}});
     return <>
-        <Inspector {...args} onChange={setOverride} object={override} property='properties.test' className='col-3' />
+        <Inspector {...args} Editor={Editor} onChange={setOverride} object={override} property='properties.test' className='col-3' />
         <pre>{JSON.stringify(merge({}, value, override), null, 2)}</pre>
     </>;
 };

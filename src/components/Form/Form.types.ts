@@ -24,9 +24,7 @@ export interface Props extends React.HTMLAttributes<HTMLFormElement> {
     autoSubmit?: boolean;
     toolbarRef?: React.MutableRefObject<HTMLDivElement>;
     toolbar?: string;
-    value?: {
-        $original?: object;
-    };
+    value?: Record<string, unknown>;
     methods?: object;
 }
 
