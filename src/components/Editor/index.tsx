@@ -166,6 +166,7 @@ const Editor: ComponentProps = ({
     const handleSubmit = React.useCallback(
         async function handleSubmit(data) {
             let response;
+            setTrigger(undefined);
             if (keyValue != null) {
                 response = getValue(handleArray(await onEdit(prepareSubmit(data)), properties));
             } else {

@@ -258,6 +258,7 @@ const Form: ComponentProps = ({
                 className: clsx({'w-full': !['boolean'].includes(inputWidget.type)}, { 'p-invalid': fieldState.error }),
                 ...field,
                 onChange: (value, {select = false, field: changeField = true, children = true} = {}) => {
+                    setTrigger(() => formSubmit(handleSubmit));
                     if (select) {
                         const prefix = `$.edit.${propertyName}.`;
                         const selectionPrefix = widget?.selectionPath || '$.selected';
