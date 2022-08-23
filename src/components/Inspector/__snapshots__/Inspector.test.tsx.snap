@@ -35,6 +35,11 @@ exports[`<Inspector /> Basic render equals snapshot 1`] = `
                   class="p-card-body"
                 >
                   <div
+                    class="p-card-title"
+                  >
+                    Field
+                  </div>
+                  <div
                     class="p-card-content"
                   >
                     <div
@@ -303,6 +308,13 @@ exports[`<Inspector /> Basic render equals snapshot 1`] = `
   "properties": {
     "test": {
       "sort": true
+    }
+  },
+  "schema": {
+    "properties": {
+      "test": {
+        "sort": true
+      }
     }
   }
 }
