@@ -26,6 +26,11 @@ export interface Props extends React.HTMLAttributes<HTMLFormElement> {
     toolbar?: string;
     value?: Record<string, unknown>;
     methods?: object;
+    move?: (
+        type: 'card' | 'field',
+        source: object,
+        destination: object
+    ) => void,
 }
 
 export type ComponentProps = React.FC<Props>

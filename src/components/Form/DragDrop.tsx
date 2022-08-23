@@ -17,6 +17,8 @@ type CardMonitor = DropTargetMonitor<{
     index: [number, number | false]
 }>;
 
+const highlight = <label className='absolute border-left-3 top-0 bottom-0 mb-0' style={{borderColor: 'var(--primary-color)'}}>&nbsp;</label>;
+
 export function DragDropField({children, name, index, card, move, label, onInspect, inspected, ...props}) {
     let labelProps;
     let isDragging = false;
@@ -33,7 +35,7 @@ export function DragDropField({children, name, index, card, move, label, onInspe
     if (card) {
         isDragging = collected.isDragging;
         labelProps = {
-            ...onInspect && {onClick: () => onInspect(name)},
+            ...onInspect && {onClick: () => onInspect({type: 'schema', name})},
             ref: dragField
         };
     }
@@ -62,14 +64,14 @@ export function DragDropField({children, name, index, card, move, label, onInspe
     if (name === 'trash' && !canDrop) return null;
     return (
         <div {...props}>
-            {inspected === name ? <label className='absolute border-left-3 top-0 bottom-0 mb-0' style={{borderColor: 'var(--primary-color)'}}>&nbsp;</label> : null}
+            {(inspected?.type === 'schema' && inspected?.name === name) ? highlight : null}
             {children}
             {name === 'trash' ? null : <label className='absolute border-1 border-solid border-transparent top-0 bottom-0 left-0 right-0 cursor-move mb-0' {...labelProps}>&nbsp;</label>}
         </div>
     );
 }
 
-export function DragDropCard({children, card, index1, index2, move, flex, hidden, drag, drop, title, ...props}) {
+export function DragDropCard({children, card, index1, index2, move, flex, hidden, drag, drop, title, inspected, onInspect, ...props}) {
     const [{isDragging}, dragCard] = useDrag(
         () => ({
             type: CARD,
@@ -116,9 +118,10 @@ export function DragDropCard({children, card, index1, index2, move, flex, hidden
         ...drop && {opacity: 0.5}
     };
     const divProps = {
-        ref: dropCard
+        ref: dropCard,
+        className: 'relative'
     };
-    title = (drop && canDropCard) ? '➕ ' + dragTitle : <div ref={dragCard} style={drop ? {} : {cursor: 'move'}}>{title}</div>;
+    title = (drop && canDropCard) ? '➕ ' + dragTitle : <div ref={dragCard} style={drop ? {} : {cursor: 'move'}} onClick={() => onInspect?.({type: 'card', name: card})}>{title}</div>;
     const dropZone: ReactElement<HTMLDivElement> = !drop && <div
         ref={dropField}
         className={clsx('field', 'grid', 'mb-0', flex)}
@@ -132,6 +135,8 @@ export function DragDropCard({children, card, index1, index2, move, flex, hidden
 
     return (
         <div {...divProps}>{
+            (inspected?.type === 'card' && inspected?.name === card) ? highlight : null
+        }{
             drag ? <div ref={dragCard} className={clsx('cursor-move', props.className)}>{children}</div> : drop ? <Card title={title} {...props}>{children}</Card> : <Card title={title} {...props}>
                 {children}
                 {dropZone}
@@ -140,7 +145,7 @@ export function DragDropCard({children, card, index1, index2, move, flex, hidden
     );
 }
 
-export function ConfigField({design, children = null, name, index, card = '', label, move = null, onInspect = null, inspected = '', ...props}) {
+export function ConfigField({design, children = null, name, index, card = '', label, move = null, onInspect = null, inspected = null, ...props}) {
     return (
         design ? <DragDropField {...{name, index, card, move, label, onInspect, inspected, ...props}}>
             {children}
@@ -150,10 +155,10 @@ export function ConfigField({design, children = null, name, index, card = '', la
     );
 }
 
-export function ConfigCard({children = null, card, index1, index2, move = undefined, flex = '', design, hidden = false, drag = false, drop = false, title, ...props}) {
+export function ConfigCard({children = null, card, index1, index2, move = undefined, flex = '', design, hidden = false, drag = false, drop = false, title, onInspect = null, inspected = null, ...props}) {
     if (drop && !design) return null;
     return (
-        design ? <DragDropCard {...{card, index1, index2, move, flex, hidden, drag, drop, title, ...props}}>
+        design ? <DragDropCard {...{card, index1, index2, move, flex, hidden, drag, drop, title, onInspect, inspected, ...props}}>
             {children}
         </DragDropCard> : <div className='w-full'>
             <Card title={title} {...props}>

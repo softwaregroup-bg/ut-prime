@@ -13,6 +13,11 @@ export interface Props {
     typeField?: string,
     cards: Cards,
     layouts?: Layouts,
+    customization?: {
+        schema?: Schema,
+        card?: Cards,
+        layout?: Layouts
+    },
     debug?: boolean,
     layoutName?: string,
     nested?: string[],

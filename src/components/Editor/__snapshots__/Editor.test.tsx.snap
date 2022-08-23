@@ -2392,7 +2392,9 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
     <div
       class="p-toolbar-group-left"
     >
-      <div>
+      <div
+        class="relative"
+      >
         <div
           class="cursor-move mr-2"
           draggable="true"
@@ -2415,11 +2417,6 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
         class="flex"
         style="position: relative;"
       >
-        <label
-          class="absolute border-left-3 top-0 bottom-0 mb-0"
-        >
-           
-        </label>
         <button
           class="p-button p-component p-button-icon-only"
         >
@@ -2477,7 +2474,9 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
           class="col-12 xl:col-6"
           style="outline: 1px dotted #ffff0030;"
         >
-          <div>
+          <div
+            class="relative"
+          >
             <div
               class="p-card p-component card mb-3 card-0-2-2"
               id="edit"
@@ -2640,7 +2639,9 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="relative"
+          >
             <div
               class="p-card p-component card mb-3"
               style="opacity: 0.5;"
@@ -2665,7 +2666,9 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
           class="col-12 xl:col-6"
           style="outline: 1px dotted #ffff0030;"
         >
-          <div>
+          <div
+            class="relative"
+          >
             <div
               class="p-card p-component card mb-3 card-0-2-2"
               id="taxonomy"
@@ -2702,7 +2705,9 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="relative"
+          >
             <div
               class="p-card p-component card mb-3 card-0-2-2"
               id="reproduction"
@@ -2824,7 +2829,9 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="relative"
+          >
             <div
               class="p-card p-component card mb-3"
               style="opacity: 0.5;"
@@ -2849,7 +2856,9 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
           class="col-12 xl:col-6"
           style="outline: 1px dotted #ffff0030;"
         >
-          <div>
+          <div
+            class="relative"
+          >
             <div
               class="p-card p-component card mb-3 card-0-2-2"
               id="morphology"
@@ -2886,7 +2895,9 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="relative"
+          >
             <div
               class="p-card p-component card mb-3 card-0-2-2"
               id="links"
@@ -3098,7 +3109,9 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="relative"
+          >
             <div
               class="p-card p-component card mb-3"
               style="opacity: 0.5;"
@@ -3123,7 +3136,9 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
           class="col-12 xl:col-6"
           style="outline: 1px dotted #ffff0030;"
         >
-          <div>
+          <div
+            class="relative"
+          >
             <div
               class="p-card p-component card mb-3 card-0-2-2"
               id="habitat"
@@ -3359,7 +3374,9 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="relative"
+          >
             <div
               class="p-card p-component card mb-3"
               style="opacity: 0.5;"
@@ -3384,7 +3401,9 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
           class="col-12 xl:col-6"
           style="outline: 1px dotted #ffff0030;"
         >
-          <div>
+          <div
+            class="relative"
+          >
             <div
               class="p-card p-component card mb-3"
               style="opacity: 0.5;"

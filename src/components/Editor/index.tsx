@@ -5,6 +5,8 @@ import merge from 'ut-function.merge';
 import clsx from 'clsx';
 
 import { ComponentProps } from './Editor.types';
+import SelectField from './SelectField';
+import SelectCard from './SelectCard';
 
 import Form from '../Form';
 import getValidation from '../Form/schema';
@@ -12,7 +14,6 @@ import ThumbIndex from '../ThumbIndex';
 import Inspector from '../Inspector';
 import {Toolbar, Button, ConfirmPopup, confirmPopup} from '../prime';
 import useToggle from '../hooks/useToggle';
-import useNow from '../hooks/useNow';
 import useLoad from '../hooks/useLoad';
 import {ConfigField, ConfigCard} from '../Form/DragDrop';
 import prepareSubmit from '../lib/prepareSubmit';
@@ -52,7 +53,7 @@ function getLayout(cards: Cards, layouts: Layouts, mode: 'create' | 'edit', name
     if (!cards[toolbar]) toolbar = `toolbar${capital(name)}`;
     if (!cards[toolbar]) toolbar = `toolbar${capital(mode)}`;
     if (!cards[toolbar]) toolbar = 'toolbar';
-    return [items, layout, orientation || 'left', toolbar];
+    return [items, layout, orientation || 'left', toolbar, layoutName];
 }
 
 const Editor: ComponentProps = ({
@@ -69,6 +70,7 @@ const Editor: ComponentProps = ({
     layouts,
     layoutName,
     name,
+    customization,
     keyField = object + 'Id',
     resultSet = object,
     design: designDefault,
@@ -83,9 +85,11 @@ const Editor: ComponentProps = ({
 }) => {
     const [keyValue, setKeyValue] = React.useState(id);
     const activeSchema = (schemaCreate && keyValue == null) ? schemaCreate : schemaEdit;
-    const [override, setOverride] = React.useState({});
+    const [mergedCustomization, setCustomization] = React.useState({schema: {}, card: {}, layout: {}, ...customization});
     const [inspected, setInspected] = React.useState(null);
-    const mergedSchema = React.useMemo(() => merge({}, activeSchema, override), [activeSchema, override]);
+    const mergedSchema = React.useMemo(() => merge({}, activeSchema, mergedCustomization.schema), [activeSchema, mergedCustomization.schema]);
+    const mergedCards = React.useMemo(() => merge({}, cards, mergedCustomization.card), [cards, mergedCustomization.card]);
+    const mergedLayouts = React.useMemo(() => merge({}, layouts, mergedCustomization.layout), [layouts, mergedCustomization.layout]);
     const {properties = empty} = mergedSchema;
     name = name ? name + '.' : '';
 
@@ -94,7 +98,11 @@ const Editor: ComponentProps = ({
     const [value, setEditValue] = React.useState({});
     const [loadedValue, setLoadedValue] = React.useState<object>();
     const [dropdowns, setDropdown] = React.useState({});
-    const [[items, layout, orientation, toolbarName], setIndex] = React.useState(() => getLayout(cards, layouts, id == null ? 'create' : 'edit', layoutName));
+    const [[mode, layoutState], setMode] = React.useState([id == null ? 'create' : 'edit' as 'create' | 'edit', layoutName]);
+    const [items, layout, orientation, toolbarName, currentLayoutName] = React.useMemo(
+        () => getLayout(mergedCards, mergedLayouts, mode, layoutState),
+        [mergedCards, mergedLayouts, mode, layoutState]
+    );
     const [filter, setFilter] = React.useState(items?.[0]?.items?.[0] || items?.[0]);
     const [loading, setLoading] = React.useState('loading');
     const [validation, dropdownNames, getValue] = React.useMemo(() => {
@@ -114,7 +122,7 @@ const Editor: ComponentProps = ({
                 // collect all widgets from cards
                 (indexCards || layout || filter?.widgets || [])
                     .flat()
-                    .map(card => cards?.[card]?.widgets)
+                    .map(card => mergedCards?.[card]?.widgets)
                     .flat()
                     .filter(Boolean)
                 // collect all column and field names
@@ -148,13 +156,13 @@ const Editor: ComponentProps = ({
             return editValue;
         };
         return [validation, dropdownNames, getValue];
-    }, [cards, editors, filter?.widgets, items, layout, mergedSchema]);
+    }, [mergedCards, editors, filter?.widgets, items, layout, mergedSchema]);
 
     async function get() {
         setLoading('loading');
         const result = (await onGet({[keyField]: keyValue}));
         handleArray(result, properties);
-        if (typeField) setIndex(getLayout(cards, layouts, 'edit', lodashGet(result, typeField)));
+        if (typeField) setMode(['edit', lodashGet(result, typeField)]);
         setDropdown(await onDropdown(dropdownNames));
         setLoadedValue(result);
         setLoading('');
@@ -188,8 +196,8 @@ const Editor: ComponentProps = ({
             const value = merge({}, data[0], response);
             setEditValue(value);
             if (key) setLoadedValue(getValue(value));
-            setIndex(getLayout(cards, layouts, 'edit', layoutName || (typeField ? lodashGet(value, typeField) : '')));
-        }, [keyValue, onEdit, getValue, onAdd, keyField, resultSet, properties, layouts, cards, typeField, layoutName]
+            setMode(['edit', layoutName || (typeField ? lodashGet(value, typeField) : '')]);
+        }, [keyValue, onEdit, getValue, onAdd, keyField, resultSet, properties, typeField, layoutName]
     );
 
     const handleReset = React.useCallback(
@@ -197,7 +205,7 @@ const Editor: ComponentProps = ({
             const accept = () => {
                 const value = loadedValue ? getValue(loadedValue) : {[resultSet]: null};
                 setEditValue(value);
-                setIndex(getLayout(cards, layouts, 'edit', layoutName || (typeField ? lodashGet(value, typeField) : '')));
+                setMode(['edit', layoutName || (typeField ? lodashGet(value, typeField) : '')]);
                 setDidSubmit(false);
             };
             if (!trigger) return accept();
@@ -208,7 +216,7 @@ const Editor: ComponentProps = ({
                 reject: () => {},
                 accept
             });
-        }, [trigger, cards, layouts, layoutName, typeField, loadedValue, resultSet, getValue]
+        }, [trigger, layoutName, typeField, loadedValue, resultSet, getValue]
     );
 
     useLoad(async() => {
@@ -216,42 +224,179 @@ const Editor: ComponentProps = ({
         else await init();
     });
 
-    const moved = useNow();
+    const [addField, setAddField] = React.useState(null);
+    const [addCard, setAddCard] = React.useState(null);
 
-    function remove(type, source) {
-        if (type === 'card') {
-            const visibleCards = layout || Object.keys(cards);
+    const move = React.useCallback((type: 'card' | 'field', source, destination) => {
+        if (type === 'field') {
+            if (source.card === '/') {
+                setAddField({destination});
+            } else {
+                setCustomization(prev => {
+                    const destinationList = [...prev.card[destination.card]?.widgets || cards[destination.card].widgets];
+                    const sourceList = (source.card === destination.card)
+                        ? destinationList
+                        : [...prev.card[source.card]?.widgets || cards[source.card].widgets];
+                    destinationList.splice(destination.index, 0, sourceList.splice(source.index, 1)[0]);
+                    return {
+                        ...prev,
+                        card: {
+                            ...prev.card,
+                            [source.card]: {
+                                ...prev.card[source.card],
+                                widgets: sourceList
+                            },
+                            [destination.card]: {
+                                ...prev.card[destination.card],
+                                widgets: destinationList
+                            }
+                        }
+                    };
+                });
+            }
+        } else if (type === 'card') {
+            const newLayout = layout.map(item => Array.isArray(item) ? [...item] : item);
+            let [
+                destinationList,
+                destinationIndex
+            ] = (destination.index[1] === false) ? [
+                newLayout,
+                destination.index[0]
+            ] : [
+                newLayout[destination.index[0]],
+                destination.index[1]
+            ];
+            if (!Array.isArray(destinationList)) {
+                const card = newLayout[destination.index[0]];
+                if (typeof card === 'string') destinationList = newLayout[destination.index[0]] = [card];
+            }
+            if (source.index[0] === false && Array.isArray(destinationList)) {
+                setAddCard({destinationList, destinationIndex, newLayout, currentLayoutName});
+                return;
+            }
             const [
                 sourceList,
                 sourceIndex,
                 sourceNested
             ] = (source.index[1] === false) ? [
-                visibleCards,
+                newLayout,
                 source.index[0],
                 false
             ] : [
-                visibleCards[source.index[0]],
+                newLayout[source.index[0]],
+                source.index[1],
+                true
+            ];
+            if (Array.isArray(sourceList) && Array.isArray(destinationList)) {
+                setCustomization(prev => {
+                    const removed = sourceList.splice(sourceIndex, 1)[0];
+                    if (sourceList.length === 1 && sourceNested && sourceList !== destinationList) newLayout[source.index[0]] = sourceList[0];
+                    destinationList.splice(destinationIndex, 0, removed);
+                    return {
+                        ...prev,
+                        layout: {
+                            ...prev.layout,
+                            [currentLayoutName]: newLayout
+                        }
+                    };
+                });
+            }
+        }
+    }, [cards, layout, currentLayoutName]);
+
+    const remove = React.useCallback((type, source) => {
+        if (type === 'card') {
+            const newLayout = layout.map(item => Array.isArray(item) ? [...item] : item);
+            const [
+                sourceList,
+                sourceIndex,
+                sourceNested
+            ] = (source.index[1] === false) ? [
+                newLayout,
+                source.index[0],
+                false
+            ] : [
+                newLayout[source.index[0]],
                 source.index[1],
                 true
             ];
             if (Array.isArray(sourceList)) {
-                sourceList.splice(sourceIndex, 1);
-                if (sourceList.length === 1 && sourceNested) visibleCards[source.index[0]] = sourceList[0];
-                moved();
+                setCustomization(prev => {
+                    sourceList.splice(sourceIndex, 1);
+                    if (sourceList.length === 1 && sourceNested) newLayout[source.index[0]] = sourceList[0];
+                    return {
+                        ...prev,
+                        layout: {
+                            ...prev.layout,
+                            [currentLayoutName]: newLayout
+                        }
+                    };
+                });
             }
         } else if (type === 'field') {
             if (source.card !== '/') {
-                const sourceList = cards[source.card].widgets;
+                const sourceList = mergedCards[source.card].widgets;
                 sourceList.splice(source.index, 1);
+                setCustomization(prev => {
+                    return {
+                        ...prev,
+                        card: {
+                            ...prev.card,
+                            [source.card]: {
+                                ...prev.card[source.card],
+                                widgets: sourceList
+                            }
+                        }
+                    };
+                });
             }
-            moved();
         }
-    }
+    }, [layout, currentLayoutName, mergedCards]);
 
     const [design, toggleDesign] = useToggle(designDefault);
     return (
         <>
             <ConfirmPopup />
+            {design ? <SelectField
+                schema={mergedSchema}
+                visible={!!addField}
+                onHide={() => setAddField(null)}
+                onSelect={items => {
+                    const {destination} = addField;
+                    setCustomization(prev => {
+                        const destinationList = [...prev.card[destination.card]?.widgets || cards[destination.card].widgets];
+                        destinationList.splice(destination.index, 0, ...items);
+                        return {
+                            ...prev,
+                            card: {
+                                ...prev.card,
+                                [destination.card]: {
+                                    ...prev.card[destination.card],
+                                    widgets: destinationList
+                                }
+                            }
+                        };
+                    });
+                }}
+            /> : null }
+            {design ? <SelectCard
+                cards={mergedCards}
+                visible={!!addCard}
+                onHide={() => setAddCard(null)}
+                onSelect={item => {
+                    const {destinationList, destinationIndex, newLayout, currentLayoutName} = addCard;
+                    setCustomization(prev => {
+                        destinationList.splice(destinationIndex, 0, item);
+                        return {
+                            ...prev,
+                            layout: {
+                                ...prev.layout,
+                                [currentLayoutName]: newLayout
+                            }
+                        };
+                    });
+                }}
+            /> : null }
             {toolbar ? <Toolbar
                 className='border-none border-bottom-1 border-50'
                 style={backgroundNone}
@@ -312,10 +457,11 @@ const Editor: ComponentProps = ({
                 <div className='flex flex-grow-1'>
                     <Form
                         schema={mergedSchema}
+                        move={move}
                         debug={debug}
                         editors={editors}
                         design={design}
-                        cards={cards}
+                        cards={mergedCards}
                         layout={layout || filter?.widgets || []}
                         onSubmit={handleSubmit}
                         onChange={onChange}
@@ -334,9 +480,10 @@ const Editor: ComponentProps = ({
                         {inspected ? <Inspector
                             Editor={Editor}
                             className='w-full'
-                            onChange={setOverride}
-                            object={mergedSchema}
-                            property={`properties.${inspected.split('.').join('.properties.')}`}
+                            onChange={setCustomization}
+                            object={inspected.type === 'card' ? mergedCards : mergedSchema}
+                            property={inspected.type === 'card' ? inspected.name : `properties.${inspected.name.split('.').join('.properties.')}`}
+                            type={inspected.type}
                         /> : null }
                         <ConfigField
                             index='trash'

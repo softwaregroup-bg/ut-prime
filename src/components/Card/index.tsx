@@ -220,7 +220,21 @@ const Card: ComponentProps = ({
         </>;
     }
     return (
-        <ConfigCard title={label} key={`${index1}-${index2}`} className={clsx('card', formApi && 'mb-3', classes.card)} card={cardName} id={cardName} index1={index1} index2={index2} move={move} flex={flex} design={design} hidden={hidden}>
+        <ConfigCard
+            title={label}
+            key={`${index1}-${index2}`}
+            className={clsx('card', formApi && 'mb-3', classes.card, cardClasses?.card)}
+            card={cardName}
+            id={cardName}
+            index1={index1}
+            index2={index2}
+            move={move}
+            flex={flex}
+            design={design}
+            hidden={hidden}
+            inspected={inspected}
+            onInspect={onInspect}
+        >
             {widgets.length > 0 && <div className={clsx(flex && 'flex flex-wrap', cardClasses?.default?.root)}>
                 {widgets.map(field(widgets.length, flex, cardName, cardClasses, classNames))}
             </div>}
