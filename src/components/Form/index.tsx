@@ -124,7 +124,8 @@ const Form: ComponentProps = ({
         reset,
         formState: {
             errors,
-            isDirty
+            isDirty,
+            isSubmitting
         },
         watch,
         setValue,
@@ -178,7 +179,7 @@ const Form: ComponentProps = ({
         [onSubmit, setError, clearErrors, idx]
     );
 
-    const canSetTrigger = isDirty || triggerNotDirty;
+    const canSetTrigger = (isDirty || triggerNotDirty) && !isSubmitting;
     React.useEffect(() => {
         if (setTrigger) setTrigger(canSetTrigger ? () => formSubmit(handleSubmit) : undefined);
     }, [setTrigger, formSubmit, handleSubmit, isDirty, canSetTrigger]);
@@ -258,7 +259,6 @@ const Form: ComponentProps = ({
                 className: clsx({'w-full': !['boolean'].includes(inputWidget.type)}, { 'p-invalid': fieldState.error }),
                 ...field,
                 onChange: (value, {select = false, field: changeField = true, children = true} = {}) => {
-                    setTrigger(() => formSubmit(handleSubmit));
                     if (select) {
                         const prefix = `$.edit.${propertyName}.`;
                         const selectionPrefix = widget?.selectionPath || '$.selected';
