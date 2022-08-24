@@ -62,6 +62,7 @@ export default function input(
         optionsFilter = null,
         title = '',
         columns,
+        clear,
         ...props
     }: any = {id: field?.name},
     schema,
@@ -133,7 +134,7 @@ export default function input(
                 {...testid(props.id)}
                 {...props}
             />
-            <Clear field={field} showClear={props.showClear}/>
+            <Clear field={field} showClear={clear}/>
         </Field>;
         case 'table': return <>
             {error}
@@ -423,7 +424,7 @@ export default function input(
                 onChange={e => field.onChange?.(e.target.value || null)}
                 {...props}
             />
-            <Clear field={field} showClear={props.showClear}/>
+            <Clear field={field} showClear={clear}/>
         </Field>;
     }
 }

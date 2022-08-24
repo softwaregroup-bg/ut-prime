@@ -11123,7 +11123,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                         class="flex align-items-center relative col-12 md:col-8"
                       >
                         <input
-                          class="p-inputtext p-component w-full p-invalid"
+                          class="p-inputtext p-component p-filled w-full p-invalid"
                           id="tree-treeName"
                           name="tree.treeName"
                           type="text"

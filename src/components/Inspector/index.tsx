@@ -26,10 +26,10 @@ const props : Record<string, EditorProps> = {
         schema: {
             type: 'object',
             properties: {
-                title: {type: 'string', widget: {showClear: true}},
-                body: {type: 'string', widget: {showClear: true}},
-                filter: {type: 'boolean', widget: {showClear: true}},
-                sort: {type: 'boolean', widget: {showClear: true}},
+                title: {type: 'string', widget: {clear: true}},
+                body: {type: 'string', widget: {clear: true}},
+                filter: {type: 'boolean', widget: {clear: true}},
+                sort: {type: 'boolean', widget: {clear: true}},
                 type: {
                     type: 'string',
                     widget: {type: 'dropdown', dropdown: 'type', showClear: true}
@@ -42,7 +42,7 @@ const props : Record<string, EditorProps> = {
                             title: 'Widget',
                             widget: {type: 'dropdown', dropdown: 'widget', showClear: true}
                         },
-                        parent: {type: 'string', widget: {showClear: true}}
+                        parent: {type: 'string', widget: {clear: true}}
                     }
                 }
             }
@@ -103,10 +103,10 @@ const props : Record<string, EditorProps> = {
         schema: {
             type: 'object',
             properties: {
-                label: {type: 'string', widget: {showClear: true}},
-                watch: {type: 'string', widget: {showClear: true}},
-                match: {type: 'string', widget: {showClear: true}},
-                className: {type: 'string', title: 'Class', widget: {showClear: true}},
+                label: {type: 'string', widget: {clear: true}},
+                watch: {type: 'string', widget: {clear: true}},
+                match: {type: 'string', widget: {clear: true}},
+                className: {type: 'string', title: 'Class', widget: {clear: true}},
                 type: {
                     type: 'string',
                     widget: {
@@ -117,16 +117,16 @@ const props : Record<string, EditorProps> = {
                         ]
                     }
                 },
-                hidden: {type: 'boolean', widget: {showClear: true}},
+                hidden: {type: 'boolean', widget: {clear: true}},
                 classes: {
                     type: 'object',
                     properties: {
-                        card: {type: 'string', title: 'Card class', widget: {showClear: true}},
+                        card: {type: 'string', title: 'Card class', widget: {clear: true}},
                         default: {
                             type: 'object',
                             properties: {
-                                field: {type: 'string', title: 'Field class', widget: {showClear: true}},
-                                label: {type: 'string', title: 'Label class', widget: {showClear: true}}
+                                field: {type: 'string', title: 'Field class', widget: {clear: true}},
+                                label: {type: 'string', title: 'Label class', widget: {clear: true}}
                             }
                         }
                     }
