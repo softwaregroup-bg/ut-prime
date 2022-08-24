@@ -1,3 +1,12 @@
+# [2.9.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.8.0...v2.9.0) (2022-08-24)
+
+
+### Features
+
+* clear button for inputText and boolean ([4492b69](https://github.com/softwaregroup-bg/ut-prime/commit/4492b697b03b6bd7372adabd89f5868eabdca7f2))
+
+
+
 # [2.8.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.8.0-card.9...v2.8.0) (2022-08-24)
 
 
