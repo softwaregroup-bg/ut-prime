@@ -13,6 +13,7 @@ export { default as Explorer } from './Explorer';
 export { default as Editor } from './Editor';
 export { default as Form } from './Form';
 export { default as Gate } from './Gate';
+export { default as Inspector } from './Inspector';
 export { default as Loader } from './Loader';
 export { default as Login } from './Login';
 export { default as Main } from './Main';

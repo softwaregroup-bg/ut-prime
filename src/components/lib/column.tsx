@@ -3,7 +3,7 @@ import { Checkbox, Dropdown, SelectButton, RadioButton, Calendar, DateRange, Inp
 import { Property } from '../types';
 import titleCase from './titleCase';
 import getType from './getType';
-import {KEY, INDEX} from '../Form/const';
+import {KEY, INDEX} from '../Card/const';
 import testid from '../lib/testid';
 export interface TableFilter {
     filters?: {

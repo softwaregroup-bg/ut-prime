@@ -9,11 +9,11 @@ const ActionButton: ComponentProps = ({getValues, action, params, ...props}) => 
     const dispatch = useDispatch();
     const handleClick = React.useMemo(() => event => {
         event.preventDefault();
-        if (typeof action === 'function') return action(getValues());
+        if (typeof action === 'function') return action(getValues?.());
         dispatch({
             type: 'front.form.action',
             method: 'handle.action',
-            params: [{action, params}, getValues()]
+            params: [{action, params}, getValues?.()]
         });
     }, [action, params, dispatch, getValues]);
     return <Button onClick={handleClick} {...props} />;

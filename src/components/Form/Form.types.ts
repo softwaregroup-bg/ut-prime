@@ -17,13 +17,20 @@ export interface Props extends React.HTMLAttributes<HTMLFormElement> {
     design?: boolean;
     debug?: boolean;
     onSubmit?: (data: object) => void | Promise<void>;
+    inspected?: string;
+    onInspect?: (data: object) => void;
     setTrigger?: (trigger: (event: object) => void) => void;
     triggerNotDirty?: boolean;
     autoSubmit?: boolean;
     toolbarRef?: React.MutableRefObject<HTMLDivElement>;
     toolbar?: string;
-    value?: any;
+    value?: Record<string, unknown>;
     methods?: object;
+    move?: (
+        type: 'card' | 'field',
+        source: object,
+        destination: object
+    ) => void,
 }
 
 export type ComponentProps = React.FC<Props>

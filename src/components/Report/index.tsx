@@ -49,7 +49,7 @@ const Report: ComponentProps = ({
     useLoad(async() => {
         setDropdown(await onDropdown(dropdownNames));
     });
-    const [filter, setFilter] = React.useState<[object] | [object, {files: []}]>([init]);
+    const [filter, setFilter] = React.useState<[Record<string, unknown>] | [Record<string, unknown>, {files: []}]>([init]);
     const explorerFilter = React.useMemo(() => [
         {
             [resultSet]: filter[0]
