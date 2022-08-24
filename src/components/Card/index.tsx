@@ -215,9 +215,9 @@ const Card: ComponentProps = ({
     if (typeof cardName === 'object') cardName = cardName.name;
     const {label, widgets = [], flex, hidden, classes: cardClasses, type} = (cards[cardName] || {label: '❌ ' + cardName});
     if (type === 'toolbar') {
-        return <>
+        return <div className='flex'>
             {widgets.length > 0 && widgets.map(field(widgets.length, flex, cardName, cardClasses, {field: '', label: ''}))}
-        </>;
+        </div>;
     }
     return (
         <ConfigCard

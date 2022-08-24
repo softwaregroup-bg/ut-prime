@@ -2392,6 +2392,55 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
     <div
       class="p-toolbar-group-left"
     >
+      <button
+        aria-label="save"
+        class="p-button p-component mr-2 p-button-icon-only p-disabled"
+        data-testid="saveButton"
+        disabled=""
+      >
+        <span
+          class="p-button-icon p-c pi pi-save"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
+      <button
+        aria-label="reset"
+        class="p-button p-component mr-2 p-button-icon-only p-disabled"
+        data-testid="resetButton"
+        disabled=""
+      >
+        <span
+          class="p-button-icon p-c pi pi-replay"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
+      <div />
+    </div>
+    <div
+      class="p-toolbar-group-right"
+    >
+      <button
+        aria-label="save customization"
+        class="p-button p-component mr-2 p-button-icon-only"
+        data-testid="saveCustomization"
+      >
+        <span
+          class="p-button-icon p-c pi pi-save"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
       <div
         class="relative"
       >
@@ -2414,7 +2463,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
         </div>
       </div>
       <div
-        class="flex"
+        class="flex mr-2"
         style="position: relative;"
       >
         <button
@@ -2436,10 +2485,6 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
            
         </label>
       </div>
-    </div>
-    <div
-      class="p-toolbar-group-right"
-    >
       <button
         aria-label="design"
         class="p-button p-component mr-2 p-button-success p-button-icon-only"
@@ -10164,38 +10209,42 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
         </span>
       </button>
       <div>
-        <button
-          aria-label="[object Object]"
-          class="p-button p-component mr-2"
-          id="button1"
+        <div
+          class="flex"
         >
-          <span
-            class="p-button-label p-c"
+          <button
+            aria-label="[object Object]"
+            class="p-button p-component mr-2"
+            id="button1"
           >
-            <label
-              class=""
-              for=""
+            <span
+              class="p-button-label p-c"
             >
-              Browse
-            </label>
-          </span>
-        </button>
-        <button
-          aria-label="[object Object]"
-          class="p-button p-component mr-2"
-          id="button2"
-        >
-          <span
-            class="p-button-label p-c"
+              <label
+                class=""
+                for=""
+              >
+                Browse
+              </label>
+            </span>
+          </button>
+          <button
+            aria-label="[object Object]"
+            class="p-button p-component mr-2"
+            id="button2"
           >
-            <label
-              class=""
-              for=""
+            <span
+              class="p-button-label p-c"
             >
-              Open
-            </label>
-          </span>
-        </button>
+              <label
+                class=""
+                for=""
+              >
+                Open
+              </label>
+            </span>
+          </button>
+        </div>
       </div>
     </div>
     <div

@@ -71,6 +71,7 @@ const Editor: ComponentProps = ({
     layoutName,
     name,
     customization,
+    onCustomization,
     keyField = object + 'Id',
     resultSet = object,
     design: designDefault,
@@ -217,6 +218,13 @@ const Editor: ComponentProps = ({
                 accept
             });
         }, [trigger, layoutName, typeField, loadedValue, resultSet, getValue]
+    );
+
+    const handleCustomization = React.useCallback(
+        function handleCustomization(event) {
+            onCustomization(mergedCustomization);
+        },
+        [onCustomization, mergedCustomization]
     );
 
     useLoad(async() => {
@@ -400,29 +408,7 @@ const Editor: ComponentProps = ({
             {toolbar ? <Toolbar
                 className='border-none border-bottom-1 border-50'
                 style={backgroundNone}
-                left={design ? <>
-                    <ConfigCard
-                        className='mr-2'
-                        title='[ add card ]'
-                        card=''
-                        index1={false}
-                        index2={false}
-                        design
-                        drag
-                    >
-                        <Button icon='pi pi-id-card' className='cursor-move'/>
-                    </ConfigCard>
-                    <ConfigField
-                        className='flex'
-                        index={name}
-                        name={name}
-                        card='/'
-                        design
-                        label='[add field]'
-                    >
-                        <Button icon='pi pi-pencil'/>
-                    </ConfigField>
-                </> : <>
+                left={<>
                     <Button
                         icon='pi pi-save'
                         onClick={trigger}
@@ -442,6 +428,36 @@ const Editor: ComponentProps = ({
                     <div ref={toolbarRef}></div>
                 </>}
                 right={<>
+                    {design ? <>
+                        {onCustomization ? <Button
+                            icon='pi pi-save'
+                            onClick={handleCustomization}
+                            aria-label='save customization'
+                            className='mr-2'
+                            {...testid(name + 'saveCustomization')}
+                        /> : null}
+                        <ConfigCard
+                            className='mr-2'
+                            title='[ add card ]'
+                            card=''
+                            index1={false}
+                            index2={false}
+                            design
+                            drag
+                        >
+                            <Button icon='pi pi-id-card' className='cursor-move'/>
+                        </ConfigCard>
+                        <ConfigField
+                            className='flex mr-2'
+                            index={name}
+                            name={name}
+                            card='/'
+                            design
+                            label='[add field]'
+                        >
+                            <Button icon='pi pi-pencil'/>
+                        </ConfigField>
+                    </> : null}
                     <Button
                         icon='pi pi-cog'
                         onClick={toggleDesign}

@@ -19,7 +19,7 @@ export default function Select({visible, onHide, onSelect, cards}: SelectProps) 
     return <Dialog
         visible={visible}
         onHide={close}
-        header='Select card to add'
+        header='Select a card to add'
         modal
     >
         <ListBox
