@@ -1,3 +1,7 @@
+# [2.8.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.8.0-card.9...v2.8.0) (2022-08-24)
+
+
+
 ## [2.7.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.7.1...v2.7.2) (2022-07-19)
 
 
