@@ -86,3 +86,26 @@ the project links below.
    ```js
    export { default as ComponentName } from './ComponentName';
    ```
+
+### Advanced dev patterns
+
+- When cloned in the dev folder within an implementation:
+  - remove the `react` and `react-dom` dependencies from `package.json`
+  - run `npm install` within ut-prime
+  - run `npm start` within ut-prime to rebuild on each change
+  - run webpack in the implementation
+- When cloned in ut/ut/node_modules, only install these dependencies:
+
+  ```json
+    "@babel/cli@^7.17.10",
+    "@babel/core@^7.18.5",
+    "@babel/plugin-proposal-class-properties@^7.17.12",
+    "@babel/plugin-transform-runtime@^7.18.5",
+    "@babel/preset-env@^7.18.2",
+    "@babel/preset-react@^7.17.12",
+    "@babel/preset-typescript@^7.17.12",
+    "@babel/runtime@^7.18.3",
+    "@storybook/testing-library@^0.0.13",
+    "@testing-library/react@^12.1.5",
+    "@testing-library/user-event@^14.2.6"
+  ```

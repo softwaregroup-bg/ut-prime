@@ -55,7 +55,7 @@ exports[`<Inspector /> Basic render equals snapshot 1`] = `
                           Title
                         </label>
                         <div
-                          class="col-12 md:col-8"
+                          class="flex align-items-center relative col-12 md:col-8"
                         >
                           <input
                             class="p-inputtext p-component w-full"
@@ -75,7 +75,7 @@ exports[`<Inspector /> Basic render equals snapshot 1`] = `
                           Body
                         </label>
                         <div
-                          class="col-12 md:col-8"
+                          class="flex align-items-center relative col-12 md:col-8"
                         >
                           <input
                             class="p-inputtext p-component w-full"
@@ -95,7 +95,7 @@ exports[`<Inspector /> Basic render equals snapshot 1`] = `
                           Filter
                         </label>
                         <div
-                          class="col-12 md:col-8"
+                          class="flex align-items-center relative col-12 md:col-8"
                         >
                           <div
                             class="p-checkbox p-component w-full"
@@ -131,7 +131,7 @@ exports[`<Inspector /> Basic render equals snapshot 1`] = `
                           Sort
                         </label>
                         <div
-                          class="col-12 md:col-8"
+                          class="flex align-items-center relative col-12 md:col-8"
                         >
                           <div
                             class="p-checkbox p-component p-checkbox-checked w-full"
@@ -156,6 +156,14 @@ exports[`<Inspector /> Basic render equals snapshot 1`] = `
                               />
                             </div>
                           </div>
+                          <div
+                            class="absolute flex right-0 top-0 bottom-0 justify-content-center align-items-center mr-2 cursor-pointer"
+                            style="width: 2.375rem;"
+                          >
+                            <i
+                              class="pi pi-times"
+                            />
+                          </div>
                         </div>
                       </div>
                       <div
@@ -168,7 +176,7 @@ exports[`<Inspector /> Basic render equals snapshot 1`] = `
                           Type
                         </label>
                         <div
-                          class="col-12 md:col-8"
+                          class="flex align-items-center relative col-12 md:col-8"
                         >
                           <div
                             class="p-dropdown p-component p-inputwrapper p-dropdown-clearable w-full"
@@ -225,7 +233,7 @@ exports[`<Inspector /> Basic render equals snapshot 1`] = `
                           Widget
                         </label>
                         <div
-                          class="col-12 md:col-8"
+                          class="flex align-items-center relative col-12 md:col-8"
                         >
                           <div
                             class="p-dropdown p-component p-inputwrapper p-dropdown-clearable w-full"
@@ -282,7 +290,7 @@ exports[`<Inspector /> Basic render equals snapshot 1`] = `
                           Parent
                         </label>
                         <div
-                          class="col-12 md:col-8"
+                          class="flex align-items-center relative col-12 md:col-8"
                         >
                           <input
                             class="p-inputtext p-component w-full"

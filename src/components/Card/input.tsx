@@ -35,6 +35,13 @@ const Field = ({children = undefined, label = undefined, error = undefined, inpu
     {error}
 </>;
 
+const Clear = ({showClear, field}) =>
+    (showClear && field.value !== undefined)
+        ? <div onClick={e => field.onChange(undefined)} className='absolute flex right-0 top-0 bottom-0 justify-content-center align-items-center mr-2 cursor-pointer' style={{width: '2.375rem'}}>
+            <i className='pi pi-times'></i>
+        </div>
+        : null;
+
 export default function input(
     label,
     error,
@@ -126,22 +133,25 @@ export default function input(
                 {...testid(props.id)}
                 {...props}
             />
+            <Clear field={field} showClear={props.showClear}/>
         </Field>;
         case 'table': return <>
             {error}
             {label}
             <div className={inputClass}>
-                <Table
-                    {...field}
-                    selectionMode='checkbox'
-                    parent={parentValue}
-                    properties={schema?.items?.properties}
-                    dropdowns={dropdowns}
-                    getValues={getValues}
-                    counter={counter}
-                    {...props.selectionPath && getValues && {selection: getValues(`${props.selectionPath}.${field.name}`) || []}}
-                    {...props}
-                />
+                <div className='w-full'>
+                    <Table
+                        {...field}
+                        selectionMode='checkbox'
+                        parent={parentValue}
+                        properties={schema?.items?.properties}
+                        dropdowns={dropdowns}
+                        getValues={getValues}
+                        counter={counter}
+                        {...props.selectionPath && getValues && {selection: getValues(`${props.selectionPath}.${field.name}`) || []}}
+                        {...props}
+                    />
+                </div>
             </div>
         </>;
         case 'autocomplete': {
@@ -413,6 +423,7 @@ export default function input(
                 onChange={e => field.onChange?.(e.target.value || null)}
                 {...props}
             />
+            <Clear field={field} showClear={props.showClear}/>
         </Field>;
     }
 }

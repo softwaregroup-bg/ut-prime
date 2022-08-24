@@ -15,7 +15,7 @@ import Controller from '../Controller';
 const inputClass = (index, classes, name, className) => ({
     ...classes?.default,
     ...classes?.[name]
-}.input || name === '' ? className : ((index.properties[name]?.title !== '' || className) ? `col-12 ${className || 'md:col-8'}` : 'col-12'));
+}.input || name === '' ? className : ((index.properties[name]?.title !== '' || className) ? `flex align-items-center relative col-12 ${className || 'md:col-8'}` : 'flex align-items-center relative col-12'));
 
 const useStyles = createUseStyles({
     card: {
