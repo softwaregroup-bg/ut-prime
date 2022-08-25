@@ -198,7 +198,7 @@ const Card: ComponentProps = ({
         }
         return (property || name === '') ? <ConfigField
             className={clsx(fieldClass, flex, !toolbar && !design && (ind === length - 1) && 'mb-0')}
-            key={id || name || widget.label}
+            key={id || name || widget.label || ind}
             index={ind}
             card={cardName}
             move={move}
