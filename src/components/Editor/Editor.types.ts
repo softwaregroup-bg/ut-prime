@@ -20,7 +20,7 @@ export interface Props {
     cards: Cards,
     layouts?: Layouts,
     customization?: Customization,
-    onCustomization?: (customization: Customization) => Promise<object>,
+    onCustomization?: ({component: {componentId: string, componentConfig: Customization}}) => Promise<object>,
     debug?: boolean,
     layoutName?: string,
     nested?: string[],
@@ -30,7 +30,7 @@ export interface Props {
     toolbar?: boolean,
     value?: object,
     methods?: {
-        [key: string]: (params: object) => Promise<void>
+        [key: string]: (params: object) => Promise<Record<string, unknown>>
     },
     onDropdown?: (params: string[]) => Promise<Dropdowns>,
     onInit?: (params: object) => Promise<object>,

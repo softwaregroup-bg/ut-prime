@@ -7,6 +7,8 @@ import clsx from 'clsx';
 import { ComponentProps } from './Editor.types';
 import SelectField from './SelectField';
 import SelectCard from './SelectCard';
+import Context from '../Context';
+import Permission from '../Permission';
 
 import Form from '../Form';
 import getValidation from '../Form/schema';
@@ -84,6 +86,7 @@ const Editor: ComponentProps = ({
     onChange,
     toolbar = !!(onAdd || onEdit || onGet)
 }) => {
+    const {customization: customizationEnabled} = React.useContext(Context);
     const [keyValue, setKeyValue] = React.useState(id);
     const activeSchema = (schemaCreate && keyValue == null) ? schemaCreate : schemaEdit;
     const [mergedCustomization, setCustomization] = React.useState({schema: {}, card: {}, layout: {}, ...customization});
@@ -161,16 +164,26 @@ const Editor: ComponentProps = ({
 
     async function get() {
         setLoading('loading');
-        const result = (await onGet({[keyField]: keyValue}));
+        const [result, dropdownResult, customizationResult] = await Promise.all([
+            onGet({[keyField]: keyValue}),
+            onDropdown(dropdownNames),
+            customizationEnabled && methods && !customization && methods['portal.component.get']({componentId: name})
+        ]);
         handleArray(result, properties);
         if (typeField) setMode(['edit', lodashGet(result, typeField)]);
-        setDropdown(await onDropdown(dropdownNames));
+        setDropdown(dropdownResult);
+        customizationResult?.component && setCustomization({schema: {}, card: {}, layout: {}, ...(customizationResult.component as {componentConfig?:object}).componentConfig});
         setLoadedValue(result);
         setLoading('');
     }
     async function init() {
         setLoading('loading');
-        setDropdown(await onDropdown(dropdownNames));
+        const [dropdownResult, customizationResult] = await Promise.all([
+            onDropdown(dropdownNames),
+            customizationEnabled && methods && !customization && methods['portal.component.get']({componentId: name})
+        ]);
+        setDropdown(dropdownResult);
+        customizationResult?.component && setCustomization({schema: {}, card: {}, layout: {}, ...(customizationResult.component as {componentConfig?:object}).componentConfig});
         if (onInit) initValue = merge({}, initValue, await onInit(initValue));
         if (initValue !== undefined) setEditValue(getValue(initValue));
         setLoading('');
@@ -222,9 +235,9 @@ const Editor: ComponentProps = ({
 
     const handleCustomization = React.useCallback(
         function handleCustomization(event) {
-            onCustomization(mergedCustomization);
+            (onCustomization || methods['portal.component.edit'])({component: {componentId: name, componentConfig: mergedCustomization}});
         },
-        [onCustomization, mergedCustomization]
+        [onCustomization, methods, mergedCustomization, name]
     );
 
     useLoad(async() => {
@@ -429,7 +442,7 @@ const Editor: ComponentProps = ({
                 </>}
                 right={<>
                     {design ? <>
-                        {onCustomization ? <Button
+                        {(onCustomization || methods) ? <Button
                             icon='pi pi-save'
                             onClick={handleCustomization}
                             aria-label='save customization'
@@ -458,14 +471,15 @@ const Editor: ComponentProps = ({
                             <Button icon='pi pi-pencil'/>
                         </ConfigField>
                     </> : null}
-                    <Button
-                        icon='pi pi-cog'
-                        onClick={toggleDesign}
-                        disabled={!!loading}
-                        aria-label='design'
-                        {...testid(name + 'designButton')}
-                        className={clsx('mr-2', design && 'p-button-success')}
-                    />
+                    {customizationEnabled ? <Permission permission='portal.component.edit'>
+                        <Button
+                            icon='pi pi-cog'
+                            onClick={toggleDesign}
+                            disabled={!!loading}
+                            aria-label='design'
+                            {...testid(name + 'designButton')}
+                            className={clsx('mr-2', design && 'p-button-success')}
+                        /></Permission> : null}
                 </>}
             /> : null}
             <div className={clsx('flex', 'overflow-x-hidden', 'w-full', orientation === 'top' && 'flex-column')}>
