@@ -1,3 +1,12 @@
+# [2.10.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.9.1...v2.10.0) (2022-08-26)
+
+
+### Features
+
+* customization load & save ([a06f06b](https://github.com/softwaregroup-bg/ut-prime/commit/a06f06b6e368937156eac965371277308bf45504))
+
+
+
 ## [2.9.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.9.0...v2.9.1) (2022-08-25)
 
 
