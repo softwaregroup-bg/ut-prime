@@ -1,3 +1,13 @@
+## [2.10.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.10.0...v2.10.1) (2022-08-29)
+
+
+### Bug Fixes
+
+* rename method ([cb71fd7](https://github.com/softwaregroup-bg/ut-prime/commit/cb71fd7aad38e07bebaeaac658c28cb25fe38693))
+* revert rename method ([b1ae63e](https://github.com/softwaregroup-bg/ut-prime/commit/b1ae63eb1472bcf68c4b01f549c7935f5755004f))
+
+
+
 # [2.10.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.9.1...v2.10.0) (2022-08-26)
 
 
