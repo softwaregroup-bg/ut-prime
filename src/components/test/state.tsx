@@ -21,7 +21,7 @@ const defaultState: State = {
             }, {
                 actionId: 'page%'
             }, {
-                actionId: 'core.component.edit'
+                actionId: 'portal.component.edit'
             }]
         }
     },
