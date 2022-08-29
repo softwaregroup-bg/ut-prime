@@ -167,7 +167,7 @@ const Editor: ComponentProps = ({
         const [result, dropdownResult, customizationResult] = await Promise.all([
             onGet({[keyField]: keyValue}),
             onDropdown(dropdownNames),
-            customizationEnabled && methods && !customization && methods['portal.component.get']({componentId: name})
+            customizationEnabled && methods && !customization && methods['core.component.get']({componentId: name})
         ]);
         handleArray(result, properties);
         if (typeField) setMode(['edit', lodashGet(result, typeField)]);
@@ -180,7 +180,7 @@ const Editor: ComponentProps = ({
         setLoading('loading');
         const [dropdownResult, customizationResult] = await Promise.all([
             onDropdown(dropdownNames),
-            customizationEnabled && methods && !customization && methods['portal.component.get']({componentId: name})
+            customizationEnabled && methods && !customization && methods['core.component.get']({componentId: name})
         ]);
         setDropdown(dropdownResult);
         customizationResult?.component && setCustomization({schema: {}, card: {}, layout: {}, ...(customizationResult.component as {componentConfig?:object}).componentConfig});
@@ -235,7 +235,7 @@ const Editor: ComponentProps = ({
 
     const handleCustomization = React.useCallback(
         function handleCustomization(event) {
-            (onCustomization || methods['portal.component.edit'])({component: {componentId: name, componentConfig: mergedCustomization}});
+            (onCustomization || methods['core.component.edit'])({component: {componentId: name, componentConfig: mergedCustomization}});
         },
         [onCustomization, methods, mergedCustomization, name]
     );
@@ -471,7 +471,7 @@ const Editor: ComponentProps = ({
                             <Button icon='pi pi-pencil'/>
                         </ConfigField>
                     </> : null}
-                    {customizationEnabled ? <Permission permission='portal.component.edit'>
+                    {customizationEnabled ? <Permission permission='core.component.edit'>
                         <Button
                             icon='pi pi-cog'
                             onClick={toggleDesign}
