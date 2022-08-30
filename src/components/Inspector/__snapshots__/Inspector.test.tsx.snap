@@ -157,11 +157,11 @@ exports[`<Inspector /> Basic render equals snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="absolute flex right-0 top-0 bottom-0 justify-content-center align-items-center mr-2 cursor-pointer"
+                            class="absolute flex right-0 top-0 bottom-0 justify-content-center align-items-center mr-2"
                             style="width: 2.375rem;"
                           >
                             <i
-                              class="pi pi-times"
+                              class="pi pi-times cursor-pointer"
                             />
                           </div>
                         </div>
@@ -281,7 +281,7 @@ exports[`<Inspector /> Basic render equals snapshot 1`] = `
                         </div>
                       </div>
                       <div
-                        class="field grid mb-0"
+                        class="field grid"
                       >
                         <label
                           class="col-12 md:col-4"
@@ -297,6 +297,63 @@ exports[`<Inspector /> Basic render equals snapshot 1`] = `
                             id="widget-parent"
                             name="widget.parent"
                             value=""
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="field grid"
+                      >
+                        <label
+                          class="col-12 md:col-4"
+                          for="widget-labelClass"
+                        >
+                          Label Class
+                        </label>
+                        <div
+                          class="flex align-items-center relative col-12 md:col-8"
+                        >
+                          <textarea
+                            class="p-inputtextarea p-inputtext p-component w-full"
+                            id="widget-labelClass"
+                            name="widget.labelClass"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="field grid"
+                      >
+                        <label
+                          class="col-12 md:col-4"
+                          for="widget-fieldClass"
+                        >
+                          Field Class
+                        </label>
+                        <div
+                          class="flex align-items-center relative col-12 md:col-8"
+                        >
+                          <textarea
+                            class="p-inputtextarea p-inputtext p-component w-full"
+                            id="widget-fieldClass"
+                            name="widget.fieldClass"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="field grid mb-0"
+                      >
+                        <label
+                          class="col-12 md:col-4"
+                          for="widget-className"
+                        >
+                          Input Class
+                        </label>
+                        <div
+                          class="flex align-items-center relative col-12 md:col-8"
+                        >
+                          <textarea
+                            class="p-inputtextarea p-inputtext p-component w-full"
+                            id="widget-className"
+                            name="widget.className"
                           />
                         </div>
                       </div>
@@ -316,13 +373,6 @@ exports[`<Inspector /> Basic render equals snapshot 1`] = `
   "properties": {
     "test": {
       "sort": true
-    }
-  },
-  "schema": {
-    "properties": {
-      "test": {
-        "sort": true
-      }
     }
   }
 }

@@ -42,6 +42,9 @@ const props : Record<string, EditorProps> = {
                             title: 'Widget',
                             widget: {type: 'dropdown', dropdown: 'widget', showClear: true}
                         },
+                        labelClass: {type: 'string', title: 'Label Class', widget: {clear: true, type: 'text'}},
+                        className: {type: 'string', title: 'Input Class', widget: {clear: true, type: 'text'}},
+                        fieldClass: {type: 'string', title: 'Field Class', widget: {clear: true, type: 'text'}},
                         parent: {type: 'string', widget: {clear: true}}
                     }
                 }
@@ -51,12 +54,7 @@ const props : Record<string, EditorProps> = {
             edit: {
                 label: 'Field',
                 className: 'w-full p-0',
-                classes: {
-                    default: {
-                        field: 'field grid'
-                    }
-                },
-                widgets: ['title', 'body', 'filter', 'sort', 'type', 'widget.type', 'widget.parent']
+                widgets: ['title', 'body', 'filter', 'sort', 'type', 'widget.type', 'widget.parent', 'widget.labelClass', 'widget.fieldClass', 'widget.className']
             }
         },
         onDropdown: () => Promise.resolve({
@@ -106,7 +104,7 @@ const props : Record<string, EditorProps> = {
                 label: {type: 'string', widget: {clear: true}},
                 watch: {type: 'string', widget: {clear: true}},
                 match: {type: 'string', widget: {clear: true}},
-                className: {type: 'string', title: 'Class', widget: {clear: true}},
+                className: {type: 'string', title: 'Class', widget: {clear: true, type: 'text'}},
                 type: {
                     type: 'string',
                     widget: {
@@ -121,12 +119,14 @@ const props : Record<string, EditorProps> = {
                 classes: {
                     type: 'object',
                     properties: {
-                        card: {type: 'string', title: 'Card class', widget: {clear: true}},
+                        card: {type: 'string', title: 'Card class', widget: {clear: true, type: 'text'}},
                         default: {
                             type: 'object',
                             properties: {
-                                field: {type: 'string', title: 'Field class', widget: {clear: true}},
-                                label: {type: 'string', title: 'Label class', widget: {clear: true}}
+                                widget: {type: 'string', title: 'Widget class', widget: {clear: true, type: 'text'}},
+                                label: {type: 'string', title: 'Label class', widget: {clear: true, type: 'text'}},
+                                field: {type: 'string', title: 'Field class', widget: {clear: true, type: 'text'}},
+                                input: {type: 'string', title: 'Input class', widget: {clear: true, type: 'text'}}
                             }
                         }
                     }
@@ -137,12 +137,7 @@ const props : Record<string, EditorProps> = {
             edit: {
                 label: 'Card',
                 className: 'w-full p-0',
-                classes: {
-                    default: {
-                        field: 'field grid'
-                    }
-                },
-                widgets: ['label', 'watch', 'match', 'className', 'classes.card', 'classes.default.field', 'classes.default.label']
+                widgets: ['label', 'watch', 'match', 'className', 'classes.card', 'classes.default.widget', 'classes.default.label', 'classes.default.field', 'classes.default.input']
             }
         },
         onDropdown: () => Promise.resolve({})

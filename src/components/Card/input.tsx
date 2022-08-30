@@ -37,8 +37,8 @@ const Field = ({children = undefined, label = undefined, error = undefined, inpu
 
 const Clear = ({showClear, field}) =>
     (showClear && field.value !== undefined)
-        ? <div onClick={e => field.onChange(undefined)} className='absolute flex right-0 top-0 bottom-0 justify-content-center align-items-center mr-2 cursor-pointer' style={{width: '2.375rem'}}>
-            <i className='pi pi-times'></i>
+        ? <div className='absolute flex right-0 top-0 bottom-0 justify-content-center align-items-center mr-2' style={{width: '2.375rem'}}>
+            <i onClick={e => field.onChange(undefined)} className='pi pi-times cursor-pointer'></i>
         </div>
         : null;
 
@@ -104,6 +104,7 @@ export default function input(
                 value={field.value || ''}
                 {...props}
             />
+            <Clear field={field} showClear={clear}/>
         </Field>;
         case 'mask': return <Field {...{label, error, inputClass}}>
             <InputMask

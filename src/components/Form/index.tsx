@@ -82,12 +82,6 @@ const Form: ComponentProps = ({
         setError,
         clearErrors
     } = formApi;
-    React.useEffect(() => {
-        if (watch && onChange) {
-            const watcher = watch(onChange);
-            return () => watcher.unsubscribe();
-        }
-    }, [onChange, watch]);
     const errorFields = flat(errors);
     const layoutState = useLayout(schema, cards, layout, editors);
 
@@ -118,7 +112,11 @@ const Form: ComponentProps = ({
     React.useEffect(() => {
         const {$original, ...formValue} = value || {};
         reset({...formValue, $original: clonedeep(formValue)});
-    }, [value, reset]);
+        if (watch && onChange) {
+            const watcher = watch(value => onChange(JSON.parse(JSON.stringify(value))));
+            return () => watcher.unsubscribe();
+        }
+    }, [value, reset, loading, watch, onChange]);
 
     const {devTool} = React.useContext(Context);
     let toolbarElement = null;
