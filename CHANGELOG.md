@@ -1,3 +1,12 @@
+## [2.11.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.11.0...v2.11.1) (2022-08-31)
+
+
+### Bug Fixes
+
+* Explorer grid classes ([e981f93](https://github.com/softwaregroup-bg/ut-prime/commit/e981f93eee589fe09d7e24adb7b8d859db1a87c2))
+
+
+
 # [2.11.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.10.1...v2.11.0) (2022-08-31)
 
 
