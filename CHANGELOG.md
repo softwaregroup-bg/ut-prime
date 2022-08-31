@@ -1,3 +1,67 @@
+## [2.11.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.11.0...v2.11.1) (2022-08-31)
+
+
+### Bug Fixes
+
+* Explorer grid classes ([e981f93](https://github.com/softwaregroup-bg/ut-prime/commit/e981f93eee589fe09d7e24adb7b8d859db1a87c2))
+
+
+
+# [2.11.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.10.1...v2.11.0) (2022-08-31)
+
+
+### Bug Fixes
+
+* improve customization handling ([65a7b7f](https://github.com/softwaregroup-bg/ut-prime/commit/65a7b7f3b96d8b1a9d34f891aae397397d5d6308))
+
+
+### Features
+
+* class editors ([280e7da](https://github.com/softwaregroup-bg/ut-prime/commit/280e7da606d322e0dd5ed09e58500327b1a557cb))
+
+
+
+## [2.10.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.10.0...v2.10.1) (2022-08-29)
+
+
+### Bug Fixes
+
+* rename method ([cb71fd7](https://github.com/softwaregroup-bg/ut-prime/commit/cb71fd7aad38e07bebaeaac658c28cb25fe38693))
+* revert rename method ([b1ae63e](https://github.com/softwaregroup-bg/ut-prime/commit/b1ae63eb1472bcf68c4b01f549c7935f5755004f))
+
+
+
+# [2.10.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.9.1...v2.10.0) (2022-08-26)
+
+
+### Features
+
+* customization load & save ([a06f06b](https://github.com/softwaregroup-bg/ut-prime/commit/a06f06b6e368937156eac965371277308bf45504))
+
+
+
+## [2.9.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.9.0...v2.9.1) (2022-08-25)
+
+
+### Bug Fixes
+
+* avoid missing key ([8d02afa](https://github.com/softwaregroup-bg/ut-prime/commit/8d02afa391e8d718144400dc5964140104458891))
+
+
+
+# [2.9.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.8.0...v2.9.0) (2022-08-24)
+
+
+### Features
+
+* clear button for inputText and boolean ([4492b69](https://github.com/softwaregroup-bg/ut-prime/commit/4492b697b03b6bd7372adabd89f5868eabdca7f2))
+
+
+
+# [2.8.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.8.0-card.9...v2.8.0) (2022-08-24)
+
+
+
 ## [2.7.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.7.1...v2.7.2) (2022-07-19)
 
 

@@ -1,7 +1,8 @@
+import {Cards, Dropdowns, Editors, Schema} from '../types';
+
 import React from 'react';
 import type { Schema as Validation } from 'joi';
 
-import {Schema, Editors, Cards, Dropdowns} from '../types';
 export interface Props extends React.HTMLAttributes<HTMLFormElement> {
     className?: string;
     schema?: Schema;
@@ -26,6 +27,11 @@ export interface Props extends React.HTMLAttributes<HTMLFormElement> {
     toolbar?: string;
     value?: Record<string, unknown>;
     methods?: object;
+    move?: (
+        type: 'card' | 'field',
+        source: object,
+        destination: object
+    ) => void,
     shouldResetPassword?: boolean;
     setResetPassword?: (resetPassword: (event: object) => void) => void;
 }

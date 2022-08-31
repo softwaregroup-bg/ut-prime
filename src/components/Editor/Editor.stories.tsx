@@ -34,6 +34,7 @@ const Template: Story<Props> = args => {
             <Editor
                 onAdd={submit}
                 onEdit={submit}
+                onCustomization={submit}
                 {...args}
             />
         </>

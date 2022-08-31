@@ -4,6 +4,7 @@ import type {Schema} from '../types';
 
 const fields = (schema: Schema, path: string[]) => {
     const children = schema.properties ? Object.keys(schema.properties).map(key => fields(schema.properties[key], [...path, key])) : undefined;
+    children?.sort((item1, item2) => (item1.children ? 1 : 0) - (item2.children ? 1 : 0));
     return path.length ? {
         key: path.join('.'),
         label: schema.title || path[path.length - 1],
@@ -12,7 +13,14 @@ const fields = (schema: Schema, path: string[]) => {
     } : (children || []);
 };
 
-export default function Select({visible, onHide, onSelect, schema}) {
+interface SelectProps {
+    visible: boolean;
+    onSelect: (items: string[]) => void;
+    onHide: () => void;
+    schema: Schema;
+}
+
+export default function Select({visible, onHide, onSelect, schema}: SelectProps) {
     const [selectedKey, setSelectedKey] = React.useState(null);
     const value = React.useMemo(() => fields(schema, []), [schema]);
     const close = React.useCallback(() => {
@@ -22,7 +30,7 @@ export default function Select({visible, onHide, onSelect, schema}) {
     return <Dialog
         visible={visible}
         onHide={close}
-        header='Select field to add'
+        header='Select fields to add'
         modal
     >
         <Tree

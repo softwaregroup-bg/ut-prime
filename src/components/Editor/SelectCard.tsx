@@ -1,7 +1,15 @@
 import React from 'react';
 import { Dialog, Button, ListBox } from '../prime';
+import type {Cards} from '../types';
 
-export default function Select({visible, onHide, onSelect, cards}) {
+interface SelectProps {
+    visible: boolean;
+    onSelect: (items: string) => void;
+    onHide: () => void;
+    cards: Cards
+}
+
+export default function Select({visible, onHide, onSelect, cards}: SelectProps) {
     const [value, setValue] = React.useState(null);
     const options = React.useMemo(() => Object.entries(cards).map(([name, card]: [string, {label: string}]) => ({value: name, label: card.label || name})), [cards]);
     const close = React.useCallback(() => {
@@ -11,7 +19,7 @@ export default function Select({visible, onHide, onSelect, cards}) {
     return <Dialog
         visible={visible}
         onHide={close}
-        header='Select card to add'
+        header='Select a card to add'
         modal
     >
         <ListBox

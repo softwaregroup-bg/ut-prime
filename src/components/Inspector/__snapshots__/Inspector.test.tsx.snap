@@ -35,6 +35,11 @@ exports[`<Inspector /> Basic render equals snapshot 1`] = `
                   class="p-card-body"
                 >
                   <div
+                    class="p-card-title"
+                  >
+                    Field
+                  </div>
+                  <div
                     class="p-card-content"
                   >
                     <div
@@ -44,13 +49,13 @@ exports[`<Inspector /> Basic render equals snapshot 1`] = `
                         class="field grid"
                       >
                         <label
-                          class="col-12 md:col-4"
+                          class="col-12 md:col-3"
                           for="title"
                         >
                           Title
                         </label>
                         <div
-                          class="col-12 md:col-8"
+                          class="flex align-items-center relative col-12 md:col-9"
                         >
                           <input
                             class="p-inputtext p-component w-full"
@@ -64,13 +69,13 @@ exports[`<Inspector /> Basic render equals snapshot 1`] = `
                         class="field grid"
                       >
                         <label
-                          class="col-12 md:col-4"
+                          class="col-12 md:col-3"
                           for="body"
                         >
                           Body
                         </label>
                         <div
-                          class="col-12 md:col-8"
+                          class="flex align-items-center relative col-12 md:col-9"
                         >
                           <input
                             class="p-inputtext p-component w-full"
@@ -84,13 +89,13 @@ exports[`<Inspector /> Basic render equals snapshot 1`] = `
                         class="field grid"
                       >
                         <label
-                          class="col-12 md:col-4"
+                          class="col-12 md:col-3"
                           for="filter"
                         >
                           Filter
                         </label>
                         <div
-                          class="col-12 md:col-8"
+                          class="flex align-items-center relative col-12 md:col-9"
                         >
                           <div
                             class="p-checkbox p-component w-full"
@@ -120,13 +125,13 @@ exports[`<Inspector /> Basic render equals snapshot 1`] = `
                         class="field grid"
                       >
                         <label
-                          class="col-12 md:col-4"
+                          class="col-12 md:col-3"
                           for="sort"
                         >
                           Sort
                         </label>
                         <div
-                          class="col-12 md:col-8"
+                          class="flex align-items-center relative col-12 md:col-9"
                         >
                           <div
                             class="p-checkbox p-component p-checkbox-checked w-full"
@@ -151,19 +156,27 @@ exports[`<Inspector /> Basic render equals snapshot 1`] = `
                               />
                             </div>
                           </div>
+                          <div
+                            class="absolute flex right-0 top-0 bottom-0 justify-content-center align-items-center m-2"
+                            style="width: 2.375rem;"
+                          >
+                            <i
+                              class="pi cursor-pointer pi-replay"
+                            />
+                          </div>
                         </div>
                       </div>
                       <div
                         class="field grid"
                       >
                         <label
-                          class="col-12 md:col-4"
+                          class="col-12 md:col-3"
                           for="type"
                         >
                           Type
                         </label>
                         <div
-                          class="col-12 md:col-8"
+                          class="flex align-items-center relative col-12 md:col-9"
                         >
                           <div
                             class="p-dropdown p-component p-inputwrapper p-dropdown-clearable w-full"
@@ -214,13 +227,13 @@ exports[`<Inspector /> Basic render equals snapshot 1`] = `
                         class="field grid"
                       >
                         <label
-                          class="col-12 md:col-4"
+                          class="col-12 md:col-3"
                           for="widget-type"
                         >
                           Widget
                         </label>
                         <div
-                          class="col-12 md:col-8"
+                          class="flex align-items-center relative col-12 md:col-9"
                         >
                           <div
                             class="p-dropdown p-component p-inputwrapper p-dropdown-clearable w-full"
@@ -268,16 +281,16 @@ exports[`<Inspector /> Basic render equals snapshot 1`] = `
                         </div>
                       </div>
                       <div
-                        class="field grid mb-0"
+                        class="field grid"
                       >
                         <label
-                          class="col-12 md:col-4"
+                          class="col-12 md:col-3"
                           for="widget-parent"
                         >
                           Parent
                         </label>
                         <div
-                          class="col-12 md:col-8"
+                          class="flex align-items-center relative col-12 md:col-9"
                         >
                           <input
                             class="p-inputtext p-component w-full"
@@ -285,6 +298,159 @@ exports[`<Inspector /> Basic render equals snapshot 1`] = `
                             name="widget.parent"
                             value=""
                           />
+                        </div>
+                      </div>
+                      <div
+                        class="field grid"
+                      >
+                        <label
+                          class="col-12 md:col-3"
+                          for="widget-labelClass"
+                        >
+                          Label Class
+                        </label>
+                        <div
+                          class="flex align-items-center relative col-12 md:col-9"
+                        >
+                          <div
+                            class="p-chips p-component p-inputwrapper p-inputwrapper-filled h-10rem"
+                            id="widget-labelClass"
+                          >
+                            <ul
+                              class="p-inputtext p-chips-multiple-container"
+                            >
+                              <li
+                                class="p-chips-token p-highlight"
+                              >
+                                <span
+                                  class="p-chips-token-label"
+                                >
+                                  md:col-4
+                                </span>
+                                <span
+                                  class="p-chips-token-icon pi pi-times-circle"
+                                />
+                              </li>
+                              <li
+                                class="p-chips-input-token"
+                              >
+                                <input
+                                  name="widget.labelClass"
+                                  type="text"
+                                />
+                              </li>
+                            </ul>
+                          </div>
+                          <div
+                            class="absolute flex right-0 top-0 bottom-0 justify-content-center align-items-center m-2"
+                            style="width: 2.375rem;"
+                          >
+                            <i
+                              class="pi cursor-pointer pi-replay"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="field grid"
+                      >
+                        <label
+                          class="col-12 md:col-3"
+                          for="widget-fieldClass"
+                        >
+                          Field Class
+                        </label>
+                        <div
+                          class="flex align-items-center relative col-12 md:col-9"
+                        >
+                          <div
+                            class="p-chips p-component p-inputwrapper p-inputwrapper-filled h-10rem"
+                            id="widget-fieldClass"
+                          >
+                            <ul
+                              class="p-inputtext p-chips-multiple-container"
+                            >
+                              <li
+                                class="p-chips-token p-highlight"
+                              >
+                                <span
+                                  class="p-chips-token-label"
+                                >
+                                  md:col-8
+                                </span>
+                                <span
+                                  class="p-chips-token-icon pi pi-times-circle"
+                                />
+                              </li>
+                              <li
+                                class="p-chips-input-token"
+                              >
+                                <input
+                                  name="widget.fieldClass"
+                                  type="text"
+                                />
+                              </li>
+                            </ul>
+                          </div>
+                          <div
+                            class="absolute flex right-0 top-0 bottom-0 justify-content-center align-items-center m-2"
+                            style="width: 2.375rem;"
+                          >
+                            <i
+                              class="pi cursor-pointer pi-replay"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="field grid mb-0"
+                      >
+                        <label
+                          class="col-12 md:col-3"
+                          for="widget-className"
+                        >
+                          Input Class
+                        </label>
+                        <div
+                          class="flex align-items-center relative col-12 md:col-9"
+                        >
+                          <div
+                            class="p-chips p-component p-inputwrapper p-inputwrapper-filled h-10rem"
+                            id="widget-className"
+                          >
+                            <ul
+                              class="p-inputtext p-chips-multiple-container"
+                            >
+                              <li
+                                class="p-chips-token p-highlight"
+                              >
+                                <span
+                                  class="p-chips-token-label"
+                                >
+                                  w-full
+                                </span>
+                                <span
+                                  class="p-chips-token-icon pi pi-times-circle"
+                                />
+                              </li>
+                              <li
+                                class="p-chips-input-token"
+                              >
+                                <input
+                                  name="widget.className"
+                                  type="text"
+                                />
+                              </li>
+                            </ul>
+                          </div>
+                          <div
+                            class="absolute flex right-0 top-0 bottom-0 justify-content-center align-items-center m-2"
+                            style="width: 2.375rem;"
+                          >
+                            <i
+                              class="pi cursor-pointer pi-replay"
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>

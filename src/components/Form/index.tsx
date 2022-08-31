@@ -12,10 +12,7 @@ import { ConfigCard} from './DragDrop';
 import Context from '../Context';
 import Card from '../Card';
 
-import SelectField from './SelectField';
-import SelectCard from './SelectCard';
 import useForm from '../hooks/useForm';
-import useNow from '../hooks/useNow';
 import useSubmit from '../hooks/useSubmit';
 import useResetPassword from '../hooks/useResetPassword';
 import useLayout from '../hooks/useLayout';
@@ -42,6 +39,7 @@ const flat = (e: Errors, path = '') => Object.entries(e).map(
 const outline = {outline: '1px dotted #ffff0030'};
 
 const Form: ComponentProps = ({
+    move,
     className,
     schema = {},
     editors,
@@ -80,20 +78,14 @@ const Form: ComponentProps = ({
         reset,
         formState: {
             errors,
-            isDirty
+            isDirty,
+            isSubmitting
         },
         watch,
         setError,
         clearErrors
     } = formApi;
-    React.useEffect(() => {
-        if (watch && onChange) {
-            const watcher = watch(onChange);
-            return () => watcher.unsubscribe();
-        }
-    }, [onChange, watch]);
     const errorFields = flat(errors);
-    const moved = useNow();
     const layoutState = useLayout(schema, cards, layout, editors);
 
     const {handleSubmit, toast} = useSubmit(
@@ -115,7 +107,7 @@ const Form: ComponentProps = ({
         [onSubmit, setError, clearErrors, layoutState.index]
     );
 
-    const canSetTrigger = isDirty || triggerNotDirty;
+    const canSetTrigger = (isDirty || triggerNotDirty) && !isSubmitting;
     React.useEffect(() => {
         if (setTrigger) setTrigger(canSetTrigger ? () => formSubmit(handleSubmit) : undefined);
     }, [setTrigger, formSubmit, handleSubmit, isDirty, canSetTrigger]);
@@ -147,60 +139,11 @@ const Form: ComponentProps = ({
     React.useEffect(() => {
         const {$original, ...formValue} = value || {};
         reset({...formValue, $original: clonedeep(formValue)});
-    }, [value, reset]);
-
-    const [addField, setAddField] = React.useState(null);
-    const [addCard, setAddCard] = React.useState(null);
-
-    const move = React.useCallback((type: 'card' | 'field', source, destination) => {
-        if (type === 'field') {
-            const destinationList = cards[destination.card].widgets;
-            if (source.card === '/') {
-                setAddField({destination, destinationList});
-            } else {
-                const sourceList = cards[source.card].widgets;
-                destinationList.splice(destination.index, 0, sourceList.splice(source.index, 1)[0]);
-            }
-        } else if (type === 'card') {
-            let [
-                destinationList,
-                destinationIndex
-            ] = (destination.index[1] === false) ? [
-                layoutState.visibleCards,
-                destination.index[0]
-            ] : [
-                layoutState.visibleCards[destination.index[0]],
-                destination.index[1]
-            ];
-            if (!Array.isArray(destinationList)) {
-                const card = layoutState.visibleCards[destination.index[0]];
-                if (typeof card === 'string') destinationList = layoutState.visibleCards[destination.index[0]] = [card];
-            }
-            if (source.index[0] === false && Array.isArray(destinationList)) {
-                setAddCard({destinationList, destinationIndex});
-                return;
-            }
-            const [
-                sourceList,
-                sourceIndex,
-                sourceNested
-            ] = (source.index[1] === false) ? [
-                layoutState.visibleCards,
-                source.index[0],
-                false
-            ] : [
-                layoutState.visibleCards[source.index[0]],
-                source.index[1],
-                true
-            ];
-            if (Array.isArray(sourceList) && Array.isArray(destinationList)) {
-                const removed = sourceList.splice(sourceIndex, 1)[0];
-                if (sourceList.length === 1 && sourceNested && sourceList !== destinationList) layoutState.visibleCards[source.index[0]] = sourceList[0];
-                destinationList.splice(destinationIndex, 0, removed);
-            }
+        if (watch && onChange) {
+            const watcher = watch(value => onChange(JSON.parse(JSON.stringify(value))));
+            return () => watcher.unsubscribe();
         }
-        moved();
-    }, [cards, moved, layoutState.visibleCards]);
+    }, [value, reset, loading, watch, onChange]);
 
     const {devTool} = React.useContext(Context);
     let toolbarElement = null;
@@ -221,26 +164,6 @@ const Form: ComponentProps = ({
 
     return (<>
         {devTool ? <DevTool control={control} placement="top-right" /> : null}
-        {design ? <SelectField
-            schema={schema}
-            visible={!!addField}
-            onHide={() => setAddField(null)}
-            onSelect={items => {
-                const {destination, destinationList} = addField;
-                destinationList.splice(destination.index, 0, ...items);
-                moved();
-            }}
-        /> : null }
-        {design ? <SelectCard
-            cards={cards}
-            visible={!!addCard}
-            onHide={() => setAddCard(null)}
-            onSelect={item => {
-                const {destinationList, destinationIndex} = addCard;
-                destinationList.splice(destinationIndex, 0, item);
-                moved();
-            }}
-        /> : null }
         {toast}
         {toolbarElement}
         <form {...rest} onSubmit={formSubmit(handleSubmit)} className={clsx('grid col align-self-start', classes.form, className)}>

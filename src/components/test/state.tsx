@@ -20,6 +20,8 @@ const defaultState: State = {
                 actionId: 'granted'
             }, {
                 actionId: 'page%'
+            }, {
+                actionId: 'portal.component.edit'
             }]
         }
     },

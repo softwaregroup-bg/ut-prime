@@ -14,6 +14,7 @@ export interface PropertyEditor {
         'autocomplete' |
         'boolean' |
         'button' |
+        'chips' |
         'currency' |
         'date-time' |
         'date' |
@@ -118,6 +119,8 @@ export type WidgetReference = string | {
     title?: string,
     type?: PropertyEditor['type'],
     className?: string,
+    fieldClass?: string,
+    labelClass?: string,
     permission?: string,
     action?: string,
     params?: object,

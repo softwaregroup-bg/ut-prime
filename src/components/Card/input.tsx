@@ -1,24 +1,25 @@
 import React from 'react';
 import clsx from 'clsx';
 import {
+    AutoComplete,
     Button,
-    InputText,
-    Password,
-    InputTextarea,
-    Dropdown,
-    MultiSelect,
-    TreeSelect,
-    TreeTable,
-    InputMask,
-    InputNumber,
     Calendar,
     Checkbox,
-    Image,
-    Skeleton,
-    SelectButton,
-    FileUpload,
+    Chips,
     Column,
-    AutoComplete
+    Dropdown,
+    FileUpload,
+    Image,
+    InputMask,
+    InputNumber,
+    InputText,
+    InputTextarea,
+    MultiSelect,
+    Password,
+    SelectButton,
+    Skeleton,
+    TreeSelect,
+    TreeTable
 } from '../prime';
 import { RefCallBack } from 'react-hook-form';
 
@@ -34,6 +35,13 @@ const Field = ({children = undefined, label = undefined, error = undefined, inpu
     <div className={inputClass}>{children}</div>
     {error}
 </>;
+
+const Clear = ({showClear, field}) =>
+    (showClear && field.value !== undefined)
+        ? <div className='absolute flex right-0 top-0 bottom-0 justify-content-center align-items-center m-2' style={{width: '2.375rem'}}>
+            <i onClick={e => field.onChange(undefined)} className={`pi cursor-pointer ${showClear === true ? 'pi-times' : showClear}`}></i>
+        </div>
+        : null;
 
 export default function input(
     label,
@@ -55,6 +63,7 @@ export default function input(
         optionsFilter = null,
         title = '',
         columns,
+        clear,
         ...props
     }: any = {id: field?.name},
     schema,
@@ -90,12 +99,22 @@ export default function input(
                 {...props}
             />
         </Field>;
+        case 'chips': return <Field {...{label, error, inputClass}}>
+            <Chips
+                {...field}
+                value={field.value?.split(' ').filter(Boolean) || []}
+                onChange={e => field.onChange?.(e.value.join(' '))}
+                {...props}
+            />
+            <Clear field={field} showClear={clear}/>
+        </Field>;
         case 'text': return <Field {...{label, error, inputClass}}>
             <InputTextarea
                 {...field}
                 value={field.value || ''}
                 {...props}
             />
+            <Clear field={field} showClear={clear}/>
         </Field>;
         case 'mask': return <Field {...{label, error, inputClass}}>
             <InputMask
@@ -126,22 +145,25 @@ export default function input(
                 {...testid(props.id)}
                 {...props}
             />
+            <Clear field={field} showClear={clear}/>
         </Field>;
         case 'table': return <>
             {error}
             {label}
             <div className={inputClass}>
-                <Table
-                    {...field}
-                    selectionMode='checkbox'
-                    parent={parentValue}
-                    properties={schema?.items?.properties}
-                    dropdowns={dropdowns}
-                    getValues={getValues}
-                    counter={counter}
-                    {...props.selectionPath && getValues && {selection: getValues(`${props.selectionPath}.${field.name}`) || []}}
-                    {...props}
-                />
+                <div className='w-full'>
+                    <Table
+                        {...field}
+                        selectionMode='checkbox'
+                        parent={parentValue}
+                        properties={schema?.items?.properties}
+                        dropdowns={dropdowns}
+                        getValues={getValues}
+                        counter={counter}
+                        {...props.selectionPath && getValues && {selection: getValues(`${props.selectionPath}.${field.name}`) || []}}
+                        {...props}
+                    />
+                </div>
             </div>
         </>;
         case 'autocomplete': {
@@ -413,6 +435,7 @@ export default function input(
                 onChange={e => field.onChange?.(e.target.value || null)}
                 {...props}
             />
+            <Clear field={field} showClear={clear}/>
         </Field>;
     }
 }

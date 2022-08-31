@@ -12,8 +12,8 @@ import { ThemeProvider } from '../Theme';
 import { ComponentProps } from './App.types';
 import PageNotFound from './PageNotFound';
 
-const App: ComponentProps = ({middleware, reducers, theme, devTool, portalName, state, onDispatcher, loginPage}) => {
-    const context = React.useMemo(() => ({portalName, devTool}), [portalName, devTool]);
+const App: ComponentProps = ({middleware, reducers, theme, devTool, portalName, customization, state, onDispatcher, loginPage}) => {
+    const context = React.useMemo(() => ({portalName, devTool, customization}), [portalName, devTool, customization]);
 
     return (
         <DndProvider backend={HTML5Backend}>

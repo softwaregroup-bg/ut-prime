@@ -1,6 +1,12 @@
 import React from 'react';
 
 import type {Schema, Editors, Cards, Dropdowns, Layouts} from '../types';
+
+interface Customization {
+    schema?: Schema,
+    card?: Cards,
+    layout?: Layouts
+}
 export interface Props {
     object?: string,
     id?: string | number,
@@ -13,6 +19,8 @@ export interface Props {
     typeField?: string,
     cards: Cards,
     layouts?: Layouts,
+    customization?: Customization,
+    onCustomization?: ({component: {componentId: string, componentConfig: Customization}}) => Promise<object>,
     debug?: boolean,
     layoutName?: string,
     nested?: string[],
@@ -22,7 +30,7 @@ export interface Props {
     toolbar?: boolean,
     value?: object,
     methods?: {
-        [key: string]: (params: object) => Promise<void>
+        [key: string]: (params: object) => Promise<Record<string, unknown>>
     },
     onDropdown?: (params: string[]) => Promise<Dropdowns>,
     onInit?: (params: object) => Promise<object>,
