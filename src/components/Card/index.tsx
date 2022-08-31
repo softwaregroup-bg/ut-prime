@@ -12,16 +12,24 @@ import input from './input';
 import {CHANGE} from './const';
 import Controller from '../Controller';
 
-const getFieldClass = (index, classes, name, className) => ({
-    ...classes?.default,
-    ...classes?.[name]
-}.field || (name === '' ? className : ((index.properties[name]?.title !== '' || className) ? `flex align-items-center relative col-12 ${className || 'md:col-8'}` : 'flex align-items-center relative col-12')));
+const getFieldClass = (index, classes, name, className) =>
+    name === '' ? className : clsx(
+        'flex align-items-center relative col-12', {
+            ...classes?.default,
+            ...classes?.[name]
+        }.field || ((index.properties[name]?.title !== '' || className) && (className || 'md:col-8'))
+    );
 
 const useStyles = createUseStyles({
     card: {
         '& .p-card-body': {
             '& .p-card-content': {
                 paddingBottom: 0
+            }
+        },
+        '& .p-chips': {
+            '& .p-inputtext': {
+                alignContent: 'flex-start'
             }
         }
     }
@@ -153,17 +161,17 @@ const Card: ComponentProps = ({
         [InputWrap]
     );
 
-    const Label = React.useCallback(({name, className = 'col-12 md:col-4', label = layoutState.index.properties?.[name]?.title}) => {
+    const Label = React.useCallback(({name, className = 'md:col-4', label = layoutState.index.properties?.[name]?.title}) => {
         if (label === undefined) label = titleCase(name.split('.').pop());
         return label
-            ? <label className={className} htmlFor={name.replace(/\./g, '-')}>{label}</label>
+            ? <label className={clsx('col-12', className)} htmlFor={name.replace(/\./g, '-')}>{label}</label>
             : null;
     }, [layoutState.index]);
 
-    const ErrorLabel = React.useCallback(({name, className = 'col-12 md:col-4'}) => {
+    const ErrorLabel = React.useCallback(({name, className = 'md:col-4'}) => {
         const error = get(formState?.errors, name);
         return error
-            ? <><small className={className}/><small className='col p-error'>{error.message}</small></>
+            ? <><small className={clsx('col-12', className)}/><small className='col p-error'>{error.message}</small></>
             : null;
     }, [formState?.errors]);
 

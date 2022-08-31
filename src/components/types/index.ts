@@ -14,6 +14,7 @@ export interface PropertyEditor {
         'autocomplete' |
         'boolean' |
         'button' |
+        'chips' |
         'currency' |
         'date-time' |
         'date' |

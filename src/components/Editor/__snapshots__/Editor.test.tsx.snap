@@ -2267,7 +2267,7 @@ exports[`<Editor /> CustomEditors render equals snapshot 1`] = `
                         class="field grid w-full mx-0"
                       >
                         <label
-                          class="md:col-2"
+                          class="col-12 md:col-2"
                           for="period"
                         >
                           Expiration period

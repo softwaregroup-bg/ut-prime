@@ -20,7 +20,7 @@ import useLoad from '../hooks/useLoad';
 import {ConfigField, ConfigCard} from '../Form/DragDrop';
 import prepareSubmit from '../lib/prepareSubmit';
 import testid from '../lib/testid';
-import type {Cards, Layouts} from '../types';
+import type {Cards, Layouts, Schema} from '../types';
 
 const backgroundNone = {background: 'none'};
 
@@ -56,6 +56,19 @@ function getLayout(cards: Cards, layouts: Layouts, mode: 'create' | 'edit', name
     if (!cards[toolbar]) toolbar = `toolbar${capital(mode)}`;
     if (!cards[toolbar]) toolbar = 'toolbar';
     return [items, layout, orientation || 'left', toolbar, layoutName];
+}
+
+function getDefault(schema: Schema) {
+    if (schema.default) return schema.default;
+    else if (schema.properties) {
+        return Object.entries(schema.properties).reduce(
+            (map, [name, property]) => {
+                const value = getDefault(property);
+                return value === undefined ? map : {...map, [name]: value};
+            },
+            undefined
+        );
+    }
 }
 
 const Editor: ComponentProps = ({
@@ -184,7 +197,7 @@ const Editor: ComponentProps = ({
         ]);
         setDropdown(dropdownResult);
         customizationResult?.component && setCustomization({schema: {}, card: {}, layout: {}, ...(customizationResult.component as {componentConfig?:object}).componentConfig});
-        if (onInit) initValue = merge({}, initValue, await onInit(initValue));
+        initValue = merge(getDefault(mergedSchema), initValue, onInit && await onInit(initValue));
         if (initValue !== undefined) setEditValue(getValue(initValue));
         setLoading('');
     }
