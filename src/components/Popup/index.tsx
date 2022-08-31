@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Text from '../Text';
 import { useStyles } from './Popup.types';
 
-const Popup = ({ message, params = { maximizable: false, header: '', footer: false, buttons: [], texts: {regular: {}, dynamic: {}}, responseObjectValidationField: '' }}) => {
+const Popup = ({ message, params = { maximizable: false, header: '', footer: false, buttons: [], texts: {regular: [], dynamic: []}, responseObjectValidationField: '' }}) => {
     const { maximizable, header, footer, buttons, texts, responseObjectValidationField } = params;
     const breakpoints = { '960px': '75vw', '640px': '95vw' };
     const width = { width: '30vw' };

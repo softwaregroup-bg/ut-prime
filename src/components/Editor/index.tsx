@@ -554,7 +554,7 @@ const Editor: ComponentProps = ({
                     </div>}
                 </div>
             </div>
-            <Popup message={value} params={popup} />~
+            <Popup message={value} params={popup} />
         </>
     );
 };
