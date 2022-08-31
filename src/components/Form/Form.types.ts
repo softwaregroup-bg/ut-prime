@@ -26,6 +26,8 @@ export interface Props extends React.HTMLAttributes<HTMLFormElement> {
     toolbar?: string;
     value?: Record<string, unknown>;
     methods?: object;
+    shouldResetPassword?: boolean;
+    setResetPassword?: (resetPassword: (event: object) => void) => void;
 }
 
 export type ComponentProps = React.FC<Props>

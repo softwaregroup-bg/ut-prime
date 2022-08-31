@@ -17,6 +17,7 @@ import SelectCard from './SelectCard';
 import useForm from '../hooks/useForm';
 import useNow from '../hooks/useNow';
 import useSubmit from '../hooks/useSubmit';
+import useResetPassword from '../hooks/useResetPassword';
 import useLayout from '../hooks/useLayout';
 import getValidation from './schema';
 
@@ -62,6 +63,8 @@ const Form: ComponentProps = ({
     value,
     dropdowns,
     validation,
+    shouldResetPassword,
+    setResetPassword,
     ...rest
 }) => {
     const classes = useStyles();
@@ -116,6 +119,30 @@ const Form: ComponentProps = ({
     React.useEffect(() => {
         if (setTrigger) setTrigger(canSetTrigger ? () => formSubmit(handleSubmit) : undefined);
     }, [setTrigger, formSubmit, handleSubmit, isDirty, canSetTrigger]);
+
+    const { handleResetPassword } = useResetPassword(
+        async form => {
+            try {
+                clearErrors();
+                onSubmit([{ ...form, resetPassword: true }, layoutState.index]);
+            } catch (error) {
+                if (!Array.isArray(error.validation)) throw error;
+                error.validation.forEach(({ path = [], message = '' } = {}) => {
+                    if (path && message) {
+                        if (Array.isArray(path)) {
+                            if (path[0] === 'params') setError(path.slice(1).join('.'), { message });
+                        } else setError(path, { message });
+                    }
+                });
+            }
+        },
+        [onSubmit, setError, clearErrors, layoutState.index]
+    );
+
+    const canResetPassword = shouldResetPassword && setResetPassword;
+    React.useEffect(() => {
+        if (canResetPassword) setResetPassword(() => formSubmit(handleResetPassword));
+    }, [canResetPassword, setResetPassword, formSubmit, handleResetPassword]);
 
     React.useEffect(() => {
         const {$original, ...formValue} = value || {};

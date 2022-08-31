@@ -19,6 +19,7 @@ export { default as Login } from './Login';
 export { default as Main } from './Main';
 export { default as Navigator } from './Navigator';
 export { default as Permission } from './Permission';
+export { default as Popup } from './Popup';
 export { default as Portal } from './Portal';
 export { default as Report } from './Report';
 export { default as Store } from './Store';

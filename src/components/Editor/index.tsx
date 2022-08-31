@@ -18,6 +18,7 @@ import {ConfigField, ConfigCard} from '../Form/DragDrop';
 import prepareSubmit from '../lib/prepareSubmit';
 import testid from '../lib/testid';
 import type {Cards, Layouts} from '../types';
+import Popup from '../Popup';
 
 const backgroundNone = {background: 'none'};
 
@@ -87,14 +88,18 @@ const Editor: ComponentProps = ({
     const [inspected, setInspected] = React.useState(null);
     const mergedSchema = React.useMemo(() => merge({}, activeSchema, override), [activeSchema, override]);
     const {properties = empty} = mergedSchema;
+    const { editor = {}, popup = {} } = properties;
+    const { shouldResetPassword = false } = editor;
+    const editorScreen = id == null ? 'create' : 'edit';
     name = name ? name + '.' : '';
 
     const [trigger, setTrigger] = React.useState();
+    const [resetPassword, setResetPassword] = React.useState();
     const [didSubmit, setDidSubmit] = React.useState(false);
     const [value, setEditValue] = React.useState({});
     const [loadedValue, setLoadedValue] = React.useState<object>();
     const [dropdowns, setDropdown] = React.useState({});
-    const [[items, layout, orientation, toolbarName], setIndex] = React.useState(() => getLayout(cards, layouts, id == null ? 'create' : 'edit', layoutName));
+    const [[items, layout, orientation, toolbarName], setIndex] = React.useState(() => getLayout(cards, layouts, editorScreen, layoutName));
     const [filter, setFilter] = React.useState(items?.[0]?.items?.[0] || items?.[0]);
     const [loading, setLoading] = React.useState('loading');
     const [validation, dropdownNames, getValue] = React.useMemo(() => {
@@ -294,6 +299,14 @@ const Editor: ComponentProps = ({
                         className='mr-2'
                         {...testid(name + 'resetButton')}
                     />
+                    {editorScreen === 'edit' && shouldResetPassword ? <Button
+                        icon='pi pi-key'
+                        onClick={resetPassword}
+                        disabled={!!loading}
+                        aria-label='reset password'
+                        className='mr-2'
+                        {...testid(name + 'resetPasswordButton')}
+                    /> : null}
                     <div ref={toolbarRef}></div>
                 </>}
                 right={<>
@@ -329,6 +342,8 @@ const Editor: ComponentProps = ({
                         validation={validation}
                         toolbarRef={toolbarRef}
                         toolbar={toolbarName}
+                        shouldResetPassword={shouldResetPassword}
+                        setResetPassword={setResetPassword}
                     />
                     {design && <div className='col-2 flex-column'>
                         {inspected ? <Inspector
@@ -349,6 +364,7 @@ const Editor: ComponentProps = ({
                     </div>}
                 </div>
             </div>
+            <Popup message={value} params={popup} />
         </>
     );
 };
