@@ -272,7 +272,7 @@ const Explorer: ComponentProps = ({
                 methods={methods}
                 value={item}
                 classNames={{
-                    field: 'grid field justify-content-center'
+                    widget: 'grid field justify-content-center'
                 }}
             />;
             return keyField ? <div

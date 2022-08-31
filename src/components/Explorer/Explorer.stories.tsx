@@ -169,7 +169,7 @@ GridFlex.args = {
             classes: {
                 default: {
                     root: 'grid m-0',
-                    field: 'text-center col-4 mb-0'
+                    widget: 'text-center col-4 mb-0'
                 }
             },
             widgets: [{
