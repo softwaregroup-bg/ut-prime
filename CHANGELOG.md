@@ -1,3 +1,17 @@
+# [2.11.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.10.1...v2.11.0) (2022-08-31)
+
+
+### Bug Fixes
+
+* improve customization handling ([65a7b7f](https://github.com/softwaregroup-bg/ut-prime/commit/65a7b7f3b96d8b1a9d34f891aae397397d5d6308))
+
+
+### Features
+
+* class editors ([280e7da](https://github.com/softwaregroup-bg/ut-prime/commit/280e7da606d322e0dd5ed09e58500327b1a557cb))
+
+
+
 ## [2.10.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.10.0...v2.10.1) (2022-08-29)
 
 
