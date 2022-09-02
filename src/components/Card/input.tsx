@@ -27,6 +27,7 @@ import getType from '../lib/getType';
 import testid from '../lib/testid';
 import Table from './inputs/Table';
 import ActionButton from '../ActionButton';
+import SubmitButton from '../SubmitButton';
 
 const noActions = {allowAdd: false, allowEdit: false, allowDelete: false};
 
@@ -73,11 +74,12 @@ export default function input(
     getValues: (name: any) => any,
     counter,
     methods,
+    submit,
     defaultWidgetType
 ) {
     const widgetType = type || defaultWidgetType || schema?.format || getType(schema?.type);
     if (loading) {
-        if (widgetType === 'button') return <Button className={inputClass ?? 'mr-2'} label={label} {...props} disabled/>;
+        if (['button', 'submit'].includes(widgetType)) return <Button className={inputClass ?? 'mr-2'} label={label} {...props} disabled/>;
         return <>{label}<div className={inputClass}><Skeleton className='p-inputtext'/></div></>;
     }
     props.disabled ??= schema?.readOnly || (parentField && !parentValue);
@@ -88,6 +90,12 @@ export default function input(
             label={label}
             {...props}
             getValues={getValues}
+        />;
+        case 'submit': return <SubmitButton
+            className={inputClass ?? 'mr-2'}
+            label={label}
+            {...props}
+            submit={submit}
         />;
         case 'dropdownTree': return <Field {...{label, error, inputClass}}>
             <TreeSelect
@@ -281,6 +289,7 @@ export default function input(
                         properties={schema?.widget?.items?.properties}
                         selection={selection}
                         onSelectionChange={event => {
+                            if (props.disabled) return;
                             if (!paramSet) {
                                 return field.onChange?.(
                                     single
@@ -314,12 +323,13 @@ export default function input(
                             );
                         }}
                         onChange={event =>
-                            field.onChange?.(
+                            !props.disabled && field.onChange?.(
                                 event.filter(e => selection.findIndex(s => s[dataKey] === e[dataKey]) > -1),
                                 {children: false, ...props.change}
                             )
                         }
                         {...props}
+                        className={clsx(field.className || props.className, props.disabled && 'p-disabled')}
                     >
                         <Column field='label' header={title}/>
                     </Table>

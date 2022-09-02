@@ -212,7 +212,9 @@ const Editor: ComponentProps = ({
         async function handleSubmit(data) {
             let response;
             let key = keyValue;
-            if (keyValue != null) {
+            if (data?.[2].method) {
+                response = getValue(handleArray(await methods[data[2].method](prepareSubmit(data)), properties));
+            } else if (keyValue != null) {
                 response = getValue(handleArray(await onEdit(prepareSubmit(data)), properties));
             } else {
                 response = getValue(handleArray(await onAdd(prepareSubmit(data)), properties));
@@ -224,7 +226,7 @@ const Editor: ComponentProps = ({
             setEditValue(value);
             if (key) setLoadedValue(getValue(value));
             setMode(['edit', layoutName || (typeField ? lodashGet(value, typeField) : '')]);
-        }, [keyValue, onEdit, getValue, onAdd, keyField, resultSet, properties, typeField, layoutName]
+        }, [keyValue, onEdit, getValue, onAdd, keyField, resultSet, properties, typeField, layoutName, methods]
     );
 
     const handleReset = React.useCallback(

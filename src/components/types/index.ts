@@ -36,6 +36,7 @@ export interface PropertyEditor {
         'select-table-radio' |
         'select' |
         'selectTable' |
+        'submit' |
         'string' |
         'table' |
         'text' |
@@ -123,7 +124,8 @@ export type WidgetReference = string | {
     labelClass?: string,
     permission?: string,
     action?: string,
-    params?: object,
+    method?: string,
+    params?: object | string,
     selectionPath?: string,
     propertyName?: string,
     actions?: object,

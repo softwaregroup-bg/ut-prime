@@ -18,6 +18,7 @@ export interface Props {
     value?: object,
     inspected?: string;
     onInspect?: (data: object) => void;
+    submit?: (event: object) => void;
     move?: (
         type: 'card' | 'field',
         source: object,
