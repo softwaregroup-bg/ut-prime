@@ -13,14 +13,22 @@ const Popup = ({ message, params = { maximizable: false, header: '', footer: fal
 
     const classes = useStyles();
 
+    const objectCheck = message?.[responseObjectValidationField];
+
+    const isEmpty = objectCheck && Object.values(objectCheck).some(value => value);
+
+    const openPopupCondition = message &&
+    Object.keys(message).length &&
+    isEmpty;
+
     const handleClose = () => setOpen(false);
     const handleOpen = () => setOpen(true);
 
     useEffect(() => {
-        if (message && Object.keys(message).length && message?.[responseObjectValidationField]) {
+        if (openPopupCondition) {
             handleOpen();
         }
-    }, [message, responseObjectValidationField]);
+    }, [openPopupCondition]);
 
     const content = () => {
         const { regular, dynamic } = texts;
