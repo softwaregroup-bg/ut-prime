@@ -1,7 +1,9 @@
 import get from 'lodash.get';
 import set from 'lodash.set';
+import template from 'ut-function.template';
 
-export default ([form, {tables = [], files = []} = {}]) => {
+export default ([form, {tables = [], files = []} = {}, {method, params} = {method: '', params: ''}]) => {
+    if (method) return params && JSON.parse(template(typeof params === 'string' ? params : JSON.stringify(params), form, {}, 'json'));
     const {$, ...value} = form;
     tables?.forEach(name => {
         const table = get(value, name);

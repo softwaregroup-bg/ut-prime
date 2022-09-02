@@ -155,7 +155,22 @@ export function ConfigField({design, children = null, name, index, card = '', la
     );
 }
 
-export function ConfigCard({children = null, card, index1, index2, move = undefined, flex = '', design, hidden = false, drag = false, drop = false, title, onInspect = null, inspected = null, ...props}) {
+export function ConfigCard({
+    children = null,
+    card,
+    index1,
+    index2,
+    move = undefined,
+    flex = '',
+    design,
+    hidden = false,
+    drag = false,
+    drop = false,
+    title,
+    onInspect = null,
+    inspected = null,
+    ...props
+}) {
     if (drop && !design) return null;
     return (
         design ? <DragDropCard {...{card, index1, index2, move, flex, hidden, drag, drop, title, onInspect, inspected, ...props}}>

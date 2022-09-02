@@ -1,3 +1,13 @@
+# [2.12.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.11.1...v2.12.0) (2022-09-02)
+
+
+### Features
+
+* customizable submit buttons ([19242f2](https://github.com/softwaregroup-bg/ut-prime/commit/19242f2004e2b8372a310afcdc5026bd9cdeec44))
+* enable buttons based on joi validation ([0188f1b](https://github.com/softwaregroup-bg/ut-prime/commit/0188f1b9e8d4a95a244b1caa3fcf175a7780618e))
+
+
+
 ## [2.11.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.11.0...v2.11.1) (2022-08-31)
 
 

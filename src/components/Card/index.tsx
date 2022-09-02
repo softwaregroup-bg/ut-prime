@@ -47,6 +47,7 @@ const Card: ComponentProps = ({
     design,
     formApi,
     value,
+    submit,
     move,
     toolbar,
     inspected,
@@ -133,6 +134,7 @@ const Card: ComponentProps = ({
             getValues,
             counter,
             methods,
+            submit,
             !getValues && 'label'
         );
         return (name && control) ? <Controller
@@ -146,6 +148,7 @@ const Card: ComponentProps = ({
         dropdowns,
         loading,
         methods,
+        submit,
         getValues,
         setValue,
         control,

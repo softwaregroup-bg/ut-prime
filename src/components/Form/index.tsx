@@ -89,10 +89,10 @@ const Form: ComponentProps = ({
     const layoutState = useLayout(schema, cards, layout, editors);
 
     const {handleSubmit, toast} = useSubmit(
-        async form => {
+        async(form, event) => {
             try {
                 clearErrors();
-                return await onSubmit([form, layoutState.index]);
+                return await onSubmit([form, layoutState.index, event]);
             } catch (error) {
                 if (!Array.isArray(error.validation)) throw error;
                 error.validation.forEach(({path = [], message = ''} = {}) => {
@@ -107,10 +107,12 @@ const Form: ComponentProps = ({
         [onSubmit, setError, clearErrors, layoutState.index]
     );
 
+    const submit = React.useMemo(() => formSubmit(handleSubmit), [formSubmit, handleSubmit]);
+
     const canSetTrigger = (isDirty || triggerNotDirty) && !isSubmitting;
     React.useEffect(() => {
-        if (setTrigger) setTrigger(canSetTrigger ? () => formSubmit(handleSubmit) : undefined);
-    }, [setTrigger, formSubmit, handleSubmit, isDirty, canSetTrigger]);
+        if (setTrigger) setTrigger(canSetTrigger ? () => submit : undefined);
+    }, [setTrigger, submit, isDirty, canSetTrigger]);
 
     const { handleResetPassword } = useResetPassword(
         async form => {
@@ -158,6 +160,7 @@ const Form: ComponentProps = ({
             formApi={formApi}
             methods={methods}
             move={move}
+            submit={submit}
             toolbar
         />, toolbarRef.current);
     }
@@ -166,7 +169,7 @@ const Form: ComponentProps = ({
         {devTool ? <DevTool control={control} placement="top-right" /> : null}
         {toast}
         {toolbarElement}
-        <form {...rest} onSubmit={formSubmit(handleSubmit)} className={clsx('grid col align-self-start', classes.form, className)}>
+        <form {...rest} onSubmit={submit} className={clsx('grid col align-self-start', classes.form, className)}>
             {
                 !!Object.keys(errors).length && <div className='col-12'>
                     {errorFields.map(name => !layoutState.visibleProperties.includes(name) && <><small className="p-error">{get(errors, name)?.message}</small><br /></>)}
@@ -194,6 +197,7 @@ const Form: ComponentProps = ({
                                 loading={loading}
                                 formApi={formApi}
                                 methods={methods}
+                                submit={submit}
                                 move={move}
                                 inspected={inspected}
                                 onInspect={onInspect}
