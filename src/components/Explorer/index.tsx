@@ -116,6 +116,7 @@ const Explorer: ComponentProps = ({
 
     const buttons = React.useMemo(() => (toolbar || []).map(({title, action, params, enabled = true, permission}, index) => {
         const isEnabled = enabled => {
+            if (typeof enabled?.validate === 'function') return !enabled.validate({current, selected}).error;
             if (typeof enabled !== 'string') return !!enabled;
             switch (enabled) {
                 case 'current': return !!current;
