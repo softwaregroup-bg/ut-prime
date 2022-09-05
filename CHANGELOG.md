@@ -1,3 +1,12 @@
+## [2.13.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.13.2...v2.13.3) (2022-09-05)
+
+
+### Bug Fixes
+
+* dark mode switcher for custom theme ([48c3d96](https://github.com/softwaregroup-bg/ut-prime/commit/48c3d9610806e09913fa1122992216e5af12e713))
+
+
+
 ## [2.13.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.13.1...v2.13.2) (2022-09-05)
 
 
