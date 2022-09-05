@@ -24,25 +24,31 @@ export const useStyles = createUseStyles({
         cursor: 'pointer'
     },
     tabs: {
-        display: 'flex',
-        flexDirection: 'column',
-        flexGrow: 1,
-        '& .p-tabview-panels': {
-            padding: 0,
-            flexGrow: 1,
+        '&.p-tabview': {
             display: 'flex',
-            flexDirection: 'column'
-        },
-        '& .p-tabview-panel': {
-            flexGrow: 1
+            flexDirection: 'column',
+            flexGrow: 1,
+            '& .p-tabview-panels': {
+                padding: 0,
+                flexGrow: 1,
+                display: 'flex',
+                flexDirection: 'column'
+            },
+            '& .p-tabview-panel': {
+                flexGrow: 1
+            }
         }
     },
     menuGrow: {
-        border: 0,
-        flexGrow: 1
+        '&.p-menubar': {
+            border: 0,
+            flexGrow: 1
+        }
     },
     menu: {
-        border: 0
+        '&.p-menubar': {
+            border: 0
+        }
     }
 });
 

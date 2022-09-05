@@ -60,7 +60,7 @@ const filterMenu = (permissions, command, items) => items
 
 const Portal: ComponentProps = ({ children }) => {
     const classes = useStyles();
-    const {ut} = useTheme<Theme>();
+    const {ut, Switch} = useTheme<Theme>();
     const {
         tabs = [],
         hideTabs,
@@ -140,6 +140,7 @@ const Portal: ComponentProps = ({ children }) => {
                         <Text>{portalName}</Text>
                     </div>
                     <Menubar model={menuEnabled} className={classes[menuClass]} style={backgroundNone}/>
+                    {Switch ? <Switch /> : null}
                     <Menubar model={rightEnabled} className={classes[rightMenuClass]} style={backgroundNone}/>
                 </div>
             </div>
