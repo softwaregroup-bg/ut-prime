@@ -5,7 +5,7 @@ import useMedia from './useMedia';
 import {Button} from '../prime';
 
 function usePrefersDarkMode() {
-    return useMedia(['(prefers-color-scheme: dark)'], [true], !window.matchMedia);
+    return useMedia(['(prefers-color-scheme: dark)'], [true], !window.matchMedia || !!window?.navigator?.userAgent?.match?.(/Chromatic/));
 }
 
 // https://usehooks.com/useDarkMode/
