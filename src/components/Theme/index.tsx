@@ -30,8 +30,15 @@ const themes = {
     }
 };
 
+type lazyCss = {
+    use: () => {
+        unuse: () => void
+    }
+}
 export interface Theme {
     Switch?: React.FC,
+    dark?: lazyCss,
+    light?: lazyCss,
     ut: {
         classes: {
             headerLogo?: string,
@@ -89,7 +96,7 @@ export const ThemeProvider = ({ theme, children }: { theme: Theme, children: Rea
     const [isDark, Switch] = useDarkMode();
     switch (theme?.name || theme?.palette?.type) {
         case 'custom':
-            last = null;
+            last = isDark ? theme?.dark?.use?.() : theme?.light?.use?.();
             break;
         case 'dark-compact':
         case 'light-compact':

@@ -23,7 +23,7 @@ function useDarkMode() {
     // This allows user to override OS level setting on our website.
     const enabled = enabledState ?? prefersDarkMode;
     const Switch = React.useMemo(() => function Switch() {
-        return <Button key='switch' icon={enabled ? 'pi pi-sun' : 'pi pi-moon'} onClick={() => setEnabledState(prev => !prev)} />;
+        return <Button key='switch' icon={enabled ? 'pi pi-sun' : 'pi pi-moon'} onClick={() => setEnabledState(!enabled)} />;
     }, [enabled, setEnabledState]);
     return [enabled, Switch];
 }
