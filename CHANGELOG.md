@@ -1,3 +1,12 @@
+# [2.13.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.12.0...v2.13.0) (2022-09-05)
+
+
+### Features
+
+* dark mode switcher ([6c390f9](https://github.com/softwaregroup-bg/ut-prime/commit/6c390f9b81dbc8ad065277448ddefd4adf77d8f8))
+
+
+
 # [2.12.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.11.1...v2.12.0) (2022-09-02)
 
 
