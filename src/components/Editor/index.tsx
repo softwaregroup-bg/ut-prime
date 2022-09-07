@@ -3,6 +3,7 @@ import lodashGet from 'lodash.get';
 import lodashSet from 'lodash.set';
 import merge from 'ut-function.merge';
 import clsx from 'clsx';
+import {createUseStyles} from 'react-jss';
 
 import { ComponentProps } from './Editor.types';
 import SelectField from './SelectField';
@@ -22,6 +23,12 @@ import {ConfigField, ConfigCard} from '../Form/DragDrop';
 import prepareSubmit from '../lib/prepareSubmit';
 import testid from '../lib/testid';
 import type {Cards, Layouts, Schema} from '../types';
+
+const useStyles = createUseStyles({
+    'padding-0': {
+        padding: 0
+    }
+});
 
 const backgroundNone = {background: 'none'};
 
@@ -100,6 +107,7 @@ const Editor: ComponentProps = ({
     onChange,
     toolbar = !!(onAdd || onEdit || onGet)
 }) => {
+    const classes = useStyles();
     const {customization: customizationEnabled} = React.useContext(Context);
     const [keyValue, setKeyValue] = React.useState(id);
     const activeSchema = (schemaCreate && keyValue == null) ? schemaCreate : schemaEdit;
@@ -532,7 +540,7 @@ const Editor: ComponentProps = ({
                         toolbarRef={toolbarRef}
                         toolbar={toolbarName}
                     />
-                    {design && <div style={{maxHeight: editorHeight}} className={clsx('col-2 flex-column overflow-y-auto')}>
+                    {design && <div style={{maxHeight: editorHeight}} className={clsx('col-2 flex-column overflow-y-auto', classes['padding-0'])}>
                         {inspected ? <Inspector
                             Editor={Editor}
                             className='w-full'

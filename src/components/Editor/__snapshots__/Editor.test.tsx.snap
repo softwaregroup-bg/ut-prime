@@ -81,7 +81,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
         <div />
       </div>
       <form
-        class="grid col align-self-start overflow-y-auto form-0-2-1"
+        class="grid col align-self-start overflow-y-auto form-0-2-2"
         style="max-height: 768px;"
       >
         <div
@@ -91,7 +91,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="edit"
             >
               <div
@@ -222,7 +222,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="taxonomy"
             >
               <div
@@ -240,7 +240,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="reproduction"
             >
               <div
@@ -330,7 +330,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="morphology"
             >
               <div
@@ -348,7 +348,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="links"
             >
               <div
@@ -546,7 +546,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="habitat"
             >
               <div
@@ -837,7 +837,7 @@ exports[`<Editor /> CascadedDropdowns render equals snapshot 1`] = `
         <div />
       </div>
       <form
-        class="grid col align-self-start overflow-y-auto form-0-2-1"
+        class="grid col align-self-start overflow-y-auto form-0-2-2"
         style="max-height: 768px;"
       >
         <div
@@ -847,7 +847,7 @@ exports[`<Editor /> CascadedDropdowns render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="edit"
             >
               <div
@@ -1131,7 +1131,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
         <div />
       </div>
       <form
-        class="grid col align-self-start overflow-y-auto form-0-2-1"
+        class="grid col align-self-start overflow-y-auto form-0-2-2"
         style="max-height: 768px;"
       >
         <div
@@ -1141,7 +1141,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="person"
             >
               <div
@@ -1461,7 +1461,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="document"
             >
               <div
@@ -1851,7 +1851,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="attachment"
             >
               <div
@@ -2246,7 +2246,7 @@ exports[`<Editor /> CustomEditors render equals snapshot 1`] = `
         <div />
       </div>
       <form
-        class="grid col align-self-start overflow-y-auto form-0-2-1"
+        class="grid col align-self-start overflow-y-auto form-0-2-2"
         style="max-height: 768px;"
       >
         <div
@@ -2256,7 +2256,7 @@ exports[`<Editor /> CustomEditors render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="edit"
             >
               <div
@@ -2538,7 +2538,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
         <div />
       </div>
       <form
-        class="grid col align-self-start overflow-y-auto form-0-2-1"
+        class="grid col align-self-start overflow-y-auto form-0-2-2"
         style="max-height: 768px;"
       >
         <div
@@ -2549,7 +2549,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
             class="relative"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="edit"
             >
               <div
@@ -2741,7 +2741,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
             class="relative"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="taxonomy"
             >
               <div
@@ -2780,7 +2780,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
             class="relative"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="reproduction"
             >
               <div
@@ -2931,7 +2931,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
             class="relative"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="morphology"
             >
               <div
@@ -2970,7 +2970,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
             class="relative"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="links"
             >
               <div
@@ -3215,7 +3215,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
             class="relative"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="habitat"
             >
               <div
@@ -3501,7 +3501,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
         </div>
       </form>
       <div
-        class="col-2 flex-column overflow-y-auto"
+        class="col-2 flex-column overflow-y-auto padding-0-0-2-1"
         style="max-height: 768px;"
       />
     </div>
@@ -3591,7 +3591,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
         <div />
       </div>
       <form
-        class="grid col align-self-start overflow-y-auto form-0-2-1"
+        class="grid col align-self-start overflow-y-auto form-0-2-2"
         style="max-height: 768px;"
       >
         <div
@@ -3601,7 +3601,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="edit"
             >
               <div
@@ -3685,7 +3685,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="taxonomy"
             >
               <div
@@ -3703,7 +3703,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="reproduction"
             >
               <div
@@ -3787,7 +3787,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="morphology"
             >
               <div
@@ -3805,7 +3805,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="links"
             >
               <div
@@ -3847,7 +3847,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="habitat"
             >
               <div
@@ -3964,7 +3964,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
         <div />
       </div>
       <form
-        class="grid col align-self-start overflow-y-auto form-0-2-1"
+        class="grid col align-self-start overflow-y-auto form-0-2-2"
         style="max-height: 768px;"
       >
         <div
@@ -3974,7 +3974,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="master"
             >
               <div
@@ -4147,7 +4147,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="detail"
             >
               <div
@@ -4333,7 +4333,7 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
         <div />
       </div>
       <form
-        class="grid col align-self-start overflow-y-auto form-0-2-1"
+        class="grid col align-self-start overflow-y-auto form-0-2-2"
         style="max-height: 768px;"
       >
         <div
@@ -4343,7 +4343,7 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="shapes"
             >
               <div
@@ -4579,7 +4579,7 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="shapeEllipse"
             >
               <div
@@ -4742,7 +4742,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
         <div />
       </div>
       <form
-        class="grid col align-self-start overflow-y-auto form-0-2-1"
+        class="grid col align-self-start overflow-y-auto form-0-2-2"
         style="max-height: 768px;"
       >
         <div
@@ -4752,7 +4752,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="schedule"
             >
               <div
@@ -5370,7 +5370,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="permission"
             >
               <div
@@ -6126,7 +6126,7 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
             <div />
           </div>
           <form
-            class="grid col align-self-start overflow-y-auto form-0-2-1"
+            class="grid col align-self-start overflow-y-auto form-0-2-2"
             style="max-height: 768px;"
           >
             <div
@@ -6136,7 +6136,7 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
                 class="w-full"
               >
                 <div
-                  class="p-card p-component card mb-3 card-0-2-2"
+                  class="p-card p-component card mb-3 card-0-2-3"
                   id="editPerson"
                 >
                   <div
@@ -6278,7 +6278,7 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
             <div />
           </div>
           <form
-            class="grid col align-self-start overflow-y-auto form-0-2-1"
+            class="grid col align-self-start overflow-y-auto form-0-2-2"
             style="max-height: 768px;"
           >
             <div
@@ -6288,7 +6288,7 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
                 class="w-full"
               >
                 <div
-                  class="p-card p-component card mb-3 card-0-2-2"
+                  class="p-card p-component card mb-3 card-0-2-3"
                   id="editOrganization"
                 >
                   <div
@@ -6431,7 +6431,7 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
             <div />
           </div>
           <form
-            class="grid col align-self-start overflow-y-auto form-0-2-1"
+            class="grid col align-self-start overflow-y-auto form-0-2-2"
             style="max-height: 768px;"
           >
             <div
@@ -6441,7 +6441,7 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
                 class="w-full"
               >
                 <div
-                  class="p-card p-component card mb-3 card-0-2-2"
+                  class="p-card p-component card mb-3 card-0-2-3"
                   id="createOrganization"
                 >
                   <div
@@ -6589,7 +6589,7 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
         <div />
       </div>
       <form
-        class="grid col align-self-start overflow-y-auto form-0-2-1"
+        class="grid col align-self-start overflow-y-auto form-0-2-2"
         style="max-height: 768px;"
       >
         <div
@@ -6600,7 +6600,7 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="a1"
             >
               <div
@@ -6680,7 +6680,7 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="a2"
             >
               <div
@@ -6747,7 +6747,7 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="b1"
             >
               <div
@@ -6809,7 +6809,7 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="b2"
             >
               <div
@@ -6858,7 +6858,7 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="c1"
             >
               <div
@@ -6956,7 +6956,7 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="c2"
             >
               <div
@@ -7005,7 +7005,7 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="d"
             >
               <div
@@ -7108,7 +7108,7 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="e"
             >
               <div
@@ -7175,7 +7175,7 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="f1"
             >
               <div
@@ -7219,7 +7219,7 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="f2"
             >
               <div
@@ -7268,7 +7268,7 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="g"
             >
               <div
@@ -7394,7 +7394,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
         <div />
       </div>
       <form
-        class="grid col align-self-start overflow-y-auto form-0-2-1"
+        class="grid col align-self-start overflow-y-auto form-0-2-2"
         style="max-height: 768px;"
       >
         <div
@@ -7407,7 +7407,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="edit"
             >
               <div
@@ -7556,7 +7556,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="taxonomy"
             >
               <div
@@ -7574,7 +7574,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="reproduction"
             >
               <div
@@ -7664,7 +7664,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="morphology"
             >
               <div
@@ -7682,7 +7682,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="links"
             >
               <div
@@ -7880,7 +7880,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="habitat"
             >
               <div
@@ -8224,7 +8224,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
         <div />
       </div>
       <form
-        class="grid col align-self-start overflow-y-auto form-0-2-1"
+        class="grid col align-self-start overflow-y-auto form-0-2-2"
         style="max-height: 768px;"
       >
         <div
@@ -8234,7 +8234,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="edit"
             >
               <div
@@ -8367,7 +8367,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="taxonomy"
             >
               <div
@@ -8385,7 +8385,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="reproduction"
             >
               <div
@@ -8475,7 +8475,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="morphology"
             >
               <div
@@ -8493,7 +8493,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="links"
             >
               <div
@@ -8691,7 +8691,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="habitat"
             >
               <div
@@ -8976,7 +8976,7 @@ exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
     class="flex overflow-x-hidden w-full flex-column"
   >
     <div
-      class="flex flex-row padding-bottom-0-0-2-3"
+      class="flex flex-row padding-bottom-0-0-2-4"
     >
       <div
         class="p-tabmenu p-component"
@@ -9059,7 +9059,7 @@ exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
         <div />
       </div>
       <form
-        class="grid col align-self-start overflow-y-auto form-0-2-1"
+        class="grid col align-self-start overflow-y-auto form-0-2-2"
         style="max-height: 768px;"
       >
         <div
@@ -9070,7 +9070,7 @@ exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="a1"
             >
               <div
@@ -9150,7 +9150,7 @@ exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="a2"
             >
               <div
@@ -9217,7 +9217,7 @@ exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="b1"
             >
               <div
@@ -9279,7 +9279,7 @@ exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="b2"
             >
               <div
@@ -9398,7 +9398,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
     class="flex overflow-x-hidden w-full flex-column"
   >
     <div
-      class="flex flex-row padding-bottom-0-0-2-3"
+      class="flex flex-row padding-bottom-0-0-2-4"
     >
       <div
         class="p-tabmenu p-component"
@@ -9484,7 +9484,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
         <div />
       </div>
       <form
-        class="grid col align-self-start overflow-y-auto form-0-2-1"
+        class="grid col align-self-start overflow-y-auto form-0-2-2"
         style="max-height: 768px;"
       >
         <div
@@ -9494,7 +9494,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="edit"
             >
               <div
@@ -9625,7 +9625,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="habitat"
             >
               <div
@@ -9910,7 +9910,7 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
     class="flex overflow-x-hidden w-full"
   >
     <div
-      class="flex flex-row lg:col-2 padding-bottom-0-0-2-3"
+      class="flex flex-row lg:col-2 padding-bottom-0-0-2-4"
     >
       <div
         class="p-listbox p-component border-none"
@@ -10086,7 +10086,7 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
         <div />
       </div>
       <form
-        class="grid col align-self-start overflow-y-auto form-0-2-1"
+        class="grid col align-self-start overflow-y-auto form-0-2-2"
         style="max-height: 768px;"
       >
         <div
@@ -10097,7 +10097,7 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="a1"
             >
               <div
@@ -10182,7 +10182,7 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="a2"
             >
               <div
@@ -10355,7 +10355,7 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
         <div />
       </div>
       <form
-        class="grid col align-self-start overflow-y-auto form-0-2-1"
+        class="grid col align-self-start overflow-y-auto form-0-2-2"
         style="max-height: 768px;"
       >
         <div
@@ -10365,7 +10365,7 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="edit"
             >
               <div
@@ -10496,7 +10496,7 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="taxonomy"
             >
               <div
@@ -10514,7 +10514,7 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="reproduction"
             >
               <div
@@ -10604,7 +10604,7 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="morphology"
             >
               <div
@@ -10622,7 +10622,7 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="links"
             >
               <div
@@ -10820,7 +10820,7 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="habitat"
             >
               <div
@@ -11116,7 +11116,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
         <div />
       </div>
       <form
-        class="grid col align-self-start overflow-y-auto form-0-2-1"
+        class="grid col align-self-start overflow-y-auto form-0-2-2"
         style="max-height: 768px;"
       >
         <div
@@ -11129,7 +11129,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="edit"
             >
               <div
@@ -11271,7 +11271,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="taxonomy"
             >
               <div
@@ -11289,7 +11289,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="reproduction"
             >
               <div
@@ -11379,7 +11379,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="morphology"
             >
               <div
@@ -11397,7 +11397,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="links"
             >
               <div
@@ -11595,7 +11595,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="habitat"
             >
               <div
