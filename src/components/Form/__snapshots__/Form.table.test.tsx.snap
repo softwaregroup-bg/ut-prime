@@ -504,7 +504,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     >
                                       <input
                                         autocomplete="off"
-                                        class="p-inputtext p-component"
+                                        class="p-inputtext p-component p-filled"
                                         id="table1-0-time"
                                         inputmode="none"
                                         name="table1[0].time"
@@ -1393,6 +1393,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                           tabindex="-1"
                                         >
                                           <option
+                                            selected=""
                                             value=""
                                           />
                                         </select>

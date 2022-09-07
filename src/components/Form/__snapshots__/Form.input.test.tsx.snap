@@ -302,7 +302,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       >
                         <input
                           aria-valuenow="1234567890"
-                          class="p-inputtext p-component p-inputnumber-input text-right p-filled"
+                          class="p-inputtext p-component p-filled p-inputnumber-input text-right"
                           id="input-number"
                           inputmode="numeric"
                           name="input.number"
@@ -331,7 +331,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       >
                         <input
                           aria-valuenow="123456789"
-                          class="p-inputtext p-component p-inputnumber-input text-right p-filled"
+                          class="p-inputtext p-component p-filled p-inputnumber-input text-right"
                           id="input-currency"
                           inputmode="decimal"
                           name="input.currency"
@@ -360,7 +360,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       >
                         <input
                           aria-valuenow="1234567890"
-                          class="p-inputtext p-component p-inputnumber-input w-full text-right p-filled"
+                          class="p-inputtext p-component p-filled p-inputnumber-input w-full text-right"
                           id="input-integer"
                           inputmode="numeric"
                           name="input.integer"
@@ -482,9 +482,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                             tabindex="-1"
                           >
                             <option
-                              value=""
-                            />
-                            <option
+                              selected=""
                               value="1"
                             >
                               EUR

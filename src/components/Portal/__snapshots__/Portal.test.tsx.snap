@@ -28,16 +28,6 @@ exports[`<Portal /> render equals snapshot 1`] = `
           class="p-menubar p-component menuGrow-0-2-5"
           style="background: none;"
         >
-          <a
-            class="p-menubar-button"
-            href="#"
-            role="button"
-            tabindex="0"
-          >
-            <i
-              class="pi pi-bars"
-            />
-          </a>
           <ul
             class="p-menubar-root-list"
             role="menubar"

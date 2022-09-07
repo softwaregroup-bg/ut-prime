@@ -180,9 +180,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                               tabindex="-1"
                             >
                               <option
-                                value=""
-                              />
-                              <option
+                                selected=""
                                 value="1"
                               >
                                 Conifer
@@ -890,9 +888,7 @@ exports[`<Editor /> CascadedDropdowns render equals snapshot 1`] = `
                               tabindex="-1"
                             >
                               <option
-                                value=""
-                              />
-                              <option
+                                selected=""
                                 value="3"
                               >
                                 Europe
@@ -952,9 +948,7 @@ exports[`<Editor /> CascadedDropdowns render equals snapshot 1`] = `
                               tabindex="-1"
                             >
                               <option
-                                value=""
-                              />
-                              <option
+                                selected=""
                                 value="12"
                               >
                                 France
@@ -1014,9 +1008,7 @@ exports[`<Editor /> CascadedDropdowns render equals snapshot 1`] = `
                               tabindex="-1"
                             >
                               <option
-                                value=""
-                              />
-                              <option
+                                selected=""
                                 value="8"
                               >
                                 Paris
@@ -1207,7 +1199,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="person"
                             id="person"
-                            pr_id_7=""
+                            pr_id_5=""
                           >
                             <div
                               class="p-datatable-wrapper"
@@ -1527,7 +1519,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="document"
                             id="document"
-                            pr_id_8=""
+                            pr_id_6=""
                           >
                             <div
                               class="p-datatable-wrapper"
@@ -1918,7 +1910,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="attachment"
                             id="attachment"
-                            pr_id_9=""
+                            pr_id_7=""
                           >
                             <div
                               class="p-datatable-wrapper"
@@ -2650,9 +2642,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                               tabindex="-1"
                             >
                               <option
-                                value=""
-                              />
-                              <option
+                                selected=""
                                 value="1"
                               >
                                 Conifer
@@ -3039,7 +3029,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="tree-links"
                             id="tree-links"
-                            pr_id_6=""
+                            pr_id_4=""
                           >
                             <div
                               class="p-datatable-wrapper"
@@ -4031,7 +4021,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="person"
                             id="person"
-                            pr_id_11=""
+                            pr_id_9=""
                           >
                             <div
                               class="p-datatable-wrapper"
@@ -4187,7 +4177,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
                         >
                           <input
                             autocomplete="off"
-                            class="p-inputtext p-component"
+                            class="p-inputtext p-component p-filled"
                             id="$-edit-person-birthDate"
                             inputmode="none"
                             name="$.edit.person.birthDate"
@@ -4398,7 +4388,7 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="shape"
                             id="shape"
-                            pr_id_15=""
+                            pr_id_13=""
                           >
                             <div
                               class="p-datatable-wrapper"
@@ -4764,7 +4754,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="schedule"
                             id="schedule"
-                            pr_id_16=""
+                            pr_id_14=""
                           >
                             <div
                               class="p-datatable-wrapper"
@@ -5382,7 +5372,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="permission"
                             id="permission"
-                            pr_id_17=""
+                            pr_id_15=""
                           >
                             <div
                               class="p-datatable-wrapper"
@@ -7479,9 +7469,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
                               tabindex="-1"
                             >
                               <option
-                                value=""
-                              />
-                              <option
+                                selected=""
                                 value="1"
                               >
                                 Conifer
@@ -7726,7 +7714,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="tree-links"
                             id="tree-links"
-                            pr_id_21=""
+                            pr_id_19=""
                           >
                             <div
                               class="p-datatable-wrapper"
@@ -8296,9 +8284,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                               tabindex="-1"
                             >
                               <option
-                                value=""
-                              />
-                              <option
+                                selected=""
                                 value="1"
                               >
                                 Conifer
@@ -8535,7 +8521,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="tree-links"
                             id="tree-links"
-                            pr_id_19=""
+                            pr_id_17=""
                           >
                             <div
                               class="p-datatable-wrapper"
@@ -9550,9 +9536,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                               tabindex="-1"
                             >
                               <option
-                                value=""
-                              />
-                              <option
+                                selected=""
                                 value="1"
                               >
                                 Conifer
@@ -9943,11 +9927,11 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
             class="p-component p-panelmenu-header p-highlight"
           >
             <a
-              aria-controls="pr_id_18_content"
+              aria-controls="pr_id_16_content"
               aria-expanded="true"
               class="p-panelmenu-header-link"
               href="#"
-              id="pr_id_18_header"
+              id="pr_id_16_header"
             >
               <span
                 class="p-panelmenu-icon pi  pi-chevron-down"
@@ -9960,9 +9944,9 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
             </a>
           </div>
           <div
-            aria-labelledby="pr_id_18_header"
+            aria-labelledby="pr_id_16_header"
             class="p-toggleable-content p-toggleable-content-enter-done"
-            id="pr_id_18_content"
+            id="pr_id_16_content"
             role="region"
           >
             <div
@@ -10017,11 +10001,11 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
             class="p-component p-panelmenu-header"
           >
             <a
-              aria-controls="pr_id_18_content"
+              aria-controls="pr_id_16_content"
               aria-expanded="false"
               class="p-panelmenu-header-link"
               href="#"
-              id="pr_id_18_header"
+              id="pr_id_16_header"
             >
               <span
                 class="p-panelmenu-icon pi pi-chevron-right"
@@ -10412,9 +10396,7 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
                               tabindex="-1"
                             >
                               <option
-                                value=""
-                              />
-                              <option
+                                selected=""
                                 value="1"
                               >
                                 Conifer
@@ -10651,7 +10633,7 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="tree-links"
                             id="tree-links"
-                            pr_id_22=""
+                            pr_id_20=""
                           >
                             <div
                               class="p-datatable-wrapper"
@@ -11113,7 +11095,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                         class="flex align-items-center relative col-12 md:col-8"
                       >
                         <input
-                          class="p-inputtext p-component p-filled w-full p-invalid"
+                          class="p-inputtext p-component w-full p-invalid"
                           id="tree-treeName"
                           name="tree.treeName"
                           type="text"
@@ -11185,9 +11167,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                               tabindex="-1"
                             >
                               <option
-                                value=""
-                              />
-                              <option
+                                selected=""
                                 value="1"
                               >
                                 Conifer
@@ -11424,7 +11404,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="tree-links"
                             id="tree-links"
-                            pr_id_20=""
+                            pr_id_18=""
                           >
                             <div
                               class="p-datatable-wrapper"

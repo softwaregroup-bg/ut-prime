@@ -201,6 +201,7 @@ exports[`<Inspector /> Basic render equals snapshot 1`] = `
                                 tabindex="-1"
                               >
                                 <option
+                                  selected=""
                                   value=""
                                 />
                               </select>
@@ -258,6 +259,7 @@ exports[`<Inspector /> Basic render equals snapshot 1`] = `
                                 tabindex="-1"
                               >
                                 <option
+                                  selected=""
                                   value=""
                                 />
                               </select>
