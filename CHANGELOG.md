@@ -1,3 +1,17 @@
+# [2.14.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.13.3...v2.14.0) (2022-09-07)
+
+
+### Bug Fixes
+
+* upgrade primereact ([ad1dd97](https://github.com/softwaregroup-bg/ut-prime/commit/ad1dd9726a3a78f167658828aaf952558b51e0a8))
+
+
+### Features
+
+* register page ([33a5c88](https://github.com/softwaregroup-bg/ut-prime/commit/33a5c889ec51b7e44ff89be125408d8184dcd700))
+
+
+
 ## [2.13.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.13.2...v2.13.3) (2022-09-05)
 
 
