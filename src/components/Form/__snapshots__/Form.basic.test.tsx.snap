@@ -51,7 +51,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                       Name
                     </label>
                     <div
-                      class="col-12 md:col-8"
+                      class="flex align-items-center relative col-12 md:col-8"
                     >
                       <input
                         class="p-inputtext p-component p-filled w-full"
@@ -71,7 +71,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                       Description
                     </label>
                     <div
-                      class="col-12 md:col-8"
+                      class="flex align-items-center relative col-12 md:col-8"
                     >
                       <textarea
                         class="p-inputtextarea p-inputtext p-component w-full"
@@ -90,7 +90,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                       Type
                     </label>
                     <div
-                      class="col-12 md:col-8"
+                      class="flex align-items-center relative col-12 md:col-8"
                     >
                       <div
                         class="p-dropdown p-component p-inputwrapper p-inputwrapper-filled w-full"
@@ -200,7 +200,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                       Seed
                     </label>
                     <div
-                      class="col-12 md:col-8"
+                      class="flex align-items-center relative col-12 md:col-8"
                     >
                       <input
                         class="p-inputtext p-component w-full"
@@ -220,7 +220,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                       Flower
                     </label>
                     <div
-                      class="col-12 md:col-8"
+                      class="flex align-items-center relative col-12 md:col-8"
                     >
                       <input
                         class="p-inputtext p-component w-full"
@@ -240,7 +240,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                       Fruit
                     </label>
                     <div
-                      class="col-12 md:col-8"
+                      class="flex align-items-center relative col-12 md:col-8"
                     >
                       <input
                         class="p-inputtext p-component w-full"
@@ -284,162 +284,166 @@ exports[`<Form /> render equals snapshot 1`] = `
                     class="field grid mb-0"
                   >
                     <div
-                      class="col-12"
+                      class="flex align-items-center relative col-12"
                     >
                       <div
-                        class="p-toolbar p-component p-0 border-none"
-                        role="toolbar"
-                        style="background: none;"
+                        class="w-full"
                       >
                         <div
-                          class="p-toolbar-group-left"
+                          class="p-toolbar p-component p-0 border-none"
+                          role="toolbar"
+                          style="background: none;"
                         >
-                          <button
-                            aria-label="Add"
-                            class="p-button p-component p-button mr-2"
-                            data-testid="tree-links-addButton"
+                          <div
+                            class="p-toolbar-group-left"
                           >
-                            <span
-                              class="p-button-icon p-c p-button-icon-left pi pi-plus"
-                            />
-                            <span
-                              class="p-button-label p-c"
+                            <button
+                              aria-label="Add"
+                              class="p-button p-component p-button mr-2"
+                              data-testid="tree-links-addButton"
                             >
-                              Add
-                            </span>
-                          </button>
-                          <button
-                            aria-label="Delete"
-                            class="p-button p-component p-button p-disabled"
-                            data-testid="tree-links-deleteButton"
-                            disabled=""
-                          >
-                            <span
-                              class="p-button-icon p-c p-button-icon-left pi pi-trash"
-                            />
-                            <span
-                              class="p-button-label p-c"
+                              <span
+                                class="p-button-icon p-c p-button-icon-left pi pi-plus"
+                              />
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                Add
+                              </span>
+                            </button>
+                            <button
+                              aria-label="Delete"
+                              class="p-button p-component p-button p-disabled"
+                              data-testid="tree-links-deleteButton"
+                              disabled=""
                             >
-                              Delete
-                            </span>
-                          </button>
+                              <span
+                                class="p-button-icon p-c p-button-icon-left pi pi-trash"
+                              />
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                Delete
+                              </span>
+                            </button>
+                          </div>
+                          <div
+                            class="p-toolbar-group-right"
+                          />
                         </div>
                         <div
-                          class="p-toolbar-group-right"
-                        />
-                      </div>
-                      <div
-                        class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full"
-                        data-scrollselectors=".p-datatable-wrapper"
-                        data-testid="tree-links"
-                        id="tree-links"
-                        pr_id_1=""
-                      >
-                        <div
-                          class="p-datatable-wrapper"
+                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full"
+                          data-scrollselectors=".p-datatable-wrapper"
+                          data-testid="tree-links"
+                          id="tree-links"
+                          pr_id_1=""
                         >
-                          <table
-                            class="p-datatable-table"
-                            role="table"
+                          <div
+                            class="p-datatable-wrapper"
                           >
-                            <thead
-                              class="p-datatable-thead"
+                            <table
+                              class="p-datatable-table"
+                              role="table"
                             >
-                              <tr
-                                role="row"
+                              <thead
+                                class="p-datatable-thead"
                               >
-                                <th
-                                  class="p-selection-column"
-                                  role="columnheader"
-                                  style="width: 3rem;"
+                                <tr
+                                  role="row"
                                 >
-                                  <div
-                                    class="p-column-header-content"
+                                  <th
+                                    class="p-selection-column"
+                                    role="columnheader"
+                                    style="width: 3rem;"
                                   >
-                                    <span
-                                      class="p-column-title"
-                                    />
                                     <div
-                                      class="p-checkbox p-component"
+                                      class="p-column-header-content"
                                     >
+                                      <span
+                                        class="p-column-title"
+                                      />
                                       <div
-                                        class="p-checkbox-box p-component p-disabled"
-                                        role="checkbox"
+                                        class="p-checkbox p-component"
                                       >
-                                        <span
-                                          class="p-checkbox-icon"
-                                        />
+                                        <div
+                                          class="p-checkbox-box p-component p-disabled"
+                                          role="checkbox"
+                                        >
+                                          <span
+                                            class="p-checkbox-icon"
+                                          />
+                                        </div>
                                       </div>
                                     </div>
-                                  </div>
-                                </th>
-                                <th
-                                  class=""
-                                  role="columnheader"
-                                >
-                                  <div
-                                    class="p-column-header-content"
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
                                   >
-                                    <span
-                                      class="p-column-title"
+                                    <div
+                                      class="p-column-header-content"
                                     >
                                       <span
-                                        data-testid="tree-links-titleTitle"
+                                        class="p-column-title"
                                       >
-                                        Title
+                                        <span
+                                          data-testid="tree-links-titleTitle"
+                                        >
+                                          Title
+                                        </span>
                                       </span>
-                                    </span>
-                                  </div>
-                                </th>
-                                <th
-                                  class=""
-                                  role="columnheader"
-                                >
-                                  <div
-                                    class="p-column-header-content"
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
                                   >
-                                    <span
-                                      class="p-column-title"
+                                    <div
+                                      class="p-column-header-content"
                                     >
                                       <span
-                                        data-testid="tree-links-urlTitle"
+                                        class="p-column-title"
                                       >
-                                        Url
+                                        <span
+                                          data-testid="tree-links-urlTitle"
+                                        >
+                                          Url
+                                        </span>
                                       </span>
-                                    </span>
-                                  </div>
-                                </th>
-                                <th
-                                  class=""
-                                  role="columnheader"
-                                  style="width: 7rem;"
-                                >
-                                  <div
-                                    class="p-column-header-content"
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                    style="width: 7rem;"
                                   >
-                                    <span
-                                      class="p-column-title"
-                                    />
-                                  </div>
-                                </th>
-                              </tr>
-                            </thead>
-                            <tbody
-                              class="p-datatable-tbody"
-                            >
-                              <tr
-                                class="p-datatable-emptymessage"
-                                role="row"
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                    </div>
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody
+                                class="p-datatable-tbody"
                               >
-                                <td
-                                  colspan="4"
-                                  role="cell"
+                                <tr
+                                  class="p-datatable-emptymessage"
+                                  role="row"
                                 >
-                                  No results found
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
+                                  <td
+                                    colspan="4"
+                                    role="cell"
+                                  >
+                                    No results found
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
                         </div>
                       </div>
                     </div>

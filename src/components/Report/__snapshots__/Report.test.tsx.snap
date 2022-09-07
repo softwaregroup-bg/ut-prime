@@ -45,7 +45,7 @@ exports[`<Report /> render equals snapshot 1`] = `
                       Name
                     </label>
                     <div
-                      class="col-12 md:col-8"
+                      class="flex align-items-center relative col-12 md:col-8"
                     >
                       <input
                         class="p-inputtext p-component p-filled w-full"
@@ -65,7 +65,7 @@ exports[`<Report /> render equals snapshot 1`] = `
                       Start Date
                     </label>
                     <div
-                      class="col-12 md:col-8"
+                      class="flex align-items-center relative col-12 md:col-8"
                     >
                       <span
                         class="p-calendar p-component p-inputwrapper w-full p-calendar-w-btn p-calendar-w-btn-right"
@@ -106,7 +106,7 @@ exports[`<Report /> render equals snapshot 1`] = `
                       End Date
                     </label>
                     <div
-                      class="col-12 md:col-8"
+                      class="flex align-items-center relative col-12 md:col-8"
                     >
                       <span
                         class="p-calendar p-component p-inputwrapper w-full p-calendar-w-btn p-calendar-w-btn-right"
@@ -158,7 +158,7 @@ exports[`<Report /> render equals snapshot 1`] = `
     </button>
   </div>
   <div
-    class="flex flex-column h-full explorer-0-2-4"
+    class="flex flex-column explorer-0-2-4"
   >
     <div
       class="p-toast p-component p-toast-top-right"

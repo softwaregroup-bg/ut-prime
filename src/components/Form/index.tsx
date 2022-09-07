@@ -13,7 +13,6 @@ import Context from '../Context';
 import Card from '../Card';
 
 import useForm from '../hooks/useForm';
-import useToggle from '../hooks/useToggle';
 import useSubmit from '../hooks/useSubmit';
 import useLayout from '../hooks/useLayout';
 import useWindowSize from '../hooks/useWindowSize';
@@ -41,6 +40,7 @@ const flat = (e: Errors, path = '') => Object.entries(e).map(
 const outline = {outline: '1px dotted #ffff0030'};
 
 const Form: ComponentProps = ({
+    move,
     className,
     schema = {},
     editors,
@@ -51,6 +51,9 @@ const Form: ComponentProps = ({
     loading,
     methods,
     onSubmit,
+    inspected,
+    onInspect,
+    onChange,
     setTrigger,
     triggerNotDirty,
     autoSubmit,
@@ -74,21 +77,21 @@ const Form: ComponentProps = ({
         reset,
         formState: {
             errors,
-            isDirty
+            isDirty,
+            isSubmitting
         },
         watch,
         setError,
         clearErrors
     } = formApi;
     const errorFields = flat(errors);
-    const [, moved] = useToggle();
     const layoutState = useLayout(schema, cards, layout, editors);
 
     const {handleSubmit, toast} = useSubmit(
-        async form => {
+        async(form, event) => {
             try {
                 clearErrors();
-                return await onSubmit([form, layoutState.index]);
+                return await onSubmit([form, layoutState.index, event]);
             } catch (error) {
                 if (!Array.isArray(error.validation)) throw error;
                 error.validation.forEach(({path = [], message = ''} = {}) => {
@@ -103,66 +106,21 @@ const Form: ComponentProps = ({
         [onSubmit, setError, clearErrors, layoutState.index]
     );
 
-    const canSetTrigger = isDirty || triggerNotDirty;
+    const submit = React.useMemo(() => formSubmit(handleSubmit), [formSubmit, handleSubmit]);
+
+    const canSetTrigger = (isDirty || triggerNotDirty) && !isSubmitting;
     React.useEffect(() => {
-        if (setTrigger) setTrigger(canSetTrigger ? () => formSubmit(handleSubmit) : undefined);
-    }, [setTrigger, formSubmit, handleSubmit, isDirty, canSetTrigger]);
+        if (setTrigger) setTrigger(canSetTrigger ? () => submit : undefined);
+    }, [setTrigger, submit, isDirty, canSetTrigger]);
 
     React.useEffect(() => {
         const {$original, ...formValue} = value || {};
         reset({...formValue, $original: clonedeep(formValue)});
-    }, [value, reset]);
-
-    const move = React.useCallback((type: 'card' | 'field', source, destination) => {
-        if (type === 'field') {
-            const destinationList = cards[destination.card].widgets;
-            if (source.card === '/') {
-                destinationList.splice(destination.index, 0, source.index);
-            } else {
-                const sourceList = cards[source.card].widgets;
-                destinationList.splice(destination.index, 0, sourceList.splice(source.index, 1)[0]);
-            }
-        } else if (type === 'card') {
-            let [
-                destinationList,
-                destinationIndex
-            ] = (destination.index[1] === false) ? [
-                layoutState.visibleCards,
-                destination.index[0]
-            ] : [
-                layoutState.visibleCards[destination.index[0]],
-                destination.index[1]
-            ];
-            if (!Array.isArray(destinationList)) {
-                const card = layoutState.visibleCards[destination.index[0]];
-                if (typeof card === 'string') destinationList = layoutState.visibleCards[destination.index[0]] = [card];
-            }
-            if (source.index[0] === false && Array.isArray(destinationList)) {
-                destinationList.splice(destinationIndex, 0, source.card);
-                moved();
-                return;
-            }
-            const [
-                sourceList,
-                sourceIndex,
-                sourceNested
-            ] = (source.index[1] === false) ? [
-                layoutState.visibleCards,
-                source.index[0],
-                false
-            ] : [
-                layoutState.visibleCards[source.index[0]],
-                source.index[1],
-                true
-            ];
-            if (Array.isArray(sourceList) && Array.isArray(destinationList)) {
-                const removed = sourceList.splice(sourceIndex, 1)[0];
-                if (sourceList.length === 1 && sourceNested && sourceList !== destinationList) layoutState.visibleCards[source.index[0]] = sourceList[0];
-                destinationList.splice(destinationIndex, 0, removed);
-            }
+        if (watch && onChange) {
+            const watcher = watch(value => onChange(JSON.parse(JSON.stringify(value))));
+            return () => watcher.unsubscribe();
         }
-        moved();
-    }, [cards, moved, layoutState.visibleCards]);
+    }, [value, reset, loading, watch, onChange]);
 
     const {devTool} = React.useContext(Context);
     let toolbarElement = null;
@@ -177,6 +135,7 @@ const Form: ComponentProps = ({
             formApi={formApi}
             methods={methods}
             move={move}
+            submit={submit}
             toolbar
         />, toolbarRef.current);
     }
@@ -195,7 +154,7 @@ const Form: ComponentProps = ({
         {devTool ? <DevTool control={control} placement="top-right" /> : null}
         {toast}
         {toolbarElement}
-        <form {...rest} ref={formWrapRef} onSubmit={formSubmit(handleSubmit)} className={clsx('grid col align-self-start overflow-y-auto', classes.form, className)} style={{maxHeight: formHeight}}>
+        <form {...rest} ref={formWrapRef} onSubmit={submit} className={clsx('grid col align-self-start overflow-y-auto', classes.form, className)} style={{maxHeight: formHeight}}>
             {
                 !!Object.keys(errors).length && <div className='col-12'>
                     {errorFields.map(name => !layoutState.visibleProperties.includes(name) && <><small className="p-error">{get(errors, name)?.message}</small><br /></>)}
@@ -223,7 +182,10 @@ const Form: ComponentProps = ({
                                 loading={loading}
                                 formApi={formApi}
                                 methods={methods}
+                                submit={submit}
                                 move={move}
+                                inspected={inspected}
+                                onInspect={onInspect}
                         />
                         : null;
                 }).filter(Boolean);
@@ -233,7 +195,7 @@ const Form: ComponentProps = ({
                     <div key={level1} className={clsx('col-12', firstCard?.className || (!firstCard?.hidden && 'xl:col-6'))} {...(design || debug) && {style: outline}}>
                         {nestedCards}
                         <ConfigCard
-                            title='[ add card ]'
+                            title='&nbsp;'
                             className='card mb-3'
                             card=''
                             key={`${level1}-drop`}
@@ -248,7 +210,7 @@ const Form: ComponentProps = ({
             })}
             {design && <div className='col-12 xl:col-6' style={outline}>
                 <ConfigCard
-                    title='[ add card ]'
+                    title='&nbsp;'
                     className='card mb-3'
                     card=''
                     key={`${layoutState.visibleCards.length}-drop`}

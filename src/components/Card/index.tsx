@@ -12,16 +12,24 @@ import input from './input';
 import {CHANGE} from './const';
 import Controller from '../Controller';
 
-const inputClass = (index, classes, name, className) => ({
-    ...classes?.default,
-    ...classes?.[name]
-}.input || name === '' ? className : ((index.properties[name]?.title !== '' || className) ? `col-12 ${className || 'md:col-8'}` : 'col-12'));
+const getFieldClass = (index, classes, name, className) =>
+    name === '' ? className : clsx(
+        'flex align-items-center relative col-12', {
+            ...classes?.default,
+            ...classes?.[name]
+        }.field || ((index.properties[name]?.title !== '' || className) && (className || 'md:col-8'))
+    );
 
 const useStyles = createUseStyles({
     card: {
         '& .p-card-body': {
             '& .p-card-content': {
                 paddingBottom: 0
+            }
+        },
+        '& .p-chips': {
+            '& .p-inputtext': {
+                alignContent: 'flex-start'
             }
         }
     }
@@ -39,28 +47,36 @@ const Card: ComponentProps = ({
     design,
     formApi,
     value,
+    submit,
     move,
     toolbar,
+    inspected,
+    onInspect,
     classNames
 }) => {
     const classes = useStyles();
     const counter = React.useRef(0);
     const {formState, control, getValues, setValue, watch} = formApi || {};
     const InputWrap = React.useCallback(function Input({
-        label,
-        error,
+        Label,
+        ErrorLabel,
+        labelClass: defaultLabelClass,
         name,
         propertyName = name.replace('$.edit.', ''),
-        className,
+        classes,
         ...widget
     }) {
         widget.parent = widget.parent || name.match(/^\$\.edit\.[^.]+/)?.[0].replace('.edit.', '.selected.') || widget?.selectionPath;
         const parent = widget.parent || layoutState.index.properties[propertyName]?.widget?.parent;
         const parentWatch = parent && watch && watch(parent);
-        const inputWidget = {id: name.replace(/\./g, '-') || label, ...layoutState.index.properties[propertyName]?.widget, ...widget, parent};
+        const {fieldClass = null, labelClass = defaultLabelClass, ...inputWidget} = {id: name.replace(/\./g, '-') || widget.label, ...layoutState.index.properties[propertyName]?.widget, ...widget, parent};
+        if (!inputWidget.className) {
+            const inputClassName = classes?.default?.input || classes?.[name]?.input;
+            if (inputClassName) inputWidget.className = inputClassName;
+        }
         const render = ({field, fieldState}) => input(
-            label,
-            error,
+            Label && <Label name={propertyName} className={labelClass} label={widget.label}/>,
+            ErrorLabel && <ErrorLabel name={propertyName} className={labelClass} />,
             {
                 className: clsx({'w-full': !['boolean'].includes(inputWidget.type)}, { 'p-invalid': fieldState.error }),
                 ...field,
@@ -108,8 +124,8 @@ const Card: ComponentProps = ({
                     }
                 }
             },
-            inputClass(layoutState.index, classes, propertyName, className),
-            className,
+            getFieldClass(layoutState.index, classes, propertyName, fieldClass),
+            inputWidget.className,
             inputWidget,
             layoutState.index.properties[propertyName],
             dropdowns,
@@ -118,6 +134,7 @@ const Card: ComponentProps = ({
             getValues,
             counter,
             methods,
+            submit,
             !getValues && 'label'
         );
         return (name && control) ? <Controller
@@ -128,10 +145,10 @@ const Card: ComponentProps = ({
     }, [
         layoutState.index,
         layoutState.visibleProperties,
-        classes,
         dropdowns,
         loading,
         methods,
+        submit,
         getValues,
         setValue,
         control,
@@ -147,17 +164,17 @@ const Card: ComponentProps = ({
         [InputWrap]
     );
 
-    const Label = React.useCallback(({name, className = 'col-12 md:col-4', label = layoutState.index.properties?.[name]?.title}) => {
+    const Label = React.useCallback(({name, className = 'md:col-4', label = layoutState.index.properties?.[name]?.title}) => {
         if (label === undefined) label = titleCase(name.split('.').pop());
         return label
-            ? <label className={className} htmlFor={name.replace(/\./g, '-')}>{label}</label>
+            ? <label className={clsx('col-12', className)} htmlFor={name.replace(/\./g, '-')}>{label}</label>
             : null;
     }, [layoutState.index]);
 
-    const ErrorLabel = React.useCallback(({name, className = 'col-12 md:col-4'}) => {
+    const ErrorLabel = React.useCallback(({name, className = 'md:col-4'}) => {
         const error = get(formState?.errors, name);
         return error
-            ? <><small className={className}/><small className='col p-error'>{error.message}</small></>
+            ? <><small className={clsx('col-12', className)}/><small className='col p-error'>{error.message}</small></>
             : null;
     }, [formState?.errors]);
 
@@ -171,7 +188,7 @@ const Card: ComponentProps = ({
         const parent = name.match(/^\$\.edit\.[^.]+/)?.[0].replace('.edit.', '.selected.');
         const property = layoutState.index.properties[propertyName];
         const {
-            field: fieldClass = (typeof property === 'function') ? 'grid' : 'field grid',
+            widget: widgetClass = (typeof property === 'function') ? 'grid' : 'field grid',
             label: labelClass
         } = {...init, ...classes?.default, ...classes?.[propertyName]};
         function Field() {
@@ -185,23 +202,27 @@ const Card: ComponentProps = ({
             }
             return (
                 <InputWrap
+                    Label={Label}
+                    ErrorLabel={ErrorLabel}
                     propertyName={propertyName}
                     parent={parent}
                     name=''
+                    classes={classes}
+                    labelClass={labelClass}
                     {...widget as object}
-                    label={<Label name={propertyName} className={labelClass} label={widget.label}/>}
-                    error={<ErrorLabel name={propertyName} className={labelClass} />}
                 />
             );
         }
         return (property || name === '') ? <ConfigField
-            className={clsx(fieldClass, flex, !toolbar && !design && (ind === length - 1) && 'mb-0')}
-            key={id || name || widget.label}
+            className={clsx(widgetClass, flex, !toolbar && !design && (ind === length - 1) && 'mb-0')}
+            key={id || name || widget.label || ind}
             index={ind}
             card={cardName}
             move={move}
             design={design}
             name={name}
+            inspected={inspected}
+            onInspect={onInspect}
             label={property?.title}
         >
             {Field()}
@@ -211,12 +232,26 @@ const Card: ComponentProps = ({
     if (typeof cardName === 'object') cardName = cardName.name;
     const {label, widgets = [], flex, hidden, classes: cardClasses, type} = (cards[cardName] || {label: '❌ ' + cardName});
     if (type === 'toolbar') {
-        return <>
-            {widgets.length > 0 && widgets.map(field(widgets.length, flex, cardName, cardClasses, {field: '', label: ''}))}
-        </>;
+        return <div className='flex'>
+            {widgets.length > 0 && widgets.map(field(widgets.length, flex, cardName, cardClasses, {widget: '', label: ''}))}
+        </div>;
     }
     return (
-        <ConfigCard title={label} key={`${index1}-${index2}`} className={clsx('card', formApi && 'mb-3', classes.card)} card={cardName} id={cardName} index1={index1} index2={index2} move={move} flex={flex} design={design} hidden={hidden}>
+        <ConfigCard
+            title={label}
+            key={`${index1}-${index2}`}
+            className={clsx('card', formApi && 'mb-3', classes.card, cardClasses?.card)}
+            card={cardName}
+            id={cardName}
+            index1={index1}
+            index2={index2}
+            move={move}
+            flex={flex}
+            design={design}
+            hidden={hidden}
+            inspected={inspected}
+            onInspect={onInspect}
+        >
             {widgets.length > 0 && <div className={clsx(flex && 'flex flex-wrap', cardClasses?.default?.root)}>
                 {widgets.map(field(widgets.length, flex, cardName, cardClasses, classNames))}
             </div>}

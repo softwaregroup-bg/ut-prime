@@ -14,6 +14,7 @@ export interface PropertyEditor {
         'autocomplete' |
         'boolean' |
         'button' |
+        'chips' |
         'currency' |
         'date-time' |
         'date' |
@@ -35,6 +36,7 @@ export interface PropertyEditor {
         'select-table-radio' |
         'select' |
         'selectTable' |
+        'submit' |
         'string' |
         'table' |
         'text' |
@@ -118,9 +120,12 @@ export type WidgetReference = string | {
     title?: string,
     type?: PropertyEditor['type'],
     className?: string,
+    fieldClass?: string,
+    labelClass?: string,
     permission?: string,
     action?: string,
-    params?: object,
+    method?: string,
+    params?: object | string,
     selectionPath?: string,
     propertyName?: string,
     actions?: object,

@@ -126,6 +126,7 @@ const Explorer: ComponentProps = ({
 
     const buttons = React.useMemo(() => (toolbar || []).map(({title, action, params, enabled = true, permission}, index) => {
         const isEnabled = enabled => {
+            if (typeof enabled?.validate === 'function') return !enabled.validate({current, selected}).error;
             if (typeof enabled !== 'string') return !!enabled;
             switch (enabled) {
                 case 'current': return !!current;
@@ -289,7 +290,7 @@ const Explorer: ComponentProps = ({
     </>, [navigationToggle, buttons, hasChildren, resultSet]);
     const right = React.useMemo(() =>
         <>
-            <Button icon="pi pi-refresh" className="mr-2" onClick={load} />
+            <Button icon="pi pi-refresh" className="mr-2" onClick={load} {...testid(`${resultSet}.refreshButton`)}/>
             {details && <Button {...testid(`${resultSet}.details.toggleButton`)} icon="pi pi-bars" className="mr-2" onClick={detailsToggle}/>}
         </>,
     [details, detailsToggle, resultSet, load]);
@@ -307,7 +308,7 @@ const Explorer: ComponentProps = ({
                 methods={methods}
                 value={item}
                 classNames={{
-                    field: 'grid field justify-content-center'
+                    widget: 'grid field justify-content-center'
                 }}
             />;
             return keyField ? <div

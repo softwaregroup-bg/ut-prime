@@ -229,7 +229,8 @@ const Login: ComponentProps = ({
         const valid = validator.validateAll(allInputs);
         if (valid.isValid) {
             delete allInputs.confirmPassword;
-            dispatch({ ...await identityCheck(allInputs), type: 'login' });
+            const result = await identityCheck(allInputs);
+            if (result?.error) dispatch({ ...result, type: 'login' });
         } else {
             dispatch({...valid, type: 'error'});
         }

@@ -11,6 +11,8 @@ import dark from 'primereact/resources/themes/lara-dark-blue/theme.css';
 import lightCompact from 'primereact/resources/themes/saga-blue/theme.css';
 import darkCompact from 'primereact/resources/themes/vela-blue/theme.css';
 
+import useDarkMode from '../hooks/useDarkMode';
+
 let last;
 
 const themes = {
@@ -28,7 +30,15 @@ const themes = {
     }
 };
 
+type lazyCss = {
+    use: () => {
+        unuse: () => void
+    }
+}
 export interface Theme {
+    Switch?: React.FC,
+    dark?: lazyCss,
+    light?: lazyCss,
     ut: {
         classes: {
             headerLogo?: string,
@@ -83,23 +93,20 @@ export const useStyles = createUseStyles(({fontSize = 14}: Theme) => ({
 
 export const ThemeProvider = ({ theme, children }: { theme: Theme, children: React.ReactNode }) => {
     last?.unuse?.();
+    const [isDark, Switch] = useDarkMode();
     switch (theme?.name || theme?.palette?.type) {
         case 'custom':
-            last = null;
-            break;
-        case 'dark':
-            last = dark?.use?.();
+            last = isDark ? theme?.dark?.use?.() : theme?.light?.use?.();
             break;
         case 'dark-compact':
-            last = darkCompact?.use?.();
-            break;
         case 'light-compact':
-            last = lightCompact?.use?.();
+            last = isDark ? darkCompact?.use?.() : lightCompact?.use?.();
             break;
+        case 'dark':
         default:
-            last = light?.use?.();
+            last = isDark ? dark?.use?.() : light?.use?.();
     }
-    const appTheme = React.useMemo(() => merge({}, themes[theme?.palette?.type || 'dark-compact'] || themes['dark-compact'], theme), [theme]);
+    const appTheme = React.useMemo(() => merge({Switch}, themes[theme?.palette?.type || 'dark-compact'] || themes['dark-compact'], theme), [theme, Switch]);
     useStyles(appTheme);
     return <Provider theme={appTheme}>{children}</Provider>;
 };

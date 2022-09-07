@@ -8,11 +8,13 @@ export interface menuItem {
 }
 
 interface contextType {
+    customization: boolean,
     portalName: string,
     devTool?: boolean
 }
 
 const defaultContext: contextType = {
+    customization: false,
     portalName: 'Administration Portal',
     devTool: true
 };

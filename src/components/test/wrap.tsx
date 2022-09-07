@@ -27,7 +27,7 @@ function Wrap({
         <DndProvider backend={HTML5Backend}>
             <Store state={merge({}, defaultState, state)}>
                 <ThemeProvider theme={theme}>
-                    <Context.Provider value={{portalName, devTool: true}}>
+                    <Context.Provider value={{portalName, devTool: true, customization: true}}>
                         {children}
                     </Context.Provider>
                 </ThemeProvider>

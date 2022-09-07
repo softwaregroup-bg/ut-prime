@@ -170,6 +170,18 @@ exports[`<App /> render equals snapshot 1`] = `
                 </li>
               </ul>
             </div>
+            <button
+              class="p-button p-component p-button-icon-only"
+            >
+              <span
+                class="p-button-icon p-c pi pi-sun"
+              />
+              <span
+                class="p-button-label p-c"
+              >
+                 
+              </span>
+            </button>
             <div
               class="p-menubar p-component menu-0-2-11"
               style="background: none;"

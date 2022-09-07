@@ -9,8 +9,8 @@ export const CustomEditors = () => {
                 <ErrorLabel/>
                 <div className='field grid w-full mx-0'>
                     <Label className='md:col-2' name='period' />
-                    <Input className='md:col-4' name='period' />
-                    <Input className='md:col-6' name='unit' />
+                    <Input fieldClass='md:col-4' name='period' />
+                    <Input fieldClass='md:col-6' name='unit' />
                 </div>
             </>
         );

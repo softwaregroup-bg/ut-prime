@@ -7,6 +7,7 @@ export interface Props extends StoreProps, React.HTMLAttributes<HTMLDivElement> 
      * Theme parameters
      */
     theme: Theme,
+    customization?: boolean,
     portalName: string,
     devTool?: boolean,
     loginPage?: string

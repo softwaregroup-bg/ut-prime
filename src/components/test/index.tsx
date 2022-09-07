@@ -6,6 +6,7 @@ import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import merge from 'ut-function.merge';
 
+import Context from '../Context';
 import Store from '../Store';
 import {State} from '../Store/Store.types';
 import defaultState from './state';
@@ -24,9 +25,11 @@ export function render(children: React.ReactNode, initialStore: State = {}) : Re
     const store = <DndProvider backend={HTML5Backend}>
         <Store state={merge({}, defaultState, initialStore)}>
             <ThemeProvider theme={theme}>
-                <div data-testid="ut-front-test">
-                    {children}
-                </div>
+                <Context.Provider value={{portalName: 'Administration Portal', customization: true}}>
+                    <div data-testid="ut-front-test">
+                        {children}
+                    </div>
+                </Context.Provider>
             </ThemeProvider>
         </Store>
     </DndProvider>;
