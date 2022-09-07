@@ -10,7 +10,8 @@ export interface Props extends StoreProps, React.HTMLAttributes<HTMLDivElement> 
     customization?: boolean,
     portalName: string,
     devTool?: boolean,
-    loginPage?: string
+    loginPage?: string,
+    registrationPage?: string
 }
 
 export type ComponentProps = React.FC<Props>

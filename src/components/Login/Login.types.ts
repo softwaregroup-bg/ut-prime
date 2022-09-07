@@ -7,6 +7,7 @@ import error from '../images/error.png';
 
 export interface ILoginProps {
     identityCheck: (params: object) => Promise<{error?: {type: string, message: string}}>;
+    register?: string
 }
 
 export const useStyles = createUseStyles({
@@ -20,21 +21,21 @@ export const useStyles = createUseStyles({
         transform: 'translateY(-50%)'
     },
     loginLogo: {
-        width: '420px',
-        height: '80px'
+        width: 380,
+        height: 80
     },
     loginPageHeader: {
-        marginBottom: '55px',
+        marginBottom: 30,
         background: `url(${topImage}) no-repeat center`
     },
     loginPageFooter: {
-        marginTop: '55px',
+        marginTop: 30,
         background: `url(${bottomImage}) no-repeat center`
     },
     loginForm: {
         boxSizing: 'border-box',
-        width: 420,
-        padding: '30px 60px',
+        width: 380,
+        padding: '2rem',
         backgroundColor: 'var(--surface-50)',
         borderWidth: 1,
         borderType: 'solid'

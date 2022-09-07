@@ -29,6 +29,7 @@ export { Menubar } from 'primereact/menubar';
 export { MultiSelect } from './multiselect/MultiSelect';
 export { PanelMenu } from 'primereact/panelmenu';
 export { Password } from 'primereact/password';
+export { ProgressSpinner } from 'primereact/progressspinner';
 export { RadioButton } from 'primereact/radiobutton';
 export { Ripple } from 'primereact/ripple';
 export { SelectButton } from 'primereact/selectbutton';
