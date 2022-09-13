@@ -50,6 +50,13 @@ export const useStyles = createUseStyles({
             border: 0
         }
     },
+    '@media (max-width: 960px)': {
+        menu: {
+            '&.p-menubar': {
+                flexGrow: 1
+            }
+        }
+    },
     rightMenu: {
         '&.p-menubar': {
             border: 0
