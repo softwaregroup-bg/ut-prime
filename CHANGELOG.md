@@ -1,3 +1,12 @@
+## [2.15.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.15.0...v2.15.1) (2022-09-13)
+
+
+### Bug Fixes
+
+* menubar for small screen ([ac68d58](https://github.com/softwaregroup-bg/ut-prime/commit/ac68d587a632ffd08031fae3200279810897d4b2))
+
+
+
 # [2.15.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.14.1...v2.15.0) (2022-09-13)
 
 
