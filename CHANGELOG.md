@@ -1,3 +1,17 @@
+# [2.15.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.14.1...v2.15.0) (2022-09-13)
+
+
+### Bug Fixes
+
+* right menu ([94ff219](https://github.com/softwaregroup-bg/ut-prime/commit/94ff21901ffa30d0ed7cfda8157f730b7b23c9f9))
+
+
+### Features
+
+* explorer layouts ([fdf700d](https://github.com/softwaregroup-bg/ut-prime/commit/fdf700d7a69710617cc2ed4eceecb5ac2346e991))
+
+
+
 ## [2.14.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.14.0...v2.14.1) (2022-09-08)
 
 
