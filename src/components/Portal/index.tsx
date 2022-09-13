@@ -67,7 +67,7 @@ const Portal: ComponentProps = ({ children }) => {
         menu,
         menuClass = 'menuGrow',
         rightMenu,
-        rightMenuClass = 'menu',
+        rightMenuClass = 'rightMenu',
         rightMenuItems
     } = useSelector(({portal}: State) => portal || {
         tabs: undefined,
