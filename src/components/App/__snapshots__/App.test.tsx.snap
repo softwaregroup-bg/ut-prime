@@ -183,7 +183,7 @@ exports[`<App /> render equals snapshot 1`] = `
               </span>
             </button>
             <div
-              class="p-menubar p-component menu-0-2-11"
+              class="p-menubar p-component rightMenu-0-2-12"
               style="background: none;"
             >
               <a

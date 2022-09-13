@@ -1,7 +1,7 @@
 import React from 'react';
 import { DataTableProps, DataViewProps } from '../prime';
 
-import type {Schema, Cards, Editors, Dropdowns, Action, WidgetReference, Layout} from '../types';
+import type {Schema, Cards, Editors, Dropdowns, WidgetReference, Layout, Layouts} from '../types';
 
 export interface Props {
     /**
@@ -37,16 +37,16 @@ export interface Props {
         pagination?: {
             recordsTotal: number
         },
-        [data: string]: any
+        [data: string]: unknown
     }>;
-    subscribe?: (callback: (rows: any) => void) => () => void;
+    subscribe?: (callback: (rows: [] | Record<string, object>) => void) => () => void;
     onDropdown?: (params: string[]) => Promise<Dropdowns>,
     className?: string;
     /**
      * Fields to show in the details pane.
      */
-    details?: boolean | object;
-    toolbar?: Action[];
+    details?: object;
+    toolbar?: false | WidgetReference[];
     filter?: object;
     index?: object;
     showFilter?: boolean;
@@ -55,8 +55,8 @@ export interface Props {
     editors?: Editors;
     view?: DataViewProps;
     cards?: Cards;
-    layout?: Layout,
-    layouts?: string[];
+    layout?: string | Layout;
+    layouts?: Layouts;
     methods?: object;
 }
 

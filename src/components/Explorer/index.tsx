@@ -69,11 +69,18 @@ const Explorer: ComponentProps = ({
     pageSize = 10,
     table: tableProps,
     view: viewProps,
+    layouts,
     layout,
     cards,
     editors,
     methods
 }) => {
+    if (typeof layout === 'string') {
+        const current = layouts[layout];
+        if ('columns' in current) columns = cards[current.columns].widgets;
+        if ('toolbar' in current) toolbar = cards[current.toolbar].widgets;
+        layout = ('layout' in current) ? current.layout : [];
+    }
     const classes = useStyles();
     const {properties} = schema;
     const [tableFilter, setFilters] = React.useState<TableFilter>({
@@ -114,17 +121,24 @@ const Explorer: ComponentProps = ({
         selected
     }), [current, keyField, selected]);
 
-    const buttons = React.useMemo(() => (toolbar || []).map(({title, action, params, enabled = true, permission}, index) => {
-        const isEnabled = enabled => {
-            if (typeof enabled?.validate === 'function') return !enabled.validate({current, selected}).error;
-            if (typeof enabled !== 'string') return !!enabled;
-            switch (enabled) {
+    const buttons = React.useMemo(() => (toolbar || []).map((widget, index) => {
+        const {title, action, params, enabled, disabled, permission} = (typeof widget === 'string') ? properties[widget].widget : widget;
+        const check = criteria => {
+            if (typeof criteria?.validate === 'function') return !criteria.validate({current, selected}).error;
+            if (typeof criteria !== 'string') return !!criteria;
+            switch (criteria) {
                 case 'current': return !!current;
                 case 'selected': return selected && selected.length > 0;
                 case 'single': return selected && selected.length === 1;
                 default: return false;
             }
         };
+        const isDisabled =
+            enabled != null
+                ? !check(enabled)
+                : disabled != null
+                    ? check(disabled)
+                    : undefined;
         return (
             <Permission key={index} permission={permission}>
                 <ActionButton
@@ -133,13 +147,13 @@ const Explorer: ComponentProps = ({
                     action={action}
                     params={params}
                     getValues={getValues}
-                    disabled={!isEnabled(enabled)}
+                    disabled={isDisabled}
                     className="mr-2"
                 />
             </Permission>
         );
     }
-    ), [toolbar, current, selected, getValues]);
+    ), [toolbar, current, selected, getValues, properties]);
     const {toast, handleSubmit: load} = useSubmit(
         async function() {
             if (!fetch) {
@@ -167,10 +181,10 @@ const Explorer: ComponentProps = ({
                             }
                         }
                     ), index]));
-                    const records = resultSet ? items[resultSet] : items;
+                    const records = (resultSet ? items[resultSet] : items) as unknown[];
                     let total = items.pagination && items.pagination.recordsTotal;
                     if (total == null) {
-                        total = (records && records.length) || 0;
+                        total = (Array.isArray(records) && records.length) || 0;
                         if (total === pageSize) total++;
                         total = tableFilter.first + total;
                     }
@@ -187,7 +201,7 @@ const Explorer: ComponentProps = ({
         load();
         if (subscribe) {
             return subscribe(rows => {
-                setItems(([items, totalRecords]) => [(Array.isArray(rows) || !keyField) ? rows : items.map(item => {
+                setItems(([items, totalRecords]) => [(Array.isArray(rows) || !keyField) ? rows as unknown[] : items.map(item => {
                     const update = rows[item[keyField]];
                     return update ? {...item, ...update} : item;
                 }), totalRecords]);
@@ -227,20 +241,28 @@ const Explorer: ComponentProps = ({
         const isString = typeof column === 'string';
         const {name, ...widget} = isString ? {name: column} : column;
         const property = lodashGet(properties, name?.replace(/\./g, '.properties.'));
+        const action = widget.action ?? property?.action;
         const field = name.split('.').pop();
         return (
             <Column
                 key={name}
-                body={property?.action && (row => <Button
+                body={action && (row => <ActionButton
                     {...testid(`${resultSet || 'filterBy'}.${field}Item/${row && row[keyField]}`)}
                     label={row[field]}
                     style={actionButtonStyle}
                     className='p-button-link'
-                    onClick={() => property.action({
+                    action={action}
+                    params={widget.params ?? property?.params}
+                    getValues={() => ({
                         id: row && row[keyField],
                         current: row,
                         selected: [row]
                     })}
+                    // onClick={() => property.action({
+                    //     id: row && row[keyField],
+                    //     current: row,
+                    //     selected: [row]
+                    // })}
                 />)}
                 filter={showFilter && !!property?.filter}
                 sortable={!!property?.sort}
@@ -285,7 +307,7 @@ const Explorer: ComponentProps = ({
         return renderItem();
     }, [cards, layoutState, dropdowns, methods, keyField, resultSet, cardName]);
 
-    const table = layout ? <DataView
+    const table = layout?.length ? <DataView
         layout='grid'
         lazy
         gutter
@@ -329,7 +351,7 @@ const Explorer: ComponentProps = ({
         <div className={clsx('flex', 'flex-column', 'h-full', classes.explorer, className)}>
             {toast}
             {
-                buttons?.length || nav || detailsPanel
+                (toolbar !== false) || nav || detailsPanel
                     ? <Toolbar left={left} right={right} style={backgroundNone} className='border-none' />
                     : null
             }

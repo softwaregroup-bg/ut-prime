@@ -80,9 +80,9 @@ const Report: ComponentProps = ({
             <Explorer
                 fetch={filter.length > 1 && fetch}
                 schema={schema?.properties?.result}
+                toolbar={false}
                 columns={columns}
                 resultSet={resultSet}
-                details={false}
                 filter={explorerFilter[0]}
                 index={explorerFilter[1]}
                 showFilter={false}

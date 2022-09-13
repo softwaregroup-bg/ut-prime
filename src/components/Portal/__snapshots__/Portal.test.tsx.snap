@@ -34,7 +34,7 @@ exports[`<Portal /> render equals snapshot 1`] = `
           />
         </div>
         <div
-          class="p-menubar p-component menu-0-2-6"
+          class="p-menubar p-component rightMenu-0-2-7"
           style="background: none;"
         >
           <a
