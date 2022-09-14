@@ -1,6 +1,5 @@
 import React from 'react';
 import clsx from 'clsx';
-import {createUseStyles} from 'react-jss';
 
 import { ListBox, PanelMenu, TabMenu, Ripple } from '../prime';
 import { ComponentProps } from './ThumbIndex.types';
@@ -8,14 +7,7 @@ import testid from '../lib/testid';
 
 import useWindowSize from '../hooks/useWindowSize';
 
-const useStyles = createUseStyles({
-    'padding-bottom-0': {
-        paddingBottom: 0
-    }
-});
-
 const ThumbIndex: ComponentProps = ({ name, className, items, orientation = 'left', children, onFilter, ...rest }) => {
-    const classes = useStyles();
     const [[selectedList, activeIndex], setList] = React.useState([items[0], 0]);
     const handleListChange = React.useCallback(({value, index}) => {
         if (index === undefined) index = value.index;
@@ -71,7 +63,7 @@ const ThumbIndex: ComponentProps = ({ name, className, items, orientation = 'lef
     }, [windowSize.height]);
 
     return (
-        <div className={clsx('flex flex-row', {'lg:col-2': !!model?.length}, className, classes['padding-bottom-0'])} {...rest}>
+        <div className={clsx('flex flex-row pb-0', {'lg:col-2': !!model?.length}, className)} {...rest}>
             {tabs}
             {!!model?.length && <div className='w-full' ref={panelMenuRef}>
                 <PanelMenu

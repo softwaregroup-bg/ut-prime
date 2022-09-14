@@ -20,7 +20,7 @@ exports[`<Inspector /> Basic render equals snapshot 1`] = `
           <div />
         </div>
         <form
-          class="grid col align-self-start overflow-y-auto form-0-2-3"
+          class="grid col align-self-start overflow-y-auto form-0-2-2"
           style="max-height: 768px;"
         >
           <div
@@ -30,7 +30,7 @@ exports[`<Inspector /> Basic render equals snapshot 1`] = `
               class="w-full"
             >
               <div
-                class="p-card p-component card mb-3 card-0-2-4"
+                class="p-card p-component card mb-3 card-0-2-3"
                 id="edit"
               >
                 <div
