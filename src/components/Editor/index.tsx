@@ -25,8 +25,8 @@ import testid from '../lib/testid';
 import type {Cards, Layouts, Schema} from '../types';
 
 const useStyles = createUseStyles({
-    'padding-0': {
-        padding: 0
+    'padding-right-0': {
+        paddingRight: 0
     }
 });
 
@@ -540,10 +540,10 @@ const Editor: ComponentProps = ({
                         toolbarRef={toolbarRef}
                         toolbar={toolbarName}
                     />
-                    {design && <div style={{maxHeight: editorHeight}} className={clsx('col-2 flex-column overflow-y-auto', classes['padding-0'])}>
+                    {design && <div style={{maxHeight: editorHeight}} className={clsx('col-2 flex-column', classes['padding-right-0'])}>
                         {inspected ? <Inspector
                             Editor={Editor}
-                            className='w-full'
+                            className={clsx('w-full overflow-y-auto')}
                             onChange={setCustomization}
                             object={inspected.type === 'card' ? mergedCards : mergedSchema}
                             property={inspected.type === 'card' ? inspected.name : `properties.${inspected.name.split('.').join('.properties.')}`}
