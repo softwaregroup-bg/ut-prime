@@ -1,3 +1,12 @@
+# [2.16.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.15.1...v2.16.0) (2022-09-14)
+
+
+### Features
+
+* ActionButton link handling ([5dd833a](https://github.com/softwaregroup-bg/ut-prime/commit/5dd833aed16ab66fa0c605f6e6b8d21f434654cd))
+
+
+
 ## [2.15.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.15.0...v2.15.1) (2022-09-13)
 
 
