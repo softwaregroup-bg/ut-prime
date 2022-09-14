@@ -398,21 +398,21 @@ const Explorer: ComponentProps = ({
                     ? <Toolbar left={left} right={right} style={backgroundNone} className='border-none' />
                     : null
             }
-                {
-                    (nav || detailsPanel)
-                        ? <div ref={splitterWrapRef}>
-                            <Splitter style={{...flexGrow, height: splitterHeight}}>
-                                {[
-                                    nav,
-                                    <SplitterPanel style={{height: splitterPanelHeight}} key='items' size={nav ? detailsPanel ? 75 : 85 : 90}>
-                                        {table}
-                                    </SplitterPanel>,
-                                    detailsPanel
-                                ].filter(Boolean)}
-                            </Splitter>
-                        </div>
-                        : table
-                }
+            {
+                (nav || detailsPanel)
+                    ? <div ref={splitterWrapRef}>
+                        <Splitter style={{...flexGrow, height: splitterHeight}}>
+                            {[
+                                nav,
+                                <SplitterPanel style={{height: splitterPanelHeight}} key='items' size={nav ? detailsPanel ? 75 : 85 : 90}>
+                                    {table}
+                                </SplitterPanel>,
+                                detailsPanel
+                            ].filter(Boolean)}
+                        </Splitter>
+                    </div>
+                    : table
+            }
         </div>
     );
 };
