@@ -8,11 +8,12 @@ import Main from '../Main';
 import Context from '../Context';
 import Store from '../Store';
 import { ThemeProvider } from '../Theme';
+import Component from '../Component';
 
 import { ComponentProps } from './App.types';
 import PageNotFound from './PageNotFound';
 
-const App: ComponentProps = ({middleware, reducers, theme, devTool, portalName, customization, state, onDispatcher, loginPage}) => {
+const App: ComponentProps = ({middleware, reducers, theme, devTool, portalName, customization, state, onDispatcher, loginPage, registrationPage}) => {
     const context = React.useMemo(() => ({portalName, devTool, customization}), [portalName, devTool, customization]);
 
     return (
@@ -22,10 +23,13 @@ const App: ComponentProps = ({middleware, reducers, theme, devTool, portalName, 
                     <Context.Provider value={context}>
                         <Switch>
                             <Route path='/login'>
-                                <LoginPage />
+                                <LoginPage register={registrationPage}/>
                             </Route>
                             <Route path='/sso/:appId/:ssoOrigin/login'>
-                                <LoginPage />
+                                <LoginPage register={registrationPage}/>
+                            </Route>
+                            <Route path='/register'>
+                                <Component page={registrationPage} />
                             </Route>
                             <Route>
                                 <Main loginPage={loginPage}/>

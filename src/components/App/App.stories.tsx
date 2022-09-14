@@ -13,6 +13,7 @@ const meta: Meta = {
 export default meta;
 
 export const Basic: React.FC<object> = ({children}) => {
+    history.replaceState({}, '', '#');
     return <App
         portalName='test app'
         state={state}
@@ -24,6 +25,32 @@ export const Basic: React.FC<object> = ({children}) => {
                 type: 'dark-compact'
             }
         }}
+    >
+        {children}
+    </App>;
+};
+
+export const Register: React.FC<object> = ({children}) => {
+    history.replaceState({}, '', '#');
+    return <App
+        portalName='test app'
+        state={{...state, login: null}}
+        theme={{
+            ut: {
+                classes: {}
+            },
+            palette: {
+                type: 'dark-compact'
+            }
+        }}
+        registrationPage = 'user.self.add'
+        middleware = {[
+            _store => next => action => (action.type === 'portal.component.get')
+                ? Promise.resolve(function Register() {
+                    return <div className='p-component'>Registration page: {action.page}</div>;
+                })
+                : next(action)
+        ]}
     >
         {children}
     </App>;

@@ -53,7 +53,7 @@ export interface State {
         menu: MenuItem[];
         menuClass?: 'menu' | 'menuGrow';
         rightMenu?: MenuItem[];
-        rightMenuClass?: 'menu' | 'menuGrow';
+        rightMenuClass?: 'menu' | 'menuGrow' | 'rightMenu';
         rightMenuItems?: MenuItem[]
     };
 }

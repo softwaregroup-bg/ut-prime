@@ -115,9 +115,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                             tabindex="-1"
                           >
                             <option
-                              value=""
-                            />
-                            <option
+                              selected=""
                               value="1"
                             >
                               Conifer

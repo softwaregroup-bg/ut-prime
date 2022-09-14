@@ -65,7 +65,7 @@ exports[`<Login /> render equals snapshot 1`] = `
           </span>
         </div>
         <div
-          class="field col-12 p-2"
+          class="field col-12 p-2 mb-0"
         >
           <button
             aria-label="Login"
@@ -85,5 +85,8 @@ exports[`<Login /> render equals snapshot 1`] = `
       class="loginLogo-0-2-2 loginPageFooter-0-2-4"
     />
   </div>
+  <div
+    class="fixed m-2 right-0"
+  />
 </div>
 `;

@@ -49,6 +49,26 @@ export const useStyles = createUseStyles({
         '&.p-menubar': {
             border: 0
         }
+    },
+    '@media (max-width: 960px)': {
+        menu: {
+            '&.p-menubar': {
+                flexGrow: 1
+            }
+        }
+    },
+    rightMenu: {
+        '&.p-menubar': {
+            border: 0
+        },
+        '&.p-menubar ul.p-submenu-list': {
+            right: 0
+        },
+        '&.p-menubar.p-menubar-mobile-active ul.p-menubar-root-list': {
+            right: 0,
+            left: 'initial',
+            minWidth: 200
+        }
     }
 });
 

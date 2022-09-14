@@ -5,6 +5,7 @@ import type { MenuItem } from 'primereact/menuitem';
 import type { DataTableProps } from 'primereact/datatable';
 import type { DataViewProps } from 'primereact/dataview';
 import type { ColumnProps } from 'primereact/column';
+import Joi from 'joi';
 
 export type DataTable = Omit<DataTableProps, 'children'>;
 export type DataView = Omit<DataViewProps, 'children'>;
@@ -85,10 +86,10 @@ export interface Editors {
 export interface Property extends JSONSchema7 {
     filter?: boolean;
     sort?: boolean;
-    action?: ({
-        id: any,
+    action?: (action: {
+        id: unknown,
         current: object,
-        selected: array
+        selected: unknown[]
     }) => void;
     body?: string;
     widget?: PropertyEditor,
@@ -113,6 +114,13 @@ export interface PropertyEditors {
     [name: string]: Property | Editor
 }
 
+export type Selection = {
+    id: string | number,
+    current: object,
+    selected: object[]
+}
+export type ActionHandler = ((item: Selection) => void) | string
+
 export type WidgetReference = string | {
     name?: string,
     id?: string,
@@ -123,7 +131,7 @@ export type WidgetReference = string | {
     fieldClass?: string,
     labelClass?: string,
     permission?: string,
-    action?: string,
+    action?: ActionHandler,
     method?: string,
     params?: object | string,
     selectionPath?: string,
@@ -133,7 +141,8 @@ export type WidgetReference = string | {
     hidden?: string[],
     compare?: string,
     filter?: object,
-    disabled?: boolean
+    disabled?: 'current' | 'selected' | 'single' | boolean | Joi.Schema,
+    enabled?: 'current' | 'selected' | 'single' | boolean | Joi.Schema
 }
 export interface Card {
     label?: string;
@@ -172,17 +181,18 @@ interface Index extends MenuItem {
     orientation?: 'left' | 'top';
     items?: IndexItem[];
 }
+
+export type Layout = (WidgetReference | WidgetReference[])[];
+
 export interface Layouts {
-    [name: string]: (string | string[])[] | Index | IndexItemId[]
+    [name: string]: (string | string[])[] | Index | IndexItemId[] | {
+        columns: string,
+        toolbar?: string
+    } | {
+        layout: Layout
+    }
 }
 
-export type Selection = {
-    id: string | number,
-    current: object,
-    selected: object[]
-}
-
-export type ActionHandler = ((item: Selection) => void) | string
 export interface Action {
     title: string;
     permission?: string;
@@ -190,5 +200,3 @@ export interface Action {
     action: ActionHandler;
     params?: object;
 }
-
-export type Layout = (WidgetReference | WidgetReference[])[];

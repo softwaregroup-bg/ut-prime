@@ -11,7 +11,7 @@ const ActionButton: ComponentProps = ({getValues, action, params, ...props}) => 
         event.preventDefault();
         if (typeof action === 'function') return action(getValues?.());
         dispatch({
-            type: 'front.form.action',
+            type: 'front.button.action',
             method: 'handle.action',
             params: [{action, params}, getValues?.()]
         });

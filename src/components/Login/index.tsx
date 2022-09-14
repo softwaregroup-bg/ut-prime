@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect, useSelector } from 'react-redux';
 import clsx from 'clsx';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { useTheme } from 'react-jss';
 
 import type { Theme } from '../Theme';
@@ -202,7 +202,8 @@ const initialState: LoginState = {
 };
 
 const Login: ComponentProps = ({
-    identityCheck
+    identityCheck,
+    register
 }) => {
     const {
         loginContainer,
@@ -216,7 +217,8 @@ const Login: ComponentProps = ({
         errorMessage,
         formContainer
     } = useStyles();
-    const {ut} = useTheme<Theme>();
+    const {ut, Switch} = useTheme<Theme>();
+    const history = useHistory();
     const authenticated = useSelector((state: State) => state.login);
 
     const [{ title, error, invalidField, inputs, buttonLabel }, dispatch] = React.useReducer(reducer, initialState);
@@ -238,47 +240,54 @@ const Login: ComponentProps = ({
 
     const autoFocus = inputs.find(({disabled}) => !disabled)?.name;
 
-    return (<div className={clsx('p-component', loginContainer)}>
-        <div className={clsx(loginLogo, loginPageHeader, ut?.classes?.loginTop)} />
-        <div className={clsx(loginForm, 'shadow-3')}>
-            {title && <div className={loginTitle}><Text>{title}</Text></div>}
-            {error && <div className={formError}>
-                <div className={errorIcon} />
-                <div className={errorMessage}>{error}</div>
-            </div>}
-            <form className={clsx('card', formContainer)} onSubmit={handleSubmit} autoComplete='off'>
-                {inputs.map(({ name, type, label, disabled }) =>
-                    <div key={name} className='field col-12 p-2'>
-                        <span className='p-float-label'>
-                            {
-                                type === 'text'
-                                    ? <InputText
-                                            name={name}
-                                            disabled={disabled}
-                                            autoFocus={autoFocus === name}
-                                            className={clsx('w-full', {'p-invalid': invalidField === name})}
-                                    />
-                                    : type === 'password'
-                                        ? <Password
-                                                feedback={false}
-                                                name={name}
-                                                disabled={disabled}
-                                                autoFocus={autoFocus === name}
-                                                className={clsx('w-full', {'p-invalid': invalidField === name})}
-                                                inputClassName='w-full'
-                                        /> : undefined
-                            }
-                            <label className={clsx({'p-error': invalidField === name})}>{label}</label>
-                        </span>
-                    </div>
-                ).filter(Boolean)}
-                <div className='field col-12 p-2'>
-                    <Button label={buttonLabel} type='submit' className='w-full'/>
+    return (
+        <>
+            <div className={clsx('p-component', loginContainer)}>
+                <div className={clsx(loginLogo, loginPageHeader, ut?.classes?.loginTop)} />
+                <div className={clsx(loginForm, 'shadow-3')}>
+                    {title && <div className={loginTitle}><Text>{title}</Text></div>}
+                    {error && <div className={formError}>
+                        <div className={errorIcon} />
+                        <div className={errorMessage}>{error}</div>
+                    </div>}
+                    <form className={clsx('card', formContainer)} onSubmit={handleSubmit} autoComplete='off'>
+                        {inputs.map(({ name, type, label, disabled }) =>
+                            <div key={name} className='field col-12 p-2'>
+                                <span className='p-float-label'>
+                                    {
+                                        type === 'text'
+                                            ? <InputText
+                                                    name={name}
+                                                    disabled={disabled}
+                                                    autoFocus={autoFocus === name}
+                                                    className={clsx('w-full', {'p-invalid': invalidField === name})}
+                                            />
+                                            : type === 'password'
+                                                ? <Password
+                                                        feedback={false}
+                                                        name={name}
+                                                        disabled={disabled}
+                                                        autoFocus={autoFocus === name}
+                                                        className={clsx('w-full', {'p-invalid': invalidField === name})}
+                                                        inputClassName='w-full'
+                                                /> : undefined
+                                    }
+                                    <label className={clsx({'p-error': invalidField === name})}>{label}</label>
+                                </span>
+                            </div>
+                        ).filter(Boolean)}
+                        <div className='field col-12 p-2 mb-0'>
+                            <Button label={buttonLabel} type='submit' className='w-full'/>
+                        </div>
+                    </form>
                 </div>
-            </form>
-        </div>
-        <div className={clsx(loginLogo, loginPageFooter, ut?.classes?.loginBottom)} />
-    </div>
+                <div className={clsx(loginLogo, loginPageFooter, ut?.classes?.loginBottom)} />
+            </div>
+            <div className='fixed m-2 right-0'>
+                {register ? <Button label='Register' type='button' onClick={() => history.push('/register')} className="mr-2" id='/register'/> : null}
+                {Switch ? <Switch /> : null}
+            </div>
+        </>
     );
 };
 

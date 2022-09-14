@@ -20,7 +20,7 @@ export interface Props {
     cards: Cards,
     layouts?: Layouts,
     customization?: Customization,
-    onCustomization?: ({component: {componentId: string, componentConfig: Customization}}) => Promise<object>,
+    onCustomization?: (customization: {component: {componentId: string, componentConfig: Customization}}) => Promise<object>,
     debug?: boolean,
     layoutName?: string,
     nested?: string[],
