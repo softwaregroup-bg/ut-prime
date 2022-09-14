@@ -424,18 +424,18 @@ export default function input(
                 {...props}
             />
         </Field>;
-        case 'file': return <Field {...{label, error, inputClass}}>
-            <FileUpload
-                {...field}
-                onChange={undefined}
-                value={field.value}
-                onSelect={e => {
-                    field.onChange?.([...e.files || []]);
-                }}
-                mode='basic'
-                {...props}
-            />
-        </Field>;
+        case 'file':
+            delete field.onChange;
+            return <Field {...{label, error, inputClass}}>
+                <FileUpload
+                    {...field}
+                    onSelect={e => {
+                        field.onChange?.([...e.files || []]);
+                    }}
+                    mode='basic'
+                    {...props}
+                />
+            </Field>;
         case 'label': return (field?.name || title) ? <Field inputClass={widgetClassName}>{field?.value ?? title}</Field> : null;
         case 'icon': return (field?.name || title) ? <i className={clsx('pi', field?.value ?? title, widgetClassName)}/> : null;
         default: return <Field {...{label, error, inputClass}}>

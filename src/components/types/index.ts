@@ -119,7 +119,7 @@ export type Selection = {
     current: object,
     selected: object[]
 }
-export type ActionHandler = ((item: Selection) => void) | string
+export type ActionHandler = ((item: Selection) => void) | string | {type: string}
 
 export type WidgetReference = string | {
     name?: string,
@@ -154,6 +154,7 @@ export interface Card {
     classes?: {
         [name: string]: {
             root?: string,
+            widget?: string,
             field?: string,
             label?: string,
             input?: string
