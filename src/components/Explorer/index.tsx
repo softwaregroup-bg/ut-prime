@@ -341,7 +341,6 @@ const Explorer: ComponentProps = ({
         }
         return renderItem();
     }, [cards, layoutState, dropdowns, methods, keyField, resultSet, cardName]);
-
     const table = (
         <div ref={tableWrapRef}>
             {layout?.length ? <DataView
@@ -400,7 +399,7 @@ const Explorer: ComponentProps = ({
                     : null
             }
             {
-                (toolbar !== false) || nav || detailsPanel
+                (nav || detailsPanel)
                     ? <Splitter style={{...flexGrow, height: splitterHeight}}>
                         {[
                             nav,
