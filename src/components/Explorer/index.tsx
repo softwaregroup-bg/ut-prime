@@ -229,24 +229,19 @@ const Explorer: ComponentProps = ({
 
     const tableWrapRef = React.useCallback(node => {
         if (node === null) return;
-        const theadHeight = node.querySelector('thead')?.clientHeight;
-        const tbodyHeight = node.querySelector('tbody')?.clientHeight;
         const nodeRect = node.getBoundingClientRect();
-        const belowTableHeight = nodeRect.height - (theadHeight + tbodyHeight);
-        if ((navigationOpened && children) || (detailsOpened && details)) {
-            setSplitterPanelHeight(maxHeight(windowSize.height - nodeRect.top));
-        }
-        setDataTableHeight(maxHeight(windowSize.height - (nodeRect.top + theadHeight + belowTableHeight)));
-        setDataViewHeight(maxHeight(windowSize.height - (nodeRect.top + (nodeRect.bottom - nodeRect.height))));
-    }, [windowSize.height, children, navigationOpened, details, detailsOpened]);
+        const paginatorHeight = node.querySelector('.p-paginator')?.getBoundingClientRect?.()?.height;
+        const theadHeight = node.querySelector('thead')?.getBoundingClientRect?.()?.height;
+        setDataTableHeight(maxHeight(windowSize.height - (nodeRect.top + theadHeight + paginatorHeight)));
+        setDataViewHeight(maxHeight(windowSize.height - (nodeRect.top + paginatorHeight)));
+        setSplitterPanelHeight(maxHeight(windowSize.height - nodeRect.top));
+    }, [windowSize.height]);
 
     const splitterWrapRef = React.useCallback(node => {
         if (node === null) return;
         const nodeRect = node.getBoundingClientRect();
-        if ((navigationOpened && children) || (detailsOpened && details)) {
-            setSplitterHeight(maxHeight(windowSize.height - nodeRect.top));
-        }
-    }, [windowSize.height, children, navigationOpened, details, detailsOpened]);
+        setSplitterHeight(maxHeight(windowSize.height - nodeRect.top));
+    }, [windowSize.height]);
 
     const detailsPanel = React.useMemo(() => detailsOpened && details &&
         <SplitterPanel style={{height: splitterPanelHeight}} key='details' size={10}>
@@ -403,21 +398,21 @@ const Explorer: ComponentProps = ({
                     ? <Toolbar left={left} right={right} style={backgroundNone} className='border-none' />
                     : null
             }
-            <div ref={splitterWrapRef}>
                 {
                     (nav || detailsPanel)
-                        ? <Splitter style={{...flexGrow, height: splitterHeight}}>
-                            {[
-                                nav,
-                                <SplitterPanel style={{height: splitterPanelHeight}} key='items' size={nav ? detailsPanel ? 75 : 85 : 90}>
-                                    {table}
-                                </SplitterPanel>,
-                                detailsPanel
-                            ].filter(Boolean)}
-                        </Splitter>
+                        ? <div ref={splitterWrapRef}>
+                            <Splitter style={{...flexGrow, height: splitterHeight}}>
+                                {[
+                                    nav,
+                                    <SplitterPanel style={{height: splitterPanelHeight}} key='items' size={nav ? detailsPanel ? 75 : 85 : 90}>
+                                        {table}
+                                    </SplitterPanel>,
+                                    detailsPanel
+                                ].filter(Boolean)}
+                            </Splitter>
+                        </div>
                         : table
                 }
-            </div>
         </div>
     );
 };

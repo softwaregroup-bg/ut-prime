@@ -135,10 +135,9 @@ const Editor: ComponentProps = ({
 
     const [editorHeight, setEditorHeight] = React.useState(0);
     const editorWrapRef = React.useCallback(node => {
-        if (node !== null) {
-            const maxHeight = windowSize.height - node.getBoundingClientRect().top;
-            setEditorHeight((!isNaN(maxHeight) && maxHeight > 0) ? Math.floor(maxHeight) : 0);
-        }
+        if (node === null) return;
+        const maxHeight = windowSize.height - node.getBoundingClientRect().top;
+        setEditorHeight((!isNaN(maxHeight) && maxHeight > 0) ? Math.floor(maxHeight) : 0);
     }, [windowSize.height]);
 
     const [validation, dropdownNames, getValue] = React.useMemo(() => {
