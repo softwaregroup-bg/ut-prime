@@ -228,18 +228,23 @@ const Explorer: ComponentProps = ({
     const maxHeight = maxHeight => (!isNaN(maxHeight) && maxHeight > 0) ? Math.floor(maxHeight) : 0;
 
     const tableWrapRef = React.useCallback(node => {
-        if (node !== null) {
-            const theadHeight = node.querySelector('thead')?.clientHeight;
-            const tbodyHeight = node.querySelector('tbody')?.clientHeight;
-            const nodeRect = node.getBoundingClientRect();
-            const belowTableHeight = nodeRect.height - (theadHeight + tbodyHeight);
-            if ((navigationOpened && children) || (detailsOpened && details)) { // account for splitter border
-                const splitterRect = node.parentElement.parentElement.getBoundingClientRect();
-                setSplitterPanelHeight(maxHeight(windowSize.height - nodeRect.top));
-                setSplitterHeight(maxHeight(windowSize.height - splitterRect.top));
-            }
-            setDataTableHeight(maxHeight(windowSize.height - (nodeRect.top + theadHeight + belowTableHeight)));
-            setDataViewHeight(maxHeight(windowSize.height - (nodeRect.top + (nodeRect.bottom - nodeRect.height))));
+        if (node === null) return;
+        const theadHeight = node.querySelector('thead')?.clientHeight;
+        const tbodyHeight = node.querySelector('tbody')?.clientHeight;
+        const nodeRect = node.getBoundingClientRect();
+        const belowTableHeight = nodeRect.height - (theadHeight + tbodyHeight);
+        if ((navigationOpened && children) || (detailsOpened && details)) {
+            setSplitterPanelHeight(maxHeight(windowSize.height - nodeRect.top));
+        }
+        setDataTableHeight(maxHeight(windowSize.height - (nodeRect.top + theadHeight + belowTableHeight)));
+        setDataViewHeight(maxHeight(windowSize.height - (nodeRect.top + (nodeRect.bottom - nodeRect.height))));
+    }, [windowSize.height, children, navigationOpened, details, detailsOpened]);
+
+    const splitterWrapRef = React.useCallback(node => {
+        if (node === null) return;
+        const nodeRect = node.getBoundingClientRect();
+        if ((navigationOpened && children) || (detailsOpened && details)) {
+            setSplitterHeight(maxHeight(windowSize.height - nodeRect.top));
         }
     }, [windowSize.height, children, navigationOpened, details, detailsOpened]);
 
@@ -398,19 +403,21 @@ const Explorer: ComponentProps = ({
                     ? <Toolbar left={left} right={right} style={backgroundNone} className='border-none' />
                     : null
             }
-            {
-                (nav || detailsPanel)
-                    ? <Splitter style={{...flexGrow, height: splitterHeight}}>
-                        {[
-                            nav,
-                            <SplitterPanel style={{height: splitterPanelHeight}} key='items' size={nav ? detailsPanel ? 75 : 85 : 90}>
-                                {table}
-                            </SplitterPanel>,
-                            detailsPanel
-                        ].filter(Boolean)}
-                    </Splitter>
-                    : table
-            }
+            <div ref={splitterWrapRef}>
+                {
+                    (nav || detailsPanel)
+                        ? <Splitter style={{...flexGrow, height: splitterHeight}}>
+                            {[
+                                nav,
+                                <SplitterPanel style={{height: splitterPanelHeight}} key='items' size={nav ? detailsPanel ? 75 : 85 : 90}>
+                                    {table}
+                                </SplitterPanel>,
+                                detailsPanel
+                            ].filter(Boolean)}
+                        </Splitter>
+                        : table
+                }
+            </div>
         </div>
     );
 };
