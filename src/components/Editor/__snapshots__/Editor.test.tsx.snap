@@ -3491,7 +3491,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
         </div>
       </form>
       <div
-        class="col-2 flex-column overflow-y-auto padding-0-0-2-1"
+        class="col-2 flex-column padding-right-0-0-2-1"
         style="max-height: 768px;"
       />
     </div>
@@ -9953,104 +9953,109 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
         </div>
       </div>
       <div
-        class="p-panelmenu p-component flex-1"
+        class="w-full"
       >
         <div
-          class="p-panelmenu-panel"
+          class="p-panelmenu p-component flex-1 overflow-y-auto"
+          style="max-height: 768px;"
         >
           <div
-            class="p-component p-panelmenu-header p-highlight"
-          >
-            <a
-              aria-controls="pr_id_16_content"
-              aria-expanded="true"
-              class="p-panelmenu-header-link"
-              href="#"
-              id="pr_id_16_header"
-            >
-              <span
-                class="p-panelmenu-icon pi  pi-chevron-down"
-              />
-              <span
-                class="p-menuitem-text"
-              >
-                A
-              </span>
-            </a>
-          </div>
-          <div
-            aria-labelledby="pr_id_16_header"
-            class="p-toggleable-content p-toggleable-content-enter-done"
-            id="pr_id_16_content"
-            role="region"
+            class="p-panelmenu-panel"
           >
             <div
-              class="p-panelmenu-content"
+              class="p-component p-panelmenu-header p-highlight"
             >
-              <ul
-                class="p-submenu-list p-panelmenu-root-submenu"
-                role="tree"
+              <a
+                aria-controls="pr_id_16_content"
+                aria-expanded="true"
+                class="p-panelmenu-header-link"
+                href="#"
+                id="pr_id_16_header"
               >
-                <li
-                  class="p-menuitem"
-                  id="a1"
-                  role="none"
+                <span
+                  class="p-panelmenu-icon pi  pi-chevron-down"
+                />
+                <span
+                  class="p-menuitem-text"
                 >
-                  <a
-                    class="p-menuitem-link"
-                    href="#"
-                    role="menuitem"
-                  >
-                    <span
-                      class="p-menuitem-text"
-                    >
-                      A 1
-                    </span>
-                  </a>
-                </li>
-                <li
-                  class="p-menuitem"
-                  id="a2"
-                  role="none"
+                  A
+                </span>
+              </a>
+            </div>
+            <div
+              aria-labelledby="pr_id_16_header"
+              class="p-toggleable-content p-toggleable-content-enter-done"
+              id="pr_id_16_content"
+              role="region"
+            >
+              <div
+                class="p-panelmenu-content"
+              >
+                <ul
+                  class="p-submenu-list p-panelmenu-root-submenu"
+                  role="tree"
                 >
-                  <a
-                    class="p-menuitem-link"
-                    href="#"
-                    role="menuitem"
+                  <li
+                    class="p-menuitem"
+                    id="a1"
+                    role="none"
                   >
-                    <span
-                      class="p-menuitem-text"
+                    <a
+                      class="p-menuitem-link"
+                      href="#"
+                      role="menuitem"
                     >
-                      A 2
-                    </span>
-                  </a>
-                </li>
-              </ul>
+                      <span
+                        class="p-menuitem-text"
+                      >
+                        A 1
+                      </span>
+                    </a>
+                  </li>
+                  <li
+                    class="p-menuitem"
+                    id="a2"
+                    role="none"
+                  >
+                    <a
+                      class="p-menuitem-link"
+                      href="#"
+                      role="menuitem"
+                    >
+                      <span
+                        class="p-menuitem-text"
+                      >
+                        A 2
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-        <div
-          class="p-panelmenu-panel"
-        >
           <div
-            class="p-component p-panelmenu-header"
+            class="p-panelmenu-panel"
           >
-            <a
-              aria-controls="pr_id_16_content"
-              aria-expanded="false"
-              class="p-panelmenu-header-link"
-              href="#"
-              id="pr_id_16_header"
+            <div
+              class="p-component p-panelmenu-header"
             >
-              <span
-                class="p-panelmenu-icon pi pi-chevron-right"
-              />
-              <span
-                class="p-menuitem-text"
+              <a
+                aria-controls="pr_id_16_content"
+                aria-expanded="false"
+                class="p-panelmenu-header-link"
+                href="#"
+                id="pr_id_16_header"
               >
-                B
-              </span>
-            </a>
+                <span
+                  class="p-panelmenu-icon pi pi-chevron-right"
+                />
+                <span
+                  class="p-menuitem-text"
+                >
+                  B
+                </span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -11085,6 +11090,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
   >
     <div
       class="flex flex-grow-1"
+      style="max-height: 768px;"
     >
       <div
         class="p-toast p-component p-toast-top-right"
@@ -11092,7 +11098,8 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
         <div />
       </div>
       <form
-        class="grid col align-self-start form-0-2-1"
+        class="grid col align-self-start overflow-y-auto form-0-2-2"
+        style="max-height: 768px;"
       >
         <div
           class="col-12"
@@ -11104,7 +11111,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="edit"
             >
               <div
@@ -11244,7 +11251,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="taxonomy"
             >
               <div
@@ -11262,7 +11269,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="reproduction"
             >
               <div
@@ -11352,7 +11359,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="morphology"
             >
               <div
@@ -11370,7 +11377,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="links"
             >
               <div
@@ -11568,7 +11575,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-3"
               id="habitat"
             >
               <div
