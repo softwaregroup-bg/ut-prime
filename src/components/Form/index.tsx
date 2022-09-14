@@ -15,7 +15,7 @@ import Card from '../Card';
 import useForm from '../hooks/useForm';
 import useSubmit from '../hooks/useSubmit';
 import useLayout from '../hooks/useLayout';
-import useWindowSize from '../hooks/useWindowSize';
+import useScroll from '../hooks/useScroll';
 import getValidation from './schema';
 
 const useStyles = createUseStyles({
@@ -140,15 +140,7 @@ const Form: ComponentProps = ({
         />, toolbarRef.current);
     }
 
-    const windowSize = useWindowSize();
-    const [formHeight, setFormHeight] = React.useState(0);
-
-    const formWrapRef = React.useCallback(node => {
-        if (node !== null) {
-            const maxHeight = windowSize.height - node.getBoundingClientRect().top;
-            setFormHeight((!isNaN(maxHeight) && maxHeight > 0) ? Math.floor(maxHeight) : 0);
-        }
-    }, [windowSize.height]);
+    const {ref: formWrapRef, height: formHeight} = useScroll();
 
     return (<>
         {devTool ? <DevTool control={control} placement="top-right" /> : null}

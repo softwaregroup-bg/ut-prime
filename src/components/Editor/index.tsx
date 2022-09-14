@@ -17,7 +17,7 @@ import Inspector from '../Inspector';
 import {Toolbar, Button, ConfirmPopup, confirmPopup} from '../prime';
 import useToggle from '../hooks/useToggle';
 import useLoad from '../hooks/useLoad';
-import useWindowSize from '../hooks/useWindowSize';
+import useScroll from '../hooks/useScroll';
 import {ConfigField, ConfigCard} from '../Form/DragDrop';
 import prepareSubmit from '../lib/prepareSubmit';
 import testid from '../lib/testid';
@@ -123,14 +123,8 @@ const Editor: ComponentProps = ({
     );
     const [filter, setFilter] = React.useState(items?.[0]?.items?.[0] || items?.[0]);
     const [loading, setLoading] = React.useState('loading');
-    const windowSize = useWindowSize();
 
-    const [editorHeight, setEditorHeight] = React.useState(0);
-    const editorWrapRef = React.useCallback(node => {
-        if (node === null) return;
-        const maxHeight = windowSize.height - node.getBoundingClientRect().top;
-        setEditorHeight((!isNaN(maxHeight) && maxHeight > 0) ? Math.floor(maxHeight) : 0);
-    }, [windowSize.height]);
+    const {ref: editorWrapRef, height: editorHeight} = useScroll();
 
     const [validation, dropdownNames, getValue] = React.useMemo(() => {
         const columns = (propertyName, property) => []
