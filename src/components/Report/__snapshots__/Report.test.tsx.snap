@@ -165,136 +165,144 @@ exports[`<Report /> render equals snapshot 1`] = `
     >
       <div />
     </div>
-    <div>
+    <div
+      class="flex"
+    >
       <div
-        class="p-datatable p-component p-datatable-auto-layout p-datatable-scrollable p-datatable-scrollable-vertical p-datatable-responsive-stack"
-        data-scrollselectors=".p-datatable-wrapper"
-        pr_id_3=""
+        class="flex-grow-1"
       >
-        <div
-          class="p-paginator p-component p-paginator-top"
-        >
-          <button
-            aria-label="First Page"
-            class="p-button p-component p-paginator-first p-paginator-element p-link p-disabled p-button-icon-only p-disabled"
-            disabled=""
-            type="button"
+        <div>
+          <div
+            class="p-datatable p-component p-datatable-auto-layout p-datatable-scrollable p-datatable-scrollable-vertical p-datatable-responsive-stack"
+            data-scrollselectors=".p-datatable-wrapper"
+            pr_id_3=""
           >
-            <span
-              class="p-button-icon p-c p-paginator-icon pi pi-angle-double-left"
-            />
-            <span
-              class="p-button-label p-c"
+            <div
+              class="p-paginator p-component p-paginator-top"
             >
-               
-            </span>
-          </button>
-          <button
-            aria-label="Previous Page"
-            class="p-button p-component p-paginator-prev p-paginator-element p-link p-disabled p-button-icon-only p-disabled"
-            disabled=""
-            type="button"
-          >
-            <span
-              class="p-button-icon p-c p-paginator-icon pi pi-angle-left"
-            />
-            <span
-              class="p-button-label p-c"
-            >
-               
-            </span>
-          </button>
-          <span
-            class="p-paginator-pages"
-          />
-          <button
-            aria-label="Next Page"
-            class="p-button p-component p-paginator-next p-paginator-element p-link p-disabled p-button-icon-only p-disabled"
-            disabled=""
-            type="button"
-          >
-            <span
-              class="p-button-icon p-c p-paginator-icon pi pi-angle-right"
-            />
-            <span
-              class="p-button-label p-c"
-            >
-               
-            </span>
-          </button>
-          <button
-            aria-label="Last Page"
-            class="p-button p-component p-paginator-last p-paginator-element p-link p-disabled p-button-icon-only p-disabled"
-            disabled=""
-            type="button"
-          >
-            <span
-              class="p-button-icon p-c p-paginator-icon pi pi-angle-double-right"
-            />
-            <span
-              class="p-button-label p-c"
-            >
-               
-            </span>
-          </button>
-        </div>
-        <div
-          class="p-datatable-wrapper"
-        >
-          <table
-            class="p-datatable-table"
-            role="table"
-            style="max-height: 768px;"
-          >
-            <thead
-              class="p-datatable-thead"
-            >
-              <tr
-                role="row"
+              <button
+                aria-label="First Page"
+                class="p-button p-component p-paginator-first p-paginator-element p-link p-disabled p-button-icon-only p-disabled"
+                disabled=""
+                type="button"
               >
-                <th
-                  class=""
-                  role="columnheader"
-                >
-                  <div
-                    class="p-column-header-content"
-                  >
-                    <span
-                      class="p-column-title"
-                    >
-                      <span
-                        data-testid="result-nameTitle"
-                      >
-                        Name
-                      </span>
-                    </span>
-                  </div>
-                </th>
-              </tr>
-              <tr
-                role="row"
-              >
-                <th
-                  class="p-filter-column"
+                <span
+                  class="p-button-icon p-c p-paginator-icon pi pi-angle-double-left"
                 />
-              </tr>
-            </thead>
-            <tbody
-              class="p-datatable-tbody"
-            >
-              <tr
-                class="p-datatable-emptymessage"
-                role="row"
-              >
-                <td
-                  colspan="1"
-                  role="cell"
+                <span
+                  class="p-button-label p-c"
                 >
-                  No results found
-                </td>
-              </tr>
-            </tbody>
-          </table>
+                   
+                </span>
+              </button>
+              <button
+                aria-label="Previous Page"
+                class="p-button p-component p-paginator-prev p-paginator-element p-link p-disabled p-button-icon-only p-disabled"
+                disabled=""
+                type="button"
+              >
+                <span
+                  class="p-button-icon p-c p-paginator-icon pi pi-angle-left"
+                />
+                <span
+                  class="p-button-label p-c"
+                >
+                   
+                </span>
+              </button>
+              <span
+                class="p-paginator-pages"
+              />
+              <button
+                aria-label="Next Page"
+                class="p-button p-component p-paginator-next p-paginator-element p-link p-disabled p-button-icon-only p-disabled"
+                disabled=""
+                type="button"
+              >
+                <span
+                  class="p-button-icon p-c p-paginator-icon pi pi-angle-right"
+                />
+                <span
+                  class="p-button-label p-c"
+                >
+                   
+                </span>
+              </button>
+              <button
+                aria-label="Last Page"
+                class="p-button p-component p-paginator-last p-paginator-element p-link p-disabled p-button-icon-only p-disabled"
+                disabled=""
+                type="button"
+              >
+                <span
+                  class="p-button-icon p-c p-paginator-icon pi pi-angle-double-right"
+                />
+                <span
+                  class="p-button-label p-c"
+                >
+                   
+                </span>
+              </button>
+            </div>
+            <div
+              class="p-datatable-wrapper"
+            >
+              <table
+                class="p-datatable-table"
+                role="table"
+                style="max-height: 768px;"
+              >
+                <thead
+                  class="p-datatable-thead"
+                >
+                  <tr
+                    role="row"
+                  >
+                    <th
+                      class=""
+                      role="columnheader"
+                    >
+                      <div
+                        class="p-column-header-content"
+                      >
+                        <span
+                          class="p-column-title"
+                        >
+                          <span
+                            data-testid="result-nameTitle"
+                          >
+                            Name
+                          </span>
+                        </span>
+                      </div>
+                    </th>
+                  </tr>
+                  <tr
+                    role="row"
+                  >
+                    <th
+                      class="p-filter-column"
+                    />
+                  </tr>
+                </thead>
+                <tbody
+                  class="p-datatable-tbody"
+                >
+                  <tr
+                    class="p-datatable-emptymessage"
+                    role="row"
+                  >
+                    <td
+                      colspan="1"
+                      role="cell"
+                    >
+                      No results found
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </div>
