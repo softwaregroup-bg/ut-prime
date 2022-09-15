@@ -1,3 +1,13 @@
+# [2.17.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.16.0...v2.17.0) (2022-09-15)
+
+
+### Features
+
+* explorer design ([#7](https://github.com/softwaregroup-bg/ut-prime/issues/7)) ([9193129](https://github.com/softwaregroup-bg/ut-prime/commit/91931299b08a5e9938e882c27bbfdbd16fea9e97))
+* overflow improvements ([#6](https://github.com/softwaregroup-bg/ut-prime/issues/6)) ([0d8b0bc](https://github.com/softwaregroup-bg/ut-prime/commit/0d8b0bc42a21b8901e0b208e1cc42798eb59bd7f))
+
+
+
 # [2.16.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.15.1...v2.16.0) (2022-09-14)
 
 
