@@ -12,6 +12,10 @@ import useToggle from '../hooks/useToggle';
 import useSubmit from '../hooks/useSubmit';
 import useLayout from '../hooks/useLayout';
 import useWindowSize from '../hooks/useWindowSize';
+import Editor from '../Editor';
+import Context from '../Context';
+import Inspector from '../Inspector';
+import {ConfigField} from '../Form/DragDrop';
 import columnProps, {TableFilter} from '../lib/column';
 import prepareSubmit from '../lib/prepareSubmit';
 
@@ -72,6 +76,7 @@ const Explorer: ComponentProps = ({
     toolbar,
     filter,
     index,
+    design: designDefault,
     onDropdown,
     showFilter = true,
     pageSize = 10,
@@ -83,6 +88,9 @@ const Explorer: ComponentProps = ({
     editors,
     methods
 }) => {
+    const [design, toggleDesign] = useToggle(designDefault);
+    const [inspected, setInspected] = React.useState(null);
+    const {customization: customizationEnabled} = React.useContext(Context);
     if (typeof layout === 'string') {
         const current = layouts[layout];
         if ('columns' in current) columns = cards[current.columns].widgets;
@@ -298,10 +306,10 @@ const Explorer: ComponentProps = ({
                 />)}
                 filter={showFilter && !!property?.filter}
                 sortable={!!property?.sort}
-                {...columnProps({resultSet, name: field, widget: !isString && widget, property, dropdowns, tableFilter, filterBy})}
+                {...columnProps({resultSet, name: field, widget: !isString && widget, property, dropdowns, tableFilter, filterBy, inspected, setInspected})}
             />
         );
-    }), [columns, properties, showFilter, dropdowns, tableFilter, keyField, resultSet]);
+    }), [columns, properties, showFilter, dropdowns, tableFilter, keyField, resultSet, inspected, setInspected]);
     const hasChildren = !!children;
     const left = React.useMemo(() => <>
         {hasChildren && <Button {...testid(`${resultSet}.navigator.toggleButton`)} icon="pi pi-bars" className="mr-2" onClick={navigationToggle}/>}
@@ -311,8 +319,17 @@ const Explorer: ComponentProps = ({
         <>
             <Button icon="pi pi-refresh" className="mr-2" onClick={load} {...testid(`${resultSet}.refreshButton`)}/>
             {details && <Button {...testid(`${resultSet}.details.toggleButton`)} icon="pi pi-bars" className="mr-2" onClick={detailsToggle}/>}
+            {customizationEnabled ? <Permission permission='portal.customization.edit'>
+                <Button
+                    icon='pi pi-cog'
+                    onClick={toggleDesign}
+                    disabled={!!loading}
+                    aria-label='design'
+                    {...testid(`${resultSet}designButton`)}
+                    className={clsx('mr-2', design && 'p-button-success')}
+                /></Permission> : null}
         </>,
-    [details, detailsToggle, resultSet, load]);
+    [details, detailsToggle, resultSet, load, customizationEnabled, design, toggleDesign, loading]);
     const layoutState = useLayout(schema, cards, layout, editors, keyField);
     const cardName = layout?.flat()[0];
     const itemTemplate = React.useMemo(() => item => {
@@ -410,6 +427,25 @@ const Explorer: ComponentProps = ({
                     </div>
                     : table
             }
+            {design && <div className='col-2 flex-column'>
+                <ConfigField
+                    index='trash'
+                    design
+                    // move={remove}
+                    move
+                    label='trash'
+                    name='trash'
+                    className='text-center p-3 p-card'
+                ><i className='pi pi-trash'/></ConfigField>
+                {inspected ? <Inspector
+                    Editor={Editor}
+                    className='w-full'
+                    // onChange={setCustomization}
+                    object={schema}
+                    property={`properties.${inspected.name.split('.').join('.properties.')}`}
+                    type={inspected.type}
+                /> : null }
+            </div>}
         </div>
     );
 };

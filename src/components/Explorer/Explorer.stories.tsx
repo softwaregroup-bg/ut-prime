@@ -115,6 +115,13 @@ const Template: Story<{
 export const Basic = Template.bind({});
 Basic.args = {};
 
+export const Design = Template.bind({});
+Design.args = {
+    ...Basic.args,
+    subscribe: null,
+    design: true
+};
+
 export const Children = Template.bind({});
 Children.args = {
     ...Basic.args,

@@ -5,6 +5,7 @@ import titleCase from './titleCase';
 import getType from './getType';
 import {KEY, INDEX} from '../Card/const';
 import testid from '../lib/testid';
+import {ConfigField} from '../Form/DragDrop';
 export interface TableFilter {
     filters?: {
         [name: string]: {
@@ -36,7 +37,9 @@ export default function columnProps({
     dropdowns,
     tableFilter,
     filterBy,
-    editable
+    editable,
+    inspected,
+    setInspected
 }: {
     resultSet: string,
     name: string,
@@ -45,7 +48,9 @@ export default function columnProps({
     dropdowns: object,
     tableFilter?: TableFilter,
     filterBy?: (name: string, value: string) => (e: object) => void,
-    editable?: boolean
+    editable?: boolean,
+    inspected: unknown,
+    setInspected: unknown
 }) {
     const resultSetDot = resultSet ? resultSet + '.' : '';
     const {type, dropdown, parent, column, lookup, compare, ...props} = widget || property?.widget || {name};
@@ -355,11 +360,29 @@ export default function columnProps({
             }
         };
     }
+    const label = property?.title || titleCase(name.split('.').pop());
     return {
         showClearButton: true,
         showFilterMenu: false,
         field: name,
-        header: <span {...testid(`${resultSetDot}${name}Title`)}>{property?.title || titleCase(name.split('.').pop())}</span>,
+        header: <ConfigField
+            design
+            name={name}
+            index={name}
+            label={label}
+            key={name}
+            card='test'
+            move
+            inspected={inspected}
+            onInspect={setInspected}
+            // className={clsx(widgetClass, flex, !toolbar && !design && (ind === length - 1) && 'mb-0')}
+            // card={cardName}
+            // move={move}
+            // inspected={inspected}
+            // onInspect={onInspect}
+        >
+            <span {...testid(`${resultSetDot}${name}Title`)}>{label}</span>
+        </ConfigField>,
         ...filterElement && {filterElement},
         ...body && {body},
         ...(editor != null) && {editor},
