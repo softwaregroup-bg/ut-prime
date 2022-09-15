@@ -499,30 +499,32 @@ const Editor: ComponentProps = ({
                         /></Permission> : null}
                 </>}
             /> : null}
-            <Scrollbox className={clsx('flex', 'overflow-x-hidden', 'w-full', orientation === 'top' && 'flex-column')}>
+            <div className={clsx('flex', 'overflow-x-hidden', 'w-full', orientation === 'top' && 'flex-column')}>
                 {items && <ThumbIndex name={name} items={items} orientation={orientation} onFilter={setFilter}/>}
-                <div className='flex flex-grow-1'>
-                    <Form
-                        schema={mergedSchema}
-                        move={move}
-                        debug={debug}
-                        editors={editors}
-                        design={design}
-                        cards={mergedCards}
-                        layout={layout || filter?.widgets || []}
-                        onSubmit={handleSubmit}
-                        onChange={onChange}
-                        inspected={inspected}
-                        onInspect={setInspected}
-                        methods={methods}
-                        value={value}
-                        dropdowns={dropdowns}
-                        loading={loading}
-                        setTrigger={setTrigger}
-                        validation={validation}
-                        toolbarRef={toolbarRef}
-                        toolbar={toolbarName}
-                    />
+                <Scrollbox className='flex flex-grow-1'>
+                    <Scrollbox className='overflow-x-hidden'>
+                        <Form
+                            schema={mergedSchema}
+                            move={move}
+                            debug={debug}
+                            editors={editors}
+                            design={design}
+                            cards={mergedCards}
+                            layout={layout || filter?.widgets || []}
+                            onSubmit={handleSubmit}
+                            onChange={onChange}
+                            inspected={inspected}
+                            onInspect={setInspected}
+                            methods={methods}
+                            value={value}
+                            dropdowns={dropdowns}
+                            loading={loading}
+                            setTrigger={setTrigger}
+                            validation={validation}
+                            toolbarRef={toolbarRef}
+                            toolbar={toolbarName}
+                        />
+                    </Scrollbox>
                     {design && <div className={clsx('col-2 flex-column pr-0')}>
                         {inspected ? <Inspector
                             Editor={Editor}
@@ -541,8 +543,8 @@ const Editor: ComponentProps = ({
                             className='text-center p-3 p-card'
                         ><i className='pi pi-trash'/></ConfigField>
                     </div>}
-                </div>
-            </Scrollbox>
+                </Scrollbox>
+            </div>
         </>
     );
 };

@@ -5,6 +5,7 @@ import Joi from 'joi';
 import page from './README.mdx';
 import ThumbIndex from './index';
 import Form from '../Form';
+import Scrollbox from '../Scrollbox';
 import {Schema, PropertyEditor} from '../types';
 import {Toolbar, Button} from '../prime';
 import useToast from '../hooks/useToast';
@@ -164,14 +165,16 @@ export const Basic: React.FC = () => {
             <Toolbar left={<Button icon='pi pi-save' onClick={trigger} disabled={!trigger}/>}/>
             <div className='flex' style={{overflowX: 'hidden', width: '100%'}}>
                 <ThumbIndex items={items} onFilter={setFilter}/>
-                <Form
-                    schema={schema}
-                    cards={cards}
-                    layout={filter?.widgets || []}
-                    onSubmit={submit}
-                    setTrigger={setTrigger}
-                    value={data}
-                />
+                <Scrollbox className='overflow-x-hidden'>
+                    <Form
+                        schema={schema}
+                        cards={cards}
+                        layout={filter?.widgets || []}
+                        onSubmit={submit}
+                        setTrigger={setTrigger}
+                        value={data}
+                    />
+                </Scrollbox>
             </div>
         </>
     );
