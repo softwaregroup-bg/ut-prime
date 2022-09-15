@@ -20,7 +20,6 @@ import getValidation from './schema';
 
 const useStyles = createUseStyles({
     form: {
-        margin: 0,
         '& .p-datatable-wrapper': {
             overflowX: 'auto'
         }
