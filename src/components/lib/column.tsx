@@ -5,6 +5,7 @@ import titleCase from './titleCase';
 import getType from './getType';
 import {KEY, INDEX} from '../Card/const';
 import testid from '../lib/testid';
+import {ConfigField} from '../Form/DragDrop';
 export interface TableFilter {
     filters?: {
         [name: string]: {
@@ -29,6 +30,7 @@ function timeOrZero(value) {
 }
 
 export default function columnProps({
+    design,
     resultSet,
     name,
     property,
@@ -36,8 +38,11 @@ export default function columnProps({
     dropdowns,
     tableFilter,
     filterBy,
-    editable
+    editable,
+    inspected,
+    setInspected
 }: {
+    design: boolean,
     resultSet: string,
     name: string,
     property: Property,
@@ -45,7 +50,9 @@ export default function columnProps({
     dropdowns: object,
     tableFilter?: TableFilter,
     filterBy?: (name: string, value: string) => (e: object) => void,
-    editable?: boolean
+    editable?: boolean,
+    inspected: unknown,
+    setInspected: unknown
 }) {
     const resultSetDot = resultSet ? resultSet + '.' : '';
     const {type, dropdown, parent, column, lookup, compare, ...props} = widget || property?.widget || {name};
@@ -355,11 +362,24 @@ export default function columnProps({
             }
         };
     }
+    const label = property?.title || titleCase(name.split('.').pop());
     return {
         showClearButton: true,
         showFilterMenu: false,
         field: name,
-        header: <span {...testid(`${resultSetDot}${name}Title`)}>{property?.title || titleCase(name.split('.').pop())}</span>,
+        header: <ConfigField
+            design={design}
+            relative={false}
+            name={name}
+            index={name}
+            label={label}
+            key={name}
+            card='test'
+            move={() => {}}
+            onInspect={setInspected}
+        >
+            <span {...testid(`${resultSetDot}${name}Title`)}>{label}</span>
+        </ConfigField>,
         ...filterElement && {filterElement},
         ...body && {body},
         ...(editor != null) && {editor},
