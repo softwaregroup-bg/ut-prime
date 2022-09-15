@@ -118,7 +118,6 @@ Basic.args = {};
 export const Design = Template.bind({});
 Design.args = {
     ...Basic.args,
-    subscribe: null,
     design: true
 };
 

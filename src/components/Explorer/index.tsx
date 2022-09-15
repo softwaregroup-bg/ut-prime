@@ -31,7 +31,10 @@ const fieldName = column => typeof column === 'string' ? column : column.name;
 const useStyles = createUseStyles({
     explorer: {
         '& .p-datatable-wrapper': {
-            overflowX: 'auto'
+            overflowX: 'auto',
+            '& th': {
+                position: 'relative'
+            }
         },
         '& .p-grid': {
             margin: '0.5em'
@@ -215,7 +218,7 @@ const Explorer: ComponentProps = ({
     );
     React.useEffect(() => {
         load();
-        if (subscribe) {
+        if (subscribe && !design) {
             return subscribe(rows => {
                 setItems(([items, totalRecords]) => [(Array.isArray(rows) || !keyField) ? rows as unknown[] : items.map(item => {
                     const update = rows[item[keyField]];
@@ -223,7 +226,7 @@ const Explorer: ComponentProps = ({
                 }), totalRecords]);
             });
         }
-    }, [keyField, load, subscribe]);
+    }, [keyField, load, subscribe, design]);
 
     const windowSize = useWindowSize();
     const [dataTableHeight, setDataTableHeight] = React.useState(0);
@@ -306,10 +309,10 @@ const Explorer: ComponentProps = ({
                 />)}
                 filter={showFilter && !!property?.filter}
                 sortable={!!property?.sort}
-                {...columnProps({resultSet, name: field, widget: !isString && widget, property, dropdowns, tableFilter, filterBy, inspected, setInspected})}
+                {...columnProps({design, resultSet, name: field, widget: !isString && widget, property, dropdowns, tableFilter, filterBy, inspected, setInspected})}
             />
         );
-    }), [columns, properties, showFilter, dropdowns, tableFilter, keyField, resultSet, inspected, setInspected]);
+    }), [columns, properties, showFilter, dropdowns, tableFilter, keyField, resultSet, inspected, setInspected, design]);
     const hasChildren = !!children;
     const left = React.useMemo(() => <>
         {hasChildren && <Button {...testid(`${resultSet}.navigator.toggleButton`)} icon="pi pi-bars" className="mr-2" onClick={navigationToggle}/>}
@@ -412,40 +415,43 @@ const Explorer: ComponentProps = ({
                     ? <Toolbar left={left} right={right} style={backgroundNone} className='border-none' />
                     : null
             }
-            {
-                (nav || detailsPanel)
-                    ? <div ref={splitterWrapRef}>
-                        <Splitter style={splitterHeight}>
-                            {[
-                                nav,
-                                <SplitterPanel style={splitterPanelHeight} key='items' size={nav ? detailsPanel ? 75 : 85 : 90}>
-                                    {table}
-                                </SplitterPanel>,
-                                detailsPanel
-                            ].filter(Boolean)}
-                        </Splitter>
-                    </div>
-                    : table
-            }
-            {design && <div className='col-2 flex-column'>
-                <ConfigField
-                    index='trash'
-                    design
-                    // move={remove}
-                    move
-                    label='trash'
-                    name='trash'
-                    className='text-center p-3 p-card'
-                ><i className='pi pi-trash'/></ConfigField>
-                {inspected ? <Inspector
-                    Editor={Editor}
-                    className='w-full'
-                    // onChange={setCustomization}
-                    object={schema}
-                    property={`properties.${inspected.name.split('.').join('.properties.')}`}
-                    type={inspected.type}
-                /> : null }
-            </div>}
+            <div className='flex'>
+                <div className='flex-grow-1'>
+                    {
+                        (nav || detailsPanel)
+                            ? <div ref={splitterWrapRef}>
+                                <Splitter style={splitterHeight}>
+                                    {[
+                                        nav,
+                                        <SplitterPanel style={splitterPanelHeight} key='items' size={nav ? detailsPanel ? 75 : 85 : 90}>
+                                            {table}
+                                        </SplitterPanel>,
+                                        detailsPanel
+                                    ].filter(Boolean)}
+                                </Splitter>
+                            </div>
+                            : table
+                    }
+                </div>
+                {design && <div className='col-2 flex-column'>
+                    <ConfigField
+                        index='trash'
+                        design
+                        move={() => {}}
+                        label='trash'
+                        name='trash'
+                        className='text-center p-3 p-card'
+                    ><i className='pi pi-trash'/></ConfigField>
+                    {inspected ? <Inspector
+                        Editor={Editor}
+                        className='w-full'
+                        onChange={() => {}}
+                        object={schema}
+                        property={`properties.${inspected.name.split('.').join('.properties.')}`}
+                        type={inspected.type}
+                    /> : null }
+                </div>}
+            </div>
         </div>
     );
 };

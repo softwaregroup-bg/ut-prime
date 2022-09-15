@@ -30,6 +30,7 @@ function timeOrZero(value) {
 }
 
 export default function columnProps({
+    design,
     resultSet,
     name,
     property,
@@ -41,6 +42,7 @@ export default function columnProps({
     inspected,
     setInspected
 }: {
+    design: boolean,
     resultSet: string,
     name: string,
     property: Property,
@@ -366,20 +368,15 @@ export default function columnProps({
         showFilterMenu: false,
         field: name,
         header: <ConfigField
-            design
+            design={design}
+            relative={false}
             name={name}
             index={name}
             label={label}
             key={name}
             card='test'
-            move
-            inspected={inspected}
+            move={() => {}}
             onInspect={setInspected}
-            // className={clsx(widgetClass, flex, !toolbar && !design && (ind === length - 1) && 'mb-0')}
-            // card={cardName}
-            // move={move}
-            // inspected={inspected}
-            // onInspect={onInspect}
         >
             <span {...testid(`${resultSetDot}${name}Title`)}>{label}</span>
         </ConfigField>,

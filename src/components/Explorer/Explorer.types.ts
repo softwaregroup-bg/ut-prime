@@ -50,6 +50,7 @@ export interface Props {
     filter?: object;
     index?: object;
     showFilter?: boolean;
+    design?: boolean;
     pageSize?: number;
     table?: DataTableProps;
     editors?: Editors;
