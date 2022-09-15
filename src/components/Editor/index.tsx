@@ -80,6 +80,7 @@ const Editor: ComponentProps = ({
     schemaCreate,
     editors,
     debug,
+    noScroll,
     type,
     typeField,
     cards,
@@ -124,7 +125,7 @@ const Editor: ComponentProps = ({
     const [filter, setFilter] = React.useState(items?.[0]?.items?.[0] || items?.[0]);
     const [loading, setLoading] = React.useState('loading');
 
-    const [editorWrapRef, maxHeight] = useScroll();
+    const [editorWrapRef, maxHeight] = useScroll(noScroll);
 
     const [validation, dropdownNames, getValue] = React.useMemo(() => {
         const columns = (propertyName, property) => []
