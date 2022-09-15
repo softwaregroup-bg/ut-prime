@@ -229,8 +229,8 @@ const Explorer: ComponentProps = ({
     }, [keyField, load, subscribe, design]);
 
     const windowSize = useWindowSize();
-    const [dataTableHeight, setDataTableHeight] = React.useState(0);
-    const [dataViewHeight, setDataViewHeight] = React.useState(0);
+    const [dataTableHeight, setDataTableHeight] = React.useState({});
+    const [dataViewHeight, setDataViewHeight] = React.useState({});
     const [splitterHeight, setSplitterHeight] = React.useState({});
     const [splitterPanelHeight, setSplitterPanelHeight] = React.useState({});
 
@@ -241,8 +241,8 @@ const Explorer: ComponentProps = ({
         const nodeRect = node.getBoundingClientRect();
         const paginatorHeight = node.querySelector('.p-paginator')?.getBoundingClientRect?.()?.height;
         const theadHeight = node.querySelector('thead')?.getBoundingClientRect?.()?.height;
-        setDataTableHeight(maxHeight(windowSize.height - (nodeRect.top + theadHeight + paginatorHeight)));
-        setDataViewHeight(maxHeight(windowSize.height - (nodeRect.top + paginatorHeight)));
+        setDataTableHeight({maxHeight: maxHeight(windowSize.height - (nodeRect.top + theadHeight + paginatorHeight))});
+        setDataViewHeight({maxHeight: maxHeight(windowSize.height - (nodeRect.top + paginatorHeight))});
         setSplitterPanelHeight({height: maxHeight(windowSize.height - nodeRect.top)});
     }, [windowSize.height]);
 
@@ -361,7 +361,7 @@ const Explorer: ComponentProps = ({
     const table = (
         <div ref={tableWrapRef}>
             {layout?.length ? <DataView
-                style={{maxHeight: dataViewHeight}}
+                style={dataViewHeight}
                 layout='grid'
                 lazy
                 gutter
@@ -377,7 +377,7 @@ const Explorer: ComponentProps = ({
                 {...viewProps}
             /> : <DataTable
                 scrollable
-                tableStyle={{maxHeight: dataTableHeight}}
+                tableStyle={dataTableHeight}
                 autoLayout
                 lazy
                 rows={pageSize}
