@@ -28,6 +28,7 @@ export interface Props {
     resultSet?: string,
     design?: boolean,
     toolbar?: boolean,
+    noScroll?: boolean,
     value?: object,
     methods?: {
         [key: string]: (params: object) => Promise<Record<string, unknown>>

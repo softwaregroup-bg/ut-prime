@@ -17,6 +17,7 @@ import Inspector from '../Inspector';
 import {Toolbar, Button, ConfirmPopup, confirmPopup} from '../prime';
 import useToggle from '../hooks/useToggle';
 import useLoad from '../hooks/useLoad';
+import useScroll from '../hooks/useScroll';
 import {ConfigField, ConfigCard} from '../Form/DragDrop';
 import prepareSubmit from '../lib/prepareSubmit';
 import testid from '../lib/testid';
@@ -79,6 +80,7 @@ const Editor: ComponentProps = ({
     schemaCreate,
     editors,
     debug,
+    noScroll,
     type,
     typeField,
     cards,
@@ -122,6 +124,9 @@ const Editor: ComponentProps = ({
     );
     const [filter, setFilter] = React.useState(items?.[0]?.items?.[0] || items?.[0]);
     const [loading, setLoading] = React.useState('loading');
+
+    const [editorWrapRef, maxHeight] = useScroll(noScroll);
+
     const [validation, dropdownNames, getValue] = React.useMemo(() => {
         const columns = (propertyName, property) => []
             .concat(property?.hidden)
@@ -499,7 +504,7 @@ const Editor: ComponentProps = ({
             /> : null}
             <div className={clsx('flex', 'overflow-x-hidden', 'w-full', orientation === 'top' && 'flex-column')}>
                 {items && <ThumbIndex name={name} items={items} orientation={orientation} onFilter={setFilter}/>}
-                <div className='flex flex-grow-1'>
+                <div ref={editorWrapRef} style={maxHeight} className='flex flex-grow-1'>
                     <Form
                         schema={mergedSchema}
                         move={move}
@@ -521,10 +526,10 @@ const Editor: ComponentProps = ({
                         toolbarRef={toolbarRef}
                         toolbar={toolbarName}
                     />
-                    {design && <div className='col-2 flex-column'>
+                    {design && <div style={maxHeight} className={clsx('col-2 flex-column pr-0')}>
                         {inspected ? <Inspector
                             Editor={Editor}
-                            className='w-full'
+                            className={clsx('w-full overflow-y-auto')}
                             onChange={setCustomization}
                             object={inspected.type === 'card' ? mergedCards : mergedSchema}
                             property={inspected.type === 'card' ? inspected.name : `properties.${inspected.name.split('.').join('.properties.')}`}

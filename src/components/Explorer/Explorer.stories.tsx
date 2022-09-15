@@ -43,7 +43,7 @@ const Template: Story<{
     return (
         <>
             <Toast ref={toast} />
-            <div style={{height: 500, display: 'flex', flexDirection: 'column'}}>
+            <div style={{height: 'fit-content', display: 'flex', flexDirection: 'column'}}>
                 <Explorer
                     fetch={fetchItems}
                     keyField='id'
@@ -54,6 +54,7 @@ const Template: Story<{
                                 action: show('action')
                             },
                             name: {
+                                action: show('action'),
                                 title: 'Name',
                                 filter: true,
                                 sort: true

@@ -5,6 +5,8 @@ import { ListBox, PanelMenu, TabMenu, Ripple } from '../prime';
 import { ComponentProps } from './ThumbIndex.types';
 import testid from '../lib/testid';
 
+import useScroll from '../hooks/useScroll';
+
 const ThumbIndex: ComponentProps = ({ name, className, items, orientation = 'left', children, onFilter, ...rest }) => {
     const [[selectedList, activeIndex], setList] = React.useState([items[0], 0]);
     const handleListChange = React.useCallback(({value, index}) => {
@@ -50,13 +52,19 @@ const ThumbIndex: ComponentProps = ({ name, className, items, orientation = 'lef
         activeIndex={activeIndex}
         onTabChange={handleListChange}
     />;
+
+    const [panelMenuRef, maxHeight] = useScroll();
+
     return (
-        <div className={clsx('flex flex-row', {'lg:col-2': !!model?.length}, className)} {...rest}>
+        <div className={clsx('flex flex-row pb-0', {'lg:col-2': !!model?.length}, className)} {...rest}>
             {tabs}
-            {!!model?.length && <PanelMenu
-                className='flex-1'
-                model={model}
-            />}
+            {!!model?.length && <div className='w-full' ref={panelMenuRef}>
+                <PanelMenu
+                    className={clsx('flex-1 overflow-y-auto')}
+                    model={model}
+                    style={maxHeight}
+                />
+            </div>}
             {children}
         </div>
     );

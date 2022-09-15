@@ -11,17 +11,16 @@ import Permission from '../Permission';
 import useToggle from '../hooks/useToggle';
 import useSubmit from '../hooks/useSubmit';
 import useLayout from '../hooks/useLayout';
+import useWindowSize from '../hooks/useWindowSize';
 import columnProps, {TableFilter} from '../lib/column';
 import prepareSubmit from '../lib/prepareSubmit';
 
 import { ComponentProps } from './Explorer.types';
 import testid from '../lib/testid';
 
-const flexGrow = {flexGrow: 1};
-const selectionWidth = {width: '3em'};
+const selectionWidth = {minWidth: '3rem'};
 const backgroundNone = {background: 'none'};
 const splitterWidth = { width: '200px' };
-const actionButtonStyle = {padding: 0, minWidth: 'inherit'};
 
 const fieldName = column => typeof column === 'string' ? column : column.name;
 
@@ -35,6 +34,8 @@ const useStyles = createUseStyles({
         },
         '& .p-dataview': {
             '& .p-dataview-content': {
+                overflowY: 'auto',
+                maxHeight: 'inherit',
                 background: 'none',
                 '& .p-card': {
                     '& .p-card-content': {
@@ -42,6 +43,13 @@ const useStyles = createUseStyles({
                     }
                 }
             }
+        },
+        '& .p-datatable-tbody': {
+            overflowY: 'auto',
+            maxHeight: 'inherit'
+        },
+        '& .p-splitter-panel': {
+            overflowY: 'auto'
         }
     },
     details: {
@@ -208,8 +216,33 @@ const Explorer: ComponentProps = ({
             });
         }
     }, [keyField, load, subscribe]);
+
+    const windowSize = useWindowSize();
+    const [dataTableHeight, setDataTableHeight] = React.useState(0);
+    const [dataViewHeight, setDataViewHeight] = React.useState(0);
+    const [splitterHeight, setSplitterHeight] = React.useState({});
+    const [splitterPanelHeight, setSplitterPanelHeight] = React.useState({});
+
+    const maxHeight = maxHeight => (!isNaN(maxHeight) && maxHeight > 0) ? Math.floor(maxHeight) : 0;
+
+    const tableWrapRef = React.useCallback(node => {
+        if (node === null) return;
+        const nodeRect = node.getBoundingClientRect();
+        const paginatorHeight = node.querySelector('.p-paginator')?.getBoundingClientRect?.()?.height;
+        const theadHeight = node.querySelector('thead')?.getBoundingClientRect?.()?.height;
+        setDataTableHeight(maxHeight(windowSize.height - (nodeRect.top + theadHeight + paginatorHeight)));
+        setDataViewHeight(maxHeight(windowSize.height - (nodeRect.top + paginatorHeight)));
+        setSplitterPanelHeight({height: maxHeight(windowSize.height - nodeRect.top)});
+    }, [windowSize.height]);
+
+    const splitterWrapRef = React.useCallback(node => {
+        if (node === null) return;
+        const nodeRect = node.getBoundingClientRect();
+        setSplitterHeight({flexGrow: 1, height: maxHeight(windowSize.height - nodeRect.top)});
+    }, [windowSize.height]);
+
     const detailsPanel = React.useMemo(() => detailsOpened && details &&
-        <SplitterPanel key='details' size={10}>
+        <SplitterPanel style={splitterPanelHeight} key='details' size={10}>
             <div style={splitterWidth}>{
                 current && Object.entries(details).map(([name, value], index) =>
                     <div className={classes.details} key={index}>
@@ -218,7 +251,7 @@ const Explorer: ComponentProps = ({
                     </div>
                 )
             }</div>
-        </SplitterPanel>, [classes.details, classes.detailsLabel, classes.detailsValue, current, details, detailsOpened]);
+        </SplitterPanel>, [classes.details, classes.detailsLabel, classes.detailsValue, current, details, detailsOpened, splitterPanelHeight]);
 
     const filterBy = (name: string, key: string) => e => {
         const value = lodashGet(e, key);
@@ -249,8 +282,7 @@ const Explorer: ComponentProps = ({
                 body={action && (row => <ActionButton
                     {...testid(`${resultSet || 'filterBy'}.${field}Item/${row && row[keyField]}`)}
                     label={row[field]}
-                    style={actionButtonStyle}
-                    className='p-button-link'
+                    className='p-button-link p-0'
                     action={action}
                     params={widget.params ?? property?.params}
                     getValues={() => ({
@@ -306,49 +338,57 @@ const Explorer: ComponentProps = ({
         }
         return renderItem();
     }, [cards, layoutState, dropdowns, methods, keyField, resultSet, cardName]);
-
-    const table = layout?.length ? <DataView
-        layout='grid'
-        lazy
-        gutter
-        rows={pageSize}
-        totalRecords={totalRecords}
-        paginator
-        first={tableFilter.first}
-        sortField={tableFilter.sortField}
-        sortOrder={tableFilter.sortOrder}
-        value={items}
-        onPage={handleFilterPageSort}
-        itemTemplate={itemTemplate}
-        {...viewProps}
-    /> : <DataTable
-        autoLayout
-        lazy
-        rows={pageSize}
-        totalRecords={totalRecords}
-        paginator
-        first={tableFilter.first}
-        sortField={tableFilter.sortField}
-        sortOrder={tableFilter.sortOrder}
-        filters={tableFilter.filters}
-        onPage={handleFilterPageSort}
-        onSort={handleFilterPageSort}
-        onFilter={handleFilterPageSort}
-        loading={loading}
-        dataKey={keyField}
-        value={items}
-        selection={selected}
-        filterDisplay='row'
-        onSelectionChange={handleSelectionChange}
-        onRowSelect={handleRowSelect}
-        {...tableProps}
-    >
-        {keyField && (!tableProps?.selectionMode || tableProps?.selectionMode === 'checkbox') && <Column selectionMode="multiple" style={selectionWidth}/>}
-        {Columns}
-    </DataTable>;
-    const nav = children && navigationOpened && <SplitterPanel key='nav' size={15}>{children}</SplitterPanel>;
+    const table = (
+        <div ref={tableWrapRef}>
+            {layout?.length ? <DataView
+                style={{maxHeight: dataViewHeight}}
+                layout='grid'
+                lazy
+                gutter
+                rows={pageSize}
+                totalRecords={totalRecords}
+                paginator
+                first={tableFilter.first}
+                sortField={tableFilter.sortField}
+                sortOrder={tableFilter.sortOrder}
+                value={items}
+                onPage={handleFilterPageSort}
+                itemTemplate={itemTemplate}
+                {...viewProps}
+            /> : <DataTable
+                scrollable
+                tableStyle={{maxHeight: dataTableHeight}}
+                autoLayout
+                lazy
+                rows={pageSize}
+                totalRecords={totalRecords}
+                paginator
+                first={tableFilter.first}
+                sortField={tableFilter.sortField}
+                sortOrder={tableFilter.sortOrder}
+                filters={tableFilter.filters}
+                onPage={handleFilterPageSort}
+                onSort={handleFilterPageSort}
+                onFilter={handleFilterPageSort}
+                loading={loading}
+                dataKey={keyField}
+                value={items}
+                selection={selected}
+                filterDisplay='row'
+                onSelectionChange={handleSelectionChange}
+                onRowSelect={handleRowSelect}
+                {...tableProps}
+            >
+                {keyField && (!tableProps?.selectionMode || tableProps?.selectionMode === 'checkbox') && <Column selectionMode="multiple" style={selectionWidth} className='flex-grow-0'/>}
+                {Columns}
+            </DataTable>}
+        </div>
+    );
+    const nav = children && navigationOpened && <SplitterPanel style={splitterPanelHeight} key='nav' size={15}>
+        {children}
+    </SplitterPanel>;
     return (
-        <div className={clsx('flex', 'flex-column', 'h-full', classes.explorer, className)}>
+        <div className={clsx('flex', 'flex-column', classes.explorer, className)}>
             {toast}
             {
                 (toolbar !== false) || nav || detailsPanel
@@ -357,15 +397,17 @@ const Explorer: ComponentProps = ({
             }
             {
                 (nav || detailsPanel)
-                    ? <Splitter style={flexGrow}>
-                        {[
-                            nav,
-                            <SplitterPanel key='items' size={nav ? detailsPanel ? 75 : 85 : 90}>
-                                {table}
-                            </SplitterPanel>,
-                            detailsPanel
-                        ].filter(Boolean)}
-                    </Splitter>
+                    ? <div ref={splitterWrapRef}>
+                        <Splitter style={splitterHeight}>
+                            {[
+                                nav,
+                                <SplitterPanel style={splitterPanelHeight} key='items' size={nav ? detailsPanel ? 75 : 85 : 90}>
+                                    {table}
+                                </SplitterPanel>,
+                                detailsPanel
+                            ].filter(Boolean)}
+                        </Splitter>
+                    </div>
                     : table
             }
         </div>
