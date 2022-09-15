@@ -53,7 +53,7 @@ const ThumbIndex: ComponentProps = ({ name, className, items, orientation = 'lef
         onTabChange={handleListChange}
     />;
 
-    const {ref: panelMenuRef, height: panelMenuHeight} = useScroll();
+    const [panelMenuRef, maxHeight] = useScroll();
 
     return (
         <div className={clsx('flex flex-row pb-0', {'lg:col-2': !!model?.length}, className)} {...rest}>
@@ -62,7 +62,7 @@ const ThumbIndex: ComponentProps = ({ name, className, items, orientation = 'lef
                 <PanelMenu
                     className={clsx('flex-1 overflow-y-auto')}
                     model={model}
-                    style={{maxHeight: panelMenuHeight}}
+                    style={maxHeight}
                 />
             </div>}
             {children}

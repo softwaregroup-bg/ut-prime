@@ -124,7 +124,7 @@ const Editor: ComponentProps = ({
     const [filter, setFilter] = React.useState(items?.[0]?.items?.[0] || items?.[0]);
     const [loading, setLoading] = React.useState('loading');
 
-    const {ref: editorWrapRef, height: editorHeight} = useScroll();
+    const [editorWrapRef, maxHeight] = useScroll();
 
     const [validation, dropdownNames, getValue] = React.useMemo(() => {
         const columns = (propertyName, property) => []
@@ -503,7 +503,7 @@ const Editor: ComponentProps = ({
             /> : null}
             <div className={clsx('flex', 'overflow-x-hidden', 'w-full', orientation === 'top' && 'flex-column')}>
                 {items && <ThumbIndex name={name} items={items} orientation={orientation} onFilter={setFilter}/>}
-                <div ref={editorWrapRef} style={{maxHeight: editorHeight}} className='flex flex-grow-1'>
+                <div ref={editorWrapRef} style={maxHeight} className='flex flex-grow-1'>
                     <Form
                         schema={mergedSchema}
                         move={move}
@@ -525,7 +525,7 @@ const Editor: ComponentProps = ({
                         toolbarRef={toolbarRef}
                         toolbar={toolbarName}
                     />
-                    {design && <div style={{maxHeight: editorHeight}} className={clsx('col-2 flex-column pr-0')}>
+                    {design && <div style={maxHeight} className={clsx('col-2 flex-column pr-0')}>
                         {inspected ? <Inspector
                             Editor={Editor}
                             className={clsx('w-full overflow-y-auto')}

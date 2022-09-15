@@ -15,7 +15,6 @@ import Card from '../Card';
 import useForm from '../hooks/useForm';
 import useSubmit from '../hooks/useSubmit';
 import useLayout from '../hooks/useLayout';
-import useScroll from '../hooks/useScroll';
 import getValidation from './schema';
 
 const useStyles = createUseStyles({
@@ -139,13 +138,11 @@ const Form: ComponentProps = ({
         />, toolbarRef.current);
     }
 
-    const {ref: formWrapRef, height: formHeight} = useScroll();
-
     return (<>
         {devTool ? <DevTool control={control} placement="top-right" /> : null}
         {toast}
         {toolbarElement}
-        <form {...rest} ref={formWrapRef} onSubmit={submit} className={clsx('grid col align-self-start overflow-y-auto', classes.form, className)} style={{maxHeight: formHeight}}>
+        <form {...rest} onSubmit={submit} className={clsx('grid col align-self-start', classes.form, className)}>
             {
                 !!Object.keys(errors).length && <div className='col-12'>
                     {errorFields.map(name => !layoutState.visibleProperties.includes(name) && <><small className="p-error">{get(errors, name)?.message}</small><br /></>)}

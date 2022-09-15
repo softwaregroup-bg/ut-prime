@@ -19,7 +19,6 @@ import { ComponentProps } from './Explorer.types';
 import testid from '../lib/testid';
 
 const flexGrow = {flexGrow: 1};
-const selectionWidth = {width: '3em'};
 const backgroundNone = {background: 'none'};
 const splitterWidth = { width: '200px' };
 const actionButtonStyle = {padding: 0, minWidth: 'inherit'};
@@ -382,7 +381,7 @@ const Explorer: ComponentProps = ({
                 onRowSelect={handleRowSelect}
                 {...tableProps}
             >
-                {keyField && (!tableProps?.selectionMode || tableProps?.selectionMode === 'checkbox') && <Column selectionMode="multiple" style={selectionWidth}/>}
+                {keyField && (!tableProps?.selectionMode || tableProps?.selectionMode === 'checkbox') && <Column selectionMode="multiple" className='w-3rem flex-grow-0'/>}
                 {Columns}
             </DataTable>}
         </div>

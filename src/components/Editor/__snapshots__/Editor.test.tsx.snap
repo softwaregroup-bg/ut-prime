@@ -81,8 +81,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
         <div />
       </div>
       <form
-        class="grid col align-self-start overflow-y-auto form-0-2-1"
-        style="max-height: 768px;"
+        class="grid col align-self-start form-0-2-1"
       >
         <div
           class="col-12 xl:col-6"
@@ -835,8 +834,7 @@ exports[`<Editor /> CascadedDropdowns render equals snapshot 1`] = `
         <div />
       </div>
       <form
-        class="grid col align-self-start overflow-y-auto form-0-2-1"
-        style="max-height: 768px;"
+        class="grid col align-self-start form-0-2-1"
       >
         <div
           class="col-12 xl:col-3"
@@ -1123,8 +1121,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
         <div />
       </div>
       <form
-        class="grid col align-self-start overflow-y-auto form-0-2-1"
-        style="max-height: 768px;"
+        class="grid col align-self-start form-0-2-1"
       >
         <div
           class="col-12 xl:col-4"
@@ -2238,8 +2235,7 @@ exports[`<Editor /> CustomEditors render equals snapshot 1`] = `
         <div />
       </div>
       <form
-        class="grid col align-self-start overflow-y-auto form-0-2-1"
-        style="max-height: 768px;"
+        class="grid col align-self-start form-0-2-1"
       >
         <div
           class="col-12 xl:col-6"
@@ -2530,8 +2526,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
         <div />
       </div>
       <form
-        class="grid col align-self-start overflow-y-auto form-0-2-1"
-        style="max-height: 768px;"
+        class="grid col align-self-start form-0-2-1"
       >
         <div
           class="col-12 xl:col-6"
@@ -3581,8 +3576,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
         <div />
       </div>
       <form
-        class="grid col align-self-start overflow-y-auto form-0-2-1"
-        style="max-height: 768px;"
+        class="grid col align-self-start form-0-2-1"
       >
         <div
           class="col-12 xl:col-6"
@@ -3954,8 +3948,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
         <div />
       </div>
       <form
-        class="grid col align-self-start overflow-y-auto form-0-2-1"
-        style="max-height: 768px;"
+        class="grid col align-self-start form-0-2-1"
       >
         <div
           class="col-12 xl:col-2"
@@ -4323,8 +4316,7 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
         <div />
       </div>
       <form
-        class="grid col align-self-start overflow-y-auto form-0-2-1"
-        style="max-height: 768px;"
+        class="grid col align-self-start form-0-2-1"
       >
         <div
           class="col-12 md:col-4"
@@ -4732,8 +4724,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
         <div />
       </div>
       <form
-        class="grid col align-self-start overflow-y-auto form-0-2-1"
-        style="max-height: 768px;"
+        class="grid col align-self-start form-0-2-1"
       >
         <div
           class="col-12 xl:col-6"
@@ -6116,8 +6107,7 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
             <div />
           </div>
           <form
-            class="grid col align-self-start overflow-y-auto form-0-2-1"
-            style="max-height: 768px;"
+            class="grid col align-self-start form-0-2-1"
           >
             <div
               class="col-12 col-12"
@@ -6268,8 +6258,7 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
             <div />
           </div>
           <form
-            class="grid col align-self-start overflow-y-auto form-0-2-1"
-            style="max-height: 768px;"
+            class="grid col align-self-start form-0-2-1"
           >
             <div
               class="col-12 col-12"
@@ -6421,8 +6410,7 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
             <div />
           </div>
           <form
-            class="grid col align-self-start overflow-y-auto form-0-2-1"
-            style="max-height: 768px;"
+            class="grid col align-self-start form-0-2-1"
           >
             <div
               class="col-12 col-12"
@@ -6579,8 +6567,7 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
         <div />
       </div>
       <form
-        class="grid col align-self-start overflow-y-auto form-0-2-1"
-        style="max-height: 768px;"
+        class="grid col align-self-start form-0-2-1"
       >
         <div
           class="col-12 sm:col-6 xl:col-4"
@@ -7384,8 +7371,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
         <div />
       </div>
       <form
-        class="grid col align-self-start overflow-y-auto form-0-2-1"
-        style="max-height: 768px;"
+        class="grid col align-self-start form-0-2-1"
       >
         <div
           class="col-12"
@@ -8212,8 +8198,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
         <div />
       </div>
       <form
-        class="grid col align-self-start overflow-y-auto form-0-2-1"
-        style="max-height: 768px;"
+        class="grid col align-self-start form-0-2-1"
       >
         <div
           class="col-12 xl:col-6"
@@ -9045,8 +9030,7 @@ exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
         <div />
       </div>
       <form
-        class="grid col align-self-start overflow-y-auto form-0-2-1"
-        style="max-height: 768px;"
+        class="grid col align-self-start form-0-2-1"
       >
         <div
           class="col-12 xl:col-6"
@@ -9470,8 +9454,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
         <div />
       </div>
       <form
-        class="grid col align-self-start overflow-y-auto form-0-2-1"
-        style="max-height: 768px;"
+        class="grid col align-self-start form-0-2-1"
       >
         <div
           class="col-12 xl:col-6"
@@ -10070,8 +10053,7 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
         <div />
       </div>
       <form
-        class="grid col align-self-start overflow-y-auto form-0-2-1"
-        style="max-height: 768px;"
+        class="grid col align-self-start form-0-2-1"
       >
         <div
           class="col-12 xl:col-6"
@@ -10339,8 +10321,7 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
         <div />
       </div>
       <form
-        class="grid col align-self-start overflow-y-auto form-0-2-1"
-        style="max-height: 768px;"
+        class="grid col align-self-start form-0-2-1"
       >
         <div
           class="col-12 xl:col-6"
@@ -11098,8 +11079,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
         <div />
       </div>
       <form
-        class="grid col align-self-start overflow-y-auto form-0-2-1"
-        style="max-height: 768px;"
+        class="grid col align-self-start form-0-2-1"
       >
         <div
           class="col-12"
