@@ -18,10 +18,9 @@ import prepareSubmit from '../lib/prepareSubmit';
 import { ComponentProps } from './Explorer.types';
 import testid from '../lib/testid';
 
-const flexGrow = {flexGrow: 1};
+const selectionWidth = {minWidth: '3rem'};
 const backgroundNone = {background: 'none'};
 const splitterWidth = { width: '200px' };
-const actionButtonStyle = {padding: 0, minWidth: 'inherit'};
 
 const fieldName = column => typeof column === 'string' ? column : column.name;
 
@@ -221,8 +220,8 @@ const Explorer: ComponentProps = ({
     const windowSize = useWindowSize();
     const [dataTableHeight, setDataTableHeight] = React.useState(0);
     const [dataViewHeight, setDataViewHeight] = React.useState(0);
-    const [splitterHeight, setSplitterHeight] = React.useState(0);
-    const [splitterPanelHeight, setSplitterPanelHeight] = React.useState(0);
+    const [splitterHeight, setSplitterHeight] = React.useState({});
+    const [splitterPanelHeight, setSplitterPanelHeight] = React.useState({});
 
     const maxHeight = maxHeight => (!isNaN(maxHeight) && maxHeight > 0) ? Math.floor(maxHeight) : 0;
 
@@ -233,17 +232,17 @@ const Explorer: ComponentProps = ({
         const theadHeight = node.querySelector('thead')?.getBoundingClientRect?.()?.height;
         setDataTableHeight(maxHeight(windowSize.height - (nodeRect.top + theadHeight + paginatorHeight)));
         setDataViewHeight(maxHeight(windowSize.height - (nodeRect.top + paginatorHeight)));
-        setSplitterPanelHeight(maxHeight(windowSize.height - nodeRect.top));
+        setSplitterPanelHeight({height: maxHeight(windowSize.height - nodeRect.top)});
     }, [windowSize.height]);
 
     const splitterWrapRef = React.useCallback(node => {
         if (node === null) return;
         const nodeRect = node.getBoundingClientRect();
-        setSplitterHeight(maxHeight(windowSize.height - nodeRect.top));
+        setSplitterHeight({flexGrow: 1, height: maxHeight(windowSize.height - nodeRect.top)});
     }, [windowSize.height]);
 
     const detailsPanel = React.useMemo(() => detailsOpened && details &&
-        <SplitterPanel style={{height: splitterPanelHeight}} key='details' size={10}>
+        <SplitterPanel style={splitterPanelHeight} key='details' size={10}>
             <div style={splitterWidth}>{
                 current && Object.entries(details).map(([name, value], index) =>
                     <div className={classes.details} key={index}>
@@ -283,8 +282,7 @@ const Explorer: ComponentProps = ({
                 body={action && (row => <ActionButton
                     {...testid(`${resultSet || 'filterBy'}.${field}Item/${row && row[keyField]}`)}
                     label={row[field]}
-                    style={actionButtonStyle}
-                    className='p-button-link'
+                    className='p-button-link p-0'
                     action={action}
                     params={widget.params ?? property?.params}
                     getValues={() => ({
@@ -381,12 +379,12 @@ const Explorer: ComponentProps = ({
                 onRowSelect={handleRowSelect}
                 {...tableProps}
             >
-                {keyField && (!tableProps?.selectionMode || tableProps?.selectionMode === 'checkbox') && <Column selectionMode="multiple" className='w-3rem flex-grow-0'/>}
+                {keyField && (!tableProps?.selectionMode || tableProps?.selectionMode === 'checkbox') && <Column selectionMode="multiple" style={selectionWidth} className='flex-grow-0'/>}
                 {Columns}
             </DataTable>}
         </div>
     );
-    const nav = children && navigationOpened && <SplitterPanel style={{height: splitterPanelHeight}} key='nav' size={15}>
+    const nav = children && navigationOpened && <SplitterPanel style={splitterPanelHeight} key='nav' size={15}>
         {children}
     </SplitterPanel>;
     return (
@@ -400,10 +398,10 @@ const Explorer: ComponentProps = ({
             {
                 (nav || detailsPanel)
                     ? <div ref={splitterWrapRef}>
-                        <Splitter style={{...flexGrow, height: splitterHeight}}>
+                        <Splitter style={splitterHeight}>
                             {[
                                 nav,
-                                <SplitterPanel style={{height: splitterPanelHeight}} key='items' size={nav ? detailsPanel ? 75 : 85 : 90}>
+                                <SplitterPanel style={splitterPanelHeight} key='items' size={nav ? detailsPanel ? 75 : 85 : 90}>
                                     {table}
                                 </SplitterPanel>,
                                 detailsPanel

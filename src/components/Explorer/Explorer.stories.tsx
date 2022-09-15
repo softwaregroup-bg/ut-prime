@@ -54,6 +54,7 @@ const Template: Story<{
                                 action: show('action')
                             },
                             name: {
+                                action: show('action'),
                                 title: 'Name',
                                 filter: true,
                                 sort: true

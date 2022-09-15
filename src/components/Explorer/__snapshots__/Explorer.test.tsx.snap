@@ -58,7 +58,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
       >
         <div
           class="p-splitter-panel"
-          style="height: 768px; flex-basis: calc(90% - 4px);"
+          style="flex-basis: calc(90% - 4px); height: 768px;"
         >
           <div>
             <div
@@ -81,8 +81,9 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                       role="row"
                     >
                       <th
-                        class="w-3rem flex-grow-0 p-selection-column"
+                        class="flex-grow-0 p-selection-column"
                         role="columnheader"
+                        style="min-width: 3rem;"
                       >
                         <div
                           class="p-column-header-content"
@@ -143,7 +144,8 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                       role="row"
                     >
                       <th
-                        class="p-filter-column w-3rem flex-grow-0"
+                        class="p-filter-column flex-grow-0"
+                        style="min-width: 3rem;"
                       >
                         <div
                           class="p-checkbox p-component"
@@ -219,8 +221,9 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                       role="row"
                     >
                       <td
-                        class="w-3rem flex-grow-0 p-selection-column"
+                        class="flex-grow-0 p-selection-column"
                         role="cell"
+                        style="min-width: 3rem;"
                       >
                         <span
                           class="p-column-title"
@@ -276,8 +279,9 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                       role="row"
                     >
                       <td
-                        class="w-3rem flex-grow-0 p-selection-column"
+                        class="flex-grow-0 p-selection-column"
                         role="cell"
+                        style="min-width: 3rem;"
                       >
                         <span
                           class="p-column-title"
@@ -333,8 +337,9 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                       role="row"
                     >
                       <td
-                        class="w-3rem flex-grow-0 p-selection-column"
+                        class="flex-grow-0 p-selection-column"
                         role="cell"
+                        style="min-width: 3rem;"
                       >
                         <span
                           class="p-column-title"
@@ -390,8 +395,9 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                       role="row"
                     >
                       <td
-                        class="w-3rem flex-grow-0 p-selection-column"
+                        class="flex-grow-0 p-selection-column"
                         role="cell"
+                        style="min-width: 3rem;"
                       >
                         <span
                           class="p-column-title"
@@ -447,8 +453,9 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                       role="row"
                     >
                       <td
-                        class="w-3rem flex-grow-0 p-selection-column"
+                        class="flex-grow-0 p-selection-column"
                         role="cell"
+                        style="min-width: 3rem;"
                       >
                         <span
                           class="p-column-title"
@@ -504,8 +511,9 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                       role="row"
                     >
                       <td
-                        class="w-3rem flex-grow-0 p-selection-column"
+                        class="flex-grow-0 p-selection-column"
                         role="cell"
+                        style="min-width: 3rem;"
                       >
                         <span
                           class="p-column-title"
@@ -561,8 +569,9 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                       role="row"
                     >
                       <td
-                        class="w-3rem flex-grow-0 p-selection-column"
+                        class="flex-grow-0 p-selection-column"
                         role="cell"
+                        style="min-width: 3rem;"
                       >
                         <span
                           class="p-column-title"
@@ -618,8 +627,9 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                       role="row"
                     >
                       <td
-                        class="w-3rem flex-grow-0 p-selection-column"
+                        class="flex-grow-0 p-selection-column"
                         role="cell"
+                        style="min-width: 3rem;"
                       >
                         <span
                           class="p-column-title"
@@ -675,8 +685,9 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                       role="row"
                     >
                       <td
-                        class="w-3rem flex-grow-0 p-selection-column"
+                        class="flex-grow-0 p-selection-column"
                         role="cell"
+                        style="min-width: 3rem;"
                       >
                         <span
                           class="p-column-title"
@@ -732,8 +743,9 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                       role="row"
                     >
                       <td
-                        class="w-3rem flex-grow-0 p-selection-column"
+                        class="flex-grow-0 p-selection-column"
                         role="cell"
+                        style="min-width: 3rem;"
                       >
                         <span
                           class="p-column-title"
@@ -901,7 +913,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
         </div>
         <div
           class="p-splitter-panel"
-          style="height: 768px; flex-basis: calc(10% - 4px);"
+          style="flex-basis: calc(10% - 4px); height: 768px;"
         >
           <div
             style="width: 200px;"
