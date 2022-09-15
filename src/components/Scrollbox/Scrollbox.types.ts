@@ -11,4 +11,4 @@ export type ComponentProps = React.FC<Props>
 export const useStyles = createUseStyles({
     scrollbox: {
     }
-})
+});
