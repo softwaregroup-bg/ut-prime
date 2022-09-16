@@ -10,15 +10,12 @@ const Scrollbox: ComponentProps = ({
     ...rest
 }) => {
     const styles = useStyles();
-    const [ref, maxHeight] = useScroll(noScroll);
-    return noScroll
-        ? <div className={className} {...rest}/>
-        : <div
-            className={clsx('overflow-y-auto', styles.scrollbox, className)}
-            {...rest}
-            ref={ref}
-            style={maxHeight}
-        />;
+    const [ref, style] = useScroll(noScroll);
+    return <div
+        className={clsx('overflow-y-auto', styles.scrollbox, className)}
+        {...rest}
+        {...!noScroll && {ref, style}}
+    />;
 };
 
 export default Scrollbox;

@@ -57,7 +57,7 @@ const ThumbIndex: ComponentProps = ({ name, className, items, orientation = 'lef
             {tabs}
             {!!model?.length && <Scrollbox className='w-full'>
                 <PanelMenu
-                    className={clsx('flex-1')}
+                    className='flex-1'
                     model={model}
                 />
             </Scrollbox>}
