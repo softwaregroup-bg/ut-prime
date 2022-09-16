@@ -124,7 +124,7 @@ Design.args = {
 export const Children = Template.bind({});
 Children.args = {
     ...Basic.args,
-    children: Array.from({length: 100}).fill(<div>Navigation component</div>)
+    children: <div>Navigation component</div>
 };
 
 export const Details = Template.bind({});
