@@ -42,7 +42,7 @@ export default function columnProps({
     inspected,
     setInspected
 }: {
-    design: boolean,
+    design?: boolean,
     resultSet: string,
     name: string,
     property: Property,
@@ -51,8 +51,8 @@ export default function columnProps({
     tableFilter?: TableFilter,
     filterBy?: (name: string, value: string) => (e: object) => void,
     editable?: boolean,
-    inspected: unknown,
-    setInspected: unknown
+    inspected?: unknown,
+    setInspected?: unknown
 }) {
     const resultSetDot = resultSet ? resultSet + '.' : '';
     const {type, dropdown, parent, column, lookup, compare, ...props} = widget || property?.widget || {name};

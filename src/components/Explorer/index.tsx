@@ -22,7 +22,6 @@ import prepareSubmit from '../lib/prepareSubmit';
 import { ComponentProps } from './Explorer.types';
 import testid from '../lib/testid';
 
-const selectionWidth = {minWidth: '3rem'};
 const backgroundNone = {background: 'none'};
 const splitterWidth = { width: '200px' };
 
@@ -33,7 +32,11 @@ const useStyles = createUseStyles({
         '& .p-datatable-wrapper': {
             overflowX: 'auto',
             '& th': {
+                minWidth: '3rem',
                 position: 'relative'
+            },
+            '& td': {
+                minWidth: '3rem'
             }
         },
         '& .p-grid': {
@@ -399,7 +402,7 @@ const Explorer: ComponentProps = ({
                 onRowSelect={handleRowSelect}
                 {...tableProps}
             >
-                {keyField && (!tableProps?.selectionMode || tableProps?.selectionMode === 'checkbox') && <Column selectionMode="multiple" style={selectionWidth} className='flex-grow-0'/>}
+                {keyField && (!tableProps?.selectionMode || tableProps?.selectionMode === 'checkbox') && <Column selectionMode="multiple" className='flex-grow-0'/>}
                 {Columns}
             </DataTable>}
         </div>

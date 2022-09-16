@@ -1,5 +1,7 @@
 import React from 'react';
 import lodashGet from 'lodash.get';
+import {createUseStyles} from 'react-jss';
+import clsx from 'clsx';
 
 import {DataTable, Column, Toolbar, Button} from '../../prime';
 import columnProps from '../../lib/column';
@@ -20,7 +22,6 @@ const getDefault = (key, value, rows) => {
     }
 };
 
-const selectStyle = { width: '3rem' };
 const editStyle = { width: '7rem' };
 const editBodyStyle = { textAlign: 'center' };
 const sameString = (a, b) => a === b || (a != null && b != null && String(a) === String(b));
@@ -41,6 +42,25 @@ const masterFilter = (master, filter) => master && Object.fromEntries(
 
 const noRows = Object.freeze([]);
 const radioColumns = Object.freeze(['radio', 'select-table-radio']);
+
+const useStyles = createUseStyles({
+    table: {
+        '& .p-datatable-wrapper': {
+            overflowX: 'auto',
+            '& th': {
+                minWidth: '3rem',
+                position: 'relative',
+                '&.p-selection-column': {
+                    flexGrow: 0,
+                    width: '3rem'
+                }
+            },
+            '& td': {
+                minWidth: '3rem'
+            }
+        }
+    }
+});
 
 export default React.forwardRef<object, any>(function Table({
     name,
@@ -76,6 +96,7 @@ export default React.forwardRef<object, any>(function Table({
     ...props
 }, ref) {
     if (typeof ref === 'function') ref({});
+    const classes = useStyles();
     const [selected, setSelected] = React.useState(getValues ? getValues(`${selectionPath}.${props.name}`) : null);
     const [editingRows, setEditingRows] = React.useState({});
     const [pendingEdit, setPendingEdit] = React.useState(null);
@@ -223,7 +244,6 @@ export default React.forwardRef<object, any>(function Table({
             {!disabled && (allowAdd || allowDelete) && <Toolbar className="p-0 border-none" left={leftToolbarTemplate} right={null} style={backgroundNone}></Toolbar>}
             <DataTable
                 editMode='row'
-                className='editable-cells-table'
                 emptyMessage=''
                 selection={selected}
                 onSelectionChange={handleSelected}
@@ -231,6 +251,7 @@ export default React.forwardRef<object, any>(function Table({
                 id={resultSet}
                 {...testid(props.id || resultSet)}
                 {...props}
+                className={clsx(props.className, classes.table)}
                 value={rows}
                 onRowEditComplete={complete}
                 onRowEditCancel={cancel}
@@ -238,7 +259,7 @@ export default React.forwardRef<object, any>(function Table({
                 editingRows={editingRows}
                 onRowEditChange={onRowEditChange}
             >
-                {allowSelect && (!props.selectionMode || props.selectionMode === 'checkbox') && <Column selectionMode="multiple" headerStyle={selectStyle}></Column>}
+                {allowSelect && (!props.selectionMode || props.selectionMode === 'checkbox') && <Column selectionMode="multiple"></Column>}
                 {children}
                 {
                     (widgets || []).map(column => {
