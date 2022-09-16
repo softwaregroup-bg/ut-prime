@@ -49,7 +49,11 @@ const useStyles = createUseStyles({
             overflowX: 'auto',
             '& th': {
                 minWidth: '3rem',
-                position: 'relative'
+                position: 'relative',
+                '&.p-selection-column': {
+                    flexGrow: 0,
+                    width: '3rem'
+                }
             },
             '& td': {
                 minWidth: '3rem'
