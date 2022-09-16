@@ -32,6 +32,7 @@ const useStyles = createUseStyles({
         '& .p-datatable-wrapper': {
             overflowX: 'auto',
             '& th': {
+                minWidth: '3rem',
                 position: 'relative'
             },
             '& td': {
