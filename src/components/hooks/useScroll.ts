@@ -1,7 +1,7 @@
 import React from 'react';
 import useWindowSize from './useWindowSize';
 
-export default function useScroll(disabled) : [ReturnType<typeof React.useCallback>, {maxHeight: number}] {
+export default function useScroll(disabled?: boolean) : [ReturnType<typeof React.useCallback>, {maxHeight: number}] {
     const [style, setHeight] = React.useState<{maxHeight: number}>();
     const windowSize = useWindowSize();
 

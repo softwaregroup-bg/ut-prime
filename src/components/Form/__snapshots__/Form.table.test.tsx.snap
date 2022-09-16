@@ -87,7 +87,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                           />
                         </div>
                         <div
-                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full"
+                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
                           data-scrollselectors=".p-datatable-wrapper"
                           data-testid="table1"
                           id="table1"
@@ -109,7 +109,6 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                   <th
                                     class="p-selection-column"
                                     role="columnheader"
-                                    style="width: 3rem;"
                                   >
                                     <div
                                       class="p-column-header-content"
@@ -656,7 +655,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                           />
                         </div>
                         <div
-                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full"
+                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
                           data-scrollselectors=".p-datatable-wrapper"
                           data-testid="table2"
                           id="table2"
@@ -678,7 +677,6 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                   <th
                                     class="p-selection-column"
                                     role="columnheader"
-                                    style="width: 3rem;"
                                   >
                                     <div
                                       class="p-column-header-content"
@@ -1196,7 +1194,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                           />
                         </div>
                         <div
-                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full"
+                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
                           data-scrollselectors=".p-datatable-wrapper"
                           data-testid="table3"
                           id="table3"
@@ -1218,7 +1216,6 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                   <th
                                     class="p-selection-column"
                                     role="columnheader"
-                                    style="width: 3rem;"
                                   >
                                     <div
                                       class="p-column-header-content"
@@ -1570,7 +1567,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                           />
                         </div>
                         <div
-                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full"
+                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
                           data-scrollselectors=".p-datatable-wrapper"
                           data-testid="table4"
                           id="table4"
@@ -1592,7 +1589,6 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                   <th
                                     class="p-selection-column"
                                     role="columnheader"
-                                    style="width: 3rem;"
                                   >
                                     <div
                                       class="p-column-header-content"

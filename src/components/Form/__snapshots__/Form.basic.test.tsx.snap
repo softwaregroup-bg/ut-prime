@@ -329,7 +329,7 @@ exports[`<Form /> render equals snapshot 1`] = `
                           />
                         </div>
                         <div
-                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full"
+                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
                           data-scrollselectors=".p-datatable-wrapper"
                           data-testid="tree-links"
                           id="tree-links"
@@ -351,7 +351,6 @@ exports[`<Form /> render equals snapshot 1`] = `
                                   <th
                                     class="p-selection-column"
                                     role="columnheader"
-                                    style="width: 3rem;"
                                   >
                                     <div
                                       class="p-column-header-content"
