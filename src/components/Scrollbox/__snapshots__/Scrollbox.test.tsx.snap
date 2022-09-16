@@ -5,7 +5,7 @@ exports[`<Scrollbox /> Basic render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="w-full overflow-y-auto scrollbox-0-2-1"
+    class="overflow-y-auto scrollbox-0-2-1"
     style="max-height: 768px;"
   >
     <p>

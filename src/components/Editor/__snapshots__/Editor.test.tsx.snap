@@ -69,23 +69,22 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="w-full overflow-y-auto scrollbox-0-2-1 flex overflow-x-hidden w-full"
-    style="max-height: 768px;"
+    class="flex overflow-x-hidden"
   >
     <div
       class="flex flex-grow-1"
     >
       <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
-      <div
-        class="w-full overflow-y-auto scrollbox-0-2-1"
+        class="overflow-y-auto scrollbox-0-2-1 w-full overflow-x-hidden"
         style="max-height: 768px;"
       >
+        <div
+          class="p-toast p-component p-toast-top-right"
+        >
+          <div />
+        </div>
         <form
-          class="grid col align-self-start w-full form-0-2-2"
+          class="grid col align-self-start form-0-2-2"
         >
           <div
             class="col-12 xl:col-6"
@@ -418,7 +417,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                               />
                             </div>
                             <div
-                              class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full"
+                              class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-4"
                               data-scrollselectors=".p-datatable-wrapper"
                               data-testid="tree-links"
                               id="tree-links"
@@ -440,7 +439,6 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                                       <th
                                         class="p-selection-column"
                                         role="columnheader"
-                                        style="width: 3rem;"
                                       >
                                         <div
                                           class="p-column-header-content"
@@ -827,23 +825,22 @@ exports[`<Editor /> CascadedDropdowns render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="w-full overflow-y-auto scrollbox-0-2-1 flex overflow-x-hidden w-full"
-    style="max-height: 768px;"
+    class="flex overflow-x-hidden"
   >
     <div
       class="flex flex-grow-1"
     >
       <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
-      <div
-        class="w-full overflow-y-auto scrollbox-0-2-1"
+        class="overflow-y-auto scrollbox-0-2-1 w-full overflow-x-hidden"
         style="max-height: 768px;"
       >
+        <div
+          class="p-toast p-component p-toast-top-right"
+        >
+          <div />
+        </div>
         <form
-          class="grid col align-self-start w-full form-0-2-2"
+          class="grid col align-self-start form-0-2-2"
         >
           <div
             class="col-12 xl:col-3"
@@ -1119,23 +1116,22 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="w-full overflow-y-auto scrollbox-0-2-1 flex overflow-x-hidden w-full"
-    style="max-height: 768px;"
+    class="flex overflow-x-hidden"
   >
     <div
       class="flex flex-grow-1"
     >
       <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
-      <div
-        class="w-full overflow-y-auto scrollbox-0-2-1"
+        class="overflow-y-auto scrollbox-0-2-1 w-full overflow-x-hidden"
         style="max-height: 768px;"
       >
+        <div
+          class="p-toast p-component p-toast-top-right"
+        >
+          <div />
+        </div>
         <form
-          class="grid col align-self-start w-full form-0-2-2"
+          class="grid col align-self-start form-0-2-2"
         >
           <div
             class="col-12 xl:col-4"
@@ -1212,7 +1208,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                               />
                             </div>
                             <div
-                              class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full"
+                              class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-4"
                               data-scrollselectors=".p-datatable-wrapper"
                               data-testid="person"
                               id="person"
@@ -1532,7 +1528,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                               />
                             </div>
                             <div
-                              class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full"
+                              class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-4"
                               data-scrollselectors=".p-datatable-wrapper"
                               data-testid="document"
                               id="document"
@@ -1923,7 +1919,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                               />
                             </div>
                             <div
-                              class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full"
+                              class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-4"
                               data-scrollselectors=".p-datatable-wrapper"
                               data-testid="attachment"
                               id="attachment"
@@ -2238,23 +2234,22 @@ exports[`<Editor /> CustomEditors render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="w-full overflow-y-auto scrollbox-0-2-1 flex overflow-x-hidden w-full"
-    style="max-height: 768px;"
+    class="flex overflow-x-hidden"
   >
     <div
       class="flex flex-grow-1"
     >
       <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
-      <div
-        class="w-full overflow-y-auto scrollbox-0-2-1"
+        class="overflow-y-auto scrollbox-0-2-1 w-full overflow-x-hidden"
         style="max-height: 768px;"
       >
+        <div
+          class="p-toast p-component p-toast-top-right"
+        >
+          <div />
+        </div>
         <form
-          class="grid col align-self-start w-full form-0-2-2"
+          class="grid col align-self-start form-0-2-2"
         >
           <div
             class="col-12 xl:col-6"
@@ -2534,23 +2529,22 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="w-full overflow-y-auto scrollbox-0-2-1 flex overflow-x-hidden w-full"
-    style="max-height: 768px;"
+    class="flex overflow-x-hidden"
   >
     <div
       class="flex flex-grow-1"
     >
       <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
-      <div
-        class="w-full overflow-y-auto scrollbox-0-2-1"
+        class="overflow-y-auto scrollbox-0-2-1 w-full overflow-x-hidden"
         style="max-height: 768px;"
       >
+        <div
+          class="p-toast p-component p-toast-top-right"
+        >
+          <div />
+        </div>
         <form
-          class="grid col align-self-start w-full form-0-2-2"
+          class="grid col align-self-start form-0-2-2"
         >
           <div
             class="col-12 xl:col-6"
@@ -3054,7 +3048,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                               />
                             </div>
                             <div
-                              class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full"
+                              class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-4"
                               data-scrollselectors=".p-datatable-wrapper"
                               data-testid="tree-links"
                               id="tree-links"
@@ -3076,7 +3070,6 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                                       <th
                                         class="p-selection-column"
                                         role="columnheader"
-                                        style="width: 3rem;"
                                       >
                                         <div
                                           class="p-column-header-content"
@@ -3511,7 +3504,8 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
         </form>
       </div>
       <div
-        class="col-2 flex-column pr-0"
+        class="overflow-y-auto scrollbox-0-2-1 col-2 flex-column"
+        style="max-height: 768px;"
       />
     </div>
   </div>
@@ -3588,23 +3582,22 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="w-full overflow-y-auto scrollbox-0-2-1 flex overflow-x-hidden w-full"
-    style="max-height: 768px;"
+    class="flex overflow-x-hidden"
   >
     <div
       class="flex flex-grow-1"
     >
       <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
-      <div
-        class="w-full overflow-y-auto scrollbox-0-2-1"
+        class="overflow-y-auto scrollbox-0-2-1 w-full overflow-x-hidden"
         style="max-height: 768px;"
       >
+        <div
+          class="p-toast p-component p-toast-top-right"
+        >
+          <div />
+        </div>
         <form
-          class="grid col align-self-start w-full form-0-2-2"
+          class="grid col align-self-start form-0-2-2"
         >
           <div
             class="col-12 xl:col-6"
@@ -3965,23 +3958,22 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="w-full overflow-y-auto scrollbox-0-2-1 flex overflow-x-hidden w-full"
-    style="max-height: 768px;"
+    class="flex overflow-x-hidden"
   >
     <div
       class="flex flex-grow-1"
     >
       <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
-      <div
-        class="w-full overflow-y-auto scrollbox-0-2-1"
+        class="overflow-y-auto scrollbox-0-2-1 w-full overflow-x-hidden"
         style="max-height: 768px;"
       >
+        <div
+          class="p-toast p-component p-toast-top-right"
+        >
+          <div />
+        </div>
         <form
-          class="grid col align-self-start w-full form-0-2-2"
+          class="grid col align-self-start form-0-2-2"
         >
           <div
             class="col-12 xl:col-2"
@@ -4058,7 +4050,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
                               />
                             </div>
                             <div
-                              class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full"
+                              class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-4"
                               data-scrollselectors=".p-datatable-wrapper"
                               data-testid="person"
                               id="person"
@@ -4338,23 +4330,22 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="w-full overflow-y-auto scrollbox-0-2-1 flex overflow-x-hidden w-full"
-    style="max-height: 768px;"
+    class="flex overflow-x-hidden"
   >
     <div
       class="flex flex-grow-1"
     >
       <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
-      <div
-        class="w-full overflow-y-auto scrollbox-0-2-1"
+        class="overflow-y-auto scrollbox-0-2-1 w-full overflow-x-hidden"
         style="max-height: 768px;"
       >
+        <div
+          class="p-toast p-component p-toast-top-right"
+        >
+          <div />
+        </div>
         <form
-          class="grid col align-self-start w-full form-0-2-2"
+          class="grid col align-self-start form-0-2-2"
         >
           <div
             class="col-12 md:col-4"
@@ -4431,7 +4422,7 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
                               />
                             </div>
                             <div
-                              class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full"
+                              class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-4"
                               data-scrollselectors=".p-datatable-wrapper"
                               data-testid="shape"
                               id="shape"
@@ -4751,23 +4742,22 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="w-full overflow-y-auto scrollbox-0-2-1 flex overflow-x-hidden w-full"
-    style="max-height: 768px;"
+    class="flex overflow-x-hidden"
   >
     <div
       class="flex flex-grow-1"
     >
       <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
-      <div
-        class="w-full overflow-y-auto scrollbox-0-2-1"
+        class="overflow-y-auto scrollbox-0-2-1 w-full overflow-x-hidden"
         style="max-height: 768px;"
       >
+        <div
+          class="p-toast p-component p-toast-top-right"
+        >
+          <div />
+        </div>
         <form
-          class="grid col align-self-start w-full form-0-2-2"
+          class="grid col align-self-start form-0-2-2"
         >
           <div
             class="col-12 xl:col-6"
@@ -4803,7 +4793,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                             class="w-full"
                           >
                             <div
-                              class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full"
+                              class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-4"
                               data-scrollselectors=".p-datatable-wrapper"
                               data-testid="schedule"
                               id="schedule"
@@ -5421,7 +5411,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                             class="w-full"
                           >
                             <div
-                              class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full"
+                              class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-4"
                               data-scrollselectors=".p-datatable-wrapper"
                               data-testid="permission"
                               id="permission"
@@ -6139,23 +6129,22 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
         </div>
       </div>
       <div
-        class="w-full overflow-y-auto scrollbox-0-2-1 flex overflow-x-hidden w-full"
-        style="max-height: 768px;"
+        class="flex overflow-x-hidden"
       >
         <div
           class="flex flex-grow-1"
         >
           <div
-            class="p-toast p-component p-toast-top-right"
-          >
-            <div />
-          </div>
-          <div
-            class="w-full overflow-y-auto scrollbox-0-2-1"
+            class="overflow-y-auto scrollbox-0-2-1 w-full overflow-x-hidden"
             style="max-height: 768px;"
           >
+            <div
+              class="p-toast p-component p-toast-top-right"
+            >
+              <div />
+            </div>
             <form
-              class="grid col align-self-start w-full form-0-2-2"
+              class="grid col align-self-start form-0-2-2"
             >
               <div
                 class="col-12 col-12"
@@ -6295,23 +6284,22 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
         </div>
       </div>
       <div
-        class="w-full overflow-y-auto scrollbox-0-2-1 flex overflow-x-hidden w-full"
-        style="max-height: 768px;"
+        class="flex overflow-x-hidden"
       >
         <div
           class="flex flex-grow-1"
         >
           <div
-            class="p-toast p-component p-toast-top-right"
-          >
-            <div />
-          </div>
-          <div
-            class="w-full overflow-y-auto scrollbox-0-2-1"
+            class="overflow-y-auto scrollbox-0-2-1 w-full overflow-x-hidden"
             style="max-height: 768px;"
           >
+            <div
+              class="p-toast p-component p-toast-top-right"
+            >
+              <div />
+            </div>
             <form
-              class="grid col align-self-start w-full form-0-2-2"
+              class="grid col align-self-start form-0-2-2"
             >
               <div
                 class="col-12 col-12"
@@ -6452,23 +6440,22 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
         </div>
       </div>
       <div
-        class="w-full overflow-y-auto scrollbox-0-2-1 flex overflow-x-hidden w-full"
-        style="max-height: 768px;"
+        class="flex overflow-x-hidden"
       >
         <div
           class="flex flex-grow-1"
         >
           <div
-            class="p-toast p-component p-toast-top-right"
-          >
-            <div />
-          </div>
-          <div
-            class="w-full overflow-y-auto scrollbox-0-2-1"
+            class="overflow-y-auto scrollbox-0-2-1 w-full overflow-x-hidden"
             style="max-height: 768px;"
           >
+            <div
+              class="p-toast p-component p-toast-top-right"
+            >
+              <div />
+            </div>
             <form
-              class="grid col align-self-start w-full form-0-2-2"
+              class="grid col align-self-start form-0-2-2"
             >
               <div
                 class="col-12 col-12"
@@ -6614,23 +6601,22 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="w-full overflow-y-auto scrollbox-0-2-1 flex overflow-x-hidden w-full"
-    style="max-height: 768px;"
+    class="flex overflow-x-hidden"
   >
     <div
       class="flex flex-grow-1"
     >
       <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
-      <div
-        class="w-full overflow-y-auto scrollbox-0-2-1"
+        class="overflow-y-auto scrollbox-0-2-1 w-full overflow-x-hidden"
         style="max-height: 768px;"
       >
+        <div
+          class="p-toast p-component p-toast-top-right"
+        >
+          <div />
+        </div>
         <form
-          class="grid col align-self-start w-full form-0-2-2"
+          class="grid col align-self-start form-0-2-2"
         >
           <div
             class="col-12 sm:col-6 xl:col-4"
@@ -7423,23 +7409,22 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="w-full overflow-y-auto scrollbox-0-2-1 flex overflow-x-hidden w-full"
-    style="max-height: 768px;"
+    class="flex overflow-x-hidden"
   >
     <div
       class="flex flex-grow-1"
     >
       <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
-      <div
-        class="w-full overflow-y-auto scrollbox-0-2-1"
+        class="overflow-y-auto scrollbox-0-2-1 w-full overflow-x-hidden"
         style="max-height: 768px;"
       >
+        <div
+          class="p-toast p-component p-toast-top-right"
+        >
+          <div />
+        </div>
         <form
-          class="grid col align-self-start w-full form-0-2-2"
+          class="grid col align-self-start form-0-2-2"
         >
           <div
             class="col-12"
@@ -7793,7 +7778,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
                               />
                             </div>
                             <div
-                              class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full"
+                              class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-4"
                               data-scrollselectors=".p-datatable-wrapper"
                               data-testid="tree-links"
                               id="tree-links"
@@ -7815,7 +7800,6 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
                                       <th
                                         class="p-selection-column"
                                         role="columnheader"
-                                        style="width: 3rem;"
                                       >
                                         <div
                                           class="p-column-header-content"
@@ -8255,23 +8239,22 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="w-full overflow-y-auto scrollbox-0-2-1 flex overflow-x-hidden w-full"
-    style="max-height: 768px;"
+    class="flex overflow-x-hidden"
   >
     <div
       class="flex flex-grow-1"
     >
       <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
-      <div
-        class="w-full overflow-y-auto scrollbox-0-2-1"
+        class="overflow-y-auto scrollbox-0-2-1 w-full overflow-x-hidden"
         style="max-height: 768px;"
       >
+        <div
+          class="p-toast p-component p-toast-top-right"
+        >
+          <div />
+        </div>
         <form
-          class="grid col align-self-start w-full form-0-2-2"
+          class="grid col align-self-start form-0-2-2"
         >
           <div
             class="col-12 xl:col-6"
@@ -8606,7 +8589,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                               />
                             </div>
                             <div
-                              class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full"
+                              class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-4"
                               data-scrollselectors=".p-datatable-wrapper"
                               data-testid="tree-links"
                               id="tree-links"
@@ -8628,7 +8611,6 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                                       <th
                                         class="p-selection-column"
                                         role="columnheader"
-                                        style="width: 3rem;"
                                       >
                                         <div
                                           class="p-column-header-content"
@@ -9018,8 +9000,7 @@ exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="w-full overflow-y-auto scrollbox-0-2-1 flex overflow-x-hidden w-full flex-column"
-    style="max-height: 768px;"
+    class="flex overflow-x-hidden flex-column"
   >
     <div
       class="flex flex-row pb-0"
@@ -9099,16 +9080,16 @@ exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
       class="flex flex-grow-1"
     >
       <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
-      <div
-        class="w-full overflow-y-auto scrollbox-0-2-1"
+        class="overflow-y-auto scrollbox-0-2-1 w-full overflow-x-hidden"
         style="max-height: 768px;"
       >
+        <div
+          class="p-toast p-component p-toast-top-right"
+        >
+          <div />
+        </div>
         <form
-          class="grid col align-self-start w-full form-0-2-2"
+          class="grid col align-self-start form-0-2-2"
         >
           <div
             class="col-12 xl:col-6"
@@ -9444,8 +9425,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="w-full overflow-y-auto scrollbox-0-2-1 flex overflow-x-hidden w-full flex-column"
-    style="max-height: 768px;"
+    class="flex overflow-x-hidden flex-column"
   >
     <div
       class="flex flex-row pb-0"
@@ -9528,16 +9508,16 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
       class="flex flex-grow-1"
     >
       <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
-      <div
-        class="w-full overflow-y-auto scrollbox-0-2-1"
+        class="overflow-y-auto scrollbox-0-2-1 w-full overflow-x-hidden"
         style="max-height: 768px;"
       >
+        <div
+          class="p-toast p-component p-toast-top-right"
+        >
+          <div />
+        </div>
         <form
-          class="grid col align-self-start w-full form-0-2-2"
+          class="grid col align-self-start form-0-2-2"
         >
           <div
             class="col-12 xl:col-6"
@@ -9958,8 +9938,7 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="w-full overflow-y-auto scrollbox-0-2-1 flex overflow-x-hidden w-full"
-    style="max-height: 768px;"
+    class="flex overflow-x-hidden"
   >
     <div
       class="flex flex-row pb-0 lg:col-2"
@@ -10021,7 +10000,7 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
         </div>
       </div>
       <div
-        class="w-full overflow-y-auto scrollbox-0-2-1"
+        class="overflow-y-auto scrollbox-0-2-1 w-full"
         style="max-height: 768px;"
       >
         <div
@@ -10132,16 +10111,16 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
       class="flex flex-grow-1"
     >
       <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
-      <div
-        class="w-full overflow-y-auto scrollbox-0-2-1"
+        class="overflow-y-auto scrollbox-0-2-1 w-full overflow-x-hidden"
         style="max-height: 768px;"
       >
+        <div
+          class="p-toast p-component p-toast-top-right"
+        >
+          <div />
+        </div>
         <form
-          class="grid col align-self-start w-full form-0-2-2"
+          class="grid col align-self-start form-0-2-2"
         >
           <div
             class="col-12 xl:col-6"
@@ -10398,23 +10377,22 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="w-full overflow-y-auto scrollbox-0-2-1 flex overflow-x-hidden w-full"
-    style="max-height: 768px;"
+    class="flex overflow-x-hidden"
   >
     <div
       class="flex flex-grow-1"
     >
       <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
-      <div
-        class="w-full overflow-y-auto scrollbox-0-2-1"
+        class="overflow-y-auto scrollbox-0-2-1 w-full overflow-x-hidden"
         style="max-height: 768px;"
       >
+        <div
+          class="p-toast p-component p-toast-top-right"
+        >
+          <div />
+        </div>
         <form
-          class="grid col align-self-start w-full form-0-2-2"
+          class="grid col align-self-start form-0-2-2"
         >
           <div
             class="col-12 xl:col-6"
@@ -10747,7 +10725,7 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
                               />
                             </div>
                             <div
-                              class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full"
+                              class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-4"
                               data-scrollselectors=".p-datatable-wrapper"
                               data-testid="tree-links"
                               id="tree-links"
@@ -10769,7 +10747,6 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
                                       <th
                                         class="p-selection-column"
                                         role="columnheader"
-                                        style="width: 3rem;"
                                       >
                                         <div
                                           class="p-column-header-content"
@@ -11161,23 +11138,22 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="w-full overflow-y-auto scrollbox-0-2-1 flex overflow-x-hidden w-full"
-    style="max-height: 768px;"
+    class="flex overflow-x-hidden"
   >
     <div
       class="flex flex-grow-1"
     >
       <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
-      <div
-        class="w-full overflow-y-auto scrollbox-0-2-1"
+        class="overflow-y-auto scrollbox-0-2-1 w-full overflow-x-hidden"
         style="max-height: 768px;"
       >
+        <div
+          class="p-toast p-component p-toast-top-right"
+        >
+          <div />
+        </div>
         <form
-          class="grid col align-self-start w-full form-0-2-2"
+          class="grid col align-self-start form-0-2-2"
         >
           <div
             class="col-12"
@@ -11524,7 +11500,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                               />
                             </div>
                             <div
-                              class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full"
+                              class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-4"
                               data-scrollselectors=".p-datatable-wrapper"
                               data-testid="tree-links"
                               id="tree-links"
@@ -11546,7 +11522,6 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                                       <th
                                         class="p-selection-column"
                                         role="columnheader"
-                                        style="width: 3rem;"
                                       >
                                         <div
                                           class="p-column-header-content"

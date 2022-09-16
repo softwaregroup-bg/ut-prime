@@ -18,7 +18,7 @@ const Scrollbox: ComponentProps = ({
             {...rest}
             ref={ref}
             style={maxHeight}
-        />
+        />;
 };
 
 export default Scrollbox;

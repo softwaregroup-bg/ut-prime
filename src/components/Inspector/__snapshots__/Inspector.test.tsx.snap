@@ -8,23 +8,21 @@ exports[`<Inspector /> Basic render equals snapshot 1`] = `
     class="col-3 inspector-0-2-1"
   >
     <div
-      class="w-full overflow-y-auto scrollbox-0-2-2 flex overflow-x-hidden w-full"
-      style="max-height: 768px;"
+      class="flex overflow-x-hidden"
     >
       <div
         class="flex flex-grow-1"
       >
         <div
-          class="p-toast p-component p-toast-top-right"
+          class="w-full overflow-x-hidden"
         >
-          <div />
-        </div>
-        <div
-          class="w-full overflow-y-auto scrollbox-0-2-2"
-          style="max-height: 768px;"
-        >
+          <div
+            class="p-toast p-component p-toast-top-right"
+          >
+            <div />
+          </div>
           <form
-            class="grid col align-self-start w-full form-0-2-3"
+            class="grid col align-self-start form-0-2-3"
           >
             <div
               class="col-12 w-full p-0"
