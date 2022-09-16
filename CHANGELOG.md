@@ -1,3 +1,12 @@
+## [2.17.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.17.2...v2.17.3) (2022-09-16)
+
+
+### Bug Fixes
+
+* DataTable scrollable alignment issue ([f0612ba](https://github.com/softwaregroup-bg/ut-prime/commit/f0612ba09e826be6f4db97d12eeb6993cf4016d2))
+
+
+
 ## [2.17.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.17.1...v2.17.2) (2022-09-16)
 
 
