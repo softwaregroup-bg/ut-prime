@@ -80,6 +80,7 @@ const Editor: ComponentProps = ({
     schemaCreate,
     editors,
     debug,
+    noScroll,
     type,
     typeField,
     cards,
@@ -499,10 +500,10 @@ const Editor: ComponentProps = ({
                         /></Permission> : null}
                 </>}
             /> : null}
-            <div className={clsx('flex', 'overflow-x-hidden', 'w-full', orientation === 'top' && 'flex-column')}>
+            <div className={clsx('flex', 'overflow-x-hidden', orientation === 'top' && 'flex-column')}>
                 {items && <ThumbIndex name={name} items={items} orientation={orientation} onFilter={setFilter}/>}
-                <Scrollbox className='flex flex-grow-1'>
-                    <Scrollbox className='overflow-x-hidden'>
+                <div className='flex flex-grow-1'>
+                    <Scrollbox noScroll={noScroll} className='w-full overflow-x-hidden'>
                         <Form
                             schema={mergedSchema}
                             move={move}
@@ -525,7 +526,7 @@ const Editor: ComponentProps = ({
                             toolbar={toolbarName}
                         />
                     </Scrollbox>
-                    {design && <div className={clsx('col-2 flex-column pr-0')}>
+                    {design && <Scrollbox noScroll={noScroll} className={clsx('col-2 flex-column')}>
                         {inspected ? <Inspector
                             Editor={Editor}
                             className={clsx('w-full')}
@@ -542,8 +543,8 @@ const Editor: ComponentProps = ({
                             name='trash'
                             className='text-center p-3 p-card'
                         ><i className='pi pi-trash'/></ConfigField>
-                    </div>}
-                </Scrollbox>
+                    </Scrollbox>}
+                </div>
             </div>
         </>
     );

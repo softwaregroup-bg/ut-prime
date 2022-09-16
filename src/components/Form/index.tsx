@@ -11,7 +11,6 @@ import { ComponentProps } from './Form.types';
 import { ConfigCard} from './DragDrop';
 import Context from '../Context';
 import Card from '../Card';
-import Scrollbox from '../Scrollbox';
 
 import useForm from '../hooks/useForm';
 import useSubmit from '../hooks/useSubmit';
