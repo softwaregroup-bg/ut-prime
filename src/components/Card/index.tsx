@@ -38,7 +38,9 @@ const useStyles = createUseStyles({
 const Card: ComponentProps = ({
     cardName,
     index1 = 0,
+    last1,
     index2 = 0,
+    last2,
     cards,
     layoutState,
     dropdowns,
@@ -240,7 +242,7 @@ const Card: ComponentProps = ({
         <ConfigCard
             title={label}
             key={`${index1}-${index2}`}
-            className={clsx('card', formApi && 'mb-3', classes.card, cardClasses?.card)}
+            className={clsx('card', formApi && (index2 !== last2) && 'mb-3', classes.card, cardClasses?.card)}
             card={cardName}
             id={cardName}
             index1={index1}

@@ -7,7 +7,9 @@ import useLayout from '../hooks/useLayout';
 export interface Props {
     cardName: WidgetReference,
     index1?: number,
+    last1?: number,
     index2?: number | boolean,
+    last2?: number | boolean,
     cards: Cards,
     dropdowns?: Dropdowns,
     methods: object,
