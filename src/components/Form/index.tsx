@@ -138,16 +138,18 @@ const Form: ComponentProps = ({
         />, toolbarRef.current);
     }
 
+    const errorList =
+        !!Object.keys(errors).length &&
+        errorFields
+            .map(name => !layoutState.visibleProperties.includes(name) && <><small className="p-error">{get(errors, name)?.message}</small><br /></>)
+            .filter(Boolean);
+
     return (<>
         {devTool ? <DevTool control={control} placement="top-right" /> : null}
         {toast}
         {toolbarElement}
         <form {...rest} onSubmit={submit} className={clsx('grid col align-self-start', classes.form, className)}>
-            {
-                !!Object.keys(errors).length && <div className='col-12'>
-                    {errorFields.map(name => !layoutState.visibleProperties.includes(name) && <><small className="p-error">{get(errors, name)?.message}</small><br /></>)}
-                </div>
-            }
+            {!!errorList.length && <div className='col-12'>{errorList}</div>}
             {layoutState.visibleCards.map((id1, level1) => {
                 const nested = [].concat(id1);
                 const firstCard = cards[widgetName(nested[0])];
