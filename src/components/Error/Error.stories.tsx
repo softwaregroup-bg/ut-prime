@@ -20,9 +20,9 @@ const meta: Meta = {
 };
 export default meta;
 
-export const Basic = () => <Error message='Error message' />;
+export const Basic = () => <Error message='This is intentional error message' />;
 export const InvalidCredentials = () => <Error />;
-export const InterpolateProps = () => <Error message='Error {message}' params={{message: 'message'}} />;
+export const InterpolateProps = () => <Error message='This is intentional error {message}' params={{message: 'message'}} />;
 export const InterpolateRedux = () => <Error />;
 export const Details = () => <Error />;
 
