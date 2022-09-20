@@ -1,3 +1,24 @@
+# [2.18.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.17.3...v2.18.0) (2022-09-20)
+
+
+### Bug Fixes
+
+* do not lose file onChange #UTCORE-121 ([f0f64e8](https://github.com/softwaregroup-bg/ut-prime/commit/f0f64e8d1543c07652f5043c59118452359a9f31)), closes [#UTCORE-121](https://github.com/softwaregroup-bg/ut-prime/issues/UTCORE-121)
+* error display ([152b136](https://github.com/softwaregroup-bg/ut-prime/commit/152b136b388e0e1c6d7a76469d190bd409bf1213))
+* Explorer DataView scroll ([146ad89](https://github.com/softwaregroup-bg/ut-prime/commit/146ad89609802a2fa9b7eea2bea55a6ef3db039d))
+* form gaps ([82968c9](https://github.com/softwaregroup-bg/ut-prime/commit/82968c9889dba4417c8733e3398629ebaf45b206))
+* remove last bottom margin #UTCORE-121 ([4374fc1](https://github.com/softwaregroup-bg/ut-prime/commit/4374fc1c1641d9390140d006a898b88caf381b3d)), closes [#UTCORE-121](https://github.com/softwaregroup-bg/ut-prime/issues/UTCORE-121)
+* report dropdowns ([534aeea](https://github.com/softwaregroup-bg/ut-prime/commit/534aeea563204a9623a3f3b8a2b35d349bbd3683))
+* validation filter ([951affb](https://github.com/softwaregroup-bg/ut-prime/commit/951affb1cc4481955f50f540a889f978d5dcdf73))
+
+
+### Features
+
+* Explorer customization ([e129868](https://github.com/softwaregroup-bg/ut-prime/commit/e129868e59b9b2023955adb1c4605ac92e8068f2))
+* Report customization ([5d7e9c5](https://github.com/softwaregroup-bg/ut-prime/commit/5d7e9c591cf1f6f9a06e5512a65704872d0d24d0))
+
+
+
 ## [2.17.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.17.2...v2.17.3) (2022-09-16)
 
 
