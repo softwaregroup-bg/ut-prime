@@ -71,7 +71,7 @@ export default function getValidation(schema: Schema | Property, filter?: string
             })
         );
     }
-    if (!filter?.includes(path)) return null;
+    if (filter && !filter?.includes(path)) return null;
     if (schema?.type === 'array' || schema?.items) {
         return schema?.items ? Joi.array().sparse().items(getValidation(schema.items as Schema, filter, path, propertyName)) : Joi.array();
     } else if (schema?.oneOf) {
