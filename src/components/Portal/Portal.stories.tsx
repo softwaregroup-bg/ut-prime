@@ -49,7 +49,11 @@ Basic.args = {
                                     }
                                 }
                             }}
-                            columns = {['name', 'size']}
+                            cards = {{
+                                browse: {
+                                    widgets: ['name', 'size']
+                                }
+                            }}
                             details={{
                                 name: 'Name'
                             }}
@@ -75,7 +79,7 @@ ErrorTab.args = {
                 title: 'Error',
                 path: '/error',
                 Component() {
-                    throw new Error('Error message');
+                    throw new Error('This is intentional error message');
                 }
             }]
         }
