@@ -1,6 +1,6 @@
 import React from 'react';
 import { Checkbox, Dropdown, SelectButton, RadioButton, Calendar, DateRange, InputMask, InputText, InputTextarea, InputNumber, Password } from '../prime';
-import { Property } from '../types';
+import type { Property, PropertyEditor } from '../types';
 import titleCase from './titleCase';
 import getType from './getType';
 import {KEY, INDEX} from '../Card/const';
@@ -9,7 +9,9 @@ import {ConfigField} from '../Form/DragDrop';
 export interface TableFilter {
     filters?: {
         [name: string]: {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             value: any;
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             matchMode: any;
         }
     },
@@ -49,7 +51,7 @@ export default function columnProps({
     resultSet: string,
     name: string,
     property: Property,
-    widget?: any,
+    widget?: PropertyEditor,
     dropdowns: object,
     tableFilter?: TableFilter,
     filterBy?: (name: string, value: string) => (e: object) => void,
@@ -64,7 +66,7 @@ export default function columnProps({
 }) {
     const resultSetDot = resultSet ? resultSet + '.' : '';
     const {type, dropdown, parent, column, lookup, compare, ...props} = widget || property?.widget || {name};
-    const fieldName = name;
+    const fieldName = name.split('.').pop();
     let filterElement, body, editor, bodyClassName, alignHeader;
     const filterId = `${resultSetDot}${name}Filter`;
     filterElement = filterBy && <InputText
@@ -374,7 +376,7 @@ export default function columnProps({
     return {
         showClearButton: true,
         showFilterMenu: false,
-        field: name,
+        field: fieldName,
         header: <ConfigField
             design={design}
             relative={false}

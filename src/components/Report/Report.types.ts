@@ -1,31 +1,19 @@
-import {createUseStyles} from 'react-jss';
 import React from 'react';
-import type { Schema as Validation } from 'joi';
 
-import type {Schema, Dropdowns, WidgetReference} from '../types';
+import type {WidgetReference} from '../types';
+import type { Props as ExplorerProps } from '../Explorer/Explorer.types';
 
 export interface Props {
-    schema: Schema,
-    validation?: Validation,
+    name: string,
+    resultSet?: ExplorerProps['resultSet'],
+    schema: ExplorerProps['schema'],
     params: WidgetReference[],
     init?: Record<string, unknown>,
     columns: WidgetReference[],
-    resultSet?: string,
-    onDropdown: (params: string[]) => Promise<Dropdowns>,
-    fetch: (params: object) => Promise<{
-        pagination?: {
-            recordsTotal: number
-        },
-        [data: string]: unknown
-    }>;
+    design?: ExplorerProps['design'],
+    onDropdown: ExplorerProps['onDropdown'],
+    onCustomization?: ExplorerProps['onCustomization'],
+    fetch: ExplorerProps['fetch'];
 }
-
-export const useStyles = createUseStyles({
-    report: {
-        '& .p-card .p-card-body': {
-            padding: 0
-        }
-    }
-});
 
 export type ComponentProps = React.FC<Props>

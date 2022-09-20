@@ -43,6 +43,7 @@ const Form: ComponentProps = ({
     schema = {},
     editors,
     design,
+    designCards,
     debug,
     cards,
     layout,
@@ -194,13 +195,13 @@ const Form: ComponentProps = ({
                             index1={level1}
                             index2={nested.length}
                             move={move}
-                            design={design}
+                            design={designCards}
                             drop
                         />
                     </div>
                 );
             })}
-            {design && <div className='col-12 xl:col-6' style={outline}>
+            {designCards && <div className='col-12 xl:col-6' style={outline}>
                 <ConfigCard
                     title='&nbsp;'
                     className='card'

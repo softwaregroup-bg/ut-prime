@@ -114,7 +114,7 @@ const Explorer: ComponentProps = ({
     const [paramValues, submitParams] = React.useState<[Record<string, unknown>] | [Record<string, unknown>, {files: []}]>([params]);
     const [filter, index] = React.useMemo(() => [
         {
-            [resultSet]: paramValues[0]
+            [resultSet]: paramValues[0]?.params
         },
         {
             ...paramValues[1],
@@ -122,7 +122,7 @@ const Explorer: ComponentProps = ({
         }
     ], [paramValues, resultSet]);
 
-    const [loading, setLoading] = React.useState(false);
+    const [loading, setLoading] = React.useState('');
     const [customizationToolbar, mergedSchema, mergedCards, inspector, loadCustomization, , , , , formProps] =
         useCustomization(designDefault, schema, cards, layouts, customization, 'view', '', Editor, undefined, onCustomization, methods, name, loading);
     const layoutProps = layouts?.[layoutName] || {};
@@ -215,7 +215,7 @@ const Explorer: ComponentProps = ({
                 setItems([[], 0]);
                 setDropdown({});
             } else {
-                setLoading(true);
+                setLoading('loading');
                 try {
                     const items = await fetch(prepareSubmit([merge(
                         {},
@@ -245,7 +245,7 @@ const Explorer: ComponentProps = ({
                     }
                     setItems([records, total]);
                 } finally {
-                    setLoading(false);
+                    setLoading('');
                 }
             }
         },
@@ -354,7 +354,7 @@ const Explorer: ComponentProps = ({
                 />)}
                 filter={showFilter && !!property?.filter}
                 sortable={!!property?.sort}
-                {...columnProps({index, card: columnsCard, name: field, widget: !isString && widget, property, dropdowns, tableFilter, filterBy, ...formProps})}
+                {...columnProps({index, card: columnsCard, name, widget: !isString && widget, property, dropdowns, tableFilter, filterBy, ...formProps})}
             />
         );
     }), [columns, columnsCard, properties, showFilter, dropdowns, tableFilter, keyField, resultSet, formProps]);
@@ -365,7 +365,9 @@ const Explorer: ComponentProps = ({
         return <div className='flex align-items-center w-full'>
             <Form
                 className='p-0 m-0 flex-grow-1'
-                schema={paramsSchema}
+                schema={mergedSchema}
+                editors={editors}
+                methods={methods}
                 cards={cards}
                 layout={paramsLayout}
                 onSubmit={submitParams}
@@ -374,16 +376,18 @@ const Explorer: ComponentProps = ({
                 setTrigger={setTrigger}
                 triggerNotDirty
                 autoSubmit
+                {...formProps}
+                designCards={false}
             />
         </div>;
-    }, [dropdowns, cards, paramsLayout, paramValues, paramsSchema, submitParams, setTrigger]);
+    }, [paramsLayout, mergedSchema, editors, methods, cards, paramValues, dropdowns, formProps]);
 
     const left = React.useMemo(() => paramsElement ?? <>
         {hasChildren && <Button {...testid(`${resultSet}.navigator.toggleButton`)} icon="pi pi-bars" className="mr-2" onClick={navigationToggle}/>}
         {buttons}
     </>, [navigationToggle, buttons, hasChildren, resultSet, paramsElement]);
     const right = <>
-        <Button icon="pi pi-search" className="mr-2 ml-2" onClick={trigger} {...testid(`${resultSet}.refreshButton`)}/>
+        <Button icon="pi pi-search" className="mr-2 ml-2" disabled={!!loading} onClick={trigger} {...testid(`${resultSet}.refreshButton`)}/>
         {details && <Button {...testid(`${resultSet}.details.toggleButton`)} icon="pi pi-bars" className="mr-2" onClick={detailsToggle}/>}
         {customizationToolbar}
     </>;
@@ -445,7 +449,7 @@ const Explorer: ComponentProps = ({
                 onPage={handleFilterPageSort}
                 onSort={handleFilterPageSort}
                 onFilter={handleFilterPageSort}
-                loading={loading}
+                loading={!!loading}
                 dataKey={keyField}
                 value={items}
                 selection={selected}

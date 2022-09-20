@@ -325,6 +325,6 @@ export default function useCustomization(
         orientation,
         thumbIndex,
         layout || filter?.widgets,
-        React.useMemo(() => ({move, inspected, onInspect, toolbar, design}), [move, inspected, onInspect, toolbar, design])
+        React.useMemo(() => ({move, inspected, onInspect, toolbar, design, designCards: design}), [move, inspected, onInspect, toolbar, design])
     ];
 }

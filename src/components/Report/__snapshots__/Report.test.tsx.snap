@@ -5,165 +5,198 @@ exports[`<Report /> render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="flex align-items-center report-0-2-1"
+    class="p-toast p-component p-toast-top-right"
+  >
+    <div />
+  </div>
+  <div
+    class="flex flex-column explorer-0-2-1"
   >
     <div
       class="p-toast p-component p-toast-top-right"
     >
       <div />
     </div>
-    <form
-      class="grid col align-self-start form-0-2-2"
-      style="flex-grow: 1;"
+    <div
+      class="p-toolbar p-component border-none p-2 flex-nowrap"
+      role="toolbar"
+      style="background: none;"
     >
       <div
-        class="col-12 col-12"
+        class="p-toolbar-group-left"
       >
         <div
-          class="w-full"
+          class="flex align-items-center w-full"
         >
           <div
-            class="p-card p-component card mb-3 card-0-2-3"
-            id="params"
+            class="p-toast p-component p-toast-top-right"
+          >
+            <div />
+          </div>
+          <form
+            class="grid col align-self-start form-0-2-5 p-0 m-0 flex-grow-1"
           >
             <div
-              class="p-card-body"
+              class="col-12 m-0 p-0"
             >
               <div
-                class="p-card-content"
+                class="w-full"
               >
                 <div
-                  class="flex flex-wrap"
+                  class="p-card p-component card card-0-2-6"
+                  id="params"
                 >
                   <div
-                    class="field grid col-12 md:col-4 xl:col-3 mb-0"
+                    class="p-card-body"
                   >
-                    <label
-                      class="col-12 md:col-4"
-                      for="name"
-                    >
-                      Name
-                    </label>
                     <div
-                      class="flex align-items-center relative col-12 md:col-8"
+                      class="p-card-content"
                     >
-                      <input
-                        class="p-inputtext p-component p-filled w-full"
-                        id="name"
-                        name="name"
-                        value="row 1"
-                      />
-                    </div>
-                  </div>
-                  <div
-                    class="field grid col-12 md:col-4 xl:col-3 mb-0"
-                  >
-                    <label
-                      class="col-12 md:col-4"
-                      for="startDate"
-                    >
-                      Start Date
-                    </label>
-                    <div
-                      class="flex align-items-center relative col-12 md:col-8"
-                    >
-                      <span
-                        class="p-calendar p-component p-inputwrapper w-full p-calendar-w-btn p-calendar-w-btn-right"
-                        id="startDate"
+                      <div
+                        class="grid -m-2"
                       >
-                        <input
-                          autocomplete="off"
-                          class="p-inputtext p-component"
-                          id="startDate"
-                          inputmode="none"
-                          name="startDate"
-                          type="text"
-                        />
-                        <button
-                          class="p-button p-component p-datepicker-trigger p-button-icon-only"
-                          tabindex="-1"
-                          type="button"
+                        <div
+                          class="field grid col-12 md:col-4 xl:col-3 mb-0"
                         >
-                          <span
-                            class="p-button-icon p-c pi pi-calendar"
-                          />
-                          <span
-                            class="p-button-label p-c"
+                          <label
+                            class="col-12 md:col-4"
+                            for="params-name"
                           >
-                             
-                          </span>
-                        </button>
-                      </span>
-                    </div>
-                  </div>
-                  <div
-                    class="field grid col-12 md:col-4 xl:col-3 mb-0 mb-0"
-                  >
-                    <label
-                      class="col-12 md:col-4"
-                      for="endDate"
-                    >
-                      End Date
-                    </label>
-                    <div
-                      class="flex align-items-center relative col-12 md:col-8"
-                    >
-                      <span
-                        class="p-calendar p-component p-inputwrapper w-full p-calendar-w-btn p-calendar-w-btn-right"
-                        id="endDate"
-                      >
-                        <input
-                          autocomplete="off"
-                          class="p-inputtext p-component"
-                          id="endDate"
-                          inputmode="none"
-                          name="endDate"
-                          type="text"
-                        />
-                        <button
-                          class="p-button p-component p-datepicker-trigger p-button-icon-only"
-                          tabindex="-1"
-                          type="button"
+                            Name
+                          </label>
+                          <div
+                            class="flex align-items-center relative col-12 md:col-8"
+                          >
+                            <input
+                              class="p-inputtext p-component p-filled w-full"
+                              id="params-name"
+                              name="params.name"
+                              value="row 1"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="field grid col-12 md:col-4 xl:col-3 mb-0"
                         >
-                          <span
-                            class="p-button-icon p-c pi pi-calendar"
-                          />
-                          <span
-                            class="p-button-label p-c"
+                          <label
+                            class="col-12 md:col-4"
+                            for="params-startDate"
                           >
-                             
-                          </span>
-                        </button>
-                      </span>
+                            Start Date
+                          </label>
+                          <div
+                            class="flex align-items-center relative col-12 md:col-8"
+                          >
+                            <span
+                              class="p-calendar p-component p-inputwrapper w-full p-calendar-w-btn p-calendar-w-btn-right"
+                              id="params-startDate"
+                            >
+                              <input
+                                autocomplete="off"
+                                class="p-inputtext p-component"
+                                id="params-startDate"
+                                inputmode="none"
+                                name="params.startDate"
+                                type="text"
+                              />
+                              <button
+                                class="p-button p-component p-datepicker-trigger p-button-icon-only"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                <span
+                                  class="p-button-icon p-c pi pi-calendar"
+                                />
+                                <span
+                                  class="p-button-label p-c"
+                                >
+                                   
+                                </span>
+                              </button>
+                            </span>
+                          </div>
+                        </div>
+                        <div
+                          class="field grid col-12 md:col-4 xl:col-3 mb-0 mb-0"
+                        >
+                          <label
+                            class="col-12 md:col-4"
+                            for="params-endDate"
+                          >
+                            End Date
+                          </label>
+                          <div
+                            class="flex align-items-center relative col-12 md:col-8"
+                          >
+                            <span
+                              class="p-calendar p-component p-inputwrapper w-full p-calendar-w-btn p-calendar-w-btn-right"
+                              id="params-endDate"
+                            >
+                              <input
+                                autocomplete="off"
+                                class="p-inputtext p-component"
+                                id="params-endDate"
+                                inputmode="none"
+                                name="params.endDate"
+                                type="text"
+                              />
+                              <button
+                                class="p-button p-component p-datepicker-trigger p-button-icon-only"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                <span
+                                  class="p-button-icon p-c pi pi-calendar"
+                                />
+                                <span
+                                  class="p-button-label p-c"
+                                >
+                                   
+                                </span>
+                              </button>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
-    </form>
-    <button
-      class="p-button p-component col-1 p-button-icon-only"
-    >
-      <span
-        class="p-button-icon p-c pi pi-search"
-      />
-      <span
-        class="p-button-label p-c"
+      <div
+        class="p-toolbar-group-right"
       >
-         
-      </span>
-    </button>
-  </div>
-  <div
-    class="flex flex-column explorer-0-2-4"
-  >
-    <div
-      class="p-toast p-component p-toast-top-right"
-    >
-      <div />
+        <button
+          class="p-button p-component mr-2 ml-2 p-button-icon-only"
+          data-testid="result-refreshButton"
+        >
+          <span
+            class="p-button-icon p-c pi pi-search"
+          />
+          <span
+            class="p-button-label p-c"
+          >
+             
+          </span>
+        </button>
+        <button
+          aria-label="design"
+          class="p-button p-component p-button-icon-only"
+          data-testid="customization"
+        >
+          <span
+            class="p-button-icon p-c pi pi-cog"
+          />
+          <span
+            class="p-button-label p-c"
+          >
+             
+          </span>
+        </button>
+      </div>
     </div>
     <div
       class="flex"
@@ -171,9 +204,11 @@ exports[`<Report /> render equals snapshot 1`] = `
       <div
         class="flex-grow-1"
       >
-        <div>
+        <div
+          style="height: 768px;"
+        >
           <div
-            class="p-datatable p-component p-datatable-auto-layout p-datatable-scrollable p-datatable-scrollable-vertical p-datatable-responsive-stack"
+            class="p-datatable p-component p-datatable-auto-layout p-datatable-scrollable p-datatable-scrollable-vertical p-datatable-flex-scrollable p-datatable-responsive-stack"
             data-scrollselectors=".p-datatable-wrapper"
             pr_id_3=""
           >
@@ -246,11 +281,11 @@ exports[`<Report /> render equals snapshot 1`] = `
             </div>
             <div
               class="p-datatable-wrapper"
+              style="max-height: flex;"
             >
               <table
                 class="p-datatable-table"
                 role="table"
-                style="max-height: 768px;"
               >
                 <thead
                   class="p-datatable-thead"
@@ -276,13 +311,24 @@ exports[`<Report /> render equals snapshot 1`] = `
                         </span>
                       </div>
                     </th>
-                  </tr>
-                  <tr
-                    role="row"
-                  >
                     <th
-                      class="p-filter-column"
-                    />
+                      class=""
+                      role="columnheader"
+                    >
+                      <div
+                        class="p-column-header-content"
+                      >
+                        <span
+                          class="p-column-title"
+                        >
+                          <span
+                            data-testid="result-dateTitle"
+                          >
+                            Date
+                          </span>
+                        </span>
+                      </div>
+                    </th>
                   </tr>
                 </thead>
                 <tbody
@@ -293,7 +339,7 @@ exports[`<Report /> render equals snapshot 1`] = `
                     role="row"
                   >
                     <td
-                      colspan="1"
+                      colspan="2"
                       role="cell"
                     >
                       No results found

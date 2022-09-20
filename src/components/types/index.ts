@@ -188,6 +188,7 @@ export type Layout = (WidgetReference | WidgetReference[])[];
 export interface Layouts {
     [name: string]: (string | string[])[] | Index | IndexItemId[] | {
         columns: string,
+        params?: (string | string[])[],
         toolbar?: string
     } | {
         layout: Layout

@@ -1724,9 +1724,9 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     </span>
                                     <input
                                       class="p-inputtext p-component w-full"
-                                      data-testid="table4-0-input-selectTable"
-                                      id="table4-0-input.selectTable"
-                                      name="table4[0].input.selectTable"
+                                      data-testid="table4-0-selectTable"
+                                      id="table4-0-selectTable"
+                                      name="table4[0].selectTable"
                                       type="text"
                                       value=""
                                     />
@@ -1746,9 +1746,9 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     </span>
                                     <input
                                       class="p-inputtext p-component w-full"
-                                      data-testid="table4-0-input-multiSelectPanel"
-                                      id="table4-0-input.multiSelectPanel"
-                                      name="table4[0].input.multiSelectPanel"
+                                      data-testid="table4-0-multiSelectPanel"
+                                      id="table4-0-multiSelectPanel"
+                                      name="table4[0].multiSelectPanel"
                                       type="text"
                                       value=""
                                     />
@@ -1768,9 +1768,9 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     </span>
                                     <input
                                       class="p-inputtext p-component w-full"
-                                      data-testid="table4-0-input-multiSelectTreeTable"
-                                      id="table4-0-input.multiSelectTreeTable"
-                                      name="table4[0].input.multiSelectTreeTable"
+                                      data-testid="table4-0-multiSelectTreeTable"
+                                      id="table4-0-multiSelectTreeTable"
+                                      name="table4[0].multiSelectTreeTable"
                                       type="text"
                                       value=""
                                     />
