@@ -1,3 +1,12 @@
+## [2.18.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.18.0...v2.18.1) (2022-09-20)
+
+
+### Bug Fixes
+
+* explorer toolbar ([ab0414c](https://github.com/softwaregroup-bg/ut-prime/commit/ab0414c553a0e20ea2373035365bdacd12de4d2f))
+
+
+
 # [2.18.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.17.3...v2.18.0) (2022-09-20)
 
 
