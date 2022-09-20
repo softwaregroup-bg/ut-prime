@@ -271,20 +271,23 @@ const Explorer: ComponentProps = ({
 
     const windowSize = useWindowSize();
     const [height, setHeight] = React.useState<{height: number}>();
+    const [maxHeight, setMaxHeight] = React.useState<{maxHeight: number}>();
     const [splitterHeight, setSplitterHeight] = React.useState({});
 
-    const maxHeight = maxHeight => (!isNaN(maxHeight) && maxHeight > 0) ? Math.floor(maxHeight) : 0;
+    const max = maxHeight => (!isNaN(maxHeight) && maxHeight > 0) ? Math.floor(maxHeight) : 0;
 
     const tableWrapRef = React.useCallback(node => {
         if (node === null) return;
         const nodeRect = node.getBoundingClientRect();
-        setHeight({height: maxHeight(windowSize.height - nodeRect.top)});
+        const paginatorHeight = node.querySelector('.p-paginator')?.getBoundingClientRect?.()?.height;
+        setHeight({height: max(windowSize.height - nodeRect.top)});
+        setMaxHeight({maxHeight: max(windowSize.height - nodeRect.top - paginatorHeight)});
     }, [windowSize.height]);
 
     const splitterWrapRef = React.useCallback(node => {
         if (node === null) return;
         const nodeRect = node.getBoundingClientRect();
-        setSplitterHeight({flexGrow: 1, height: maxHeight(windowSize.height - nodeRect.top)});
+        setSplitterHeight({flexGrow: 1, height: max(windowSize.height - nodeRect.top)});
     }, [windowSize.height]);
 
     const detailsPanel = React.useMemo(() => detailsOpened && details &&
@@ -413,6 +416,7 @@ const Explorer: ComponentProps = ({
         <div ref={tableWrapRef} style={height}>
             {layout?.length ? <DataView
                 layout='grid'
+                style={maxHeight}
                 lazy
                 gutter
                 rows={pageSize}
