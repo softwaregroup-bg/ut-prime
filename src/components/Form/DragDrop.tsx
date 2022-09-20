@@ -17,7 +17,8 @@ type CardMonitor = DropTargetMonitor<{
     index: [number, number | false]
 }>;
 
-const highlight = <label className='absolute border-left-3 top-0 bottom-0 mb-0' style={{borderColor: 'var(--primary-color)'}}>&nbsp;</label>;
+const highlight = <label className='absolute border-1 border-dashed top-0 bottom-0 left-0 right-0 mb-0' style={{borderColor: 'var(--primary-color)'}}>&nbsp;</label>;
+const highlightCard = <label className='absolute border-1 border-dashed top-0 bottom-0 left-0 right-0 -m-1' style={{borderColor: 'var(--primary-color)'}}>&nbsp;</label>;
 
 export function DragDropField({relative, children, name, index, card, move, label, onInspect, inspected, ...props}) {
     let labelProps;
@@ -27,7 +28,8 @@ export function DragDropField({relative, children, name, index, card, move, labe
             type: FIELD,
             item: { index, card, label },
             collect: monitor => ({
-                isDragging: !!monitor.isDragging()
+                isDragging: !!monitor.isDragging(),
+                dragItem: monitor.getItem()
             })
         }),
         [card, index]
@@ -70,21 +72,22 @@ export function DragDropField({relative, children, name, index, card, move, labe
     if (name === 'trash' && !canDrop) return null;
     return (
         <div {...props}>
-            {(inspected?.type === 'schema' && inspected?.name === name) ? highlight : null}
             {children}
+            {(inspected?.type === 'schema' && inspected?.name === name && !collected.dragItem) ? highlight : null}
             {name === 'trash' ? null : <label className='absolute border-1 border-solid border-transparent top-0 bottom-0 left-0 right-0 cursor-move mb-0' {...labelProps}>&nbsp;</label>}
         </div>
     );
 }
 
 export function DragDropCard({children, card, index1, index2, move, flex, hidden, drag, drop, title, inspected, onInspect, ...props}) {
-    const [{isDragging}, dragCard] = useDrag(
+    const [{isDragging, dragItem}, dragCard] = useDrag(
         () => ({
             type: CARD,
             item: { card, index: [index1, index2], title },
             canDrag: !drop,
             collect: monitor => ({
-                isDragging: !!monitor.isDragging()
+                isDragging: !!monitor.isDragging(),
+                dragItem: monitor.getItem()
             })
         }),
         [card, index1, index2]
@@ -140,14 +143,15 @@ export function DragDropCard({children, card, index1, index2, move, flex, hidden
     </div>;
 
     return (
-        <div {...divProps}>{
-            (inspected?.type === 'card' && inspected?.name === card) ? highlight : null
-        }{
-            drag ? <div ref={dragCard} className={clsx('cursor-move', props.className)}>{children}</div> : drop ? <Card title={title} {...props}>{children}</Card> : <Card title={title} {...props}>
-                {children}
-                {dropZone}
-            </Card>
-        }</div>
+        <div className='relative'>
+            {(inspected?.type === 'card' && inspected?.name === card && !dragItem) ? highlightCard : null}
+            <div {...divProps}>{
+                drag ? <div ref={dragCard} className={clsx('cursor-move', props.className)}>{children}</div> : drop ? <Card title={title} {...props}>{children}</Card> : <Card title={title} {...props}>
+                    {children}
+                    {dropZone}
+                </Card>
+            }</div>
+        </div>
     );
 }
 
