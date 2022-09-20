@@ -1,7 +1,13 @@
 import React from 'react';
 import { DataTableProps, DataViewProps } from '../prime';
 
-import type {Schema, Cards, Editors, Dropdowns, WidgetReference, Layout, Layouts} from '../types';
+import type {Schema, Cards, Editors, Dropdowns, WidgetReference, Layouts} from '../types';
+
+interface Customization {
+    schema?: Schema,
+    card?: Cards,
+    layout?: Layouts
+}
 
 export interface Props {
     /**
@@ -18,18 +24,19 @@ export interface Props {
     schema: Schema;
     /**
      * Array of property names to show as columns.
+     * @deprecated use cards.xxx.widgets instead
      */
-    columns: WidgetReference[];
+    columns?: WidgetReference[];
     /**
      * Data fetching async function.
      */
     fetch: (params: {
         [resultSet: string]: object,
-        orderBy: {
+        orderBy?: {
             field: string,
             dir: string
         }[],
-        paging: {
+        paging?: {
             pageSize: number,
             pageNumber: number
         }
@@ -47,7 +54,8 @@ export interface Props {
      */
     details?: object;
     toolbar?: false | WidgetReference[];
-    filter?: object;
+    filter?: Record<string, unknown>;
+    params?: Record<string, unknown>;
     index?: object;
     showFilter?: boolean;
     design?: boolean;
@@ -56,9 +64,13 @@ export interface Props {
     editors?: Editors;
     view?: DataViewProps;
     cards?: Cards;
-    layout?: string | Layout;
+    layout?: string;
     layouts?: Layouts;
     methods?: object;
+    name?: string;
+    customization?: Customization,
+    paramsCard?: string,
+    onCustomization?: (customization: {component: {componentId: string, componentConfig: Customization}}) => Promise<object>,
 }
 
 export type ComponentProps = React.FC<Props>

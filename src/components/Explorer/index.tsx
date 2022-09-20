@@ -11,16 +11,17 @@ import Permission from '../Permission';
 import useToggle from '../hooks/useToggle';
 import useSubmit from '../hooks/useSubmit';
 import useLayout from '../hooks/useLayout';
+import useLoad from '../hooks/useLoad';
 import useWindowSize from '../hooks/useWindowSize';
 import Editor from '../Editor';
-import Context from '../Context';
-import Inspector from '../Inspector';
-import {ConfigField} from '../Form/DragDrop';
+import Form from '../Form';
+import fieldNames from '../lib/fields';
 import columnProps, {TableFilter} from '../lib/column';
 import prepareSubmit from '../lib/prepareSubmit';
 
 import { ComponentProps } from './Explorer.types';
 import testid from '../lib/testid';
+import useCustomization from '../hooks/useCustomization';
 
 const backgroundNone = {background: 'none'};
 const splitterWidth = { width: '200px' };
@@ -29,15 +30,27 @@ const fieldName = column => typeof column === 'string' ? column : column.name;
 
 const useStyles = createUseStyles({
     explorer: {
+        '& .p-card .p-card-content': {
+            padding: 0
+        },
         '& .p-datatable-wrapper': {
             overflowX: 'auto',
-            '& th': {
-                minWidth: '3rem',
-                position: 'relative'
-            },
-            '& td': {
-                minWidth: '3rem'
+            '& .p-button': {
+                textAlign: 'inherit'
             }
+        },
+        '& .p-datatable-scrollable .p-datatable-thead>tr>th': {
+            minWidth: '3rem',
+            position: 'relative',
+            flexDirection: 'column',
+            alignItems: 'unset',
+            justifyContent: 'space-evenly'
+        },
+        '& .p-datatable-scrollable .p-datatable-tbody>tr>td': {
+            minWidth: '3rem',
+            flexDirection: 'column',
+            alignItems: 'unset',
+            justifyContent: 'space-evenly'
         },
         '& .p-grid': {
             margin: '0.5em'
@@ -54,12 +67,11 @@ const useStyles = createUseStyles({
                 }
             }
         },
-        '& .p-datatable-tbody': {
-            overflowY: 'auto',
-            maxHeight: 'inherit'
-        },
         '& .p-splitter-panel': {
             overflowY: 'auto'
+        },
+        '& .p-toolbar-group-left': {
+            flexGrow: 1
         }
     },
     details: {
@@ -69,46 +81,65 @@ const useStyles = createUseStyles({
     detailsValue: {}
 });
 
+const empty = [];
+
 const Explorer: ComponentProps = ({
     className,
     keyField,
-    fetch,
+    fetch: fetchParams,
     subscribe,
     schema,
-    columns,
     resultSet,
     children,
     details,
     toolbar,
-    filter,
-    index,
+    filter: initFilter,
+    params,
     design: designDefault,
     onDropdown,
     showFilter = true,
     pageSize = 10,
     table: tableProps,
     view: viewProps,
+    customization,
+    onCustomization,
+    name,
     layouts,
-    layout,
+    layout: layoutName,
     cards,
     editors,
     methods
 }) => {
-    const [design, toggleDesign] = useToggle(designDefault);
-    const [inspected, setInspected] = React.useState(null);
-    const {customization: customizationEnabled} = React.useContext(Context);
-    if (typeof layout === 'string') {
-        const current = layouts[layout];
-        if ('columns' in current) columns = cards[current.columns].widgets;
-        if ('toolbar' in current) toolbar = cards[current.toolbar].widgets;
-        layout = ('layout' in current) ? current.layout : [];
-    }
+    const [trigger, setTrigger] = React.useState<() => void>();
+    const [paramValues, submitParams] = React.useState<[Record<string, unknown>] | [Record<string, unknown>, {files: []}]>([params]);
+    const [filter, index] = React.useMemo(() => [
+        {
+            [resultSet]: paramValues[0]
+        },
+        {
+            ...paramValues[1],
+            files: paramValues?.[1]?.files?.map(name => `${resultSet}.${name}`)
+        }
+    ], [paramValues, resultSet]);
+
+    const [loading, setLoading] = React.useState(false);
+    const [customizationToolbar, mergedSchema, mergedCards, inspector, loadCustomization, , , , , formProps] =
+        useCustomization(designDefault, schema, cards, layouts, customization, 'view', '', Editor, undefined, onCustomization, methods, name, loading);
+    const layoutProps = layouts?.[layoutName] || {};
+    const columnsCard = ('columns' in layoutProps) ? layoutProps.columns : 'browse';
+    const toolbarCard = ('toolbar' in layoutProps) ? layoutProps.toolbar : 'toolbar';
+    const layout = ('layout' in layoutProps) ? layoutProps.layout : empty;
+    const columns = ('layout' in layoutProps) ? empty : mergedCards[columnsCard]?.widgets ?? empty;
+    const paramsLayout = ('params' in layoutProps) && layoutProps.params;
+    const paramsSchema = mergedSchema?.properties?.params;
+    const fetch = React.useMemo(() => (!paramsLayout || paramValues.length > 1) && fetchParams, [fetchParams, paramValues, paramsLayout]);
+    toolbar = ('layout' in layoutProps) ? toolbar : mergedCards[toolbarCard]?.widgets ?? toolbar;
     const classes = useStyles();
-    const {properties} = schema;
+    const {properties} = mergedSchema;
     const [tableFilter, setFilters] = React.useState<TableFilter>({
         filters: columns?.reduce((prev : object, column) => {
             let field = fieldName(column);
-            const value = lodashGet(filter, field);
+            const value = lodashGet(initFilter, field);
             field = field.split('.').pop();
             return (value === undefined) ? {...prev, [field]: {matchMode: 'contains'}} : {...prev, [field]: {value, matchMode: 'contains'}};
         }, {}),
@@ -126,15 +157,17 @@ const Explorer: ComponentProps = ({
     const [navigationOpened, navigationToggle] = useToggle(true);
     const [detailsOpened, detailsToggle] = useToggle(true);
 
-    const [loading, setLoading] = React.useState(false);
     const [[items, totalRecords], setItems] = React.useState([[], 0]);
     const [dropdowns, setDropdown] = React.useState({});
+
+    const {dropdownNames: formDropdownNames = []} = paramsLayout ? fieldNames(paramsLayout, mergedCards, paramsSchema, editors) : {};
 
     const dropdownNames = (columns || [])
         .flat()
         .filter(Boolean)
         .map(column => lodashGet(properties, fieldName(column)?.replace(/\./g, '.properties.'))?.widget?.dropdown)
         .filter(Boolean)
+        .concat(formDropdownNames)
         .join(',');
 
     const getValues = React.useMemo(() => () => ({
@@ -211,17 +244,19 @@ const Explorer: ComponentProps = ({
                         total = tableFilter.first + total;
                     }
                     setItems([records, total]);
-                    if (onDropdown) setDropdown(await onDropdown(dropdownNames.split(',').filter(Boolean)));
                 } finally {
                     setLoading(false);
                 }
             }
         },
-        [dropdownNames, fetch, filter, index, onDropdown, pageSize, resultSet, tableFilter]
+        [fetch, filter, index, pageSize, resultSet, tableFilter]
     );
+    useLoad(async() => {
+        if (onDropdown) setDropdown(await onDropdown(dropdownNames.split(',').filter(Boolean)));
+    }, [onDropdown, dropdownNames]);
     React.useEffect(() => {
         load();
-        if (subscribe && !design) {
+        if (subscribe && !formProps.design) {
             return subscribe(rows => {
                 setItems(([items, totalRecords]) => [(Array.isArray(rows) || !keyField) ? rows as unknown[] : items.map(item => {
                     const update = rows[item[keyField]];
@@ -229,24 +264,21 @@ const Explorer: ComponentProps = ({
                 }), totalRecords]);
             });
         }
-    }, [keyField, load, subscribe, design]);
+    }, [keyField, load, subscribe, formProps.design]);
+    React.useEffect(() => {
+        loadCustomization();
+    });
 
     const windowSize = useWindowSize();
-    const [dataTableHeight, setDataTableHeight] = React.useState(0);
-    const [dataViewHeight, setDataViewHeight] = React.useState(0);
+    const [height, setHeight] = React.useState<{height: number}>();
     const [splitterHeight, setSplitterHeight] = React.useState({});
-    const [splitterPanelHeight, setSplitterPanelHeight] = React.useState({});
 
     const maxHeight = maxHeight => (!isNaN(maxHeight) && maxHeight > 0) ? Math.floor(maxHeight) : 0;
 
     const tableWrapRef = React.useCallback(node => {
         if (node === null) return;
         const nodeRect = node.getBoundingClientRect();
-        const paginatorHeight = node.querySelector('.p-paginator')?.getBoundingClientRect?.()?.height;
-        const theadHeight = node.querySelector('thead')?.getBoundingClientRect?.()?.height;
-        setDataTableHeight(maxHeight(windowSize.height - (nodeRect.top + theadHeight + paginatorHeight)));
-        setDataViewHeight(maxHeight(windowSize.height - (nodeRect.top + paginatorHeight)));
-        setSplitterPanelHeight({height: maxHeight(windowSize.height - nodeRect.top)});
+        setHeight({height: maxHeight(windowSize.height - nodeRect.top)});
     }, [windowSize.height]);
 
     const splitterWrapRef = React.useCallback(node => {
@@ -256,7 +288,7 @@ const Explorer: ComponentProps = ({
     }, [windowSize.height]);
 
     const detailsPanel = React.useMemo(() => detailsOpened && details &&
-        <SplitterPanel style={splitterPanelHeight} key='details' size={10}>
+        <SplitterPanel style={height} key='details' size={10}>
             <div style={splitterWidth}>{
                 current && Object.entries(details).map(([name, value], index) =>
                     <div className={classes.details} key={index}>
@@ -265,7 +297,7 @@ const Explorer: ComponentProps = ({
                     </div>
                 )
             }</div>
-        </SplitterPanel>, [classes.details, classes.detailsLabel, classes.detailsValue, current, details, detailsOpened, splitterPanelHeight]);
+        </SplitterPanel>, [classes.details, classes.detailsLabel, classes.detailsValue, current, details, detailsOpened, height]);
 
     const filterBy = (name: string, key: string) => e => {
         const value = lodashGet(e, key);
@@ -284,7 +316,14 @@ const Explorer: ComponentProps = ({
         });
     };
 
-    const Columns = React.useMemo(() => columns.map(column => {
+    const filterDisplay = React.useMemo(() => showFilter && columns.some(column => {
+        const isString = typeof column === 'string';
+        const {name, ...widget} = isString ? {name: column} : column;
+        const property = lodashGet(properties, name?.replace(/\./g, '.properties.'));
+        return !!property?.filter || widget?.column?.filter;
+    }), [columns, properties, showFilter]) ? 'row' : undefined;
+
+    const Columns = React.useMemo(() => columns.map((column, index) => {
         const isString = typeof column === 'string';
         const {name, ...widget} = isString ? {name: column} : column;
         const property = lodashGet(properties, name?.replace(/\./g, '.properties.'));
@@ -312,38 +351,47 @@ const Explorer: ComponentProps = ({
                 />)}
                 filter={showFilter && !!property?.filter}
                 sortable={!!property?.sort}
-                {...columnProps({design, resultSet, name: field, widget: !isString && widget, property, dropdowns, tableFilter, filterBy, inspected, setInspected})}
+                {...columnProps({index, card: columnsCard, name: field, widget: !isString && widget, property, dropdowns, tableFilter, filterBy, ...formProps})}
             />
         );
-    }), [columns, properties, showFilter, dropdowns, tableFilter, keyField, resultSet, inspected, setInspected, design]);
+    }), [columns, columnsCard, properties, showFilter, dropdowns, tableFilter, keyField, resultSet, formProps]);
     const hasChildren = !!children;
-    const left = React.useMemo(() => <>
+
+    const paramsElement = React.useMemo(() => {
+        if (!paramsLayout) return null;
+        return <div className='flex align-items-center w-full'>
+            <Form
+                className='p-0 m-0 flex-grow-1'
+                schema={paramsSchema}
+                cards={cards}
+                layout={paramsLayout}
+                onSubmit={submitParams}
+                value={paramValues[0]}
+                dropdowns={dropdowns}
+                setTrigger={setTrigger}
+                triggerNotDirty
+                autoSubmit
+            />
+        </div>;
+    }, [dropdowns, cards, paramsLayout, paramValues, paramsSchema, submitParams, setTrigger]);
+
+    const left = React.useMemo(() => paramsElement ?? <>
         {hasChildren && <Button {...testid(`${resultSet}.navigator.toggleButton`)} icon="pi pi-bars" className="mr-2" onClick={navigationToggle}/>}
         {buttons}
-    </>, [navigationToggle, buttons, hasChildren, resultSet]);
-    const right = React.useMemo(() =>
-        <>
-            <Button icon="pi pi-refresh" className="mr-2" onClick={load} {...testid(`${resultSet}.refreshButton`)}/>
-            {details && <Button {...testid(`${resultSet}.details.toggleButton`)} icon="pi pi-bars" className="mr-2" onClick={detailsToggle}/>}
-            {customizationEnabled ? <Permission permission='portal.customization.edit'>
-                <Button
-                    icon='pi pi-cog'
-                    onClick={toggleDesign}
-                    disabled={!!loading}
-                    aria-label='design'
-                    {...testid(`${resultSet}designButton`)}
-                    className={clsx('mr-2', design && 'p-button-success')}
-                /></Permission> : null}
-        </>,
-    [details, detailsToggle, resultSet, load, customizationEnabled, design, toggleDesign, loading]);
-    const layoutState = useLayout(schema, cards, layout, editors, keyField);
+    </>, [navigationToggle, buttons, hasChildren, resultSet, paramsElement]);
+    const right = <>
+        <Button icon="pi pi-search" className="mr-2 ml-2" onClick={trigger} {...testid(`${resultSet}.refreshButton`)}/>
+        {details && <Button {...testid(`${resultSet}.details.toggleButton`)} icon="pi pi-bars" className="mr-2" onClick={detailsToggle}/>}
+        {customizationToolbar}
+    </>;
+    const layoutState = useLayout(mergedSchema, mergedCards, layout, editors, keyField);
     const cardName = layout?.flat()[0];
     const itemTemplate = React.useMemo(() => item => {
         function renderItem() {
             const card = <Card
                 index1={0}
                 index2={0}
-                cards={cards}
+                cards={mergedCards}
                 cardName={cardName}
                 layoutState={layoutState}
                 dropdowns={dropdowns}
@@ -355,16 +403,15 @@ const Explorer: ComponentProps = ({
             />;
             return keyField ? <div
                 {...testid(`${resultSet || 'filterBy'}.${keyField}/${item && item[keyField]}`)}
-                className={clsx('cursor-pointer', (cardName && cards?.[typeof cardName === 'string' ? cardName : cardName.name]?.className) || 'col-6 lg:col-2 md:col-3 sm:col-4')}
+                className={clsx('cursor-pointer', (cardName && mergedCards?.[typeof cardName === 'string' ? cardName : cardName.name]?.className) || 'col-6 lg:col-2 md:col-3 sm:col-4')}
                 onClick={layoutState.open?.(item)}
             >{card}</div> : card;
         }
         return renderItem();
-    }, [cards, layoutState, dropdowns, methods, keyField, resultSet, cardName]);
+    }, [mergedCards, layoutState, dropdowns, methods, keyField, resultSet, cardName]);
     const table = (
-        <div ref={tableWrapRef}>
+        <div ref={tableWrapRef} style={height}>
             {layout?.length ? <DataView
-                style={{maxHeight: dataViewHeight}}
                 layout='grid'
                 lazy
                 gutter
@@ -380,7 +427,8 @@ const Explorer: ComponentProps = ({
                 {...viewProps}
             /> : <DataTable
                 scrollable
-                tableStyle={{maxHeight: dataTableHeight}}
+                // tableStyle={{maxHeight: dataTableHeight}}
+                scrollHeight='flex'
                 autoLayout
                 lazy
                 rows={pageSize}
@@ -397,7 +445,7 @@ const Explorer: ComponentProps = ({
                 dataKey={keyField}
                 value={items}
                 selection={selected}
-                filterDisplay='row'
+                filterDisplay={filterDisplay}
                 onSelectionChange={handleSelectionChange}
                 onRowSelect={handleRowSelect}
                 {...tableProps}
@@ -407,7 +455,7 @@ const Explorer: ComponentProps = ({
             </DataTable>}
         </div>
     );
-    const nav = children && navigationOpened && <SplitterPanel style={splitterPanelHeight} key='nav' size={15}>
+    const nav = children && navigationOpened && <SplitterPanel style={height} key='nav' size={15}>
         {children}
     </SplitterPanel>;
     return (
@@ -415,7 +463,7 @@ const Explorer: ComponentProps = ({
             {toast}
             {
                 (toolbar !== false) || nav || detailsPanel
-                    ? <Toolbar left={left} right={right} style={backgroundNone} className='border-none' />
+                    ? <Toolbar left={left} right={right} style={backgroundNone} className='border-none p-2 flex-nowrap' />
                     : null
             }
             <div className='flex'>
@@ -426,7 +474,7 @@ const Explorer: ComponentProps = ({
                                 <Splitter style={splitterHeight}>
                                     {[
                                         nav,
-                                        <SplitterPanel style={splitterPanelHeight} key='items' size={nav ? detailsPanel ? 75 : 85 : 90}>
+                                        <SplitterPanel style={height} key='items' size={nav ? detailsPanel ? 75 : 85 : 90}>
                                             {table}
                                         </SplitterPanel>,
                                         detailsPanel
@@ -436,24 +484,7 @@ const Explorer: ComponentProps = ({
                             : table
                     }
                 </div>
-                {design && <div className='col-2 flex-column'>
-                    <ConfigField
-                        index='trash'
-                        design
-                        move={() => {}}
-                        label='trash'
-                        name='trash'
-                        className='text-center p-3 p-card'
-                    ><i className='pi pi-trash'/></ConfigField>
-                    {inspected ? <Inspector
-                        Editor={Editor}
-                        className='w-full'
-                        onChange={() => {}}
-                        object={schema}
-                        property={`properties.${inspected.name.split('.').join('.properties.')}`}
-                        type={inspected.type}
-                    /> : null }
-                </div>}
+                {inspector}
             </div>
         </div>
     );

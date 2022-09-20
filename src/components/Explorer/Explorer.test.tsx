@@ -11,6 +11,7 @@ describe('<Explorer />', () => {
             fetch={fetchItems}
             keyField='id'
             resultSet='items'
+            name='items'
             schema={{
                 properties: {
                     name: {
@@ -25,7 +26,11 @@ describe('<Explorer />', () => {
                     }
                 }
             }}
-            columns = {['name', 'size']}
+            cards = {{
+                browse: {
+                    widgets: ['name', 'size']
+                }
+            }}
             details={{
                 name: 'Name'
             }}

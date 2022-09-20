@@ -24,14 +24,14 @@ const Template: Story<{
     deletePermission?: string,
     details?: object,
     children?: React.ReactNode,
-    columns?: string[]
+    layout?: string
 }> = ({
     createPermission,
     editPermission,
     deletePermission,
     details,
     children,
-    columns = ['name', 'size'],
+    layout = 'basic',
     ...props
 }) => {
     const toast = React.useRef(null);
@@ -48,6 +48,7 @@ const Template: Story<{
                     fetch={fetchItems}
                     keyField='id'
                     resultSet='items'
+                    name='items'
                     schema={{
                         properties: {
                             id: {
@@ -84,25 +85,75 @@ const Template: Story<{
                             }
                         }
                     }}
-                    columns = {columns}
                     subscribe={updateItems}
+                    onCustomization={show('customization')}
                     details={details}
                     filter={{}}
-                    toolbar={[{
-                        title: 'Create',
-                        permission: createPermission,
-                        action: () => {}
-                    }, {
-                        title: 'Edit',
-                        permission: editPermission,
-                        enabled: 'current',
-                        action: show('edit')
-                    }, {
-                        title: 'Delete',
-                        permission: deletePermission,
-                        enabled: 'selected',
-                        action: show('delete')
-                    }]}
+                    cards={{
+                        basic: {
+                            widgets: ['name', 'size']
+                        },
+                        dateTime: {
+                            widgets: ['date', 'time', 'dateTime']
+                        },
+                        grid: {
+                            widgets: [{
+                                name: 'name', type: 'label'
+                            }, {
+                                name: 'size', type: 'label'
+                            }]
+                        },
+                        gridFlex: {
+                            className: 'col-6 md:col-3',
+                            classes: {
+                                default: {
+                                    root: 'grid m-0',
+                                    widget: 'text-center col-4 mb-0'
+                                }
+                            },
+                            widgets: [{
+                                type: 'icon', title: 'pi-paperclip'
+                            }, {
+                                name: 'name', type: 'label'
+                            }, {
+                                name: 'size', type: 'label'
+                            }]
+                        },
+                        toolbar: {
+                            widgets: [{
+                                title: 'Create',
+                                permission: createPermission,
+                                action: () => {}
+                            }, {
+                                title: 'Edit',
+                                permission: editPermission,
+                                enabled: 'current',
+                                action: show('edit')
+                            }, {
+                                title: 'Delete',
+                                permission: deletePermission,
+                                enabled: 'selected',
+                                action: show('delete')
+                            }]
+                        }
+                    }}
+                    layouts={{
+                        basic: {
+                            columns: 'basic',
+                            toolbar: 'toolbar'
+                        },
+                        dateTime: {
+                            columns: 'dateTime',
+                            toolbar: 'toolbar'
+                        },
+                        grid: {
+                            layout: ['grid']
+                        },
+                        gridFlex: {
+                            layout: ['gridFlex']
+                        }
+                    }}
+                    layout={layout}
                     {...props}
                 >
                     {children}
@@ -146,48 +197,19 @@ ActionPermissions.args = {
 export const DateTimeFilter = Template.bind({});
 DateTimeFilter.args = {
     ...Basic.args,
-    columns: ['date', 'time', 'dateTime']
+    layout: 'dateTime'
 };
 
 export const Grid = Template.bind({});
 Grid.args = {
     ...Basic.args,
-    cards: {
-        grid: {
-            type: 'grid',
-            widgets: [{
-                name: 'name', type: 'label'
-            }, {
-                name: 'size', type: 'label'
-            }]
-        }
-    },
     pageSize: 36,
-    layout: ['grid']
+    layout: 'grid'
 };
 
 export const GridFlex = Template.bind({});
 GridFlex.args = {
     ...Basic.args,
-    cards: {
-        grid: {
-            type: 'grid',
-            className: 'col-6 md:col-3',
-            classes: {
-                default: {
-                    root: 'grid m-0',
-                    widget: 'text-center col-4 mb-0'
-                }
-            },
-            widgets: [{
-                type: 'icon', title: 'pi-paperclip'
-            }, {
-                name: 'name', type: 'label'
-            }, {
-                name: 'size', type: 'label'
-            }]
-        }
-    },
     pageSize: 24,
-    layout: ['grid']
+    layout: 'gridFlex'
 };
