@@ -188,7 +188,7 @@ const Form: ComponentProps = ({
                         {nestedCards}
                         <ConfigCard
                             title='&nbsp;'
-                            className='card mb-3'
+                            className='card mt-3'
                             card=''
                             key={`${level1}-drop`}
                             index1={level1}
@@ -203,7 +203,7 @@ const Form: ComponentProps = ({
             {design && <div className='col-12 xl:col-6' style={outline}>
                 <ConfigCard
                     title='&nbsp;'
-                    className='card mb-3'
+                    className='card'
                     card=''
                     key={`${layoutState.visibleCards.length}-drop`}
                     index1={layoutState.visibleCards.length}
