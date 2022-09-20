@@ -262,12 +262,20 @@ export default React.forwardRef<object, any>(function Table({
                 {allowSelect && (!props.selectionMode || props.selectionMode === 'checkbox') && <Column selectionMode="multiple"></Column>}
                 {children}
                 {
-                    (widgets || []).map(column => {
+                    (widgets || []).map((column, index) => {
                         const isString = typeof column === 'string';
                         const {name, ...widget} = isString ? {name: column} : column;
                         return (<Column
                             key={name}
-                            {...columnProps({resultSet, name, widget: !isString && widget, property: properties?.[name], dropdowns, editable: true})}
+                            {...columnProps({
+                                resultSet,
+                                index,
+                                name,
+                                widget: !isString && widget,
+                                property: properties?.[name],
+                                dropdowns,
+                                editable: true
+                            })}
                         />);
                     })
                 }

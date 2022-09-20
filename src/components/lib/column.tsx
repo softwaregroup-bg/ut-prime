@@ -30,7 +30,6 @@ function timeOrZero(value) {
 }
 
 export default function columnProps({
-    design,
     resultSet,
     name,
     property,
@@ -39,10 +38,14 @@ export default function columnProps({
     tableFilter,
     filterBy,
     editable,
+    index,
+    card,
+    design,
     inspected,
-    setInspected
+    onInspect,
+    move,
+    toolbar
 }: {
-    design?: boolean,
     resultSet: string,
     name: string,
     property: Property,
@@ -51,8 +54,13 @@ export default function columnProps({
     tableFilter?: TableFilter,
     filterBy?: (name: string, value: string) => (e: object) => void,
     editable?: boolean,
+    index: number,
+    card?: string,
+    design?: boolean,
     inspected?: unknown,
-    setInspected?: unknown
+    onInspect?: unknown,
+    move?: undefined,
+    toolbar?: undefined
 }) {
     const resultSetDot = resultSet ? resultSet + '.' : '';
     const {type, dropdown, parent, column, lookup, compare, ...props} = widget || property?.widget || {name};
@@ -371,12 +379,13 @@ export default function columnProps({
             design={design}
             relative={false}
             name={name}
-            index={name}
-            label={label}
+            index={index}
+            label={index}
             key={name}
-            card='test'
-            move={() => {}}
-            onInspect={setInspected}
+            card={card}
+            move={move}
+            onInspect={onInspect}
+            inspected={inspected}
         >
             <span {...testid(`${resultSetDot}${name}Title`)}>{label}</span>
         </ConfigField>,
