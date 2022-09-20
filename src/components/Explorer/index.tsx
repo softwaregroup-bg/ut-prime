@@ -131,7 +131,6 @@ const Explorer: ComponentProps = ({
     const layout = ('layout' in layoutProps) ? layoutProps.layout : empty;
     const columns = ('layout' in layoutProps) ? empty : mergedCards[columnsCard]?.widgets ?? empty;
     const paramsLayout = ('params' in layoutProps) && layoutProps.params;
-    const paramsSchema = mergedSchema?.properties?.params;
     const fetch = React.useMemo(() => (!paramsLayout || paramValues.length > 1) && fetchParams, [fetchParams, paramValues, paramsLayout]);
     toolbar = ('layout' in layoutProps) ? toolbar : mergedCards[toolbarCard]?.widgets ?? toolbar;
     const classes = useStyles();
@@ -160,7 +159,7 @@ const Explorer: ComponentProps = ({
     const [[items, totalRecords], setItems] = React.useState([[], 0]);
     const [dropdowns, setDropdown] = React.useState({});
 
-    const {dropdownNames: formDropdownNames = []} = paramsLayout ? fieldNames(paramsLayout, mergedCards, paramsSchema, editors) : {};
+    const {dropdownNames: formDropdownNames = []} = paramsLayout ? fieldNames(paramsLayout, mergedCards, mergedSchema, editors) : {};
 
     const dropdownNames = (columns || [])
         .flat()
