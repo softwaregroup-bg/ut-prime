@@ -10,7 +10,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
     <div />
   </div>
   <div
-    class="p-toolbar p-component border-none border-bottom-1 border-50"
+    class="p-toolbar p-component border-none border-bottom-1 border-50 p-2"
     role="toolbar"
     style="background: none;"
   >
@@ -54,8 +54,8 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
     >
       <button
         aria-label="design"
-        class="p-button p-component mr-2 p-button-icon-only"
-        data-testid="designButton"
+        class="p-button p-component p-button-icon-only"
+        data-testid="customization"
       >
         <span
           class="p-button-icon p-c pi pi-cog"
@@ -90,7 +90,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="edit"
             >
               <div
@@ -237,7 +237,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="reproduction"
             >
               <div
@@ -345,7 +345,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="links"
             >
               <div
@@ -542,7 +542,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="habitat"
             >
               <div
@@ -764,7 +764,7 @@ exports[`<Editor /> CascadedDropdowns render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="p-toolbar p-component border-none border-bottom-1 border-50"
+    class="p-toolbar p-component border-none border-bottom-1 border-50 p-2"
     role="toolbar"
     style="background: none;"
   >
@@ -806,8 +806,8 @@ exports[`<Editor /> CascadedDropdowns render equals snapshot 1`] = `
     >
       <button
         aria-label="design"
-        class="p-button p-component mr-2 p-button-icon-only"
-        data-testid="designButton"
+        class="p-button p-component p-button-icon-only"
+        data-testid="customization"
       >
         <span
           class="p-button-icon p-c pi pi-cog"
@@ -842,7 +842,7 @@ exports[`<Editor /> CascadedDropdowns render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="edit"
             >
               <div
@@ -1051,7 +1051,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="p-toolbar p-component border-none border-bottom-1 border-50"
+    class="p-toolbar p-component border-none border-bottom-1 border-50 p-2"
     role="toolbar"
     style="background: none;"
   >
@@ -1093,8 +1093,8 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
     >
       <button
         aria-label="design"
-        class="p-button p-component mr-2 p-button-icon-only"
-        data-testid="designButton"
+        class="p-button p-component p-button-icon-only"
+        data-testid="customization"
       >
         <span
           class="p-button-icon p-c pi pi-cog"
@@ -1129,7 +1129,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="person"
             >
               <div
@@ -1449,7 +1449,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="document"
             >
               <div
@@ -1839,7 +1839,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="attachment"
             >
               <div
@@ -2163,7 +2163,7 @@ exports[`<Editor /> CustomEditors render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="p-toolbar p-component border-none border-bottom-1 border-50"
+    class="p-toolbar p-component border-none border-bottom-1 border-50 p-2"
     role="toolbar"
     style="background: none;"
   >
@@ -2207,8 +2207,8 @@ exports[`<Editor /> CustomEditors render equals snapshot 1`] = `
     >
       <button
         aria-label="design"
-        class="p-button p-component mr-2 p-button-icon-only"
-        data-testid="designButton"
+        class="p-button p-component p-button-icon-only"
+        data-testid="customization"
       >
         <span
           class="p-button-icon p-c pi pi-cog"
@@ -2243,7 +2243,7 @@ exports[`<Editor /> CustomEditors render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="edit"
             >
               <div
@@ -2396,7 +2396,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
     <div />
   </div>
   <div
-    class="p-toolbar p-component border-none border-bottom-1 border-50"
+    class="p-toolbar p-component border-none border-bottom-1 border-50 p-2"
     role="toolbar"
     style="background: none;"
   >
@@ -2441,7 +2441,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
       <button
         aria-label="save customization"
         class="p-button p-component mr-2 p-button-icon-only"
-        data-testid="saveCustomization"
+        data-testid="customizationSave"
       >
         <span
           class="p-button-icon p-c pi pi-save"
@@ -2456,21 +2456,25 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
         class="relative"
       >
         <div
-          class="cursor-move mr-2"
-          draggable="true"
+          class="relative"
         >
-          <button
-            class="p-button p-component cursor-move p-button-icon-only"
+          <div
+            class="cursor-move mr-2"
+            draggable="true"
           >
-            <span
-              class="p-button-icon p-c pi pi-id-card"
-            />
-            <span
-              class="p-button-label p-c"
+            <button
+              class="p-button p-component cursor-move p-button-icon-only"
             >
-               
-            </span>
-          </button>
+              <span
+                class="p-button-icon p-c pi pi-id-card"
+              />
+              <span
+                class="p-button-label p-c"
+              >
+                 
+              </span>
+            </button>
+          </div>
         </div>
       </div>
       <div
@@ -2498,8 +2502,8 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
       </div>
       <button
         aria-label="design"
-        class="p-button p-component mr-2 p-button-success p-button-icon-only"
-        data-testid="designButton"
+        class="p-button p-component p-button-success p-button-icon-only"
+        data-testid="customization"
       >
         <span
           class="p-button-icon p-c pi pi-cog"
@@ -2535,634 +2539,662 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
             class="relative"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
-              id="edit"
+              class="relative"
             >
               <div
-                class="p-card-body"
+                class="p-card p-component card card-0-2-2"
+                id="edit"
               >
                 <div
-                  class="p-card-title"
+                  class="p-card-body"
                 >
                   <div
-                    draggable="true"
-                    style="cursor: move;"
+                    class="p-card-title"
                   >
-                    Tree
+                    <div
+                      draggable="true"
+                      style="cursor: move;"
+                    >
+                      Tree
+                    </div>
                   </div>
-                </div>
-                <div
-                  class="p-card-content"
-                >
                   <div
-                    class=""
+                    class="p-card-content"
                   >
                     <div
-                      class="field grid"
-                      style="position: relative;"
+                      class=""
                     >
-                      <label
-                        class="col-12 md:col-4"
-                        for="tree-treeName"
-                      >
-                        Name
-                      </label>
                       <div
-                        class="flex align-items-center relative col-12 md:col-8"
+                        class="field grid"
+                        style="position: relative;"
                       >
-                        <input
-                          class="p-inputtext p-component p-filled w-full"
-                          id="tree-treeName"
-                          name="tree.treeName"
-                          value="Oak"
-                        />
-                      </div>
-                      <label
-                        class="absolute border-1 border-solid border-transparent top-0 bottom-0 left-0 right-0 cursor-move mb-0"
-                        draggable="true"
-                      >
-                         
-                      </label>
-                    </div>
-                    <div
-                      class="field grid"
-                      style="position: relative;"
-                    >
-                      <label
-                        class="col-12 md:col-4"
-                        for="tree-treeDescription"
-                      >
-                        Description
-                      </label>
-                      <div
-                        class="flex align-items-center relative col-12 md:col-8"
-                      >
-                        <textarea
-                          class="p-inputtextarea p-inputtext p-component w-full"
-                          id="tree-treeDescription"
-                          name="tree.treeDescription"
-                        />
-                      </div>
-                      <label
-                        class="absolute border-1 border-solid border-transparent top-0 bottom-0 left-0 right-0 cursor-move mb-0"
-                        draggable="true"
-                      >
-                         
-                      </label>
-                    </div>
-                    <div
-                      class="field grid"
-                      style="position: relative;"
-                    >
-                      <label
-                        class="col-12 md:col-4"
-                        for="tree-treeType"
-                      >
-                        Type
-                      </label>
-                      <div
-                        class="flex align-items-center relative col-12 md:col-8"
-                      >
-                        <div
-                          class="p-dropdown p-component p-inputwrapper p-inputwrapper-filled w-full"
-                          data-testid="tree-treeType"
-                          id="tree-treeType"
+                        <label
+                          class="col-12 md:col-4"
+                          for="tree-treeName"
                         >
-                          <div
-                            class="p-hidden-accessible"
-                          >
-                            <input
-                              aria-haspopup="listbox"
-                              readonly=""
-                              type="text"
-                            />
-                          </div>
-                          <div
-                            class="p-hidden-accessible p-dropdown-hidden-select"
-                          >
-                            <select
-                              aria-hidden="true"
-                              name="tree.treeType"
-                              tabindex="-1"
-                            >
-                              <option
-                                selected=""
-                                value="1"
-                              >
-                                Conifer
-                              </option>
-                            </select>
-                          </div>
-                          <span
-                            class="p-dropdown-label p-inputtext"
-                          >
-                            Conifer
-                          </span>
-                          <div
-                            aria-expanded="false"
-                            aria-haspopup="listbox"
-                            class="p-dropdown-trigger"
-                            role="button"
-                          >
-                            <span
-                              class="p-dropdown-trigger-icon p-clickable pi pi-chevron-down"
-                            />
-                          </div>
+                          Name
+                        </label>
+                        <div
+                          class="flex align-items-center relative col-12 md:col-8"
+                        >
+                          <input
+                            class="p-inputtext p-component p-filled w-full"
+                            id="tree-treeName"
+                            name="tree.treeName"
+                            value="Oak"
+                          />
                         </div>
+                        <label
+                          class="absolute border-1 border-solid border-transparent top-0 bottom-0 left-0 right-0 cursor-move mb-0"
+                          draggable="true"
+                        >
+                           
+                        </label>
                       </div>
-                      <label
-                        class="absolute border-1 border-solid border-transparent top-0 bottom-0 left-0 right-0 cursor-move mb-0"
-                        draggable="true"
-                      >
-                         
-                      </label>
-                    </div>
-                  </div>
-                  <div
-                    class="field grid mb-0"
-                    style="background: transparent; outline: none;"
-                  >
-                    <label
-                      class="col-12"
-                    >
-                      
-                       
-                      
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="relative"
-          >
-            <div
-              class="p-card p-component card mb-3"
-              style="opacity: 0.5;"
-            >
-              <div
-                class="p-card-body"
-              >
-                <div
-                  class="p-card-title"
-                >
-                  <div
-                    draggable="true"
-                  >
-                     
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="col-12 xl:col-6"
-          style="outline: 1px dotted #ffff0030;"
-        >
-          <div
-            class="relative"
-          >
-            <div
-              class="p-card p-component card mb-3 card-0-2-2"
-              id="taxonomy"
-            >
-              <div
-                class="p-card-body"
-              >
-                <div
-                  class="p-card-title"
-                >
-                  <div
-                    draggable="true"
-                    style="cursor: move;"
-                  >
-                    Taxonomy
-                  </div>
-                </div>
-                <div
-                  class="p-card-content"
-                >
-                  <div
-                    class="field grid mb-0"
-                    style="background: transparent; outline: none;"
-                  >
-                    <label
-                      class="col-12"
-                    >
-                      
-                       
-                      
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="relative"
-          >
-            <div
-              class="p-card p-component card mb-3 card-0-2-2"
-              id="reproduction"
-            >
-              <div
-                class="p-card-body"
-              >
-                <div
-                  class="p-card-title"
-                >
-                  <div
-                    draggable="true"
-                    style="cursor: move;"
-                  >
-                    Reproduction
-                  </div>
-                </div>
-                <div
-                  class="p-card-content"
-                >
-                  <div
-                    class=""
-                  >
-                    <div
-                      class="field grid"
-                      style="position: relative;"
-                    >
-                      <label
-                        class="col-12 md:col-4"
-                        for="tree-seedDescription"
-                      >
-                        Seed
-                      </label>
                       <div
-                        class="flex align-items-center relative col-12 md:col-8"
+                        class="field grid"
+                        style="position: relative;"
                       >
-                        <input
-                          class="p-inputtext p-component w-full"
-                          id="tree-seedDescription"
-                          name="tree.seedDescription"
-                          value=""
-                        />
-                      </div>
-                      <label
-                        class="absolute border-1 border-solid border-transparent top-0 bottom-0 left-0 right-0 cursor-move mb-0"
-                        draggable="true"
-                      >
-                         
-                      </label>
-                    </div>
-                    <div
-                      class="field grid"
-                      style="position: relative;"
-                    >
-                      <label
-                        class="col-12 md:col-4"
-                        for="tree-flowerDescription"
-                      >
-                        Flower
-                      </label>
-                      <div
-                        class="flex align-items-center relative col-12 md:col-8"
-                      >
-                        <input
-                          class="p-inputtext p-component w-full"
-                          id="tree-flowerDescription"
-                          name="tree.flowerDescription"
-                          value=""
-                        />
-                      </div>
-                      <label
-                        class="absolute border-1 border-solid border-transparent top-0 bottom-0 left-0 right-0 cursor-move mb-0"
-                        draggable="true"
-                      >
-                         
-                      </label>
-                    </div>
-                    <div
-                      class="field grid"
-                      style="position: relative;"
-                    >
-                      <label
-                        class="col-12 md:col-4"
-                        for="tree-fruitName"
-                      >
-                        Fruit
-                      </label>
-                      <div
-                        class="flex align-items-center relative col-12 md:col-8"
-                      >
-                        <input
-                          class="p-inputtext p-component w-full"
-                          id="tree-fruitName"
-                          name="tree.fruitName"
-                          value=""
-                        />
-                      </div>
-                      <label
-                        class="absolute border-1 border-solid border-transparent top-0 bottom-0 left-0 right-0 cursor-move mb-0"
-                        draggable="true"
-                      >
-                         
-                      </label>
-                    </div>
-                  </div>
-                  <div
-                    class="field grid mb-0"
-                    style="background: transparent; outline: none;"
-                  >
-                    <label
-                      class="col-12"
-                    >
-                      
-                       
-                      
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="relative"
-          >
-            <div
-              class="p-card p-component card mb-3"
-              style="opacity: 0.5;"
-            >
-              <div
-                class="p-card-body"
-              >
-                <div
-                  class="p-card-title"
-                >
-                  <div
-                    draggable="true"
-                  >
-                     
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="col-12 xl:col-6"
-          style="outline: 1px dotted #ffff0030;"
-        >
-          <div
-            class="relative"
-          >
-            <div
-              class="p-card p-component card mb-3 card-0-2-2"
-              id="morphology"
-            >
-              <div
-                class="p-card-body"
-              >
-                <div
-                  class="p-card-title"
-                >
-                  <div
-                    draggable="true"
-                    style="cursor: move;"
-                  >
-                    Morphology
-                  </div>
-                </div>
-                <div
-                  class="p-card-content"
-                >
-                  <div
-                    class="field grid mb-0"
-                    style="background: transparent; outline: none;"
-                  >
-                    <label
-                      class="col-12"
-                    >
-                      
-                       
-                      
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="relative"
-          >
-            <div
-              class="p-card p-component card mb-3 card-0-2-2"
-              id="links"
-            >
-              <div
-                class="p-card-body"
-              >
-                <div
-                  class="p-card-title"
-                >
-                  <div
-                    draggable="true"
-                    style="cursor: move;"
-                  >
-                    Links
-                  </div>
-                </div>
-                <div
-                  class="p-card-content"
-                >
-                  <div
-                    class=""
-                  >
-                    <div
-                      class="field grid"
-                      style="position: relative;"
-                    >
-                      <div
-                        class="flex align-items-center relative col-12"
-                      >
+                        <label
+                          class="col-12 md:col-4"
+                          for="tree-treeDescription"
+                        >
+                          Description
+                        </label>
                         <div
-                          class="w-full"
+                          class="flex align-items-center relative col-12 md:col-8"
+                        >
+                          <textarea
+                            class="p-inputtextarea p-inputtext p-component w-full"
+                            id="tree-treeDescription"
+                            name="tree.treeDescription"
+                          />
+                        </div>
+                        <label
+                          class="absolute border-1 border-solid border-transparent top-0 bottom-0 left-0 right-0 cursor-move mb-0"
+                          draggable="true"
+                        >
+                           
+                        </label>
+                      </div>
+                      <div
+                        class="field grid"
+                        style="position: relative;"
+                      >
+                        <label
+                          class="col-12 md:col-4"
+                          for="tree-treeType"
+                        >
+                          Type
+                        </label>
+                        <div
+                          class="flex align-items-center relative col-12 md:col-8"
                         >
                           <div
-                            class="p-toolbar p-component p-0 border-none"
-                            role="toolbar"
-                            style="background: none;"
+                            class="p-dropdown p-component p-inputwrapper p-inputwrapper-filled w-full"
+                            data-testid="tree-treeType"
+                            id="tree-treeType"
                           >
                             <div
-                              class="p-toolbar-group-left"
+                              class="p-hidden-accessible"
                             >
-                              <button
-                                aria-label="Add"
-                                class="p-button p-component p-button mr-2"
-                                data-testid="tree-links-addButton"
-                              >
-                                <span
-                                  class="p-button-icon p-c p-button-icon-left pi pi-plus"
-                                />
-                                <span
-                                  class="p-button-label p-c"
-                                >
-                                  Add
-                                </span>
-                              </button>
-                              <button
-                                aria-label="Delete"
-                                class="p-button p-component p-button p-disabled"
-                                data-testid="tree-links-deleteButton"
-                                disabled=""
-                              >
-                                <span
-                                  class="p-button-icon p-c p-button-icon-left pi pi-trash"
-                                />
-                                <span
-                                  class="p-button-label p-c"
-                                >
-                                  Delete
-                                </span>
-                              </button>
+                              <input
+                                aria-haspopup="listbox"
+                                readonly=""
+                                type="text"
+                              />
                             </div>
                             <div
-                              class="p-toolbar-group-right"
-                            />
+                              class="p-hidden-accessible p-dropdown-hidden-select"
+                            >
+                              <select
+                                aria-hidden="true"
+                                name="tree.treeType"
+                                tabindex="-1"
+                              >
+                                <option
+                                  selected=""
+                                  value="1"
+                                >
+                                  Conifer
+                                </option>
+                              </select>
+                            </div>
+                            <span
+                              class="p-dropdown-label p-inputtext"
+                            >
+                              Conifer
+                            </span>
+                            <div
+                              aria-expanded="false"
+                              aria-haspopup="listbox"
+                              class="p-dropdown-trigger"
+                              role="button"
+                            >
+                              <span
+                                class="p-dropdown-trigger-icon p-clickable pi pi-chevron-down"
+                              />
+                            </div>
                           </div>
+                        </div>
+                        <label
+                          class="absolute border-1 border-solid border-transparent top-0 bottom-0 left-0 right-0 cursor-move mb-0"
+                          draggable="true"
+                        >
+                           
+                        </label>
+                      </div>
+                    </div>
+                    <div
+                      class="field grid mb-0"
+                      style="background: transparent; outline: none;"
+                    >
+                      <label
+                        class="col-12"
+                      >
+                        
+                         
+                        
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="relative"
+          >
+            <div
+              class="relative"
+            >
+              <div
+                class="p-card p-component card mt-3"
+                style="opacity: 0.5;"
+              >
+                <div
+                  class="p-card-body"
+                >
+                  <div
+                    class="p-card-title"
+                  >
+                    <div
+                      draggable="true"
+                    >
+                       
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-12 xl:col-6"
+          style="outline: 1px dotted #ffff0030;"
+        >
+          <div
+            class="relative"
+          >
+            <div
+              class="relative"
+            >
+              <div
+                class="p-card p-component card mb-3 card-0-2-2"
+                id="taxonomy"
+              >
+                <div
+                  class="p-card-body"
+                >
+                  <div
+                    class="p-card-title"
+                  >
+                    <div
+                      draggable="true"
+                      style="cursor: move;"
+                    >
+                      Taxonomy
+                    </div>
+                  </div>
+                  <div
+                    class="p-card-content"
+                  >
+                    <div
+                      class="field grid mb-0"
+                      style="background: transparent; outline: none;"
+                    >
+                      <label
+                        class="col-12"
+                      >
+                        
+                         
+                        
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="relative"
+          >
+            <div
+              class="relative"
+            >
+              <div
+                class="p-card p-component card card-0-2-2"
+                id="reproduction"
+              >
+                <div
+                  class="p-card-body"
+                >
+                  <div
+                    class="p-card-title"
+                  >
+                    <div
+                      draggable="true"
+                      style="cursor: move;"
+                    >
+                      Reproduction
+                    </div>
+                  </div>
+                  <div
+                    class="p-card-content"
+                  >
+                    <div
+                      class=""
+                    >
+                      <div
+                        class="field grid"
+                        style="position: relative;"
+                      >
+                        <label
+                          class="col-12 md:col-4"
+                          for="tree-seedDescription"
+                        >
+                          Seed
+                        </label>
+                        <div
+                          class="flex align-items-center relative col-12 md:col-8"
+                        >
+                          <input
+                            class="p-inputtext p-component w-full"
+                            id="tree-seedDescription"
+                            name="tree.seedDescription"
+                            value=""
+                          />
+                        </div>
+                        <label
+                          class="absolute border-1 border-solid border-transparent top-0 bottom-0 left-0 right-0 cursor-move mb-0"
+                          draggable="true"
+                        >
+                           
+                        </label>
+                      </div>
+                      <div
+                        class="field grid"
+                        style="position: relative;"
+                      >
+                        <label
+                          class="col-12 md:col-4"
+                          for="tree-flowerDescription"
+                        >
+                          Flower
+                        </label>
+                        <div
+                          class="flex align-items-center relative col-12 md:col-8"
+                        >
+                          <input
+                            class="p-inputtext p-component w-full"
+                            id="tree-flowerDescription"
+                            name="tree.flowerDescription"
+                            value=""
+                          />
+                        </div>
+                        <label
+                          class="absolute border-1 border-solid border-transparent top-0 bottom-0 left-0 right-0 cursor-move mb-0"
+                          draggable="true"
+                        >
+                           
+                        </label>
+                      </div>
+                      <div
+                        class="field grid"
+                        style="position: relative;"
+                      >
+                        <label
+                          class="col-12 md:col-4"
+                          for="tree-fruitName"
+                        >
+                          Fruit
+                        </label>
+                        <div
+                          class="flex align-items-center relative col-12 md:col-8"
+                        >
+                          <input
+                            class="p-inputtext p-component w-full"
+                            id="tree-fruitName"
+                            name="tree.fruitName"
+                            value=""
+                          />
+                        </div>
+                        <label
+                          class="absolute border-1 border-solid border-transparent top-0 bottom-0 left-0 right-0 cursor-move mb-0"
+                          draggable="true"
+                        >
+                           
+                        </label>
+                      </div>
+                    </div>
+                    <div
+                      class="field grid mb-0"
+                      style="background: transparent; outline: none;"
+                    >
+                      <label
+                        class="col-12"
+                      >
+                        
+                         
+                        
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="relative"
+          >
+            <div
+              class="relative"
+            >
+              <div
+                class="p-card p-component card mt-3"
+                style="opacity: 0.5;"
+              >
+                <div
+                  class="p-card-body"
+                >
+                  <div
+                    class="p-card-title"
+                  >
+                    <div
+                      draggable="true"
+                    >
+                       
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-12 xl:col-6"
+          style="outline: 1px dotted #ffff0030;"
+        >
+          <div
+            class="relative"
+          >
+            <div
+              class="relative"
+            >
+              <div
+                class="p-card p-component card mb-3 card-0-2-2"
+                id="morphology"
+              >
+                <div
+                  class="p-card-body"
+                >
+                  <div
+                    class="p-card-title"
+                  >
+                    <div
+                      draggable="true"
+                      style="cursor: move;"
+                    >
+                      Morphology
+                    </div>
+                  </div>
+                  <div
+                    class="p-card-content"
+                  >
+                    <div
+                      class="field grid mb-0"
+                      style="background: transparent; outline: none;"
+                    >
+                      <label
+                        class="col-12"
+                      >
+                        
+                         
+                        
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="relative"
+          >
+            <div
+              class="relative"
+            >
+              <div
+                class="p-card p-component card card-0-2-2"
+                id="links"
+              >
+                <div
+                  class="p-card-body"
+                >
+                  <div
+                    class="p-card-title"
+                  >
+                    <div
+                      draggable="true"
+                      style="cursor: move;"
+                    >
+                      Links
+                    </div>
+                  </div>
+                  <div
+                    class="p-card-content"
+                  >
+                    <div
+                      class=""
+                    >
+                      <div
+                        class="field grid"
+                        style="position: relative;"
+                      >
+                        <div
+                          class="flex align-items-center relative col-12"
+                        >
                           <div
-                            class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
-                            data-scrollselectors=".p-datatable-wrapper"
-                            data-testid="tree-links"
-                            id="tree-links"
-                            pr_id_4=""
+                            class="w-full"
                           >
                             <div
-                              class="p-datatable-wrapper"
+                              class="p-toolbar p-component p-0 border-none"
+                              role="toolbar"
+                              style="background: none;"
                             >
-                              <table
-                                class="p-datatable-table"
-                                role="table"
+                              <div
+                                class="p-toolbar-group-left"
                               >
-                                <thead
-                                  class="p-datatable-thead"
+                                <button
+                                  aria-label="Add"
+                                  class="p-button p-component p-button mr-2"
+                                  data-testid="tree-links-addButton"
                                 >
-                                  <tr
-                                    role="row"
+                                  <span
+                                    class="p-button-icon p-c p-button-icon-left pi pi-plus"
+                                  />
+                                  <span
+                                    class="p-button-label p-c"
                                   >
-                                    <th
-                                      class="p-selection-column"
-                                      role="columnheader"
+                                    Add
+                                  </span>
+                                </button>
+                                <button
+                                  aria-label="Delete"
+                                  class="p-button p-component p-button p-disabled"
+                                  data-testid="tree-links-deleteButton"
+                                  disabled=""
+                                >
+                                  <span
+                                    class="p-button-icon p-c p-button-icon-left pi pi-trash"
+                                  />
+                                  <span
+                                    class="p-button-label p-c"
+                                  >
+                                    Delete
+                                  </span>
+                                </button>
+                              </div>
+                              <div
+                                class="p-toolbar-group-right"
+                              />
+                            </div>
+                            <div
+                              class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                              data-scrollselectors=".p-datatable-wrapper"
+                              data-testid="tree-links"
+                              id="tree-links"
+                              pr_id_4=""
+                            >
+                              <div
+                                class="p-datatable-wrapper"
+                              >
+                                <table
+                                  class="p-datatable-table"
+                                  role="table"
+                                >
+                                  <thead
+                                    class="p-datatable-thead"
+                                  >
+                                    <tr
+                                      role="row"
                                     >
-                                      <div
-                                        class="p-column-header-content"
+                                      <th
+                                        class="p-selection-column"
+                                        role="columnheader"
                                       >
-                                        <span
-                                          class="p-column-title"
-                                        />
                                         <div
-                                          class="p-checkbox p-component"
+                                          class="p-column-header-content"
                                         >
+                                          <span
+                                            class="p-column-title"
+                                          />
                                           <div
-                                            class="p-checkbox-box p-component p-disabled"
-                                            role="checkbox"
+                                            class="p-checkbox p-component"
                                           >
-                                            <span
-                                              class="p-checkbox-icon"
-                                            />
+                                            <div
+                                              class="p-checkbox-box p-component p-disabled"
+                                              role="checkbox"
+                                            >
+                                              <span
+                                                class="p-checkbox-icon"
+                                              />
+                                            </div>
                                           </div>
                                         </div>
-                                      </div>
-                                    </th>
-                                    <th
-                                      class=""
-                                      role="columnheader"
-                                    >
-                                      <div
-                                        class="p-column-header-content"
+                                      </th>
+                                      <th
+                                        class=""
+                                        role="columnheader"
                                       >
-                                        <span
-                                          class="p-column-title"
+                                        <div
+                                          class="p-column-header-content"
                                         >
                                           <span
-                                            data-testid="tree-links-titleTitle"
+                                            class="p-column-title"
                                           >
-                                            Title
+                                            <span
+                                              data-testid="tree-links-titleTitle"
+                                            >
+                                              Title
+                                            </span>
                                           </span>
-                                        </span>
-                                      </div>
-                                    </th>
-                                    <th
-                                      class=""
-                                      role="columnheader"
-                                    >
-                                      <div
-                                        class="p-column-header-content"
+                                        </div>
+                                      </th>
+                                      <th
+                                        class=""
+                                        role="columnheader"
                                       >
-                                        <span
-                                          class="p-column-title"
+                                        <div
+                                          class="p-column-header-content"
                                         >
                                           <span
-                                            data-testid="tree-links-urlTitle"
+                                            class="p-column-title"
                                           >
-                                            Url
+                                            <span
+                                              data-testid="tree-links-urlTitle"
+                                            >
+                                              Url
+                                            </span>
                                           </span>
-                                        </span>
-                                      </div>
-                                    </th>
-                                    <th
-                                      class=""
-                                      role="columnheader"
-                                      style="width: 7rem;"
-                                    >
-                                      <div
-                                        class="p-column-header-content"
+                                        </div>
+                                      </th>
+                                      <th
+                                        class=""
+                                        role="columnheader"
+                                        style="width: 7rem;"
                                       >
-                                        <span
-                                          class="p-column-title"
-                                        />
-                                      </div>
-                                    </th>
-                                  </tr>
-                                </thead>
-                                <tbody
-                                  class="p-datatable-tbody"
-                                >
-                                  <tr
-                                    class="p-datatable-emptymessage"
-                                    role="row"
+                                        <div
+                                          class="p-column-header-content"
+                                        >
+                                          <span
+                                            class="p-column-title"
+                                          />
+                                        </div>
+                                      </th>
+                                    </tr>
+                                  </thead>
+                                  <tbody
+                                    class="p-datatable-tbody"
                                   >
-                                    <td
-                                      colspan="4"
-                                      role="cell"
+                                    <tr
+                                      class="p-datatable-emptymessage"
+                                      role="row"
                                     >
-                                      No results found
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table>
+                                      <td
+                                        colspan="4"
+                                        role="cell"
+                                      >
+                                        No results found
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
                             </div>
                           </div>
                         </div>
+                        <label
+                          class="absolute border-1 border-solid border-transparent top-0 bottom-0 left-0 right-0 cursor-move mb-0"
+                          draggable="true"
+                        >
+                           
+                        </label>
                       </div>
+                    </div>
+                    <div
+                      class="field grid mb-0"
+                      style="background: transparent; outline: none;"
+                    >
                       <label
-                        class="absolute border-1 border-solid border-transparent top-0 bottom-0 left-0 right-0 cursor-move mb-0"
-                        draggable="true"
+                        class="col-12"
                       >
+                        
                          
+                        
                       </label>
                     </div>
                   </div>
-                  <div
-                    class="field grid mb-0"
-                    style="background: transparent; outline: none;"
-                  >
-                    <label
-                      class="col-12"
-                    >
-                      
-                       
-                      
-                    </label>
-                  </div>
                 </div>
               </div>
             </div>
@@ -3171,284 +3203,23 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
             class="relative"
           >
             <div
-              class="p-card p-component card mb-3"
-              style="opacity: 0.5;"
+              class="relative"
             >
               <div
-                class="p-card-body"
+                class="p-card p-component card mt-3"
+                style="opacity: 0.5;"
               >
                 <div
-                  class="p-card-title"
+                  class="p-card-body"
                 >
                   <div
-                    draggable="true"
-                  >
-                     
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="col-12 xl:col-6"
-          style="outline: 1px dotted #ffff0030;"
-        >
-          <div
-            class="relative"
-          >
-            <div
-              class="p-card p-component card mb-3 card-0-2-2"
-              id="habitat"
-            >
-              <div
-                class="p-card-body"
-              >
-                <div
-                  class="p-card-title"
-                >
-                  <div
-                    draggable="true"
-                    style="cursor: move;"
-                  >
-                    Habitat
-                  </div>
-                </div>
-                <div
-                  class="p-card-content"
-                >
-                  <div
-                    class=""
+                    class="p-card-title"
                   >
                     <div
-                      class="field grid"
-                      style="position: relative;"
+                      draggable="true"
                     >
-                      <div
-                        class="flex align-items-center relative col-12"
-                      >
-                        <div
-                          class="p-multiselect p-component p-inputwrapper p-inputwrapper-focus w-full"
-                          data-testid="tree-habitat"
-                          id="tree-habitat"
-                        >
-                          <div
-                            class="p-hidden-accessible"
-                          >
-                            <input
-                              aria-expanded="true"
-                              name="tree.habitat"
-                              readonly=""
-                              role="listbox"
-                              tabindex="0"
-                              type="text"
-                            />
-                          </div>
-                          <div
-                            class="p-multiselect-panel p-component p-multiselect-inline p-multiselect-flex"
-                          >
-                            <div
-                              class="p-multiselect-items-wrapper"
-                              style="max-height: 200px;"
-                            >
-                              <ul
-                                aria-multiselectable="true"
-                                class="p-multiselect-items p-component"
-                                role="listbox"
-                              >
-                                <li
-                                  aria-selected="false"
-                                  class="p-multiselect-item col-3"
-                                  role="option"
-                                  tabindex="0"
-                                >
-                                  <div
-                                    class="p-checkbox p-component"
-                                  >
-                                    <div
-                                      class="p-checkbox-box"
-                                    >
-                                      <span
-                                        class="p-checkbox-icon p-c"
-                                      />
-                                    </div>
-                                  </div>
-                                  <span>
-                                    Forests
-                                  </span>
-                                </li>
-                                <li
-                                  aria-selected="false"
-                                  class="p-multiselect-item col-3"
-                                  role="option"
-                                  tabindex="0"
-                                >
-                                  <div
-                                    class="p-checkbox p-component"
-                                  >
-                                    <div
-                                      class="p-checkbox-box"
-                                    >
-                                      <span
-                                        class="p-checkbox-icon p-c"
-                                      />
-                                    </div>
-                                  </div>
-                                  <span>
-                                    Plantations
-                                  </span>
-                                </li>
-                                <li
-                                  aria-selected="false"
-                                  class="p-multiselect-item col-3"
-                                  role="option"
-                                  tabindex="0"
-                                >
-                                  <div
-                                    class="p-checkbox p-component"
-                                  >
-                                    <div
-                                      class="p-checkbox-box"
-                                    >
-                                      <span
-                                        class="p-checkbox-icon p-c"
-                                      />
-                                    </div>
-                                  </div>
-                                  <span>
-                                    Riverbanks
-                                  </span>
-                                </li>
-                                <li
-                                  aria-selected="false"
-                                  class="p-multiselect-item col-3"
-                                  role="option"
-                                  tabindex="0"
-                                >
-                                  <div
-                                    class="p-checkbox p-component"
-                                  >
-                                    <div
-                                      class="p-checkbox-box"
-                                    >
-                                      <span
-                                        class="p-checkbox-icon p-c"
-                                      />
-                                    </div>
-                                  </div>
-                                  <span>
-                                    Rivers
-                                  </span>
-                                </li>
-                                <li
-                                  aria-selected="false"
-                                  class="p-multiselect-item col-3"
-                                  role="option"
-                                  tabindex="0"
-                                >
-                                  <div
-                                    class="p-checkbox p-component"
-                                  >
-                                    <div
-                                      class="p-checkbox-box"
-                                    >
-                                      <span
-                                        class="p-checkbox-icon p-c"
-                                      />
-                                    </div>
-                                  </div>
-                                  <span>
-                                    Rocky areas
-                                  </span>
-                                </li>
-                                <li
-                                  aria-selected="false"
-                                  class="p-multiselect-item col-3"
-                                  role="option"
-                                  tabindex="0"
-                                >
-                                  <div
-                                    class="p-checkbox p-component"
-                                  >
-                                    <div
-                                      class="p-checkbox-box"
-                                    >
-                                      <span
-                                        class="p-checkbox-icon p-c"
-                                      />
-                                    </div>
-                                  </div>
-                                  <span>
-                                    Urban
-                                  </span>
-                                </li>
-                                <li
-                                  aria-selected="false"
-                                  class="p-multiselect-item col-3"
-                                  role="option"
-                                  tabindex="0"
-                                >
-                                  <div
-                                    class="p-checkbox p-component"
-                                  >
-                                    <div
-                                      class="p-checkbox-box"
-                                    >
-                                      <span
-                                        class="p-checkbox-icon p-c"
-                                      />
-                                    </div>
-                                  </div>
-                                  <span>
-                                    Wetlands
-                                  </span>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <label
-                        class="absolute border-1 border-solid border-transparent top-0 bottom-0 left-0 right-0 cursor-move mb-0"
-                        draggable="true"
-                      >
-                         
-                      </label>
-                    </div>
-                  </div>
-                  <div
-                    class="field grid mb-0"
-                    style="background: transparent; outline: none;"
-                  >
-                    <label
-                      class="col-12"
-                    >
-                      
                        
-                      
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="relative"
-          >
-            <div
-              class="p-card p-component card mb-3"
-              style="opacity: 0.5;"
-            >
-              <div
-                class="p-card-body"
-              >
-                <div
-                  class="p-card-title"
-                >
-                  <div
-                    draggable="true"
-                  >
-                     
+                    </div>
                   </div>
                 </div>
               </div>
@@ -3463,19 +3234,296 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
             class="relative"
           >
             <div
-              class="p-card p-component card mb-3"
-              style="opacity: 0.5;"
+              class="relative"
             >
               <div
-                class="p-card-body"
+                class="p-card p-component card card-0-2-2"
+                id="habitat"
               >
                 <div
-                  class="p-card-title"
+                  class="p-card-body"
                 >
                   <div
-                    draggable="true"
+                    class="p-card-title"
                   >
-                     
+                    <div
+                      draggable="true"
+                      style="cursor: move;"
+                    >
+                      Habitat
+                    </div>
+                  </div>
+                  <div
+                    class="p-card-content"
+                  >
+                    <div
+                      class=""
+                    >
+                      <div
+                        class="field grid"
+                        style="position: relative;"
+                      >
+                        <div
+                          class="flex align-items-center relative col-12"
+                        >
+                          <div
+                            class="p-multiselect p-component p-inputwrapper p-inputwrapper-focus w-full"
+                            data-testid="tree-habitat"
+                            id="tree-habitat"
+                          >
+                            <div
+                              class="p-hidden-accessible"
+                            >
+                              <input
+                                aria-expanded="true"
+                                name="tree.habitat"
+                                readonly=""
+                                role="listbox"
+                                tabindex="0"
+                                type="text"
+                              />
+                            </div>
+                            <div
+                              class="p-multiselect-panel p-component p-multiselect-inline p-multiselect-flex"
+                            >
+                              <div
+                                class="p-multiselect-items-wrapper"
+                                style="max-height: 200px;"
+                              >
+                                <ul
+                                  aria-multiselectable="true"
+                                  class="p-multiselect-items p-component"
+                                  role="listbox"
+                                >
+                                  <li
+                                    aria-selected="false"
+                                    class="p-multiselect-item col-3"
+                                    role="option"
+                                    tabindex="0"
+                                  >
+                                    <div
+                                      class="p-checkbox p-component"
+                                    >
+                                      <div
+                                        class="p-checkbox-box"
+                                      >
+                                        <span
+                                          class="p-checkbox-icon p-c"
+                                        />
+                                      </div>
+                                    </div>
+                                    <span>
+                                      Forests
+                                    </span>
+                                  </li>
+                                  <li
+                                    aria-selected="false"
+                                    class="p-multiselect-item col-3"
+                                    role="option"
+                                    tabindex="0"
+                                  >
+                                    <div
+                                      class="p-checkbox p-component"
+                                    >
+                                      <div
+                                        class="p-checkbox-box"
+                                      >
+                                        <span
+                                          class="p-checkbox-icon p-c"
+                                        />
+                                      </div>
+                                    </div>
+                                    <span>
+                                      Plantations
+                                    </span>
+                                  </li>
+                                  <li
+                                    aria-selected="false"
+                                    class="p-multiselect-item col-3"
+                                    role="option"
+                                    tabindex="0"
+                                  >
+                                    <div
+                                      class="p-checkbox p-component"
+                                    >
+                                      <div
+                                        class="p-checkbox-box"
+                                      >
+                                        <span
+                                          class="p-checkbox-icon p-c"
+                                        />
+                                      </div>
+                                    </div>
+                                    <span>
+                                      Riverbanks
+                                    </span>
+                                  </li>
+                                  <li
+                                    aria-selected="false"
+                                    class="p-multiselect-item col-3"
+                                    role="option"
+                                    tabindex="0"
+                                  >
+                                    <div
+                                      class="p-checkbox p-component"
+                                    >
+                                      <div
+                                        class="p-checkbox-box"
+                                      >
+                                        <span
+                                          class="p-checkbox-icon p-c"
+                                        />
+                                      </div>
+                                    </div>
+                                    <span>
+                                      Rivers
+                                    </span>
+                                  </li>
+                                  <li
+                                    aria-selected="false"
+                                    class="p-multiselect-item col-3"
+                                    role="option"
+                                    tabindex="0"
+                                  >
+                                    <div
+                                      class="p-checkbox p-component"
+                                    >
+                                      <div
+                                        class="p-checkbox-box"
+                                      >
+                                        <span
+                                          class="p-checkbox-icon p-c"
+                                        />
+                                      </div>
+                                    </div>
+                                    <span>
+                                      Rocky areas
+                                    </span>
+                                  </li>
+                                  <li
+                                    aria-selected="false"
+                                    class="p-multiselect-item col-3"
+                                    role="option"
+                                    tabindex="0"
+                                  >
+                                    <div
+                                      class="p-checkbox p-component"
+                                    >
+                                      <div
+                                        class="p-checkbox-box"
+                                      >
+                                        <span
+                                          class="p-checkbox-icon p-c"
+                                        />
+                                      </div>
+                                    </div>
+                                    <span>
+                                      Urban
+                                    </span>
+                                  </li>
+                                  <li
+                                    aria-selected="false"
+                                    class="p-multiselect-item col-3"
+                                    role="option"
+                                    tabindex="0"
+                                  >
+                                    <div
+                                      class="p-checkbox p-component"
+                                    >
+                                      <div
+                                        class="p-checkbox-box"
+                                      >
+                                        <span
+                                          class="p-checkbox-icon p-c"
+                                        />
+                                      </div>
+                                    </div>
+                                    <span>
+                                      Wetlands
+                                    </span>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <label
+                          class="absolute border-1 border-solid border-transparent top-0 bottom-0 left-0 right-0 cursor-move mb-0"
+                          draggable="true"
+                        >
+                           
+                        </label>
+                      </div>
+                    </div>
+                    <div
+                      class="field grid mb-0"
+                      style="background: transparent; outline: none;"
+                    >
+                      <label
+                        class="col-12"
+                      >
+                        
+                         
+                        
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="relative"
+          >
+            <div
+              class="relative"
+            >
+              <div
+                class="p-card p-component card mt-3"
+                style="opacity: 0.5;"
+              >
+                <div
+                  class="p-card-body"
+                >
+                  <div
+                    class="p-card-title"
+                  >
+                    <div
+                      draggable="true"
+                    >
+                       
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-12 xl:col-6"
+          style="outline: 1px dotted #ffff0030;"
+        >
+          <div
+            class="relative"
+          >
+            <div
+              class="relative"
+            >
+              <div
+                class="p-card p-component card"
+                style="opacity: 0.5;"
+              >
+                <div
+                  class="p-card-body"
+                >
+                  <div
+                    class="p-card-title"
+                  >
+                    <div
+                      draggable="true"
+                    >
+                       
+                    </div>
                   </div>
                 </div>
               </div>
@@ -3502,7 +3550,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
     <div />
   </div>
   <div
-    class="p-toolbar p-component border-none border-bottom-1 border-50"
+    class="p-toolbar p-component border-none border-bottom-1 border-50 p-2"
     role="toolbar"
     style="background: none;"
   >
@@ -3546,8 +3594,8 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
     >
       <button
         aria-label="design"
-        class="p-button p-component mr-2 p-button-icon-only p-disabled"
-        data-testid="designButton"
+        class="p-button p-component p-button-icon-only p-disabled"
+        data-testid="customization"
         disabled=""
       >
         <span
@@ -3583,7 +3631,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="edit"
             >
               <div
@@ -3685,7 +3733,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="reproduction"
             >
               <div
@@ -3787,7 +3835,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="links"
             >
               <div
@@ -3829,7 +3877,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="habitat"
             >
               <div
@@ -3875,7 +3923,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="p-toolbar p-component border-none border-bottom-1 border-50"
+    class="p-toolbar p-component border-none border-bottom-1 border-50 p-2"
     role="toolbar"
     style="background: none;"
   >
@@ -3919,8 +3967,8 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
     >
       <button
         aria-label="design"
-        class="p-button p-component mr-2 p-button-icon-only"
-        data-testid="designButton"
+        class="p-button p-component p-button-icon-only"
+        data-testid="customization"
       >
         <span
           class="p-button-icon p-c pi pi-cog"
@@ -3955,7 +4003,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="master"
             >
               <div
@@ -4128,7 +4176,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="detail"
             >
               <div
@@ -4243,7 +4291,7 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="p-toolbar p-component border-none border-bottom-1 border-50"
+    class="p-toolbar p-component border-none border-bottom-1 border-50 p-2"
     role="toolbar"
     style="background: none;"
   >
@@ -4287,8 +4335,8 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
     >
       <button
         aria-label="design"
-        class="p-button p-component mr-2 p-button-icon-only"
-        data-testid="designButton"
+        class="p-button p-component p-button-icon-only"
+        data-testid="customization"
       >
         <span
           class="p-button-icon p-c pi pi-cog"
@@ -4323,7 +4371,7 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="shapes"
             >
               <div
@@ -4559,7 +4607,7 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="shapeEllipse"
             >
               <div
@@ -4651,7 +4699,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="p-toolbar p-component border-none border-bottom-1 border-50"
+    class="p-toolbar p-component border-none border-bottom-1 border-50 p-2"
     role="toolbar"
     style="background: none;"
   >
@@ -4695,8 +4743,8 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
     >
       <button
         aria-label="design"
-        class="p-button p-component mr-2 p-button-icon-only"
-        data-testid="designButton"
+        class="p-button p-component p-button-icon-only"
+        data-testid="customization"
       >
         <span
           class="p-button-icon p-c pi pi-cog"
@@ -4731,7 +4779,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="schedule"
             >
               <div
@@ -5349,7 +5397,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="permission"
             >
               <div
@@ -6034,7 +6082,7 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
       class="flex-col col"
     >
       <div
-        class="p-toolbar p-component border-none border-bottom-1 border-50"
+        class="p-toolbar p-component border-none border-bottom-1 border-50 p-2"
         role="toolbar"
         style="background: none;"
       >
@@ -6078,8 +6126,8 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
         >
           <button
             aria-label="design"
-            class="p-button p-component mr-2 p-button-icon-only"
-            data-testid="designButton"
+            class="p-button p-component p-button-icon-only"
+            data-testid="customization"
           >
             <span
               class="p-button-icon p-c pi pi-cog"
@@ -6114,7 +6162,7 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
                 class="w-full"
               >
                 <div
-                  class="p-card p-component card mb-3 card-0-2-2"
+                  class="p-card p-component card card-0-2-2"
                   id="editPerson"
                 >
                   <div
@@ -6185,7 +6233,7 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
       class="flex-col col"
     >
       <div
-        class="p-toolbar p-component border-none border-bottom-1 border-50"
+        class="p-toolbar p-component border-none border-bottom-1 border-50 p-2"
         role="toolbar"
         style="background: none;"
       >
@@ -6229,8 +6277,8 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
         >
           <button
             aria-label="design"
-            class="p-button p-component mr-2 p-button-icon-only"
-            data-testid="designButton"
+            class="p-button p-component p-button-icon-only"
+            data-testid="customization"
           >
             <span
               class="p-button-icon p-c pi pi-cog"
@@ -6265,7 +6313,7 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
                 class="w-full"
               >
                 <div
-                  class="p-card p-component card mb-3 card-0-2-2"
+                  class="p-card p-component card card-0-2-2"
                   id="editOrganization"
                 >
                   <div
@@ -6337,7 +6385,7 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
       class="flex-col col"
     >
       <div
-        class="p-toolbar p-component border-none border-bottom-1 border-50"
+        class="p-toolbar p-component border-none border-bottom-1 border-50 p-2"
         role="toolbar"
         style="background: none;"
       >
@@ -6381,8 +6429,8 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
         >
           <button
             aria-label="design"
-            class="p-button p-component mr-2 p-button-icon-only"
-            data-testid="designButton"
+            class="p-button p-component p-button-icon-only"
+            data-testid="customization"
           >
             <span
               class="p-button-icon p-c pi pi-cog"
@@ -6417,7 +6465,7 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
                 class="w-full"
               >
                 <div
-                  class="p-card p-component card mb-3 card-0-2-2"
+                  class="p-card p-component card card-0-2-2"
                   id="createOrganization"
                 >
                   <div
@@ -6493,7 +6541,7 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="p-toolbar p-component border-none border-bottom-1 border-50"
+    class="p-toolbar p-component border-none border-bottom-1 border-50 p-2"
     role="toolbar"
     style="background: none;"
   >
@@ -6537,8 +6585,8 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
     >
       <button
         aria-label="design"
-        class="p-button p-component mr-2 p-button-icon-only p-disabled"
-        data-testid="designButton"
+        class="p-button p-component p-button-icon-only p-disabled"
+        data-testid="customization"
         disabled=""
       >
         <span
@@ -6655,7 +6703,7 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="a2"
             >
               <div
@@ -6784,7 +6832,7 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="b2"
             >
               <div
@@ -6931,7 +6979,7 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="c2"
             >
               <div
@@ -6980,7 +7028,7 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="d"
             >
               <div
@@ -7083,7 +7131,7 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="e"
             >
               <div
@@ -7194,7 +7242,7 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="f2"
             >
               <div
@@ -7243,7 +7291,7 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="g"
             >
               <div
@@ -7300,7 +7348,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
     <div />
   </div>
   <div
-    class="p-toolbar p-component border-none border-bottom-1 border-50"
+    class="p-toolbar p-component border-none border-bottom-1 border-50 p-2"
     role="toolbar"
     style="background: none;"
   >
@@ -7342,8 +7390,8 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
     >
       <button
         aria-label="design"
-        class="p-button p-component mr-2 p-button-icon-only"
-        data-testid="designButton"
+        class="p-button p-component p-button-icon-only"
+        data-testid="customization"
       >
         <span
           class="p-button-icon p-c pi pi-cog"
@@ -7372,16 +7420,13 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
         class="grid col align-self-start form-0-2-1"
       >
         <div
-          class="col-12"
-        />
-        <div
           class="col-12 xl:col-6"
         >
           <div
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="edit"
             >
               <div
@@ -7546,7 +7591,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="reproduction"
             >
               <div
@@ -7654,7 +7699,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="links"
             >
               <div
@@ -7851,7 +7896,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="habitat"
             >
               <div
@@ -8124,7 +8169,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="p-toolbar p-component border-none border-bottom-1 border-50"
+    class="p-toolbar p-component border-none border-bottom-1 border-50 p-2"
     role="toolbar"
     style="background: none;"
   >
@@ -8168,8 +8213,8 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
     >
       <button
         aria-label="design"
-        class="p-button p-component mr-2 p-button-icon-only"
-        data-testid="designButton"
+        class="p-button p-component p-button-icon-only"
+        data-testid="customization"
       >
         <span
           class="p-button-icon p-c pi pi-cog"
@@ -8204,7 +8249,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="edit"
             >
               <div
@@ -8353,7 +8398,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="reproduction"
             >
               <div
@@ -8461,7 +8506,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="links"
             >
               <div
@@ -8658,7 +8703,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="habitat"
             >
               <div
@@ -8880,7 +8925,7 @@ exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="p-toolbar p-component border-none border-bottom-1 border-50"
+    class="p-toolbar p-component border-none border-bottom-1 border-50 p-2"
     role="toolbar"
     style="background: none;"
   >
@@ -8924,8 +8969,8 @@ exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
     >
       <button
         aria-label="design"
-        class="p-button p-component mr-2 p-button-icon-only p-disabled"
-        data-testid="designButton"
+        class="p-button p-component p-button-icon-only p-disabled"
+        data-testid="customization"
         disabled=""
       >
         <span
@@ -9116,7 +9161,7 @@ exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="a2"
             >
               <div
@@ -9245,7 +9290,7 @@ exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="b2"
             >
               <div
@@ -9302,7 +9347,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
     <div />
   </div>
   <div
-    class="p-toolbar p-component border-none border-bottom-1 border-50"
+    class="p-toolbar p-component border-none border-bottom-1 border-50 p-2"
     role="toolbar"
     style="background: none;"
   >
@@ -9346,8 +9391,8 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
     >
       <button
         aria-label="design"
-        class="p-button p-component mr-2 p-button-icon-only"
-        data-testid="designButton"
+        class="p-button p-component p-button-icon-only"
+        data-testid="customization"
       >
         <span
           class="p-button-icon p-c pi pi-cog"
@@ -9459,7 +9504,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="edit"
             >
               <div
@@ -9588,7 +9633,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="habitat"
             >
               <div
@@ -9810,7 +9855,7 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="p-toolbar p-component border-none border-bottom-1 border-50"
+    class="p-toolbar p-component border-none border-bottom-1 border-50 p-2"
     role="toolbar"
     style="background: none;"
   >
@@ -9854,8 +9899,8 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
     >
       <button
         aria-label="design"
-        class="p-button p-component mr-2 p-button-icon-only p-disabled"
-        data-testid="designButton"
+        class="p-button p-component p-button-icon-only p-disabled"
+        data-testid="customization"
         disabled=""
       >
         <span
@@ -10059,7 +10104,7 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="a1"
             >
               <div
@@ -10144,7 +10189,7 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="a2"
             >
               <div
@@ -10219,7 +10264,7 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
     <div />
   </div>
   <div
-    class="p-toolbar p-component border-none border-bottom-1 border-50"
+    class="p-toolbar p-component border-none border-bottom-1 border-50 p-2"
     role="toolbar"
     style="background: none;"
   >
@@ -10290,8 +10335,8 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
     >
       <button
         aria-label="design"
-        class="p-button p-component mr-2 p-button-icon-only"
-        data-testid="designButton"
+        class="p-button p-component p-button-icon-only"
+        data-testid="customization"
       >
         <span
           class="p-button-icon p-c pi pi-cog"
@@ -10326,7 +10371,7 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="edit"
             >
               <div
@@ -10473,7 +10518,7 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="reproduction"
             >
               <div
@@ -10581,7 +10626,7 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="links"
             >
               <div
@@ -10778,7 +10823,7 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="habitat"
             >
               <div
@@ -11005,7 +11050,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
     <div />
   </div>
   <div
-    class="p-toolbar p-component border-none border-bottom-1 border-50"
+    class="p-toolbar p-component border-none border-bottom-1 border-50 p-2"
     role="toolbar"
     style="background: none;"
   >
@@ -11047,8 +11092,8 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
     >
       <button
         aria-label="design"
-        class="p-button p-component mr-2 p-button-icon-only"
-        data-testid="designButton"
+        class="p-button p-component p-button-icon-only"
+        data-testid="customization"
       >
         <span
           class="p-button-icon p-c pi pi-cog"
@@ -11077,16 +11122,13 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
         class="grid col align-self-start form-0-2-1"
       >
         <div
-          class="col-12"
-        />
-        <div
           class="col-12 xl:col-6"
         >
           <div
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="edit"
             >
               <div
@@ -11244,7 +11286,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="reproduction"
             >
               <div
@@ -11352,7 +11394,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="links"
             >
               <div
@@ -11549,7 +11591,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card mb-3 card-0-2-2"
+              class="p-card p-component card card-0-2-2"
               id="habitat"
             >
               <div
