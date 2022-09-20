@@ -191,7 +191,8 @@ export interface Layouts {
         params?: (string | string[])[],
         toolbar?: string
     } | {
-        layout: Layout
+        layout: Layout,
+        toolbar?: string
     }
 }
 

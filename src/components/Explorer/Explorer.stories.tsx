@@ -147,10 +147,12 @@ const Template: Story<{
                             toolbar: 'toolbar'
                         },
                         grid: {
-                            layout: ['grid']
+                            layout: ['grid'],
+                            toolbar: 'toolbar'
                         },
                         gridFlex: {
-                            layout: ['gridFlex']
+                            layout: ['gridFlex'],
+                            toolbar: 'toolbar'
                         }
                     }}
                     layout={layout}

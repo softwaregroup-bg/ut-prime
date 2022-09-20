@@ -132,7 +132,7 @@ const Explorer: ComponentProps = ({
     const columns = ('layout' in layoutProps) ? empty : mergedCards[columnsCard]?.widgets ?? empty;
     const paramsLayout = ('params' in layoutProps) && layoutProps.params;
     const fetch = React.useMemo(() => (!paramsLayout || paramValues.length > 1) && fetchParams, [fetchParams, paramValues, paramsLayout]);
-    toolbar = ('layout' in layoutProps) ? toolbar : mergedCards[toolbarCard]?.widgets ?? toolbar;
+    toolbar = ('layout' in layoutProps) ? ('toolbar' in layoutProps ? mergedCards[layoutProps.toolbar]?.widgets : toolbar) : mergedCards[toolbarCard]?.widgets ?? toolbar;
     const classes = useStyles();
     const {properties} = mergedSchema;
     const [tableFilter, setFilters] = React.useState<TableFilter>({
