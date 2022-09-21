@@ -118,7 +118,7 @@ const Explorer: ComponentProps = ({
         },
         {
             ...paramValues[1],
-            files: paramValues?.[1]?.files?.map(name => `${resultSet}.${name}`)
+            files: paramValues?.[1]?.files?.map((name: string) => `${resultSet}.${name.slice(7)}`) // cut the params. prefix
         }
     ], [paramValues, resultSet]);
 
