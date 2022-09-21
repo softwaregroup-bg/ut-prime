@@ -238,7 +238,7 @@ export default function useCustomization(
     const inspector = design && <>
         {selectField}
         {selectCard}
-        <div style={maxHeight} className={clsx('col-2 flex-column pr-0')}>
+        <div style={maxHeight} className={clsx('col-2 flex-column pr-0', maxHeight && 'overflow-y-auto')}>
             <ConfigField
                 index='trash'
                 design
@@ -249,7 +249,7 @@ export default function useCustomization(
             ><i className='pi pi-trash'/></ConfigField>
             {inspected ? <Inspector
                 Editor={Editor}
-                className={clsx('w-full overflow-y-auto')}
+                className={clsx('w-full')}
                 onChange={setCustomization}
                 object={inspected.type === 'card' ? mergedCards : mergedSchema}
                 property={inspected.type === 'card' ? inspected.name : `properties.${inspected.name.split('.').join('.properties.')}`}

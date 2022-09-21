@@ -3533,7 +3533,6 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
       </form>
       <div
         class="col-2 flex-column pr-0"
-        style="max-height: 768px;"
       />
     </div>
   </div>

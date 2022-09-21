@@ -83,7 +83,7 @@ const Editor: ComponentProps = ({
     const [loading, setLoading] = React.useState('loading');
     const [editorWrapRef, maxHeight] = useScroll(noScroll);
     const [customizationToolbar, mergedSchema, mergedCards, inspector, loadCustomization, items, orientation, thumbIndex, layout, formProps] =
-        useCustomization(designDefault, schema, cards, layouts, customization, mode, layoutState, Editor, maxHeight, onCustomization, methods, name, loading);
+        useCustomization(designDefault, schema, cards, layouts, customization, mode, layoutState, Editor, undefined, onCustomization, methods, name, loading);
     const {properties = empty} = mergedSchema;
 
     const [validation, dropdownNames, getValue] = React.useMemo(() => {

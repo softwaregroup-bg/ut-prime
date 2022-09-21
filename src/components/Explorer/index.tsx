@@ -123,8 +123,9 @@ const Explorer: ComponentProps = ({
     ], [paramValues, resultSet]);
 
     const [loading, setLoading] = React.useState('');
+    const [inspectorHeight, setInspectorHeight] = React.useState<{maxHeight: number}>();
     const [customizationToolbar, mergedSchema, mergedCards, inspector, loadCustomization, , , , , formProps] =
-        useCustomization(designDefault, schema, cards, layouts, customization, 'view', '', Editor, undefined, onCustomization, methods, name, loading);
+        useCustomization(designDefault, schema, cards, layouts, customization, 'view', '', Editor, inspectorHeight, onCustomization, methods, name, loading);
     const layoutProps = layouts?.[layoutName] || {};
     const columnsCard = ('columns' in layoutProps) ? layoutProps.columns : 'browse';
     const toolbarCard = ('toolbar' in layoutProps) ? layoutProps.toolbar : 'toolbar';
@@ -282,13 +283,14 @@ const Explorer: ComponentProps = ({
         const paginatorHeight = node.querySelector('.p-paginator')?.getBoundingClientRect?.()?.height;
         setHeight({height: max(windowSize.height - nodeRect.top)});
         setMaxHeight({maxHeight: max(windowSize.height - nodeRect.top - paginatorHeight)});
-    }, [windowSize.height]);
+        setInspectorHeight({maxHeight: max(windowSize.height - nodeRect.top)});
+    }, [windowSize, formProps.design]); // eslint-disable-line react-hooks/exhaustive-deps
 
     const splitterWrapRef = React.useCallback(node => {
         if (node === null) return;
         const nodeRect = node.getBoundingClientRect();
         setSplitterHeight({flexGrow: 1, height: max(windowSize.height - nodeRect.top)});
-    }, [windowSize.height]);
+    }, [windowSize]);
 
     const detailsPanel = React.useMemo(() => detailsOpened && details &&
         <SplitterPanel style={height} key='details' size={10}>
@@ -435,7 +437,6 @@ const Explorer: ComponentProps = ({
                 {...viewProps}
             /> : <DataTable
                 scrollable
-                // tableStyle={{maxHeight: dataTableHeight}}
                 scrollHeight='flex'
                 autoLayout
                 lazy
@@ -475,7 +476,7 @@ const Explorer: ComponentProps = ({
                     : null
             }
             <div className='flex'>
-                <div className='flex-grow-1'>
+                <div className={formProps.design ? 'col-10' : 'col-12'} style={inspectorHeight}>
                     {
                         (nav || detailsPanel)
                             ? <div ref={splitterWrapRef}>

@@ -9,7 +9,7 @@ export default function useScroll(disabled?: boolean) : [ReturnType<typeof React
         if (node === null) return;
         const maxHeight = windowSize.height - node.getBoundingClientRect().top;
         setHeight({maxHeight: (!isNaN(maxHeight) && maxHeight > 0) ? Math.floor(maxHeight) : 0});
-    }, [windowSize.height]);
+    }, [windowSize]);
 
     return disabled ? [undefined, undefined] : [ref, style];
 }
