@@ -69,7 +69,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
       class="flex"
     >
       <div
-        class="col-12"
+        class="flex-grow-1"
         style="max-height: 768px;"
       >
         <div>

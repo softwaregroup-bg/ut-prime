@@ -476,7 +476,7 @@ const Explorer: ComponentProps = ({
                     : null
             }
             <div className='flex'>
-                <div className={formProps.design ? 'col-10' : 'col-12'} style={inspectorHeight}>
+                <div className={formProps.design ? 'col-10' : 'flex-grow-1'} style={inspectorHeight}>
                     {
                         (nav || detailsPanel)
                             ? <div ref={splitterWrapRef}>
