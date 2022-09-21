@@ -128,7 +128,7 @@ const Explorer: ComponentProps = ({
         useCustomization(designDefault, schema, cards, layouts, customization, 'view', '', Editor, inspectorHeight, onCustomization, methods, name, loading);
     const layoutProps = layouts?.[layoutName] || {};
     const columnsCard = ('columns' in layoutProps) ? layoutProps.columns : 'browse';
-    const toolbarCard = ('toolbar' in layoutProps) ? layoutProps.toolbar : 'toolbar';
+    const toolbarCard = ('toolbar' in layoutProps) ? layoutProps.toolbar : 'toolbarBrowse';
     const layout = ('layout' in layoutProps) ? layoutProps.layout : empty;
     const columns = ('layout' in layoutProps) ? empty : mergedCards[columnsCard]?.widgets ?? empty;
     const paramsLayout = ('params' in layoutProps) && layoutProps.params;
