@@ -93,7 +93,7 @@ const Explorer: ComponentProps = ({
     children,
     details,
     toolbar,
-    filter: initFilter,
+    filter: externalFilter,
     params,
     design: designDefault,
     onDropdown,
@@ -138,7 +138,7 @@ const Explorer: ComponentProps = ({
     const [tableFilter, setFilters] = React.useState<TableFilter>({
         filters: columns?.reduce((prev : object, column) => {
             let field = fieldName(column);
-            const value = lodashGet(initFilter, field);
+            const value = lodashGet(externalFilter, field);
             field = field.split('.').pop();
             return (value === undefined) ? {...prev, [field]: {matchMode: 'contains'}} : {...prev, [field]: {value, matchMode: 'contains'}};
         }, {}),
@@ -219,6 +219,7 @@ const Explorer: ComponentProps = ({
                     const items = await fetch(prepareSubmit([merge(
                         {},
                         filter,
+                        externalFilter,
                         {
                             [resultSet || 'filterBy']: Object.entries(tableFilter.filters).reduce((prev, [name, {value}]) => ({...prev, [name]: value}), {})
                         },
@@ -248,7 +249,7 @@ const Explorer: ComponentProps = ({
                 }
             }
         },
-        [fetch, filter, index, pageSize, resultSet, tableFilter]
+        [fetch, filter, index, pageSize, resultSet, tableFilter, externalFilter]
     );
     useLoad(async() => {
         if (onDropdown) setDropdown(await onDropdown(dropdownNames.split(',').filter(Boolean)));
