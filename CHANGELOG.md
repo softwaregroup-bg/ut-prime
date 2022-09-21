@@ -1,3 +1,13 @@
+## [2.18.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.18.1...v2.18.2) (2022-09-21)
+
+
+### Bug Fixes
+
+* **Explorer:** apply external filter ([8c28040](https://github.com/softwaregroup-bg/ut-prime/commit/8c280401bb32117975cd671eec58d36d465aac7f))
+* scrollers ([f49529c](https://github.com/softwaregroup-bg/ut-prime/commit/f49529c1aaccd11cfeab5a42b4f8779cba8fe387))
+
+
+
 ## [2.18.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.18.0...v2.18.1) (2022-09-20)
 
 
