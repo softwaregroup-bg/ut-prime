@@ -1,3 +1,12 @@
+## [2.18.5](https://github.com/softwaregroup-bg/ut-prime/compare/v2.18.4...v2.18.5) (2022-09-21)
+
+
+### Bug Fixes
+
+* file submit ([eb3890c](https://github.com/softwaregroup-bg/ut-prime/commit/eb3890c027aeb5a451db9bcdb81f9c91bacb6a6f))
+
+
+
 ## [2.18.4](https://github.com/softwaregroup-bg/ut-prime/compare/v2.18.3...v2.18.4) (2022-09-21)
 
 
