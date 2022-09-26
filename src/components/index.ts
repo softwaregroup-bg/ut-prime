@@ -22,6 +22,7 @@ export { default as Navigator } from './Navigator';
 export { default as Permission } from './Permission';
 export { default as Portal } from './Portal';
 export { default as Report } from './Report';
+export { default as ScrollBox } from './ScrollBox';
 export { default as Store } from './Store';
 export { default as SubmitButton } from './SubmitButton';
 export { default as Text } from './Text';

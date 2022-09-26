@@ -2,10 +2,9 @@ import React from 'react';
 import clsx from 'clsx';
 
 import { ListBox, PanelMenu, TabMenu, Ripple } from '../prime';
+import ScrollBox from '../ScrollBox';
 import { ComponentProps } from './ThumbIndex.types';
 import testid from '../lib/testid';
-
-import useScroll from '../hooks/useScroll';
 
 const ThumbIndex: ComponentProps = ({ name, className, items, orientation = 'left', children, onFilter, ...rest }) => {
     const [[selectedList, activeIndex], setList] = React.useState([items[0], 0]);
@@ -53,18 +52,15 @@ const ThumbIndex: ComponentProps = ({ name, className, items, orientation = 'lef
         onTabChange={handleListChange}
     />;
 
-    const [panelMenuRef, maxHeight] = useScroll();
-
     return (
         <div className={clsx('flex flex-row pb-0', {'lg:col-2': !!model?.length}, className)} {...rest}>
             {tabs}
-            {!!model?.length && <div className='w-full' ref={panelMenuRef}>
+            {!!model?.length && <ScrollBox className='w-full overflow-y-auto'>
                 <PanelMenu
-                    className={clsx('flex-1 overflow-y-auto')}
+                    className='flex-1'
                     model={model}
-                    style={maxHeight}
                 />
-            </div>}
+            </ScrollBox>}
             {children}
         </div>
     );

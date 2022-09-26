@@ -9976,11 +9976,11 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
         </div>
       </div>
       <div
-        class="w-full"
+        class="w-full overflow-y-auto"
+        style="max-height: 768px;"
       >
         <div
-          class="p-panelmenu p-component flex-1 overflow-y-auto"
-          style="max-height: 768px;"
+          class="p-panelmenu p-component flex-1"
         >
           <div
             class="p-panelmenu-panel"

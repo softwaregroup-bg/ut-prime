@@ -9,7 +9,7 @@ import { ComponentProps } from './Editor.types';
 import Form from '../Form';
 import {Toolbar, Button, ConfirmPopup, confirmPopup} from '../prime';
 import useLoad from '../hooks/useLoad';
-import useScroll from '../hooks/useScroll';
+import ScrollBox from '../ScrollBox';
 import prepareSubmit from '../lib/prepareSubmit';
 import testid from '../lib/testid';
 import fieldNames from '../lib/fields';
@@ -81,7 +81,6 @@ const Editor: ComponentProps = ({
     const [dropdowns, setDropdown] = React.useState({});
     const [[mode, layoutState], setMode] = React.useState([id == null ? 'create' : 'edit' as 'create' | 'edit', layoutName]);
     const [loading, setLoading] = React.useState('loading');
-    const [editorWrapRef, maxHeight] = useScroll(noScroll);
     const [customizationToolbar, mergedSchema, mergedCards, inspector, loadCustomization, items, orientation, thumbIndex, layout, formProps] =
         useCustomization(designDefault, schema, cards, layouts, customization, mode, layoutState, Editor, undefined, onCustomization, methods, name, loading);
     const {properties = empty} = mergedSchema;
@@ -205,7 +204,7 @@ const Editor: ComponentProps = ({
             /> : null}
             <div className={clsx('flex', 'overflow-x-hidden', 'w-full', orientation === 'top' && 'flex-column')}>
                 {thumbIndex}
-                <div ref={editorWrapRef} style={maxHeight} className='flex flex-grow-1'>
+                <ScrollBox className='flex flex-grow-1' noScroll={noScroll}>
                     <Form
                         schema={mergedSchema}
                         debug={debug}
@@ -224,7 +223,7 @@ const Editor: ComponentProps = ({
                         {...formProps}
                     />
                     {inspector}
-                </div>
+                </ScrollBox>
             </div>
         </>
     );

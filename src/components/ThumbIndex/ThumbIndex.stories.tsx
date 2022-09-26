@@ -9,6 +9,7 @@ import {Schema, PropertyEditor} from '../types';
 import {Toolbar, Button} from '../prime';
 import useToast from '../hooks/useToast';
 import decorators from '../test/decorator';
+import ScrollBox from 'ut-prime/src/components/ScrollBox';
 
 const meta: Meta = {
     title: 'ThumbIndex',
@@ -164,14 +165,16 @@ export const Basic: React.FC = () => {
             <Toolbar left={<Button icon='pi pi-save' onClick={trigger} disabled={!trigger}/>}/>
             <div className='flex' style={{overflowX: 'hidden', width: '100%'}}>
                 <ThumbIndex items={items} onFilter={setFilter}/>
-                <Form
-                    schema={schema}
-                    cards={cards}
-                    layout={filter?.widgets || []}
-                    onSubmit={submit}
-                    setTrigger={setTrigger}
-                    value={data}
-                />
+                <ScrollBox className='overflow-y-auto overflow-x-hidden w-full'>
+                    <Form
+                        schema={schema}
+                        cards={cards}
+                        layout={filter?.widgets || []}
+                        onSubmit={submit}
+                        setTrigger={setTrigger}
+                        value={data}
+                    />
+                </ScrollBox>
             </div>
         </>
     );
