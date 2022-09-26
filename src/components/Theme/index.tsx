@@ -91,16 +91,98 @@ export const useStyles = createUseStyles(({fontSize = 14}: Theme) => ({
                     right: 'unset !important'
                 },
                 '& .left-0': {
-                    right: '0px !important',
-                    left: 'unset !important'
+                    left: 'unset !important',
+                    right: '0px !important'
                 },
                 '& .p-float-label > label': {
                     left: 'unset !important',
-                    right: '0.5rem'
+                    right: 'var(--inline-spacing)'
                 },
                 '& .mr-2': {
-                    marginRight: 'unset !important',
-                    marginLeft: '0.5rem !important'
+                    marginLeft: 'var(--inline-spacing) !important',
+                    marginRight: 'unset !important'
+                },
+                '& .p-button-icon-left': {
+                    marginLeft: 'var(--inline-spacing)',
+                    marginRight: 'initial'
+                },
+                '& .pi-angle-double-left:before': {
+                    content: '"\\e92e"'
+                },
+                '& .pi-angle-left:before': {
+                    content: '"\\e932"'
+                },
+                '& .pi-angle-double-right:before': {
+                    content: '"\\e92d"'
+                },
+                '& .pi-angle-right:before': {
+                    content: '"\\e931"'
+                },
+                '& .p-datatable .p-datatable-tbody > tr > td': {
+                    textAlign: 'right'
+                },
+                '& .p-calendar-w-btn-right .p-datepicker-trigger, & .p-buttonset .p-button:last-of-type': {
+                    borderTopLeftRadius: 'var(--border-radius)',
+                    borderBottomLeftRadius: 'var(--border-radius)',
+                    borderTopRightRadius: '0px',
+                    borderBottomRightRadius: '0px'
+                },
+                '& .p-calendar-w-btn-right .p-inputtext, & .p-inputnumber-buttons-stacked .p-inputnumber-input, & .p-buttonset .p-button:first-of-type': {
+                    borderTopLeftRadius: '0px',
+                    borderBottomLeftRadius: '0px',
+                    borderTopRightRadius: 'var(--border-radius)',
+                    borderBottomRightRadius: 'var(--border-radius)'
+                },
+                '& .p-inputnumber-buttons-stacked .p-button.p-inputnumber-button-up': {
+                    borderTopLeftRadius: 'var(--border-radius)',
+                    borderBottomLeftRadius: '0px',
+                    borderTopRightRadius: '0px',
+                    borderBottomRightRadius: '0px'
+                },
+                '& .p-inputnumber-buttons-stacked .p-button.p-inputnumber-button-down': {
+                    borderTopLeftRadius: '0px',
+                    borderBottomLeftRadius: 'var(--border-radius)',
+                    borderTopRightRadius: '0',
+                    borderBottomRightRadius: '0px'
+                },
+                '& .p-treeselect-close, & .p-multiselect-panel .p-multiselect-header .p-multiselect-close': {
+                    marginLeft: 'initial',
+                    marginRight: 'auto'
+                },
+                '& .p-tree .p-treenode-children': {
+                    padding: '0 var(--content-padding) 0 0'
+                },
+                '& .p-multiselect-panel .p-multiselect-items .p-multiselect-item .p-checkbox, & .p-multiselect.p-multiselect-chip .p-multiselect-token, & .p-treeselect.p-treeselect-chip .p-treeselect-token, & .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link .p-menuitem-icon': {
+                    marginLeft: 'var(--inline-spacing)',
+                    marginRight: '0px'
+                },
+                '& .p-multiselect.p-multiselect-chip .p-multiselect-token .p-multiselect-token-icon, & .p-chips .p-chips-multiple-container .p-chips-token .p-chips-token-icon, & .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-submenu-icon': {
+                    marginLeft: '0px',
+                    marginRight: 'var(--inline-spacing)'
+                },
+                '& ul.p-submenu-list': {
+                    left: 0,
+                    right: 'initial!important'
+                },
+                '& .p-buttonset .p-button:not(:last-child)': {
+                    borderLeft: '0 none',
+                    borderRight: '1px solid var(--surface-border)',
+                    '&.p-highlight': {
+                        borderColor: 'var(--primary-color)'
+                    }
+                },
+                '& .pi-chevron-right, & .pi-chevron-left': {
+                    rotate: '180deg'
+                },
+                '@media screen and (max-width: 960px)': {
+                    '& .p-menubar-mobile-active .p-menubar-root-list': {
+                        left: '0!important',
+                        right: 'initial!important'
+                    },
+                    '& .p-menubar .p-menubar-root-list ul li a': {
+                        paddingLeft: '0.75rem',
+                        paddingRight: '2.25rem'
+                    }
                 }
             }
         },
