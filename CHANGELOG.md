@@ -1,3 +1,13 @@
+# [2.19.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.18.5...v2.19.0) (2022-09-26)
+
+
+### Features
+
+* RTL ([06385c3](https://github.com/softwaregroup-bg/ut-prime/commit/06385c3462c5ba30b31b82d599e363ccffdee3a9))
+* ScrollBox taken from [#8](https://github.com/softwaregroup-bg/ut-prime/issues/8) ([6d685c3](https://github.com/softwaregroup-bg/ut-prime/commit/6d685c31f6d5f4cc364b6d62380ba29c8e624986))
+
+
+
 ## [2.18.5](https://github.com/softwaregroup-bg/ut-prime/compare/v2.18.4...v2.18.5) (2022-09-21)
 
 
