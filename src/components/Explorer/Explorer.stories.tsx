@@ -188,6 +188,12 @@ Details.args = {
     }
 };
 
+export const DetailsRTL = Template.bind({});
+DetailsRTL.args = {
+    ...Details.args,
+    dir: 'rtl'
+};
+
 export const ActionPermissions = Template.bind({});
 ActionPermissions.args = {
     ...Details.args,

@@ -109,3 +109,23 @@ Table.play = async({canvasElement}) => {
     within(canvas.getByTestId('table3')).getByRole('button', {name: ''}).click();
     within(canvas.getByTestId('table4')).getByRole('button', {name: ''}).click();
 };
+
+export const BasicRTL: StoryTemplate = Template.bind({});
+BasicRTL.args = {
+    ...Basic.args,
+    dir: 'rtl'
+};
+
+export const InputRTL: StoryTemplate = Template.bind({});
+InputRTL.args = {
+    ...Input.args,
+    dir: 'rtl'
+};
+InputRTL.play = Input.play;
+
+export const TableRTL: StoryTemplate = Template.bind({});
+TableRTL.args = {
+    ...Table.args,
+    dir: 'rtl'
+};
+TableRTL.play = Table.play;

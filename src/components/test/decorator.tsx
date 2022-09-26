@@ -4,8 +4,8 @@ import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 
 export default [
-    (Story, {args}) => args?.state ? (
-        <Wrap state={args?.state}>
+    (Story, {args, globals}) => args?.state ? (
+        <Wrap state={args?.state} dir={args?.dir ?? globals?.dir} type={globals?.theme}>
             <Story />
         </Wrap>
     ) : <DndProvider backend={HTML5Backend}>

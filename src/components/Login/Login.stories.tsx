@@ -18,7 +18,11 @@ const meta: Meta = {
 };
 export default meta;
 
-export const Basic: React.FC = () =>
+const Template: React.FC = () =>
     <div className='flex' style={{height: 600}}>
         <Login />
     </div>;
+
+export const Basic = Template.bind({});
+export const BasicRTL = Template.bind({});
+BasicRTL.args = {dir: 'rtl'};

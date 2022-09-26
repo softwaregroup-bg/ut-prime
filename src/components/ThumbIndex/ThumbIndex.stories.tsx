@@ -9,7 +9,7 @@ import {Schema, PropertyEditor} from '../types';
 import {Toolbar, Button} from '../prime';
 import useToast from '../hooks/useToast';
 import decorators from '../test/decorator';
-import ScrollBox from 'ut-prime/src/components/ScrollBox';
+import ScrollBox from '../ScrollBox';
 
 const meta: Meta = {
     title: 'ThumbIndex',

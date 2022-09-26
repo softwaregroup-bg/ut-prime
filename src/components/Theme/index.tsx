@@ -39,6 +39,7 @@ export interface Theme {
     Switch?: React.FC,
     dark?: lazyCss,
     light?: lazyCss,
+    dir?: 'ltr' | 'rtl',
     ut: {
         classes: {
             headerLogo?: string,
@@ -83,7 +84,25 @@ export const useStyles = createUseStyles(({fontSize = 14}: Theme) => ({
             fontSize,
             fontFamily: 'Roboto',
             color: 'var(--text-color)',
-            backgroundColor: 'var(--surface-0)'
+            backgroundColor: 'var(--surface-0)',
+            "&[dir='rtl']": {
+                '& .right-0': {
+                    left: '0px !important',
+                    right: 'unset !important'
+                },
+                '& .left-0': {
+                    right: '0px !important',
+                    left: 'unset !important'
+                },
+                '& .p-float-label > label': {
+                    left: 'unset !important',
+                    right: '0.5rem'
+                },
+                '& .mr-2': {
+                    marginRight: 'unset !important',
+                    marginLeft: '0.5rem !important'
+                }
+            }
         },
         body: {
             margin: 0
@@ -108,5 +127,6 @@ export const ThemeProvider = ({ theme, children }: { theme: Theme, children: Rea
     }
     const appTheme = React.useMemo(() => merge({Switch}, themes[theme?.palette?.type || 'dark-compact'] || themes['dark-compact'], theme), [theme, Switch]);
     useStyles(appTheme);
+    if (theme.dir && (document.dir !== theme.dir)) document.dir = theme.dir;
     return <Provider theme={appTheme}>{children}</Provider>;
 };

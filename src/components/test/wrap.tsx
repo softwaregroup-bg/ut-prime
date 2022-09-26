@@ -11,17 +11,20 @@ import defaultState from './state';
 
 function Wrap({
     children,
+    dir,
+    type,
     state = {},
     portalName = 'Storybook'
 }) {
     const theme: Theme = {
         palette: {
-            type: 'dark-compact'
+            type: type ?? 'dark-compact'
         },
         ut: {
             classes: {},
             portalName: 'Administration'
-        }
+        },
+        dir
     };
     return (
         <DndProvider backend={HTML5Backend}>
