@@ -1,3 +1,12 @@
+## [2.19.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.19.0...v2.19.1) (2022-09-26)
+
+
+### Bug Fixes
+
+* RTL styling ([560f8f3](https://github.com/softwaregroup-bg/ut-prime/commit/560f8f3608222d6085c668276780e59977d8bd3a))
+
+
+
 # [2.19.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.18.5...v2.19.0) (2022-09-26)
 
 
