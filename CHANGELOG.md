@@ -1,3 +1,12 @@
+# [2.20.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.19.1...v2.20.0) (2022-09-28)
+
+
+### Features
+
+* user defined fields ([65daf64](https://github.com/softwaregroup-bg/ut-prime/commit/65daf64c386720d8c96590042082ee2138753d94))
+
+
+
 ## [2.19.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.19.0...v2.19.1) (2022-09-26)
 
 
