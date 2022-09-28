@@ -245,6 +245,7 @@ const Inspector: ComponentProps = ({
     return <div className={clsx(className, classes.inspector)}>
         <Editor
             init={init}
+            loading=''
             noScroll
             key={String(property)}
             onChange={handleChange}

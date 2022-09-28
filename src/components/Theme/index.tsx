@@ -86,6 +86,10 @@ export const useStyles = createUseStyles(({fontSize = 14}: Theme) => ({
             color: 'var(--text-color)',
             backgroundColor: 'var(--surface-0)',
             "&[dir='rtl']": {
+                '& .left-0.right-0': {
+                    left: '0px !important',
+                    right: '0px !important'
+                },
                 '& .right-0': {
                     left: '0px !important',
                     right: 'unset !important'

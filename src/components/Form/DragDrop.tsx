@@ -192,3 +192,11 @@ export function ConfigCard({
         </div>
     );
 }
+
+export function useDragging() {
+    const [canDrop] = useDrop(() => ({
+        accept: [FIELD, CARD],
+        collect: monitor => !!monitor.canDrop()
+    }));
+    return canDrop;
+}

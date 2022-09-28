@@ -4,12 +4,12 @@ import clsx from 'clsx';
 
 import useToggle from './useToggle';
 
-import SelectField from '../Editor/SelectField';
-import SelectCard from '../Editor/SelectCard';
+import SelectField from '../Inspector/SelectField';
+import SelectCard from '../Inspector/SelectCard';
 import Inspector from '../Inspector';
 import ThumbIndex from '../ThumbIndex';
 import Context from '../Context';
-import {ConfigField, ConfigCard} from '../Form/DragDrop';
+import {ConfigField, ConfigCard, useDragging} from '../Form/DragDrop';
 import {Button} from '../prime';
 import Permission from '../Permission';
 import testid from '../lib/testid';
@@ -198,6 +198,7 @@ export default function useCustomization(
         schema={mergedSchema}
         visible={!!addField}
         onHide={() => setAddField(null)}
+        setCustomization={setCustomization}
         onSelect={items => {
             const {destination} = addField;
             setCustomization(prev => {
@@ -235,6 +236,8 @@ export default function useCustomization(
         }}
     /> : null;
 
+    const dragging = useDragging();
+
     const inspector = design && <>
         {selectField}
         {selectCard}
@@ -247,7 +250,7 @@ export default function useCustomization(
                 name='trash'
                 className='text-center p-3 p-card'
             ><i className='pi pi-trash'/></ConfigField>
-            {inspected ? <Inspector
+            {(inspected && !dragging) ? <Inspector
                 Editor={Editor}
                 className={clsx('w-full')}
                 onChange={setCustomization}

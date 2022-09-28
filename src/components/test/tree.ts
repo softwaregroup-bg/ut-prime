@@ -42,6 +42,10 @@ const tree: {schema: Schema, cards: Cards} = {
                     mock: {
                         title: 'នៅក្រោមដើមឈើ'
                     },
+                    udf: {
+                        type: 'object',
+                        udf: true
+                    },
                     habitat: {
                         title: '',
                         widget: {

@@ -61,6 +61,7 @@ const Editor: ComponentProps = ({
     keyField = object + 'Id',
     resultSet = object,
     design: designDefault,
+    loading: loadingValue = 'loading',
     methods,
     onDropdown,
     onInit,
@@ -80,7 +81,7 @@ const Editor: ComponentProps = ({
     const [loadedValue, setLoadedValue] = React.useState<object>();
     const [dropdowns, setDropdown] = React.useState({});
     const [[mode, layoutState], setMode] = React.useState([id == null ? 'create' : 'edit' as 'create' | 'edit', layoutName]);
-    const [loading, setLoading] = React.useState('loading');
+    const [loading, setLoading] = React.useState(loadingValue);
     const [customizationToolbar, mergedSchema, mergedCards, inspector, loadCustomization, items, orientation, thumbIndex, layout, formProps] =
         useCustomization(designDefault, schema, cards, layouts, customization, mode, layoutState, Editor, undefined, onCustomization, methods, name, loading);
     const {properties = empty} = mergedSchema;
@@ -100,7 +101,7 @@ const Editor: ComponentProps = ({
     }, [mergedCards, editors, items, layout, mergedSchema]);
 
     async function get() {
-        setLoading('loading');
+        setLoading(loadingValue);
         const [result, dropdownResult] = await Promise.all([
             onGet({[keyField]: keyValue}),
             onDropdown(dropdownNames),
@@ -113,7 +114,7 @@ const Editor: ComponentProps = ({
         setLoading('');
     }
     async function init() {
-        setLoading('loading');
+        setLoading(loadingValue);
         const [dropdownResult] = await Promise.all([
             onDropdown(dropdownNames),
             loadCustomization()

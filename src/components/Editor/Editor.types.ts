@@ -30,6 +30,7 @@ export interface Props {
     toolbar?: boolean,
     noScroll?: boolean,
     value?: object,
+    loading?: string,
     methods?: {
         [key: string]: (params: object) => Promise<Record<string, unknown>>
     },

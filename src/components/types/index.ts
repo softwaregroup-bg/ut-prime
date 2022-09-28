@@ -86,6 +86,7 @@ export interface Editors {
 export interface Property extends JSONSchema7 {
     filter?: boolean;
     sort?: boolean;
+    udf?: boolean;
     action?: (action: {
         id: unknown,
         current: object,
