@@ -1,5 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
+import { RefCallBack } from 'react-hook-form';
+
 import {
     AutoComplete,
     Button,
@@ -21,7 +23,7 @@ import {
     TreeSelect,
     TreeTable
 } from '../prime';
-import { RefCallBack } from 'react-hook-form';
+import {PropertyEditor} from '../types';
 
 import getType from '../lib/getType';
 import testid from '../lib/testid';
@@ -48,7 +50,7 @@ export default function input(
     label,
     error,
     field: {
-        onChange: (...event: any[]) => void;
+        onChange: (...event: unknown[]) => void;
         onBlur: () => void;
         value: any;
         name: string;
@@ -66,12 +68,12 @@ export default function input(
         columns,
         clear,
         ...props
-    }: any = {id: field?.name},
+    }: PropertyEditor = {id: field?.name},
     schema,
     dropdowns,
     parentValue,
     loading: string,
-    getValues: (name: any) => any,
+    getValues: (name: string) => unknown,
     counter,
     methods,
     submit,
@@ -88,12 +90,14 @@ export default function input(
         case 'button': return <ActionButton
             className={inputClass ?? 'mr-2'}
             label={label}
+            action=''
             {...props}
-            getValues={getValues}
+            getValues={getValues as Parameters<typeof ActionButton>[0]['getValues']}
         />;
         case 'submit': return <SubmitButton
             className={inputClass ?? 'mr-2'}
             label={label}
+            method=''
             {...props}
             submit={submit}
         />;

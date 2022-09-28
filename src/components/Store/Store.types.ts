@@ -4,10 +4,10 @@ import type { MenuItem as PrimeMenuItem } from 'primereact/menuitem';
 export interface MenuItem extends PrimeMenuItem {
     title: string;
     path?: string;
-    component?: () => any;
+    component?: () => unknown;
     tab?: (params: object) => Promise<{
         title: string;
-        component?: () => any
+        component?: () => unknown
     }>,
     params?: {
         id: string | number

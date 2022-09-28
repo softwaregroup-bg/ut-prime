@@ -51,21 +51,29 @@ export interface PropertyEditor {
         master?: object;
         join: object
     };
-    [editorProperties: string]: any
+    id?: string,
+    compare?: string,
+    optionsFilter?: Record<string, unknown>,
+    method?: string,
+    columns?: string,
+    widgets?: string[],
+    dataKey?: string,
+    change?: Record<string, unknown>,
+    [editorProperties: string]: unknown
 }
 
 export interface Dropdowns {
     [name: string]: {
         label: string;
-        value: any;
+        value: unknown;
         className?: string;
         title?: string;
-        parent?: any;
+        parent?: unknown;
         disabled?: boolean
     }[] | {
-        key: any;
+        key: unknown;
         label?: string;
-        data?: any
+        data?: unknown;
     }[]
 }
 
@@ -149,7 +157,7 @@ export interface Card {
     label?: string;
     widgets?: WidgetReference[];
     watch?: string;
-    match?: any;
+    match?: unknown;
     className?: string;
     type?: 'toolbar' | 'card';
     classes?: {

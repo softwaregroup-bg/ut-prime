@@ -152,7 +152,7 @@ export default React.forwardRef<object, any>(function Table({
         const originalIndex = data[INDEX];
         const {[NEW]: ignore, $pivot, [KEY]: key, [CHANGE]: change, [INDEX]: index, ...values} = newData;
         for (const [key, value] of Object.entries(properties)) {
-            if (!radioColumns.includes((value as any)?.widget?.type) || !values[key]) continue;
+            if (!radioColumns.includes((value as {widget?: {type?: string}})?.widget?.type) || !values[key]) continue;
             for (let id = 0; id < changed.length; id++) {
                 if (!changed[id][key]) continue;
                 if (id !== originalIndex) changed[id][key] = false;

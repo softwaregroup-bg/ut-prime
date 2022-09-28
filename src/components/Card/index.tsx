@@ -108,7 +108,7 @@ const Card: ComponentProps = ({
                                 items.forEach(child => {
                                     let childValue = null;
                                     const autocompleteProp = child.split('.').pop();
-                                    const autocomplete = value?.value?.[autocompleteProp] || value?.[autocompleteProp];
+                                    const autocomplete = (value as {value?: Record<string, unknown>})?.value?.[autocompleteProp] || value?.[autocompleteProp];
                                     if (layoutState.index.properties[propertyName]?.widget?.type === 'autocomplete' && autocomplete) childValue = autocomplete;
                                     setValue?.(child, childValue);
                                 });

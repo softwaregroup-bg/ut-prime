@@ -10,7 +10,7 @@ import Permission from './Permission';
 import { ComponentProps } from './Gate.types';
 import { State } from '../Store/Store.types';
 
-const fetchTranslations: ((params: any) => any) = params => ({
+const fetchTranslations: ((params: unknown) => unknown) = params => ({
     type: 'core.translation.fetch',
     method: 'core.translation.fetch',
     params

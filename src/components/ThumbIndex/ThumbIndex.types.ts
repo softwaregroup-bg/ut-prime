@@ -11,7 +11,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     name?: string;
     items: Item[];
     orientation?: 'left' | 'top',
-    onFilter: (filter: any) => void
+    onFilter: (filter: unknown) => void
 }
 
 export type ComponentProps = React.FC<Props>

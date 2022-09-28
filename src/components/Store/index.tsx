@@ -12,7 +12,7 @@ import { StoreComponent } from './Store.types';
 
 const composeEnhancers = composeWithDevTools({
     serialize: true,
-    actionSanitizer: (action: any) => {
+    actionSanitizer: (action: any) => { // eslint-disable-line @typescript-eslint/no-explicit-any
         if (action.type.toString() === 'Symbol(REDUCE)' && action.reducer) {
             return {
                 ...action,
