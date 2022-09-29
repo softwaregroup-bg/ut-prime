@@ -1,6 +1,5 @@
 import React from 'react';
 import type { Meta } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 
 import page from './README.mdx';
 import Button from './index';
@@ -12,7 +11,7 @@ const meta: Meta = {
 };
 export default meta;
 
-export const Basic: React.FC = () => <Button onClick={action('clicked')}>Button</Button>;
-export const Add: React.FC = () => <Button onClick={action('clicked')} button='save'>Save</Button>;
-export const Cancel: React.FC = () => <Button onClick={action('clicked')} button='cancel'>Cancel</Button>;
-export const Next: React.FC = () => <Button onClick={action('clicked')} button='next'>Next</Button>;
+export const Basic: React.FC = () => <Button >Button</Button>;
+export const Add: React.FC = () => <Button button='save'>Save</Button>;
+export const Cancel: React.FC = () => <Button button='cancel'>Cancel</Button>;
+export const Next: React.FC = () => <Button button='next'>Next</Button>;
