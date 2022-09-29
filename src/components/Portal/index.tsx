@@ -40,7 +40,7 @@ const template = (item, {onClick, onKeyDown, className, iconClassName, labelClas
         {...testid(`portal.menu${item.path || item.id}`)}
     >
         {item.icon && <span className={iconClassName}></span>}
-        {item.label && <span className={labelClassName} {...testid(`portal.menu.label${item.path || item.id}`)}>{item.label}</span>}
+        {item.label && <span className={labelClassName} {...testid(`portal.menu.label${item.path || item.id}`)}><Text>{item.label}</Text></span>}
         {item.items && <span className={submenuIconClassName}></span>}
         <Ripple />
     </a>
@@ -148,7 +148,7 @@ const Portal: ComponentProps = ({ children }) => {
                 ? (({Component, params}) => <Component {...params}/>)(tabs[tabIndex || 0] || {Component() { return null; }, params: undefined})
                 : <TabView activeIndex={tabIndex} onTabChange={handleTabSelect} className={classes.tabs} renderActiveOnly={false}>
                     {tabs.map(({title, path, Component, params}) =>
-                        <TabPanel key={path} header={<span {...testid(`portal.tab${path}`)}>{title}&nbsp;&nbsp;<i className='pi pi-times vertical-align-bottom' {...testid(`portal.tab.close${path}`)}></i></span>}>
+                        <TabPanel key={path} header={<span {...testid(`portal.tab${path}`)}><Text>{title}</Text>&nbsp;&nbsp;<i className='pi pi-times vertical-align-bottom' {...testid(`portal.tab.close${path}`)}></i></span>}>
                             <ErrorBoundary FallbackComponent={ErrorFallback}>
                                 <Component {...params}/>
                             </ErrorBoundary>

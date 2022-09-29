@@ -2,6 +2,7 @@ import React from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import {Route, Switch} from 'react-router';
+import { locale, addLocale } from 'primereact/api';
 
 import LoginPage from '../Login';
 import Main from '../Main';
@@ -15,6 +16,10 @@ import PageNotFound from './PageNotFound';
 
 const App: ComponentProps = ({middleware, reducers, theme, devTool, portalName, customization, state, onDispatcher, loginPage, registrationPage}) => {
     const context = React.useMemo(() => ({portalName, devTool, customization}), [portalName, devTool, customization]);
+    React.useEffect(() => {
+        locale(theme?.language || 'en');
+        theme?.languages && Object.entries(theme.languages).forEach(([language, options]) => addLocale(language, options));
+    }, [theme?.language, theme?.languages]);
 
     return (
         <DndProvider backend={HTML5Backend}>
@@ -23,13 +28,13 @@ const App: ComponentProps = ({middleware, reducers, theme, devTool, portalName, 
                     <Context.Provider value={context}>
                         <Switch>
                             <Route path='/login'>
-                                <LoginPage register={registrationPage}/>
+                                <LoginPage register={registrationPage} language={theme?.language}/>
                             </Route>
                             <Route path='/sso/:appId/:ssoOrigin/login'>
-                                <LoginPage register={registrationPage}/>
+                                <LoginPage register={registrationPage} language={theme?.language}/>
                             </Route>
                             <Route path='/register'>
-                                <Component page={registrationPage} />
+                                <Component page={registrationPage} language={theme?.language}/>
                             </Route>
                             <Route>
                                 <Main loginPage={loginPage}/>

@@ -8,10 +8,12 @@ import Store from '../Store';
 import type { Theme } from '../Theme';
 import { ThemeProvider } from '../Theme';
 import defaultState from './state';
+import {Translate} from '../Text/Text.mock';
 
 function Wrap({
     children,
     dir,
+    language,
     type,
     state = {},
     portalName = 'Storybook'
@@ -31,7 +33,9 @@ function Wrap({
             <Store state={merge({}, defaultState, state)}>
                 <ThemeProvider theme={theme}>
                     <Context.Provider value={{portalName, devTool: true, customization: true}}>
-                        {children}
+                        <Translate language={language}>
+                            {children}
+                        </Translate>
                     </Context.Provider>
                 </ThemeProvider>
             </Store>

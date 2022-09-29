@@ -6,7 +6,7 @@ const center : React.HTMLAttributes<Element>['style'] = {
     transform: 'translate(-50%, -50%)'
 };
 
-const Page: React.FC<{page: string, params?: unknown}> = ({page, params, children, ...props}) => {
+const Page: React.FC<{page: string, params?: unknown, language?: string}> = ({page, params, children, ...props}) => {
     const [Page, setPage] = React.useState<React.FC>();
     const dispatch: (action: {type: string, page: string, params: unknown}) => Promise<React.FC> = useDispatch();
     React.useEffect(() => {

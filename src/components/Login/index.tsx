@@ -203,6 +203,7 @@ const initialState: LoginState = {
 
 const Login: ComponentProps = ({
     identityCheck,
+    language,
     register
 }) => {
     const {
@@ -239,7 +240,6 @@ const Login: ComponentProps = ({
     }
 
     const autoFocus = inputs.find(({disabled}) => !disabled)?.name;
-
     return (
         <>
             <div className={clsx('p-component', loginContainer)}>
@@ -272,19 +272,21 @@ const Login: ComponentProps = ({
                                                         inputClassName='w-full'
                                                 /> : undefined
                                     }
-                                    <label className={clsx({'p-error': invalidField === name})}>{label}</label>
+                                    <label className={clsx({'p-error': invalidField === name})}>
+                                        <Text lang={language}>{label}</Text>
+                                    </label>
                                 </span>
                             </div>
                         ).filter(Boolean)}
                         <div className='field col-12 p-2 mb-0'>
-                            <Button label={buttonLabel} type='submit' className='w-full'/>
+                            <Button aria-label={buttonLabel} type='submit' className='w-full'>{buttonLabel}</Button>
                         </div>
                     </form>
                 </div>
                 <div className={clsx(loginLogo, loginPageFooter, ut?.classes?.loginBottom)} />
             </div>
             <div className='fixed m-2 right-0'>
-                {register ? <Button label='Register' type='button' onClick={() => history.push('/register')} className="mr-2" id='/register'/> : null}
+                {register ? <Button type='button' onClick={() => history.push('/register')} className="mr-2" id='/register'>Register</Button> : null}
                 {Switch ? <Switch /> : null}
             </div>
         </>

@@ -26,9 +26,7 @@ exports[`<Main /> render equals snapshot 1`] = `
             <div
               class="hidden p-component text-lg lg:block headerTitle-0-2-7"
             >
-              <span>
-                Administration Portal
-              </span>
+              Administration Portal
             </div>
             <div
               class="p-menubar p-component menuGrow-0-2-10"
@@ -219,16 +217,19 @@ exports[`<Main /> render equals snapshot 1`] = `
                   >
                     <li
                       class="p-menuitem"
+                      id="help"
                       role="none"
                     >
                       <a
                         aria-haspopup="false"
                         class="p-menuitem-link"
+                        data-testid="portal-menuhelp"
                         href="#"
                         role="menuitem"
                       >
                         <span
                           class="p-menuitem-text"
+                          data-testid="portal-menu-labelhelp"
                         >
                           Help
                         </span>
@@ -236,16 +237,19 @@ exports[`<Main /> render equals snapshot 1`] = `
                     </li>
                     <li
                       class="p-menuitem"
+                      id="profile"
                       role="none"
                     >
                       <a
                         aria-haspopup="false"
                         class="p-menuitem-link"
+                        data-testid="portal-menuprofile"
                         href="#"
                         role="menuitem"
                       >
                         <span
                           class="p-menuitem-text"
+                          data-testid="portal-menu-labelprofile"
                         >
                           Profile
                         </span>

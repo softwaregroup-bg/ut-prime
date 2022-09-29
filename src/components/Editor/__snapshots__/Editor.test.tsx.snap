@@ -390,6 +390,11 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                                 <span
                                   class="p-button-label p-c"
                                 >
+                                   
+                                </span>
+                                <span
+                                  class="p-button-label p-c"
+                                >
                                   Add
                                 </span>
                               </button>
@@ -402,6 +407,11 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                                 <span
                                   class="p-button-icon p-c p-button-icon-left pi pi-trash"
                                 />
+                                <span
+                                  class="p-button-label p-c"
+                                >
+                                   
+                                </span>
                                 <span
                                   class="p-button-label p-c"
                                 >
@@ -1174,6 +1184,11 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                 <span
                                   class="p-button-label p-c"
                                 >
+                                   
+                                </span>
+                                <span
+                                  class="p-button-label p-c"
+                                >
                                   Add
                                 </span>
                               </button>
@@ -1185,6 +1200,11 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                 <span
                                   class="p-button-icon p-c p-button-icon-left pi pi-trash"
                                 />
+                                <span
+                                  class="p-button-label p-c"
+                                >
+                                   
+                                </span>
                                 <span
                                   class="p-button-label p-c"
                                 >
@@ -1494,6 +1514,11 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                 <span
                                   class="p-button-label p-c"
                                 >
+                                   
+                                </span>
+                                <span
+                                  class="p-button-label p-c"
+                                >
                                   Add
                                 </span>
                               </button>
@@ -1505,6 +1530,11 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                 <span
                                   class="p-button-icon p-c p-button-icon-left pi pi-trash"
                                 />
+                                <span
+                                  class="p-button-label p-c"
+                                >
+                                   
+                                </span>
                                 <span
                                   class="p-button-label p-c"
                                 >
@@ -1884,6 +1914,11 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                 <span
                                   class="p-button-label p-c"
                                 >
+                                   
+                                </span>
+                                <span
+                                  class="p-button-label p-c"
+                                >
                                   Add
                                 </span>
                               </button>
@@ -1896,6 +1931,11 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                 <span
                                   class="p-button-icon p-c p-button-icon-left pi pi-trash"
                                 />
+                                <span
+                                  class="p-button-label p-c"
+                                >
+                                   
+                                </span>
                                 <span
                                   class="p-button-label p-c"
                                 >
@@ -3036,6 +3076,11 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                                   <span
                                     class="p-button-label p-c"
                                   >
+                                     
+                                  </span>
+                                  <span
+                                    class="p-button-label p-c"
+                                  >
                                     Add
                                   </span>
                                 </button>
@@ -3048,6 +3093,11 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                                   <span
                                     class="p-button-icon p-c p-button-icon-left pi pi-trash"
                                   />
+                                  <span
+                                    class="p-button-label p-c"
+                                  >
+                                     
+                                  </span>
                                   <span
                                     class="p-button-label p-c"
                                   >
@@ -4047,6 +4097,11 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
                                 <span
                                   class="p-button-label p-c"
                                 >
+                                   
+                                </span>
+                                <span
+                                  class="p-button-label p-c"
+                                >
                                   Add
                                 </span>
                               </button>
@@ -4058,6 +4113,11 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
                                 <span
                                   class="p-button-icon p-c p-button-icon-left pi pi-trash"
                                 />
+                                <span
+                                  class="p-button-label p-c"
+                                >
+                                   
+                                </span>
                                 <span
                                   class="p-button-label p-c"
                                 >
@@ -4415,6 +4475,11 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
                                 <span
                                   class="p-button-label p-c"
                                 >
+                                   
+                                </span>
+                                <span
+                                  class="p-button-label p-c"
+                                >
                                   Add
                                 </span>
                               </button>
@@ -4426,6 +4491,11 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
                                 <span
                                   class="p-button-icon p-c p-button-icon-left pi pi-trash"
                                 />
+                                <span
+                                  class="p-button-label p-c"
+                                >
+                                   
+                                </span>
                                 <span
                                   class="p-button-label p-c"
                                 >
@@ -7743,6 +7813,11 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
                                 <span
                                   class="p-button-label p-c"
                                 >
+                                   
+                                </span>
+                                <span
+                                  class="p-button-label p-c"
+                                >
                                   Add
                                 </span>
                               </button>
@@ -7755,6 +7830,11 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
                                 <span
                                   class="p-button-icon p-c p-button-icon-left pi pi-trash"
                                 />
+                                <span
+                                  class="p-button-label p-c"
+                                >
+                                   
+                                </span>
                                 <span
                                   class="p-button-label p-c"
                                 >
@@ -8550,6 +8630,11 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                                 <span
                                   class="p-button-label p-c"
                                 >
+                                   
+                                </span>
+                                <span
+                                  class="p-button-label p-c"
+                                >
                                   Add
                                 </span>
                               </button>
@@ -8562,6 +8647,11 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                                 <span
                                   class="p-button-icon p-c p-button-icon-left pi pi-trash"
                                 />
+                                <span
+                                  class="p-button-label p-c"
+                                >
+                                   
+                                </span>
                                 <span
                                   class="p-button-label p-c"
                                 >
@@ -10670,6 +10760,11 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
                                 <span
                                   class="p-button-label p-c"
                                 >
+                                   
+                                </span>
+                                <span
+                                  class="p-button-label p-c"
+                                >
                                   Add
                                 </span>
                               </button>
@@ -10682,6 +10777,11 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
                                 <span
                                   class="p-button-icon p-c p-button-icon-left pi pi-trash"
                                 />
+                                <span
+                                  class="p-button-label p-c"
+                                >
+                                   
+                                </span>
                                 <span
                                   class="p-button-label p-c"
                                 >
@@ -11438,6 +11538,11 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                                 <span
                                   class="p-button-label p-c"
                                 >
+                                   
+                                </span>
+                                <span
+                                  class="p-button-label p-c"
+                                >
                                   Add
                                 </span>
                               </button>
@@ -11450,6 +11555,11 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                                 <span
                                   class="p-button-icon p-c p-button-icon-left pi pi-trash"
                                 />
+                                <span
+                                  class="p-button-label p-c"
+                                >
+                                   
+                                </span>
                                 <span
                                   class="p-button-label p-c"
                                 >

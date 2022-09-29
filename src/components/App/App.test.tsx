@@ -1,25 +1,31 @@
 import React from 'react';
-import { render, waitFor } from '@testing-library/react';
+import { render } from '../test';
 
-import App from './index';
-import state from '../test/state';
+import { Basic, BasicBG, BasicAR, Register, RegisterBG, RegisterAR } from './App.stories';
 
 describe('<App />', () => {
-    it('render equals snapshot', async() => {
-        const { getByTestId } = render(
-            <div data-testid="ut-front-test">
-                <App
-                    portalName='test'
-                    state={state}
-                    theme={{
-                        ut: {
-                            classes: {}
-                        }
-                    }}
-                />
-            </div>
-        );
-        await waitFor(() => expect(getByTestId('ut-front-test').querySelector('div.p-tabview')).toBeTruthy());
-        expect(getByTestId('ut-front-test')).toMatchSnapshot();
+    it('Basic equals snapshot', async() => {
+        const { findByTestId } = render(<Basic {...Basic.args} />);
+        expect(await findByTestId('ut-front-test')).toMatchSnapshot();
+    });
+    it('BasicBG equals snapshot', async() => {
+        const { findByTestId } = render(<BasicBG {...BasicBG.args} />);
+        expect(await findByTestId('ut-front-test')).toMatchSnapshot();
+    });
+    it('BasicAR equals snapshot', async() => {
+        const { findByTestId } = render(<BasicAR {...BasicAR.args} />);
+        expect(await findByTestId('ut-front-test')).toMatchSnapshot();
+    });
+    it('Register equals snapshot', async() => {
+        const { findByTestId } = render(<Register {...Register.args} />);
+        expect(await findByTestId('ut-front-test')).toMatchSnapshot();
+    });
+    it('RegisterBG equals snapshot', async() => {
+        const { findByTestId } = render(<RegisterBG {...RegisterBG.args} />);
+        expect(await findByTestId('ut-front-test')).toMatchSnapshot();
+    });
+    it('RegisterAR equals snapshot', async() => {
+        const { findByTestId } = render(<RegisterAR {...RegisterAR.args} />);
+        expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
 });

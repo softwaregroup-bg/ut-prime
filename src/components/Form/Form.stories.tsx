@@ -38,6 +38,18 @@ Basic.args = {
     value: {tree: {treeName: 'Oak', treeId: 1, treeType: 1}},
     onSubmit: () => {}
 };
+export const BasicBG: StoryTemplate = Template.bind({});
+BasicBG.args = {
+    ...Basic.args,
+    lang: 'bg'
+};
+
+export const BasicAR: StoryTemplate = Template.bind({});
+BasicAR.args = {
+    ...Basic.args,
+    lang: 'ar',
+    dir: 'rtl'
+};
 
 export const Input: StoryTemplate = Template.bind({});
 
@@ -93,6 +105,21 @@ Input.play = async({canvasElement}) => {
     await within(within(canvas.getByTestId('input-multiSelectTreeTable')).getByRole('row', {name: 'One'})).getAllByRole('checkbox')[0].click();
 };
 
+export const InputBG: StoryTemplate = Template.bind({});
+InputBG.args = {
+    ...Input.args,
+    lang: 'bg'
+};
+InputBG.play = Input.play;
+
+export const InputAR: StoryTemplate = Template.bind({});
+InputAR.args = {
+    ...Input.args,
+    lang: 'ar',
+    dir: 'rtl'
+};
+InputAR.play = Input.play;
+
 export const Table: StoryTemplate = Template.bind({});
 Table.args = {
     ...input,
@@ -110,22 +137,17 @@ Table.play = async({canvasElement}) => {
     within(canvas.getByTestId('table4')).getByRole('button', {name: ''}).click();
 };
 
-export const BasicRTL: StoryTemplate = Template.bind({});
-BasicRTL.args = {
-    ...Basic.args,
-    dir: 'rtl'
-};
-
-export const InputRTL: StoryTemplate = Template.bind({});
-InputRTL.args = {
-    ...Input.args,
-    dir: 'rtl'
-};
-InputRTL.play = Input.play;
-
-export const TableRTL: StoryTemplate = Template.bind({});
-TableRTL.args = {
+export const TableBG: StoryTemplate = Template.bind({});
+TableBG.args = {
     ...Table.args,
+    lang: 'bg'
+};
+TableBG.play = Table.play;
+
+export const TableAR: StoryTemplate = Template.bind({});
+TableAR.args = {
+    ...Table.args,
+    lang: 'ar',
     dir: 'rtl'
 };
-TableRTL.play = Table.play;
+TableAR.play = Table.play;

@@ -1,21 +1,21 @@
-import React from 'react';
-import type {DataTableProps} from 'primereact/datatable';
-import type {DataViewProps} from 'primereact/dataview';
-
+import { Button as PrimeButton, type ButtonProps } from 'primereact/button';
 import { Calendar } from 'primereact/calendar';
+import { Card as PrimeCard, type CardProps } from 'primereact/card';
+import type { DataTableProps } from 'primereact/datatable';
+import type { DataViewProps } from 'primereact/dataview';
+import { DataTable as PrimeDataTable } from 'primereact/datatable';
+import React from 'react';
+import Text from '../Text';
+
 export { AutoComplete } from 'primereact/autocomplete';
-export { Button } from 'primereact/button';
 export { Calendar } from 'primereact/calendar';
-export { Card } from 'primereact/card';
 export { CascadeSelect } from 'primereact/cascadeselect';
 export { Chart } from 'primereact/chart';
 export { Checkbox } from 'primereact/checkbox';
 export { Chips } from 'primereact/chips';
 export { Column } from 'primereact/column';
-export { DataTable } from 'primereact/datatable';
+export { ConfirmPopup, confirmPopup } from 'primereact/confirmpopup';
 export { DataView } from 'primereact/dataview';
-export type {DataTableProps};
-export type {DataViewProps};
 export { Dialog } from 'primereact/dialog';
 export { Dropdown } from 'primereact/dropdown';
 export { FileUpload } from 'primereact/fileupload';
@@ -26,7 +26,6 @@ export { InputText } from 'primereact/inputtext';
 export { InputTextarea } from 'primereact/inputtextarea';
 export { ListBox } from 'primereact/listbox';
 export { Menubar } from 'primereact/menubar';
-export { MultiSelect } from './multiselect/MultiSelect';
 export { PanelMenu } from 'primereact/panelmenu';
 export { Password } from 'primereact/password';
 export { ProgressSpinner } from 'primereact/progressspinner';
@@ -36,13 +35,15 @@ export { SelectButton } from 'primereact/selectbutton';
 export { Skeleton } from 'primereact/skeleton';
 export { Splitter, SplitterPanel } from 'primereact/splitter';
 export { TabMenu } from 'primereact/tabmenu';
-export { TabView, TabPanel } from 'primereact/tabview';
+export { TabPanel, TabView } from 'primereact/tabview';
 export { Toast } from 'primereact/toast';
 export { Toolbar } from 'primereact/toolbar';
 export { Tree } from 'primereact/tree';
 export { TreeSelect } from 'primereact/treeselect';
 export { TreeTable } from 'primereact/treetable';
-export { ConfirmPopup, confirmPopup } from 'primereact/confirmpopup';
+export { MultiSelect } from './multiselect/MultiSelect';
+export type { DataTableProps };
+export type { DataViewProps };
 
 function dateRange(timeOnly) {
     const today = timeOnly ? new Date(0) : new Date();
@@ -68,3 +69,10 @@ export const DateRange = props => {
         onVisibleChange={onVisibleChange}
     />;
 };
+
+export const Card = ({title, ...props}: CardProps) =>
+    <PrimeCard title={title && <Text>{title}</Text>} {...props}/>;
+export const Button = ({children, ...props}: ButtonProps) =>
+    <PrimeButton {...props}>{children && <span className='p-button-label p-c'><Text>{children}</Text></span>}</PrimeButton>;
+export const DataTable = ({emptyMessage = 'No results found', ...props}: DataTableProps) =>
+    <PrimeDataTable emptyMessage={emptyMessage && <Text>{emptyMessage}</Text>} {...props}/>;

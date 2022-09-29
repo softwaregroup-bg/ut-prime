@@ -16,9 +16,7 @@ exports[`<Loader /> render equals snapshot 1`] = `
     <div
       class="message-0-2-5"
     >
-      <span>
-        Loading...
-      </span>
+      Loading...
     </div>
   </div>
 </div>

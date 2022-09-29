@@ -7,6 +7,7 @@ import error from '../images/error.png';
 
 export interface ILoginProps {
     identityCheck: (params: object) => Promise<{error?: {type: string, message: string}}>;
+    language?: string;
     register?: string
 }
 

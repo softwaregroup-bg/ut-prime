@@ -20,9 +20,7 @@ exports[`<Portal /> render equals snapshot 1`] = `
         <div
           class="hidden p-component text-lg lg:block headerTitle-0-2-2"
         >
-          <span>
-            Administration Portal
-          </span>
+          Administration Portal
         </div>
         <div
           class="p-menubar p-component menuGrow-0-2-5"

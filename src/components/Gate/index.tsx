@@ -36,7 +36,7 @@ const Gate: ComponentProps = ({ children, cookieCheck, fetchTranslations, loginP
             );
             setLoaded({
                 language,
-                translate: text => dictionary?.[text] || text
+                translate: (id, text, language) => (id && dictionary?.[id]) || dictionary?.[text] || text
             });
         }
 

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Form /> render equals snapshot 1`] = `
+exports[`<Form /> Basic equals snapshot 1`] = `
 <div
   data-testid="ut-front-test"
 >
@@ -305,6 +305,11 @@ exports[`<Form /> render equals snapshot 1`] = `
                               <span
                                 class="p-button-label p-c"
                               >
+                                 
+                              </span>
+                              <span
+                                class="p-button-label p-c"
+                              >
                                 Add
                               </span>
                             </button>
@@ -317,6 +322,11 @@ exports[`<Form /> render equals snapshot 1`] = `
                               <span
                                 class="p-button-icon p-c p-button-icon-left pi pi-trash"
                               />
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                 
+                              </span>
                               <span
                                 class="p-button-label p-c"
                               >
@@ -467,6 +477,983 @@ exports[`<Form /> render equals snapshot 1`] = `
                 class="p-card-title"
               >
                 Morphology
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`<Form /> BasicAR equals snapshot 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  <div
+    class="flex"
+    style="overflow-x: hidden; width: 100%;"
+  >
+    <div
+      class="p-toast p-component p-toast-top-right"
+    >
+      <div />
+    </div>
+    <form
+      class="grid col align-self-start form-0-2-1"
+      dir="rtl"
+      lang="ar"
+    >
+      <div
+        class="col-12 xl:col-6"
+      >
+        <div
+          class="w-full"
+        >
+          <div
+            class="p-card p-component card card-0-2-2"
+            id="edit"
+          >
+            <div
+              class="p-card-body"
+            >
+              <div
+                class="p-card-title"
+              >
+                شجرة
+              </div>
+              <div
+                class="p-card-content"
+              >
+                <div
+                  class=""
+                >
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="tree-treeName"
+                    >
+                      اسم
+                    </label>
+                    <div
+                      class="flex align-items-center relative col-12 md:col-8"
+                    >
+                      <input
+                        class="p-inputtext p-component p-filled w-full"
+                        id="tree-treeName"
+                        name="tree.treeName"
+                        value="Oak"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="tree-treeDescription"
+                    >
+                      وصف
+                    </label>
+                    <div
+                      class="flex align-items-center relative col-12 md:col-8"
+                    >
+                      <textarea
+                        class="p-inputtextarea p-inputtext p-component w-full"
+                        id="tree-treeDescription"
+                        name="tree.treeDescription"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="field grid mb-0"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="tree-treeType"
+                    >
+                      يكتب
+                    </label>
+                    <div
+                      class="flex align-items-center relative col-12 md:col-8"
+                    >
+                      <div
+                        class="p-dropdown p-component p-inputwrapper p-inputwrapper-filled w-full"
+                        data-testid="tree-treeType"
+                        id="tree-treeType"
+                      >
+                        <div
+                          class="p-hidden-accessible"
+                        >
+                          <input
+                            aria-haspopup="listbox"
+                            readonly=""
+                            type="text"
+                          />
+                        </div>
+                        <div
+                          class="p-hidden-accessible p-dropdown-hidden-select"
+                        >
+                          <select
+                            aria-hidden="true"
+                            name="tree.treeType"
+                            tabindex="-1"
+                          >
+                            <option
+                              selected=""
+                              value="1"
+                            >
+                              Conifer
+                            </option>
+                          </select>
+                        </div>
+                        <span
+                          class="p-dropdown-label p-inputtext"
+                        >
+                          Conifer
+                        </span>
+                        <div
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          class="p-dropdown-trigger"
+                          role="button"
+                        >
+                          <span
+                            class="p-dropdown-trigger-icon p-clickable pi pi-chevron-down"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-12 xl:col-6"
+      >
+        <div
+          class="w-full"
+        >
+          <div
+            class="p-card p-component card mb-3 card-0-2-2"
+            id="taxonomy"
+          >
+            <div
+              class="p-card-body"
+            >
+              <div
+                class="p-card-title"
+              >
+                التصنيف
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="w-full"
+        >
+          <div
+            class="p-card p-component card card-0-2-2"
+            id="reproduction"
+          >
+            <div
+              class="p-card-body"
+            >
+              <div
+                class="p-card-title"
+              >
+                تكاثر
+              </div>
+              <div
+                class="p-card-content"
+              >
+                <div
+                  class=""
+                >
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="tree-seedDescription"
+                    >
+                      بذرة
+                    </label>
+                    <div
+                      class="flex align-items-center relative col-12 md:col-8"
+                    >
+                      <input
+                        class="p-inputtext p-component w-full"
+                        id="tree-seedDescription"
+                        name="tree.seedDescription"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="tree-flowerDescription"
+                    >
+                      ورد
+                    </label>
+                    <div
+                      class="flex align-items-center relative col-12 md:col-8"
+                    >
+                      <input
+                        class="p-inputtext p-component w-full"
+                        id="tree-flowerDescription"
+                        name="tree.flowerDescription"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="field grid mb-0"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="tree-fruitName"
+                    >
+                      فاكهة
+                    </label>
+                    <div
+                      class="flex align-items-center relative col-12 md:col-8"
+                    >
+                      <input
+                        class="p-inputtext p-component w-full"
+                        id="tree-fruitName"
+                        name="tree.fruitName"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-12 xl:col-6"
+      >
+        <div
+          class="w-full"
+        >
+          <div
+            class="p-card p-component card card-0-2-2"
+            id="links"
+          >
+            <div
+              class="p-card-body"
+            >
+              <div
+                class="p-card-title"
+              >
+                الروابط
+              </div>
+              <div
+                class="p-card-content"
+              >
+                <div
+                  class=""
+                >
+                  <div
+                    class="field grid mb-0"
+                  >
+                    <div
+                      class="flex align-items-center relative col-12"
+                    >
+                      <div
+                        class="w-full"
+                      >
+                        <div
+                          class="p-toolbar p-component p-0 border-none"
+                          role="toolbar"
+                          style="background: none;"
+                        >
+                          <div
+                            class="p-toolbar-group-left"
+                          >
+                            <button
+                              aria-label="Add"
+                              class="p-button p-component p-button mr-2"
+                              data-testid="tree-links-addButton"
+                            >
+                              <span
+                                class="p-button-icon p-c p-button-icon-left pi pi-plus"
+                              />
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                 
+                              </span>
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                يضيف
+                              </span>
+                            </button>
+                            <button
+                              aria-label="Delete"
+                              class="p-button p-component p-button p-disabled"
+                              data-testid="tree-links-deleteButton"
+                              disabled=""
+                            >
+                              <span
+                                class="p-button-icon p-c p-button-icon-left pi pi-trash"
+                              />
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                 
+                              </span>
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                حذف
+                              </span>
+                            </button>
+                          </div>
+                          <div
+                            class="p-toolbar-group-right"
+                          />
+                        </div>
+                        <div
+                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                          data-scrollselectors=".p-datatable-wrapper"
+                          data-testid="tree-links"
+                          id="tree-links"
+                          pr_id_3=""
+                        >
+                          <div
+                            class="p-datatable-wrapper"
+                          >
+                            <table
+                              class="p-datatable-table"
+                              role="table"
+                            >
+                              <thead
+                                class="p-datatable-thead"
+                              >
+                                <tr
+                                  role="row"
+                                >
+                                  <th
+                                    class="p-selection-column"
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                      <div
+                                        class="p-checkbox p-component"
+                                      >
+                                        <div
+                                          class="p-checkbox-box p-component p-disabled"
+                                          role="checkbox"
+                                        >
+                                          <span
+                                            class="p-checkbox-icon"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="tree-links-titleTitle"
+                                        >
+                                          عنوان
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="tree-links-urlTitle"
+                                        >
+                                          رابط موقع
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                    style="width: 7rem;"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                    </div>
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody
+                                class="p-datatable-tbody"
+                              >
+                                <tr
+                                  class="p-datatable-emptymessage"
+                                  role="row"
+                                >
+                                  <td
+                                    colspan="4"
+                                    role="cell"
+                                  >
+                                    لم يتم العثور على نتائج
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-12 xl:col-6"
+      >
+        <div
+          class="w-full"
+        >
+          <div
+            class="p-card p-component card card-0-2-2"
+            id="morphology"
+          >
+            <div
+              class="p-card-body"
+            >
+              <div
+                class="p-card-title"
+              >
+                علم التشكل المورفولوجيا
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`<Form /> BasicBG equals snapshot 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  <div
+    class="flex"
+    style="overflow-x: hidden; width: 100%;"
+  >
+    <div
+      class="p-toast p-component p-toast-top-right"
+    >
+      <div />
+    </div>
+    <form
+      class="grid col align-self-start form-0-2-1"
+      lang="bg"
+    >
+      <div
+        class="col-12 xl:col-6"
+      >
+        <div
+          class="w-full"
+        >
+          <div
+            class="p-card p-component card card-0-2-2"
+            id="edit"
+          >
+            <div
+              class="p-card-body"
+            >
+              <div
+                class="p-card-title"
+              >
+                Дърво
+              </div>
+              <div
+                class="p-card-content"
+              >
+                <div
+                  class=""
+                >
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="tree-treeName"
+                    >
+                      Име
+                    </label>
+                    <div
+                      class="flex align-items-center relative col-12 md:col-8"
+                    >
+                      <input
+                        class="p-inputtext p-component p-filled w-full"
+                        id="tree-treeName"
+                        name="tree.treeName"
+                        value="Oak"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="tree-treeDescription"
+                    >
+                      Описание
+                    </label>
+                    <div
+                      class="flex align-items-center relative col-12 md:col-8"
+                    >
+                      <textarea
+                        class="p-inputtextarea p-inputtext p-component w-full"
+                        id="tree-treeDescription"
+                        name="tree.treeDescription"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="field grid mb-0"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="tree-treeType"
+                    >
+                      Тип
+                    </label>
+                    <div
+                      class="flex align-items-center relative col-12 md:col-8"
+                    >
+                      <div
+                        class="p-dropdown p-component p-inputwrapper p-inputwrapper-filled w-full"
+                        data-testid="tree-treeType"
+                        id="tree-treeType"
+                      >
+                        <div
+                          class="p-hidden-accessible"
+                        >
+                          <input
+                            aria-haspopup="listbox"
+                            readonly=""
+                            type="text"
+                          />
+                        </div>
+                        <div
+                          class="p-hidden-accessible p-dropdown-hidden-select"
+                        >
+                          <select
+                            aria-hidden="true"
+                            name="tree.treeType"
+                            tabindex="-1"
+                          >
+                            <option
+                              selected=""
+                              value="1"
+                            >
+                              Conifer
+                            </option>
+                          </select>
+                        </div>
+                        <span
+                          class="p-dropdown-label p-inputtext"
+                        >
+                          Conifer
+                        </span>
+                        <div
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          class="p-dropdown-trigger"
+                          role="button"
+                        >
+                          <span
+                            class="p-dropdown-trigger-icon p-clickable pi pi-chevron-down"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-12 xl:col-6"
+      >
+        <div
+          class="w-full"
+        >
+          <div
+            class="p-card p-component card mb-3 card-0-2-2"
+            id="taxonomy"
+          >
+            <div
+              class="p-card-body"
+            >
+              <div
+                class="p-card-title"
+              >
+                Таксономия
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="w-full"
+        >
+          <div
+            class="p-card p-component card card-0-2-2"
+            id="reproduction"
+          >
+            <div
+              class="p-card-body"
+            >
+              <div
+                class="p-card-title"
+              >
+                Размножаване
+              </div>
+              <div
+                class="p-card-content"
+              >
+                <div
+                  class=""
+                >
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="tree-seedDescription"
+                    >
+                      Семе
+                    </label>
+                    <div
+                      class="flex align-items-center relative col-12 md:col-8"
+                    >
+                      <input
+                        class="p-inputtext p-component w-full"
+                        id="tree-seedDescription"
+                        name="tree.seedDescription"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="tree-flowerDescription"
+                    >
+                      Цвят
+                    </label>
+                    <div
+                      class="flex align-items-center relative col-12 md:col-8"
+                    >
+                      <input
+                        class="p-inputtext p-component w-full"
+                        id="tree-flowerDescription"
+                        name="tree.flowerDescription"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="field grid mb-0"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="tree-fruitName"
+                    >
+                      Плод
+                    </label>
+                    <div
+                      class="flex align-items-center relative col-12 md:col-8"
+                    >
+                      <input
+                        class="p-inputtext p-component w-full"
+                        id="tree-fruitName"
+                        name="tree.fruitName"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-12 xl:col-6"
+      >
+        <div
+          class="w-full"
+        >
+          <div
+            class="p-card p-component card card-0-2-2"
+            id="links"
+          >
+            <div
+              class="p-card-body"
+            >
+              <div
+                class="p-card-title"
+              >
+                Връзки
+              </div>
+              <div
+                class="p-card-content"
+              >
+                <div
+                  class=""
+                >
+                  <div
+                    class="field grid mb-0"
+                  >
+                    <div
+                      class="flex align-items-center relative col-12"
+                    >
+                      <div
+                        class="w-full"
+                      >
+                        <div
+                          class="p-toolbar p-component p-0 border-none"
+                          role="toolbar"
+                          style="background: none;"
+                        >
+                          <div
+                            class="p-toolbar-group-left"
+                          >
+                            <button
+                              aria-label="Add"
+                              class="p-button p-component p-button mr-2"
+                              data-testid="tree-links-addButton"
+                            >
+                              <span
+                                class="p-button-icon p-c p-button-icon-left pi pi-plus"
+                              />
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                 
+                              </span>
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                Добавяне
+                              </span>
+                            </button>
+                            <button
+                              aria-label="Delete"
+                              class="p-button p-component p-button p-disabled"
+                              data-testid="tree-links-deleteButton"
+                              disabled=""
+                            >
+                              <span
+                                class="p-button-icon p-c p-button-icon-left pi pi-trash"
+                              />
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                 
+                              </span>
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                Изтриване
+                              </span>
+                            </button>
+                          </div>
+                          <div
+                            class="p-toolbar-group-right"
+                          />
+                        </div>
+                        <div
+                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                          data-scrollselectors=".p-datatable-wrapper"
+                          data-testid="tree-links"
+                          id="tree-links"
+                          pr_id_2=""
+                        >
+                          <div
+                            class="p-datatable-wrapper"
+                          >
+                            <table
+                              class="p-datatable-table"
+                              role="table"
+                            >
+                              <thead
+                                class="p-datatable-thead"
+                              >
+                                <tr
+                                  role="row"
+                                >
+                                  <th
+                                    class="p-selection-column"
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                      <div
+                                        class="p-checkbox p-component"
+                                      >
+                                        <div
+                                          class="p-checkbox-box p-component p-disabled"
+                                          role="checkbox"
+                                        >
+                                          <span
+                                            class="p-checkbox-icon"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="tree-links-titleTitle"
+                                        >
+                                          Заглавие
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="tree-links-urlTitle"
+                                        >
+                                          Връзка
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                    style="width: 7rem;"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                    </div>
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody
+                                class="p-datatable-tbody"
+                              >
+                                <tr
+                                  class="p-datatable-emptymessage"
+                                  role="row"
+                                >
+                                  <td
+                                    colspan="4"
+                                    role="cell"
+                                  >
+                                    Няма резултати
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-12 xl:col-6"
+      >
+        <div
+          class="w-full"
+        >
+          <div
+            class="p-card p-component card card-0-2-2"
+            id="morphology"
+          >
+            <div
+              class="p-card-body"
+            >
+              <div
+                class="p-card-title"
+              >
+                Морфология
               </div>
             </div>
           </div>

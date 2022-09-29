@@ -63,6 +63,11 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                               <span
                                 class="p-button-label p-c"
                               >
+                                 
+                              </span>
+                              <span
+                                class="p-button-label p-c"
+                              >
                                 Add
                               </span>
                             </button>
@@ -75,6 +80,11 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                               <span
                                 class="p-button-icon p-c p-button-icon-left pi pi-trash"
                               />
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                 
+                              </span>
                               <span
                                 class="p-button-label p-c"
                               >
@@ -631,6 +641,11 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                               <span
                                 class="p-button-label p-c"
                               >
+                                 
+                              </span>
+                              <span
+                                class="p-button-label p-c"
+                              >
                                 Add
                               </span>
                             </button>
@@ -643,6 +658,11 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                               <span
                                 class="p-button-icon p-c p-button-icon-left pi pi-trash"
                               />
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                 
+                              </span>
                               <span
                                 class="p-button-label p-c"
                               >
@@ -1170,6 +1190,11 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                               <span
                                 class="p-button-label p-c"
                               >
+                                 
+                              </span>
+                              <span
+                                class="p-button-label p-c"
+                              >
                                 Add
                               </span>
                             </button>
@@ -1182,6 +1207,11 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                               <span
                                 class="p-button-icon p-c p-button-icon-left pi pi-trash"
                               />
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                 
+                              </span>
                               <span
                                 class="p-button-label p-c"
                               >
@@ -1543,6 +1573,11 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                               <span
                                 class="p-button-label p-c"
                               >
+                                 
+                              </span>
+                              <span
+                                class="p-button-label p-c"
+                              >
                                 Add
                               </span>
                             </button>
@@ -1555,6 +1590,11 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                               <span
                                 class="p-button-icon p-c p-button-icon-left pi pi-trash"
                               />
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                 
+                              </span>
                               <span
                                 class="p-button-label p-c"
                               >
@@ -1764,6 +1804,3735 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                         data-testid="table4-input-multiSelectTreeTableTitle"
                                       >
                                         Multi Select Tree Table
+                                      </span>
+                                    </span>
+                                    <input
+                                      class="p-inputtext p-component w-full"
+                                      data-testid="table4-0-multiSelectTreeTable"
+                                      id="table4-0-multiSelectTreeTable"
+                                      name="table4[0].multiSelectTreeTable"
+                                      type="text"
+                                      value=""
+                                    />
+                                  </td>
+                                  <td
+                                    class=""
+                                    role="cell"
+                                    style="text-align: center;"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    />
+                                    <button
+                                      class="p-row-editor-save p-link"
+                                      name="row-save"
+                                      tabindex="0"
+                                      type="button"
+                                    >
+                                      <span
+                                        class="p-row-editor-save-icon pi pi-fw pi-check"
+                                      />
+                                    </button>
+                                    <button
+                                      class="p-row-editor-cancel p-link"
+                                      name="row-cancel"
+                                      tabindex="0"
+                                      type="button"
+                                    >
+                                      <span
+                                        class="p-row-editor-cancel-icon pi pi-fw pi-times"
+                                      />
+                                    </button>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`<Form /> TableAR render equals snapshot 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  <div
+    class="flex"
+    style="overflow-x: hidden; width: 100%;"
+  >
+    <div
+      class="p-toast p-component p-toast-top-right"
+    >
+      <div />
+    </div>
+    <form
+      class="grid col align-self-start form-0-2-1"
+      dir="rtl"
+      lang="ar"
+    >
+      <div
+        class="col-12 xl:col-12"
+      >
+        <div
+          class="w-full"
+        >
+          <div
+            class="p-card p-component card card-0-2-2"
+            id="table"
+          >
+            <div
+              class="p-card-body"
+            >
+              <div
+                class="p-card-content"
+              >
+                <div
+                  class=""
+                >
+                  <div
+                    class="field grid"
+                  >
+                    <div
+                      class="flex align-items-center relative col-12"
+                    >
+                      <div
+                        class="w-full"
+                      >
+                        <div
+                          class="p-toolbar p-component p-0 border-none"
+                          role="toolbar"
+                          style="background: none;"
+                        >
+                          <div
+                            class="p-toolbar-group-left"
+                          >
+                            <button
+                              aria-label="Add"
+                              class="p-button p-component p-button mr-2"
+                              data-testid="table1-addButton"
+                            >
+                              <span
+                                class="p-button-icon p-c p-button-icon-left pi pi-plus"
+                              />
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                 
+                              </span>
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                يضيف
+                              </span>
+                            </button>
+                            <button
+                              aria-label="Delete"
+                              class="p-button p-component p-button p-disabled"
+                              data-testid="table1-deleteButton"
+                              disabled=""
+                            >
+                              <span
+                                class="p-button-icon p-c p-button-icon-left pi pi-trash"
+                              />
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                 
+                              </span>
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                حذف
+                              </span>
+                            </button>
+                          </div>
+                          <div
+                            class="p-toolbar-group-right"
+                          />
+                        </div>
+                        <div
+                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                          data-scrollselectors=".p-datatable-wrapper"
+                          data-testid="table1"
+                          id="table1"
+                          pr_id_27=""
+                        >
+                          <div
+                            class="p-datatable-wrapper"
+                          >
+                            <table
+                              class="p-datatable-table"
+                              role="table"
+                            >
+                              <thead
+                                class="p-datatable-thead"
+                              >
+                                <tr
+                                  role="row"
+                                >
+                                  <th
+                                    class="p-selection-column"
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                      <div
+                                        class="p-checkbox p-component"
+                                      >
+                                        <div
+                                          class="p-checkbox-box p-component"
+                                          role="checkbox"
+                                          tabindex="0"
+                                        >
+                                          <span
+                                            class="p-checkbox-icon"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table1-inputTitle"
+                                        >
+                                          إدخال
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table1-passwordTitle"
+                                        >
+                                          كلمة المرور
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table1-textTitle"
+                                        >
+                                          نص
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table1-maskTitle"
+                                        >
+                                          قناع
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table1-booleanTitle"
+                                        >
+                                          قيمة منطقية
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table1-dateTitle"
+                                        >
+                                          تاريخ
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table1-timeTitle"
+                                        >
+                                          زمن
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table1-datetimeTitle"
+                                        >
+                                          التاريخ و الوقت
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                    style="width: 7rem;"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                    </div>
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody
+                                class="p-datatable-tbody"
+                              >
+                                <tr
+                                  class=""
+                                  role="row"
+                                >
+                                  <td
+                                    class="p-selection-column"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    />
+                                    <div
+                                      class="p-checkbox p-component"
+                                    >
+                                      <div
+                                        aria-checked="false"
+                                        class="p-checkbox-box p-component"
+                                        role="checkbox"
+                                        tabindex="0"
+                                      >
+                                        <span
+                                          class="p-checkbox-icon"
+                                        />
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table1-inputTitle"
+                                      >
+                                        إدخال
+                                      </span>
+                                    </span>
+                                    <input
+                                      class="p-inputtext p-component p-filled w-full"
+                                      data-testid="table1-0-input"
+                                      id="table1-0-input"
+                                      name="table1[0].input"
+                                      type="text"
+                                      value="test"
+                                    />
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table1-passwordTitle"
+                                      >
+                                        كلمة المرور
+                                      </span>
+                                    </span>
+                                    <div
+                                      class="p-password p-component p-inputwrapper"
+                                      id="table1-0-password"
+                                    >
+                                      <input
+                                        class="p-inputtext p-component p-password-input"
+                                        data-testid="table1-0-password"
+                                        name="table1[0].password"
+                                        type="password"
+                                        value=""
+                                      />
+                                    </div>
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table1-textTitle"
+                                      >
+                                        نص
+                                      </span>
+                                    </span>
+                                    <textarea
+                                      class="p-inputtextarea p-inputtext p-component w-full"
+                                      data-testid="table1-0-text"
+                                      id="table1-0-text"
+                                      name="table1[0].text"
+                                    />
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table1-maskTitle"
+                                      >
+                                        قناع
+                                      </span>
+                                    </span>
+                                    <input
+                                      class="p-inputtext p-component p-inputmask w-full"
+                                      data-testid="table1-0-mask"
+                                      id="table1-0-mask"
+                                      name="table1[0].mask"
+                                      type="text"
+                                    />
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table1-booleanTitle"
+                                      >
+                                        قيمة منطقية
+                                      </span>
+                                    </span>
+                                    <div
+                                      class="p-checkbox p-component"
+                                      data-testid="table1-0-boolean"
+                                      id="table1-0-boolean"
+                                    >
+                                      <div
+                                        class="p-hidden-accessible"
+                                      >
+                                        <input
+                                          name="table1[0].boolean"
+                                          type="checkbox"
+                                        />
+                                      </div>
+                                      <div
+                                        class="p-checkbox-box"
+                                      >
+                                        <span
+                                          class="p-checkbox-icon p-c"
+                                        />
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table1-dateTitle"
+                                      >
+                                        تاريخ
+                                      </span>
+                                    </span>
+                                    <span
+                                      class="p-calendar p-component p-inputwrapper p-calendar-w-btn p-calendar-w-btn-right"
+                                      data-testid="table1-0-date"
+                                    >
+                                      <input
+                                        autocomplete="off"
+                                        class="p-inputtext p-component"
+                                        id="table1-0-date"
+                                        inputmode="none"
+                                        name="table1[0].date"
+                                        type="text"
+                                      />
+                                      <button
+                                        class="p-button p-component p-datepicker-trigger p-button-icon-only"
+                                        tabindex="-1"
+                                        type="button"
+                                      >
+                                        <span
+                                          class="p-button-icon p-c pi pi-calendar"
+                                        />
+                                        <span
+                                          class="p-button-label p-c"
+                                        >
+                                           
+                                        </span>
+                                      </button>
+                                    </span>
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table1-timeTitle"
+                                      >
+                                        زمن
+                                      </span>
+                                    </span>
+                                    <span
+                                      class="p-calendar p-component p-inputwrapper p-calendar-w-btn p-calendar-w-btn-right p-calendar-timeonly p-inputwrapper-filled"
+                                      data-testid="table1-0-time"
+                                    >
+                                      <input
+                                        autocomplete="off"
+                                        class="p-inputtext p-component p-filled"
+                                        id="table1-0-time"
+                                        inputmode="none"
+                                        name="table1[0].time"
+                                        type="text"
+                                      />
+                                      <button
+                                        class="p-button p-component p-datepicker-trigger p-button-icon-only"
+                                        tabindex="-1"
+                                        type="button"
+                                      >
+                                        <span
+                                          class="p-button-icon p-c pi pi-calendar"
+                                        />
+                                        <span
+                                          class="p-button-label p-c"
+                                        >
+                                           
+                                        </span>
+                                      </button>
+                                    </span>
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table1-datetimeTitle"
+                                      >
+                                        التاريخ و الوقت
+                                      </span>
+                                    </span>
+                                    <span
+                                      class="p-calendar p-component p-inputwrapper p-calendar-w-btn p-calendar-w-btn-right"
+                                      data-testid="table1-0-datetime"
+                                    >
+                                      <input
+                                        autocomplete="off"
+                                        class="p-inputtext p-component"
+                                        id="table1-0-datetime"
+                                        inputmode="none"
+                                        name="table1[0].datetime"
+                                        type="text"
+                                      />
+                                      <button
+                                        class="p-button p-component p-datepicker-trigger p-button-icon-only"
+                                        tabindex="-1"
+                                        type="button"
+                                      >
+                                        <span
+                                          class="p-button-icon p-c pi pi-calendar"
+                                        />
+                                        <span
+                                          class="p-button-label p-c"
+                                        >
+                                           
+                                        </span>
+                                      </button>
+                                    </span>
+                                  </td>
+                                  <td
+                                    class=""
+                                    role="cell"
+                                    style="text-align: center;"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    />
+                                    <button
+                                      class="p-row-editor-save p-link"
+                                      name="row-save"
+                                      tabindex="0"
+                                      type="button"
+                                    >
+                                      <span
+                                        class="p-row-editor-save-icon pi pi-fw pi-check"
+                                      />
+                                    </button>
+                                    <button
+                                      class="p-row-editor-cancel p-link"
+                                      name="row-cancel"
+                                      tabindex="0"
+                                      type="button"
+                                    >
+                                      <span
+                                        class="p-row-editor-cancel-icon pi pi-fw pi-times"
+                                      />
+                                    </button>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="field grid"
+                  >
+                    <div
+                      class="flex align-items-center relative col-12"
+                    >
+                      <div
+                        class="w-full"
+                      >
+                        <div
+                          class="p-toolbar p-component p-0 border-none"
+                          role="toolbar"
+                          style="background: none;"
+                        >
+                          <div
+                            class="p-toolbar-group-left"
+                          >
+                            <button
+                              aria-label="Add"
+                              class="p-button p-component p-button mr-2"
+                              data-testid="table2-addButton"
+                            >
+                              <span
+                                class="p-button-icon p-c p-button-icon-left pi pi-plus"
+                              />
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                 
+                              </span>
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                يضيف
+                              </span>
+                            </button>
+                            <button
+                              aria-label="Delete"
+                              class="p-button p-component p-button p-disabled"
+                              data-testid="table2-deleteButton"
+                              disabled=""
+                            >
+                              <span
+                                class="p-button-icon p-c p-button-icon-left pi pi-trash"
+                              />
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                 
+                              </span>
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                حذف
+                              </span>
+                            </button>
+                          </div>
+                          <div
+                            class="p-toolbar-group-right"
+                          />
+                        </div>
+                        <div
+                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                          data-scrollselectors=".p-datatable-wrapper"
+                          data-testid="table2"
+                          id="table2"
+                          pr_id_28=""
+                        >
+                          <div
+                            class="p-datatable-wrapper"
+                          >
+                            <table
+                              class="p-datatable-table"
+                              role="table"
+                            >
+                              <thead
+                                class="p-datatable-thead"
+                              >
+                                <tr
+                                  role="row"
+                                >
+                                  <th
+                                    class="p-selection-column"
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                      <div
+                                        class="p-checkbox p-component"
+                                      >
+                                        <div
+                                          class="p-checkbox-box p-component"
+                                          role="checkbox"
+                                          tabindex="0"
+                                        >
+                                          <span
+                                            class="p-checkbox-icon"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class="p-align-right"
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table2-numberTitle"
+                                        >
+                                          رقم
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table2-currencyTitle"
+                                        >
+                                          عملة
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class="p-align-right"
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table2-integerTitle"
+                                        >
+                                          عدد صحيح
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table2-imageTitle"
+                                        >
+                                          صورة
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table2-radioTitle"
+                                        >
+                                          مذياع
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table2-selectTitle"
+                                        >
+                                          يختار
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table2-tableTitle"
+                                        >
+                                          الطاولة
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                    style="width: 7rem;"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                    </div>
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody
+                                class="p-datatable-tbody"
+                              >
+                                <tr
+                                  class=""
+                                  role="row"
+                                >
+                                  <td
+                                    class="p-selection-column"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    />
+                                    <div
+                                      class="p-checkbox p-component"
+                                    >
+                                      <div
+                                        aria-checked="false"
+                                        class="p-checkbox-box p-component"
+                                        role="checkbox"
+                                        tabindex="0"
+                                      >
+                                        <span
+                                          class="p-checkbox-icon"
+                                        />
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td
+                                    class="text-right p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table2-numberTitle"
+                                      >
+                                        رقم
+                                      </span>
+                                    </span>
+                                    <input
+                                      class="p-inputtext p-component w-full"
+                                      data-testid="table2-0-number"
+                                      id="table2-0-number"
+                                      name="table2[0].number"
+                                      type="text"
+                                      value=""
+                                    />
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table2-currencyTitle"
+                                      >
+                                        عملة
+                                      </span>
+                                    </span>
+                                    <input
+                                      class="p-inputtext p-component w-full"
+                                      currency="USD"
+                                      data-testid="table2-0-currency"
+                                      id="table2-0-currency"
+                                      name="table2[0].currency"
+                                      type="text"
+                                      value=""
+                                    />
+                                  </td>
+                                  <td
+                                    class="text-right p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table2-integerTitle"
+                                      >
+                                        عدد صحيح
+                                      </span>
+                                    </span>
+                                    <span
+                                      class="p-inputnumber p-component p-inputwrapper p-inputnumber-buttons-stacked w-full"
+                                      data-testid="table2-0-integer"
+                                    >
+                                      <input
+                                        class="p-inputtext p-component p-inputnumber-input"
+                                        id="table2-0-integer"
+                                        inputmode="numeric"
+                                        name="table2[0].integer"
+                                        role="spinbutton"
+                                        type="text"
+                                        value=""
+                                      />
+                                      <span
+                                        class="p-inputnumber-button-group"
+                                      >
+                                        <button
+                                          class="p-inputnumber-button p-inputnumber-button-up p-button p-button-icon-only p-component"
+                                          tabindex="-1"
+                                          type="button"
+                                        >
+                                          <span
+                                            class="p-button-icon pi pi-angle-up"
+                                          />
+                                        </button>
+                                        <button
+                                          class="p-inputnumber-button p-inputnumber-button-down p-button p-button-icon-only p-component"
+                                          tabindex="-1"
+                                          type="button"
+                                        >
+                                          <span
+                                            class="p-button-icon pi pi-angle-down"
+                                          />
+                                        </button>
+                                      </span>
+                                    </span>
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table2-imageTitle"
+                                      >
+                                        صورة
+                                      </span>
+                                    </span>
+                                    <input
+                                      class="p-inputtext p-component w-full"
+                                      data-testid="table2-0-image"
+                                      id="table2-0-image"
+                                      name="table2[0].image"
+                                      type="text"
+                                      value=""
+                                    />
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table2-radioTitle"
+                                      >
+                                        مذياع
+                                      </span>
+                                    </span>
+                                    <div
+                                      class="p-radiobutton p-component"
+                                      data-testid="table2-0-radio"
+                                    >
+                                      <div
+                                        class="p-hidden-accessible"
+                                      >
+                                        <input
+                                          id="table2-0-radio"
+                                          name="table2[0].radio"
+                                          type="radio"
+                                        />
+                                      </div>
+                                      <div
+                                        class="p-radiobutton-box"
+                                      >
+                                        <div
+                                          class="p-radiobutton-icon"
+                                        />
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table2-selectTitle"
+                                      >
+                                        يختار
+                                      </span>
+                                    </span>
+                                    <div
+                                      class="p-selectbutton p-buttonset p-component w-full white-space-nowrap"
+                                      data-testid="table2-0-select"
+                                      id="table2-0-select"
+                                      name="table2[0].select"
+                                      role="group"
+                                    >
+                                      <div
+                                        aria-label="One"
+                                        aria-pressed="false"
+                                        class="p-button p-component"
+                                        role="button"
+                                        tabindex="0"
+                                      >
+                                        <span
+                                          class="p-button-label p-c"
+                                        >
+                                          One
+                                        </span>
+                                      </div>
+                                      <div
+                                        aria-label="Two"
+                                        aria-pressed="false"
+                                        class="p-button p-component"
+                                        role="button"
+                                        tabindex="0"
+                                      >
+                                        <span
+                                          class="p-button-label p-c"
+                                        >
+                                          Two
+                                        </span>
+                                      </div>
+                                      <div
+                                        aria-label="Three"
+                                        aria-pressed="false"
+                                        class="p-button p-component"
+                                        role="button"
+                                        tabindex="0"
+                                      >
+                                        <span
+                                          class="p-button-label p-c"
+                                        >
+                                          Three
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table2-tableTitle"
+                                      >
+                                        الطاولة
+                                      </span>
+                                    </span>
+                                    <input
+                                      class="p-inputtext p-component w-full"
+                                      data-testid="table2-0-table"
+                                      id="table2-0-table"
+                                      name="table2[0].table"
+                                      type="text"
+                                      value=""
+                                      widgets="name,value"
+                                    />
+                                  </td>
+                                  <td
+                                    class=""
+                                    role="cell"
+                                    style="text-align: center;"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    />
+                                    <button
+                                      class="p-row-editor-save p-link"
+                                      name="row-save"
+                                      tabindex="0"
+                                      type="button"
+                                    >
+                                      <span
+                                        class="p-row-editor-save-icon pi pi-fw pi-check"
+                                      />
+                                    </button>
+                                    <button
+                                      class="p-row-editor-cancel p-link"
+                                      name="row-cancel"
+                                      tabindex="0"
+                                      type="button"
+                                    >
+                                      <span
+                                        class="p-row-editor-cancel-icon pi pi-fw pi-times"
+                                      />
+                                    </button>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="field grid"
+                  >
+                    <div
+                      class="flex align-items-center relative col-12"
+                    >
+                      <div
+                        class="w-full"
+                      >
+                        <div
+                          class="p-toolbar p-component p-0 border-none"
+                          role="toolbar"
+                          style="background: none;"
+                        >
+                          <div
+                            class="p-toolbar-group-left"
+                          >
+                            <button
+                              aria-label="Add"
+                              class="p-button p-component p-button mr-2"
+                              data-testid="table3-addButton"
+                            >
+                              <span
+                                class="p-button-icon p-c p-button-icon-left pi pi-plus"
+                              />
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                 
+                              </span>
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                يضيف
+                              </span>
+                            </button>
+                            <button
+                              aria-label="Delete"
+                              class="p-button p-component p-button p-disabled"
+                              data-testid="table3-deleteButton"
+                              disabled=""
+                            >
+                              <span
+                                class="p-button-icon p-c p-button-icon-left pi pi-trash"
+                              />
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                 
+                              </span>
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                حذف
+                              </span>
+                            </button>
+                          </div>
+                          <div
+                            class="p-toolbar-group-right"
+                          />
+                        </div>
+                        <div
+                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                          data-scrollselectors=".p-datatable-wrapper"
+                          data-testid="table3"
+                          id="table3"
+                          pr_id_29=""
+                        >
+                          <div
+                            class="p-datatable-wrapper"
+                          >
+                            <table
+                              class="p-datatable-table"
+                              role="table"
+                            >
+                              <thead
+                                class="p-datatable-thead"
+                              >
+                                <tr
+                                  role="row"
+                                >
+                                  <th
+                                    class="p-selection-column"
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                      <div
+                                        class="p-checkbox p-component"
+                                      >
+                                        <div
+                                          class="p-checkbox-box p-component"
+                                          role="checkbox"
+                                          tabindex="0"
+                                        >
+                                          <span
+                                            class="p-checkbox-icon"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table3-dropdownTitle"
+                                        >
+                                          اسقاط
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table3-dropdownTreeTitle"
+                                        >
+                                          شجرة منسدلة
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table3-multiSelectTitle"
+                                        >
+                                          تحديد متعدد
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table3-multiSelectTreeTitle"
+                                        >
+                                          متعدد التحديد شجرة
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                    style="width: 7rem;"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                    </div>
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody
+                                class="p-datatable-tbody"
+                              >
+                                <tr
+                                  class=""
+                                  role="row"
+                                >
+                                  <td
+                                    class="p-selection-column"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    />
+                                    <div
+                                      class="p-checkbox p-component"
+                                    >
+                                      <div
+                                        aria-checked="false"
+                                        class="p-checkbox-box p-component"
+                                        role="checkbox"
+                                        tabindex="0"
+                                      >
+                                        <span
+                                          class="p-checkbox-icon"
+                                        />
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table3-dropdownTitle"
+                                      >
+                                        اسقاط
+                                      </span>
+                                    </span>
+                                    <div
+                                      class="p-dropdown p-component p-inputwrapper p-dropdown-clearable w-full"
+                                      data-testid="table3-0-dropdown"
+                                    >
+                                      <div
+                                        class="p-hidden-accessible"
+                                      >
+                                        <input
+                                          aria-haspopup="listbox"
+                                          id="table3-0-dropdown"
+                                          readonly=""
+                                          type="text"
+                                        />
+                                      </div>
+                                      <div
+                                        class="p-hidden-accessible p-dropdown-hidden-select"
+                                      >
+                                        <select
+                                          aria-hidden="true"
+                                          name="table3[0].dropdown"
+                                          tabindex="-1"
+                                        >
+                                          <option
+                                            selected=""
+                                            value=""
+                                          />
+                                        </select>
+                                      </div>
+                                      <span
+                                        class="p-dropdown-label p-inputtext p-dropdown-label-empty"
+                                      >
+                                        empty
+                                      </span>
+                                      <div
+                                        aria-expanded="false"
+                                        aria-haspopup="listbox"
+                                        class="p-dropdown-trigger"
+                                        role="button"
+                                      >
+                                        <span
+                                          class="p-dropdown-trigger-icon p-clickable pi pi-chevron-down"
+                                        />
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table3-dropdownTreeTitle"
+                                      >
+                                        شجرة منسدلة
+                                      </span>
+                                    </span>
+                                    <input
+                                      class="p-inputtext p-component w-full"
+                                      data-testid="table3-0-dropdownTree"
+                                      id="table3-0-dropdownTree"
+                                      name="table3[0].dropdownTree"
+                                      type="text"
+                                      value=""
+                                    />
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table3-multiSelectTitle"
+                                      >
+                                        تحديد متعدد
+                                      </span>
+                                    </span>
+                                    <input
+                                      class="p-inputtext p-component w-full"
+                                      data-testid="table3-0-multiSelect"
+                                      id="table3-0-multiSelect"
+                                      name="table3[0].multiSelect"
+                                      type="text"
+                                      value=""
+                                    />
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table3-multiSelectTreeTitle"
+                                      >
+                                        متعدد التحديد شجرة
+                                      </span>
+                                    </span>
+                                    <input
+                                      class="p-inputtext p-component w-full"
+                                      data-testid="table3-0-multiSelectTree"
+                                      id="table3-0-multiSelectTree"
+                                      name="table3[0].multiSelectTree"
+                                      type="text"
+                                      value=""
+                                    />
+                                  </td>
+                                  <td
+                                    class=""
+                                    role="cell"
+                                    style="text-align: center;"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    />
+                                    <button
+                                      class="p-row-editor-save p-link"
+                                      name="row-save"
+                                      tabindex="0"
+                                      type="button"
+                                    >
+                                      <span
+                                        class="p-row-editor-save-icon pi pi-fw pi-check"
+                                      />
+                                    </button>
+                                    <button
+                                      class="p-row-editor-cancel p-link"
+                                      name="row-cancel"
+                                      tabindex="0"
+                                      type="button"
+                                    >
+                                      <span
+                                        class="p-row-editor-cancel-icon pi pi-fw pi-times"
+                                      />
+                                    </button>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="field grid mb-0"
+                  >
+                    <div
+                      class="flex align-items-center relative col-12"
+                    >
+                      <div
+                        class="w-full"
+                      >
+                        <div
+                          class="p-toolbar p-component p-0 border-none"
+                          role="toolbar"
+                          style="background: none;"
+                        >
+                          <div
+                            class="p-toolbar-group-left"
+                          >
+                            <button
+                              aria-label="Add"
+                              class="p-button p-component p-button mr-2"
+                              data-testid="table4-addButton"
+                            >
+                              <span
+                                class="p-button-icon p-c p-button-icon-left pi pi-plus"
+                              />
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                 
+                              </span>
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                يضيف
+                              </span>
+                            </button>
+                            <button
+                              aria-label="Delete"
+                              class="p-button p-component p-button p-disabled"
+                              data-testid="table4-deleteButton"
+                              disabled=""
+                            >
+                              <span
+                                class="p-button-icon p-c p-button-icon-left pi pi-trash"
+                              />
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                 
+                              </span>
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                حذف
+                              </span>
+                            </button>
+                          </div>
+                          <div
+                            class="p-toolbar-group-right"
+                          />
+                        </div>
+                        <div
+                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                          data-scrollselectors=".p-datatable-wrapper"
+                          data-testid="table4"
+                          id="table4"
+                          pr_id_30=""
+                        >
+                          <div
+                            class="p-datatable-wrapper"
+                          >
+                            <table
+                              class="p-datatable-table"
+                              role="table"
+                            >
+                              <thead
+                                class="p-datatable-thead"
+                              >
+                                <tr
+                                  role="row"
+                                >
+                                  <th
+                                    class="p-selection-column"
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                      <div
+                                        class="p-checkbox p-component"
+                                      >
+                                        <div
+                                          class="p-checkbox-box p-component"
+                                          role="checkbox"
+                                          tabindex="0"
+                                        >
+                                          <span
+                                            class="p-checkbox-icon"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table4-input-selectTableTitle"
+                                        >
+                                          حدد الجدول
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table4-input-multiSelectPanelTitle"
+                                        >
+                                          لوحة متعددة التحديد
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table4-input-multiSelectTreeTableTitle"
+                                        >
+                                          جدول شجرة متعدد التحديد
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                    style="width: 7rem;"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                    </div>
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody
+                                class="p-datatable-tbody"
+                              >
+                                <tr
+                                  class=""
+                                  role="row"
+                                >
+                                  <td
+                                    class="p-selection-column"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    />
+                                    <div
+                                      class="p-checkbox p-component"
+                                    >
+                                      <div
+                                        aria-checked="false"
+                                        class="p-checkbox-box p-component"
+                                        role="checkbox"
+                                        tabindex="0"
+                                      >
+                                        <span
+                                          class="p-checkbox-icon"
+                                        />
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table4-input-selectTableTitle"
+                                      >
+                                        حدد الجدول
+                                      </span>
+                                    </span>
+                                    <input
+                                      class="p-inputtext p-component w-full"
+                                      data-testid="table4-0-selectTable"
+                                      id="table4-0-selectTable"
+                                      name="table4[0].selectTable"
+                                      type="text"
+                                      value=""
+                                    />
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table4-input-multiSelectPanelTitle"
+                                      >
+                                        لوحة متعددة التحديد
+                                      </span>
+                                    </span>
+                                    <input
+                                      class="p-inputtext p-component w-full"
+                                      data-testid="table4-0-multiSelectPanel"
+                                      id="table4-0-multiSelectPanel"
+                                      name="table4[0].multiSelectPanel"
+                                      type="text"
+                                      value=""
+                                    />
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table4-input-multiSelectTreeTableTitle"
+                                      >
+                                        جدول شجرة متعدد التحديد
+                                      </span>
+                                    </span>
+                                    <input
+                                      class="p-inputtext p-component w-full"
+                                      data-testid="table4-0-multiSelectTreeTable"
+                                      id="table4-0-multiSelectTreeTable"
+                                      name="table4[0].multiSelectTreeTable"
+                                      type="text"
+                                      value=""
+                                    />
+                                  </td>
+                                  <td
+                                    class=""
+                                    role="cell"
+                                    style="text-align: center;"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    />
+                                    <button
+                                      class="p-row-editor-save p-link"
+                                      name="row-save"
+                                      tabindex="0"
+                                      type="button"
+                                    >
+                                      <span
+                                        class="p-row-editor-save-icon pi pi-fw pi-check"
+                                      />
+                                    </button>
+                                    <button
+                                      class="p-row-editor-cancel p-link"
+                                      name="row-cancel"
+                                      tabindex="0"
+                                      type="button"
+                                    >
+                                      <span
+                                        class="p-row-editor-cancel-icon pi pi-fw pi-times"
+                                      />
+                                    </button>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`<Form /> TableBG render equals snapshot 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  <div
+    class="flex"
+    style="overflow-x: hidden; width: 100%;"
+  >
+    <div
+      class="p-toast p-component p-toast-top-right"
+    >
+      <div />
+    </div>
+    <form
+      class="grid col align-self-start form-0-2-1"
+      lang="bg"
+    >
+      <div
+        class="col-12 xl:col-12"
+      >
+        <div
+          class="w-full"
+        >
+          <div
+            class="p-card p-component card card-0-2-2"
+            id="table"
+          >
+            <div
+              class="p-card-body"
+            >
+              <div
+                class="p-card-content"
+              >
+                <div
+                  class=""
+                >
+                  <div
+                    class="field grid"
+                  >
+                    <div
+                      class="flex align-items-center relative col-12"
+                    >
+                      <div
+                        class="w-full"
+                      >
+                        <div
+                          class="p-toolbar p-component p-0 border-none"
+                          role="toolbar"
+                          style="background: none;"
+                        >
+                          <div
+                            class="p-toolbar-group-left"
+                          >
+                            <button
+                              aria-label="Add"
+                              class="p-button p-component p-button mr-2"
+                              data-testid="table1-addButton"
+                            >
+                              <span
+                                class="p-button-icon p-c p-button-icon-left pi pi-plus"
+                              />
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                 
+                              </span>
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                Добавяне
+                              </span>
+                            </button>
+                            <button
+                              aria-label="Delete"
+                              class="p-button p-component p-button p-disabled"
+                              data-testid="table1-deleteButton"
+                              disabled=""
+                            >
+                              <span
+                                class="p-button-icon p-c p-button-icon-left pi pi-trash"
+                              />
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                 
+                              </span>
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                Изтриване
+                              </span>
+                            </button>
+                          </div>
+                          <div
+                            class="p-toolbar-group-right"
+                          />
+                        </div>
+                        <div
+                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                          data-scrollselectors=".p-datatable-wrapper"
+                          data-testid="table1"
+                          id="table1"
+                          pr_id_14=""
+                        >
+                          <div
+                            class="p-datatable-wrapper"
+                          >
+                            <table
+                              class="p-datatable-table"
+                              role="table"
+                            >
+                              <thead
+                                class="p-datatable-thead"
+                              >
+                                <tr
+                                  role="row"
+                                >
+                                  <th
+                                    class="p-selection-column"
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                      <div
+                                        class="p-checkbox p-component"
+                                      >
+                                        <div
+                                          class="p-checkbox-box p-component"
+                                          role="checkbox"
+                                          tabindex="0"
+                                        >
+                                          <span
+                                            class="p-checkbox-icon"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table1-inputTitle"
+                                        >
+                                          Поле
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table1-passwordTitle"
+                                        >
+                                          Парола
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table1-textTitle"
+                                        >
+                                          Текст
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table1-maskTitle"
+                                        >
+                                          Маска
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table1-booleanTitle"
+                                        >
+                                          Флаг
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table1-dateTitle"
+                                        >
+                                          Дата
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table1-timeTitle"
+                                        >
+                                          Час
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table1-datetimeTitle"
+                                        >
+                                          Дата и час
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                    style="width: 7rem;"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                    </div>
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody
+                                class="p-datatable-tbody"
+                              >
+                                <tr
+                                  class=""
+                                  role="row"
+                                >
+                                  <td
+                                    class="p-selection-column"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    />
+                                    <div
+                                      class="p-checkbox p-component"
+                                    >
+                                      <div
+                                        aria-checked="false"
+                                        class="p-checkbox-box p-component"
+                                        role="checkbox"
+                                        tabindex="0"
+                                      >
+                                        <span
+                                          class="p-checkbox-icon"
+                                        />
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table1-inputTitle"
+                                      >
+                                        Поле
+                                      </span>
+                                    </span>
+                                    <input
+                                      class="p-inputtext p-component p-filled w-full"
+                                      data-testid="table1-0-input"
+                                      id="table1-0-input"
+                                      name="table1[0].input"
+                                      type="text"
+                                      value="test"
+                                    />
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table1-passwordTitle"
+                                      >
+                                        Парола
+                                      </span>
+                                    </span>
+                                    <div
+                                      class="p-password p-component p-inputwrapper"
+                                      id="table1-0-password"
+                                    >
+                                      <input
+                                        class="p-inputtext p-component p-password-input"
+                                        data-testid="table1-0-password"
+                                        name="table1[0].password"
+                                        type="password"
+                                        value=""
+                                      />
+                                    </div>
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table1-textTitle"
+                                      >
+                                        Текст
+                                      </span>
+                                    </span>
+                                    <textarea
+                                      class="p-inputtextarea p-inputtext p-component w-full"
+                                      data-testid="table1-0-text"
+                                      id="table1-0-text"
+                                      name="table1[0].text"
+                                    />
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table1-maskTitle"
+                                      >
+                                        Маска
+                                      </span>
+                                    </span>
+                                    <input
+                                      class="p-inputtext p-component p-inputmask w-full"
+                                      data-testid="table1-0-mask"
+                                      id="table1-0-mask"
+                                      name="table1[0].mask"
+                                      type="text"
+                                    />
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table1-booleanTitle"
+                                      >
+                                        Флаг
+                                      </span>
+                                    </span>
+                                    <div
+                                      class="p-checkbox p-component"
+                                      data-testid="table1-0-boolean"
+                                      id="table1-0-boolean"
+                                    >
+                                      <div
+                                        class="p-hidden-accessible"
+                                      >
+                                        <input
+                                          name="table1[0].boolean"
+                                          type="checkbox"
+                                        />
+                                      </div>
+                                      <div
+                                        class="p-checkbox-box"
+                                      >
+                                        <span
+                                          class="p-checkbox-icon p-c"
+                                        />
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table1-dateTitle"
+                                      >
+                                        Дата
+                                      </span>
+                                    </span>
+                                    <span
+                                      class="p-calendar p-component p-inputwrapper p-calendar-w-btn p-calendar-w-btn-right"
+                                      data-testid="table1-0-date"
+                                    >
+                                      <input
+                                        autocomplete="off"
+                                        class="p-inputtext p-component"
+                                        id="table1-0-date"
+                                        inputmode="none"
+                                        name="table1[0].date"
+                                        type="text"
+                                      />
+                                      <button
+                                        class="p-button p-component p-datepicker-trigger p-button-icon-only"
+                                        tabindex="-1"
+                                        type="button"
+                                      >
+                                        <span
+                                          class="p-button-icon p-c pi pi-calendar"
+                                        />
+                                        <span
+                                          class="p-button-label p-c"
+                                        >
+                                           
+                                        </span>
+                                      </button>
+                                    </span>
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table1-timeTitle"
+                                      >
+                                        Час
+                                      </span>
+                                    </span>
+                                    <span
+                                      class="p-calendar p-component p-inputwrapper p-calendar-w-btn p-calendar-w-btn-right p-calendar-timeonly p-inputwrapper-filled"
+                                      data-testid="table1-0-time"
+                                    >
+                                      <input
+                                        autocomplete="off"
+                                        class="p-inputtext p-component p-filled"
+                                        id="table1-0-time"
+                                        inputmode="none"
+                                        name="table1[0].time"
+                                        type="text"
+                                      />
+                                      <button
+                                        class="p-button p-component p-datepicker-trigger p-button-icon-only"
+                                        tabindex="-1"
+                                        type="button"
+                                      >
+                                        <span
+                                          class="p-button-icon p-c pi pi-calendar"
+                                        />
+                                        <span
+                                          class="p-button-label p-c"
+                                        >
+                                           
+                                        </span>
+                                      </button>
+                                    </span>
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table1-datetimeTitle"
+                                      >
+                                        Дата и час
+                                      </span>
+                                    </span>
+                                    <span
+                                      class="p-calendar p-component p-inputwrapper p-calendar-w-btn p-calendar-w-btn-right"
+                                      data-testid="table1-0-datetime"
+                                    >
+                                      <input
+                                        autocomplete="off"
+                                        class="p-inputtext p-component"
+                                        id="table1-0-datetime"
+                                        inputmode="none"
+                                        name="table1[0].datetime"
+                                        type="text"
+                                      />
+                                      <button
+                                        class="p-button p-component p-datepicker-trigger p-button-icon-only"
+                                        tabindex="-1"
+                                        type="button"
+                                      >
+                                        <span
+                                          class="p-button-icon p-c pi pi-calendar"
+                                        />
+                                        <span
+                                          class="p-button-label p-c"
+                                        >
+                                           
+                                        </span>
+                                      </button>
+                                    </span>
+                                  </td>
+                                  <td
+                                    class=""
+                                    role="cell"
+                                    style="text-align: center;"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    />
+                                    <button
+                                      class="p-row-editor-save p-link"
+                                      name="row-save"
+                                      tabindex="0"
+                                      type="button"
+                                    >
+                                      <span
+                                        class="p-row-editor-save-icon pi pi-fw pi-check"
+                                      />
+                                    </button>
+                                    <button
+                                      class="p-row-editor-cancel p-link"
+                                      name="row-cancel"
+                                      tabindex="0"
+                                      type="button"
+                                    >
+                                      <span
+                                        class="p-row-editor-cancel-icon pi pi-fw pi-times"
+                                      />
+                                    </button>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="field grid"
+                  >
+                    <div
+                      class="flex align-items-center relative col-12"
+                    >
+                      <div
+                        class="w-full"
+                      >
+                        <div
+                          class="p-toolbar p-component p-0 border-none"
+                          role="toolbar"
+                          style="background: none;"
+                        >
+                          <div
+                            class="p-toolbar-group-left"
+                          >
+                            <button
+                              aria-label="Add"
+                              class="p-button p-component p-button mr-2"
+                              data-testid="table2-addButton"
+                            >
+                              <span
+                                class="p-button-icon p-c p-button-icon-left pi pi-plus"
+                              />
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                 
+                              </span>
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                Добавяне
+                              </span>
+                            </button>
+                            <button
+                              aria-label="Delete"
+                              class="p-button p-component p-button p-disabled"
+                              data-testid="table2-deleteButton"
+                              disabled=""
+                            >
+                              <span
+                                class="p-button-icon p-c p-button-icon-left pi pi-trash"
+                              />
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                 
+                              </span>
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                Изтриване
+                              </span>
+                            </button>
+                          </div>
+                          <div
+                            class="p-toolbar-group-right"
+                          />
+                        </div>
+                        <div
+                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                          data-scrollselectors=".p-datatable-wrapper"
+                          data-testid="table2"
+                          id="table2"
+                          pr_id_15=""
+                        >
+                          <div
+                            class="p-datatable-wrapper"
+                          >
+                            <table
+                              class="p-datatable-table"
+                              role="table"
+                            >
+                              <thead
+                                class="p-datatable-thead"
+                              >
+                                <tr
+                                  role="row"
+                                >
+                                  <th
+                                    class="p-selection-column"
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                      <div
+                                        class="p-checkbox p-component"
+                                      >
+                                        <div
+                                          class="p-checkbox-box p-component"
+                                          role="checkbox"
+                                          tabindex="0"
+                                        >
+                                          <span
+                                            class="p-checkbox-icon"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class="p-align-right"
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table2-numberTitle"
+                                        >
+                                          Число
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table2-currencyTitle"
+                                        >
+                                          Валута
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class="p-align-right"
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table2-integerTitle"
+                                        >
+                                          Цяло число
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table2-imageTitle"
+                                        >
+                                          Изображение
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table2-radioTitle"
+                                        >
+                                          Радио
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table2-selectTitle"
+                                        >
+                                          Избор
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table2-tableTitle"
+                                        >
+                                          Таблица
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                    style="width: 7rem;"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                    </div>
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody
+                                class="p-datatable-tbody"
+                              >
+                                <tr
+                                  class=""
+                                  role="row"
+                                >
+                                  <td
+                                    class="p-selection-column"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    />
+                                    <div
+                                      class="p-checkbox p-component"
+                                    >
+                                      <div
+                                        aria-checked="false"
+                                        class="p-checkbox-box p-component"
+                                        role="checkbox"
+                                        tabindex="0"
+                                      >
+                                        <span
+                                          class="p-checkbox-icon"
+                                        />
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td
+                                    class="text-right p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table2-numberTitle"
+                                      >
+                                        Число
+                                      </span>
+                                    </span>
+                                    <input
+                                      class="p-inputtext p-component w-full"
+                                      data-testid="table2-0-number"
+                                      id="table2-0-number"
+                                      name="table2[0].number"
+                                      type="text"
+                                      value=""
+                                    />
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table2-currencyTitle"
+                                      >
+                                        Валута
+                                      </span>
+                                    </span>
+                                    <input
+                                      class="p-inputtext p-component w-full"
+                                      currency="USD"
+                                      data-testid="table2-0-currency"
+                                      id="table2-0-currency"
+                                      name="table2[0].currency"
+                                      type="text"
+                                      value=""
+                                    />
+                                  </td>
+                                  <td
+                                    class="text-right p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table2-integerTitle"
+                                      >
+                                        Цяло число
+                                      </span>
+                                    </span>
+                                    <span
+                                      class="p-inputnumber p-component p-inputwrapper p-inputnumber-buttons-stacked w-full"
+                                      data-testid="table2-0-integer"
+                                    >
+                                      <input
+                                        class="p-inputtext p-component p-inputnumber-input"
+                                        id="table2-0-integer"
+                                        inputmode="numeric"
+                                        name="table2[0].integer"
+                                        role="spinbutton"
+                                        type="text"
+                                        value=""
+                                      />
+                                      <span
+                                        class="p-inputnumber-button-group"
+                                      >
+                                        <button
+                                          class="p-inputnumber-button p-inputnumber-button-up p-button p-button-icon-only p-component"
+                                          tabindex="-1"
+                                          type="button"
+                                        >
+                                          <span
+                                            class="p-button-icon pi pi-angle-up"
+                                          />
+                                        </button>
+                                        <button
+                                          class="p-inputnumber-button p-inputnumber-button-down p-button p-button-icon-only p-component"
+                                          tabindex="-1"
+                                          type="button"
+                                        >
+                                          <span
+                                            class="p-button-icon pi pi-angle-down"
+                                          />
+                                        </button>
+                                      </span>
+                                    </span>
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table2-imageTitle"
+                                      >
+                                        Изображение
+                                      </span>
+                                    </span>
+                                    <input
+                                      class="p-inputtext p-component w-full"
+                                      data-testid="table2-0-image"
+                                      id="table2-0-image"
+                                      name="table2[0].image"
+                                      type="text"
+                                      value=""
+                                    />
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table2-radioTitle"
+                                      >
+                                        Радио
+                                      </span>
+                                    </span>
+                                    <div
+                                      class="p-radiobutton p-component"
+                                      data-testid="table2-0-radio"
+                                    >
+                                      <div
+                                        class="p-hidden-accessible"
+                                      >
+                                        <input
+                                          id="table2-0-radio"
+                                          name="table2[0].radio"
+                                          type="radio"
+                                        />
+                                      </div>
+                                      <div
+                                        class="p-radiobutton-box"
+                                      >
+                                        <div
+                                          class="p-radiobutton-icon"
+                                        />
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table2-selectTitle"
+                                      >
+                                        Избор
+                                      </span>
+                                    </span>
+                                    <div
+                                      class="p-selectbutton p-buttonset p-component w-full white-space-nowrap"
+                                      data-testid="table2-0-select"
+                                      id="table2-0-select"
+                                      name="table2[0].select"
+                                      role="group"
+                                    >
+                                      <div
+                                        aria-label="One"
+                                        aria-pressed="false"
+                                        class="p-button p-component"
+                                        role="button"
+                                        tabindex="0"
+                                      >
+                                        <span
+                                          class="p-button-label p-c"
+                                        >
+                                          One
+                                        </span>
+                                      </div>
+                                      <div
+                                        aria-label="Two"
+                                        aria-pressed="false"
+                                        class="p-button p-component"
+                                        role="button"
+                                        tabindex="0"
+                                      >
+                                        <span
+                                          class="p-button-label p-c"
+                                        >
+                                          Two
+                                        </span>
+                                      </div>
+                                      <div
+                                        aria-label="Three"
+                                        aria-pressed="false"
+                                        class="p-button p-component"
+                                        role="button"
+                                        tabindex="0"
+                                      >
+                                        <span
+                                          class="p-button-label p-c"
+                                        >
+                                          Three
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table2-tableTitle"
+                                      >
+                                        Таблица
+                                      </span>
+                                    </span>
+                                    <input
+                                      class="p-inputtext p-component w-full"
+                                      data-testid="table2-0-table"
+                                      id="table2-0-table"
+                                      name="table2[0].table"
+                                      type="text"
+                                      value=""
+                                      widgets="name,value"
+                                    />
+                                  </td>
+                                  <td
+                                    class=""
+                                    role="cell"
+                                    style="text-align: center;"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    />
+                                    <button
+                                      class="p-row-editor-save p-link"
+                                      name="row-save"
+                                      tabindex="0"
+                                      type="button"
+                                    >
+                                      <span
+                                        class="p-row-editor-save-icon pi pi-fw pi-check"
+                                      />
+                                    </button>
+                                    <button
+                                      class="p-row-editor-cancel p-link"
+                                      name="row-cancel"
+                                      tabindex="0"
+                                      type="button"
+                                    >
+                                      <span
+                                        class="p-row-editor-cancel-icon pi pi-fw pi-times"
+                                      />
+                                    </button>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="field grid"
+                  >
+                    <div
+                      class="flex align-items-center relative col-12"
+                    >
+                      <div
+                        class="w-full"
+                      >
+                        <div
+                          class="p-toolbar p-component p-0 border-none"
+                          role="toolbar"
+                          style="background: none;"
+                        >
+                          <div
+                            class="p-toolbar-group-left"
+                          >
+                            <button
+                              aria-label="Add"
+                              class="p-button p-component p-button mr-2"
+                              data-testid="table3-addButton"
+                            >
+                              <span
+                                class="p-button-icon p-c p-button-icon-left pi pi-plus"
+                              />
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                 
+                              </span>
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                Добавяне
+                              </span>
+                            </button>
+                            <button
+                              aria-label="Delete"
+                              class="p-button p-component p-button p-disabled"
+                              data-testid="table3-deleteButton"
+                              disabled=""
+                            >
+                              <span
+                                class="p-button-icon p-c p-button-icon-left pi pi-trash"
+                              />
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                 
+                              </span>
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                Изтриване
+                              </span>
+                            </button>
+                          </div>
+                          <div
+                            class="p-toolbar-group-right"
+                          />
+                        </div>
+                        <div
+                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                          data-scrollselectors=".p-datatable-wrapper"
+                          data-testid="table3"
+                          id="table3"
+                          pr_id_16=""
+                        >
+                          <div
+                            class="p-datatable-wrapper"
+                          >
+                            <table
+                              class="p-datatable-table"
+                              role="table"
+                            >
+                              <thead
+                                class="p-datatable-thead"
+                              >
+                                <tr
+                                  role="row"
+                                >
+                                  <th
+                                    class="p-selection-column"
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                      <div
+                                        class="p-checkbox p-component"
+                                      >
+                                        <div
+                                          class="p-checkbox-box p-component"
+                                          role="checkbox"
+                                          tabindex="0"
+                                        >
+                                          <span
+                                            class="p-checkbox-icon"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table3-dropdownTitle"
+                                        >
+                                          Списък
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table3-dropdownTreeTitle"
+                                        >
+                                          Списък дърво
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table3-multiSelectTitle"
+                                        >
+                                          Мулти избор
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table3-multiSelectTreeTitle"
+                                        >
+                                          Мулти избор дърво
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                    style="width: 7rem;"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                    </div>
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody
+                                class="p-datatable-tbody"
+                              >
+                                <tr
+                                  class=""
+                                  role="row"
+                                >
+                                  <td
+                                    class="p-selection-column"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    />
+                                    <div
+                                      class="p-checkbox p-component"
+                                    >
+                                      <div
+                                        aria-checked="false"
+                                        class="p-checkbox-box p-component"
+                                        role="checkbox"
+                                        tabindex="0"
+                                      >
+                                        <span
+                                          class="p-checkbox-icon"
+                                        />
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table3-dropdownTitle"
+                                      >
+                                        Списък
+                                      </span>
+                                    </span>
+                                    <div
+                                      class="p-dropdown p-component p-inputwrapper p-dropdown-clearable w-full"
+                                      data-testid="table3-0-dropdown"
+                                    >
+                                      <div
+                                        class="p-hidden-accessible"
+                                      >
+                                        <input
+                                          aria-haspopup="listbox"
+                                          id="table3-0-dropdown"
+                                          readonly=""
+                                          type="text"
+                                        />
+                                      </div>
+                                      <div
+                                        class="p-hidden-accessible p-dropdown-hidden-select"
+                                      >
+                                        <select
+                                          aria-hidden="true"
+                                          name="table3[0].dropdown"
+                                          tabindex="-1"
+                                        >
+                                          <option
+                                            selected=""
+                                            value=""
+                                          />
+                                        </select>
+                                      </div>
+                                      <span
+                                        class="p-dropdown-label p-inputtext p-dropdown-label-empty"
+                                      >
+                                        empty
+                                      </span>
+                                      <div
+                                        aria-expanded="false"
+                                        aria-haspopup="listbox"
+                                        class="p-dropdown-trigger"
+                                        role="button"
+                                      >
+                                        <span
+                                          class="p-dropdown-trigger-icon p-clickable pi pi-chevron-down"
+                                        />
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table3-dropdownTreeTitle"
+                                      >
+                                        Списък дърво
+                                      </span>
+                                    </span>
+                                    <input
+                                      class="p-inputtext p-component w-full"
+                                      data-testid="table3-0-dropdownTree"
+                                      id="table3-0-dropdownTree"
+                                      name="table3[0].dropdownTree"
+                                      type="text"
+                                      value=""
+                                    />
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table3-multiSelectTitle"
+                                      >
+                                        Мулти избор
+                                      </span>
+                                    </span>
+                                    <input
+                                      class="p-inputtext p-component w-full"
+                                      data-testid="table3-0-multiSelect"
+                                      id="table3-0-multiSelect"
+                                      name="table3[0].multiSelect"
+                                      type="text"
+                                      value=""
+                                    />
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table3-multiSelectTreeTitle"
+                                      >
+                                        Мулти избор дърво
+                                      </span>
+                                    </span>
+                                    <input
+                                      class="p-inputtext p-component w-full"
+                                      data-testid="table3-0-multiSelectTree"
+                                      id="table3-0-multiSelectTree"
+                                      name="table3[0].multiSelectTree"
+                                      type="text"
+                                      value=""
+                                    />
+                                  </td>
+                                  <td
+                                    class=""
+                                    role="cell"
+                                    style="text-align: center;"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    />
+                                    <button
+                                      class="p-row-editor-save p-link"
+                                      name="row-save"
+                                      tabindex="0"
+                                      type="button"
+                                    >
+                                      <span
+                                        class="p-row-editor-save-icon pi pi-fw pi-check"
+                                      />
+                                    </button>
+                                    <button
+                                      class="p-row-editor-cancel p-link"
+                                      name="row-cancel"
+                                      tabindex="0"
+                                      type="button"
+                                    >
+                                      <span
+                                        class="p-row-editor-cancel-icon pi pi-fw pi-times"
+                                      />
+                                    </button>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="field grid mb-0"
+                  >
+                    <div
+                      class="flex align-items-center relative col-12"
+                    >
+                      <div
+                        class="w-full"
+                      >
+                        <div
+                          class="p-toolbar p-component p-0 border-none"
+                          role="toolbar"
+                          style="background: none;"
+                        >
+                          <div
+                            class="p-toolbar-group-left"
+                          >
+                            <button
+                              aria-label="Add"
+                              class="p-button p-component p-button mr-2"
+                              data-testid="table4-addButton"
+                            >
+                              <span
+                                class="p-button-icon p-c p-button-icon-left pi pi-plus"
+                              />
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                 
+                              </span>
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                Добавяне
+                              </span>
+                            </button>
+                            <button
+                              aria-label="Delete"
+                              class="p-button p-component p-button p-disabled"
+                              data-testid="table4-deleteButton"
+                              disabled=""
+                            >
+                              <span
+                                class="p-button-icon p-c p-button-icon-left pi pi-trash"
+                              />
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                 
+                              </span>
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                Изтриване
+                              </span>
+                            </button>
+                          </div>
+                          <div
+                            class="p-toolbar-group-right"
+                          />
+                        </div>
+                        <div
+                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                          data-scrollselectors=".p-datatable-wrapper"
+                          data-testid="table4"
+                          id="table4"
+                          pr_id_17=""
+                        >
+                          <div
+                            class="p-datatable-wrapper"
+                          >
+                            <table
+                              class="p-datatable-table"
+                              role="table"
+                            >
+                              <thead
+                                class="p-datatable-thead"
+                              >
+                                <tr
+                                  role="row"
+                                >
+                                  <th
+                                    class="p-selection-column"
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                      <div
+                                        class="p-checkbox p-component"
+                                      >
+                                        <div
+                                          class="p-checkbox-box p-component"
+                                          role="checkbox"
+                                          tabindex="0"
+                                        >
+                                          <span
+                                            class="p-checkbox-icon"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table4-input-selectTableTitle"
+                                        >
+                                          Избор таблица
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table4-input-multiSelectPanelTitle"
+                                        >
+                                          Мулти избор панел
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="table4-input-multiSelectTreeTableTitle"
+                                        >
+                                          Мулти избор таблица дърво
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </th>
+                                  <th
+                                    class=""
+                                    role="columnheader"
+                                    style="width: 7rem;"
+                                  >
+                                    <div
+                                      class="p-column-header-content"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                    </div>
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody
+                                class="p-datatable-tbody"
+                              >
+                                <tr
+                                  class=""
+                                  role="row"
+                                >
+                                  <td
+                                    class="p-selection-column"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    />
+                                    <div
+                                      class="p-checkbox p-component"
+                                    >
+                                      <div
+                                        aria-checked="false"
+                                        class="p-checkbox-box p-component"
+                                        role="checkbox"
+                                        tabindex="0"
+                                      >
+                                        <span
+                                          class="p-checkbox-icon"
+                                        />
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table4-input-selectTableTitle"
+                                      >
+                                        Избор таблица
+                                      </span>
+                                    </span>
+                                    <input
+                                      class="p-inputtext p-component w-full"
+                                      data-testid="table4-0-selectTable"
+                                      id="table4-0-selectTable"
+                                      name="table4[0].selectTable"
+                                      type="text"
+                                      value=""
+                                    />
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table4-input-multiSelectPanelTitle"
+                                      >
+                                        Мулти избор панел
+                                      </span>
+                                    </span>
+                                    <input
+                                      class="p-inputtext p-component w-full"
+                                      data-testid="table4-0-multiSelectPanel"
+                                      id="table4-0-multiSelectPanel"
+                                      name="table4[0].multiSelectPanel"
+                                      type="text"
+                                      value=""
+                                    />
+                                  </td>
+                                  <td
+                                    class="p-editable-column p-cell-editing"
+                                    role="cell"
+                                  >
+                                    <span
+                                      class="p-column-title"
+                                    >
+                                      <span
+                                        data-testid="table4-input-multiSelectTreeTableTitle"
+                                      >
+                                        Мулти избор таблица дърво
                                       </span>
                                     </span>
                                     <input

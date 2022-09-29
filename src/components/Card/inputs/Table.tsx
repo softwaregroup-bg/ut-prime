@@ -217,20 +217,22 @@ export default React.forwardRef<object, any>(function Table({
         return (
             <React.Fragment>
                 {allowAdd && <Button
-                    label="Add"
+                    label=' '
+                    aria-label='Add'
                     icon="pi pi-plus"
                     className="p-button mr-2"
                     onClick={addNewRow}
                     {...testid(`${resultSet}.addButton`)}
-                />}
+                >Add</Button>}
                 {allowDelete && <Button
-                    label="Delete"
+                    label=' '
+                    aria-label='Delete'
                     icon="pi pi-trash"
                     className="p-button"
                     onClick={deleteRow}
                     disabled={!selected}
                     {...testid(`${resultSet}.deleteButton`)}
-                />}
+                >Delete</Button>}
             </React.Fragment>
         );
     }, [allowAdd, allowDelete, selected, identity, master, filter, parent, allRows, onChange, handleSelected, counter, properties, resultSet]);
@@ -244,7 +246,6 @@ export default React.forwardRef<object, any>(function Table({
             {!disabled && (allowAdd || allowDelete) && <Toolbar className="p-0 border-none" left={leftToolbarTemplate} right={null} style={backgroundNone}></Toolbar>}
             <DataTable
                 editMode='row'
-                emptyMessage=''
                 selection={selected}
                 onSelectionChange={handleSelected}
                 dataKey={KEY}

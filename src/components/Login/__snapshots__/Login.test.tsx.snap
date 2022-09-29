@@ -16,9 +16,7 @@ exports[`<Login /> render equals snapshot 1`] = `
       <div
         class="loginTitle-0-2-8"
       >
-        <span>
-          Login with password
-        </span>
+        Login with password
       </div>
       
       <form

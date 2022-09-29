@@ -27,11 +27,11 @@ export default function Select({visible, onHide, onSelect, cards}: SelectProps) 
             value={value}
             onChange={e => setValue(e.value)}
         />
-        <Button label="Add" icon="pi pi-check" autoFocus onClick={() => {
+        <Button icon="pi pi-check" autoFocus onClick={() => {
             onSelect(value);
             close();
         }}
-        />
-        <Button label="Cancel" icon="pi pi-times" onClick={close} className="p-button-text" />
+        >Add</Button>
+        <Button label="" icon="pi pi-times" onClick={close} className="p-button-text">Cancel</Button>
     </Dialog>;
 }

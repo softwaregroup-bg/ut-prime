@@ -4,6 +4,7 @@ import {Toast} from '../prime';
 
 import page from './README.mdx';
 import Explorer from './index';
+import Text from '../Text';
 import {fetchItems, updateItems} from './mock';
 import decorators from '../test/decorator';
 
@@ -177,7 +178,7 @@ Design.args = {
 export const Children = Template.bind({});
 Children.args = {
     ...Basic.args,
-    children: <div>Navigation component</div>
+    children: <div><Text>Navigation component</Text></div>
 };
 
 export const Details = Template.bind({});
@@ -188,9 +189,10 @@ Details.args = {
     }
 };
 
-export const DetailsRTL = Template.bind({});
-DetailsRTL.args = {
+export const DetailsAR = Template.bind({});
+DetailsAR.args = {
     ...Details.args,
+    lang: 'ar',
     dir: 'rtl'
 };
 

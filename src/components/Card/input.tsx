@@ -81,7 +81,7 @@ export default function input(
 ) {
     const widgetType = type || defaultWidgetType || schema?.format || getType(schema?.type);
     if (loading) {
-        if (['button', 'submit'].includes(widgetType)) return <Button className={inputClass ?? 'mr-2'} label={label} {...props} disabled/>;
+        if (['button', 'submit'].includes(widgetType)) return <Button className={inputClass ?? 'mr-2'} {...props} disabled>{label}</Button>;
         return <>{label}<div className={inputClass}><Skeleton className='p-inputtext'/></div></>;
     }
     props.disabled ??= schema?.readOnly || (parentField && !parentValue);

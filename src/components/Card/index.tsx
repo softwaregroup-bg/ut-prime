@@ -6,6 +6,7 @@ import {createUseStyles} from 'react-jss';
 import type { ComponentProps } from './Card.types';
 
 import type { Card as CardType } from '../types';
+import Text from '../Text';
 import titleCase from '../lib/titleCase';
 import { ConfigField, ConfigCard} from '../Form/DragDrop';
 import input from './input';
@@ -169,7 +170,7 @@ const Card: ComponentProps = ({
     const Label = React.useCallback(({name, className = 'md:col-4', label = layoutState.index.properties?.[name]?.title}) => {
         if (label === undefined) label = titleCase(name.split('.').pop());
         return label
-            ? <label className={clsx('col-12', className)} htmlFor={name.replace(/\./g, '-')}>{label}</label>
+            ? <label className={clsx('col-12', className)} htmlFor={name.replace(/\./g, '-')}><Text>{label}</Text></label>
             : null;
     }, [layoutState.index]);
 

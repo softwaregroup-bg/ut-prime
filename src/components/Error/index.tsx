@@ -25,9 +25,9 @@ const Error: ComponentProps = ({ message: errorMessage, params: errorParams }) =
 
     if (unauthorized) {
         closable = false;
-        actionButtons = <Button label="Login" onClick={handleClose} />;
+        actionButtons = <Button aria-label='Login' onClick={handleClose}>Login</Button>;
     } else {
-        actionButtons = <Button label="Close" onClick={handleClose} />;
+        actionButtons = <Button aria-label='Close' onClick={handleClose}>Close</Button>;
     }
 
     return open ? (

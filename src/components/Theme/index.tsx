@@ -40,6 +40,8 @@ export interface Theme {
     dark?: lazyCss,
     light?: lazyCss,
     dir?: 'ltr' | 'rtl',
+    language?: string,
+    languages?: Record<string, object>,
     ut: {
         classes: {
             headerLogo?: string,

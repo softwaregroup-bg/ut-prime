@@ -10,12 +10,13 @@ import Context from '../Context';
 import Store from '../Store';
 import {State} from '../Store/Store.types';
 import defaultState from './state';
+import {Translate} from '../Text/Text.mock';
 export { act } from '@testing-library/react';
 
 config.disabled = true;
 window.HTMLElement.prototype.scrollIntoView = function() {};
 
-export function render(children: React.ReactNode, initialStore: State = {}) : RenderResult {
+export function render(children: React.ReactNode, initialStore: State = {}, language = undefined) : RenderResult {
     const theme = {
         ut: {
             classes: {},
@@ -26,9 +27,13 @@ export function render(children: React.ReactNode, initialStore: State = {}) : Re
         <Store state={merge({}, defaultState, initialStore)}>
             <ThemeProvider theme={theme}>
                 <Context.Provider value={{portalName: 'Administration Portal', customization: true}}>
-                    <div data-testid="ut-front-test">
+                    {language ? <Translate language={language}>
+                        <div data-testid="ut-front-test">
+                            {children}
+                        </div>
+                    </Translate> : <div data-testid="ut-front-test">
                         {children}
-                    </div>
+                    </div>}
                 </Context.Provider>
             </ThemeProvider>
         </Store>

@@ -6,6 +6,8 @@ import getType from './getType';
 import {KEY, INDEX} from '../Card/const';
 import testid from '../lib/testid';
 import {ConfigField} from '../Form/DragDrop';
+import Text from '../Text';
+
 export interface TableFilter {
     filters?: {
         [name: string]: {
@@ -389,7 +391,7 @@ export default function columnProps({
             onInspect={onInspect}
             inspected={inspected}
         >
-            <span {...testid(`${resultSetDot}${name}Title`)}>{label}</span>
+            <span {...testid(`${resultSetDot}${name}Title`)}><Text>{label}</Text></span>
         </ConfigField>,
         ...filterElement && {filterElement},
         ...body && {body},

@@ -24,5 +24,5 @@ const Template: React.FC = () =>
     </div>;
 
 export const Basic = Template.bind({});
-export const BasicRTL = Template.bind({});
-BasicRTL.args = {dir: 'rtl'};
+export const BasicAR = Template.bind({});
+BasicAR.args = {lang: 'ar', dir: 'rtl'};
