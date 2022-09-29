@@ -1,3 +1,12 @@
+## [2.21.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.21.1...v2.21.2) (2022-09-29)
+
+
+### Bug Fixes
+
+* tab params ([d969443](https://github.com/softwaregroup-bg/ut-prime/commit/d969443cd53dc3dfff18085b3b1a7a7de77d12c3))
+
+
+
 ## [2.21.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.21.0...v2.21.1) (2022-09-29)
 
 
