@@ -288,10 +288,10 @@ const Explorer: ComponentProps = ({
     }, [windowSize, formProps.design, hidden]); // eslint-disable-line react-hooks/exhaustive-deps
 
     const splitterWrapRef = React.useCallback(node => {
-        if (node === null) return;
+        if (node === null || hidden) return;
         const nodeRect = node.getBoundingClientRect();
         setSplitterHeight({flexGrow: 1, height: max(windowSize.height - nodeRect.top)});
-    }, [windowSize]);
+    }, [windowSize, hidden]);
 
     const detailsPanel = React.useMemo(() => detailsOpened && details &&
         <SplitterPanel style={height} key='details' size={10}>
