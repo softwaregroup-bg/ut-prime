@@ -100,7 +100,7 @@ export default function Select({visible, onHide, onSelect, schema, setCustomizat
             onSelectionChange={e => setSelectedKey(e.value)}
             nodeTemplate={template}
         />
-        <Button icon="pi pi-check" autoFocus disabled={!Object.keys(selectedKey).length} onClick={() => {
+        <Button label=' ' icon="pi pi-check" autoFocus disabled={!Object.keys(selectedKey).length} onClick={() => {
             onSelect(
                 Object
                     .entries(selectedKey)
@@ -110,6 +110,6 @@ export default function Select({visible, onHide, onSelect, schema, setCustomizat
             close();
         }}
         >Add</Button>
-        <Button icon="pi pi-times" onClick={close} className="p-button-text">Cancel</Button>
+        <Button label=' ' icon="pi pi-times" onClick={close} className="p-button-text">Cancel</Button>
     </Dialog>;
 }
