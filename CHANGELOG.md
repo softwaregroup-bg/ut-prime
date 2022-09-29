@@ -1,3 +1,12 @@
+## [2.21.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.21.0...v2.21.1) (2022-09-29)
+
+
+### Bug Fixes
+
+* scroll calculation improvements ([716d0d1](https://github.com/softwaregroup-bg/ut-prime/commit/716d0d17a26d8cd8645bc8123c8f8756f11f0d4f))
+
+
+
 # [2.21.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.20.0...v2.21.0) (2022-09-29)
 
 
