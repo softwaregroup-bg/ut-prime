@@ -6,10 +6,10 @@ export default function useScroll(disabled?: boolean) : [ReturnType<typeof React
     const windowSize = useWindowSize();
 
     const ref = React.useCallback(node => {
-        if (node === null) return;
+        if (node === null || disabled) return;
         const maxHeight = windowSize.height - node.getBoundingClientRect().top;
         setHeight({maxHeight: (!isNaN(maxHeight) && maxHeight > 0) ? Math.floor(maxHeight) : 0});
-    }, [windowSize]);
+    }, [windowSize, disabled]);
 
     return disabled ? [undefined, undefined] : [ref, style];
 }

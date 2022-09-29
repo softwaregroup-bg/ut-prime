@@ -15,6 +15,7 @@ const Report: ComponentProps = ({
     columns = [],
     design,
     init = {},
+    hidden,
     fetch,
     onDropdown,
     onCustomization,
@@ -52,6 +53,7 @@ const Report: ComponentProps = ({
                 layout='report'
                 resultSet={resultSet}
                 params={init}
+                hidden={hidden}
                 pageSize={20}
                 table={table}
                 onDropdown={onDropdown}

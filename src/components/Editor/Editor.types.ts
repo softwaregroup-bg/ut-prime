@@ -29,6 +29,7 @@ export interface Props {
     design?: boolean,
     toolbar?: boolean,
     noScroll?: boolean,
+    hidden?: boolean,
     value?: object,
     loading?: string,
     methods?: {

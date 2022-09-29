@@ -147,10 +147,10 @@ const Portal: ComponentProps = ({ children }) => {
             {(hideTabs)
                 ? (({Component, params}) => <Component {...params}/>)(tabs[tabIndex || 0] || {Component() { return null; }, params: undefined})
                 : <TabView activeIndex={tabIndex} onTabChange={handleTabSelect} className={classes.tabs} renderActiveOnly={false}>
-                    {tabs.map(({title, path, Component, params}) =>
+                    {tabs.map(({title, path, Component, params}, index) =>
                         <TabPanel key={path} header={<span {...testid(`portal.tab${path}`)}><Text>{title}</Text>&nbsp;&nbsp;<i className='pi pi-times vertical-align-bottom' {...testid(`portal.tab.close${path}`)}></i></span>}>
                             <ErrorBoundary FallbackComponent={ErrorFallback}>
-                                <Component {...params}/>
+                                <Component {...params} hidden={index !== tabIndex}/>
                             </ErrorBoundary>
                         </TabPanel>
                     )}

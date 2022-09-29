@@ -104,6 +104,7 @@ const Explorer: ComponentProps = ({
     customization,
     onCustomization,
     name,
+    hidden,
     layouts,
     layout: layoutName,
     cards,
@@ -278,13 +279,13 @@ const Explorer: ComponentProps = ({
     const max = maxHeight => (!isNaN(maxHeight) && maxHeight > 0) ? Math.floor(maxHeight) : 0;
 
     const tableWrapRef = React.useCallback(node => {
-        if (node === null) return;
+        if (node === null || hidden) return;
         const nodeRect = node.getBoundingClientRect();
         const paginatorHeight = node.querySelector('.p-paginator')?.getBoundingClientRect?.()?.height;
         setHeight({height: max(windowSize.height - nodeRect.top)});
         setMaxHeight({maxHeight: max(windowSize.height - nodeRect.top - paginatorHeight)});
         setInspectorHeight({maxHeight: max(windowSize.height - nodeRect.top)});
-    }, [windowSize, formProps.design]); // eslint-disable-line react-hooks/exhaustive-deps
+    }, [windowSize, formProps.design, hidden]); // eslint-disable-line react-hooks/exhaustive-deps
 
     const splitterWrapRef = React.useCallback(node => {
         if (node === null) return;

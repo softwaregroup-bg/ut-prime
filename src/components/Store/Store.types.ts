@@ -46,7 +46,7 @@ export interface State {
         tabs: {
             title: string;
             path: string;
-            Component: React.FC;
+            Component: React.FC<{hidden: boolean}>;
             params?: object
         }[];
         hideTabs?: boolean;

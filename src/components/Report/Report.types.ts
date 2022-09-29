@@ -5,6 +5,7 @@ import type { Props as ExplorerProps } from '../Explorer/Explorer.types';
 
 export interface Props {
     name: string,
+    hidden?: boolean,
     resultSet?: ExplorerProps['resultSet'],
     schema: ExplorerProps['schema'],
     params: WidgetReference[],

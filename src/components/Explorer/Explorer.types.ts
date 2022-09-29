@@ -68,6 +68,7 @@ export interface Props {
     layouts?: Layouts;
     methods?: object;
     name?: string;
+    hidden?: boolean;
     customization?: Customization,
     paramsCard?: string,
     onCustomization?: (customization: {component: {componentId: string, componentConfig: Customization}}) => Promise<object>,

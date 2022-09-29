@@ -50,7 +50,7 @@ const Editor: ComponentProps = ({
     editors,
     debug,
     noScroll,
-    type,
+    hidden,
     typeField,
     cards,
     layouts,
@@ -205,7 +205,7 @@ const Editor: ComponentProps = ({
             /> : null}
             <div className={clsx('flex', 'overflow-x-hidden', 'w-full', orientation === 'top' && 'flex-column')}>
                 {thumbIndex}
-                <ScrollBox className='flex flex-grow-1' noScroll={noScroll}>
+                <ScrollBox className='flex flex-grow-1' noScroll={noScroll || hidden}>
                     <Form
                         schema={mergedSchema}
                         debug={debug}
