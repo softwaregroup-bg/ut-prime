@@ -8,6 +8,7 @@ config.disabled = true;
 window.HTMLElement.prototype.scrollIntoView = function() {};
 
 describe('<Form />', () => {
+    jest.setTimeout(6000);
     it('Input render equals snapshot', async() => {
         const { getByTestId, container } = render(<Input {...Input.args} />);
         await act(() => Input.play({canvasElement: container}));

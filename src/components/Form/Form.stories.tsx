@@ -103,6 +103,7 @@ Input.play = async({canvasElement}) => {
     await clickWithin('input-selectTable', 'One', 'cell');
     await clickWithin('input-multiSelectPanel', 'One', 'option');
     await within(within(canvas.getByTestId('input-multiSelectTreeTable')).getByRole('row', {name: 'One'})).getAllByRole('checkbox')[0].click();
+    await new Promise((resolve, reject) => setTimeout(resolve, 1000));
 };
 
 export const InputBG: StoryTemplate = Template.bind({});

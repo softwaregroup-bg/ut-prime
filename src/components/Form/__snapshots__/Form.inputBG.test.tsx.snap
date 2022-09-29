@@ -1121,11 +1121,11 @@ exports[`<Form /> InputBG render equals snapshot 1`] = `
                                     class="p-column-title"
                                   />
                                   <div
-                                    class="p-checkbox p-component p-checkbox-focused"
+                                    class="p-checkbox p-component"
                                   >
                                     <div
                                       aria-checked="true"
-                                      class="p-checkbox-box p-component p-highlight p-focus"
+                                      class="p-checkbox-box p-component p-highlight"
                                       role="checkbox"
                                       tabindex="0"
                                     >
