@@ -1,3 +1,12 @@
+## [2.21.4](https://github.com/softwaregroup-bg/ut-prime/compare/v2.21.3...v2.21.4) (2022-09-29)
+
+
+### Bug Fixes
+
+* pass report name ([3068a94](https://github.com/softwaregroup-bg/ut-prime/commit/3068a94c2e1398bcd5951b14ec6b79add7a303e4))
+
+
+
 ## [2.21.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.21.2...v2.21.3) (2022-09-29)
 
 
