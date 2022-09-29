@@ -185,7 +185,7 @@ exports[`<Report /> render equals snapshot 1`] = `
         <button
           aria-label="design"
           class="p-button p-component p-button-icon-only"
-          data-testid="customization"
+          data-testid="testCustomization"
         >
           <span
             class="p-button-icon p-c pi pi-cog"
