@@ -1,3 +1,13 @@
+## [2.21.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.21.2...v2.21.3) (2022-09-29)
+
+
+### Bug Fixes
+
+* labels ([7e3c0fd](https://github.com/softwaregroup-bg/ut-prime/commit/7e3c0fd4e3a1658e29e79dbdeb60754c89161144))
+* scroll calculation improvements ([68152c9](https://github.com/softwaregroup-bg/ut-prime/commit/68152c9c759ca49865c290554e43ce515b3ec249))
+
+
+
 ## [2.21.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.21.1...v2.21.2) (2022-09-29)
 
 
