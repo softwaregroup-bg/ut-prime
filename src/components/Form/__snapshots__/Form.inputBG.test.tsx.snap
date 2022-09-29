@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Form /> Input render equals snapshot 1`] = `
+exports[`<Form /> InputBG render equals snapshot 1`] = `
 <div
   data-testid="ut-front-test"
 >
@@ -15,6 +15,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
     </div>
     <form
       class="grid col align-self-start form-0-2-1"
+      lang="bg"
     >
       <div
         class="col-12 xl:col-4"
@@ -42,7 +43,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-input"
                     >
-                      Input
+                      Поле
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -63,7 +64,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-password"
                     >
-                      Password
+                      Парола
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -90,7 +91,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-text"
                     >
-                      Text
+                      Текст
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -111,7 +112,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-mask"
                     >
-                      Mask
+                      Маска
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -131,7 +132,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-boolean"
                     >
-                      Boolean
+                      Флаг
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -168,7 +169,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-date"
                     >
-                      Date
+                      Дата
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -209,7 +210,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-time"
                     >
-                      Time
+                      Час
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -250,7 +251,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-datetime"
                     >
-                      Datetime
+                      Дата и час
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -291,7 +292,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-number"
                     >
-                      Number
+                      Число
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -320,7 +321,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-currency"
                     >
-                      Currency
+                      Валута
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -349,7 +350,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-integer"
                     >
-                      Integer
+                      Цяло число
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -425,7 +426,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-image"
                     >
-                      Image
+                      Изображение
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -454,7 +455,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-dropdown"
                     >
-                      Dropdown
+                      Списък
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -514,7 +515,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-dropdownTree"
                     >
-                      Dropdown Tree
+                      Списък дърво
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -564,7 +565,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-multiSelect"
                     >
-                      Multi Select
+                      Мулти избор
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -623,7 +624,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-multiSelectTree"
                     >
-                      Multi Select Tree
+                      Мулти избор дърво
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -680,7 +681,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-select"
                     >
-                      Select
+                      Избор
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -741,7 +742,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-table"
                     >
-                      Table
+                      Таблица
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -773,7 +774,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                               <span
                                 class="p-button-label p-c"
                               >
-                                Add
+                                Добавяне
                               </span>
                             </button>
                             <button
@@ -793,7 +794,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                               <span
                                 class="p-button-label p-c"
                               >
-                                Delete
+                                Изтриване
                               </span>
                             </button>
                           </div>
@@ -859,7 +860,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                         <span
                                           data-testid="input-table-nameTitle"
                                         >
-                                          Name
+                                          Име
                                         </span>
                                       </span>
                                     </div>
@@ -877,7 +878,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                         <span
                                           data-testid="input-table-valueTitle"
                                         >
-                                          Value
+                                          Стойност
                                         </span>
                                       </span>
                                     </div>
@@ -937,7 +938,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                       <span
                                         data-testid="input-table-nameTitle"
                                       >
-                                        Name
+                                        Име
                                       </span>
                                     </span>
                                     <input
@@ -959,7 +960,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                       <span
                                         data-testid="input-table-valueTitle"
                                       >
-                                        Value
+                                        Стойност
                                       </span>
                                     </span>
                                     <input
@@ -1040,7 +1041,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-selectTable"
                     >
-                      Select Table
+                      Избор таблица
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -1229,7 +1230,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-multiSelectPanel"
                     >
-                      Multi Select Panel
+                      Мулти избор панел
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -1339,7 +1340,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-multiSelectTreeTable"
                     >
-                      Multi Select Tree Table
+                      Мулти избор таблица дърво
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -1424,7 +1425,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-selectTableWithFlags"
                     >
-                      Select Table With Flags
+                      Избор таблица с флаг
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -1501,7 +1502,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                       <span
                                         data-testid="input-selectTableWithFlags-flag1Title"
                                       >
-                                        Flag1
+                                        Флаг1
                                       </span>
                                     </span>
                                   </div>
@@ -1519,7 +1520,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                       <span
                                         data-testid="input-selectTableWithFlags-flag2Title"
                                       >
-                                        Flag2
+                                        Флаг2
                                       </span>
                                     </span>
                                   </div>
@@ -1574,7 +1575,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                     <span
                                       data-testid="input-selectTableWithFlags-flag1Title"
                                     >
-                                      Flag1
+                                      Флаг1
                                     </span>
                                   </span>
                                   <div
@@ -1609,7 +1610,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                     <span
                                       data-testid="input-selectTableWithFlags-flag2Title"
                                     >
-                                      Flag2
+                                      Флаг2
                                     </span>
                                   </span>
                                   <div
@@ -1680,7 +1681,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                     <span
                                       data-testid="input-selectTableWithFlags-flag1Title"
                                     >
-                                      Flag1
+                                      Флаг1
                                     </span>
                                   </span>
                                   <div
@@ -1715,7 +1716,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                     <span
                                       data-testid="input-selectTableWithFlags-flag2Title"
                                     >
-                                      Flag2
+                                      Флаг2
                                     </span>
                                   </span>
                                   <div
@@ -1786,7 +1787,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                     <span
                                       data-testid="input-selectTableWithFlags-flag1Title"
                                     >
-                                      Flag1
+                                      Флаг1
                                     </span>
                                   </span>
                                   <div
@@ -1821,7 +1822,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                     <span
                                       data-testid="input-selectTableWithFlags-flag2Title"
                                     >
-                                      Flag2
+                                      Флаг2
                                     </span>
                                   </span>
                                   <div

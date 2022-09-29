@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Form /> Input render equals snapshot 1`] = `
+exports[`<Form /> InputAR render equals snapshot 1`] = `
 <div
   data-testid="ut-front-test"
 >
@@ -15,6 +15,8 @@ exports[`<Form /> Input render equals snapshot 1`] = `
     </div>
     <form
       class="grid col align-self-start form-0-2-1"
+      dir="rtl"
+      lang="ar"
     >
       <div
         class="col-12 xl:col-4"
@@ -42,7 +44,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-input"
                     >
-                      Input
+                      إدخال
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -63,7 +65,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-password"
                     >
-                      Password
+                      كلمة المرور
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -90,7 +92,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-text"
                     >
-                      Text
+                      نص
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -111,7 +113,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-mask"
                     >
-                      Mask
+                      قناع
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -131,7 +133,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-boolean"
                     >
-                      Boolean
+                      قيمة منطقية
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -168,7 +170,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-date"
                     >
-                      Date
+                      تاريخ
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -209,7 +211,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-time"
                     >
-                      Time
+                      زمن
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -250,7 +252,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-datetime"
                     >
-                      Datetime
+                      التاريخ و الوقت
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -291,7 +293,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-number"
                     >
-                      Number
+                      رقم
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -320,7 +322,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-currency"
                     >
-                      Currency
+                      عملة
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -349,7 +351,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-integer"
                     >
-                      Integer
+                      عدد صحيح
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -425,7 +427,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-image"
                     >
-                      Image
+                      صورة
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -454,7 +456,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-dropdown"
                     >
-                      Dropdown
+                      اسقاط
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -514,7 +516,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-dropdownTree"
                     >
-                      Dropdown Tree
+                      شجرة منسدلة
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -564,7 +566,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-multiSelect"
                     >
-                      Multi Select
+                      تحديد متعدد
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -623,7 +625,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-multiSelectTree"
                     >
-                      Multi Select Tree
+                      متعدد التحديد شجرة
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -680,7 +682,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-select"
                     >
-                      Select
+                      يختار
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -741,7 +743,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-table"
                     >
-                      Table
+                      الطاولة
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -773,7 +775,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                               <span
                                 class="p-button-label p-c"
                               >
-                                Add
+                                يضيف
                               </span>
                             </button>
                             <button
@@ -793,7 +795,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                               <span
                                 class="p-button-label p-c"
                               >
-                                Delete
+                                حذف
                               </span>
                             </button>
                           </div>
@@ -859,7 +861,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                         <span
                                           data-testid="input-table-nameTitle"
                                         >
-                                          Name
+                                          اسم
                                         </span>
                                       </span>
                                     </div>
@@ -877,7 +879,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                         <span
                                           data-testid="input-table-valueTitle"
                                         >
-                                          Value
+                                          قيمة
                                         </span>
                                       </span>
                                     </div>
@@ -937,7 +939,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                       <span
                                         data-testid="input-table-nameTitle"
                                       >
-                                        Name
+                                        اسم
                                       </span>
                                     </span>
                                     <input
@@ -959,7 +961,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                       <span
                                         data-testid="input-table-valueTitle"
                                       >
-                                        Value
+                                        قيمة
                                       </span>
                                     </span>
                                     <input
@@ -1040,7 +1042,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-selectTable"
                     >
-                      Select Table
+                      حدد الجدول
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -1229,7 +1231,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-multiSelectPanel"
                     >
-                      Multi Select Panel
+                      لوحة متعددة التحديد
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -1339,7 +1341,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-multiSelectTreeTable"
                     >
-                      Multi Select Tree Table
+                      جدول شجرة متعدد التحديد
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
@@ -1424,7 +1426,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="col-12 md:col-4"
                       for="input-selectTableWithFlags"
                     >
-                      Select Table With Flags
+                      حدد الجدول مع الأعلام
                     </label>
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
