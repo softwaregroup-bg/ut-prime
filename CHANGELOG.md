@@ -1,3 +1,12 @@
+# [2.21.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.20.0...v2.21.0) (2022-09-29)
+
+
+### Features
+
+* improve translation support ([d4a6580](https://github.com/softwaregroup-bg/ut-prime/commit/d4a6580783fa480f298a55cd720ef839ac4ef2e3))
+
+
+
 # [2.20.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.19.1...v2.20.0) (2022-09-28)
 
 
