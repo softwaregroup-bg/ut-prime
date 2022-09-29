@@ -10,6 +10,7 @@ const table: DataTableProps = {paginatorPosition: 'top'};
 const rename = prefix => param => typeof param === 'string' ? `${prefix}.${param}` : param.name ? {...param, name: `${prefix}.${param.name}`} : param;
 
 const Report: ComponentProps = ({
+    name,
     schema,
     params = [],
     columns = [],
@@ -45,6 +46,7 @@ const Report: ComponentProps = ({
     return (
         <>
             <Explorer
+                name={name}
                 fetch={fetch}
                 schema={schema}
                 cards={cards}
