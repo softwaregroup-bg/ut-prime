@@ -7,6 +7,10 @@ import Portal from './index';
 import Explorer from '../Explorer';
 import decorators from '../test/decorator';
 
+import { Tabs, Design } from '../Editor/Editor.stories';
+import {Design as ExplorerDesign} from '../Explorer/Explorer.stories';
+import {Basic as ThumbIndex} from '../ThumbIndex/ThumbIndex.stories';
+
 const meta: Meta = {
     title: 'Portal',
     component: Portal,
@@ -27,7 +31,7 @@ Basic.args = {
             tabs: [{
                 title: 'Tab 1',
                 path: '/tab1',
-                Component() {
+                Component({...props}) {
                     return (
                         <Explorer
                             fetch={() => Promise.resolve({
@@ -57,6 +61,7 @@ Basic.args = {
                             details={{
                                 name: 'Name'
                             }}
+                            {...props}
                         >
                             <div>Navigation component</div>
                         </Explorer>
@@ -65,7 +70,19 @@ Basic.args = {
             }, {
                 title: 'Tab 2',
                 path: '/tab2',
-                Component() { return <div>tab 2 body</div>; }
+                Component: ({...props}) => <Tabs {...Tabs.args} {...props}/>
+            }, {
+                title: 'Tab 3',
+                path: '/tab3',
+                Component: ({...props}) => <Design {...Design.args} {...props}/>
+            }, {
+                title: 'Tab 4',
+                path: '/tab4',
+                Component: ({...props}) => <ExplorerDesign {...ExplorerDesign.args} {...props}/>
+            }, {
+                title: 'Tab 5',
+                path: '/tab5',
+                Component: ({...props}) => <ThumbIndex {...props}/>
             }]
         }
     }

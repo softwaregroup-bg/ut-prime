@@ -155,7 +155,7 @@ const cards = {
 
 const sticky = {sticky: true};
 
-export const Basic: React.FC = () => {
+export const Basic: React.FC<{hidden?: boolean}> = ({...props}) => {
     const [filter, setFilter] = React.useState(items?.[0]?.items?.[0]);
     const [trigger, setTrigger] = React.useState<(event: object) => void>();
     const {toast, submit} = useToast(sticky);
@@ -164,8 +164,8 @@ export const Basic: React.FC = () => {
             {toast}
             <Toolbar left={<Button icon='pi pi-save' onClick={trigger} disabled={!trigger}/>}/>
             <div className='flex' style={{overflowX: 'hidden', width: '100%'}}>
-                <ThumbIndex items={items} onFilter={setFilter}/>
-                <ScrollBox className='overflow-y-auto overflow-x-hidden w-full'>
+                <ThumbIndex items={items} onFilter={setFilter} {...props}/>
+                <ScrollBox noScroll={props.hidden} className='overflow-y-auto overflow-x-hidden w-full'>
                     <Form
                         schema={schema}
                         cards={cards}
