@@ -55,7 +55,7 @@ const ThumbIndex: ComponentProps = ({ name, className, items, orientation = 'lef
     return (
         <div className={clsx('flex flex-row pb-0', {'lg:col-2': !!model?.length}, className)} {...rest}>
             {tabs}
-            {!!model?.length && <ScrollBox className='w-full overflow-y-auto' noScroll={rest.hidden}>
+            {!!model?.length && <ScrollBox className='w-full overflow-y-auto' watch={[rest.hidden]}>
                 <PanelMenu
                     className='flex-1'
                     model={model}

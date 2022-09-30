@@ -4,9 +4,12 @@ import useScroll from '../hooks/useScroll';
 
 const ScrollBox: ComponentProps = ({
     noScroll,
+    absoluteHeight,
+    watch,
+    offset,
     ...rest
 }) => {
-    const [ref, style] = useScroll(noScroll);
+    const [ref, style] = useScroll(noScroll, absoluteHeight, watch, offset);
     return <div
         {...rest}
         {...!noScroll && {ref, style}}

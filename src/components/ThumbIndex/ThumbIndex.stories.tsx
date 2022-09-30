@@ -165,7 +165,7 @@ export const Basic: React.FC<{hidden?: boolean}> = ({...props}) => {
             <Toolbar left={<Button icon='pi pi-save' onClick={trigger} disabled={!trigger}/>}/>
             <div className='flex' style={{overflowX: 'hidden', width: '100%'}}>
                 <ThumbIndex items={items} onFilter={setFilter} {...props}/>
-                <ScrollBox noScroll={props.hidden} className='overflow-y-auto overflow-x-hidden w-full'>
+                <ScrollBox watch={[props.hidden]} className='overflow-y-auto overflow-x-hidden w-full'>
                     <Form
                         schema={schema}
                         cards={cards}

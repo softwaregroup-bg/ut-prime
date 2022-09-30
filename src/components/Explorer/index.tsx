@@ -12,7 +12,6 @@ import useToggle from '../hooks/useToggle';
 import useSubmit from '../hooks/useSubmit';
 import useLayout from '../hooks/useLayout';
 import useLoad from '../hooks/useLoad';
-import useWindowSize from '../hooks/useWindowSize';
 import Editor from '../Editor';
 import Form from '../Form';
 import fieldNames from '../lib/fields';
@@ -22,6 +21,7 @@ import prepareSubmit from '../lib/prepareSubmit';
 import { ComponentProps } from './Explorer.types';
 import testid from '../lib/testid';
 import useCustomization from '../hooks/useCustomization';
+import useScroll from '../hooks/useScroll';
 
 const backgroundNone = {background: 'none'};
 const splitterWidth = { width: '200px' };
@@ -124,9 +124,10 @@ const Explorer: ComponentProps = ({
     ], [paramValues, resultSet]);
 
     const [loading, setLoading] = React.useState('');
-    const [inspectorHeight, setInspectorHeight] = React.useState<{maxHeight: number}>();
+
+    const [contentRef, contentHeight] = useScroll(false, false, [hidden]);
     const [customizationToolbar, mergedSchema, mergedCards, inspector, loadCustomization, , , , , formProps] =
-        useCustomization(designDefault, schema, cards, layouts, customization, 'view', '', Editor, inspectorHeight, onCustomization, methods, name, loading);
+        useCustomization(designDefault, schema, cards, layouts, customization, 'view', '', Editor, contentHeight, onCustomization, methods, name, loading);
     const layoutProps = layouts?.[layoutName] || {};
     const columnsCard = ('columns' in layoutProps) ? layoutProps.columns : 'browse';
     const toolbarCard = ('toolbar' in layoutProps) ? layoutProps.toolbar : 'toolbarBrowse';
@@ -271,27 +272,9 @@ const Explorer: ComponentProps = ({
         loadCustomization();
     });
 
-    const windowSize = useWindowSize();
-    const [height, setHeight] = React.useState<{height: number}>();
-    const [maxHeight, setMaxHeight] = React.useState<{maxHeight: number}>();
-    const [splitterHeight, setSplitterHeight] = React.useState({});
-
-    const max = maxHeight => (!isNaN(maxHeight) && maxHeight > 0) ? Math.floor(maxHeight) : 0;
-
-    const tableWrapRef = React.useCallback(node => {
-        if (node === null || hidden) return;
-        const nodeRect = node.getBoundingClientRect();
-        const paginatorHeight = node.querySelector('.p-paginator')?.getBoundingClientRect?.()?.height;
-        setHeight({height: max(windowSize.height - nodeRect.top)});
-        setMaxHeight({maxHeight: max(windowSize.height - nodeRect.top - paginatorHeight)});
-        setInspectorHeight({maxHeight: max(windowSize.height - nodeRect.top)});
-    }, [windowSize, formProps.design, hidden]); // eslint-disable-line react-hooks/exhaustive-deps
-
-    const splitterWrapRef = React.useCallback(node => {
-        if (node === null || hidden) return;
-        const nodeRect = node.getBoundingClientRect();
-        setSplitterHeight({flexGrow: 1, height: max(windowSize.height - nodeRect.top)});
-    }, [windowSize, hidden]);
+    const [splitterWrapRef, splitterHeight] = useScroll(false, true, [hidden, formProps.design]);
+    const [splitterInnerRef, height] = useScroll(false, true, [hidden, formProps.design]);
+    const [tableWrapRef, tableHeight] = useScroll(false, false, [hidden, formProps.design], node => -node.querySelector('.p-paginator')?.getBoundingClientRect?.()?.height);
 
     const detailsPanel = React.useMemo(() => detailsOpened && details &&
         <SplitterPanel style={height} key='details' size={10}>
@@ -419,50 +402,53 @@ const Explorer: ComponentProps = ({
         }
         return renderItem();
     }, [mergedCards, layoutState, dropdowns, methods, keyField, resultSet, cardName]);
+
     const table = (
-        <div ref={tableWrapRef} style={height}>
-            {layout?.length ? <DataView
-                layout='grid'
-                style={maxHeight}
-                lazy
-                gutter
-                rows={pageSize}
-                totalRecords={totalRecords}
-                paginator
-                first={tableFilter.first}
-                sortField={tableFilter.sortField}
-                sortOrder={tableFilter.sortOrder}
-                value={items}
-                onPage={handleFilterPageSort}
-                itemTemplate={itemTemplate}
-                {...viewProps}
-            /> : <DataTable
-                scrollable
-                scrollHeight='flex'
-                autoLayout
-                lazy
-                rows={pageSize}
-                totalRecords={totalRecords}
-                paginator
-                first={tableFilter.first}
-                sortField={tableFilter.sortField}
-                sortOrder={tableFilter.sortOrder}
-                filters={tableFilter.filters}
-                onPage={handleFilterPageSort}
-                onSort={handleFilterPageSort}
-                onFilter={handleFilterPageSort}
-                loading={!!loading}
-                dataKey={keyField}
-                value={items}
-                selection={selected}
-                filterDisplay={filterDisplay}
-                onSelectionChange={handleSelectionChange}
-                onRowSelect={handleRowSelect}
-                {...tableProps}
-            >
-                {keyField && (!tableProps?.selectionMode || tableProps?.selectionMode === 'checkbox') && <Column selectionMode="multiple" className='flex-grow-0'/>}
-                {Columns}
-            </DataTable>}
+        <div ref={splitterInnerRef}>
+            <div ref={tableWrapRef} style={height}>
+                {layout?.length ? <DataView
+                    layout='grid'
+                    style={tableHeight}
+                    lazy
+                    gutter
+                    rows={pageSize}
+                    totalRecords={totalRecords}
+                    paginator
+                    first={tableFilter.first}
+                    sortField={tableFilter.sortField}
+                    sortOrder={tableFilter.sortOrder}
+                    value={items}
+                    onPage={handleFilterPageSort}
+                    itemTemplate={itemTemplate}
+                    {...viewProps}
+                /> : <DataTable
+                    scrollable
+                    scrollHeight='flex'
+                    autoLayout
+                    lazy
+                    rows={pageSize}
+                    totalRecords={totalRecords}
+                    paginator
+                    first={tableFilter.first}
+                    sortField={tableFilter.sortField}
+                    sortOrder={tableFilter.sortOrder}
+                    filters={tableFilter.filters}
+                    onPage={handleFilterPageSort}
+                    onSort={handleFilterPageSort}
+                    onFilter={handleFilterPageSort}
+                    loading={!!loading}
+                    dataKey={keyField}
+                    value={items}
+                    selection={selected}
+                    filterDisplay={filterDisplay}
+                    onSelectionChange={handleSelectionChange}
+                    onRowSelect={handleRowSelect}
+                    {...tableProps}
+                >
+                    {keyField && (!tableProps?.selectionMode || tableProps?.selectionMode === 'checkbox') && <Column selectionMode="multiple" className='flex-grow-0'/>}
+                    {Columns}
+                </DataTable>}
+            </div>
         </div>
     );
     const nav = children && navigationOpened && <SplitterPanel style={height} key='nav' size={15}>
@@ -476,8 +462,8 @@ const Explorer: ComponentProps = ({
                     ? <Toolbar left={left} right={right} style={backgroundNone} className='border-none p-2 flex-nowrap' />
                     : null
             }
-            <div className='flex'>
-                <div className={formProps.design ? 'col-10' : 'flex-grow-1'} style={inspectorHeight}>
+            <div ref={contentRef} className='flex'>
+                <div className={formProps.design ? 'col-10' : 'flex-grow-1'} style={contentHeight}>
                     {
                         (nav || detailsPanel)
                             ? <div ref={splitterWrapRef}>

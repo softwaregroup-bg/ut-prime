@@ -6,7 +6,6 @@ exports[`<ScrollBox /> Basic render equals snapshot 1`] = `
 >
   <div
     class="col-2 p-component"
-    style="max-height: 768px;"
   >
     <h1>
       Line 01

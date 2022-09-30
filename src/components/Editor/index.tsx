@@ -82,7 +82,7 @@ const Editor: ComponentProps = ({
     const [dropdowns, setDropdown] = React.useState({});
     const [[mode, layoutState], setMode] = React.useState([id == null ? 'create' : 'edit' as 'create' | 'edit', layoutName]);
     const [loading, setLoading] = React.useState(loadingValue);
-    const [formWrapRef, maxHeight] = useScroll(noScroll || hidden);
+    const [formWrapRef, maxHeight] = useScroll(noScroll, false, [hidden]);
     const [customizationToolbar, mergedSchema, mergedCards, inspector, loadCustomization, items, orientation, thumbIndex, layout, formProps] =
         useCustomization(designDefault, schema, cards, layouts, customization, mode, layoutState, Editor, maxHeight, onCustomization, methods, name, loading);
     const {properties = empty} = mergedSchema;
