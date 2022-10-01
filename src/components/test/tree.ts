@@ -64,6 +64,26 @@ const tree: {schema: Schema, cards: Cards} = {
                                 url: {}
                             }
                         }
+                    },
+                    picture: {
+                        widget: {type: 'file'}
+                    },
+                    icon: {
+                        widget: {type: 'file'}
+                    },
+                    documents: {
+                        widget: {
+                            type: 'table',
+                            widgets: ['title', 'attachment']
+                        },
+                        items: {
+                            properties: {
+                                title: {},
+                                attachment: {
+                                    widget: {type: 'file'}
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -73,6 +93,9 @@ const tree: {schema: Schema, cards: Cards} = {
         edit: {
             label: 'Tree',
             widgets: ['tree.treeName', 'tree.treeDescription', 'tree.treeType']
+        },
+        files: {
+            widgets: ['tree.treeName', 'tree.treeDescription', 'tree.picture', 'tree.icon', 'tree.documents']
         },
         reproduction: {
             label: 'Reproduction',

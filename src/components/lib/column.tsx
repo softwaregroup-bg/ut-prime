@@ -1,5 +1,18 @@
 import React from 'react';
-import { Checkbox, Dropdown, SelectButton, RadioButton, Calendar, DateRange, InputMask, InputText, InputTextarea, InputNumber, Password } from '../prime';
+import {
+    Calendar,
+    Checkbox,
+    DateRange,
+    Dropdown,
+    FileUpload,
+    InputMask,
+    InputNumber,
+    InputText,
+    InputTextarea,
+    Password,
+    RadioButton,
+    SelectButton
+} from '../prime';
 import type { Property, PropertyEditor } from '../types';
 import titleCase from './titleCase';
 import getType from './getType';
@@ -207,6 +220,12 @@ export default function columnProps({
                     ? '*'.repeat(10)
                     : '';
             };
+            break;
+        }
+        case 'file': {
+            body = function body(rowData) {
+                return rowData[fieldName]?.map(({name}) => name).join(', ');
+            };
         }
     }
     if (compare) {
@@ -228,6 +247,16 @@ export default function columnProps({
             const inputName = `${resultSet}[${p.rowData[KEY]}].${fieldName}`;
             const inputId = `${resultSet}-${p.rowData[KEY]}-${fieldName}`;
             switch (widget?.type || type || property?.format || getType(property?.type)) {
+                case 'file':
+                    return <FileUpload
+                        onSelect={e => p.editorCallback([...e.files || []])}
+                        disabled={property?.readOnly}
+                        mode='basic'
+                        id={inputId}
+                        {...testid(inputId)}
+                        {...props}
+                        name={inputName}
+                    />;
                 case 'boolean':
                     return <Checkbox
                         checked={p.rowData[fieldName]}

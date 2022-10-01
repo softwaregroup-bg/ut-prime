@@ -112,6 +112,28 @@ Submit.play = async({canvasElement}) => {
     await userEvent.click(canvas.getByLabelText('save'));
 };
 
+export const Files: StoryTemplate = Template.bind({});
+Files.args = {
+    id: 1,
+    object: 'tree',
+    ...tree,
+    layouts: {
+        edit: ['files']
+    },
+    onDropdown: names => Promise.resolve({}),
+    onGet: params => Promise.resolve({
+        tree: {treeName: 'Oak', treeId: 1, treeType: 1}
+    })
+};
+
+Files.play = async({canvasElement}) => {
+    const canvas = within(canvasElement);
+    await canvas.findByDisplayValue('Oak'); // wait for the data to be loaded
+    await userEvent.clear(canvas.getByLabelText('Name'));
+    await userEvent.type(canvas.getByLabelText('Name'), 'test');
+    await userEvent.click(canvas.getByLabelText('save'));
+};
+
 export const Validation: StoryTemplate = Template.bind({});
 Validation.args = Basic.args;
 Validation.play = async({canvasElement}) => {

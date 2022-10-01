@@ -23,7 +23,7 @@ const flatten = (properties: Properties, editors: Editors, root = '') : Property
 
 const propertyType = property => property?.widget?.type || property?.format || getType(property?.type);
 
-const getIndex = (properties: Properties, editors: Editors) : {
+const getIndex = (properties: Properties, editors: Editors, visible: string[]) : {
     properties: PropertyEditors,
     children: {[parent: string]: string[]},
     files: string[],
@@ -41,8 +41,10 @@ const getIndex = (properties: Properties, editors: Editors) : {
             }
             return prev;
         }, {}),
-        files: Object.entries(index).map(([name, property]) => propertyType(property) === 'file' && name).filter(Boolean),
-        tables: Object.entries(index).map(([name, property]) => propertyType(property) === 'table' && name).filter(Boolean)
+        files: Object.entries(index).map(([name, property]) => propertyType(property) === 'file' && name).filter(name =>
+            visible.some(item => item === name || index[item]?.widget?.widgets?.map?.(col => item + '.' + col).includes(name))
+        ),
+        tables: Object.entries(index).map(([name, property]) => visible.includes(name) && (propertyType(property) === 'table') && name).filter(Boolean)
     };
 };
 
@@ -62,20 +64,21 @@ export default (
         return widget.startsWith('$.edit.') ? editor.properties.map(name => '$.edit.' + name) : editor.properties;
     };
     const keyFieldAction = lodashGet(schema.properties, keyField?.replace(/\./g, '.properties.'))?.action;
+    const visibleProperties = Array.from(new Set(
+        visibleCards.map(id => {
+            const nested = [].concat(id);
+            return nested.map(
+                cardName => {
+                    const card = cards[typeof cardName === 'string' ? cardName : cardName.name];
+                    return card && !card.hidden && card?.widgets?.map(widgetNames);
+                }
+            );
+        }).flat(10).filter(Boolean)
+    ));
     return {
-        index: getIndex(schema.properties, editors),
+        index: getIndex(schema.properties, editors, visibleProperties),
         visibleCards,
-        visibleProperties: Array.from(new Set(
-            visibleCards.map(id => {
-                const nested = [].concat(id);
-                return nested.map(
-                    cardName => {
-                        const card = cards[typeof cardName === 'string' ? cardName : cardName.name];
-                        return card && !card.hidden && card?.widgets?.map(widgetNames);
-                    }
-                );
-            }).flat(10).filter(Boolean)
-        )),
+        visibleProperties,
         open: keyFieldAction ? row => () => keyFieldAction({
             id: row && row[keyField],
             current: row,

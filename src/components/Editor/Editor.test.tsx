@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { render, act } from '../test';
-import { Basic, Loading, Design, Tabs, Submit, Validation, ServerValidation, Toolbar } from './Editor.stories';
+import { Basic, Loading, Design, Tabs, Submit, Files, Validation, ServerValidation, Toolbar } from './Editor.stories';
 import {CascadedDropdowns} from './stories/CascadedDropdowns.stories';
 import {CascadedTables} from './stories/CascadedTables.stories';
 import {CustomEditors} from './stories/CustomEditors.stories';
@@ -94,6 +94,11 @@ describe('<Editor />', () => {
     });
     it('Toolbar render equals snapshot', async() => {
         const { findByTestId } = render(<Toolbar {...Toolbar.args} />);
+        expect(await findByTestId('ut-front-test')).toMatchSnapshot();
+    });
+    it('Files render equals snapshot', async() => {
+        const { findByTestId, container } = render(<Files {...Files.args} />);
+        await act(() => Files.play({canvasElement: container}));
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
 });

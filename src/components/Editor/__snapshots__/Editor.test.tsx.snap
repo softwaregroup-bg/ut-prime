@@ -5,7 +5,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="p-toast p-component p-toast-top-right"
+    class="p-toast p-component p-toast-top-right w-auto"
   >
     <div />
   </div>
@@ -2431,7 +2431,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="p-toast p-component p-toast-top-right"
+    class="p-toast p-component p-toast-top-right w-auto"
   >
     <div />
   </div>
@@ -3589,12 +3589,478 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
 </div>
 `;
 
+exports[`<Editor /> Files render equals snapshot 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  <div
+    class="p-toast p-component p-toast-top-right w-auto"
+    style="z-index: 1202;"
+  >
+    <div>
+      <div
+        aria-atomic="true"
+        aria-live="assertive"
+        class="p-toast-message p-toast-message-success p-toast-message-enter-done"
+        role="alert"
+      >
+        <div
+          class="p-toast-message-content"
+        >
+          <span
+            class="p-toast-message-icon pi pi-check"
+          />
+          <div
+            class="p-toast-message-text"
+          >
+            <span
+              class="p-toast-summary"
+            >
+              Submit
+            </span>
+            <div
+              class="p-toast-detail"
+            >
+              <pre>
+                {
+  "formData": [
+    [
+      "$",
+      "{\\"tree\\":{\\"treeName\\":\\"test\\"}}"
+    ]
+  ]
+}
+              </pre>
+            </div>
+          </div>
+          <button
+            class="p-toast-icon-close p-link"
+            type="button"
+          >
+            <span
+              class="p-toast-icon-close-icon pi pi-times"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="p-toolbar p-component border-none border-bottom-1 border-50 p-2"
+    role="toolbar"
+    style="background: none;"
+  >
+    <div
+      class="p-toolbar-group-left"
+    >
+      <button
+        aria-label="save"
+        class="p-button p-component mr-2 p-button-icon-only p-disabled"
+        data-testid="saveButton"
+        disabled=""
+      >
+        <span
+          class="p-button-icon p-c pi pi-save"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
+      <button
+        aria-label="reset"
+        class="p-button p-component mr-2 p-button-icon-only p-disabled"
+        data-testid="resetButton"
+        disabled=""
+      >
+        <span
+          class="p-button-icon p-c pi pi-replay"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
+      <div />
+    </div>
+    <div
+      class="p-toolbar-group-right"
+    >
+      <button
+        aria-label="design"
+        class="p-button p-component p-button-icon-only"
+        data-testid="customization"
+      >
+        <span
+          class="p-button-icon p-c pi pi-cog"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="flex overflow-x-hidden w-full"
+  >
+    <div
+      class="flex flex-grow-1"
+      style="max-height: 768px;"
+    >
+      <div
+        class="p-toast p-component p-toast-top-right"
+      >
+        <div />
+      </div>
+      <form
+        class="grid col align-self-start form-0-2-1"
+      >
+        <div
+          class="col-12 xl:col-6"
+        >
+          <div
+            class="w-full"
+          >
+            <div
+              class="p-card p-component card card-0-2-2"
+              id="files"
+            >
+              <div
+                class="p-card-body"
+              >
+                <div
+                  class="p-card-content"
+                >
+                  <div
+                    class=""
+                  >
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-treeName"
+                      >
+                        Name
+                      </label>
+                      <div
+                        class="flex align-items-center relative col-12 md:col-8"
+                      >
+                        <input
+                          class="p-inputtext p-component p-filled w-full"
+                          id="tree-treeName"
+                          name="tree.treeName"
+                          type="text"
+                          value="test"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-treeDescription"
+                      >
+                        Description
+                      </label>
+                      <div
+                        class="flex align-items-center relative col-12 md:col-8"
+                      >
+                        <textarea
+                          class="p-inputtextarea p-inputtext p-component w-full"
+                          id="tree-treeDescription"
+                          name="tree.treeDescription"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-picture"
+                      >
+                        Picture
+                      </label>
+                      <div
+                        class="flex align-items-center relative col-12 md:col-8"
+                      >
+                        <div
+                          class="p-fileupload p-fileupload-basic p-component w-full"
+                        >
+                          <div>
+                            <div />
+                          </div>
+                          <span
+                            class="p-button p-component p-fileupload-choose"
+                            tabindex="0"
+                          >
+                            <span
+                              class="p-button-icon p-button-icon-left pi pi-plus"
+                            />
+                            <span
+                              class="p-button-label p-clickable"
+                            >
+                              <span
+                                class="p-button-label p-clickable"
+                              >
+                                Choose
+                              </span>
+                            </span>
+                            <input
+                              type="file"
+                            />
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-icon"
+                      >
+                        Icon
+                      </label>
+                      <div
+                        class="flex align-items-center relative col-12 md:col-8"
+                      >
+                        <div
+                          class="p-fileupload p-fileupload-basic p-component w-full"
+                        >
+                          <div>
+                            <div />
+                          </div>
+                          <span
+                            class="p-button p-component p-fileupload-choose"
+                            tabindex="0"
+                          >
+                            <span
+                              class="p-button-icon p-button-icon-left pi pi-plus"
+                            />
+                            <span
+                              class="p-button-label p-clickable"
+                            >
+                              <span
+                                class="p-button-label p-clickable"
+                              >
+                                Choose
+                              </span>
+                            </span>
+                            <input
+                              type="file"
+                            />
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="field grid mb-0"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-documents"
+                      >
+                        Documents
+                      </label>
+                      <div
+                        class="flex align-items-center relative col-12 md:col-8"
+                      >
+                        <div
+                          class="w-full"
+                        >
+                          <div
+                            class="p-toolbar p-component p-0 border-none"
+                            role="toolbar"
+                            style="background: none;"
+                          >
+                            <div
+                              class="p-toolbar-group-left"
+                            >
+                              <button
+                                aria-label="Add"
+                                class="p-button p-component p-button mr-2"
+                                data-testid="tree-documents-addButton"
+                              >
+                                <span
+                                  class="p-button-icon p-c p-button-icon-left pi pi-plus"
+                                />
+                                <span
+                                  class="p-button-label p-c"
+                                >
+                                   
+                                </span>
+                                <span
+                                  class="p-button-label p-c"
+                                >
+                                  Add
+                                </span>
+                              </button>
+                              <button
+                                aria-label="Delete"
+                                class="p-button p-component p-button p-disabled"
+                                data-testid="tree-documents-deleteButton"
+                                disabled=""
+                              >
+                                <span
+                                  class="p-button-icon p-c p-button-icon-left pi pi-trash"
+                                />
+                                <span
+                                  class="p-button-label p-c"
+                                >
+                                   
+                                </span>
+                                <span
+                                  class="p-button-label p-c"
+                                >
+                                  Delete
+                                </span>
+                              </button>
+                            </div>
+                            <div
+                              class="p-toolbar-group-right"
+                            />
+                          </div>
+                          <div
+                            class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                            data-scrollselectors=".p-datatable-wrapper"
+                            data-testid="tree-documents"
+                            id="tree-documents"
+                            pr_id_21=""
+                          >
+                            <div
+                              class="p-datatable-wrapper"
+                            >
+                              <table
+                                class="p-datatable-table"
+                                role="table"
+                              >
+                                <thead
+                                  class="p-datatable-thead"
+                                >
+                                  <tr
+                                    role="row"
+                                  >
+                                    <th
+                                      class="p-selection-column"
+                                      role="columnheader"
+                                    >
+                                      <div
+                                        class="p-column-header-content"
+                                      >
+                                        <span
+                                          class="p-column-title"
+                                        />
+                                        <div
+                                          class="p-checkbox p-component"
+                                        >
+                                          <div
+                                            class="p-checkbox-box p-component p-disabled"
+                                            role="checkbox"
+                                          >
+                                            <span
+                                              class="p-checkbox-icon"
+                                            />
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </th>
+                                    <th
+                                      class=""
+                                      role="columnheader"
+                                    >
+                                      <div
+                                        class="p-column-header-content"
+                                      >
+                                        <span
+                                          class="p-column-title"
+                                        >
+                                          <span
+                                            data-testid="tree-documents-titleTitle"
+                                          >
+                                            Title
+                                          </span>
+                                        </span>
+                                      </div>
+                                    </th>
+                                    <th
+                                      class=""
+                                      role="columnheader"
+                                    >
+                                      <div
+                                        class="p-column-header-content"
+                                      >
+                                        <span
+                                          class="p-column-title"
+                                        >
+                                          <span
+                                            data-testid="tree-documents-attachmentTitle"
+                                          >
+                                            Attachment
+                                          </span>
+                                        </span>
+                                      </div>
+                                    </th>
+                                    <th
+                                      class=""
+                                      role="columnheader"
+                                      style="width: 7rem;"
+                                    >
+                                      <div
+                                        class="p-column-header-content"
+                                      >
+                                        <span
+                                          class="p-column-title"
+                                        />
+                                      </div>
+                                    </th>
+                                  </tr>
+                                </thead>
+                                <tbody
+                                  class="p-datatable-tbody"
+                                >
+                                  <tr
+                                    class="p-datatable-emptymessage"
+                                    role="row"
+                                  >
+                                    <td
+                                      colspan="4"
+                                      role="cell"
+                                    >
+                                      No results found
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`<Editor /> Loading render equals snapshot 1`] = `
 <div
   data-testid="ut-front-test"
 >
   <div
-    class="p-toast p-component p-toast-top-right"
+    class="p-toast p-component p-toast-top-right w-auto"
   >
     <div />
   </div>
@@ -7412,7 +7878,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="p-toast p-component p-toast-top-right"
+    class="p-toast p-component p-toast-top-right w-auto"
   >
     <div />
   </div>
@@ -8197,7 +8663,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="p-toast p-component p-toast-top-right"
+    class="p-toast p-component p-toast-top-right w-auto"
     style="z-index: 1201;"
   >
     <div>
@@ -9431,7 +9897,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="p-toast p-component p-toast-top-right"
+    class="p-toast p-component p-toast-top-right w-auto"
   >
     <div />
   </div>
@@ -10348,7 +10814,7 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="p-toast p-component p-toast-top-right"
+    class="p-toast p-component p-toast-top-right w-auto"
   >
     <div />
   </div>
@@ -11144,7 +11610,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="p-toast p-component p-toast-top-right"
+    class="p-toast p-component p-toast-top-right w-auto"
   >
     <div />
   </div>

@@ -1180,6 +1180,7 @@ exports[`<App /> Register equals snapshot 1`] = `
   >
     <button
       class="p-button p-component mr-2"
+      data-testid="register"
       id="/register"
       type="button"
     >
@@ -1293,6 +1294,7 @@ exports[`<App /> RegisterAR equals snapshot 1`] = `
   >
     <button
       class="p-button p-component mr-2"
+      data-testid="register"
       id="/register"
       type="button"
     >
@@ -1406,6 +1408,7 @@ exports[`<App /> RegisterBG equals snapshot 1`] = `
   >
     <button
       class="p-button p-component mr-2"
+      data-testid="register"
       id="/register"
       type="button"
     >

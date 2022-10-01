@@ -286,7 +286,7 @@ const Login: ComponentProps = ({
                 <div className={clsx(loginLogo, loginPageFooter, ut?.classes?.loginBottom)} />
             </div>
             <div className='fixed m-2 right-0'>
-                {register ? <Button type='button' onClick={() => history.push('/register')} className="mr-2" id='/register'>Register</Button> : null}
+                {register ? <Button type='button' data-testid='register' onClick={() => history.push('/register')} className="mr-2" id='/register'>Register</Button> : null}
                 {Switch ? <Switch /> : null}
             </div>
         </>

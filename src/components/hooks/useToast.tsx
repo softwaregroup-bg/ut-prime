@@ -8,13 +8,13 @@ export default function useToast(props) {
         toast.current.show({
             severity: 'success',
             summary: 'Submit',
-            detail: <pre>{JSON.stringify(formData, null, 2)}</pre>,
+            detail: <pre>{JSON.stringify(formData, (key, value) => (key === 'formData' && value?.values) ? Array.from(value.entries()) : value, 2)}</pre>,
             ...props
         });
         return formData;
     }, [toast, props]);
     return {
-        toast: <Toast ref={toast}/>,
+        toast: <Toast ref={toast} className='w-auto'/>,
         submit
     };
 }
