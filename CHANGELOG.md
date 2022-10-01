@@ -1,3 +1,12 @@
+# [2.22.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.21.4...v2.22.0) (2022-10-01)
+
+
+### Features
+
+* file column ([de4afed](https://github.com/softwaregroup-bg/ut-prime/commit/de4afedf995b25284749e5d3025faf8d09034b7a))
+
+
+
 ## [2.21.4](https://github.com/softwaregroup-bg/ut-prime/compare/v2.21.3...v2.21.4) (2022-09-29)
 
 
