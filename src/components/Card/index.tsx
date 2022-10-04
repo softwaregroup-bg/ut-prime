@@ -135,6 +135,7 @@ const Card: ComponentProps = ({
             parentWatch,
             loading,
             getValues,
+            setValue,
             counter,
             methods,
             submit,

@@ -32,6 +32,7 @@ export interface PropertyEditor {
         'multiSelectTree' |
         'multiSelectTreeTable' |
         'number' |
+        'ocr' |
         'password' |
         'radio' |
         'select-table-radio' |

@@ -6,6 +6,7 @@ import page from './README.mdx';
 import Editor from './index';
 import type { Props } from './Editor.types';
 import tree from '../test/tree';
+import document from '../test/document';
 import decorators from '../test/decorator';
 import useToast from '../hooks/useToast';
 
@@ -132,6 +133,15 @@ Files.play = async({canvasElement}) => {
     await userEvent.clear(canvas.getByLabelText('Name'));
     await userEvent.type(canvas.getByLabelText('Name'), 'test');
     await userEvent.click(canvas.getByLabelText('save'));
+};
+
+export const MRZ: StoryTemplate = Template.bind({});
+MRZ.args = {
+    id: 1,
+    object: 'document',
+    ...document,
+    onDropdown: names => Promise.resolve({}),
+    onGet: params => Promise.resolve({})
 };
 
 export const Validation: StoryTemplate = Template.bind({});

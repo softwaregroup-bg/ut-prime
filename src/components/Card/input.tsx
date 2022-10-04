@@ -28,6 +28,7 @@ import {PropertyEditor} from '../types';
 import getType from '../lib/getType';
 import testid from '../lib/testid';
 import Table from './inputs/Table';
+import Ocr from './inputs/Ocr';
 import ActionButton from '../ActionButton';
 import SubmitButton from '../SubmitButton';
 
@@ -74,6 +75,7 @@ export default function input(
     parentValue,
     loading: string,
     getValues: (name: string) => unknown,
+    setValue: (name: string, value: unknown) => void,
     counter,
     methods,
     submit,
@@ -438,6 +440,20 @@ export default function input(
                         onChange?.([...e.files || []]);
                     }}
                     mode='basic'
+                    {...props}
+                />
+            </Field>;
+        }
+        case 'ocr': {
+            const onChange = field.onChange;
+            delete field.onChange;
+            return <Field {...{label, error, inputClass}}>
+                <Ocr
+                    {...field}
+                    setValue={setValue}
+                    onSelect={e => {
+                        onChange?.([...e.files || []]);
+                    }}
                     {...props}
                 />
             </Field>;

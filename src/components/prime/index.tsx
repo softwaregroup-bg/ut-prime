@@ -3,6 +3,7 @@ import { Calendar } from 'primereact/calendar';
 import { Card as PrimeCard, type CardProps } from 'primereact/card';
 import type { DataTableProps } from 'primereact/datatable';
 import type { DataViewProps } from 'primereact/dataview';
+import type { FileUploadProps } from 'primereact/fileupload';
 import { DataTable as PrimeDataTable } from 'primereact/datatable';
 import React from 'react';
 import Text from '../Text';
@@ -28,6 +29,7 @@ export { ListBox } from 'primereact/listbox';
 export { Menubar } from 'primereact/menubar';
 export { PanelMenu } from 'primereact/panelmenu';
 export { Password } from 'primereact/password';
+export { ProgressBar } from 'primereact/progressbar';
 export { ProgressSpinner } from 'primereact/progressspinner';
 export { RadioButton } from 'primereact/radiobutton';
 export { Ripple } from 'primereact/ripple';
@@ -44,6 +46,7 @@ export { TreeTable } from 'primereact/treetable';
 export { MultiSelect } from './multiselect/MultiSelect';
 export type { DataTableProps };
 export type { DataViewProps };
+export type { FileUploadProps };
 
 function dateRange(timeOnly) {
     const today = timeOnly ? new Date(0) : new Date();
