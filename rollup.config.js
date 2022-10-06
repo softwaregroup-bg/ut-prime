@@ -28,7 +28,8 @@ function build() {
             copy({
                 targets: [
                     { src: 'src/components/prime/multiselect/*.css', dest: 'core/prime/multiselect' },
-                    { src: 'src/components/Theme/*.ttf', dest: 'core/Theme' }
+                    { src: 'src/components/Theme/*.ttf', dest: 'core/Theme' },
+                    { src: 'src/components/Card/inputs/*.gz', dest: 'core/Card/inputs' }
                 ]
             })
         ]

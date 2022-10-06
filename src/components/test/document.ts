@@ -10,6 +10,7 @@ const document: {schema: Schema, cards: Cards} = {
                         widget: {
                             type: 'ocr',
                             ocr: {
+                                language: 'mrz',
                                 update: 'document.text',
                                 match: '^.*<.*$',
                                 flags: 'mg'

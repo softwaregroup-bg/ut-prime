@@ -84,8 +84,11 @@
     "react-to-print": "2.13.0",
     "redux": "^4.2.0",
     "redux-devtools-extension": "^2.13.9",
-    "redux-thunk": "^2.4.1",
-    "tesseract.js": "^3.0.3"
+    "redux-thunk": "^2.4.1"
+  },
+  "dependencies": {
+    "tesseract.js": "^3.0.3",
+    "tesseract.js-core": "^3.0.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.10",
