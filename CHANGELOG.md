@@ -1,3 +1,17 @@
+# [2.23.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.23.0-ocr.0...v2.23.0) (2022-10-06)
+
+
+### Bug Fixes
+
+* peer deps ([d368014](https://github.com/softwaregroup-bg/ut-prime/commit/d3680141dda2b9e044522f9ab65c7ebd0b4929ed))
+
+
+### Features
+
+* bundle tesseract and data ([72e73eb](https://github.com/softwaregroup-bg/ut-prime/commit/72e73ebc2c414b4a76486400e5e3237959960297))
+
+
+
 # [2.22.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.21.4...v2.22.0) (2022-10-01)
 
 
