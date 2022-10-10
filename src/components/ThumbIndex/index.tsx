@@ -11,13 +11,13 @@ const ThumbIndex: ComponentProps = ({ name, className, items, orientation = 'lef
     const handleListChange = React.useCallback(({value, index}) => {
         if (index === undefined) index = value.index;
         setList([value, index]);
-        onFilter(value?.items?.[0] || value);
+        onFilter([value?.items?.[0] || value, index]);
     }, [onFilter]);
     const model = React.useMemo(() => {
-        const command = ({item}) => onFilter && onFilter(item);
+        const command = index => ({item}) => onFilter && onFilter([item, index]);
         const result = (selectedList?.items || []).map((item, index) => ({
             ...item,
-            command,
+            command: command(index),
             expanded: !index,
             items: (item.items || []).map(leaf => ({...leaf, expanded: false}))
         }));

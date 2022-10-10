@@ -67,6 +67,8 @@ export default function useCustomization(
         () => getLayout(mergedCards, mergedLayouts, mode, layoutState),
         [mergedCards, mergedLayouts, mode, layoutState]
     );
+    const [[filter, filterIndex], setFilter] = React.useState([items?.[0]?.items?.[0] || items?.[0], 0]);
+    const moveLayout = layout || filter?.widgets;
 
     const move = React.useCallback((type: 'card' | 'field', source, destination) => {
         if (type === 'field') {
@@ -96,7 +98,7 @@ export default function useCustomization(
                 });
             }
         } else if (type === 'card') {
-            const newLayout = layout.map(item => Array.isArray(item) ? [...item] : item);
+            const newLayout = moveLayout.map(item => Array.isArray(item) ? [...item] : item);
             let [
                 destinationList,
                 destinationIndex
@@ -129,25 +131,33 @@ export default function useCustomization(
                 true
             ];
             if (Array.isArray(sourceList) && Array.isArray(destinationList)) {
+                const removed = sourceList.splice(sourceIndex, 1)[0];
+                if (sourceList.length === 1 && sourceNested && sourceList !== destinationList) newLayout[source.index[0]] = sourceList[0];
+                destinationList.splice(destinationIndex, 0, removed);
+                const updateLayout = layout ? newLayout : {
+                    ...mergedLayouts[currentLayoutName],
+                    items: mergedLayouts[currentLayoutName]?.items.map((item, index) => index === filterIndex ? {
+                        ...item,
+                        widgets: newLayout
+                    } : item)
+                };
+                if (!layout) setFilter([updateLayout.items?.[filterIndex], filterIndex]);
                 setCustomization(prev => {
-                    const removed = sourceList.splice(sourceIndex, 1)[0];
-                    if (sourceList.length === 1 && sourceNested && sourceList !== destinationList) newLayout[source.index[0]] = sourceList[0];
-                    destinationList.splice(destinationIndex, 0, removed);
                     return {
                         ...prev,
                         layout: {
                             ...prev.layout,
-                            [currentLayoutName]: newLayout
+                            [currentLayoutName]: updateLayout
                         }
                     };
                 });
             }
         }
-    }, [cards, layout, currentLayoutName]);
+    }, [cards, layout, moveLayout, currentLayoutName, mergedLayouts, filterIndex]);
 
     const remove = React.useCallback((type, source) => {
         if (type === 'card') {
-            const newLayout = layout.map(item => Array.isArray(item) ? [...item] : item);
+            const newLayout = moveLayout.map(item => Array.isArray(item) ? [...item] : item);
             const [
                 sourceList,
                 sourceIndex,
@@ -165,11 +175,19 @@ export default function useCustomization(
                 setCustomization(prev => {
                     sourceList.splice(sourceIndex, 1);
                     if (sourceList.length === 1 && sourceNested) newLayout[source.index[0]] = sourceList[0];
+                    const updateLayout = layout ? newLayout : {
+                        ...mergedLayouts[currentLayoutName],
+                        items: mergedLayouts[currentLayoutName]?.items.map((item, index) => index === filterIndex ? {
+                            ...item,
+                            widgets: newLayout
+                        } : item)
+                    };
+                    if (!layout) setFilter([updateLayout.items?.[filterIndex], filterIndex]);
                     return {
                         ...prev,
                         layout: {
                             ...prev.layout,
-                            [currentLayoutName]: newLayout
+                            [currentLayoutName]: updateLayout
                         }
                     };
                 });
@@ -192,7 +210,7 @@ export default function useCustomization(
                 });
             }
         }
-    }, [layout, currentLayoutName, mergedCards]);
+    }, [moveLayout, layout, mergedLayouts, currentLayoutName, filterIndex, mergedCards]);
 
     const selectField = design ? <SelectField
         schema={mergedSchema}
@@ -223,13 +241,21 @@ export default function useCustomization(
         onHide={() => setAddCard(null)}
         onSelect={item => {
             const {destinationList, destinationIndex, newLayout, currentLayoutName} = addCard;
+            destinationList.splice(destinationIndex, 0, item);
+            const updateLayout = layout ? newLayout : {
+                ...mergedLayouts[currentLayoutName],
+                items: mergedLayouts[currentLayoutName]?.items.map((item, index) => index === filterIndex ? {
+                    ...item,
+                    widgets: newLayout
+                } : item)
+            };
+            if (!layout) setFilter([updateLayout.items?.[filterIndex], filterIndex]);
             setCustomization(prev => {
-                destinationList.splice(destinationIndex, 0, item);
                 return {
                     ...prev,
                     layout: {
                         ...prev.layout,
-                        [currentLayoutName]: newLayout
+                        [currentLayoutName]: updateLayout
                     }
                 };
             });
@@ -315,7 +341,6 @@ export default function useCustomization(
         customizationResult?.component && setCustomization({schema: {}, card: {}, layout: {}, ...(customizationResult.component as {componentConfig?:object}).componentConfig});
     };
 
-    const [filter, setFilter] = React.useState(items?.[0]?.items?.[0] || items?.[0]);
     const thumbIndex = items && <ThumbIndex name={name} items={items} orientation={orientation} onFilter={setFilter}/>;
 
     return [
