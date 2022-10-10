@@ -18,6 +18,7 @@ const Report: ComponentProps = ({
     init = {},
     hidden,
     fetch,
+    methods,
     onDropdown,
     onCustomization,
     resultSet = 'result'
@@ -58,6 +59,7 @@ const Report: ComponentProps = ({
                 hidden={hidden}
                 pageSize={20}
                 table={table}
+                methods={methods}
                 onDropdown={onDropdown}
                 onCustomization={onCustomization}
             />

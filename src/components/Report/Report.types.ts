@@ -12,6 +12,7 @@ export interface Props {
     init?: Record<string, unknown>,
     columns: WidgetReference[],
     design?: ExplorerProps['design'],
+    methods?: object;
     onDropdown: ExplorerProps['onDropdown'],
     onCustomization?: ExplorerProps['onCustomization'],
     fetch: ExplorerProps['fetch'];
