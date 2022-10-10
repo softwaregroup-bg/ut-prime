@@ -1,3 +1,17 @@
+## [2.23.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.23.0...v2.23.1) (2022-10-10)
+
+
+### Bug Fixes
+
+* column customization ([0029f42](https://github.com/softwaregroup-bg/ut-prime/commit/0029f42830e0b626d49c913a03be2674bcabf5fb))
+* editor customization name ([7a69189](https://github.com/softwaregroup-bg/ut-prime/commit/7a69189a261c520191cd8c7ae5f43d99e7c45a9e))
+* optimze hooks ([029c647](https://github.com/softwaregroup-bg/ut-prime/commit/029c64797b368cf2a5a1a261dcfe4afbd9eb042d))
+* **Report:** enable customization save ([923f045](https://github.com/softwaregroup-bg/ut-prime/commit/923f045c0bc179c86141531ab3a381b4b90e3fd4))
+* tabbed form customization ([f947090](https://github.com/softwaregroup-bg/ut-prime/commit/f947090b974a25c96c7eb1ca07f9d5fa508fa303))
+* tabbed form edit ([54b1ef7](https://github.com/softwaregroup-bg/ut-prime/commit/54b1ef791ec4897236dcf9083d84e4d7d81989bd))
+
+
+
 # [2.23.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.23.0-ocr.0...v2.23.0) (2022-10-06)
 
 
