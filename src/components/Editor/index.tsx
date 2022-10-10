@@ -86,9 +86,10 @@ const Editor: ComponentProps = ({
         useCustomization(designDefault, schema, cards, layouts, customization, mode, layoutState, Editor, undefined, onCustomization, methods, name, loading);
     const {properties = empty} = mergedSchema;
 
+    const layoutItems = items ? false : layout; // preserve memoization
     const [validation, dropdownNames, getValue] = React.useMemo(() => {
         const indexCards = items && items.map(item => [item.widgets, item?.items?.map(item => item.widgets)]).flat(2).filter(Boolean);
-        const {fields, validation, dropdownNames} = fieldNames(indexCards || layout || [], mergedCards, mergedSchema, editors);
+        const {fields, validation, dropdownNames} = fieldNames(indexCards || layoutItems || [], mergedCards, mergedSchema, editors);
         const getValue = (value) => {
             const editValue = {};
             fields.forEach(field => {
@@ -98,7 +99,7 @@ const Editor: ComponentProps = ({
             return editValue;
         };
         return [validation, dropdownNames, getValue];
-    }, [mergedCards, editors, items, layout, mergedSchema]);
+    }, [mergedCards, editors, items, layoutItems, mergedSchema]);
 
     async function get() {
         setLoading(loadingValue);
