@@ -6,7 +6,8 @@ export interface Props {
     className?: string;
     object: object;
     property: string | string[];
-    type: 'field' | 'card';
+    where: 'schema' | 'card';
+    type: 'field' | 'card' | 'column';
     onChange?: (params: object) => void
 }
 

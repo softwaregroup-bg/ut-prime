@@ -283,6 +283,7 @@ export default function useCustomization(
                 object={inspected.type === 'card' ? mergedCards : mergedSchema}
                 property={inspected.type === 'card' ? inspected.name : `properties.${inspected.name.split('.').join('.properties.')}`}
                 type={inspected.type}
+                where={inspected.where}
             /> : null }
         </div>
     </>;

@@ -20,7 +20,7 @@ type CardMonitor = DropTargetMonitor<{
 const highlight = <label className='absolute border-1 border-dashed top-0 bottom-0 left-0 right-0 mb-0' style={{borderColor: 'var(--primary-color)'}}>&nbsp;</label>;
 const highlightCard = <label className='absolute border-1 border-dashed top-0 bottom-0 left-0 right-0 -m-1' style={{borderColor: 'var(--primary-color)'}}>&nbsp;</label>;
 
-export function DragDropField({relative, children, name, index, card, move, label, onInspect, inspected, ...props}) {
+export function DragDropField({relative, children, name, index, card, move, label, onInspect, inspected, type, ...props}) {
     let labelProps;
     let isDragging = false;
     const [collected, dragField] = useDrag(
@@ -41,7 +41,7 @@ export function DragDropField({relative, children, name, index, card, move, labe
                 onClick: event => {
                     event.preventDefault();
                     event.stopPropagation();
-                    onInspect?.({type: 'schema', name});
+                    onInspect?.({where: 'schema', type, name});
                 }
             },
             ref: dragField
@@ -73,7 +73,7 @@ export function DragDropField({relative, children, name, index, card, move, labe
     return (
         <div {...props}>
             {children}
-            {(inspected?.type === 'schema' && inspected?.name === name && !collected.dragItem) ? highlight : null}
+            {(['field', 'column'].includes(inspected?.type) && inspected?.name === name && !collected.dragItem) ? highlight : null}
             {name === 'trash' ? null : <label className='absolute border-1 border-solid border-transparent top-0 bottom-0 left-0 right-0 cursor-move mb-0' {...labelProps}>&nbsp;</label>}
         </div>
     );
@@ -155,9 +155,9 @@ export function DragDropCard({children, card, index1, index2, move, flex, hidden
     );
 }
 
-export function ConfigField({relative = true, design, children = null, name, index, card = '', label, move = null, onInspect = null, inspected = null, ...props}) {
+export function ConfigField({relative = true, design, children = null, name, index, card = '', label, move = null, onInspect = null, inspected = null, type = null, ...props}) {
     return (
-        design ? <DragDropField {...{relative, name, index, card, move, label, onInspect, inspected, ...props}}>
+        design ? <DragDropField {...{relative, name, index, card, move, label, onInspect, inspected, type, ...props}}>
             {children}
         </DragDropField> : props.className ? <div {...props}>
             {children}

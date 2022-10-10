@@ -1,11 +1,13 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
-import {Toast} from '../prime';
 import Joi from 'joi';
 
 import page from './README.mdx';
 import Report from './index';
+import type { Props } from './Report.types';
+
 import decorators from '../test/decorator';
+import useToast from '../hooks/useToast';
 
 const meta: Meta = {
     title: 'Report',
@@ -18,15 +20,12 @@ const meta: Meta = {
 };
 export default meta;
 
-const Template: Story = props => {
-    const toast = React.useRef(null);
-    const show = action => data => toast.current.show({
-        severity: 'success',
-        summary: 'Submit',
-        detail: <pre>{JSON.stringify({action, data}, null, 2)}</pre>
-    });
+const sticky = {sticky: true};
+
+const Template: Story<Props> = props => {
+    const {toast, submit} = useToast(sticky);
     return <>
-        <Toast ref={toast} />
+        {toast}
         <Report
             name='test'
             schema={{
@@ -69,7 +68,7 @@ const Template: Story = props => {
             params={['name', 'startDate', 'endDate']}
             columns={['name', 'date']}
             onDropdown={names => Promise.resolve({})}
-            onCustomization={show('customization')}
+            onCustomization={submit}
             fetch={({result: {name}} : {result?: Record<string, unknown>}) => new Promise((resolve, reject) =>
                 setTimeout(() => resolve({
                     result: [

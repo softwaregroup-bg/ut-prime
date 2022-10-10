@@ -60,6 +60,9 @@ export interface PropertyEditor {
     widgets?: string[],
     dataKey?: string,
     change?: Record<string, unknown>,
+    className?: string,
+    fieldClass?: string,
+    labelClass?: string,
     [editorProperties: string]: unknown
 }
 

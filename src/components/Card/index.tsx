@@ -227,6 +227,7 @@ const Card: ComponentProps = ({
             name={name}
             inspected={inspected}
             onInspect={onInspect}
+            type='field'
             label={property?.title}
         >
             {Field()}

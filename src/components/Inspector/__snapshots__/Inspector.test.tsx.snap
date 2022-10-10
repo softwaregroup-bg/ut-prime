@@ -37,7 +37,7 @@ exports[`<Inspector /> Basic render equals snapshot 1`] = `
                   <div
                     class="p-card-title"
                   >
-                    Field
+                    Input
                   </div>
                   <div
                     class="p-card-content"
@@ -63,107 +63,6 @@ exports[`<Inspector /> Basic render equals snapshot 1`] = `
                             name="title"
                             value=""
                           />
-                        </div>
-                      </div>
-                      <div
-                        class="field grid"
-                      >
-                        <label
-                          class="col-12 md:col-3"
-                          for="body"
-                        >
-                          Body
-                        </label>
-                        <div
-                          class="flex align-items-center relative col-12 md:col-9"
-                        >
-                          <input
-                            class="p-inputtext p-component w-full"
-                            id="body"
-                            name="body"
-                            value=""
-                          />
-                        </div>
-                      </div>
-                      <div
-                        class="field grid"
-                      >
-                        <label
-                          class="col-12 md:col-3"
-                          for="filter"
-                        >
-                          Filter
-                        </label>
-                        <div
-                          class="flex align-items-center relative col-12 md:col-9"
-                        >
-                          <div
-                            class="p-checkbox p-component w-full"
-                            data-testid="filter"
-                            id="filter"
-                          >
-                            <div
-                              class="p-hidden-accessible"
-                            >
-                              <input
-                                id="filter"
-                                name="filter"
-                                type="checkbox"
-                              />
-                            </div>
-                            <div
-                              class="p-checkbox-box"
-                            >
-                              <span
-                                class="p-checkbox-icon p-c"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        class="field grid"
-                      >
-                        <label
-                          class="col-12 md:col-3"
-                          for="sort"
-                        >
-                          Sort
-                        </label>
-                        <div
-                          class="flex align-items-center relative col-12 md:col-9"
-                        >
-                          <div
-                            class="p-checkbox p-component p-checkbox-checked w-full"
-                            data-testid="sort"
-                            id="sort"
-                          >
-                            <div
-                              class="p-hidden-accessible"
-                            >
-                              <input
-                                checked=""
-                                id="sort"
-                                name="sort"
-                                type="checkbox"
-                              />
-                            </div>
-                            <div
-                              class="p-checkbox-box p-highlight"
-                            >
-                              <span
-                                class="p-checkbox-icon p-c pi pi-check"
-                              />
-                            </div>
-                          </div>
-                          <div
-                            class="absolute flex right-0 top-0 bottom-0 justify-content-center align-items-center m-2"
-                            style="width: 2.375rem;"
-                          >
-                            <i
-                              class="pi cursor-pointer pi-replay"
-                            />
-                          </div>
                         </div>
                       </div>
                       <div

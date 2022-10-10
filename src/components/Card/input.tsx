@@ -117,7 +117,7 @@ export default function input(
             <Chips
                 {...field}
                 value={field.value?.split(' ').filter(Boolean) || []}
-                onChange={e => field.onChange?.(e.value.join(' '))}
+                onChange={e => field.onChange?.(e.value.length ? e.value.join(' ') : null)}
                 {...props}
             />
             <Clear field={field} showClear={clear}/>

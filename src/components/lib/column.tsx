@@ -20,6 +20,7 @@ import {KEY, INDEX} from '../Card/const';
 import testid from '../lib/testid';
 import {ConfigField} from '../Form/DragDrop';
 import Text from '../Text';
+import clsx from 'clsx';
 
 export interface TableFilter {
     filters?: {
@@ -404,10 +405,12 @@ export default function columnProps({
         };
     }
     const label = property?.title || titleCase(name.split('.').pop());
+    widget = widget || property?.widget;
     return {
         showClearButton: true,
         showFilterMenu: false,
         field: fieldName,
+        ...widget?.labelClass && {headerClassName: widget.labelClass},
         header: <ConfigField
             design={design}
             relative={false}
@@ -419,6 +422,7 @@ export default function columnProps({
             move={move}
             onInspect={onInspect}
             inspected={inspected}
+            type='column'
         >
             <span {...testid(`${resultSetDot}${name}Title`)}><Text>{label}</Text></span>
         </ConfigField>,
@@ -426,7 +430,7 @@ export default function columnProps({
         ...body && {body},
         ...(editor != null) && {editor},
         alignHeader,
-        bodyClassName,
+        bodyClassName: clsx(bodyClassName, widget?.fieldClass),
         ...column
     };
 }
