@@ -70,7 +70,7 @@ export default function useCustomization(
     const [[filter, filterIndex], setFilter] = React.useState([items?.[0]?.items?.[0] || items?.[0], 0]);
     const moveLayout = layout || filter?.widgets;
 
-    const move = React.useCallback((type: 'card' | 'field', source, destination) => {
+    const move = React.useMemo(() => design && ((type: 'card' | 'field', source, destination) => {
         if (type === 'field') {
             if (source.card === '/') {
                 setAddField({destination});
@@ -153,9 +153,9 @@ export default function useCustomization(
                 });
             }
         }
-    }, [cards, layout, moveLayout, currentLayoutName, mergedLayouts, filterIndex]);
+    }), [design, cards, layout, moveLayout, currentLayoutName, mergedLayouts, filterIndex]);
 
-    const remove = React.useCallback((type, source) => {
+    const remove = React.useMemo(() => design && ((type, source) => {
         if (type === 'card') {
             const newLayout = moveLayout.map(item => Array.isArray(item) ? [...item] : item);
             const [
@@ -210,7 +210,7 @@ export default function useCustomization(
                 });
             }
         }
-    }, [moveLayout, layout, mergedLayouts, currentLayoutName, filterIndex, mergedCards]);
+    }), [design, moveLayout, layout, mergedLayouts, currentLayoutName, filterIndex, mergedCards]);
 
     const selectField = design ? <SelectField
         schema={mergedSchema}
