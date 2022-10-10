@@ -73,7 +73,6 @@ const Editor: ComponentProps = ({
 }) => {
     const [keyValue, setKeyValue] = React.useState(id);
     const schema = (schemaCreate && keyValue == null) ? schemaCreate : schemaEdit;
-    name = name ? name + '.' : '';
 
     const [trigger, setTrigger] = React.useState();
     const [didSubmit, setDidSubmit] = React.useState(false);
@@ -84,6 +83,7 @@ const Editor: ComponentProps = ({
     const [loading, setLoading] = React.useState(loadingValue);
     const [customizationToolbar, mergedSchema, mergedCards, inspector, loadCustomization, items, orientation, thumbIndex, layout, formProps] =
         useCustomization(designDefault, schema, cards, layouts, customization, mode, layoutState, Editor, undefined, onCustomization, methods, name, loading);
+    name = name ? name + '.' : '';
     const {properties = empty} = mergedSchema;
 
     const layoutItems = items ? false : layout; // preserve memoization
