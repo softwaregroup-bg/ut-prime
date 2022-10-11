@@ -269,7 +269,7 @@ const Explorer: ComponentProps = ({
     }, [keyField, load, subscribe, formProps.design]);
     React.useEffect(() => {
         loadCustomization();
-    }, []);
+    }, [loadCustomization]);
 
     const windowSize = useWindowSize();
     const [height, setHeight] = React.useState<{height: number}>();

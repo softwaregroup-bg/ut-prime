@@ -337,10 +337,10 @@ export default function useCustomization(
             /></Permission> : null}
     </>;
 
-    const loadCustomization = async() => {
+    const loadCustomization = React.useMemo(() => async() => {
         const customizationResult = await (customizationEnabled && methods && !customizationDefault && methods['portal.customization.get']({componentId: name}));
         customizationResult?.component && setCustomization({schema: {}, card: {}, layout: {}, ...(customizationResult.component as {componentConfig?:object}).componentConfig});
-    };
+    }, [customizationDefault, customizationEnabled, methods, name]);
 
     const thumbIndex = items && <ThumbIndex name={name} items={items} orientation={orientation} onFilter={setFilter}/>;
 
