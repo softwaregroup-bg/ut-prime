@@ -410,7 +410,15 @@ export default function input(
                 {...props}
             />
         </Field>;
-        case 'image': {
+        case 'image': return <Field {...{label, error, inputClass}}>
+            <Image
+                imageClassName='w-full'
+                preview
+                src={field.value ? (props.basePath || '') + field.value : null}
+                {...(({basePath, ...rest}) => rest)(props)}
+            />
+        </Field>;
+        case 'imageUpload': {
             const onChange = field.onChange;
             delete field.onChange;
             let src = null;

@@ -24,6 +24,7 @@ export interface PropertyEditor {
         'file' |
         'icon' |
         'image' |
+        'imageUpload' |
         'integer' |
         'label' |
         'mask' |

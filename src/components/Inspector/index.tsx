@@ -88,6 +88,7 @@ const fieldDropdown = Promise.resolve({
         {value: 'file', label: 'file'},
         {value: 'icon', label: 'icon'},
         {value: 'image', label: 'image'},
+        {value: 'imageUpload', label: 'imageUpload'},
         {value: 'integer', label: 'integer'},
         {value: 'label', label: 'label'},
         {value: 'mask', label: 'mask'},
