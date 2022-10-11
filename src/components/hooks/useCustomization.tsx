@@ -68,6 +68,12 @@ export default function useCustomization(
         [mergedCards, mergedLayouts, mode, layoutState]
     );
     const [[filter, filterIndex], setFilter] = React.useState([items?.[0]?.items?.[0] || items?.[0], 0]);
+    const first = React.useRef(true);
+    React.useEffect(() => {
+        if (first.current) {
+            first.current = false;
+        } else setFilter([items?.[0]?.items?.[0] || items?.[0], 0]);
+    }, [items]);
     const moveLayout = layout || filter?.widgets;
 
     const move = React.useMemo(() => design && ((type: 'card' | 'field', source, destination) => {
