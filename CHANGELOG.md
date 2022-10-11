@@ -1,3 +1,12 @@
+## [2.24.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.24.0...v2.24.1) (2022-10-11)
+
+
+### Bug Fixes
+
+* typeField handling ([9787718](https://github.com/softwaregroup-bg/ut-prime/commit/978771865c1f62d03c90bfbec5f532d43e149927))
+
+
+
 # [2.24.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.23.2...v2.24.0) (2022-10-11)
 
 
