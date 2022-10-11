@@ -408,14 +408,53 @@ export default function input(
                 {...props}
             />
         </Field>;
-        case 'image': return <Field {...{label, error, inputClass}}>
-            <Image
-                imageClassName='w-full'
-                preview
-                src={field.value ? (props.basePath || '') + field.value : null}
-                {...(({basePath, ...rest}) => rest)(props)}
-            />
-        </Field>;
+        case 'image': {
+            const onChange = field.onChange;
+            delete field.onChange;
+            let src = null;
+            if (Array.isArray(field.value)) {
+                src = field.value?.[0]?.objectURL;
+            } else if (field.value) {
+                src = (props.basePath || '') + field.value;
+            }
+            return <Field {...{label, error, inputClass}}>
+
+                <FileUpload
+                    {...field}
+                    onSelect={e => {
+                        onChange?.([...e.files || []]);
+                    }}
+                    {...props}
+                    multiple={false}
+                    headerTemplate={(options) => {
+                        const { className, chooseButton } = options;
+                        return (
+                            <div className={className} style={{backgroundColor: 'transparent', display: 'flex', alignItems: 'center'}}>
+                                {chooseButton}
+                            </div>
+                        );
+                    }}
+                    itemTemplate={() => {
+                        return (
+                            <Image
+                                imageClassName='w-full'
+                                preview
+                                src={src}
+                                {...(({basePath, ...rest}) => rest)(props)}
+                            />
+                        );
+                    }}
+                    emptyTemplate={() => {
+                        return src ? <Image
+                            imageClassName='w-full'
+                            preview
+                            src={src}
+                            {...(({basePath, ...rest}) => rest)(props)}
+                        /> : <div>No picture...</div>;
+                    }}
+                />
+            </Field>;
+        }
         case 'password': return <Field {...{label, error, inputClass}}>
             <Password
                 {...field}
