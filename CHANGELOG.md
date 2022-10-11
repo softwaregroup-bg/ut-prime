@@ -1,3 +1,12 @@
+# [2.24.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.23.2...v2.24.0) (2022-10-11)
+
+
+### Features
+
+* **CBI-411:** initial image upload ([40a70d4](https://github.com/softwaregroup-bg/ut-prime/commit/40a70d47b3ae88ea8e36ea3ba00c25588f53648a))
+
+
+
 ## [2.23.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.23.1...v2.23.2) (2022-10-11)
 
 
