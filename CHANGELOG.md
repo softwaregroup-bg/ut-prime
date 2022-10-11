@@ -1,3 +1,13 @@
+## [2.23.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.23.1...v2.23.2) (2022-10-11)
+
+
+### Bug Fixes
+
+* **Explorer:** load customization on mount ([0dfbd82](https://github.com/softwaregroup-bg/ut-prime/commit/0dfbd823b4f5ad3a8cf587ff565115cc2ad8373a))
+* **Explorer:** load customization on mount ([3e7ed29](https://github.com/softwaregroup-bg/ut-prime/commit/3e7ed299405ccfa1171b25fb462600786a4573b5))
+
+
+
 ## [2.23.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.23.0...v2.23.1) (2022-10-10)
 
 
