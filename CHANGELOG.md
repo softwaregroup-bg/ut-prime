@@ -1,3 +1,12 @@
+## [2.24.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.24.1...v2.24.2) (2022-10-12)
+
+
+### Bug Fixes
+
+* missing dropdowns when using typeField ([1dbab57](https://github.com/softwaregroup-bg/ut-prime/commit/1dbab57c947e3dff620e907c985e7ff3e76940b4))
+
+
+
 ## [2.24.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.24.0...v2.24.1) (2022-10-11)
 
 
