@@ -103,28 +103,27 @@ const Editor: ComponentProps = ({
 
     async function get() {
         setLoading(loadingValue);
-        const [result, dropdownResult] = await Promise.all([
+        const [result] = await Promise.all([
             onGet({[keyField]: keyValue}),
-            onDropdown(dropdownNames),
             loadCustomization()
         ]);
         handleArray(result, properties);
         if (typeField) setMode(['edit', lodashGet(result, typeField)]);
-        setDropdown(dropdownResult);
         setLoadedValue(result);
         setLoading('');
     }
     async function init() {
         setLoading(loadingValue);
-        const [dropdownResult] = await Promise.all([
-            onDropdown(dropdownNames),
-            loadCustomization()
-        ]);
-        setDropdown(dropdownResult);
+        await loadCustomization();
         initValue = merge(getDefault(mergedSchema), initValue, onInit && await onInit(initValue));
         if (initValue !== undefined) setEditValue(getValue(initValue));
         setLoading('');
     }
+
+    React.useEffect(() => {
+        const loadDropDown = async() => setDropdown(await onDropdown(dropdownNames));
+        loadDropDown();
+    }, [dropdownNames, onDropdown]);
 
     const toolbarRef = React.useRef(null);
 
@@ -149,8 +148,8 @@ const Editor: ComponentProps = ({
             const value = merge({}, data[0], response);
             setEditValue(value);
             if (key) setLoadedValue(getValue(value));
-            setMode(['edit', layoutName || (typeField ? lodashGet(value, typeField) : '')]);
-        }, [keyValue, onEdit, getValue, onAdd, keyField, resultSet, properties, typeField, layoutName, methods]
+            setMode(prev => ['edit', typeField ? lodashGet(value, typeField) : prev[1]]);
+        }, [keyValue, onEdit, getValue, onAdd, keyField, resultSet, properties, typeField, methods]
     );
 
     const handleReset = React.useCallback(
@@ -158,7 +157,7 @@ const Editor: ComponentProps = ({
             const accept = () => {
                 const value = loadedValue ? getValue(loadedValue) : {[resultSet]: null};
                 setEditValue(value);
-                setMode(['edit', layoutName || (typeField ? lodashGet(value, typeField) : '')]);
+                setMode(prev => ['edit', typeField ? lodashGet(value, typeField) : prev[1]]);
                 setDidSubmit(false);
             };
             if (!trigger) return accept();
@@ -169,7 +168,7 @@ const Editor: ComponentProps = ({
                 reject: () => {},
                 accept
             });
-        }, [trigger, layoutName, typeField, loadedValue, resultSet, getValue]
+        }, [trigger, typeField, loadedValue, resultSet, getValue]
     );
 
     useLoad(async() => {
