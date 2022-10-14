@@ -1,3 +1,12 @@
+# [2.25.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.24.2...v2.25.0) (2022-10-14)
+
+
+### Features
+
+* custom form field change handlers ([2f64089](https://github.com/softwaregroup-bg/ut-prime/commit/2f6408967b4425ae070156e43ffa729d62e4fb88))
+
+
+
 ## [2.24.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.24.1...v2.24.2) (2022-10-12)
 
 
