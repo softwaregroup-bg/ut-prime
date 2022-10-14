@@ -1,6 +1,7 @@
 import { Button as PrimeButton, type ButtonProps } from 'primereact/button';
 import { Calendar } from 'primereact/calendar';
 import { Card as PrimeCard, type CardProps } from 'primereact/card';
+import { AutoComplete as PrimeAutoComplete, type AutoCompleteProps } from 'primereact/autocomplete';
 import type { DataTableProps } from 'primereact/datatable';
 import type { DataViewProps } from 'primereact/dataview';
 import type { FileUploadProps } from 'primereact/fileupload';
@@ -8,7 +9,6 @@ import { DataTable as PrimeDataTable } from 'primereact/datatable';
 import React from 'react';
 import Text from '../Text';
 
-export { AutoComplete } from 'primereact/autocomplete';
 export { Calendar } from 'primereact/calendar';
 export { CascadeSelect } from 'primereact/cascadeselect';
 export { Chart } from 'primereact/chart';
@@ -79,3 +79,9 @@ export const Button = ({children, ...props}: ButtonProps) =>
     <PrimeButton {...props}>{children && <span className='p-button-label p-c'><Text>{children}</Text></span>}</PrimeButton>;
 export const DataTable = ({emptyMessage = 'No results found', ...props}: DataTableProps) =>
     <PrimeDataTable emptyMessage={emptyMessage && <Text>{emptyMessage}</Text>} {...props}/>;
+export const AutoComplete = ({methods, autocomplete, ...props}: AutoCompleteProps & {methods: unknown, autocomplete?: string}) => {
+    const [suggestions, setSuggestions] = React.useState();
+    const complete = React.useCallback(
+        async event => methods && autocomplete && setSuggestions(await methods[autocomplete](event)), [methods, autocomplete]);
+    return <PrimeAutoComplete {...props} completeMethod={complete} suggestions={suggestions}/>;
+};

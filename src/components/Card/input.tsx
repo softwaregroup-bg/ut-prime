@@ -43,7 +43,7 @@ const Field = ({children = undefined, label = undefined, error = undefined, inpu
 const Clear = ({showClear, field}) =>
     (showClear && field.value !== undefined)
         ? <div className='absolute flex right-0 top-0 bottom-0 justify-content-center align-items-center m-2' style={{width: '2.375rem'}}>
-            <i onClick={e => field.onChange(undefined)} className={`pi cursor-pointer ${showClear === true ? 'pi-times' : showClear}`}></i>
+            <i onClick={e => field.onChange({...e, value: undefined})} className={`pi cursor-pointer ${showClear === true ? 'pi-times' : showClear}`}></i>
         </div>
         : null;
 
@@ -117,7 +117,7 @@ export default function input(
             <Chips
                 {...field}
                 value={field.value?.split(' ').filter(Boolean) || []}
-                onChange={e => field.onChange?.(e.value.length ? e.value.join(' ') : null)}
+                onChange={e => field.onChange?.({...e, value: e.value.length ? e.value.join(' ') : null})}
                 {...props}
             />
             <Clear field={field} showClear={clear}/>
@@ -125,6 +125,7 @@ export default function input(
         case 'text': return <Field {...{label, error, inputClass}}>
             <InputTextarea
                 {...field}
+                onChange={e => field.onChange?.({...e, value: e.target.value || null})}
                 value={field.value || ''}
                 {...props}
             />
@@ -142,7 +143,6 @@ export default function input(
                 {...field}
                 inputClassName='text-right'
                 inputRef={field.ref}
-                onChange={e => field.onChange?.(e.value)}
                 minFractionDigits={2}
                 maxFractionDigits={4}
                 inputId={props.id}
@@ -153,7 +153,7 @@ export default function input(
             <Checkbox
                 {...field}
                 inputRef={field.ref}
-                onChange={e => field.onChange?.(e.checked)}
+                onChange={e => field.onChange?.({...e, value: e.checked})}
                 checked={field.value}
                 inputId={props.id}
                 {...testid(props.id)}
@@ -181,22 +181,18 @@ export default function input(
             </div>
         </>;
         case 'autocomplete': {
-            const {autocomplete} = schema.widget;
-            const handleComplete = async({query}) => (
-                autocomplete && field.onChange?.({...field.value, value: query, ...await methods?.[autocomplete]({query})})
-            );
-            const handleChange = ({value}) => field.onChange?.({value});
-            const handleSelect = ({value}) => field.onChange?.(value);
-            const handleClear = () => field.onChange?.({});
-            const template = ({value}) => value;
+            const handleChange = field.onChange;
+            const handleSelect = event => field.onChange?.({...event, value: event.value?.value});
+            const handleClear = event => field.onChange?.({...event, value: {}});
+            const template = ({label}) => label;
             return <Field {...{label, error, inputClass}}>
                 <AutoComplete
                     {...field}
                     {...testid(props.id)}
                     inputClassName='w-full'
                     suggestions={field.value?.suggestions}
-                    value={field.value?.value}
-                    completeMethod={handleComplete}
+                    methods={methods}
+                    value={field.value}
                     onSelect={handleSelect}
                     onChange={handleChange}
                     onClear={handleClear}
@@ -228,7 +224,7 @@ export default function input(
                 {...field}
                 options={dropdowns?.[dropdown]?.filter(filterBy) || []}
                 value={props?.split ? field.value?.split(props.split).filter(Boolean) : field.value}
-                onChange={event => field.onChange?.(props?.split ? event.value.join(props.split) || null : event.value)}
+                onChange={event => field.onChange?.({...event, value: props?.split ? event.value.join(props.split) || null : event.value})}
                 {...testid(props.id)}
                 {...props}
             />
@@ -241,7 +237,7 @@ export default function input(
                 selectionMode='multiple'
                 metaKeySelection={false}
                 onChange={e => {
-                    field.onChange?.(Object.keys(e.value));
+                    field.onChange?.({...e, value: Object.keys(e.value)});
                 }}
                 {...testid(field.name)}
                 value={field.value?.map && Object.fromEntries(field.value?.map(value => [value, true]))}
@@ -252,7 +248,7 @@ export default function input(
             <MultiSelect
                 {...field}
                 value={props?.split ? field.value?.split(props.split).filter(Boolean) : field.value}
-                onChange={event => field.onChange?.(props?.split ? event.value.join(props.split) || null : event.value)}
+                onChange={event => field.onChange?.({...event, value: props?.split ? event.value.join(props.split) || null : event.value})}
                 options={dropdowns?.[dropdown]?.filter(filterBy) || []}
                 {...testid(props.id)}
                 inline
@@ -297,21 +293,21 @@ export default function input(
                         onSelectionChange={event => {
                             if (props.disabled) return;
                             if (!paramSet) {
-                                return field.onChange?.(
-                                    single
+                                return field.onChange?.({
+                                    ...event,
+                                    value: single
                                         ? event.value[dataKey]
-                                        : [].concat(hidden, event.value?.map(row => row?.[dataKey])),
-                                    {children: false, ...props.change}
-                                );
+                                        : [].concat(hidden, event.value?.map(row => row?.[dataKey]))
+                                }, {children: false, ...props.change});
                             }
                             if (!value?.length) {
-                                return field.onChange?.(
-                                    [].concat(
+                                return field.onChange?.({
+                                    ...event,
+                                    value: [].concat(
                                         hidden,
                                         event.value
-                                    ),
-                                    {children: false, ...props.change}
-                                );
+                                    )
+                                }, {children: false, ...props.change});
                             }
                             for (const key of props.widgets) {
                                 const setWidgetIndex = value.findIndex(e => e[key]);
@@ -319,20 +315,20 @@ export default function input(
                                     delete value[setWidgetIndex][key];
                                 }
                             }
-                            return field.onChange?.(
-                                [].concat(
+                            return field.onChange?.({
+                                ...event,
+                                value: [].concat(
                                     hidden,
                                     value?.filter?.(fv => event.value?.findIndex?.(v => fv[dataKey] === v[dataKey]) > -1),
                                     event.value.filter?.(v => value?.findIndex?.(fv => fv[dataKey] === v[dataKey]) < 0)
-                                ).filter(Boolean),
-                                {children: false, ...props.change}
-                            );
+                                ).filter(Boolean)
+                            }, {children: false, ...props.change});
                         }}
                         onChange={event =>
-                            !props.disabled && field.onChange?.(
-                                event.filter(e => selection.findIndex(s => s[dataKey] === e[dataKey]) > -1),
-                                {children: false, ...props.change}
-                            )
+                            !props.disabled && field.onChange?.({
+                                ...event,
+                                value: event.filter(e => selection.findIndex(s => s[dataKey] === e[dataKey]) > -1)
+                            }, {children: false, ...props.change})
                         }
                         {...props}
                         className={clsx(field.className || props.className, props.disabled && 'p-disabled')}
@@ -351,7 +347,7 @@ export default function input(
                     value={dropdowns?.[dropdown]?.filter(filterBy) || []}
                     selectionKeys={field.value}
                     onChange={undefined}
-                    onSelectionChange={e => field.onChange?.(e.value)}
+                    onSelectionChange={e => field.onChange?.({...e, value: e.value})}
                     selectionMode='checkbox'
                     {...testid(props.id)}
                     {...props}
@@ -394,7 +390,6 @@ export default function input(
                 {...field}
                 inputClassName='text-right'
                 inputRef={field.ref}
-                onChange={e => field.onChange?.(e.value)}
                 inputId={props.id}
                 {...props}
             />
@@ -404,7 +399,6 @@ export default function input(
                 {...field}
                 inputClassName='w-full text-right'
                 inputRef={field.ref}
-                onChange={e => field.onChange?.(e.value)}
                 showButtons
                 inputId={props.id}
                 {...props}
@@ -469,7 +463,7 @@ export default function input(
             <Password
                 {...field}
                 value={field.value || ''}
-                onChange={e => field.onChange?.(e.target.value || null)}
+                onChange={e => field.onChange?.({...e, value: e.target.value || null})}
                 role='textbox'
                 feedback={false}
                 inputClassName='w-full'
@@ -484,7 +478,7 @@ export default function input(
                 <FileUpload
                     {...field}
                     onSelect={e => {
-                        onChange?.([...e.files || []]);
+                        onChange?.({...e, value: [...e.files || []]});
                     }}
                     mode='basic'
                     {...props}
@@ -499,7 +493,7 @@ export default function input(
                     {...field}
                     setValue={setValue}
                     onSelect={e => {
-                        onChange?.([...e.files || []]);
+                        onChange?.({...e, value: [...e.files || []]});
                     }}
                     {...props}
                 />
@@ -511,7 +505,7 @@ export default function input(
             <InputText
                 {...field}
                 value={field.value || ''}
-                onChange={e => field.onChange?.(e.target.value || null)}
+                onChange={e => field.onChange?.({...e, value: e.target.value || null})}
                 {...props}
             />
             <Clear field={field} showClear={clear}/>

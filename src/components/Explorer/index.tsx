@@ -103,6 +103,7 @@ const Explorer: ComponentProps = ({
     view: viewProps,
     customization,
     onCustomization,
+    onFieldChange,
     name,
     hidden,
     layouts,
@@ -407,6 +408,7 @@ const Explorer: ComponentProps = ({
                 dropdowns={dropdowns}
                 methods={methods}
                 value={item}
+                onFieldChange={onFieldChange}
                 classNames={{
                     widget: 'grid field justify-content-center'
                 }}
@@ -418,7 +420,7 @@ const Explorer: ComponentProps = ({
             >{card}</div> : card;
         }
         return renderItem();
-    }, [mergedCards, layoutState, dropdowns, methods, keyField, resultSet, cardName]);
+    }, [mergedCards, layoutState, dropdowns, methods, keyField, resultSet, cardName, onFieldChange]);
     const table = (
         <div ref={tableWrapRef} style={height}>
             {layout?.length ? <DataView

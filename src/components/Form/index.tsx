@@ -53,6 +53,7 @@ const Form: ComponentProps = ({
     inspected,
     onInspect,
     onChange,
+    onFieldChange,
     setTrigger,
     triggerNotDirty,
     autoSubmit,
@@ -135,6 +136,9 @@ const Form: ComponentProps = ({
             methods={methods}
             move={move}
             submit={submit}
+            inspected={inspected}
+            onInspect={onInspect}
+            onFieldChange={onFieldChange}
             toolbar
         />, toolbarRef.current);
     }
@@ -179,6 +183,7 @@ const Form: ComponentProps = ({
                                 move={move}
                                 inspected={inspected}
                                 onInspect={onInspect}
+                                onFieldChange={onFieldChange}
                         />
                         : null;
                 }).filter(Boolean);

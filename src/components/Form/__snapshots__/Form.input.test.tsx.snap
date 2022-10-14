@@ -129,6 +129,69 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                   >
                     <label
                       class="col-12 md:col-4"
+                      for="input-chips"
+                    >
+                      Chips
+                    </label>
+                    <div
+                      class="flex align-items-center relative col-12 md:col-8"
+                    >
+                      <div
+                        class="p-chips p-component p-inputwrapper w-full"
+                        id="input-chips"
+                      >
+                        <ul
+                          class="p-inputtext p-chips-multiple-container"
+                        >
+                          <li
+                            class="p-chips-input-token"
+                          >
+                            <input
+                              name="input.chips"
+                              type="text"
+                            />
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="input-autocomplete"
+                    >
+                      Autocomplete
+                    </label>
+                    <div
+                      class="flex align-items-center relative col-12 md:col-8"
+                    >
+                      <span
+                        class="p-autocomplete p-component p-inputwrapper w-full"
+                        data-testid="input-autocomplete"
+                        id="input-autocomplete"
+                      >
+                        <input
+                          aria-autocomplete="list"
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          autocomplete="off"
+                          class="p-inputtext p-component p-autocomplete-input w-full"
+                          maxlength="34"
+                          name="input.autocomplete"
+                          role="combobox"
+                          type="text"
+                          value=""
+                        />
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
                       for="input-boolean"
                     >
                       Boolean
@@ -445,6 +508,97 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                           />
                         </div>
                       </span>
+                    </div>
+                  </div>
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="input-file"
+                    >
+                      File
+                    </label>
+                    <div
+                      class="flex align-items-center relative col-12 md:col-8"
+                    >
+                      <div
+                        class="p-fileupload p-fileupload-basic p-component w-full"
+                      >
+                        <div>
+                          <div />
+                        </div>
+                        <span
+                          class="p-button p-component p-fileupload-choose"
+                          tabindex="0"
+                        >
+                          <span
+                            class="p-button-icon p-button-icon-left pi pi-plus"
+                          />
+                          <span
+                            class="p-button-label p-clickable"
+                          >
+                            <span
+                              class="p-button-label p-clickable"
+                            >
+                              Choose
+                            </span>
+                          </span>
+                          <input
+                            type="file"
+                          />
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="input-ocr"
+                    >
+                      Ocr
+                    </label>
+                    <div
+                      class="flex align-items-center relative col-12 md:col-8"
+                    >
+                      <div
+                        class="w-full"
+                      >
+                        <div
+                          class="p-fileupload p-fileupload-advanced p-component"
+                          id="input-ocr"
+                        >
+                          <div
+                            class="p-fileupload-buttonbar"
+                          >
+                            <span
+                              class="p-button p-fileupload-choose p-component"
+                              tabindex="0"
+                            >
+                              <input
+                                type="file"
+                              />
+                              <span
+                                class="p-button-icon p-button-icon-left p-clickable pi pi-fw pi-plus"
+                              />
+                              <span
+                                class="p-button-label p-clickable"
+                              >
+                                Choose
+                              </span>
+                            </span>
+                          </div>
+                          <div
+                            class="p-fileupload-content"
+                          >
+                            <div>
+                              <div />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div

@@ -20,6 +20,7 @@ const tree: {schema: Schema, cards: Cards} = {
                     treeType: {
                         title: 'Type',
                         widget: {
+                            onChange: 'handleFieldChange',
                             type: 'dropdown',
                             dropdown: 'tree.type'
                         }

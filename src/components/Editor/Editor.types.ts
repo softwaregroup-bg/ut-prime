@@ -33,13 +33,14 @@ export interface Props {
     value?: object,
     loading?: string,
     methods?: {
-        [key: string]: (params: object) => Promise<Record<string, unknown>>
+        [key: string]: (params: unknown) => Promise<unknown>
     },
     onDropdown?: (params: string[]) => Promise<Dropdowns>,
     onInit?: (params: object) => Promise<object>,
     onAdd?: (params: object) => Promise<object>,
     onGet?: (params: object) => Promise<object>,
     onEdit?: (params: object) => Promise<object>,
+    onFieldChange?: string,
     onChange?: (params: object) => void
 }
 

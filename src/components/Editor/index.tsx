@@ -18,7 +18,7 @@ import useCustomization from '../hooks/useCustomization';
 
 const backgroundNone = {background: 'none'};
 
-function handleArray(result: object, properties) {
+function handleArray(result, properties) {
     Object.entries(result).forEach(([name, value]) => {
         // back end wrongly returned an array with a single item
         if (Array.isArray(value) && properties[name]?.properties) result[name] = value[0];
@@ -69,6 +69,7 @@ const Editor: ComponentProps = ({
     onGet,
     onEdit,
     onChange,
+    onFieldChange,
     toolbar = !!(onAdd || onEdit || onGet)
 }) => {
     const [keyValue, setKeyValue] = React.useState(id);
@@ -214,6 +215,7 @@ const Editor: ComponentProps = ({
                         layout={layout || []}
                         onSubmit={handleSubmit}
                         onChange={onChange}
+                        onFieldChange={onFieldChange}
                         methods={methods}
                         value={value}
                         dropdowns={dropdowns}

@@ -25,6 +25,20 @@ const properties: Properties = {
             mask: '***.***.***.***'
         }
     },
+    chips: {
+        widget: {
+            type: 'chips'
+        }
+    },
+    autocomplete: {
+        widget: {
+            type: 'autocomplete',
+            autocomplete: 'handleAutocomplete',
+            minLength: 2,
+            maxLength: 34,
+            delay: 300
+        }
+    },
     currency: {
         widget: {
             type: 'currency',
@@ -137,6 +151,16 @@ const properties: Properties = {
     image: {
         widget: {
             type: 'image'
+        }
+    },
+    file: {
+        widget: {
+            type: 'file'
+        }
+    },
+    ocr: {
+        widget: {
+            type: 'ocr'
         }
     },
     password: {
@@ -252,6 +276,8 @@ export const input: {
                 'input.password',
                 'input.text',
                 'input.mask',
+                'input.chips',
+                'input.autocomplete',
                 'input.boolean',
                 'input.date',
                 'input.time',
@@ -265,6 +291,8 @@ export const input: {
             className: 'xl:col-4',
             widgets: [
                 'input.image',
+                'input.file',
+                'input.ocr',
                 'input.dropdown',
                 'input.dropdownTree',
                 'input.multiSelect',

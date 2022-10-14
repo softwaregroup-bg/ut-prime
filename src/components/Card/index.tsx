@@ -55,11 +55,11 @@ const Card: ComponentProps = ({
     toolbar,
     inspected,
     onInspect,
+    onFieldChange,
     classNames
 }) => {
     const classes = useStyles();
     const counter = React.useRef(0);
-    const {formState, control, getValues, setValue, watch} = formApi || {};
     const InputWrap = React.useCallback(function Input({
         Label,
         ErrorLabel,
@@ -71,8 +71,13 @@ const Card: ComponentProps = ({
     }) {
         widget.parent = widget.parent || name.match(/^\$\.edit\.[^.]+/)?.[0].replace('.edit.', '.selected.') || widget?.selectionPath;
         const parent = widget.parent || layoutState.index.properties[propertyName]?.widget?.parent;
-        const parentWatch = parent && watch && watch(parent);
-        const {fieldClass = null, labelClass = defaultLabelClass, ...inputWidget} = {id: name.replace(/\./g, '-') || widget.label, ...layoutState.index.properties[propertyName]?.widget, ...widget, parent};
+        const parentWatch = parent && formApi?.watch?.(parent);
+        const {
+            fieldClass = null,
+            labelClass = defaultLabelClass,
+            onChange = onFieldChange,
+            ...inputWidget
+        } = {id: name.replace(/\./g, '-') || widget.label, ...layoutState.index.properties[propertyName]?.widget, ...widget, parent};
         if (!inputWidget.className) {
             const inputClassName = classes?.default?.input || classes?.[name]?.input;
             if (inputClassName) inputWidget.className = inputClassName;
@@ -83,20 +88,33 @@ const Card: ComponentProps = ({
             {
                 className: clsx({'w-full': !['boolean'].includes(inputWidget.type)}, { 'p-invalid': fieldState.error }),
                 ...field,
-                onChange: (value, {select = false, field: changeField = true, children = true} = {}) => {
+                onChange: async(event: {value: unknown, originalEvent: unknown}, {select = false, field: changeField = true, children = true} = {}) => {
+                    if (onChange && methods) {
+                        try {
+                            if (await methods[onChange]({
+                                field,
+                                value: event.value,
+                                event: event.originalEvent,
+                                form: formApi
+                            }) === false) return;
+                        } catch (error) {
+                            formApi.setError(field.name, {message: error.message});
+                            return;
+                        }
+                    }
                     if (select) {
                         const prefix = `$.edit.${propertyName}.`;
                         const selectionPrefix = widget?.selectionPath || '$.selected';
-                        setValue?.(
+                        formApi?.setValue?.(
                             `${selectionPrefix}.${propertyName}`,
-                            value,
+                            event?.value,
                             selectionPrefix.startsWith('$.') ? {shouldDirty: false, shouldTouch: false} : {shouldDirty: true, shouldTouch: true}
                         );
                         layoutState.visibleProperties.forEach(property => {
                             if (property.startsWith(prefix)) {
-                                setValue?.(
+                                formApi?.setValue?.(
                                     property,
-                                    value?.[property.substr(prefix.length)],
+                                    event?.value?.[property.substr(prefix.length)],
                                     {shouldDirty: false, shouldTouch: false}
                                 );
                             }
@@ -109,18 +127,18 @@ const Card: ComponentProps = ({
                                 items.forEach(child => {
                                     let childValue = null;
                                     const autocompleteProp = child.split('.').pop();
-                                    const autocomplete = (value as {value?: Record<string, unknown>})?.value?.[autocompleteProp] || value?.[autocompleteProp];
+                                    const autocomplete = (event as {value?: Record<string, unknown>})?.value?.[autocompleteProp];
                                     if (layoutState.index.properties[propertyName]?.widget?.type === 'autocomplete' && autocomplete) childValue = autocomplete;
-                                    setValue?.(child, childValue);
+                                    formApi?.setValue?.(child, childValue);
                                 });
                             }
                         }
                     } finally {
                         if (changeField) {
-                            field.onChange(value);
+                            field.onChange(event.value);
                             if (parentWatch?.[CHANGE] && name.startsWith('$.edit.')) {
                                 const old = {...parentWatch};
-                                parentWatch[name.split('.').pop()] = value;
+                                parentWatch[name.split('.').pop()] = event?.value;
                                 parentWatch[CHANGE]({data: old, newData: parentWatch});
                             }
                         }
@@ -134,15 +152,15 @@ const Card: ComponentProps = ({
             dropdowns,
             parentWatch,
             loading,
-            getValues,
-            setValue,
+            formApi?.getValues,
+            formApi?.setValue,
             counter,
             methods,
             submit,
-            !getValues && 'label'
+            !formApi?.getValues && 'label'
         );
-        return (name && control) ? <Controller
-            control={control}
+        return (name && formApi?.control) ? <Controller
+            control={formApi.control}
             name={name}
             render={render}
         /> : render({field: value ? {value: get(value, name.split('.').pop()), name} : {}, fieldState: {}});
@@ -153,10 +171,8 @@ const Card: ComponentProps = ({
         loading,
         methods,
         submit,
-        getValues,
-        setValue,
-        control,
-        watch,
+        formApi,
+        onFieldChange,
         value
     ]);
 
@@ -176,11 +192,11 @@ const Card: ComponentProps = ({
     }, [layoutState.index]);
 
     const ErrorLabel = React.useCallback(({name, className = 'md:col-4'}) => {
-        const error = get(formState?.errors, name);
+        const error = get(formApi?.formState?.errors, name);
         return error
             ? <><small className={clsx('col-12', className)}/><small className='col p-error'>{error.message}</small></>
             : null;
-    }, [formState?.errors]);
+    }, [formApi?.formState?.errors]);
 
     const field = (length: number, flex: string, cardName: string, classes: CardType['classes'], init = {}) => function field(widget, ind: number) {
         if (typeof widget === 'string') widget = {name: widget};

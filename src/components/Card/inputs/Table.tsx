@@ -136,35 +136,35 @@ export default React.forwardRef<object, any>(function Table({
         return joined?.filter(row => row && filterFields.every(([name, value]) => sameString(lodashGet(row, name), value)));
     }, [allRows, parent, master, pivotRows, join, filter, keepRows, pivotMaster]);
 
-    const cancel = React.useCallback(({data}) => {
-        if (data[NEW]) {
-            const index = data[INDEX];
+    const cancel = React.useCallback(event => {
+        if (event.data[NEW]) {
+            const index = event.data[INDEX];
             if (index != null) {
                 const changed = [...allRows];
                 delete changed[index];
-                onChange((Object.keys(editingRows).length <= 1) ? changed.filter(Boolean) : changed);
+                onChange({...event, value: (Object.keys(editingRows).length <= 1) ? changed.filter(Boolean) : changed});
             }
         }
     }, [allRows, onChange, editingRows]);
 
-    const complete = React.useCallback(({data, newData}) => {
+    const complete = React.useCallback(event => {
         const changed = [...allRows];
-        const originalIndex = data[INDEX];
-        const {[NEW]: ignore, $pivot, [KEY]: key, [CHANGE]: change, [INDEX]: index, ...values} = newData;
+        const originalIndex = event.data[INDEX];
+        const {[NEW]: ignore, $pivot, [KEY]: key, [CHANGE]: change, [INDEX]: index, ...values} = event.newData;
         for (const [key, value] of Object.entries(properties)) {
             if (!radioColumns.includes((value as {widget?: {type?: string}})?.widget?.type) || !values[key]) continue;
             for (let id = 0; id < changed.length; id++) {
                 if (!changed[id][key]) continue;
                 if (id !== originalIndex) changed[id][key] = false;
-                else changed[id][key] = newData[key];
+                else changed[id][key] = event.newData[key];
             }
         }
         if (originalIndex != null) {
             changed[originalIndex] = values;
-            onChange(changed);
+            onChange({...event, value: changed});
         } else {
             if (identity) values[identity] = -(++counter.current);
-            onChange([...changed, values]);
+            onChange({...event, value: [...changed, values]});
         }
     }, [allRows, counter, identity, onChange, properties]);
 
@@ -174,7 +174,7 @@ export default React.forwardRef<object, any>(function Table({
 
     const handleSelected = React.useCallback(event => {
         if (!allowSelect) return;
-        onChange(event.value, {select: true, field: false, children: false});
+        onChange(event, {select: true, field: false, children: false});
         setSelected(event.value);
     }, [allowSelect, onChange]);
 
@@ -202,7 +202,7 @@ export default React.forwardRef<object, any>(function Table({
             const newValue = {...filter, ...masterFilter(master, parent), ...defaults(properties, allRows), [NEW]: true};
             if (identity) newValue[identity] = -(++counter.current);
             const updatedValue = [...(allRows || []), newValue];
-            onChange(updatedValue);
+            onChange({...event, value: updatedValue});
             setPendingEdit(prev => ({
                 ...prev,
                 [updatedValue.length - 1]: true
@@ -212,7 +212,7 @@ export default React.forwardRef<object, any>(function Table({
             event.preventDefault();
             const remove = [].concat(selected);
             handleSelected({value: null});
-            onChange(allRows.filter((rowData, index) => !remove.some(item => item[INDEX] === index)));
+            onChange({...event, value: allRows.filter((rowData, index) => !remove.some(item => item[INDEX] === index))});
         };
         return (
             <React.Fragment>
