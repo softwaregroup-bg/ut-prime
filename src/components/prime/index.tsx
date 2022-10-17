@@ -83,7 +83,7 @@ export const AutoComplete = React.forwardRef<PrimeAutoComplete, AutoCompleteProp
     function AutoComplete({methods, autocomplete, ...props}, ref) {
         const [suggestions, setSuggestions] = React.useState();
         const complete = React.useCallback(
-            async event => methods && autocomplete && setSuggestions((await methods[autocomplete](event)).suggestions), [methods, autocomplete]);
+            async({query}) => methods && autocomplete && setSuggestions((await methods[autocomplete]({query})).suggestions), [methods, autocomplete]);
         return <PrimeAutoComplete {...props} completeMethod={complete} suggestions={suggestions} ref={ref}/>;
     }
 );
