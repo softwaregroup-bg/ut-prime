@@ -79,9 +79,11 @@ export const Button = ({children, ...props}: ButtonProps) =>
     <PrimeButton {...props}>{children && <span className='p-button-label p-c'><Text>{children}</Text></span>}</PrimeButton>;
 export const DataTable = ({emptyMessage = 'No results found', ...props}: DataTableProps) =>
     <PrimeDataTable emptyMessage={emptyMessage && <Text>{emptyMessage}</Text>} {...props}/>;
-export const AutoComplete = ({methods, autocomplete, ...props}: AutoCompleteProps & {methods: unknown, autocomplete?: string}) => {
-    const [suggestions, setSuggestions] = React.useState();
-    const complete = React.useCallback(
-        async event => methods && autocomplete && setSuggestions(await methods[autocomplete](event)), [methods, autocomplete]);
-    return <PrimeAutoComplete {...props} completeMethod={complete} suggestions={suggestions}/>;
-};
+export const AutoComplete = React.forwardRef<PrimeAutoComplete, AutoCompleteProps & {methods: unknown, autocomplete?: string}>(
+    function AutoComplete({methods, autocomplete, ...props}, ref) {
+        const [suggestions, setSuggestions] = React.useState();
+        const complete = React.useCallback(
+            async event => methods && autocomplete && setSuggestions((await methods[autocomplete](event)).suggestions), [methods, autocomplete]);
+        return <PrimeAutoComplete {...props} completeMethod={complete} suggestions={suggestions} ref={ref}/>;
+    }
+);

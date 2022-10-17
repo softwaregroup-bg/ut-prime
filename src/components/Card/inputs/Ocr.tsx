@@ -64,7 +64,7 @@ const itemTemplate = (file, props) => {
 
 const headerTemplate = ({className, style, chooseButton}) => <div className={className} style={style}>{chooseButton}</div>;
 
-const Ocr = ({ocr, onSelect, setValue, className, value, ...props}: Props) => {
+const Ocr = React.forwardRef<ProgressBar, Props>(function Ocr({ocr, onSelect, setValue, className, value, ...props}, ref) {
     const [progress, setProgress] = React.useState(null);
     const handleSelect = React.useMemo(() => event => {
         recognize(event, ocr, setProgress).then(text => {
@@ -81,8 +81,8 @@ const Ocr = ({ocr, onSelect, setValue, className, value, ...props}: Props) => {
             {...props}
             onSelect={handleSelect}
         />
-        {(progress < 100 && progress > 0) ? <ProgressBar value={progress} className='absolute bottom-0 left-50 right-0' /> : null}
+        {(progress < 100 && progress > 0) ? <ProgressBar value={progress} className='absolute bottom-0 left-50 right-0' ref={ref}/> : null}
     </div>;
-};
+});
 
 export default Ocr;

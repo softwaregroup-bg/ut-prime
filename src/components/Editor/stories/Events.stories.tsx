@@ -28,13 +28,15 @@ const Template: Story<Props> = ({methods, ...args}) => {
                     // return false;
                 },
                 async handleAutocomplete() {
-                    return [{
-                        value: 1, label: 'value 1'
-                    }, {
-                        value: 2, label: 'value 2'
-                    }, {
-                        value: 3, label: 'value 3'
-                    }];
+                    return {
+                        suggestions: [{
+                            value: 1, label: 'value 1'
+                        }, {
+                            value: 2, label: 'value 2'
+                        }, {
+                            value: 3, label: 'value 3'
+                        }]
+                    };
                 },
                 async 'portal.customization.get'() {
                     return {};

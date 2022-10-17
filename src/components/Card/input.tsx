@@ -181,8 +181,7 @@ export default function input(
             </div>
         </>;
         case 'autocomplete': {
-            const handleChange = field.onChange;
-            const handleSelect = event => field.onChange?.({...event, value: event.value?.value});
+            const handleSelect = event => field.onChange?.({...event, value: event.value});
             const handleClear = event => field.onChange?.({...event, value: {}});
             const template = ({label}) => label;
             return <Field {...{label, error, inputClass}}>
@@ -192,9 +191,9 @@ export default function input(
                     inputClassName='w-full'
                     suggestions={field.value?.suggestions}
                     methods={methods}
-                    value={field.value}
+                    value={field.value?.value}
                     onSelect={handleSelect}
-                    onChange={handleChange}
+                    onChange={event => field.onChange?.({...event, value: {value: event.value || null}})}
                     onClear={handleClear}
                     itemTemplate={template}
                     selectedItemTemplate={template}
