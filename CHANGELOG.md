@@ -1,3 +1,18 @@
+# [2.26.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.25.1...v2.26.0) (2022-10-18)
+
+
+### Bug Fixes
+
+* autocomplete query ([e8e0d3f](https://github.com/softwaregroup-bg/ut-prime/commit/e8e0d3fa26fa3c08a44eab700a1d9ce708dfd14f))
+
+
+### Features
+
+* customizeable Explorer details ([d622062](https://github.com/softwaregroup-bg/ut-prime/commit/d622062db54191d6867a1e2f6983bbabe1e7db09))
+* **Editor:** page widget ([4ca8c62](https://github.com/softwaregroup-bg/ut-prime/commit/4ca8c62dcb2a67071cfcfdd310090fcc4135f9cc))
+
+
+
 ## [2.25.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.25.0...v2.25.1) (2022-10-17)
 
 
