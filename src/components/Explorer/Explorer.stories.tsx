@@ -198,7 +198,6 @@ Details.args = {
             : next(action)
     ],
     table: {selectionMode: 'single'},
-    toolbar: false,
     details: {
         page: 'details'
     }
