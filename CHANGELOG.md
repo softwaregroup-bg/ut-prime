@@ -1,3 +1,12 @@
+# [2.27.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.26.1...v2.27.0) (2022-10-18)
+
+
+### Features
+
+* Button permission ([effb7a5](https://github.com/softwaregroup-bg/ut-prime/commit/effb7a531ecf903f8d9811db2668fb49dcf724fc))
+
+
+
 ## [2.26.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.26.0...v2.26.1) (2022-10-18)
 
 
