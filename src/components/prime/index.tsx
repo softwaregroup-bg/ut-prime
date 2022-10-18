@@ -8,6 +8,7 @@ import type { FileUploadProps } from 'primereact/fileupload';
 import { DataTable as PrimeDataTable } from 'primereact/datatable';
 import React from 'react';
 import Text from '../Text';
+import Permission from '../Permission';
 
 export { Calendar } from 'primereact/calendar';
 export { CascadeSelect } from 'primereact/cascadeselect';
@@ -75,8 +76,10 @@ export const DateRange = props => {
 
 export const Card = ({title, ...props}: CardProps) =>
     <PrimeCard title={title && <Text>{title}</Text>} {...props}/>;
-export const Button = ({children, ...props}: ButtonProps) =>
-    <PrimeButton {...props}>{children && <span className='p-button-label p-c'><Text>{children}</Text></span>}</PrimeButton>;
+export const Button = ({children, permission, ...props}: ButtonProps & Pick<Parameters<typeof Permission>[0], 'permission'>) => {
+    const button = <PrimeButton {...props}>{children && <span className='p-button-label p-c'><Text>{children}</Text></span>}</PrimeButton>;
+    return (permission == null) ? button : <Permission permission={permission}>{button}</Permission>;
+};
 export const DataTable = ({emptyMessage = 'No results found', ...props}: DataTableProps) =>
     <PrimeDataTable emptyMessage={emptyMessage && <Text>{emptyMessage}</Text>} {...props}/>;
 export const AutoComplete = React.forwardRef<PrimeAutoComplete, AutoCompleteProps & {methods: unknown, autocomplete?: string}>(
