@@ -52,7 +52,10 @@ export interface Props {
     /**
      * Fields to show in the details pane.
      */
-    details?: object;
+    details?: {
+        page: string,
+        params?: unknown
+    };
     toolbar?: false | WidgetReference[];
     filter?: Record<string, unknown>;
     params?: Record<string, unknown>;

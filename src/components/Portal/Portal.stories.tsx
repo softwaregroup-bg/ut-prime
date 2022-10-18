@@ -59,7 +59,7 @@ Basic.args = {
                                 }
                             }}
                             details={{
-                                name: 'Name'
+                                page: 'details'
                             }}
                             {...props}
                         >

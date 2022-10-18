@@ -32,7 +32,7 @@ describe('<Explorer />', () => {
                 }
             }}
             details={{
-                name: 'Name'
+                page: 'details'
             }}
         />);
         await waitFor(() => expect(getByTestId('ut-front-test').querySelector('tr.p-selectable-row')).toBeTruthy());

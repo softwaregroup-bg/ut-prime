@@ -8,6 +8,7 @@ import Card from '../Card';
 import { Button, DataTable, DataView, Column, Toolbar, Splitter, SplitterPanel } from '../prime';
 import ActionButton from '../ActionButton';
 import Permission from '../Permission';
+import Component from '../Component';
 import useToggle from '../hooks/useToggle';
 import useSubmit from '../hooks/useSubmit';
 import useLayout from '../hooks/useLayout';
@@ -24,7 +25,6 @@ import testid from '../lib/testid';
 import useCustomization from '../hooks/useCustomization';
 
 const backgroundNone = {background: 'none'};
-const splitterWidth = { width: '200px' };
 
 const fieldName = column => typeof column === 'string' ? column : column.name;
 
@@ -73,12 +73,7 @@ const useStyles = createUseStyles({
         '& .p-toolbar-group-left': {
             flexGrow: 1
         }
-    },
-    details: {
-        marginBottom: 15
-    },
-    detailsLabel: {},
-    detailsValue: {}
+    }
 });
 
 const empty = [];
@@ -135,7 +130,7 @@ const Explorer: ComponentProps = ({
     const columns = ('layout' in layoutProps) ? empty : mergedCards[columnsCard]?.widgets ?? empty;
     const paramsLayout = ('params' in layoutProps) && layoutProps.params;
     const fetch = React.useMemo(() => (!paramsLayout || paramValues.length > 1) && fetchParams, [fetchParams, paramValues, paramsLayout]);
-    toolbar = ('layout' in layoutProps) ? ('toolbar' in layoutProps ? mergedCards[layoutProps.toolbar]?.widgets : toolbar) : mergedCards[toolbarCard]?.widgets ?? toolbar;
+    if (toolbar !== false) toolbar = ('layout' in layoutProps) ? ('toolbar' in layoutProps ? mergedCards[layoutProps.toolbar]?.widgets : toolbar) : mergedCards[toolbarCard]?.widgets ?? toolbar;
     const classes = useStyles();
     const {properties} = mergedSchema;
     const [tableFilter, setFilters] = React.useState<TableFilter>({
@@ -296,15 +291,10 @@ const Explorer: ComponentProps = ({
 
     const detailsPanel = React.useMemo(() => detailsOpened && details &&
         <SplitterPanel style={height} key='details' size={10}>
-            <div style={splitterWidth}>{
-                current && Object.entries(details).map(([name, value], index) =>
-                    <div className={classes.details} key={index}>
-                        <div className={classes.detailsLabel}>{value}</div>
-                        <div className={classes.detailsValue}>{current[name]}</div>
-                    </div>
-                )
+            <div className='w-full'>{
+                current && <Component {...details} value={{preview: current}} />
             }</div>
-        </SplitterPanel>, [classes.details, classes.detailsLabel, classes.detailsValue, current, details, detailsOpened, height]);
+        </SplitterPanel>, [current, details, detailsOpened, height]);
 
     const filterBy = (name: string, key: string) => e => {
         const value = lodashGet(e, key);
@@ -474,7 +464,7 @@ const Explorer: ComponentProps = ({
         <div className={clsx('flex', 'flex-column', classes.explorer, className)}>
             {toast}
             {
-                (toolbar !== false) || nav || detailsPanel
+                toolbar !== false
                     ? <Toolbar left={left} right={right} style={backgroundNone} className='border-none p-2 flex-nowrap' />
                     : null
             }
@@ -483,7 +473,7 @@ const Explorer: ComponentProps = ({
                     {
                         (nav || detailsPanel)
                             ? <div ref={splitterWrapRef}>
-                                <Splitter style={splitterHeight}>
+                                <Splitter style={splitterHeight} {...name && {stateKey: `${name}.splitter`, stateStorage: 'local'}}>
                                     {[
                                         nav,
                                         <SplitterPanel style={height} key='items' size={nav ? detailsPanel ? 75 : 85 : 90}>

@@ -23,7 +23,10 @@ const Template: Story<{
     createPermission?: string,
     editPermission?: string,
     deletePermission?: string,
-    details?: object,
+    details?: {
+        page: string,
+        params: unknown
+    },
     children?: React.ReactNode,
     layout?: string
 }> = ({
@@ -184,8 +187,20 @@ Children.args = {
 export const Details = Template.bind({});
 Details.args = {
     ...Children.args,
+    middleware: [
+        _store => next => action => (action.type === 'portal.component.get')
+            ? Promise.resolve(function Details({value: {preview}}) {
+                return <div>
+                    <div><Text>Name</Text>: {preview.name}</div>
+                    <div><Text>Size</Text>: {preview.size}</div>
+                </div>;
+            })
+            : next(action)
+    ],
+    table: {selectionMode: 'single'},
+    toolbar: false,
     details: {
-        name: 'Name'
+        page: 'details'
     }
 };
 

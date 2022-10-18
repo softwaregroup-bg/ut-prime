@@ -16,6 +16,7 @@ function Wrap({
     language,
     type,
     state = {},
+    middleware,
     portalName = 'Storybook'
 }) {
     const theme: Theme = {
@@ -30,7 +31,7 @@ function Wrap({
     };
     return (
         <DndProvider backend={HTML5Backend}>
-            <Store state={merge({}, defaultState, state)}>
+            <Store state={merge({}, defaultState, state)} middleware={middleware}>
                 <ThemeProvider theme={theme}>
                     <Context.Provider value={{portalName, devTool: true, customization: true}}>
                         <Translate language={language}>

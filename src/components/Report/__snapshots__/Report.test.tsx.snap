@@ -34,7 +34,7 @@ exports[`<Report /> render equals snapshot 1`] = `
             <div />
           </div>
           <form
-            class="grid col align-self-start form-0-2-5 p-0 m-0 flex-grow-1"
+            class="grid col align-self-start form-0-2-2 p-0 m-0 flex-grow-1"
           >
             <div
               class="col-12 m-0 p-0"
@@ -43,7 +43,7 @@ exports[`<Report /> render equals snapshot 1`] = `
                 class="w-full"
               >
                 <div
-                  class="p-card p-component card card-0-2-6"
+                  class="p-card p-component card card-0-2-3"
                   id="params"
                 >
                   <div

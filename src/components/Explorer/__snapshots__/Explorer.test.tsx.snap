@@ -927,7 +927,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
               style="flex-basis: calc(10% - 4px); height: 768px;"
             >
               <div
-                style="width: 200px;"
+                class="w-full"
               />
             </div>
           </div>

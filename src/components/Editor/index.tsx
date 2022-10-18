@@ -44,7 +44,7 @@ function getDefault(schema: Schema) {
 const Editor: ComponentProps = ({
     object,
     id,
-    init: initValue,
+    value: initValue,
     schema: schemaEdit = {},
     schemaCreate,
     editors,
@@ -116,10 +116,16 @@ const Editor: ComponentProps = ({
     async function init() {
         setLoading(loadingValue);
         await loadCustomization();
-        initValue = merge(getDefault(mergedSchema), initValue, onInit && await onInit(initValue));
-        if (initValue !== undefined) setEditValue(getValue(initValue));
         setLoading('');
     }
+
+    React.useEffect(() => {
+        async function edit() {
+            const value = merge(getDefault(mergedSchema), initValue, onInit && await onInit(initValue));
+            if (value !== undefined) setEditValue(getValue(value));
+        }
+        edit();
+    }, [getValue, initValue, mergedSchema, onInit]);
 
     React.useEffect(() => {
         const loadDropDown = async() => setDropdown(await onDropdown(dropdownNames));
