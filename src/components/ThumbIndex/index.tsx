@@ -50,7 +50,7 @@ const ThumbIndex: ComponentProps = ({ name, className, items, orientation = 'lef
                 <Ripple />
             </a>
         );
-        return items.map((item, index) => ({template, ...type === 'steps' && {className: 'p-2'}, ...item, index}));
+        return items.map((item, index) => (type === 'thumbs' && orientation === 'left') ? item : ({template, ...type === 'steps' && {className: 'p-2'}, ...item, index}));
     }, [items, name, type]);
 
     let tabs;

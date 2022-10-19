@@ -10489,8 +10489,8 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
             <li
               aria-disabled="false"
               aria-label="[object Object]"
-              aria-selected="false"
-              class="p-listbox-item"
+              aria-selected="true"
+              class="p-listbox-item p-highlight"
               role="option"
               tabindex="-1"
             >
