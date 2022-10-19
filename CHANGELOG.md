@@ -1,3 +1,13 @@
+## [2.28.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.28.0...v2.28.1) (2022-10-19)
+
+
+### Bug Fixes
+
+* forgotten dependency ([23e82f1](https://github.com/softwaregroup-bg/ut-prime/commit/23e82f16c5a62dc6f2d85b64ca00169338a5b8e0))
+* thumbs initial selected ([e6d3444](https://github.com/softwaregroup-bg/ut-prime/commit/e6d3444ba1b7b203afaa8187e8194648f91a7763))
+
+
+
 # [2.28.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.27.0...v2.28.0) (2022-10-19)
 
 
