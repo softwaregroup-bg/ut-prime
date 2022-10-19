@@ -17,6 +17,12 @@ const getDefault = (key, value, rows) => {
             return [key, rows.reduce((max, row) => row ? Math.max(max, row[key]) : max, 0) + 1];
         case 'min':
             return [key, rows.reduce((min, row) => row ? Math.min(min, row[key]) : min, 0) - 1];
+        case 'dateNow':
+            return [key, new Date().toLocaleDateString()];
+        case 'timeNow':
+            return [key, new Date().toLocaleTimeString()];
+        case 'datetimeNow':
+            return [key, new Date().toLocaleString()];
         default:
             return [key, defaultValue];
     }
