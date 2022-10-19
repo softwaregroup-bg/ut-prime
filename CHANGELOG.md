@@ -1,3 +1,12 @@
+# [2.28.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.27.0...v2.28.0) (2022-10-19)
+
+
+### Features
+
+* **Editor:** steps layout ([896534e](https://github.com/softwaregroup-bg/ut-prime/commit/896534ec30e0e3e66412034210b416cc06277db4))
+
+
+
 # [2.27.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.26.1...v2.27.0) (2022-10-18)
 
 
