@@ -33,7 +33,7 @@ exports[`<Report /> render equals snapshot 1`] = `
           >
             <div />
           </div>
-          <form
+          <div
             class="grid col align-self-start form-0-2-2 p-0 m-0 flex-grow-1"
           >
             <div
@@ -163,7 +163,7 @@ exports[`<Report /> render equals snapshot 1`] = `
                 </div>
               </div>
             </div>
-          </form>
+          </div>
         </div>
       </div>
       <div

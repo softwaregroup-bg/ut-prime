@@ -27,6 +27,7 @@ function getLayout(cards: Cards, layouts: Layouts, mode: 'create' | 'edit', name
     }
     let layout: string[];
     const orientation = items?.orientation;
+    const type = items?.type;
     if (orientation) items = items.items;
     if (typeof (items?.[0]?.[0] || items?.[0]) === 'string') {
         layout = items;
@@ -36,7 +37,7 @@ function getLayout(cards: Cards, layouts: Layouts, mode: 'create' | 'edit', name
     if (!cards[toolbar]) toolbar = `toolbar${capital(name)}`;
     if (!cards[toolbar]) toolbar = `toolbar${capital(mode)}`;
     if (!cards[toolbar]) toolbar = 'toolbar';
-    return [items, layout, orientation || 'left', toolbar, layoutName];
+    return [items, layout, type, orientation || 'left', toolbar, layoutName];
 }
 
 export default function useCustomization(
@@ -63,7 +64,7 @@ export default function useCustomization(
     const mergedLayouts = React.useMemo(() => merge({}, layouts, mergedCustomization.layout), [layouts, mergedCustomization.layout]);
     const [addField, setAddField] = React.useState(null);
     const [addCard, setAddCard] = React.useState(null);
-    const [items, layout, orientation, toolbar, currentLayoutName] = React.useMemo(
+    const [items, layout, indexType, orientation, toolbar, currentLayoutName] = React.useMemo(
         () => getLayout(mergedCards, mergedLayouts, mode, layoutState),
         [mergedCards, mergedLayouts, mode, layoutState]
     );
@@ -348,7 +349,7 @@ export default function useCustomization(
         customizationResult?.component && setCustomization({schema: {}, card: {}, layout: {}, ...(customizationResult.component as {componentConfig?:object}).componentConfig});
     }, [customizationDefault, customizationEnabled, methods, name]);
 
-    const thumbIndex = items && <ThumbIndex name={name} items={items} orientation={orientation} onFilter={setFilter}/>;
+    const thumbIndex = items && <ThumbIndex name={name} items={items} orientation={orientation} type={indexType} onFilter={setFilter}/>;
 
     return [
         customizationToolbar,

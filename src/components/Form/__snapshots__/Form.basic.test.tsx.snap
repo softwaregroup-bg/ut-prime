@@ -13,7 +13,7 @@ exports[`<Form /> Basic equals snapshot 1`] = `
     >
       <div />
     </div>
-    <form
+    <div
       class="grid col align-self-start form-0-2-1"
     >
       <div
@@ -482,7 +482,7 @@ exports[`<Form /> Basic equals snapshot 1`] = `
           </div>
         </div>
       </div>
-    </form>
+    </div>
   </div>
 </div>
 `;
@@ -500,7 +500,7 @@ exports[`<Form /> BasicAR equals snapshot 1`] = `
     >
       <div />
     </div>
-    <form
+    <div
       class="grid col align-self-start form-0-2-1"
       dir="rtl"
       lang="ar"
@@ -971,7 +971,7 @@ exports[`<Form /> BasicAR equals snapshot 1`] = `
           </div>
         </div>
       </div>
-    </form>
+    </div>
   </div>
 </div>
 `;
@@ -989,7 +989,7 @@ exports[`<Form /> BasicBG equals snapshot 1`] = `
     >
       <div />
     </div>
-    <form
+    <div
       class="grid col align-self-start form-0-2-1"
       lang="bg"
     >
@@ -1459,7 +1459,7 @@ exports[`<Form /> BasicBG equals snapshot 1`] = `
           </div>
         </div>
       </div>
-    </form>
+    </div>
   </div>
 </div>
 `;

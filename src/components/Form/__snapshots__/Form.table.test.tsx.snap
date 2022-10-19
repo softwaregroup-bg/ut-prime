@@ -13,7 +13,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
     >
       <div />
     </div>
-    <form
+    <div
       class="grid col align-self-start form-0-2-1"
     >
       <div
@@ -1858,7 +1858,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
           </div>
         </div>
       </div>
-    </form>
+    </div>
   </div>
 </div>
 `;
@@ -1876,7 +1876,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
     >
       <div />
     </div>
-    <form
+    <div
       class="grid col align-self-start form-0-2-1"
       dir="rtl"
       lang="ar"
@@ -3723,7 +3723,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
           </div>
         </div>
       </div>
-    </form>
+    </div>
   </div>
 </div>
 `;
@@ -3741,7 +3741,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
     >
       <div />
     </div>
-    <form
+    <div
       class="grid col align-self-start form-0-2-1"
       lang="bg"
     >
@@ -5587,7 +5587,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
           </div>
         </div>
       </div>
-    </form>
+    </div>
   </div>
 </div>
 `;

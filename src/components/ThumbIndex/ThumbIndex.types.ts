@@ -11,6 +11,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     name?: string;
     items: Item[];
     orientation?: 'left' | 'top',
+    type?: 'steps' | 'tabs' | 'thumbs',
     onFilter: (filter: unknown) => void
 }
 

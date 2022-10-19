@@ -37,6 +37,7 @@ export { Ripple } from 'primereact/ripple';
 export { SelectButton } from 'primereact/selectbutton';
 export { Skeleton } from 'primereact/skeleton';
 export { Splitter, SplitterPanel } from 'primereact/splitter';
+export { Steps } from 'primereact/steps';
 export { TabMenu } from 'primereact/tabmenu';
 export { TabPanel, TabView } from 'primereact/tabview';
 export { Toast } from 'primereact/toast';
@@ -76,7 +77,7 @@ export const DateRange = props => {
 
 export const Card = ({title, ...props}: CardProps) =>
     <PrimeCard title={title && <Text>{title}</Text>} {...props}/>;
-export const Button = ({children, permission, ...props}: ButtonProps & Pick<Parameters<typeof Permission>[0], 'permission'>) => {
+export const Button = ({children, permission, ...props}: ButtonProps & Partial<Pick<Parameters<typeof Permission>[0], 'permission'>>) => {
     const button = <PrimeButton {...props}>{children && <span className='p-button-label p-c'><Text>{children}</Text></span>}</PrimeButton>;
     return (permission == null) ? button : <Permission permission={permission}>{button}</Permission>;
 };

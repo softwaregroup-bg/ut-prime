@@ -13,7 +13,7 @@ exports[`<Form /> InputBG render equals snapshot 1`] = `
     >
       <div />
     </div>
-    <form
+    <div
       class="grid col align-self-start form-0-2-1"
       lang="bg"
     >
@@ -2014,7 +2014,7 @@ exports[`<Form /> InputBG render equals snapshot 1`] = `
           </div>
         </div>
       </div>
-    </form>
+    </div>
   </div>
 </div>
 `;

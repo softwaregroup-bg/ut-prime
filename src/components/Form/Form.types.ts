@@ -2,7 +2,7 @@ import React from 'react';
 import type { Schema as Validation } from 'joi';
 
 import {Schema, Editors, Cards, Dropdowns} from '../types';
-export interface Props extends React.HTMLAttributes<HTMLFormElement> {
+export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     className?: string;
     schema?: Schema;
     editors?: Editors;

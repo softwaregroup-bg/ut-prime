@@ -196,6 +196,7 @@ interface IndexItemId extends IndexItem {
 
 interface Index extends MenuItem {
     orientation?: 'left' | 'top';
+    type?: 'tabs' | 'thumbs' | 'steps';
     items?: IndexItem[];
 }
 
