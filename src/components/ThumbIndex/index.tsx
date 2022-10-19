@@ -51,7 +51,7 @@ const ThumbIndex: ComponentProps = ({ name, className, items, orientation = 'lef
             </a>
         );
         return items.map((item, index) => (type === 'thumbs' && orientation === 'left') ? item : ({template, ...type === 'steps' && {className: 'p-2'}, ...item, index}));
-    }, [items, name, type]);
+    }, [items, name, type, orientation]);
 
     let tabs;
     switch (`${type}-${orientation}`) {
