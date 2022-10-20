@@ -327,7 +327,7 @@ export default function input(
                         onChange={event =>
                             !props.disabled && field.onChange?.({
                                 ...event,
-                                value: event.filter(e => selection.findIndex(s => s[dataKey] === e[dataKey]) > -1)
+                                value: event.value?.filter(e => selection.findIndex(s => s[dataKey] === e[dataKey]) > -1)
                             }, {children: false, ...props.change})
                         }
                         {...props}
