@@ -1,3 +1,19 @@
+# [2.29.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.28.2...v2.29.0) (2022-10-20)
+
+
+### Bug Fixes
+
+* permission is already embedded in Button ([9de52e6](https://github.com/softwaregroup-bg/ut-prime/commit/9de52e6a6e0062277355f834fe13a763d9c1d244))
+* selectTable onChange error ([73394d8](https://github.com/softwaregroup-bg/ut-prime/commit/73394d8490843f898c7928c7a22063d99722c40d))
+
+
+### Features
+
+* Explorer submit buttons ([f6e615d](https://github.com/softwaregroup-bg/ut-prime/commit/f6e615d22e46cdce1a55f13c5dfd4f5fc8f18bce))
+* steps navigation buttons ([d6bb3e6](https://github.com/softwaregroup-bg/ut-prime/commit/d6bb3e6401b868c6f7c49a56d62cafb328f2c96a))
+
+
+
 ## [2.28.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.28.1...v2.28.2) (2022-10-20)
 
 
