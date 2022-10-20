@@ -23,7 +23,7 @@ export default ([form, {tables = [], files = []} = {}, {method, params} = {metho
         const parts = [];
         const skip = [];
         files.forEach(name => query(value, name)?.forEach(({name, value: file}) => {
-            if (file.constructor !== File) return;
+            if (file?.[0].constructor !== File) return;
             parts.push([name, file[0]]);
             skip.push(file);
         }));
