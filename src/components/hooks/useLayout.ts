@@ -1,8 +1,9 @@
 import React from 'react';
 import lodashGet from 'lodash.get';
 
-import type { Properties, Editors, PropertyEditors, Cards, Schema, Layout } from '../types';
+import fieldNames from '../lib/fields';
 import getType from '../lib/getType';
+import type { Cards, Editors, Layout, Properties, PropertyEditors, Schema } from '../types';
 
 const flatten = (properties: Properties, editors: Editors, root = '') : PropertyEditors => Object.entries(properties || {}).reduce(
     (map, [name, property]) => {
@@ -41,7 +42,7 @@ const getIndex = (properties: Properties, editors: Editors, visible: string[]) :
             }
             return prev;
         }, {}),
-        files: Object.entries(index).map(([name, property]) => propertyType(property) === 'file' && name).filter(name =>
+        files: Object.entries(index).map(([name, property]) => ['file', 'imageUpload'].includes(propertyType(property)) && name).filter(name =>
             visible.some(item => item === name || index[item]?.widget?.widgets?.map?.(col => item + '.' + col).includes(name))
         ),
         tables: Object.entries(index).map(([name, property]) => visible.includes(name) && (propertyType(property) === 'table') && name).filter(Boolean)
@@ -75,8 +76,9 @@ export default (
             );
         }).flat(10).filter(Boolean)
     ));
+    const { fields: formFields } = fieldNames(Object.keys(cards), cards, schema, editors);
     return {
-        index: getIndex(schema.properties, editors, visibleProperties),
+        index: getIndex(schema.properties, editors, formFields),
         visibleCards,
         visibleProperties,
         open: keyFieldAction ? row => () => keyFieldAction({
