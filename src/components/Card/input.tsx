@@ -425,9 +425,10 @@ export default function input(
                 <FileUpload
                     {...field}
                     onSelect={e => {
-                        onChange?.([...e.files || []]);
+                        onChange?.({...e, value: [...e.files || []]});
                     }}
                     {...props}
+                    accept='image/*'
                     multiple={false}
                     headerTemplate={(options) => {
                         const { className, chooseButton } = options;
