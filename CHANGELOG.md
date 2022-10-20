@@ -1,3 +1,12 @@
+## [2.28.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.28.1...v2.28.2) (2022-10-20)
+
+
+### Bug Fixes
+
+* improve widgets ([95b4d03](https://github.com/softwaregroup-bg/ut-prime/commit/95b4d03a3cd22b3c82005f5a6786ab2f08d8749b))
+
+
+
 ## [2.28.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.28.0...v2.28.1) (2022-10-19)
 
 
