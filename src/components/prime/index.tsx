@@ -1,4 +1,4 @@
-import { Button as PrimeButton, type ButtonProps } from 'primereact/button';
+import { Button as PrimeButton, type ButtonProps as PrimeButtonProps } from 'primereact/button';
 import { Calendar } from 'primereact/calendar';
 import { Card as PrimeCard, type CardProps } from 'primereact/card';
 import { AutoComplete as PrimeAutoComplete, type AutoCompleteProps } from 'primereact/autocomplete';
@@ -77,7 +77,9 @@ export const DateRange = props => {
 
 export const Card = ({title, ...props}: CardProps) =>
     <PrimeCard title={title && <Text>{title}</Text>} {...props}/>;
-export const Button = ({children, permission, ...props}: ButtonProps & Partial<Pick<Parameters<typeof Permission>[0], 'permission'>>) => {
+
+export type ButtonProps = PrimeButtonProps & Partial<Pick<Parameters<typeof Permission>[0], 'permission'>>
+export const Button = ({children, permission, ...props}: ButtonProps) => {
     const button = <PrimeButton {...props}>{children && <span className='p-button-label p-c'><Text>{children}</Text></span>}</PrimeButton>;
     return (permission == null) ? button : <Permission permission={permission}>{button}</Permission>;
 };

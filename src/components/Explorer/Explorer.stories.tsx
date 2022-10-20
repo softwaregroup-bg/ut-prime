@@ -27,6 +27,7 @@ const Template: Story<{
         page: string,
         params: unknown
     },
+    buttons?: [],
     children?: React.ReactNode,
     layout?: string
 }> = ({
@@ -36,30 +37,36 @@ const Template: Story<{
     details,
     children,
     layout = 'basic',
+    buttons,
     ...props
 }) => {
     const toast = React.useRef(null);
-    const show = action => data => toast.current.show({
+    const show = props => params => toast.current.show({
         severity: 'success',
         summary: 'Submit',
-        detail: <pre>{JSON.stringify({action, data}, null, 2)}</pre>
+        detail: <pre>{JSON.stringify({...props, params}, null, 2)}</pre>
     });
     return (
         <>
-            <Toast ref={toast} />
             <div style={{height: 'fit-content', display: 'flex', flexDirection: 'column'}}>
                 <Explorer
                     fetch={fetchItems}
                     keyField='id'
                     resultSet='items'
                     name='items'
+                    methods={{
+                        async 'portal.customization.get'() {
+                            return {};
+                        },
+                        'explorer.submit': show({method: 'explorer.submit'})
+                    }}
                     schema={{
                         properties: {
                             id: {
-                                action: show('action')
+                                action: show({action: 'action'})
                             },
                             name: {
-                                action: show('action'),
+                                action: show({action: 'action'}),
                                 title: 'Name',
                                 filter: true,
                                 sort: true
@@ -90,7 +97,7 @@ const Template: Story<{
                         }
                     }}
                     subscribe={updateItems}
-                    onCustomization={show('customization')}
+                    onCustomization={show({handler: 'onCustomization'})}
                     details={details}
                     filter={{}}
                     cards={{
@@ -124,7 +131,7 @@ const Template: Story<{
                             }]
                         },
                         toolbar: {
-                            widgets: [{
+                            widgets: buttons || [{
                                 title: 'Create',
                                 permission: createPermission,
                                 action: () => {}
@@ -132,12 +139,12 @@ const Template: Story<{
                                 title: 'Edit',
                                 permission: editPermission,
                                 enabled: 'current',
-                                action: show('edit')
+                                action: show({action: 'edit'})
                             }, {
                                 title: 'Delete',
                                 permission: deletePermission,
                                 enabled: 'selected',
-                                action: show('delete')
+                                action: show({action: 'delete'})
                             }]
                         }
                     }}
@@ -165,6 +172,7 @@ const Template: Story<{
                     {children}
                 </Explorer>
             </div>
+            <Toast ref={toast} />
         </>
     );
 };
@@ -216,6 +224,36 @@ ActionPermissions.args = {
     createPermission: 'forbidden',
     editPermission: 'granted',
     deletePermission: 'forbidden'
+};
+
+/* eslint-disable no-template-curly-in-string */
+export const Submit = Template.bind({});
+Submit.args = {
+    ...Basic.args,
+    buttons: [{
+        title: 'Submit id',
+        enabled: 'single',
+        method: 'explorer.submit',
+        params: '${id}'
+    }, {
+        title: 'Submit current',
+        enabled: 'current',
+        method: 'explorer.submit',
+        params: '${current}'
+    }, {
+        title: 'Submit selected',
+        enabled: 'selected',
+        method: 'explorer.submit',
+        params: '${selected}'
+    }, {
+        title: 'Submit template',
+        method: 'explorer.submit',
+        enabled: 'current',
+        params: {
+            id: '${id}',
+            size: '${current.size}'
+        }
+    }]
 };
 
 export const DateTimeFilter = Template.bind({});

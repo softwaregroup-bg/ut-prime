@@ -1,5 +1,5 @@
 import React from 'react';
-import type {ButtonProps} from 'primereact/button';
+import type {ButtonProps} from '../prime';
 
 import type {ActionHandler, Selection} from '../types';
 import type { Schema } from 'joi';

@@ -7,6 +7,7 @@ import {createUseStyles} from 'react-jss';
 import Card from '../Card';
 import { Button, DataTable, DataView, Column, Toolbar, Splitter, SplitterPanel } from '../prime';
 import ActionButton from '../ActionButton';
+import SubmitButton from '../SubmitButton';
 import Component from '../Component';
 import useToggle from '../hooks/useToggle';
 import useSubmit from '../hooks/useSubmit';
@@ -172,8 +173,12 @@ const Explorer: ComponentProps = ({
         selected
     }), [current, keyField, selected]);
 
+    const submit = React.useCallback(async({method, params}) => {
+        await methods[method](prepareSubmit([getValues(), {}, {method, params}]));
+    }, [methods, getValues]);
+
     const buttons = React.useMemo(() => (toolbar || []).map((widget, index) => {
-        const {title, action, params, enabled, disabled, permission} = (typeof widget === 'string') ? properties[widget].widget : widget;
+        const {title, action, method, params, enabled, disabled, permission} = (typeof widget === 'string') ? properties[widget].widget : widget;
         const check = criteria => {
             if (typeof criteria?.validate === 'function') return !criteria.validate({current, selected}).error;
             if (typeof criteria !== 'string') return !!criteria;
@@ -190,21 +195,29 @@ const Explorer: ComponentProps = ({
                 : disabled != null
                     ? check(disabled)
                     : undefined;
-        return (
-            <ActionButton
-                key={index}
-                permission={permission}
-                {...testid(`${permission ? (permission + 'Button') : ('button' + index)}`)}
-                label={title}
-                action={action}
-                params={params}
-                getValues={getValues}
-                disabled={isDisabled}
-                className="mr-2"
-            />
-        );
+        return method ? <SubmitButton
+            key={index}
+            permission={permission}
+            {...testid(`${permission ? (permission + 'Button') : ('button' + index)}`)}
+            label={title}
+            method={method}
+            submit={submit}
+            params={params}
+            disabled={isDisabled}
+            className="mr-2"
+        /> : <ActionButton
+            key={index}
+            permission={permission}
+            {...testid(`${permission ? (permission + 'Button') : ('button' + index)}`)}
+            label={title}
+            action={action}
+            params={params}
+            getValues={getValues}
+            disabled={isDisabled}
+            className="mr-2"
+        />;
     }
-    ), [toolbar, current, selected, getValues, properties]);
+    ), [toolbar, current, selected, getValues, properties, submit]);
     const {toast, handleSubmit: load} = useSubmit(
         async function() {
             if (!fetch) {
