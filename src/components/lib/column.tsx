@@ -225,7 +225,7 @@ export default function columnProps({
         }
         case 'file': {
             body = function body(rowData) {
-                return [].concat(rowData[fieldName]).filter(Boolean)?.map(({name}) => name).join(', ');
+                return [].concat(rowData[fieldName]).filter(Boolean)?.map((item) => item?.name || item).join(', ');
             };
         }
     }
