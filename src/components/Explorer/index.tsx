@@ -7,7 +7,6 @@ import {createUseStyles} from 'react-jss';
 import Card from '../Card';
 import { Button, DataTable, DataView, Column, Toolbar, Splitter, SplitterPanel } from '../prime';
 import ActionButton from '../ActionButton';
-import Permission from '../Permission';
 import Component from '../Component';
 import useToggle from '../hooks/useToggle';
 import useSubmit from '../hooks/useSubmit';
@@ -122,7 +121,7 @@ const Explorer: ComponentProps = ({
     const [loading, setLoading] = React.useState('');
     const [inspectorHeight, setInspectorHeight] = React.useState<{maxHeight: number}>();
     const [customizationToolbar, mergedSchema, mergedCards, inspector, loadCustomization, , , , , formProps] =
-        useCustomization(designDefault, schema, cards, layouts, customization, 'view', '', Editor, inspectorHeight, onCustomization, methods, name, loading);
+        useCustomization(designDefault, schema, cards, layouts, customization, 'view', '', Editor, inspectorHeight, onCustomization, methods, name, loading, undefined);
     const layoutProps = layouts?.[layoutName] || {};
     const columnsCard = ('columns' in layoutProps) ? layoutProps.columns : 'browse';
     const toolbarCard = ('toolbar' in layoutProps) ? layoutProps.toolbar : 'toolbarBrowse';
@@ -192,17 +191,17 @@ const Explorer: ComponentProps = ({
                     ? check(disabled)
                     : undefined;
         return (
-            <Permission key={index} permission={permission}>
-                <ActionButton
-                    {...testid(`${permission ? (permission + 'Button') : ('button' + index)}`)}
-                    label={title}
-                    action={action}
-                    params={params}
-                    getValues={getValues}
-                    disabled={isDisabled}
-                    className="mr-2"
-                />
-            </Permission>
+            <ActionButton
+                key={index}
+                permission={permission}
+                {...testid(`${permission ? (permission + 'Button') : ('button' + index)}`)}
+                label={title}
+                action={action}
+                params={params}
+                getValues={getValues}
+                disabled={isDisabled}
+                className="mr-2"
+            />
         );
     }
     ), [toolbar, current, selected, getValues, properties]);

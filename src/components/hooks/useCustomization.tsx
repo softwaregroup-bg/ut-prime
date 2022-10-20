@@ -11,7 +11,6 @@ import ThumbIndex from '../ThumbIndex';
 import Context from '../Context';
 import {ConfigField, ConfigCard, useDragging} from '../Form/DragDrop';
 import {Button} from '../prime';
-import Permission from '../Permission';
 import testid from '../lib/testid';
 import type {Cards, Layouts} from '../types';
 
@@ -334,15 +333,15 @@ export default function useCustomization(
                 <Button icon='pi pi-pencil'/>
             </ConfigField>
         </> : null}
-        {customizationEnabled ? <Permission permission='portal.customization.edit'>
-            <Button
-                icon='pi pi-cog'
-                onClick={toggleDesign}
-                disabled={!!loading}
-                aria-label='design'
-                {...testid(name ? name + 'Customization' : 'customization')}
-                className={clsx(design && 'p-button-success')}
-            /></Permission> : null}
+        {customizationEnabled ? <Button
+            permission='portal.customization.edit'
+            icon='pi pi-cog'
+            onClick={toggleDesign}
+            disabled={!!loading}
+            aria-label='design'
+            {...testid(name ? name + 'Customization' : 'customization')}
+            className={clsx(design && 'p-button-success')}
+        /> : null}
     </>;
 
     const loadCustomization = React.useMemo(() => async() => {
