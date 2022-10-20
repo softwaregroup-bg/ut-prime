@@ -107,6 +107,7 @@ Tabs.args = {
 export const Steps: StoryTemplate = Template.bind({});
 Steps.args = {
     ...Basic.args,
+    toolbar: false,
     layouts: {
         edit: {
             orientation: 'top',

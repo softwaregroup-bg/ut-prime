@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import {createUseStyles} from 'react-jss';
 
-import { ListBox, PanelMenu, TabMenu, Ripple, Steps } from '../prime';
+import { ListBox, PanelMenu, TabMenu, Ripple, Steps, Button } from '../prime';
 import ScrollBox from '../ScrollBox';
 import { ComponentProps } from './ThumbIndex.types';
 import testid from '../lib/testid';
@@ -18,7 +18,18 @@ const useStyles = createUseStyles({
     tabs: {}
 });
 
-const ThumbIndex: ComponentProps = ({ name, className, items, orientation = 'left', type = 'thumbs', children, onFilter, ...rest }) => {
+const ThumbIndex: ComponentProps = ({
+    name,
+    className,
+    items,
+    orientation = 'left',
+    type = 'thumbs',
+    children,
+    trigger,
+    loading,
+    onFilter,
+    ...rest
+}) => {
     const classes = useStyles();
     const [[selectedList, activeIndex], setList] = React.useState([items[0], 0]);
     const handleListChange = React.useCallback(({item, value = item, index = value.index}) => {
@@ -53,6 +64,15 @@ const ThumbIndex: ComponentProps = ({ name, className, items, orientation = 'lef
         return items.map((item, index) => (type === 'thumbs' && orientation === 'left') ? item : ({template, ...type === 'steps' && {className: 'p-2'}, ...item, index}));
     }, [items, name, type, orientation]);
 
+    const next = React.useCallback(
+        event => handleListChange({item: items[activeIndex + 1], index: activeIndex + 1}),
+        [activeIndex, handleListChange, items]
+    );
+    const previous = React.useCallback(
+        event => activeIndex && handleListChange({item: items[activeIndex - 1], index: activeIndex - 1}),
+        [activeIndex, handleListChange, items]
+    );
+
     let tabs;
     switch (`${type}-${orientation}`) {
         case 'thumbs-left':
@@ -65,12 +85,30 @@ const ThumbIndex: ComponentProps = ({ name, className, items, orientation = 'lef
             />;
             break;
         case 'steps-top':
-            tabs = <Steps
-                model={itemsTemplate}
-                activeIndex={activeIndex}
-                onSelect={handleListChange}
-                readOnly={false}
-            />;
+            tabs = <>
+                <Button
+                    className='p-button-text m-1'
+                    icon='pi pi-caret-left'
+                    disabled={!activeIndex}
+                    onClick={previous}
+                />
+                <Steps
+                    model={itemsTemplate}
+                    activeIndex={activeIndex}
+                    onSelect={handleListChange}
+                />
+                <Button
+                    className='p-button-text m-1'
+                    {...activeIndex >= items.length - 1 ? {
+                        icon: 'pi pi-save',
+                        disabled: !trigger || !!loading,
+                        onClick: trigger
+                    } : {
+                        icon: 'pi pi-caret-right',
+                        onClick: next
+                    }}
+                />
+            </>;
             break;
         default:
             tabs = <TabMenu

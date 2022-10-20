@@ -12,6 +12,8 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     items: Item[];
     orientation?: 'left' | 'top',
     type?: 'steps' | 'tabs' | 'thumbs',
+    loading?: boolean,
+    trigger?: React.MouseEventHandler,
     onFilter: (filter: unknown) => void
 }
 
