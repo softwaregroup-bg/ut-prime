@@ -1,3 +1,12 @@
+# [2.30.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.29.0...v2.30.0) (2022-10-21)
+
+
+### Features
+
+* include all resultsets in preview ([cfe0b59](https://github.com/softwaregroup-bg/ut-prime/commit/cfe0b593d21df1765a7a00d9589645a64b238631))
+
+
+
 # [2.29.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.28.2...v2.29.0) (2022-10-20)
 
 
