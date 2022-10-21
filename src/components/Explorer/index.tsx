@@ -154,7 +154,7 @@ const Explorer: ComponentProps = ({
     const [navigationOpened, navigationToggle] = useToggle(true);
     const [detailsOpened, detailsToggle] = useToggle(true);
 
-    const [[items, totalRecords], setItems] = React.useState([[], 0]);
+    const [[items, totalRecords, result], setItems] = React.useState([[], 0, {}]);
     const [dropdowns, setDropdown] = React.useState({});
 
     const {dropdownNames: formDropdownNames = []} = paramsLayout ? fieldNames(paramsLayout, mergedCards, mergedSchema, editors) : {};
@@ -221,7 +221,7 @@ const Explorer: ComponentProps = ({
     const {toast, handleSubmit: load} = useSubmit(
         async function() {
             if (!fetch) {
-                setItems([[], 0]);
+                setItems([[], 0, {}]);
                 setDropdown({});
             } else {
                 setLoading('loading');
@@ -253,7 +253,7 @@ const Explorer: ComponentProps = ({
                         if (total === pageSize) total++;
                         total = tableFilter.first + total;
                     }
-                    setItems([records, total]);
+                    setItems([records, total, items]);
                 } finally {
                     setLoading('');
                 }
@@ -268,10 +268,10 @@ const Explorer: ComponentProps = ({
         load();
         if (subscribe && !formProps.design) {
             return subscribe(rows => {
-                setItems(([items, totalRecords]) => [(Array.isArray(rows) || !keyField) ? rows as unknown[] : items.map(item => {
+                setItems(([items, totalRecords, result]) => [(Array.isArray(rows) || !keyField) ? rows as unknown[] : items.map(item => {
                     const update = rows[item[keyField]];
                     return update ? {...item, ...update} : item;
-                }), totalRecords]);
+                }), totalRecords, result]);
             });
         }
     }, [keyField, load, subscribe, formProps.design]);
@@ -304,9 +304,9 @@ const Explorer: ComponentProps = ({
     const detailsPanel = React.useMemo(() => detailsOpened && details &&
         <SplitterPanel style={height} key='details' size={10}>
             <div className='w-full'>{
-                current && <Component {...details} value={{preview: current}} />
+                current && <Component {...details} value={{preview: {...result, ...getValues()}}} />
             }</div>
-        </SplitterPanel>, [current, details, detailsOpened, height]);
+        </SplitterPanel>, [current, getValues, result, details, detailsOpened, height]);
 
     const filterBy = (name: string, key: string) => e => {
         const value = lodashGet(e, key);
