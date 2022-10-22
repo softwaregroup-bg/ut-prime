@@ -31,6 +31,7 @@ import Table from './inputs/Table';
 import Ocr from './inputs/Ocr';
 import ActionButton from '../ActionButton';
 import SubmitButton from '../SubmitButton';
+import Component from '../Component';
 
 const noActions = {allowAdd: false, allowEdit: false, allowDelete: false};
 
@@ -326,7 +327,7 @@ export default function input(
                         onChange={event =>
                             !props.disabled && field.onChange?.({
                                 ...event,
-                                value: event.filter(e => selection.findIndex(s => s[dataKey] === e[dataKey]) > -1)
+                                value: event.value?.filter(e => selection.findIndex(s => s[dataKey] === e[dataKey]) > -1)
                             }, {children: false, ...props.change})
                         }
                         {...props}
@@ -498,6 +499,9 @@ export default function input(
                     {...props}
                 />
             </Field>;
+        }
+        case 'page': {
+            return <div className='w-full'><Component page={props.page} {...field} {...props} /></div>;
         }
         case 'label': return (field?.name || title) ? <Field inputClass={widgetClassName}>{field?.value ?? title}</Field> : null;
         case 'icon': return (field?.name || title) ? <i className={clsx('pi', field?.value ?? title, widgetClassName)}/> : null;

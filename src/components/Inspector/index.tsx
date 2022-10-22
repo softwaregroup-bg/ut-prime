@@ -270,12 +270,12 @@ const Inspector: ComponentProps = ({
             [where]: {...lodashSet(prev[where], property, value)}
         }));
     }, [property, where, onChange]);
-    const init = React.useMemo(() => {
+    const value = React.useMemo(() => {
         return property ? lodashGet(object, property) : object;
     }, [object, property]);
     return <div className={clsx(className, classes.inspector)}>
         <Editor
-            init={init}
+            value={value}
             loading=''
             noScroll
             key={String(property)}

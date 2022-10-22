@@ -4,7 +4,7 @@ export interface Props {
     /**
      * Permission(s) to check
      */
-    permission: string | string[];
+    permission: string | string[] | boolean;
 }
 
 export type ComponentProps = React.FC<Props>

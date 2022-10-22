@@ -13,7 +13,7 @@ exports[`<Form /> InputAR render equals snapshot 1`] = `
     >
       <div />
     </div>
-    <form
+    <div
       class="grid col align-self-start form-0-2-1"
       dir="rtl"
       lang="ar"
@@ -2015,7 +2015,7 @@ exports[`<Form /> InputAR render equals snapshot 1`] = `
           </div>
         </div>
       </div>
-    </form>
+    </div>
   </div>
 </div>
 `;

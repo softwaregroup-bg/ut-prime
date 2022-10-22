@@ -34,6 +34,7 @@ export interface PropertyEditor {
         'multiSelectTreeTable' |
         'number' |
         'ocr' |
+        'page' |
         'password' |
         'radio' |
         'select-table-radio' |
@@ -57,6 +58,7 @@ export interface PropertyEditor {
     compare?: string,
     optionsFilter?: Record<string, unknown>,
     method?: string,
+    page?: string,
     columns?: string,
     widgets?: string[],
     dataKey?: string,
@@ -195,6 +197,7 @@ interface IndexItemId extends IndexItem {
 
 interface Index extends MenuItem {
     orientation?: 'left' | 'top';
+    type?: 'tabs' | 'thumbs' | 'steps';
     items?: IndexItem[];
 }
 

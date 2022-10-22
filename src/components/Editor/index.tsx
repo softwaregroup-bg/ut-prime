@@ -44,7 +44,7 @@ function getDefault(schema: Schema) {
 const Editor: ComponentProps = ({
     object,
     id,
-    init: initValue,
+    value: initValue,
     schema: schemaEdit = {},
     schemaCreate,
     editors,
@@ -83,7 +83,7 @@ const Editor: ComponentProps = ({
     const [[mode, layoutState], setMode] = React.useState([id == null ? 'create' : 'edit' as 'create' | 'edit', layoutName]);
     const [loading, setLoading] = React.useState(loadingValue);
     const [customizationToolbar, mergedSchema, mergedCards, inspector, loadCustomization, items, orientation, thumbIndex, layout, formProps] =
-        useCustomization(designDefault, schema, cards, layouts, customization, mode, layoutState, Editor, undefined, onCustomization, methods, name, loading);
+        useCustomization(designDefault, schema, cards, layouts, customization, mode, layoutState, Editor, undefined, onCustomization, methods, name, loading, trigger);
     name = name ? name + '.' : '';
     const {properties = empty} = mergedSchema;
 
@@ -116,10 +116,16 @@ const Editor: ComponentProps = ({
     async function init() {
         setLoading(loadingValue);
         await loadCustomization();
-        initValue = merge(getDefault(mergedSchema), initValue, onInit && await onInit(initValue));
-        if (initValue !== undefined) setEditValue(getValue(initValue));
         setLoading('');
     }
+
+    React.useEffect(() => {
+        async function edit() {
+            const value = merge(getDefault(mergedSchema), initValue, onInit && await onInit(initValue));
+            if (value !== undefined) setEditValue(getValue(value));
+        }
+        edit();
+    }, [getValue, initValue, mergedSchema, onInit]);
 
     React.useEffect(() => {
         const loadDropDown = async() => setDropdown(await onDropdown(dropdownNames));

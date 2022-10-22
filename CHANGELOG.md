@@ -1,3 +1,93 @@
+# [2.31.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.30.0...v2.31.0) (2022-10-22)
+
+
+### Features
+
+* **Explorer:** add value, onChange properties ([b923817](https://github.com/softwaregroup-bg/ut-prime/commit/b923817f8ea9270aee6966ea08244c9b0cdcd708))
+
+
+
+# [2.30.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.29.0...v2.30.0) (2022-10-21)
+
+
+### Features
+
+* include all resultsets in preview ([cfe0b59](https://github.com/softwaregroup-bg/ut-prime/commit/cfe0b593d21df1765a7a00d9589645a64b238631))
+
+
+
+# [2.29.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.28.2...v2.29.0) (2022-10-20)
+
+
+### Bug Fixes
+
+* permission is already embedded in Button ([9de52e6](https://github.com/softwaregroup-bg/ut-prime/commit/9de52e6a6e0062277355f834fe13a763d9c1d244))
+* selectTable onChange error ([73394d8](https://github.com/softwaregroup-bg/ut-prime/commit/73394d8490843f898c7928c7a22063d99722c40d))
+
+
+### Features
+
+* Explorer submit buttons ([f6e615d](https://github.com/softwaregroup-bg/ut-prime/commit/f6e615d22e46cdce1a55f13c5dfd4f5fc8f18bce))
+* steps navigation buttons ([d6bb3e6](https://github.com/softwaregroup-bg/ut-prime/commit/d6bb3e6401b868c6f7c49a56d62cafb328f2c96a))
+
+
+
+## [2.28.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.28.1...v2.28.2) (2022-10-20)
+
+
+### Bug Fixes
+
+* improve widgets ([95b4d03](https://github.com/softwaregroup-bg/ut-prime/commit/95b4d03a3cd22b3c82005f5a6786ab2f08d8749b))
+
+
+
+## [2.28.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.28.0...v2.28.1) (2022-10-19)
+
+
+### Bug Fixes
+
+* forgotten dependency ([23e82f1](https://github.com/softwaregroup-bg/ut-prime/commit/23e82f16c5a62dc6f2d85b64ca00169338a5b8e0))
+* thumbs initial selected ([e6d3444](https://github.com/softwaregroup-bg/ut-prime/commit/e6d3444ba1b7b203afaa8187e8194648f91a7763))
+
+
+
+# [2.28.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.27.0...v2.28.0) (2022-10-19)
+
+
+### Features
+
+* **Editor:** steps layout ([896534e](https://github.com/softwaregroup-bg/ut-prime/commit/896534ec30e0e3e66412034210b416cc06277db4))
+
+
+
+# [2.27.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.26.1...v2.27.0) (2022-10-18)
+
+
+### Features
+
+* Button permission ([effb7a5](https://github.com/softwaregroup-bg/ut-prime/commit/effb7a531ecf903f8d9811db2668fb49dcf724fc))
+
+
+
+## [2.26.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.26.0...v2.26.1) (2022-10-18)
+
+
+
+# [2.26.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.25.1...v2.26.0) (2022-10-18)
+
+
+### Bug Fixes
+
+* autocomplete query ([e8e0d3f](https://github.com/softwaregroup-bg/ut-prime/commit/e8e0d3fa26fa3c08a44eab700a1d9ce708dfd14f))
+
+
+### Features
+
+* customizeable Explorer details ([d622062](https://github.com/softwaregroup-bg/ut-prime/commit/d622062db54191d6867a1e2f6983bbabe1e7db09))
+* **Editor:** page widget ([4ca8c62](https://github.com/softwaregroup-bg/ut-prime/commit/4ca8c62dcb2a67071cfcfdd310090fcc4135f9cc))
+
+
+
 ## [2.25.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.25.0...v2.25.1) (2022-10-17)
 
 

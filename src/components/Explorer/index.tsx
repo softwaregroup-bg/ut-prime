@@ -7,7 +7,8 @@ import {createUseStyles} from 'react-jss';
 import Card from '../Card';
 import { Button, DataTable, DataView, Column, Toolbar, Splitter, SplitterPanel } from '../prime';
 import ActionButton from '../ActionButton';
-import Permission from '../Permission';
+import SubmitButton from '../SubmitButton';
+import Component from '../Component';
 import useToggle from '../hooks/useToggle';
 import useSubmit from '../hooks/useSubmit';
 import useLayout from '../hooks/useLayout';
@@ -24,7 +25,6 @@ import testid from '../lib/testid';
 import useCustomization from '../hooks/useCustomization';
 
 const backgroundNone = {background: 'none'};
-const splitterWidth = { width: '200px' };
 
 const fieldName = column => typeof column === 'string' ? column : column.name;
 
@@ -73,12 +73,7 @@ const useStyles = createUseStyles({
         '& .p-toolbar-group-left': {
             flexGrow: 1
         }
-    },
-    details: {
-        marginBottom: 15
-    },
-    detailsLabel: {},
-    detailsValue: {}
+    }
 });
 
 const empty = [];
@@ -104,6 +99,8 @@ const Explorer: ComponentProps = ({
     customization,
     onCustomization,
     onFieldChange,
+    onChange,
+    value,
     name,
     hidden,
     layouts,
@@ -127,7 +124,7 @@ const Explorer: ComponentProps = ({
     const [loading, setLoading] = React.useState('');
     const [inspectorHeight, setInspectorHeight] = React.useState<{maxHeight: number}>();
     const [customizationToolbar, mergedSchema, mergedCards, inspector, loadCustomization, , , , , formProps] =
-        useCustomization(designDefault, schema, cards, layouts, customization, 'view', '', Editor, inspectorHeight, onCustomization, methods, name, loading);
+        useCustomization(designDefault, schema, cards, layouts, customization, 'view', '', Editor, inspectorHeight, onCustomization, methods, name, loading, undefined);
     const layoutProps = layouts?.[layoutName] || {};
     const columnsCard = ('columns' in layoutProps) ? layoutProps.columns : 'browse';
     const toolbarCard = ('toolbar' in layoutProps) ? layoutProps.toolbar : 'toolbarBrowse';
@@ -135,7 +132,7 @@ const Explorer: ComponentProps = ({
     const columns = ('layout' in layoutProps) ? empty : mergedCards[columnsCard]?.widgets ?? empty;
     const paramsLayout = ('params' in layoutProps) && layoutProps.params;
     const fetch = React.useMemo(() => (!paramsLayout || paramValues.length > 1) && fetchParams, [fetchParams, paramValues, paramsLayout]);
-    toolbar = ('layout' in layoutProps) ? ('toolbar' in layoutProps ? mergedCards[layoutProps.toolbar]?.widgets : toolbar) : mergedCards[toolbarCard]?.widgets ?? toolbar;
+    if (toolbar !== false) toolbar = ('layout' in layoutProps) ? ('toolbar' in layoutProps ? mergedCards[layoutProps.toolbar]?.widgets : toolbar) : mergedCards[toolbarCard]?.widgets ?? toolbar;
     const classes = useStyles();
     const {properties} = mergedSchema;
     const [tableFilter, setFilters] = React.useState<TableFilter>({
@@ -150,16 +147,22 @@ const Explorer: ComponentProps = ({
     });
     const handleFilterPageSort = React.useCallback(event => setFilters(prev => ({...prev, ...event})), []);
 
-    const [selected, setSelected] = React.useState(null);
+    const [selectedState, setSelected] = React.useState(null);
     const handleSelectionChange = React.useCallback(e => setSelected(e.value), []);
 
-    const [current, setCurrent] = React.useState(null);
-    const handleRowSelect = React.useCallback(e => setCurrent(e.data), []);
+    const [currentState, setCurrent] = React.useState(null);
+    const handleRowSelect = React.useCallback(e => {
+        onChange?.({...e, value: e.data});
+        setCurrent(e.data);
+    }, [onChange]);
 
     const [navigationOpened, navigationToggle] = useToggle(true);
     const [detailsOpened, detailsToggle] = useToggle(true);
 
-    const [[items, totalRecords], setItems] = React.useState([[], 0]);
+    const [[items, totalRecords, result], setItems] = React.useState([[], 0, {}]);
+    const found = (onChange && keyField && value?.[keyField] && items?.find(item => item[keyField] === value?.[keyField]));
+    const [current, selected] = found ? [found, [found]] : [currentState, selectedState];
+
     const [dropdowns, setDropdown] = React.useState({});
 
     const {dropdownNames: formDropdownNames = []} = paramsLayout ? fieldNames(paramsLayout, mergedCards, mergedSchema, editors) : {};
@@ -178,8 +181,12 @@ const Explorer: ComponentProps = ({
         selected
     }), [current, keyField, selected]);
 
+    const submit = React.useCallback(async({method, params}) => {
+        await methods[method](prepareSubmit([getValues(), {}, {method, params}]));
+    }, [methods, getValues]);
+
     const buttons = React.useMemo(() => (toolbar || []).map((widget, index) => {
-        const {title, action, params, enabled, disabled, permission} = (typeof widget === 'string') ? properties[widget].widget : widget;
+        const {title, action, method, params, enabled, disabled, permission} = (typeof widget === 'string') ? properties[widget].widget : widget;
         const check = criteria => {
             if (typeof criteria?.validate === 'function') return !criteria.validate({current, selected}).error;
             if (typeof criteria !== 'string') return !!criteria;
@@ -196,25 +203,33 @@ const Explorer: ComponentProps = ({
                 : disabled != null
                     ? check(disabled)
                     : undefined;
-        return (
-            <Permission key={index} permission={permission}>
-                <ActionButton
-                    {...testid(`${permission ? (permission + 'Button') : ('button' + index)}`)}
-                    label={title}
-                    action={action}
-                    params={params}
-                    getValues={getValues}
-                    disabled={isDisabled}
-                    className="mr-2"
-                />
-            </Permission>
-        );
+        return method ? <SubmitButton
+            key={index}
+            permission={permission}
+            {...testid(`${permission ? (permission + 'Button') : ('button' + index)}`)}
+            label={title}
+            method={method}
+            submit={submit}
+            params={params}
+            disabled={isDisabled}
+            className="mr-2"
+        /> : <ActionButton
+            key={index}
+            permission={permission}
+            {...testid(`${permission ? (permission + 'Button') : ('button' + index)}`)}
+            label={title}
+            action={action}
+            params={params}
+            getValues={getValues}
+            disabled={isDisabled}
+            className="mr-2"
+        />;
     }
-    ), [toolbar, current, selected, getValues, properties]);
+    ), [toolbar, current, selected, getValues, properties, submit]);
     const {toast, handleSubmit: load} = useSubmit(
         async function() {
             if (!fetch) {
-                setItems([[], 0]);
+                setItems([[], 0, {}]);
                 setDropdown({});
             } else {
                 setLoading('loading');
@@ -246,7 +261,7 @@ const Explorer: ComponentProps = ({
                         if (total === pageSize) total++;
                         total = tableFilter.first + total;
                     }
-                    setItems([records, total]);
+                    setItems([records, total, items]);
                 } finally {
                     setLoading('');
                 }
@@ -261,10 +276,10 @@ const Explorer: ComponentProps = ({
         load();
         if (subscribe && !formProps.design) {
             return subscribe(rows => {
-                setItems(([items, totalRecords]) => [(Array.isArray(rows) || !keyField) ? rows as unknown[] : items.map(item => {
+                setItems(([items, totalRecords, result]) => [(Array.isArray(rows) || !keyField) ? rows as unknown[] : items.map(item => {
                     const update = rows[item[keyField]];
                     return update ? {...item, ...update} : item;
-                }), totalRecords]);
+                }), totalRecords, result]);
             });
         }
     }, [keyField, load, subscribe, formProps.design]);
@@ -296,15 +311,10 @@ const Explorer: ComponentProps = ({
 
     const detailsPanel = React.useMemo(() => detailsOpened && details &&
         <SplitterPanel style={height} key='details' size={10}>
-            <div style={splitterWidth}>{
-                current && Object.entries(details).map(([name, value], index) =>
-                    <div className={classes.details} key={index}>
-                        <div className={classes.detailsLabel}>{value}</div>
-                        <div className={classes.detailsValue}>{current[name]}</div>
-                    </div>
-                )
+            <div className='w-full'>{
+                current && <Component {...details} value={{preview: {...result, ...getValues()}}} />
             }</div>
-        </SplitterPanel>, [classes.details, classes.detailsLabel, classes.detailsValue, current, details, detailsOpened, height]);
+        </SplitterPanel>, [current, getValues, result, details, detailsOpened, height]);
 
     const filterBy = (name: string, key: string) => e => {
         const value = lodashGet(e, key);
@@ -474,7 +484,7 @@ const Explorer: ComponentProps = ({
         <div className={clsx('flex', 'flex-column', classes.explorer, className)}>
             {toast}
             {
-                (toolbar !== false) || nav || detailsPanel
+                toolbar !== false
                     ? <Toolbar left={left} right={right} style={backgroundNone} className='border-none p-2 flex-nowrap' />
                     : null
             }
@@ -483,7 +493,7 @@ const Explorer: ComponentProps = ({
                     {
                         (nav || detailsPanel)
                             ? <div ref={splitterWrapRef}>
-                                <Splitter style={splitterHeight}>
+                                <Splitter style={splitterHeight} {...name && {stateKey: `${name}.splitter`, stateStorage: 'local'}}>
                                     {[
                                         nav,
                                         <SplitterPanel style={height} key='items' size={nav ? detailsPanel ? 75 : 85 : 90}>

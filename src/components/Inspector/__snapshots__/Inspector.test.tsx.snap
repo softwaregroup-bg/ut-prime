@@ -18,7 +18,7 @@ exports[`<Inspector /> Basic render equals snapshot 1`] = `
         >
           <div />
         </div>
-        <form
+        <div
           class="grid col align-self-start form-0-2-2"
         >
           <div
@@ -360,7 +360,7 @@ exports[`<Inspector /> Basic render equals snapshot 1`] = `
               </div>
             </div>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   </div>

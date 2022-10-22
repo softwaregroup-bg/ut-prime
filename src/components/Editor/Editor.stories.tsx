@@ -104,6 +104,31 @@ Tabs.args = {
     }
 };
 
+export const Steps: StoryTemplate = Template.bind({});
+Steps.args = {
+    ...Basic.args,
+    toolbar: false,
+    layouts: {
+        edit: {
+            orientation: 'top',
+            type: 'steps',
+            items: [{
+                id: 'general',
+                label: 'General',
+                widgets: ['edit', 'habitat']
+            }, {
+                id: 'details',
+                label: 'Details',
+                widgets: ['taxonomy', 'morphology']
+            }, {
+                id: 'history',
+                label: 'History',
+                widgets: ['history']
+            }]
+        }
+    }
+};
+
 export const Submit: StoryTemplate = Template.bind({});
 Submit.args = Basic.args;
 Submit.play = async({canvasElement}) => {

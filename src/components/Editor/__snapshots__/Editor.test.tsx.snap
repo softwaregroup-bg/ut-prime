@@ -80,7 +80,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
       >
         <div />
       </div>
-      <form
+      <div
         class="grid col align-self-start form-0-2-1"
       >
         <div
@@ -763,7 +763,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
             </div>
           </div>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </div>
@@ -842,7 +842,7 @@ exports[`<Editor /> CascadedDropdowns render equals snapshot 1`] = `
       >
         <div />
       </div>
-      <form
+      <div
         class="grid col align-self-start form-0-2-1"
       >
         <div
@@ -1050,7 +1050,7 @@ exports[`<Editor /> CascadedDropdowns render equals snapshot 1`] = `
             </div>
           </div>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </div>
@@ -1129,7 +1129,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
       >
         <div />
       </div>
-      <form
+      <div
         class="grid col align-self-start form-0-2-1"
       >
         <div
@@ -2192,7 +2192,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
             </div>
           </div>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </div>
@@ -2273,7 +2273,7 @@ exports[`<Editor /> CustomEditors render equals snapshot 1`] = `
       >
         <div />
       </div>
-      <form
+      <div
         class="grid col align-self-start form-0-2-1"
       >
         <div
@@ -2420,7 +2420,7 @@ exports[`<Editor /> CustomEditors render equals snapshot 1`] = `
             </div>
           </div>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </div>
@@ -2568,7 +2568,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
       >
         <div />
       </div>
-      <form
+      <div
         class="grid col align-self-start form-0-2-1"
       >
         <div
@@ -3580,7 +3580,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
             </div>
           </div>
         </div>
-      </form>
+      </div>
       <div
         class="col-2 flex-column pr-0"
       />
@@ -3716,7 +3716,7 @@ exports[`<Editor /> Files render equals snapshot 1`] = `
       >
         <div />
       </div>
-      <form
+      <div
         class="grid col align-self-start form-0-2-1"
       >
         <div
@@ -4049,7 +4049,7 @@ exports[`<Editor /> Files render equals snapshot 1`] = `
             </div>
           </div>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </div>
@@ -4136,7 +4136,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
       >
         <div />
       </div>
-      <form
+      <div
         class="grid col align-self-start form-0-2-1"
       >
         <div
@@ -4427,7 +4427,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
             </div>
           </div>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </div>
@@ -4508,7 +4508,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
       >
         <div />
       </div>
-      <form
+      <div
         class="grid col align-self-start form-0-2-1"
       >
         <div
@@ -4805,7 +4805,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
             </div>
           </div>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </div>
@@ -4886,7 +4886,7 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
       >
         <div />
       </div>
-      <form
+      <div
         class="grid col align-self-start form-0-2-1"
       >
         <div
@@ -5223,7 +5223,7 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
             </div>
           </div>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </div>
@@ -5304,7 +5304,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
       >
         <div />
       </div>
-      <form
+      <div
         class="grid col align-self-start form-0-2-1"
       >
         <div
@@ -6600,7 +6600,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
             </div>
           </div>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </div>
@@ -6687,7 +6687,7 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
           >
             <div />
           </div>
-          <form
+          <div
             class="grid col align-self-start form-0-2-1"
           >
             <div
@@ -6760,7 +6760,7 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
                 </div>
               </div>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </div>
@@ -6838,7 +6838,7 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
           >
             <div />
           </div>
-          <form
+          <div
             class="grid col align-self-start form-0-2-1"
           >
             <div
@@ -6912,7 +6912,7 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
                 </div>
               </div>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </div>
@@ -6990,7 +6990,7 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
           >
             <div />
           </div>
-          <form
+          <div
             class="grid col align-self-start form-0-2-1"
           >
             <div
@@ -7063,7 +7063,7 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
                 </div>
               </div>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </div>
@@ -7147,7 +7147,7 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
       >
         <div />
       </div>
-      <form
+      <div
         class="grid col align-self-start form-0-2-1"
       >
         <div
@@ -7867,7 +7867,7 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
             </div>
           </div>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </div>
@@ -7951,7 +7951,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
       >
         <div />
       </div>
-      <form
+      <div
         class="grid col align-self-start form-0-2-1"
       >
         <div
@@ -8652,7 +8652,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
             </div>
           </div>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </div>
@@ -8784,7 +8784,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
       >
         <div />
       </div>
-      <form
+      <div
         class="grid col align-self-start form-0-2-1"
       >
         <div
@@ -9469,7 +9469,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
             </div>
           </div>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </div>
@@ -9543,7 +9543,7 @@ exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
     class="flex overflow-x-hidden w-full flex-column"
   >
     <div
-      class="flex flex-row pb-0"
+      class="flex flex-row pb-0 thumbs-0-2-5"
     >
       <div
         class="p-tabmenu p-component"
@@ -9625,7 +9625,7 @@ exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
       >
         <div />
       </div>
-      <form
+      <div
         class="grid col align-self-start form-0-2-1"
       >
         <div
@@ -9886,7 +9886,7 @@ exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
             </div>
           </div>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </div>
@@ -9964,7 +9964,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
     class="flex overflow-x-hidden w-full flex-column"
   >
     <div
-      class="flex flex-row pb-0"
+      class="flex flex-row pb-0 thumbs-0-2-5"
     >
       <div
         class="p-tabmenu p-component"
@@ -10049,7 +10049,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
       >
         <div />
       </div>
-      <form
+      <div
         class="grid col align-self-start form-0-2-1"
       >
         <div
@@ -10399,7 +10399,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
             </div>
           </div>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </div>
@@ -10473,7 +10473,7 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
     class="flex overflow-x-hidden w-full"
   >
     <div
-      class="flex flex-row pb-0 lg:col-2"
+      class="flex flex-row pb-0 lg:col-2 thumbs-0-2-5"
     >
       <div
         class="p-listbox p-component border-none"
@@ -10489,8 +10489,8 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
             <li
               aria-disabled="false"
               aria-label="[object Object]"
-              aria-selected="false"
-              class="p-listbox-item"
+              aria-selected="true"
+              class="p-listbox-item p-highlight"
               role="option"
               tabindex="-1"
             >
@@ -10648,7 +10648,7 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
       >
         <div />
       </div>
-      <form
+      <div
         class="grid col align-self-start form-0-2-1"
       >
         <div
@@ -10803,7 +10803,7 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
             </div>
           </div>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </div>
@@ -10916,7 +10916,7 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
       >
         <div />
       </div>
-      <form
+      <div
         class="grid col align-self-start form-0-2-1"
       >
         <div
@@ -11599,7 +11599,7 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
             </div>
           </div>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </div>
@@ -11683,7 +11683,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
       >
         <div />
       </div>
-      <form
+      <div
         class="grid col align-self-start form-0-2-1"
       >
         <div
@@ -12377,7 +12377,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
             </div>
           </div>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </div>

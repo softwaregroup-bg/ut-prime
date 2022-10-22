@@ -11,7 +11,6 @@ import ThumbIndex from '../ThumbIndex';
 import Context from '../Context';
 import {ConfigField, ConfigCard, useDragging} from '../Form/DragDrop';
 import {Button} from '../prime';
-import Permission from '../Permission';
 import testid from '../lib/testid';
 import type {Cards, Layouts} from '../types';
 
@@ -27,6 +26,7 @@ function getLayout(cards: Cards, layouts: Layouts, mode: 'create' | 'edit', name
     }
     let layout: string[];
     const orientation = items?.orientation;
+    const type = items?.type;
     if (orientation) items = items.items;
     if (typeof (items?.[0]?.[0] || items?.[0]) === 'string') {
         layout = items;
@@ -36,7 +36,7 @@ function getLayout(cards: Cards, layouts: Layouts, mode: 'create' | 'edit', name
     if (!cards[toolbar]) toolbar = `toolbar${capital(name)}`;
     if (!cards[toolbar]) toolbar = `toolbar${capital(mode)}`;
     if (!cards[toolbar]) toolbar = 'toolbar';
-    return [items, layout, orientation || 'left', toolbar, layoutName];
+    return [items, layout, type, orientation || 'left', toolbar, layoutName];
 }
 
 export default function useCustomization(
@@ -52,7 +52,8 @@ export default function useCustomization(
     onCustomization,
     methods,
     name,
-    loading
+    loading,
+    trigger
 ) {
     const [inspected, onInspect] = React.useState(null);
     const {customization: customizationEnabled} = React.useContext(Context);
@@ -63,7 +64,7 @@ export default function useCustomization(
     const mergedLayouts = React.useMemo(() => merge({}, layouts, mergedCustomization.layout), [layouts, mergedCustomization.layout]);
     const [addField, setAddField] = React.useState(null);
     const [addCard, setAddCard] = React.useState(null);
-    const [items, layout, orientation, toolbar, currentLayoutName] = React.useMemo(
+    const [items, layout, indexType, orientation, toolbar, currentLayoutName] = React.useMemo(
         () => getLayout(mergedCards, mergedLayouts, mode, layoutState),
         [mergedCards, mergedLayouts, mode, layoutState]
     );
@@ -332,15 +333,15 @@ export default function useCustomization(
                 <Button icon='pi pi-pencil'/>
             </ConfigField>
         </> : null}
-        {customizationEnabled ? <Permission permission='portal.customization.edit'>
-            <Button
-                icon='pi pi-cog'
-                onClick={toggleDesign}
-                disabled={!!loading}
-                aria-label='design'
-                {...testid(name ? name + 'Customization' : 'customization')}
-                className={clsx(design && 'p-button-success')}
-            /></Permission> : null}
+        {customizationEnabled ? <Button
+            permission='portal.customization.edit'
+            icon='pi pi-cog'
+            onClick={toggleDesign}
+            disabled={!!loading}
+            aria-label='design'
+            {...testid(name ? name + 'Customization' : 'customization')}
+            className={clsx(design && 'p-button-success')}
+        /> : null}
     </>;
 
     const loadCustomization = React.useMemo(() => async() => {
@@ -348,7 +349,7 @@ export default function useCustomization(
         customizationResult?.component && setCustomization({schema: {}, card: {}, layout: {}, ...(customizationResult.component as {componentConfig?:object}).componentConfig});
     }, [customizationDefault, customizationEnabled, methods, name]);
 
-    const thumbIndex = items && <ThumbIndex name={name} items={items} orientation={orientation} onFilter={setFilter}/>;
+    const thumbIndex = items && <ThumbIndex name={name} items={items} orientation={orientation} type={indexType} onFilter={setFilter} trigger={trigger} loading={loading}/>;
 
     return [
         customizationToolbar,

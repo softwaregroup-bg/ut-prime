@@ -10,7 +10,6 @@ interface Customization {
 export interface Props {
     object?: string,
     id?: string | number,
-    init?: object,
     schema?: Schema,
     schemaCreate?: Schema,
     editors?: Editors,
