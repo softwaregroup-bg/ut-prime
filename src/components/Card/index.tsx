@@ -200,6 +200,7 @@ const Card: ComponentProps = ({
 
     const field = (length: number, flex: string, cardName: string, classes: CardType['classes'], init = {}) => function field(widget, ind: number) {
         if (typeof widget === 'string') widget = {name: widget};
+        if (cards[cardName]?.disabled) widget.disabled = true;
         const {
             name = '',
             id,

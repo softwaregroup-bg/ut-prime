@@ -176,6 +176,7 @@ export interface Card {
     },
     flex?: string;
     hidden?: boolean;
+    disabled?: boolean;
 }
 
 export interface Cards {
