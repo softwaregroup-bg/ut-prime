@@ -76,9 +76,12 @@ export default (
             );
         }).flat(10).filter(Boolean)
     ));
-    const { fields: formFields } = fieldNames(Object.keys(cards), cards, schema, editors);
     return {
-        index: getIndex(schema.properties, editors, formFields),
+        index: getIndex(
+            schema.properties,
+            editors,
+            fieldNames(Object.keys(cards), cards, schema, editors).fields
+        ),
         visibleCards,
         visibleProperties,
         open: keyFieldAction ? row => () => keyFieldAction({
