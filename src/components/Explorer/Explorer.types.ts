@@ -75,6 +75,8 @@ export interface Props {
     customization?: Customization,
     paramsCard?: string,
     onFieldChange?: string,
+    value?: unknown,
+    onChange?: (params: object) => void,
     onCustomization?: (customization: {component: {componentId: string, componentConfig: Customization}}) => Promise<object>,
 }
 

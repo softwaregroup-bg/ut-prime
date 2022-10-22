@@ -500,7 +500,7 @@ export default function input(
             </Field>;
         }
         case 'page': {
-            return <div className='w-full'><Component page={props.page} {...props} /></div>;
+            return <div className='w-full'><Component page={props.page} {...field} {...props} /></div>;
         }
         case 'label': return (field?.name || title) ? <Field inputClass={widgetClassName}>{field?.value ?? title}</Field> : null;
         case 'icon': return (field?.name || title) ? <i className={clsx('pi', field?.value ?? title, widgetClassName)}/> : null;

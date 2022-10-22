@@ -99,6 +99,8 @@ const Explorer: ComponentProps = ({
     customization,
     onCustomization,
     onFieldChange,
+    onChange,
+    value,
     name,
     hidden,
     layouts,
@@ -145,16 +147,22 @@ const Explorer: ComponentProps = ({
     });
     const handleFilterPageSort = React.useCallback(event => setFilters(prev => ({...prev, ...event})), []);
 
-    const [selected, setSelected] = React.useState(null);
+    const [selectedState, setSelected] = React.useState(null);
     const handleSelectionChange = React.useCallback(e => setSelected(e.value), []);
 
-    const [current, setCurrent] = React.useState(null);
-    const handleRowSelect = React.useCallback(e => setCurrent(e.data), []);
+    const [currentState, setCurrent] = React.useState(null);
+    const handleRowSelect = React.useCallback(e => {
+        onChange?.({...e, value: e.data});
+        setCurrent(e.data);
+    }, [onChange]);
 
     const [navigationOpened, navigationToggle] = useToggle(true);
     const [detailsOpened, detailsToggle] = useToggle(true);
 
     const [[items, totalRecords, result], setItems] = React.useState([[], 0, {}]);
+    const found = (onChange && keyField && value?.[keyField] && items?.find(item => item[keyField] === value?.[keyField]));
+    const [current, selected] = found ? [found, [found]] : [currentState, selectedState];
+
     const [dropdowns, setDropdown] = React.useState({});
 
     const {dropdownNames: formDropdownNames = []} = paramsLayout ? fieldNames(paramsLayout, mergedCards, mergedSchema, editors) : {};
