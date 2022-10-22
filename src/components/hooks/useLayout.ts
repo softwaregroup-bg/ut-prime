@@ -1,7 +1,6 @@
 import React from 'react';
 import lodashGet from 'lodash.get';
 
-import fieldNames from '../lib/fields';
 import getType from '../lib/getType';
 import type { Cards, Editors, Layout, Properties, PropertyEditors, Schema } from '../types';
 
@@ -24,7 +23,7 @@ const flatten = (properties: Properties, editors: Editors, root = '') : Property
 
 const propertyType = property => property?.widget?.type || property?.format || getType(property?.type);
 
-const getIndex = (properties: Properties, editors: Editors, visible: string[]) : {
+const getIndex = (properties: Properties, editors: Editors, fields: string[] = []) : {
     properties: PropertyEditors,
     children: {[parent: string]: string[]},
     files: string[],
@@ -43,9 +42,9 @@ const getIndex = (properties: Properties, editors: Editors, visible: string[]) :
             return prev;
         }, {}),
         files: Object.entries(index).map(([name, property]) => ['file', 'imageUpload'].includes(propertyType(property)) && name).filter(name =>
-            visible.some(item => item === name || index[item]?.widget?.widgets?.map?.(col => item + '.' + col).includes(name))
+            fields.some(item => item === name || index[item]?.widget?.widgets?.map?.(col => item + '.' + col).includes(name))
         ),
-        tables: Object.entries(index).map(([name, property]) => visible.includes(name) && (propertyType(property) === 'table') && name).filter(Boolean)
+        tables: Object.entries(index).map(([name, property]) => fields.includes(name) && (propertyType(property) === 'table') && name).filter(Boolean)
     };
 };
 
@@ -54,7 +53,8 @@ export default (
     cards: Cards,
     layout: Layout,
     editors: Editors,
-    keyField: string = undefined
+    keyField: string = undefined,
+    layoutFields: string[]
 ) => React.useMemo(() => {
     if (!layout) return;
     const visibleCards: Layout = (layout || Object.keys(cards));
@@ -80,7 +80,7 @@ export default (
         index: getIndex(
             schema.properties,
             editors,
-            fieldNames(Object.keys(cards), cards, schema, editors).fields
+            layoutFields
         ),
         visibleCards,
         visibleProperties,
@@ -90,4 +90,4 @@ export default (
             selected: [row]
         }) : undefined
     };
-}, [schema, cards, layout, editors, keyField]);
+}, [schema, cards, layout, editors, keyField, layoutFields]);

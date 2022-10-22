@@ -4055,6 +4055,401 @@ exports[`<Editor /> Files render equals snapshot 1`] = `
 </div>
 `;
 
+exports[`<Editor /> FilesInTab render equals snapshot 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  <div
+    class="p-toast p-component p-toast-top-right w-auto"
+    style="z-index: 1203;"
+  >
+    <div>
+      <div
+        aria-atomic="true"
+        aria-live="assertive"
+        class="p-toast-message p-toast-message-success p-toast-message-enter-done"
+        role="alert"
+      >
+        <div
+          class="p-toast-message-content"
+        >
+          <span
+            class="p-toast-message-icon pi pi-check"
+          />
+          <div
+            class="p-toast-message-text"
+          >
+            <span
+              class="p-toast-summary"
+            >
+              Submit
+            </span>
+            <div
+              class="p-toast-detail"
+            >
+              <pre>
+                {
+  "formData": [
+    [
+      "$",
+      "{\\"tree\\":{\\"treeName\\":\\"test\\",\\"treeType\\":1}}"
+    ]
+  ]
+}
+              </pre>
+            </div>
+          </div>
+          <button
+            class="p-toast-icon-close p-link"
+            type="button"
+          >
+            <span
+              class="p-toast-icon-close-icon pi pi-times"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="p-toolbar p-component border-none border-bottom-1 border-50 p-2"
+    role="toolbar"
+    style="background: none;"
+  >
+    <div
+      class="p-toolbar-group-left"
+    >
+      <button
+        aria-label="save"
+        class="p-button p-component mr-2 p-button-icon-only p-disabled"
+        data-testid="saveButton"
+        disabled=""
+      >
+        <span
+          class="p-button-icon p-c pi pi-save"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
+      <button
+        aria-label="reset"
+        class="p-button p-component mr-2 p-button-icon-only p-disabled"
+        data-testid="resetButton"
+        disabled=""
+      >
+        <span
+          class="p-button-icon p-c pi pi-replay"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
+      <div />
+    </div>
+    <div
+      class="p-toolbar-group-right"
+    >
+      <button
+        aria-label="design"
+        class="p-button p-component p-button-icon-only"
+        data-testid="customization"
+      >
+        <span
+          class="p-button-icon p-c pi pi-cog"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="flex overflow-x-hidden w-full flex-column"
+  >
+    <div
+      class="flex flex-row pb-0 thumbs-0-2-5"
+    >
+      <div
+        class="p-tabmenu p-component"
+      >
+        <ul
+          class="p-tabmenu-nav p-reset"
+          role="tablist"
+        >
+          <li
+            aria-expanded="true"
+            aria-selected="true"
+            class="p-tabmenuitem p-highlight"
+            role="tab"
+          >
+            <a
+              class="p-menuitem-link"
+              href="#"
+              role="presentation"
+            >
+              <span
+                class="p-menuitem-icon pi pi-user"
+              />
+              <span
+                class="p-menuitem-text"
+                data-testid="generalTab"
+              >
+                General
+              </span>
+            </a>
+          </li>
+          <li
+            aria-expanded="false"
+            aria-selected="false"
+            class="p-tabmenuitem"
+            role="tab"
+          >
+            <a
+              class="p-menuitem-link"
+              href="#"
+              role="presentation"
+            >
+              <span
+                class="p-menuitem-icon pi pi-book"
+              />
+              <span
+                class="p-menuitem-text"
+                data-testid="detailsTab"
+              >
+                Details
+              </span>
+            </a>
+          </li>
+          <li
+            class="p-tabmenu-ink-bar"
+            style="width: 0px;"
+          />
+        </ul>
+      </div>
+    </div>
+    <div
+      class="flex flex-grow-1"
+      style="max-height: 768px;"
+    >
+      <div
+        class="p-toast p-component p-toast-top-right"
+      >
+        <div />
+      </div>
+      <div
+        class="grid col align-self-start form-0-2-1"
+      >
+        <div
+          class="col-12 xl:col-6"
+        >
+          <div
+            class="w-full"
+          >
+            <div
+              class="p-card p-component card card-0-2-2"
+              id="edit"
+            >
+              <div
+                class="p-card-body"
+              >
+                <div
+                  class="p-card-title"
+                >
+                  Tree
+                </div>
+                <div
+                  class="p-card-content"
+                >
+                  <div
+                    class=""
+                  >
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-treeName"
+                      >
+                        Name
+                      </label>
+                      <div
+                        class="flex align-items-center relative col-12 md:col-8"
+                      >
+                        <input
+                          class="p-inputtext p-component p-filled w-full"
+                          id="tree-treeName"
+                          name="tree.treeName"
+                          type="text"
+                          value="test"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="field grid"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-treeDescription"
+                      >
+                        Description
+                      </label>
+                      <div
+                        class="flex align-items-center relative col-12 md:col-8"
+                      >
+                        <textarea
+                          class="p-inputtextarea p-inputtext p-component w-full"
+                          id="tree-treeDescription"
+                          name="tree.treeDescription"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="field grid mb-0"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-treeType"
+                      >
+                        Type
+                      </label>
+                      <div
+                        class="flex align-items-center relative col-12 md:col-8"
+                      >
+                        <div
+                          class="p-dropdown p-component p-inputwrapper p-inputwrapper-filled w-full"
+                          data-testid="tree-treeType"
+                          id="tree-treeType"
+                        >
+                          <div
+                            class="p-hidden-accessible"
+                          >
+                            <input
+                              aria-haspopup="listbox"
+                              readonly=""
+                              type="text"
+                            />
+                          </div>
+                          <div
+                            class="p-hidden-accessible p-dropdown-hidden-select"
+                          >
+                            <select
+                              aria-hidden="true"
+                              name="tree.treeType"
+                              tabindex="-1"
+                            >
+                              <option
+                                selected=""
+                                value=""
+                              />
+                            </select>
+                          </div>
+                          <span
+                            class="p-dropdown-label p-inputtext p-dropdown-label-empty"
+                          >
+                            empty
+                          </span>
+                          <div
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            class="p-dropdown-trigger"
+                            role="button"
+                          >
+                            <span
+                              class="p-dropdown-trigger-icon p-clickable pi pi-chevron-down"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-12 xl:col-6"
+        >
+          <div
+            class="w-full"
+          >
+            <div
+              class="p-card p-component card card-0-2-2"
+              id="habitat"
+            >
+              <div
+                class="p-card-body"
+              >
+                <div
+                  class="p-card-title"
+                >
+                  Habitat
+                </div>
+                <div
+                  class="p-card-content"
+                >
+                  <div
+                    class=""
+                  >
+                    <div
+                      class="field grid mb-0"
+                    >
+                      <div
+                        class="flex align-items-center relative col-12"
+                      >
+                        <div
+                          class="p-multiselect p-component p-inputwrapper p-inputwrapper-focus w-full"
+                          data-testid="tree-habitat"
+                          id="tree-habitat"
+                        >
+                          <div
+                            class="p-hidden-accessible"
+                          >
+                            <input
+                              aria-expanded="true"
+                              name="tree.habitat"
+                              readonly=""
+                              role="listbox"
+                              tabindex="0"
+                              type="text"
+                            />
+                          </div>
+                          <div
+                            class="p-multiselect-panel p-component p-multiselect-inline p-multiselect-flex"
+                          >
+                            <div
+                              class="p-multiselect-items-wrapper"
+                              style="max-height: 200px;"
+                            >
+                              <ul
+                                aria-multiselectable="true"
+                                class="p-multiselect-items p-component"
+                                role="listbox"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`<Editor /> Loading render equals snapshot 1`] = `
 <div
   data-testid="ut-front-test"

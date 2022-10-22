@@ -12,6 +12,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     cards: Cards;
     dropdowns?: Dropdowns,
     layout?: (string | string[])[];
+    layoutFields?: string[];
     loading?: string;
     validation?: Validation;
     design?: boolean;

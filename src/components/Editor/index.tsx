@@ -88,7 +88,7 @@ const Editor: ComponentProps = ({
     const {properties = empty} = mergedSchema;
 
     const layoutItems = items ? false : layout; // preserve memoization
-    const [validation, dropdownNames, getValue] = React.useMemo(() => {
+    const [validation, dropdownNames, getValue, layoutFields] = React.useMemo(() => {
         const indexCards = items && items.map(item => [item.widgets, item?.items?.map(item => item.widgets)]).flat(2).filter(Boolean);
         const {fields, validation, dropdownNames} = fieldNames(indexCards || layoutItems || [], mergedCards, mergedSchema, editors);
         const getValue = (value) => {
@@ -99,7 +99,7 @@ const Editor: ComponentProps = ({
             });
             return editValue;
         };
-        return [validation, dropdownNames, getValue];
+        return [validation, dropdownNames, getValue, fields];
     }, [mergedCards, editors, items, layoutItems, mergedSchema]);
 
     async function get() {
@@ -229,6 +229,7 @@ const Editor: ComponentProps = ({
                         setTrigger={setTrigger}
                         validation={validation}
                         toolbarRef={toolbarRef}
+                        layoutFields={layoutFields}
                         {...formProps}
                     />
                     {inspector}
