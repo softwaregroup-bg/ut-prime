@@ -1,3 +1,12 @@
+# [2.31.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.30.0...v2.31.0) (2022-10-22)
+
+
+### Features
+
+* **Explorer:** add value, onChange properties ([b923817](https://github.com/softwaregroup-bg/ut-prime/commit/b923817f8ea9270aee6966ea08244c9b0cdcd708))
+
+
+
 # [2.30.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.29.0...v2.30.0) (2022-10-21)
 
 
