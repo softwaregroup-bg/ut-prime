@@ -200,7 +200,13 @@ const Card: ComponentProps = ({
 
     const field = (length: number, flex: string, cardName: string, classes: CardType['classes'], init = {}) => function field(widget, ind: number) {
         if (typeof widget === 'string') widget = {name: widget};
-        if (cards[cardName]?.disabled) widget.disabled = true;
+        if (cards[cardName]?.disabled) {
+            const check = (criteria) =>
+                typeof criteria?.validate === 'function'
+                    ? !criteria.validate(formApi.getValues()).error
+                    : !!cards[cardName]?.disabled;
+            widget.disabled = check(cards[cardName]?.disabled);
+        }
         const {
             name = '',
             id,
