@@ -204,8 +204,8 @@ const Card: ComponentProps = ({
             const check = (criteria) =>
                 typeof criteria?.validate === 'function'
                     ? !criteria.validate(formApi.getValues()).error
-                    : !!cards[cardName]?.disabled;
-            widget.disabled = check(cards[cardName]?.disabled);
+                    : !!criteria;
+            widget.disabled = check(cards[cardName].disabled);
         }
         const {
             name = '',
