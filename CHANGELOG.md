@@ -1,3 +1,7 @@
+## [2.31.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.31.0...v2.31.1) (2022-10-24)
+
+
+
 # [2.31.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.30.0...v2.31.0) (2022-10-22)
 
 
