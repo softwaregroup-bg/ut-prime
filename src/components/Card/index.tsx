@@ -198,15 +198,20 @@ const Card: ComponentProps = ({
             : null;
     }, [formApi?.formState?.errors]);
 
+    let formValues;
+    const values = () => {
+        formValues = formValues || formApi.getValues();
+        return formValues;
+    };
+
+    if (typeof cardName === 'object') cardName = cardName.name;
+    let cardDisabled = cards[cardName]?.disabled;
+    if (typeof cardDisabled === 'object' && 'validate' in cardDisabled) cardDisabled = !cardDisabled.validate(values()).error;
+
     const field = (length: number, flex: string, cardName: string, classes: CardType['classes'], init = {}) => function field(widget, ind: number) {
         if (typeof widget === 'string') widget = {name: widget};
-        if (cards[cardName]?.disabled) {
-            const check = (criteria) =>
-                typeof criteria?.validate === 'function'
-                    ? !criteria.validate(formApi.getValues()).error
-                    : !!criteria;
-            widget.disabled = check(cards[cardName].disabled);
-        }
+        let disabled = widget.disabled || cardDisabled;
+        if (disabled?.validate) disabled = !disabled.validate(values()).error;
         const {
             name = '',
             id,
@@ -237,6 +242,7 @@ const Card: ComponentProps = ({
                     classes={classes}
                     labelClass={labelClass}
                     {...widget as object}
+                    disabled={disabled}
                 />
             );
         }
@@ -257,7 +263,6 @@ const Card: ComponentProps = ({
         </ConfigField> : <div className="field grid" key={name}>❌ {name}</div>;
     };
 
-    if (typeof cardName === 'object') cardName = cardName.name;
     const {label, widgets = [], flex, hidden, classes: cardClasses, type} = (cards[cardName] || {label: '❌ ' + cardName});
     if (type === 'toolbar') {
         return <div className='flex'>
