@@ -160,6 +160,41 @@ Files.play = async({canvasElement}) => {
     await userEvent.click(canvas.getByLabelText('save'));
 };
 
+export const FilesInTab: StoryTemplate = Template.bind({});
+FilesInTab.args = {
+    id: 1,
+    object: 'tree',
+    ...tree,
+    layouts: {
+        edit: {
+            orientation: 'top',
+            items: [{
+                id: 'general',
+                icon: 'pi pi-user',
+                label: 'General',
+                widgets: ['edit', 'habitat']
+            }, {
+                id: 'details',
+                label: 'Details',
+                icon: 'pi pi-book',
+                widgets: ['files']
+            }]
+        }
+    },
+    onDropdown: names => Promise.resolve({}),
+    onGet: params => Promise.resolve({
+        tree: {treeName: 'Oak', treeId: 1, treeType: 1}
+    })
+};
+
+FilesInTab.play = async({canvasElement}) => {
+    const canvas = within(canvasElement);
+    await canvas.findByDisplayValue('Oak'); // wait for the data to be loaded
+    await userEvent.clear(canvas.getByLabelText('Name'));
+    await userEvent.type(canvas.getByLabelText('Name'), 'test');
+    await userEvent.click(canvas.getByLabelText('save'));
+};
+
 export const MRZ: StoryTemplate = Template.bind({});
 MRZ.args = {
     id: 1,

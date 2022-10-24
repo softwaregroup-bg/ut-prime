@@ -178,6 +178,7 @@ export interface Card {
     },
     flex?: string;
     hidden?: boolean;
+    disabled?: boolean | Joi.Schema;
 }
 
 export interface Cards {

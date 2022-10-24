@@ -47,6 +47,7 @@ const Form: ComponentProps = ({
     debug,
     cards,
     layout,
+    layoutFields,
     loading,
     methods,
     onSubmit,
@@ -85,7 +86,7 @@ const Form: ComponentProps = ({
         clearErrors
     } = formApi;
     const errorFields = flat(errors);
-    const layoutState = useLayout(schema, cards, layout, editors);
+    const layoutState = useLayout(schema, cards, layout, editors, undefined, layoutFields);
 
     const {handleSubmit, toast} = useSubmit(
         async(form, event) => {
