@@ -255,7 +255,7 @@ const Explorer: ComponentProps = ({
                         }
                     ), index]));
                     const records = (resultSet ? items[resultSet] : items) as unknown[];
-                    let total = items.pagination && items.pagination.recordsTotal;
+                    let total = items.pagination?.recordsTotal || items.pagination?.[0]?.recordsTotal;
                     if (total == null) {
                         total = (Array.isArray(records) && records.length) || 0;
                         if (total === pageSize) total++;

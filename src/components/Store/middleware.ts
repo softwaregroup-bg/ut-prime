@@ -4,8 +4,8 @@ import flatten from 'ut-function.flatten';
 export default store => next => async action => {
     switch (action.type) {
         case 'front.tab.show': {
-            const {title, component} = action.tab ? await action.tab({}) : action;
-            const {id, ...params} = action?.params || {};
+            const {title: tabTitle, component} = action.tab ? await action.tab({}) : action;
+            const {id, title = tabTitle, ...params} = action?.params || {};
             if (!action.path) {
                 let query;
                 if (Object.keys(params).length) {
