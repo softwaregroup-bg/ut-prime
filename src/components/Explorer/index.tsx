@@ -33,6 +33,9 @@ const useStyles = createUseStyles({
         '& .p-card .p-card-content': {
             padding: 0
         },
+        '& .p-datatable-wrapper .p-button': {
+            width: 'fit-content'
+        },
         '& .p-datatable-wrapper': {
             overflowX: 'auto',
             '& .p-button': {
@@ -401,11 +404,11 @@ const Explorer: ComponentProps = ({
         {buttons}
     </>, [navigationToggle, buttons, hasChildren, resultSet, paramsElement]);
     const right = <>
-        <Button icon="pi pi-search" className="mr-2 ml-2" disabled={!!loading} onClick={trigger} {...testid(`${resultSet}.refreshButton`)}/>
+        <Button icon="pi pi-search" className="mr-2 ml-2" disabled={!!loading} onClick={trigger || load} {...testid(`${resultSet}.refreshButton`)}/>
         {details && <Button {...testid(`${resultSet}.details.toggleButton`)} icon="pi pi-bars" className="mr-2" onClick={detailsToggle}/>}
         {customizationToolbar}
     </>;
-    const layoutState = useLayout(mergedSchema, mergedCards, layout, editors, keyField);
+    const layoutState = useLayout(mergedSchema, mergedCards, layout, editors, keyField, []);
     const cardName = layout?.flat()[0];
     const itemTemplate = React.useMemo(() => item => {
         function renderItem() {
