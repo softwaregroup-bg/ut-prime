@@ -1,3 +1,12 @@
+## [2.31.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.31.1...v2.31.2) (2022-10-25)
+
+
+### Bug Fixes
+
+* Explorer refresh ([1d65371](https://github.com/softwaregroup-bg/ut-prime/commit/1d653717e127251edb4e36cd71ee420de55c7dba))
+
+
+
 ## [2.31.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.31.0...v2.31.1) (2022-10-24)
 
 
