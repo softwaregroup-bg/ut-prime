@@ -1,3 +1,13 @@
+## [2.31.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.31.2...v2.31.3) (2022-10-26)
+
+
+### Bug Fixes
+
+* update language after login ([706a485](https://github.com/softwaregroup-bg/ut-prime/commit/706a48548caa3d413e2dc9cb0a0a4184f94cec4a))
+* wait for logout ([1fd8a4d](https://github.com/softwaregroup-bg/ut-prime/commit/1fd8a4d1456ab16712dd7a7b3deae5a8776c69c6))
+
+
+
 ## [2.31.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.31.1...v2.31.2) (2022-10-25)
 
 
