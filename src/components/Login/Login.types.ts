@@ -6,7 +6,7 @@ import bottomImage from './images/bottomLogo.png';
 import error from '../images/error.png';
 
 export interface ILoginProps {
-    identityCheck: (params: object) => Promise<{error?: {type: string, message: string}}>;
+    identityCheck: (params: object) => Promise<{error?: {type: string, message: string}, result?: {language?: {iso2Code: string}}}>;
     language?: string;
     register?: string
 }

@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import { Redirect, useHistory } from 'react-router-dom';
 import { useTheme } from 'react-jss';
 
+import Context from '../Context';
 import type { Theme } from '../Theme';
 import { Password, InputText, Button } from '../prime';
 import Text from '../Text';
@@ -221,6 +222,7 @@ const Login: ComponentProps = ({
     const {ut, Switch} = useTheme<Theme>();
     const history = useHistory();
     const authenticated = useSelector((state: State) => state.login);
+    const {setLanguage} = React.useContext(Context);
 
     const [{ title, error, invalidField, inputs, buttonLabel }, dispatch] = React.useReducer(reducer, initialState);
     if (authenticated) return <Redirect to='/' />;
@@ -234,6 +236,7 @@ const Login: ComponentProps = ({
             delete allInputs.confirmPassword;
             const result = await identityCheck(allInputs);
             if (result?.error) dispatch({ ...result, type: 'login' });
+            if (result?.result?.language?.iso2Code) setLanguage(result.result.language.iso2Code);
         } else {
             dispatch({...valid, type: 'error'});
         }

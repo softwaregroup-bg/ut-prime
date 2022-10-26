@@ -10,7 +10,8 @@ export interface menuItem {
 interface contextType {
     customization: boolean,
     portalName: string,
-    devTool?: boolean
+    devTool?: boolean,
+    setLanguage?: (language: string) => void
 }
 
 const defaultContext: contextType = {
