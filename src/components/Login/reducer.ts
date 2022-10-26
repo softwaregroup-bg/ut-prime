@@ -39,7 +39,9 @@ export default (state = null, action: {
                 } : false;
             } else return state;
         case LOGOUT:
-            return false;
+            if (action.methodRequestState === 'finished') {
+                return false;
+            } else return state;
         default:
             return state;
     }
