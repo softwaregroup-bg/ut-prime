@@ -33,7 +33,7 @@ const useStyles = createUseStyles({
         '& .p-card .p-card-content': {
             padding: 0
         },
-        '& .p-datatable-wrapper .p-button': {
+        '& .p-datatable-tbody .p-button': {
             width: 'fit-content'
         },
         '& .p-datatable-wrapper': {
