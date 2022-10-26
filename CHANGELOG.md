@@ -1,3 +1,12 @@
+## [2.31.4](https://github.com/softwaregroup-bg/ut-prime/compare/v2.31.3...v2.31.4) (2022-10-26)
+
+
+### Bug Fixes
+
+* explorer header buttons width ([f059ad3](https://github.com/softwaregroup-bg/ut-prime/commit/f059ad3106bf061322fb12ee68c76858ebd7397c))
+
+
+
 ## [2.31.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.31.2...v2.31.3) (2022-10-26)
 
 
