@@ -1,6 +1,8 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
 import { userEvent, within } from '@storybook/testing-library';
+import merge from 'ut-function.merge';
+import Joi from 'joi';
 
 import page from './README.mdx';
 import Editor from './index';
@@ -266,3 +268,49 @@ Toolbar.args = {
         }
     }
 };
+
+export const ViewEffects: StoryTemplate = Template.bind({});
+ViewEffects.args = merge({}, Basic.args, {
+    schema: {
+        properties: {
+            tree: {
+                properties: {
+                    treeDescription: {
+                        widget: {
+                            visible: Joi.object({
+                                tree: Joi.object({
+                                    treeName: Joi.string().required()
+                                }).required().unknown(true)
+                            }).unknown(true)
+                        }
+                    },
+                    treeType: {
+                        widget: {
+                            disabled: Joi.object({
+                                tree: Joi.object({
+                                    treeName: Joi.string().required()
+                                }).required().unknown(true)
+                            }).unknown(true)
+                        }
+                    }
+                }
+            }
+        }
+    },
+    cards: {
+        links: {
+            disabled: Joi.object({
+                tree: Joi.object({
+                    treeName: Joi.string().required()
+                }).required().unknown(true)
+            }).unknown(true)
+        },
+        habitat: {
+            visible: Joi.object({
+                tree: Joi.object({
+                    treeName: Joi.string().required()
+                }).required().unknown(true)
+            }).unknown(true)
+        }
+    }
+});

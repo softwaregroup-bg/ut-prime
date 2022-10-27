@@ -158,7 +158,8 @@ export type WidgetReference = string | {
     compare?: string,
     filter?: object,
     disabled?: 'current' | 'selected' | 'single' | boolean | Joi.Schema,
-    enabled?: 'current' | 'selected' | 'single' | boolean | Joi.Schema
+    enabled?: 'current' | 'selected' | 'single' | boolean | Joi.Schema,
+    visible: boolean | Joi.Schema
 }
 export interface Card {
     label?: string;
@@ -179,6 +180,7 @@ export interface Card {
     flex?: string;
     hidden?: boolean;
     disabled?: boolean | Joi.Schema;
+    visible?: boolean | Joi.Schema;
 }
 
 export interface Cards {

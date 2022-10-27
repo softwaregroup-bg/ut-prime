@@ -207,11 +207,16 @@ const Card: ComponentProps = ({
     if (typeof cardName === 'object') cardName = cardName.name;
     let cardDisabled = cards[cardName]?.disabled;
     if (typeof cardDisabled === 'object' && 'validate' in cardDisabled) cardDisabled = !cardDisabled.validate(values()).error;
+    let cardVisible = cards[cardName]?.visible;
+    if (typeof cardVisible === 'object' && 'validate' in cardVisible) cardVisible = !cardVisible.validate(values()).error;
 
     const field = (length: number, flex: string, cardName: string, classes: CardType['classes'], init = {}) => function field(widget, ind: number) {
         if (typeof widget === 'string') widget = {name: widget};
-        let disabled = widget.disabled || cardDisabled;
+        let disabled = widget.disabled || layoutState.index.properties[widget.name]?.widget?.disabled || cardDisabled;
         if (disabled?.validate) disabled = !disabled.validate(values()).error;
+        let visible = widget.visible || layoutState.index.properties[widget.name]?.widget?.visible;
+        if (visible?.validate) visible = !visible.validate(values()).error;
+        if (visible === false) return null;
         const {
             name = '',
             id,
@@ -269,6 +274,7 @@ const Card: ComponentProps = ({
             {widgets.length > 0 && widgets.map(field(widgets.length, flex, cardName, cardClasses, {widget: '', label: ''}))}
         </div>;
     }
+    if (cardVisible === false) return null;
     return (
         <ConfigCard
             title={label}
