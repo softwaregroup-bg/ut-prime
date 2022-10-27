@@ -4,25 +4,22 @@ export const useStyles = createUseStyles({
     leftWrap: {
         position: 'relative',
         width: '50%',
-        background: '#fff',
         overflow: 'hidden'
     },
     rightWrap: {
         position: 'relative',
         width: '50%',
-        background: '#fff',
         overflow: 'hidden'
     },
     inlineWrap: {
         position: 'relative',
         width: [['calc(100% - 20px)'], '!important'],
-        background: '#fff',
         overflow: 'hidden'
     },
     lineContainer: {
         width: 55,
         lineHeight: '28px',
-        background: '#D9D9D9'
+        background: 'var(--surface-section)'
     },
     lineColumn: {
         display: 'inline-block',
@@ -95,7 +92,7 @@ export const useStyles = createUseStyles({
     hideUnchanged: {
         display: [['none'], '!important']
     },
-    '.hideChanges .changed .valueContainer, .hideChanges .changed .valueContainer,\n.hideDeletions .deleted .valueContainer, .hideAdditions .added .valueContainer': {
+    '.hideChanges .changed .valueContainer, .hideChanges .changed .valueContainer,.hideDeletions .deleted .valueContainer, .hideAdditions .added .valueContainer': {
         backgroundColor: [['initial'], '!important']
     },
     changedValue: {
@@ -120,7 +117,6 @@ export const useStyles = createUseStyles({
         display: 'inline-block'
     },
     activeLink: {
-        color: 'var(--ut-history-standardActiveLinkTextColor)',
         textDecoration: 'none',
         cursor: 'pointer'
     },

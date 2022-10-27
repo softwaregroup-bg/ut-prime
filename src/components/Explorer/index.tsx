@@ -356,6 +356,7 @@ const Explorer: ComponentProps = ({
                     action={action}
                     params={widget.params ?? property?.params}
                     getValues={() => ({
+                        filter: externalFilter,
                         id: row && row[keyField],
                         current: row,
                         selected: [row]

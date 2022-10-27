@@ -7,10 +7,10 @@ import {useStyles} from './styles';
 
 import { ComponentProps } from './JsonView.types';
 
-const JsonView: ComponentProps = ({ object }) => {
+const JsonView: ComponentProps = ({ value }) => {
     const classes = useStyles();
     const ident = 4; const separator = '$.$';
-    const diff = compareJSON(object, object, {
+    const diff = compareJSON(value, value, {
         separator,
         ident
     });
@@ -35,7 +35,6 @@ const JsonView: ComponentProps = ({ object }) => {
         const isObj = isObject(line.object[key]);
         const value = !isArr && !isObj && line.object[key] !== null && line.object[key] !== undefined && line.object[key].toString();
         const tValue = {value};
-        // const tValue = transformValue ? transformValue(line.key, separator, line.object) : {value};
         const contents = isNaN(idx) ? (<div className={classes.contents}>
             {line.level > 1 && <span className={classes.spaces}>{repeat(' ', (line.level - 1) * 2)}</span>}
             <span className={isTitle ? classes.objTitle : classes.objKey}>
