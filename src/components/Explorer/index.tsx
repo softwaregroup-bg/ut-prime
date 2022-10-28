@@ -29,7 +29,10 @@ const backgroundNone = {background: 'none'};
 const fieldName = column => typeof column === 'string' ? column : column.name;
 
 const useStyles = createUseStyles({
-    explorer: {
+        current: {
+            backgroundColor: 'var(--surface-ground) !important'
+        },
+        explorer: {
         '& .p-card .p-card-content': {
             padding: 0
         },
@@ -158,6 +161,7 @@ const Explorer: ComponentProps = ({
         onChange?.({...e, value: e.data});
         setCurrent(e.data);
     }, [onChange]);
+    const rowClass = (data: object) => data?.[keyField] === currentState?.[keyField] && classes.current;
 
     const [navigationOpened, navigationToggle] = useToggle(true);
     const [detailsOpened, detailsToggle] = useToggle(true);
@@ -398,7 +402,6 @@ const Explorer: ComponentProps = ({
             />
         </div>;
     }, [paramsLayout, mergedSchema, editors, methods, cards, paramValues, dropdowns, formProps]);
-
     const left = React.useMemo(() => paramsElement ?? <>
         {hasChildren && <Button {...testid(`${resultSet}.navigator.toggleButton`)} icon="pi pi-bars" className="mr-2" onClick={navigationToggle}/>}
         {buttons}
@@ -469,10 +472,12 @@ const Explorer: ComponentProps = ({
                 loading={!!loading}
                 dataKey={keyField}
                 value={items}
+                rowClassName={rowClass}
                 selection={selected}
                 filterDisplay={filterDisplay}
                 onSelectionChange={handleSelectionChange}
                 onRowSelect={handleRowSelect}
+                onRowUnselect={handleRowSelect}
                 {...tableProps}
             >
                 {keyField && (!tableProps?.selectionMode || tableProps?.selectionMode === 'checkbox') && <Column selectionMode="multiple" className='flex-grow-0'/>}
