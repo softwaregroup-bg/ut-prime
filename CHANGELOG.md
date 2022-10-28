@@ -1,3 +1,12 @@
+## [2.31.6](https://github.com/softwaregroup-bg/ut-prime/compare/v2.31.5...v2.31.6) (2022-10-28)
+
+
+### Bug Fixes
+
+* do not overwrite disabled from schema ([8d66898](https://github.com/softwaregroup-bg/ut-prime/commit/8d668982b73e8f26e4127e25c09d151da5ae4ec0))
+
+
+
 ## [2.31.5](https://github.com/softwaregroup-bg/ut-prime/compare/v2.31.4...v2.31.5) (2022-10-28)
 
 
