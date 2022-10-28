@@ -11,17 +11,21 @@ export const useStyles = createUseStyles({
         cursor: 'default'
     },
     headerTitle: {
-        paddingLeft: 16,
-        fontWeight: 700,
-        lineHeight: '16px'
+        '&.p-component': {
+            paddingLeft: 16,
+            fontWeight: 700,
+            lineHeight: '16px'
+        }
     },
     headerLogo: {
-        margin: '0 0px 0 10px',
-        width: 36,
-        height: 36,
-        background: `url(${logo}) no-repeat center`,
-        backgroundSize: 'contain',
-        cursor: 'pointer'
+        '&.p-component': {
+            margin: '0 0px 0 10px',
+            width: 36,
+            height: 36,
+            background: `url(${logo}) no-repeat center`,
+            backgroundSize: 'contain',
+            cursor: 'pointer'
+        }
     },
     tabs: {
         '&.p-tabview': {
