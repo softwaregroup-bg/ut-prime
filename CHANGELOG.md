@@ -1,3 +1,12 @@
+## [2.31.5](https://github.com/softwaregroup-bg/ut-prime/compare/v2.31.4...v2.31.5) (2022-10-28)
+
+
+### Bug Fixes
+
+* avoid class reordering issues ([21fe52c](https://github.com/softwaregroup-bg/ut-prime/commit/21fe52c919365cd255cad1f09e6560f4b1b8bc0f))
+
+
+
 ## [2.31.4](https://github.com/softwaregroup-bg/ut-prime/compare/v2.31.3...v2.31.4) (2022-10-26)
 
 
