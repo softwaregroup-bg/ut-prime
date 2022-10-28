@@ -29,10 +29,10 @@ const backgroundNone = {background: 'none'};
 const fieldName = column => typeof column === 'string' ? column : column.name;
 
 const useStyles = createUseStyles({
-        current: {
-            backgroundColor: 'var(--surface-ground) !important'
-        },
-        explorer: {
+    current: {
+        backgroundColor: 'var(--surface-ground) !important'
+    },
+    explorer: {
         '& .p-card .p-card-content': {
             padding: 0
         },
