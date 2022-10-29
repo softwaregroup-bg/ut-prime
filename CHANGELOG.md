@@ -1,3 +1,12 @@
+## [2.31.7](https://github.com/softwaregroup-bg/ut-prime/compare/v2.31.6...v2.31.7) (2022-10-29)
+
+
+### Bug Fixes
+
+* create single store ([2825626](https://github.com/softwaregroup-bg/ut-prime/commit/2825626fedf429ee0c85741b8042ffa76990ecab))
+
+
+
 ## [2.31.6](https://github.com/softwaregroup-bg/ut-prime/compare/v2.31.5...v2.31.6) (2022-10-28)
 
 
