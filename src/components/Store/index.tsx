@@ -30,7 +30,8 @@ const composeEnhancers = composeWithDevTools({
 
 const Store: StoreComponent = ({middleware = [], reducers, state, children, onDispatcher}) => {
     const history = (typeof window !== 'undefined') ? createHashHistory() : createMemoryHistory();
-    const store = createStore(
+    const storeRef = React.useRef<ReturnType<typeof createStore>>();
+    storeRef.current ||= createStore(
         combineReducers({
             router: connectRouter(history),
             ...front,
@@ -39,9 +40,9 @@ const Store: StoreComponent = ({middleware = [], reducers, state, children, onDi
         state,
         composeEnhancers(applyMiddleware(thunk, ...middleware, frontMiddleware, routerMiddleware(history)))
     );
-    if (onDispatcher) onDispatcher(action => store.dispatch(action));
+    if (onDispatcher) onDispatcher(action => storeRef.current.dispatch(action));
     return (
-        <Provider store={store}>
+        <Provider store={storeRef.current}>
             <ConnectedRouter history={history}>
                 {children}
             </ConnectedRouter>
