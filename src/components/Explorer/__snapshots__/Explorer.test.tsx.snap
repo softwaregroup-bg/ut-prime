@@ -79,7 +79,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
           >
             <div
               class="p-splitter-panel"
-              style="flex-basis: calc(90% - 4px); height: 768px;"
+              style="flex-basis: calc(45% - 4px); height: 768px;"
             >
               <div
                 style="height: 768px;"
@@ -198,10 +198,12 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                                 />
                               </div>
                               <button
+                                aria-label="Clear"
                                 class="p-column-filter-clear-button p-link p-hidden-space"
                                 type="button"
                               >
                                 <span
+                                  aria-hidden="true"
                                   class="pi pi-filter-slash"
                                 />
                               </button>
@@ -223,10 +225,12 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                                 />
                               </div>
                               <button
+                                aria-label="Clear"
                                 class="p-column-filter-clear-button p-link p-hidden-space"
                                 type="button"
                               >
                                 <span
+                                  aria-hidden="true"
                                   class="pi pi-filter-slash"
                                 />
                               </button>
@@ -253,6 +257,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                             >
                               <div
                                 aria-checked="false"
+                                aria-label="Select 0"
                                 class="p-checkbox-box p-component"
                                 role="checkbox"
                                 tabindex="0"
@@ -310,6 +315,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                             >
                               <div
                                 aria-checked="false"
+                                aria-label="Select 1"
                                 class="p-checkbox-box p-component"
                                 role="checkbox"
                                 tabindex="0"
@@ -367,6 +373,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                             >
                               <div
                                 aria-checked="false"
+                                aria-label="Select 2"
                                 class="p-checkbox-box p-component"
                                 role="checkbox"
                                 tabindex="0"
@@ -424,6 +431,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                             >
                               <div
                                 aria-checked="false"
+                                aria-label="Select 3"
                                 class="p-checkbox-box p-component"
                                 role="checkbox"
                                 tabindex="0"
@@ -481,6 +489,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                             >
                               <div
                                 aria-checked="false"
+                                aria-label="Select 4"
                                 class="p-checkbox-box p-component"
                                 role="checkbox"
                                 tabindex="0"
@@ -538,6 +547,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                             >
                               <div
                                 aria-checked="false"
+                                aria-label="Select 5"
                                 class="p-checkbox-box p-component"
                                 role="checkbox"
                                 tabindex="0"
@@ -595,6 +605,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                             >
                               <div
                                 aria-checked="false"
+                                aria-label="Select 6"
                                 class="p-checkbox-box p-component"
                                 role="checkbox"
                                 tabindex="0"
@@ -652,6 +663,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                             >
                               <div
                                 aria-checked="false"
+                                aria-label="Select 7"
                                 class="p-checkbox-box p-component"
                                 role="checkbox"
                                 tabindex="0"
@@ -709,6 +721,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                             >
                               <div
                                 aria-checked="false"
+                                aria-label="Select 8"
                                 class="p-checkbox-box p-component"
                                 role="checkbox"
                                 tabindex="0"
@@ -766,6 +779,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                             >
                               <div
                                 aria-checked="false"
+                                aria-label="Select 9"
                                 class="p-checkbox-box p-component"
                                 role="checkbox"
                                 tabindex="0"
@@ -815,68 +829,58 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                   >
                     <button
                       aria-label="First Page"
-                      class="p-button p-component p-paginator-first p-paginator-element p-link p-disabled p-button-icon-only p-disabled"
+                      class="p-paginator-first p-paginator-element p-link p-disabled"
                       disabled=""
                       type="button"
                     >
                       <span
-                        class="p-button-icon p-c p-paginator-icon pi pi-angle-double-left"
+                        class="p-paginator-icon pi pi-angle-double-left"
                       />
-                      <span
-                        class="p-button-label p-c"
-                      >
-                         
-                      </span>
                     </button>
                     <button
                       aria-label="Previous Page"
-                      class="p-button p-component p-paginator-prev p-paginator-element p-link p-disabled p-button-icon-only p-disabled"
+                      class="p-paginator-prev p-paginator-element p-link p-disabled"
                       disabled=""
                       type="button"
                     >
                       <span
-                        class="p-button-icon p-c p-paginator-icon pi pi-angle-left"
+                        class="p-paginator-icon pi pi-angle-left"
                       />
-                      <span
-                        class="p-button-label p-c"
-                      >
-                         
-                      </span>
                     </button>
                     <span
                       class="p-paginator-pages"
                     >
                       <button
                         aria-label="Page 2"
-                        class="p-button p-component p-paginator-page p-paginator-element p-link p-paginator-page-start p-highlight"
+                        class="p-paginator-page p-paginator-element p-link p-paginator-page-start p-highlight"
                         type="button"
                       >
                         1
                       </button>
                       <button
                         aria-label="Page 3"
-                        class="p-button p-component p-paginator-page p-paginator-element p-link"
+                        class="p-paginator-page p-paginator-element p-link"
                         type="button"
                       >
                         2
                       </button>
                       <button
                         aria-label="Page 4"
-                        class="p-button p-component p-paginator-page p-paginator-element p-link"
+                        class="p-paginator-page p-paginator-element p-link"
                         type="button"
                       >
                         3
                       </button>
                       <button
                         aria-label="Page 5"
-                        class="p-button p-component p-paginator-page p-paginator-element p-link"
+                        class="p-paginator-page p-paginator-element p-link"
                         type="button"
                       >
                         4
                       </button>
                       <button
                         aria-label="Page 6"
-                        class="p-button p-component p-paginator-page p-paginator-element p-link p-paginator-page-end"
+                        class="p-paginator-page p-paginator-element p-link p-paginator-page-end"
                         type="button"
                       >
                         5
@@ -884,31 +888,21 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                     </span>
                     <button
                       aria-label="Next Page"
-                      class="p-button p-component p-paginator-next p-paginator-element p-link p-button-icon-only"
+                      class="p-paginator-next p-paginator-element p-link"
                       type="button"
                     >
                       <span
-                        class="p-button-icon p-c p-paginator-icon pi pi-angle-right"
+                        class="p-paginator-icon pi pi-angle-right"
                       />
-                      <span
-                        class="p-button-label p-c"
-                      >
-                         
-                      </span>
                     </button>
                     <button
                       aria-label="Last Page"
-                      class="p-button p-component p-paginator-last p-paginator-element p-link p-button-icon-only"
+                      class="p-paginator-last p-paginator-element p-link"
                       type="button"
                     >
                       <span
-                        class="p-button-icon p-c p-paginator-icon pi pi-angle-double-right"
+                        class="p-paginator-icon pi pi-angle-double-right"
                       />
-                      <span
-                        class="p-button-label p-c"
-                      >
-                         
-                      </span>
                     </button>
                   </div>
                 </div>
@@ -924,7 +918,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
             </div>
             <div
               class="p-splitter-panel"
-              style="flex-basis: calc(10% - 4px); height: 768px;"
+              style="flex-basis: calc(5% - 4px); height: 768px;"
             >
               <div
                 class="w-full"

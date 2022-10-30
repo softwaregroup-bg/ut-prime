@@ -3633,14 +3633,18 @@ exports[`<Editor /> Files render equals snapshot 1`] = `
               </pre>
             </div>
           </div>
-          <button
-            class="p-toast-icon-close p-link"
-            type="button"
-          >
-            <span
-              class="p-toast-icon-close-icon pi pi-times"
-            />
-          </button>
+          <div>
+            <button
+              aria-label="Close"
+              class="p-toast-icon-close p-link"
+              type="button"
+            >
+              <span
+                aria-hidden="true"
+                class="p-toast-icon-close-icon pi pi-times"
+              />
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -4099,14 +4103,18 @@ exports[`<Editor /> FilesInTab render equals snapshot 1`] = `
               </pre>
             </div>
           </div>
-          <button
-            class="p-toast-icon-close p-link"
-            type="button"
-          >
-            <span
-              class="p-toast-icon-close-icon pi pi-times"
-            />
-          </button>
+          <div>
+            <button
+              aria-label="Close"
+              class="p-toast-icon-close p-link"
+              type="button"
+            >
+              <span
+                aria-hidden="true"
+                class="p-toast-icon-close-icon pi pi-times"
+              />
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -5151,7 +5159,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
                         >
                           <input
                             autocomplete="off"
-                            class="p-inputtext p-component p-filled"
+                            class="p-inputtext p-component"
                             id="$-edit-person-birthDate"
                             inputmode="none"
                             name="$.edit.person.birthDate"
@@ -9096,14 +9104,18 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
               </pre>
             </div>
           </div>
-          <button
-            class="p-toast-icon-close p-link"
-            type="button"
-          >
-            <span
-              class="p-toast-icon-close-icon pi pi-times"
-            />
-          </button>
+          <div>
+            <button
+              aria-label="Close"
+              class="p-toast-icon-close p-link"
+              type="button"
+            >
+              <span
+                aria-hidden="true"
+                class="p-toast-icon-close-icon pi pi-times"
+              />
+            </button>
+          </div>
         </div>
       </div>
     </div>

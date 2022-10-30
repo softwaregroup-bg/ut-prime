@@ -497,9 +497,6 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                         class="p-image p-component p-image-preview-container"
                         id="input-image"
                       >
-                        <img
-                          class="w-full"
-                        />
                         <div
                           class="p-image-preview-indicator"
                         >
@@ -1071,6 +1068,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                     >
                                       <div
                                         aria-checked="false"
+                                        aria-label="Select 0"
                                         class="p-checkbox-box p-component"
                                         role="checkbox"
                                         tabindex="0"
@@ -1278,6 +1276,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                   >
                                     <div
                                       aria-checked="true"
+                                      aria-label="Unselect 1"
                                       class="p-checkbox-box p-component p-highlight"
                                       role="checkbox"
                                       tabindex="0"
@@ -1314,6 +1313,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                   >
                                     <div
                                       aria-checked="false"
+                                      aria-label="Select 2"
                                       class="p-checkbox-box p-component"
                                       role="checkbox"
                                       tabindex="0"
@@ -1350,6 +1350,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                   >
                                     <div
                                       aria-checked="false"
+                                      aria-label="Select 3"
                                       class="p-checkbox-box p-component"
                                       role="checkbox"
                                       tabindex="0"
@@ -1533,12 +1534,14 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                   class=""
                                 >
                                   <button
+                                    aria-label="Expand"
                                     class="p-treetable-toggler p-link p-unselectable-text"
                                     style="margin-left: 0px; visibility: visible;"
                                     tabindex="-1"
                                     type="button"
                                   >
                                     <i
+                                      aria-hidden="true"
                                       class="p-treetable-toggler-icon pi pi-fw pi-chevron-right"
                                     />
                                   </button>
@@ -1699,6 +1702,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                   >
                                     <div
                                       aria-checked="false"
+                                      aria-label="Select 1"
                                       class="p-checkbox-box p-component"
                                       role="checkbox"
                                       tabindex="0"
@@ -1805,6 +1809,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                   >
                                     <div
                                       aria-checked="false"
+                                      aria-label="Select 2"
                                       class="p-checkbox-box p-component"
                                       role="checkbox"
                                       tabindex="0"
@@ -1911,6 +1916,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                   >
                                     <div
                                       aria-checked="false"
+                                      aria-label="Select 3"
                                       class="p-checkbox-box p-component"
                                       role="checkbox"
                                       tabindex="0"
