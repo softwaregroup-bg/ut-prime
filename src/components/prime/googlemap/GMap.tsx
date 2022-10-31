@@ -74,9 +74,9 @@ export const GMap = React.forwardRef(function GMap(props: any, ref) {
                 lng: event.latLng.lng()
             };
             setSelectedPosition(position);
-            onChange({ value: selectedPosition });
+            onChange({ value: position });
         },
-        [disabled, onChange, selectedPosition]
+        [disabled, onChange]
     );
 
     if (!googleMapsReady) {
