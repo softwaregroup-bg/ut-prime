@@ -20,6 +20,7 @@ export { ConfirmPopup, confirmPopup } from 'primereact/confirmpopup';
 export { DataView } from 'primereact/dataview';
 export { Dialog } from 'primereact/dialog';
 export { Dropdown } from 'primereact/dropdown';
+export { GMap } from './googlemap/GMap';
 export { FileUpload } from 'primereact/fileupload';
 export { Image } from 'primereact/image';
 export { InputMask } from 'primereact/inputmask';
@@ -56,7 +57,7 @@ function dateRange(timeOnly) {
     return [today, new Date(today.getTime() + timeOnly ? 0 : 86400000)];
 }
 
-export const DateRange = props => {
+export const DateRange = React.forwardRef(function DateRange(props: any, ref) {
     const [visible, setVisible] = React.useState(false);
     const value = React.useMemo(() => (visible && !props.value) ? dateRange(props.timeOnly) : props.value, [visible, props.value, props.timeOnly]);
     const onVisibleChange = React.useCallback(event => {
@@ -72,8 +73,9 @@ export const DateRange = props => {
         visible={visible}
         value={value}
         onVisibleChange={onVisibleChange}
+        ref={ref}
     />;
-};
+});
 
 export const Card = ({title, ...props}: CardProps) =>
     <PrimeCard title={title && <Text>{title}</Text>} {...props}/>;

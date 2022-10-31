@@ -9,8 +9,10 @@ import {
     Checkbox,
     Chips,
     Column,
+    DateRange,
     Dropdown,
     FileUpload,
+    GMap,
     Image,
     InputMask,
     InputNumber,
@@ -385,6 +387,13 @@ export default function input(
                 {...props}
             />
         </Field>;
+        case 'dateRange': return <Field {...{label, error, inputClass}}>
+            <DateRange
+                inputId={props.id}
+                {...field}
+                {...props}
+            />
+        </Field>;
         case 'number': return <Field {...{label, error, inputClass}}>
             <InputNumber
                 {...field}
@@ -434,7 +443,7 @@ export default function input(
                     headerTemplate={(options) => {
                         const { className, chooseButton } = options;
                         return (
-                            <div className={className} style={{backgroundColor: 'transparent', display: 'flex', alignItems: 'center'}}>
+                            <div className={className}>
                                 {chooseButton}
                             </div>
                         );
@@ -505,6 +514,9 @@ export default function input(
         }
         case 'label': return (field?.name || title) ? <Field inputClass={widgetClassName}>{field?.value ?? title}</Field> : null;
         case 'icon': return (field?.name || title) ? <i className={clsx('pi', field?.value ?? title, widgetClassName)}/> : null;
+        case 'gps': return <Field {...{label, error, inputClass}}>
+            <GMap {...field} {...props} />
+        </Field>;
         default: return <Field {...{label, error, inputClass}}>
             <InputText
                 {...field}
