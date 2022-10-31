@@ -26,29 +26,32 @@ const disableUserInteraction = {
 // TODO: unused ref below, but fixed warning.
 export const GMap = React.forwardRef(function GMap(props: any, ref) {
     const { options = {}, onChange, value = null, disabled = false } = props;
-    const [marker, setMarker] = React.useState(null);
-    const [selectedPosition, setSelectedPosition] = React.useState(value);
+    const [initialLoadOptions] = React.useState(options?.load);
     const [googleMapsReady, setGoogleMapsReady] = React.useState(false);
+    const [selectedPosition, setSelectedPosition] = React.useState(value);
+    const [marker, setMarker] = React.useState(null);
     const map = React.useRef(null);
 
     const mapOptions = React.useMemo(() => {
-        return merge([
-            {},
-            defaultOptions.map,
-            options?.map,
-            disabled && disableUserInteraction,
-            selectedPosition && { center: selectedPosition }
-        ].filter(Boolean));
+        return merge(
+            [
+                {},
+                defaultOptions.map,
+                options?.map,
+                disabled && disableUserInteraction,
+                selectedPosition && { center: selectedPosition }
+            ].filter(Boolean)
+        );
     }, [options?.map, disabled, selectedPosition]);
 
     React.useEffect(() => {
-        loadGoogleMaps(merge({}, defaultOptions.load, options?.load || {}), () => {
+        loadGoogleMaps(merge([{}, defaultOptions.load, initialLoadOptions].filter(Boolean)), () => {
             setGoogleMapsReady(true);
         });
         return () => {
             removeGoogleMaps();
         };
-    }, [options]);
+    }, [initialLoadOptions]);
 
     React.useEffect(() => {
         if (!googleMapsReady || !selectedPosition) return;

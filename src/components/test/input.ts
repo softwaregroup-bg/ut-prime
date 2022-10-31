@@ -122,7 +122,8 @@ const properties: Properties = {
     },
     date: {
         widget: {
-            type: 'date'
+            type: 'date',
+            showOnFocus: false
         }
     },
     daterange: {
