@@ -34,6 +34,7 @@ exports[`<Error /> render equals snapshot 1`] = `
         type="button"
       >
         <span
+          aria-hidden="true"
           class="p-dialog-header-close-icon pi pi-times"
         />
       </button>

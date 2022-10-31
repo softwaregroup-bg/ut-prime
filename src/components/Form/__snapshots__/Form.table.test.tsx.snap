@@ -319,6 +319,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     >
                                       <div
                                         aria-checked="false"
+                                        aria-label="Select 0"
                                         class="p-checkbox-box p-component"
                                         role="checkbox"
                                         tabindex="0"
@@ -879,6 +880,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     >
                                       <div
                                         aria-checked="false"
+                                        aria-label="Select 0"
                                         class="p-checkbox-box p-component"
                                         role="checkbox"
                                         tabindex="0"
@@ -949,10 +951,10 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     </span>
                                     <span
                                       class="p-inputnumber p-component p-inputwrapper p-inputnumber-buttons-stacked w-full"
-                                      data-testid="table2-0-integer"
                                     >
                                       <input
                                         class="p-inputtext p-component p-inputnumber-input"
+                                        data-testid="table2-0-integer"
                                         id="table2-0-integer"
                                         inputmode="numeric"
                                         name="table2[0].integer"
@@ -1374,6 +1376,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     >
                                       <div
                                         aria-checked="false"
+                                        aria-label="Select 0"
                                         class="p-checkbox-box p-component"
                                         role="checkbox"
                                         tabindex="0"
@@ -1739,6 +1742,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     >
                                       <div
                                         aria-checked="false"
+                                        aria-label="Select 0"
                                         class="p-checkbox-box p-component"
                                         role="checkbox"
                                         tabindex="0"
@@ -2184,6 +2188,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                                     >
                                       <div
                                         aria-checked="false"
+                                        aria-label="Select 0"
                                         class="p-checkbox-box p-component"
                                         role="checkbox"
                                         tabindex="0"
@@ -2744,6 +2749,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                                     >
                                       <div
                                         aria-checked="false"
+                                        aria-label="Select 0"
                                         class="p-checkbox-box p-component"
                                         role="checkbox"
                                         tabindex="0"
@@ -2814,10 +2820,10 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                                     </span>
                                     <span
                                       class="p-inputnumber p-component p-inputwrapper p-inputnumber-buttons-stacked w-full"
-                                      data-testid="table2-0-integer"
                                     >
                                       <input
                                         class="p-inputtext p-component p-inputnumber-input"
+                                        data-testid="table2-0-integer"
                                         id="table2-0-integer"
                                         inputmode="numeric"
                                         name="table2[0].integer"
@@ -3239,6 +3245,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                                     >
                                       <div
                                         aria-checked="false"
+                                        aria-label="Select 0"
                                         class="p-checkbox-box p-component"
                                         role="checkbox"
                                         tabindex="0"
@@ -3604,6 +3611,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                                     >
                                       <div
                                         aria-checked="false"
+                                        aria-label="Select 0"
                                         class="p-checkbox-box p-component"
                                         role="checkbox"
                                         tabindex="0"
@@ -4048,6 +4056,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                                     >
                                       <div
                                         aria-checked="false"
+                                        aria-label="Select 0"
                                         class="p-checkbox-box p-component"
                                         role="checkbox"
                                         tabindex="0"
@@ -4608,6 +4617,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                                     >
                                       <div
                                         aria-checked="false"
+                                        aria-label="Select 0"
                                         class="p-checkbox-box p-component"
                                         role="checkbox"
                                         tabindex="0"
@@ -4678,10 +4688,10 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                                     </span>
                                     <span
                                       class="p-inputnumber p-component p-inputwrapper p-inputnumber-buttons-stacked w-full"
-                                      data-testid="table2-0-integer"
                                     >
                                       <input
                                         class="p-inputtext p-component p-inputnumber-input"
+                                        data-testid="table2-0-integer"
                                         id="table2-0-integer"
                                         inputmode="numeric"
                                         name="table2[0].integer"
@@ -5103,6 +5113,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                                     >
                                       <div
                                         aria-checked="false"
+                                        aria-label="Select 0"
                                         class="p-checkbox-box p-component"
                                         role="checkbox"
                                         tabindex="0"
@@ -5468,6 +5479,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                                     >
                                       <div
                                         aria-checked="false"
+                                        aria-label="Select 0"
                                         class="p-checkbox-box p-component"
                                         role="checkbox"
                                         tabindex="0"

@@ -29,7 +29,7 @@ const getDefault = (key, value, rows) => {
 };
 
 const editStyle = { width: '7rem' };
-const editBodyStyle = { textAlign: 'center' };
+const editBodyStyle: React.CSSProperties = { textAlign: 'center' };
 const sameString = (a, b) => a === b || (a != null && b != null && String(a) === String(b));
 
 const defaults = (properties : Properties, rows: object[]) =>

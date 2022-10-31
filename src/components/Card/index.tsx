@@ -242,7 +242,7 @@ const Card: ComponentProps = ({
                     classes={classes}
                     labelClass={labelClass}
                     {...widget as object}
-                    disabled={disabled}
+                    {...disabled != null && {disabled}}
                 />
             );
         }

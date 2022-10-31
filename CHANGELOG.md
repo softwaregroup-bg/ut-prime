@@ -1,3 +1,48 @@
+# [2.32.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.31.8...v2.32.0) (2022-10-31)
+
+
+### Features
+
+* json diff / view initial code ([65200a8](https://github.com/softwaregroup-bg/ut-prime/commit/65200a8bf88d99fcb6bff05e144a1aad126b5d4d))
+
+
+
+## [2.31.8](https://github.com/softwaregroup-bg/ut-prime/compare/v2.31.7...v2.31.8) (2022-10-30)
+
+
+### Bug Fixes
+
+* primereact 8.7.0 ([4c96c34](https://github.com/softwaregroup-bg/ut-prime/commit/4c96c34b0d64ebadc1ffa76e1d34d4313677c124))
+
+
+
+## [2.31.7](https://github.com/softwaregroup-bg/ut-prime/compare/v2.31.6...v2.31.7) (2022-10-29)
+
+
+### Bug Fixes
+
+* create single store ([2825626](https://github.com/softwaregroup-bg/ut-prime/commit/2825626fedf429ee0c85741b8042ffa76990ecab))
+
+
+
+## [2.31.6](https://github.com/softwaregroup-bg/ut-prime/compare/v2.31.5...v2.31.6) (2022-10-28)
+
+
+### Bug Fixes
+
+* do not overwrite disabled from schema ([8d66898](https://github.com/softwaregroup-bg/ut-prime/commit/8d668982b73e8f26e4127e25c09d151da5ae4ec0))
+
+
+
+## [2.31.5](https://github.com/softwaregroup-bg/ut-prime/compare/v2.31.4...v2.31.5) (2022-10-28)
+
+
+### Bug Fixes
+
+* avoid class reordering issues ([21fe52c](https://github.com/softwaregroup-bg/ut-prime/commit/21fe52c919365cd255cad1f09e6560f4b1b8bc0f))
+
+
+
 ## [2.31.4](https://github.com/softwaregroup-bg/ut-prime/compare/v2.31.3...v2.31.4) (2022-10-26)
 
 

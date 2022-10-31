@@ -26,11 +26,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
           tabindex="0"
         >
           <button
+            aria-label="Collapse"
             class="p-tree-toggler p-link"
             tabindex="-1"
             type="button"
           >
             <span
+              aria-hidden="true"
               class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
             />
           </button>
@@ -55,11 +57,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
@@ -81,11 +85,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
@@ -107,11 +113,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
@@ -133,11 +141,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
@@ -162,11 +172,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
           tabindex="0"
         >
           <button
+            aria-label="Collapse"
             class="p-tree-toggler p-link"
             tabindex="-1"
             type="button"
           >
             <span
+              aria-hidden="true"
               class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
             />
           </button>
@@ -191,11 +203,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
@@ -217,11 +231,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
@@ -243,11 +259,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
@@ -269,11 +287,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
@@ -298,11 +318,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
           tabindex="0"
         >
           <button
+            aria-label="Collapse"
             class="p-tree-toggler p-link"
             tabindex="-1"
             type="button"
           >
             <span
+              aria-hidden="true"
               class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
             />
           </button>
@@ -327,11 +349,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
@@ -353,11 +377,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
@@ -379,11 +405,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
@@ -405,11 +433,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
@@ -434,11 +464,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
           tabindex="0"
         >
           <button
+            aria-label="Collapse"
             class="p-tree-toggler p-link"
             tabindex="-1"
             type="button"
           >
             <span
+              aria-hidden="true"
               class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
             />
           </button>
@@ -463,11 +495,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
@@ -489,11 +523,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
@@ -515,11 +551,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
@@ -541,11 +579,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
@@ -570,11 +610,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
           tabindex="0"
         >
           <button
+            aria-label="Collapse"
             class="p-tree-toggler p-link"
             tabindex="-1"
             type="button"
           >
             <span
+              aria-hidden="true"
               class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
             />
           </button>
@@ -599,11 +641,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
@@ -625,11 +669,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
@@ -651,11 +697,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
@@ -677,11 +725,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
@@ -706,11 +756,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
           tabindex="0"
         >
           <button
+            aria-label="Collapse"
             class="p-tree-toggler p-link"
             tabindex="-1"
             type="button"
           >
             <span
+              aria-hidden="true"
               class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
             />
           </button>
@@ -735,11 +787,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
@@ -761,11 +815,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
@@ -787,11 +843,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
@@ -813,11 +871,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
@@ -842,11 +902,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
           tabindex="0"
         >
           <button
+            aria-label="Collapse"
             class="p-tree-toggler p-link"
             tabindex="-1"
             type="button"
           >
             <span
+              aria-hidden="true"
               class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
             />
           </button>
@@ -871,11 +933,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
@@ -897,11 +961,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
@@ -923,11 +989,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
@@ -949,11 +1017,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
@@ -978,11 +1048,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
           tabindex="0"
         >
           <button
+            aria-label="Collapse"
             class="p-tree-toggler p-link"
             tabindex="-1"
             type="button"
           >
             <span
+              aria-hidden="true"
               class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
             />
           </button>
@@ -1007,11 +1079,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
@@ -1033,11 +1107,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
@@ -1059,11 +1135,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
@@ -1085,11 +1163,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
@@ -1114,11 +1194,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
           tabindex="0"
         >
           <button
+            aria-label="Collapse"
             class="p-tree-toggler p-link"
             tabindex="-1"
             type="button"
           >
             <span
+              aria-hidden="true"
               class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
             />
           </button>
@@ -1143,11 +1225,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
@@ -1169,11 +1253,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
@@ -1195,11 +1281,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
@@ -1221,11 +1309,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
@@ -1250,11 +1340,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
           tabindex="0"
         >
           <button
+            aria-label="Collapse"
             class="p-tree-toggler p-link"
             tabindex="-1"
             type="button"
           >
             <span
+              aria-hidden="true"
               class="p-tree-toggler-icon pi pi-fw pi-chevron-down"
             />
           </button>
@@ -1279,11 +1371,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
@@ -1305,11 +1399,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
@@ -1331,11 +1427,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
@@ -1357,11 +1455,13 @@ exports[`<Navigator /> render equals snapshot 1`] = `
               tabindex="0"
             >
               <button
+                aria-label="Expand"
                 class="p-tree-toggler p-link"
                 tabindex="-1"
                 type="button"
               >
                 <span
+                  aria-hidden="true"
                   class="p-tree-toggler-icon pi pi-fw pi-chevron-right"
                 />
               </button>
