@@ -1,3 +1,12 @@
+# [2.33.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.32.0...v2.33.0) (2022-10-31)
+
+
+### Features
+
+* page widget params template ([4adb260](https://github.com/softwaregroup-bg/ut-prime/commit/4adb260727255ac35aae9dad2d314dffb93ceb90))
+
+
+
 # [2.32.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.31.8...v2.32.0) (2022-10-31)
 
 
