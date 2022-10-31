@@ -372,7 +372,7 @@ const Explorer: ComponentProps = ({
                 {...columnProps({index, card: columnsCard, name, widget: !isString && widget, property, dropdowns, tableFilter, filterBy, ...formProps})}
             />
         );
-    }), [columns, columnsCard, properties, showFilter, dropdowns, tableFilter, keyField, resultSet, formProps]);
+    }), [columns, columnsCard, properties, showFilter, dropdowns, tableFilter, keyField, resultSet, formProps, externalFilter]);
     const hasChildren = !!children;
 
     const paramsElement = React.useMemo(() => {

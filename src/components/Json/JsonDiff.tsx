@@ -1,5 +1,5 @@
 import React from 'react';
-import { compareJSON, deepEqual, getLineInfo, isArray, repeat, isObject } from './helpers';
+import { compareJSON, getLineInfo, isArray, repeat, isObject } from './helpers';
 import clsx from 'clsx';
 
 import Text from '../Text';
@@ -16,28 +16,6 @@ const JsonDiff: ComponentProps = ({
     right
 }) => {
     const classes = useStyles();
-
-    function componentWillMount() {
-        const { left, right, onDifference } = this.props;
-        const diff = compareJSON(left, right);
-        onDifference({
-            added: (diff.left || []).filter((line) => { return line.added; }).length,
-            deleted: (diff.right || []).filter((line) => { return line.deleted; }).length,
-            changed: (diff.left || []).filter((line) => { return line.changed; }).length
-        });
-    }
-
-    function componentWillReceiveProps(nextprops) {
-        const { left, right, onDifference } = nextprops;
-        if (!deepEqual(left, this.props.left) || !deepEqual(right, this.props.right)) {
-            const diff = compareJSON(left, right);
-            onDifference({
-                added: (diff.left || []).filter((line) => { return line.added; }).length,
-                deleted: (diff.right || []).filter((line) => { return line.deleted; }).length,
-                changed: (diff.left || []).filter((line) => { return line.changed; }).length
-            });
-        }
-    }
 
     function renderDiff() {
         const ident = 4; const separator = '$.$';
