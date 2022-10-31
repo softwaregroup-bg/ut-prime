@@ -1,3 +1,12 @@
+# [2.32.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.31.8...v2.32.0) (2022-10-31)
+
+
+### Features
+
+* json diff / view initial code ([65200a8](https://github.com/softwaregroup-bg/ut-prime/commit/65200a8bf88d99fcb6bff05e144a1aad126b5d4d))
+
+
+
 ## [2.31.8](https://github.com/softwaregroup-bg/ut-prime/compare/v2.31.7...v2.31.8) (2022-10-30)
 
 
