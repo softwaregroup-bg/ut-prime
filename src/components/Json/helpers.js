@@ -53,15 +53,14 @@ export function compareJSON(obj1, obj2, options = {}) {
     const sep = options.separator || '$.$';
     const currentLevels = [''];
     function compare(o1, o2) {
-        const _oarray = isArray(o1) && isArray(o2);
-        if (_oarray) {
-            const arrangedElems = arrangeElements(o1, o2);
-            o2 = arrangedElems.pop();
-            o1 = arrangedElems.pop();
+        if (isArray(o1) && isArray(o2)) {
+            const arrangedElements = arrangeElements(o1, o2);
+            o2 = arrangedElements.pop();
+            o1 = arrangedElements.pop();
         }
-        const keys = Object.keys(o1 || {});
-        const rkeys = Object.keys(o2 || {});
-        const mergedKeys = keys.concat(rkeys);
+        const leftKeys = Object.keys(o1 || {});
+        const rightKeys = Object.keys(o2 || {});
+        const mergedKeys = leftKeys.concat(rightKeys);
         const uniqueKeys = mergedKeys.filter(function(item, pos) { return mergedKeys.indexOf(item) === pos; });
         for (const idx in uniqueKeys) {
             const key = uniqueKeys[idx];
@@ -69,23 +68,21 @@ export function compareJSON(obj1, obj2, options = {}) {
             const rvalue = o2[key];
             let opt = {};
 
-            const added = keys.includes(key) && !rkeys.includes(key);
-            const deleted = !keys.includes(key) && rkeys.includes(key);
+            const added = leftKeys.includes(key) && !rightKeys.includes(key);
+            const deleted = !leftKeys.includes(key) && rightKeys.includes(key);
             const dp = deepEqual(value, rvalue);
             if ((isObject(value) && isObject(rvalue)) || (isArray(value) && isArray(rvalue))) {
                 left.push(new Line({
                     key: [isObject(value) ? OBJECT_START : ARRAY_START, ...currentLevels, key].join(sep),
-                    object: {
-                        [key]: value
-                    },
+                    label: key,
+                    value,
                     level: currentLevels.length,
                     unchanged: dp
                 }));
                 right.push(new Line({
                     key: [isObject(rvalue) ? OBJECT_START : ARRAY_START, ...currentLevels, key].join(sep),
-                    object: {
-                        [key]: value
-                    },
+                    label: key,
+                    value,
                     level: currentLevels.length,
                     unchanged: dp
                 }));
@@ -108,18 +105,16 @@ export function compareJSON(obj1, obj2, options = {}) {
                 if (added) { // added lines
                     opt = {
                         key: [...currentLevels, key].join(sep),
-                        object: {
-                            [key]: value
-                        },
+                        label: key,
+                        value,
                         level: currentLevels.length
                     };
                     if (isObject(value) || isArray(value)) {
                         left.push(new Line({
                             key: [isObject(value) ? OBJECT_START : ARRAY_START, ...currentLevels, key].join(sep),
                             level: currentLevels.length,
-                            object: {
-                                [key]: value
-                            }
+                            label: key,
+                            value
                         }));
                         right.push(new Line({
                             key: [isObject(rvalue) ? OBJECT_START : ARRAY_START, ...currentLevels, key].join(sep),
@@ -156,11 +151,9 @@ export function compareJSON(obj1, obj2, options = {}) {
                 } else if (deleted) { // deleted lines
                     opt = {
                         key: [...currentLevels, key].join(sep),
-                        object: {
-                            [key]: rvalue
-                        },
-                        level: currentLevels.length,
-                        value: null
+                        label: key,
+                        value: rvalue,
+                        level: currentLevels.length
                     };
                     if (isObject(rvalue) || isArray(rvalue)) {
                         left.push(new Line({
@@ -171,9 +164,8 @@ export function compareJSON(obj1, obj2, options = {}) {
                         right.push(new Line({
                             key: [isObject(value) ? OBJECT_START : ARRAY_START, ...currentLevels, key].join(sep),
                             level: currentLevels.length,
-                            object: {
-                                [key]: rvalue
-                            }
+                            label: key,
+                            value: rvalue
                         }));
                         currentLevels.push(key);
                         compare(isArray(rvalue) ? [] : {}, rvalue);
@@ -208,24 +200,21 @@ export function compareJSON(obj1, obj2, options = {}) {
                     };
                     left.push(new Line({
                         ...opt,
-                        object: {
-                            [key]: value
-                        },
+                        label: key,
+                        value,
                         changed: true
                     }));
                     right.push(new Line({
                         ...opt,
-                        object: {
-                            [key]: rvalue
-                        },
+                        label: key,
+                        value: rvalue,
                         changed: true
                     }));
                 } else if (value === rvalue) { // unchanged lines
                     opt = {
                         key: [...currentLevels, key].join(sep),
-                        object: {
-                            [key]: value
-                        },
+                        label: key,
+                        value,
                         unchanged: true,
                         level: currentLevels.length
                     };
@@ -236,7 +225,7 @@ export function compareJSON(obj1, obj2, options = {}) {
         }
     }
     compare(obj1, obj2);
-    function removeConsuctiveEmptyLines(la) {
+    function removeConsecutiveEmptyLines(la) {
         const lines = [];
         for (let i = 0; i < la.length - 1; i++) {
             if (la[i].empty && la[i + 1].empty) {
@@ -249,8 +238,8 @@ export function compareJSON(obj1, obj2, options = {}) {
         return lines;
     }
     return {
-        left: removeConsuctiveEmptyLines(left),
-        right: removeConsuctiveEmptyLines(right)
+        left: removeConsecutiveEmptyLines(left),
+        right: removeConsecutiveEmptyLines(right)
     };
 }
 export function deepEqual(val1, val2) {
@@ -290,28 +279,28 @@ function Line(options = {}) {
     this.key = options.key;
     this.level = options.level || 0;
     this.empty = options.empty || false;
-    this.value = options.value || null;
     this.blurred = options.blurred || false;
-    this.object = options.object || null;
+    this.label = options.label || '';
+    this.value = options.value || null;
 }
 
 function arrangeElements(left, right) {
     let matched = []; let unmatched = [];
-    left.forEach(function(lelem) {
-        if (right.find((relem) => { return deepEqual(lelem, relem) === true; })) {
-            matched.push(lelem);
-        } else unmatched.push(lelem);
+    left.forEach(function(leftElement) {
+        if (right.find(rightElement => deepEqual(leftElement, rightElement) === true)) {
+            matched.push(leftElement);
+        } else unmatched.push(leftElement);
     });
-    left = matched.concat(unmatched); // arrage left array with matched elements first
+    left = matched.concat(unmatched); // arrange left array with matched elements first
     matched = []; unmatched = [];
-    left.forEach(function(lelem) {
-        if (right.find((relem) => { return deepEqual(lelem, relem) === true; })) {
-            matched.push(lelem);
+    left.forEach(function(leftElement) {
+        if (right.find((rightElement) => { return deepEqual(leftElement, rightElement) === true; })) {
+            matched.push(leftElement);
         }
     });
-    right.forEach(function(relem) {
-        if (!left.find((lelem) => { return deepEqual(lelem, relem) === true; })) {
-            unmatched.push(relem);
+    right.forEach(function(rightElement) {
+        if (!left.find((leftElement) => { return deepEqual(leftElement, rightElement) === true; })) {
+            unmatched.push(rightElement);
         }
     });
     right = matched.concat(unmatched);
