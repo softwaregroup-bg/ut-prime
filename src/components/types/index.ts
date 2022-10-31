@@ -26,6 +26,7 @@ export interface PropertyEditor {
         'image' |
         'imageUpload' |
         'integer' |
+        'jsonView' |
         'label' |
         'mask' |
         'multiSelect' |
@@ -102,11 +103,12 @@ export interface Property extends JSONSchema7 {
     filter?: boolean;
     sort?: boolean;
     udf?: boolean;
-    action?: (action: {
+    action?: string | ((action: {
         id: unknown,
         current: object,
         selected: unknown[]
-    }) => void;
+    }) => void);
+    params?: unknown;
     body?: string;
     widget?: PropertyEditor,
     properties?: {
