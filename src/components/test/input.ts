@@ -160,6 +160,11 @@ const properties: Properties = {
     },
     image: {
         widget: {
+            type: 'image'
+        }
+    },
+    imageUpload: {
+        widget: {
             type: 'imageUpload'
         }
     },
@@ -303,6 +308,7 @@ export const input: {
             widgets: [
                 'input.gps',
                 'input.image',
+                'input.imageUpload',
                 'input.file',
                 'input.ocr',
                 'input.dropdown',

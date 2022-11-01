@@ -9,6 +9,7 @@ import type { Theme } from '../Theme';
 import { ThemeProvider } from '../Theme';
 import defaultState from './state';
 import {Translate} from '../Text/Text.mock';
+import Gate from '../Gate';
 
 function Wrap({
     children,
@@ -35,7 +36,9 @@ function Wrap({
                 <ThemeProvider theme={theme}>
                     <Context.Provider value={{portalName, devTool: true, customization: true}}>
                         <Translate language={language}>
-                            {children}
+                            <Gate>
+                                {children}
+                            </Gate>
                         </Translate>
                     </Context.Provider>
                 </ThemeProvider>

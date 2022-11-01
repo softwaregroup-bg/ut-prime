@@ -160,10 +160,16 @@ const dictionary = {
 };
 
 export const middleware = _store => next => action => {
-    if (action.method === 'core.translation.fetch') {
+    if (action.method === 'core.portal.get') {
         return {
             result: {
-                translations: translations[action.params.languageId]
+                translations: translations[action.params.languageId],
+                configuration: {
+                    'utPrime.GMap': {
+                        key: 'AIzaSyAUxaWXkn6tidIGY2-XUmsaDLLId-syhF0',
+                        region: 'BG'
+                    }
+                }
             }
         };
     } else return next(action);

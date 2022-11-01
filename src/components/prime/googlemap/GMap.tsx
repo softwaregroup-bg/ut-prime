@@ -2,56 +2,58 @@ import merge from 'ut-function.merge';
 import * as React from 'react';
 import { GMap as PrimeGMap } from 'primereact/gmap';
 import { Skeleton } from 'primereact/skeleton';
+
+import Context from '../../Text/context';
+
 import { loadGoogleMaps, removeGoogleMaps } from './util';
+import { Props } from './GMap.types';
 
 const defaultOptions = {
-    map: {
-        center: { lat: 42.69641881321328, lng: 23.323133750607305 },
-        zoom: 12,
-        disableDefaultUI: true,
-        clickableIcons: false,
-        gestureHandling: 'cooperative'
-    },
-    load: {
-        key: 'AIzaSyAUxaWXkn6tidIGY2-XUmsaDLLId-syhF0',
-        language: 'bg', // https://developers.google.com/maps/faq#languagesupport
-        region: 'BG' // https://developers.google.com/maps/coverage
-    }
+    center: { lat: 42.69641881321328, lng: 23.323133750607305 },
+    zoom: 12,
+    disableDefaultUI: true,
+    clickableIcons: false,
+    gestureHandling: 'cooperative'
 };
 
 const disableUserInteraction = {
     gestureHandling: 'none'
 };
 
-// TODO: unused ref below, but fixed warning.
-export const GMap = React.forwardRef(function GMap(props: any, ref) {
+export const GMap = React.forwardRef<object, Props>(function GMap(props, ref) {
+    if (typeof ref === 'function') ref({});
     const { options = {}, onChange, value = null, disabled = false } = props;
-    const [initialLoadOptions] = React.useState(options?.load);
     const [googleMapsReady, setGoogleMapsReady] = React.useState(false);
     const [selectedPosition, setSelectedPosition] = React.useState(value);
     const [marker, setMarker] = React.useState(null);
     const map = React.useRef(null);
+    const { configuration: { 'utPrime.GMap': coreConfig = {} } = {}, languageCode = 'bg' } = React.useContext(Context);
 
-    const mapOptions = React.useMemo(() => {
+    const {key, region, language, ...mapOptions} = React.useMemo(() => {
         return merge(
             [
-                {},
-                defaultOptions.map,
-                options?.map,
+                {
+                    key: '',
+                    region: 'BG',
+                    language: languageCode
+                },
+                defaultOptions,
+                coreConfig,
+                options,
                 disabled && disableUserInteraction,
                 selectedPosition && { center: selectedPosition }
             ].filter(Boolean)
         );
-    }, [options?.map, disabled, selectedPosition]);
+    }, [options, disabled, selectedPosition, coreConfig, languageCode]);
 
     React.useEffect(() => {
-        loadGoogleMaps(merge([{}, defaultOptions.load, initialLoadOptions].filter(Boolean)), () => {
+        loadGoogleMaps({ language, key, region }, () => {
             setGoogleMapsReady(true);
         });
         return () => {
             removeGoogleMaps();
         };
-    }, [initialLoadOptions]);
+    }, [language, key, region]);
 
     React.useEffect(() => {
         if (!googleMapsReady || !selectedPosition) return;

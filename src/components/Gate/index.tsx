@@ -10,13 +10,13 @@ import Permission from './Permission';
 import { ComponentProps } from './Gate.types';
 import { State } from '../Store/Store.types';
 
-const fetchTranslations: ((params: unknown) => unknown) = params => ({
-    type: 'core.translation.fetch',
-    method: 'core.translation.fetch',
+const corePortalGet: ((params: unknown) => unknown) = params => ({
+    type: 'core.portal.get',
+    method: 'core.portal.get',
     params
 });
 
-const Gate: ComponentProps = ({ children, cookieCheck, fetchTranslations, loginPage = '#/login' }) => {
+const Gate: ComponentProps = ({ children, cookieCheck, corePortalGet, loginPage = '#/login' }) => {
     const [loaded, setLoaded] = useState(null);
     const [cookieChecked, setCookieChecked] = useState(false);
     const login = useSelector((state: State) => state.login);
@@ -26,16 +26,21 @@ const Gate: ComponentProps = ({ children, cookieCheck, fetchTranslations, loginP
     useEffect(() => {
         async function load() {
             const language = login?.language?.languageId;
-            const translations = await fetchTranslations({
+            const languageCode = login?.language?.iso2Code;
+            const { result = {} } = await corePortalGet({
                 languageId: language,
                 dictName: ['text', 'actionConfirmation']
             });
-            const dictionary = translations?.result?.translations?.reduce(
+            const { translations, configuration } = result;
+            const dictionary = translations?.reduce(
                 (prev, {dictionaryKey, translatedValue}) => dictionaryKey === translatedValue ? prev : {...prev, [dictionaryKey]: translatedValue},
                 {}
             );
+
             setLoaded({
                 language,
+                languageCode,
+                configuration,
                 translate: (id, text, language) => (id && dictionary?.[id]) || dictionary?.[text] || text
             });
         }
@@ -58,7 +63,7 @@ const Gate: ComponentProps = ({ children, cookieCheck, fetchTranslations, loginP
         } else if (loaded && !login) {
             setLoaded(false);
         }
-    }, [cookieChecked, login, loaded, fetchTranslations, cookieCheck, appId, loginPage, loginHash]);
+    }, [cookieChecked, login, loaded, corePortalGet, cookieCheck, appId, loginPage, loginHash]);
 
     if (!cookieChecked && !login) {
         return <Loader />;
@@ -81,5 +86,5 @@ const Gate: ComponentProps = ({ children, cookieCheck, fetchTranslations, loginP
 
 export default connect(
     null,
-    { cookieCheck, fetchTranslations }
+    { cookieCheck, corePortalGet }
 )(Gate);
