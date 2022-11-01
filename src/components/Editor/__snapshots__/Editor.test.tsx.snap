@@ -5159,7 +5159,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
                         >
                           <input
                             autocomplete="off"
-                            class="p-inputtext p-component"
+                            class="p-inputtext p-component p-filled"
                             id="$-edit-person-birthDate"
                             inputmode="none"
                             name="$.edit.person.birthDate"
