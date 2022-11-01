@@ -24,7 +24,7 @@ const Page: React.FC<{
         if (getValues) {
             const form = getValues();
             action.page = template(page, form);
-            action.params = JSON.parse(template(typeof params === 'string' ? params : JSON.stringify(params || {}), form, {}, 'stringify'));
+            action.params = JSON.parse(template(typeof params === 'string' ? params : JSON.stringify(params ?? {}), form, {}, 'stringify'));
         }
         action.page && dispatch(action).then(component => setPage(() => component));
     }, [page, dispatch, params, getValues]);
