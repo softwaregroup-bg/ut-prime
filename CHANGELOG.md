@@ -1,3 +1,12 @@
+## [2.33.4](https://github.com/softwaregroup-bg/ut-prime/compare/v2.33.3...v2.33.4) (2022-11-01)
+
+
+### Bug Fixes
+
+* storybook toast width ([9b153d6](https://github.com/softwaregroup-bg/ut-prime/commit/9b153d6c8f378a25e8d6c1c2609188e0f1537c40))
+
+
+
 ## [2.33.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.33.2...v2.33.3) (2022-11-01)
 
 
