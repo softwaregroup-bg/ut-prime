@@ -1,3 +1,12 @@
+## [2.33.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.33.1...v2.33.2) (2022-11-01)
+
+
+### Bug Fixes
+
+* primereact 8.7.1 ([a3e7db0](https://github.com/softwaregroup-bg/ut-prime/commit/a3e7db0e91b902fcdb6c97bd5f69a01a25816a12))
+
+
+
 ## [2.33.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.33.0...v2.33.1) (2022-11-01)
 
 
