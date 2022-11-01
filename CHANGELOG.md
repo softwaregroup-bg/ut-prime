@@ -1,3 +1,12 @@
+## [2.33.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.33.0...v2.33.1) (2022-11-01)
+
+
+### Bug Fixes
+
+* react-hook-form ([7f9795f](https://github.com/softwaregroup-bg/ut-prime/commit/7f9795f2e38f40dae4652efa6e795d43bb86c0da))
+
+
+
 # [2.33.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.32.0...v2.33.0) (2022-10-31)
 
 
