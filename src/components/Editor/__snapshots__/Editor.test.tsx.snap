@@ -6,6 +6,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
 >
   <div
     class="p-toast p-component p-toast-top-right w-auto"
+    style="max-width: initial;"
   >
     <div />
   </div>
@@ -2432,6 +2433,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
 >
   <div
     class="p-toast p-component p-toast-top-right w-auto"
+    style="max-width: initial;"
   >
     <div />
   </div>
@@ -3595,7 +3597,7 @@ exports[`<Editor /> Files render equals snapshot 1`] = `
 >
   <div
     class="p-toast p-component p-toast-top-right w-auto"
-    style="z-index: 1202;"
+    style="max-width: initial; z-index: 1202;"
   >
     <div>
       <div
@@ -4065,7 +4067,7 @@ exports[`<Editor /> FilesInTab render equals snapshot 1`] = `
 >
   <div
     class="p-toast p-component p-toast-top-right w-auto"
-    style="z-index: 1203;"
+    style="max-width: initial; z-index: 1203;"
   >
     <div>
       <div
@@ -4464,6 +4466,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
 >
   <div
     class="p-toast p-component p-toast-top-right w-auto"
+    style="max-width: initial;"
   >
     <div />
   </div>
@@ -8282,6 +8285,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
 >
   <div
     class="p-toast p-component p-toast-top-right w-auto"
+    style="max-width: initial;"
   >
     <div />
   </div>
@@ -9067,7 +9071,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
 >
   <div
     class="p-toast p-component p-toast-top-right w-auto"
-    style="z-index: 1201;"
+    style="max-width: initial; z-index: 1201;"
   >
     <div>
       <div
@@ -10305,6 +10309,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
 >
   <div
     class="p-toast p-component p-toast-top-right w-auto"
+    style="max-width: initial;"
   >
     <div />
   </div>
@@ -11222,6 +11227,7 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
 >
   <div
     class="p-toast p-component p-toast-top-right w-auto"
+    style="max-width: initial;"
   >
     <div />
   </div>
@@ -12018,6 +12024,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
 >
   <div
     class="p-toast p-component p-toast-top-right w-auto"
+    style="max-width: initial;"
   >
     <div />
   </div>

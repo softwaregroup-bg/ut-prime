@@ -14,7 +14,7 @@ export default function useToast(props) {
         return formData;
     }, [toast, props]);
     return {
-        toast: <Toast ref={toast} className='w-auto'/>,
+        toast: <Toast ref={toast} className='w-auto' style={{maxWidth: 'initial'}}/>,
         submit
     };
 }

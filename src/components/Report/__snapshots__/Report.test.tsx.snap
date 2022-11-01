@@ -6,6 +6,7 @@ exports[`<Report /> render equals snapshot 1`] = `
 >
   <div
     class="p-toast p-component p-toast-top-right w-auto"
+    style="max-width: initial;"
   >
     <div />
   </div>
