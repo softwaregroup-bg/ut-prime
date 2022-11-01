@@ -81,7 +81,7 @@ export default function columnProps({
     toolbar?: undefined
 }) {
     const resultSetDot = resultSet ? resultSet + '.' : '';
-    const {type, dropdown, parent, column, lookup, compare, ...props} = widget || property?.widget || {name};
+    const { type, dropdown, parent, column, lookup, compare, download, basePath, ...props } = widget || property?.widget || { name };
     const fieldName = name.split('.').pop();
     let filterElement, body, editor, bodyClassName, alignHeader;
     const filterId = `${resultSetDot}${name}Filter`;
@@ -225,7 +225,24 @@ export default function columnProps({
         }
         case 'file': {
             body = function body(rowData) {
-                return [].concat(rowData[fieldName]).filter(Boolean)?.map((item) => item?.name || item).join(', ');
+                const disabledDownload = [].concat(rowData[fieldName]).filter(Boolean)?.map((item) => item?.name || item).join(', ');
+
+                const enabledDownload = () => {
+                    let label = '';
+                    let url = '';
+
+                    const anchors = [].concat(rowData[fieldName]).filter(Boolean)?.map((item, i) => {
+                        label = item?.name || item;
+                        url = item?.objectURL
+                            ? item?.objectURL : item
+                                ? (basePath || '') + item : null;
+
+                        return <span key={i}>{i > 0 && ', '}<a href={url} download={label} style={{ color: 'inherit' }}>{label}</a></span>;
+                    });
+                    return anchors;
+                };
+
+                return download ? enabledDownload() : disabledDownload;
             };
         }
     }
