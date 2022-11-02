@@ -79,7 +79,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
           >
             <div
               class="p-splitter-panel"
-              style="flex-basis: calc(45% - 4px); height: 768px;"
+              style="flex-basis: calc(90% - 4px); height: 768px;"
             >
               <div
                 style="height: 768px;"
@@ -918,7 +918,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
             </div>
             <div
               class="p-splitter-panel"
-              style="flex-basis: calc(5% - 4px); height: 768px;"
+              style="flex-basis: calc(10% - 4px); height: 768px;"
             >
               <div
                 class="w-full"
