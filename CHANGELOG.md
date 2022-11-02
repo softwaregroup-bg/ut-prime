@@ -1,3 +1,12 @@
+# [2.34.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.33.5...v2.34.0) (2022-11-02)
+
+
+### Features
+
+* Enable document download in tables ([#15](https://github.com/softwaregroup-bg/ut-prime/issues/15)) ([80e337f](https://github.com/softwaregroup-bg/ut-prime/commit/80e337fe48dceb99d99af4519edbd79711a79e54))
+
+
+
 ## [2.33.5](https://github.com/softwaregroup-bg/ut-prime/compare/v2.33.4...v2.33.5) (2022-11-02)
 
 
