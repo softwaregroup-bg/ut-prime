@@ -166,7 +166,8 @@ export const middleware = _store => next => action => {
                 translations: translations[action.params.languageId],
                 configuration: {
                     'utPrime.GMap': {
-                        key: 'AIzaSyAUxaWXkn6tidIGY2-XUmsaDLLId-syhF0',
+                        // eslint-disable-next-line no-process-env
+                        key: process.env.STORYBOOK_GMAP_KEY || '',
                         region: 'BG'
                     }
                 }
