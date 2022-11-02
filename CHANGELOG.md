@@ -1,3 +1,12 @@
+## [2.33.5](https://github.com/softwaregroup-bg/ut-prime/compare/v2.33.4...v2.33.5) (2022-11-02)
+
+
+### Bug Fixes
+
+* escape params ([73a705f](https://github.com/softwaregroup-bg/ut-prime/commit/73a705f93e5913e779f60d58bc3e84a4d619ebda))
+
+
+
 ## [2.33.4](https://github.com/softwaregroup-bg/ut-prime/compare/v2.33.3...v2.33.4) (2022-11-01)
 
 
