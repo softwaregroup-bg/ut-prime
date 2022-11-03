@@ -37,9 +37,7 @@ const JsonDiff: ComponentProps = ({
             }
         }
         function getValueElement(obj) {
-            if (obj.href) {
-                return <span> <Text> {obj.value}</Text> <a target='_blank' rel='noreferrer noopener' className={classes.activeLink} href={obj.href}> Preview </a> </span>;
-            } else return <Text> {obj.value}</Text>;
+            return <Text>{String(obj)}</Text>;
         }
         function renderValue(line, skipKey = false) {
             line.object = line.object || {};
@@ -54,23 +52,21 @@ const JsonDiff: ComponentProps = ({
             const tValue = {value};
             // const tValue = transformValue ? transformValue(line.key, separator, line.object) : {value};
             if (skipKey) {
-                return <span className={classes.objValue}> {getValueElement(tValue)} </span>;
+                return <span className={clsx(classes.primary, 'ml-2')}> {getValueElement(tValue)} </span>;
             }
-            const contents = isNaN(idx) ? (<div className={classes.contents}>
+            return isNaN(idx) ? (<div>
                 {line.level > 1 && <span className={classes.spaces}>{repeat(' ', (line.level - 1) * 2)}</span>}
-                <span className={isTitle ? classes.objTitle : classes.objKey}>
-                    <Text>{key}</Text>
+                <span className={clsx(isTitle && 'text-xl font-bold')}>
+                    <Text>{String(key)}</Text>
                     {!isTitle && ':'}
-                    {isArr && <span className={classes.arrayLabel}> [array]</span>}
                 </span>
-                {!isTitle && !isArr && <span className={classes.objValue}> {getValueElement(tValue)} </span>}
-            </div>) : (<div className={classes.contents}>
+                {!isTitle && !isArr && <span className={clsx(classes.primary, 'ml-2')}> {getValueElement(tValue)} </span>}
+            </div>) : (<div>
                 {line.level > 2 && <span className={classes.spaces}>{repeat(' ', (line.level - 2) * 2)}</span>}
-                <span className={classes.arrayLabel}>{`[${key}]`}</span>
+                <span className={classes.primary}>{`[${key}]`}</span>
                 {/* view array elements where the elements are not an obj */}
-                {value && !isArr && !isObj && <span className={classes.objValue}>{getValueElement(tValue)}</span>}
+                {value && !isArr && !isObj && <span className={clsx(classes.primary, 'ml-2')}>{getValueElement(tValue)}</span>}
             </div>);
-            return contents;
         }
         function renderInline() {
             const contents = [];
@@ -90,11 +86,11 @@ const JsonDiff: ComponentProps = ({
                             <div className={classes.lineColumn}>{rln}</div>
                         </div>
                         <div className={classes.valueContainer}>
-                            <div className={classes.value}>{!line.empty && renderValue(!line.blurred ? line : diff.right[index])}</div>
+                            <div className={clsx(classes.primary, 'ml-2')}>{!line.empty && renderValue(!line.blurred ? line : diff.right[index])}</div>
                             {
                                 line.changed
-                                    ? (<div className={clsx(classes.value, classes.changedValue)}>
-                                        <div className={classes.contents}>
+                                    ? (<div className={clsx(classes.primary, 'ml-2', classes.changedValue)}>
+                                        <div>
                                             {renderValue(diff.right[index], true)}
                                         </div>
                                     </div>) : null
@@ -133,7 +129,7 @@ const JsonDiff: ComponentProps = ({
                                     <div className={classes.lineColumn}>{lnLeft}</div>
                                 </div>
                                 <div className={classes.valueContainer}>
-                                    {!lLine.blurred && <div className={classes.value}>{!lLine.empty && renderValue(lLine)}</div>}
+                                    {!lLine.blurred && <div className={clsx(classes.primary, 'ml-2')}>{!lLine.empty && renderValue(lLine)}</div>}
                                 </div>
                             </div>
                         </div>
@@ -143,7 +139,7 @@ const JsonDiff: ComponentProps = ({
                                     <div className={classes.lineColumn}>{lnRight}</div>
                                 </div>
                                 <div className={classes.valueContainer}>
-                                    {!rLine.blurred && <div className={classes.value}>{!rLine.empty && renderValue(rLine)}</div>}
+                                    {!rLine.blurred && <div className={clsx(classes.primary, 'ml-2')}>{!rLine.empty && renderValue(rLine)}</div>}
                                 </div>
                             </div>
                         </div>
