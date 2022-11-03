@@ -134,7 +134,7 @@ Table.args = {
 
 Table.play = async({canvasElement}) => {
     const canvas = within(canvasElement);
-    (await within(within(canvas.getByTestId('table1')).getByRole('table')).findByRole('button')).click();
+    (await within(within(await canvas.findByTestId('table1')).getByRole('table')).findByRole('button')).click();
     within(canvas.getByTestId('table2')).getByRole('button', {name: ''}).click();
     within(canvas.getByTestId('table3')).getByRole('button', {name: ''}).click();
     within(canvas.getByTestId('table4')).getByRole('button', {name: ''}).click();

@@ -7,6 +7,13 @@ const parse = content => content.trim().split(/\r?\n/).reduce((prev, cur, index)
     return prev;
 }, []);
 
+const configuration = {
+    'portal.utPrime.GMap': {
+        key: process.env.STORYBOOK_GMAP_KEY || '', // eslint-disable-line no-process-env
+        region: 'BG'
+    }
+};
+
 /* spell-checker: disable */
 const translations = {
     bg: parse(`
@@ -164,13 +171,7 @@ export const middleware = _store => next => action => {
         return {
             result: {
                 translations: translations[action.params.languageId],
-                configuration: {
-                    'portal.utPrime.GMap': {
-                        // eslint-disable-next-line no-process-env
-                        key: process.env.STORYBOOK_GMAP_KEY || '',
-                        region: 'BG'
-                    }
-                }
+                configuration
             }
         };
     } else return next(action);
@@ -181,7 +182,8 @@ const translate = globalLanguage => (id, text, language) => dictionary?.[languag
 export const Translate = ({language, children}) => {
     return <Context.Provider
         value={{
-            translate: translate(language)
+            translate: translate(language),
+            configuration
         }}
     >{children}</Context.Provider>;
 };
