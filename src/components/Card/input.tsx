@@ -395,13 +395,17 @@ export default function input(
                 {...props}
             />
         </Field>;
-        case 'dateRange': return <Field {...{label, error, inputClass}}>
-            <DateRange
-                inputId={props.id}
-                {...field}
-                {...props}
-            />
-        </Field>;
+        case 'dateRange':
+            return <Field {...{label, error, inputClass}}>
+                <DateRange
+                    inputId={props.id}
+                    {...field}
+                    value={field.value
+                        ? field.value.map(v => typeof v === 'string' ? new Date(v) : v)
+                        : field.value}
+                    {...props}
+                />
+            </Field>;
         case 'number': return <Field {...{label, error, inputClass}}>
             <InputNumber
                 {...field}
