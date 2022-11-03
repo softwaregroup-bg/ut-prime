@@ -26,7 +26,7 @@ export const GMap = React.forwardRef<object, Props>(function GMap(props, ref) {
     const [googleMapsReady, setGoogleMapsReady] = React.useState(false);
     const [selectedPosition, setSelectedPosition] = React.useState(value);
     const [marker, setMarker] = React.useState(null);
-    const map = React.useRef(null);
+    const map = React.useRef<{getMap(): google.maps.Map}>(null);
     const { configuration: { 'utPrime.GMap': coreConfig = {} } = {}, languageCode = 'bg' } = React.useContext(Context);
 
     const {key, region, language, ...mapOptions} = React.useMemo(() => {
