@@ -38,7 +38,7 @@ export const GMap = React.forwardRef<object, Props>(function GMap(props, ref) {
                     language: languageCode
                 },
                 defaultOptions,
-                coreConfig,
+                typeof coreConfig === 'string' ? JSON.stringify(coreConfig) : coreConfig,
                 options,
                 disabled && disableUserInteraction,
                 selectedPosition && { center: selectedPosition }
