@@ -1,3 +1,13 @@
+# [2.35.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.34.1...v2.35.0) (2022-11-03)
+
+
+### Features
+
+* **Explorer:** color for current row ([1c9745b](https://github.com/softwaregroup-bg/ut-prime/commit/1c9745b6f9e3a98b9f5096183ffd51089a6a7d37))
+* gps and dateRange widgets ([a141671](https://github.com/softwaregroup-bg/ut-prime/commit/a14167150c447b4e7c55907d1d35b9c33273613a))
+
+
+
 ## [2.34.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.34.0...v2.34.1) (2022-11-03)
 
 
