@@ -352,6 +352,47 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                   >
                     <label
                       class="col-12 md:col-4"
+                      for="input-daterange"
+                    >
+                      Daterange
+                    </label>
+                    <div
+                      class="flex align-items-center relative col-12 md:col-8"
+                    >
+                      <span
+                        class="p-calendar p-component p-inputwrapper w-full p-calendar-w-btn p-calendar-w-btn-right"
+                        id="input-daterange"
+                      >
+                        <input
+                          autocomplete="off"
+                          class="p-inputtext p-component"
+                          id="input-daterange"
+                          inputmode="none"
+                          name="input.daterange"
+                          type="text"
+                        />
+                        <button
+                          class="p-button p-component p-datepicker-trigger p-button-icon-only"
+                          tabindex="-1"
+                          type="button"
+                        >
+                          <span
+                            class="p-button-icon p-c pi pi-calendar"
+                          />
+                          <span
+                            class="p-button-label p-c"
+                          >
+                             
+                          </span>
+                        </button>
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
                       for="input-number"
                     >
                       Number
@@ -486,6 +527,29 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                   >
                     <label
                       class="col-12 md:col-4"
+                      for="input-gps"
+                    >
+                      Gps
+                    </label>
+                    <div
+                      class="flex align-items-center relative col-12 md:col-8"
+                    >
+                      <div
+                        class="w-full"
+                        style="min-height: 320px;"
+                      >
+                        <div
+                          class="p-skeleton p-component"
+                          style="width: 100%; height: 320px;"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
                       for="input-image"
                     >
                       Image
@@ -505,6 +569,56 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                           />
                         </div>
                       </span>
+                    </div>
+                  </div>
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="input-imageUpload"
+                    >
+                      Image Upload
+                    </label>
+                    <div
+                      class="flex align-items-center relative col-12 md:col-8"
+                    >
+                      <div
+                        class="p-fileupload p-fileupload-advanced p-component w-full"
+                        id="input-imageUpload"
+                      >
+                        <div
+                          class="p-fileupload-buttonbar"
+                        >
+                          <span
+                            class="p-button p-fileupload-choose p-component"
+                            tabindex="0"
+                          >
+                            <input
+                              accept="image/*"
+                              type="file"
+                            />
+                            <span
+                              class="p-button-icon p-button-icon-left p-clickable pi pi-fw pi-plus"
+                            />
+                            <span
+                              class="p-button-label p-clickable"
+                            >
+                              Choose
+                            </span>
+                          </span>
+                        </div>
+                        <div
+                          class="p-fileupload-content"
+                        >
+                          <div>
+                            <div />
+                          </div>
+                          <div>
+                            No picture...
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div
@@ -957,7 +1071,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                           data-scrollselectors=".p-datatable-wrapper"
                           data-testid="input-table"
                           id="input-table"
-                          pr_id_4=""
+                          pr_id_5=""
                         >
                           <div
                             class="p-datatable-wrapper"
@@ -1202,7 +1316,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                         data-scrollselectors=".p-datatable-wrapper"
                         data-testid="input-selectTable"
                         id="input-selectTable"
-                        pr_id_5=""
+                        pr_id_6=""
                       >
                         <div
                           class="p-datatable-wrapper"
@@ -1592,7 +1706,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                         data-testid="input-selectTableWithFlags"
                         id="input-selectTableWithFlags"
                         items="[object Object]"
-                        pr_id_6=""
+                        pr_id_7=""
                       >
                         <div
                           class="p-datatable-wrapper"

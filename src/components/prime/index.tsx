@@ -2,6 +2,7 @@ import { Button as PrimeButton, type ButtonProps as PrimeButtonProps } from 'pri
 import { Calendar } from 'primereact/calendar';
 import { Card as PrimeCard, type CardProps } from 'primereact/card';
 import { AutoComplete as PrimeAutoComplete, type AutoCompleteProps } from 'primereact/autocomplete';
+import type { CalendarProps } from 'primereact/calendar';
 import type { DataTableProps } from 'primereact/datatable';
 import type { DataViewProps } from 'primereact/dataview';
 import type { FileUploadProps } from 'primereact/fileupload';
@@ -20,6 +21,7 @@ export { ConfirmPopup, confirmPopup } from 'primereact/confirmpopup';
 export { DataView } from 'primereact/dataview';
 export { Dialog } from 'primereact/dialog';
 export { Dropdown } from 'primereact/dropdown';
+export { GMap } from './googlemap/GMap';
 export { FileUpload } from 'primereact/fileupload';
 export { Image } from 'primereact/image';
 export { InputMask } from 'primereact/inputmask';
@@ -56,7 +58,7 @@ function dateRange(timeOnly) {
     return [today, new Date(today.getTime() + timeOnly ? 0 : 86400000)];
 }
 
-export const DateRange = props => {
+export const DateRange = React.forwardRef<HTMLInputElement, CalendarProps>(function DateRange(props, ref) {
     const [visible, setVisible] = React.useState(false);
     const value = React.useMemo(() => (visible && !props.value) ? dateRange(props.timeOnly) : props.value, [visible, props.value, props.timeOnly]);
     const onVisibleChange = React.useCallback(event => {
@@ -72,8 +74,9 @@ export const DateRange = props => {
         visible={visible}
         value={value}
         onVisibleChange={onVisibleChange}
+        inputRef={ref}
     />;
-};
+});
 
 export const Card = ({title, ...props}: CardProps) =>
     <PrimeCard title={title && <Text>{title}</Text>} {...props}/>;

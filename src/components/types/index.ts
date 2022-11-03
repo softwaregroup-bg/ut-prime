@@ -19,9 +19,11 @@ export interface PropertyEditor {
         'currency' |
         'date-time' |
         'date' |
+        'dateRange' |
         'dropdown' |
         'dropdownTree' |
         'file' |
+        'gps' |
         'icon' |
         'image' |
         'imageUpload' |

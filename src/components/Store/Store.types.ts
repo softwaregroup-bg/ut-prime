@@ -34,6 +34,7 @@ export interface State {
     login?: {
         language?: {
             languageId: string | number;
+            iso2Code: string;
         },
         profile?: {
             initials: string;

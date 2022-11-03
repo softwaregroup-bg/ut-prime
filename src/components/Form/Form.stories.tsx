@@ -8,6 +8,7 @@ import Form from './index';
 import tree from '../test/tree';
 import {input, dropdowns} from '../test/input';
 import decorators from '../test/decorator';
+import {middleware} from '../Text/Text.mock';
 
 const meta: Meta = {
     title: 'Form',
@@ -15,7 +16,8 @@ const meta: Meta = {
     parameters: {docs: {page}},
     decorators,
     args: {
-        state: {}
+        state: {},
+        middleware: [middleware]
     }
 };
 export default meta;

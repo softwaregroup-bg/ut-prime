@@ -126,6 +126,11 @@ const properties: Properties = {
             showOnFocus: false
         }
     },
+    daterange: {
+        widget: {
+            type: 'dateRange'
+        }
+    },
     time: {
         widget: {
             type: 'time',
@@ -148,9 +153,19 @@ const properties: Properties = {
             type: 'integer'
         }
     },
+    gps: {
+        widget: {
+            type: 'gps'
+        }
+    },
     image: {
         widget: {
             type: 'image'
+        }
+    },
+    imageUpload: {
+        widget: {
+            type: 'imageUpload'
         }
     },
     file: {
@@ -282,6 +297,7 @@ export const input: {
                 'input.date',
                 'input.time',
                 'input.datetime',
+                'input.daterange',
                 'input.number',
                 'input.currency',
                 'input.integer'
@@ -290,7 +306,9 @@ export const input: {
         center: {
             className: 'xl:col-4',
             widgets: [
+                'input.gps',
                 'input.image',
+                'input.imageUpload',
                 'input.file',
                 'input.ocr',
                 'input.dropdown',
