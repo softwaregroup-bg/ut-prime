@@ -1,7 +1,7 @@
 import React from 'react';
 import type { GMapOptions } from '../prime/googlemap/GMap.types';
 
-interface PortalConfiguration {
+export interface PortalConfiguration {
     'utPrime.GMap'?: GMapOptions
 }
 
