@@ -1,8 +1,8 @@
 import React from 'react';
 
 interface GPSValue {
-    lat: number,
-    lng: number
+    lat: number;
+    lng: number;
 }
 
 export interface GMapOptions extends google.maps.MapOptions {
@@ -11,10 +11,14 @@ export interface GMapOptions extends google.maps.MapOptions {
 }
 
 export interface Props {
-    options?: GMapOptions,
-    onChange: (params: object) => void,
-    value?: GPSValue,
-    disabled?: boolean
+    options?: GMapOptions;
+    onChange: (params: object) => void;
+    value?: GPSValue;
+    disabled?: boolean;
 }
 
-export type ComponentProps = React.FC<Props>
+export interface MapRef {
+    getMap(): google.maps.Map;
+}
+
+export type ComponentProps = React.FC<Props>;
