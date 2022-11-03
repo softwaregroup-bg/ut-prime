@@ -14,7 +14,7 @@ const Page: React.FC<{
     page: string,
     params?: unknown,
     language?: string,
-    getValues: () => Selection,
+    getValues?: () => Selection,
     [props: string]: unknown}
 > = ({page, params, getValues, children, ...props}) => {
     const [Page, setPage] = React.useState<React.FC>();
