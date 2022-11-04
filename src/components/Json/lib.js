@@ -193,7 +193,7 @@ export default function compare(current, previous) {
         right: removeConsecutiveEmptyLines(right)
     };
 }
-export function deepEqual(val1, val2) {
+function deepEqual(val1, val2) {
     if (val1 === val2) {
         return true;
     } else if ((isObject(val1) || isArray(val1)) &&

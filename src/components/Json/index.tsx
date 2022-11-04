@@ -6,7 +6,7 @@ import compare from './lib';
 import { ComponentProps } from './Json.types';
 import Text from '../Text';
 
-export const useStyles = createUseStyles({
+const useStyles = createUseStyles({
     unchanged: {color: 'var(--primary-color)'},
     changed: {color: 'var(--primary-color)'},
     deleted: {color: 'var(--red-500)'},
