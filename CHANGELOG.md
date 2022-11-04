@@ -1,3 +1,12 @@
+## [2.36.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.36.0...v2.36.1) (2022-11-04)
+
+
+### Bug Fixes
+
+* remove named exports ([94dbd92](https://github.com/softwaregroup-bg/ut-prime/commit/94dbd92f2661c7ad7e9203bdbd9d2769606edda0))
+
+
+
 # [2.36.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.35.0...v2.36.0) (2022-11-04)
 
 
