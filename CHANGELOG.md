@@ -1,3 +1,12 @@
+## [2.36.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.36.1...v2.36.2) (2022-11-04)
+
+
+### Bug Fixes
+
+* strings to dates in dateRange widget ([#16](https://github.com/softwaregroup-bg/ut-prime/issues/16)) ([5b46890](https://github.com/softwaregroup-bg/ut-prime/commit/5b4689002167110d6a505f998503afb02a5b3599))
+
+
+
 ## [2.36.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.36.0...v2.36.1) (2022-11-04)
 
 
