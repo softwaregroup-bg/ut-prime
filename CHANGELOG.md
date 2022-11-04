@@ -1,3 +1,12 @@
+# [2.36.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.35.0...v2.36.0) (2022-11-04)
+
+
+### Features
+
+* finish Json component ([43c47f6](https://github.com/softwaregroup-bg/ut-prime/commit/43c47f6d7b4515b88da9b1f32f92dc539daa8aae))
+
+
+
 # [2.35.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.34.1...v2.35.0) (2022-11-03)
 
 
