@@ -33,7 +33,7 @@ import Table from './inputs/Table';
 import Ocr from './inputs/Ocr';
 import ActionButton from '../ActionButton';
 import SubmitButton from '../SubmitButton';
-import JsonView from '../Json/JsonView';
+import Json from '../Json';
 import Component from '../Component';
 
 const noActions = {allowAdd: false, allowEdit: false, allowDelete: false};
@@ -143,7 +143,7 @@ export default function input(
             />
         </Field>;
         case 'jsonView': return <Field {...{label, error, inputClass}}>
-            <JsonView
+            <Json
                 {...field}
                 value={field.value || ''}
                 {...props}
