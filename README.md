@@ -47,7 +47,7 @@ the project links below.
 
 - [Continuous Integration (Jenkins)](https://jenkins.softwaregroup.com/view/ut/view/master/job/ut/job/ut-prime/)
 - [Static Code Analysis (SonarQube)](https://sonar.softwaregroup.com/dashboard?id=ut-prime%3Aorigin%2Fmaster)
-- [Component library storybook (Chromatic)](https://626d34151d5489004a1c5228-hqkzrvmgbk.chromatic.com/)
+- [Component library storybook (Chromatic)](https://master--626d34151d5489004a1c5228.chromatic.com)
 
 ### Library development tasks
 
