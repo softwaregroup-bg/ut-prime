@@ -5,7 +5,7 @@ import { ComponentProps } from './Report.types';
 import Explorer from '../Explorer';
 import type {DataTableProps} from '../prime';
 
-const table: DataTableProps = {paginatorPosition: 'top'};
+const tableDefaults: DataTableProps = {paginatorPosition: 'top', size: 'small'};
 
 const rename = prefix => param => typeof param === 'string' ? `${prefix}.${param}` : param.name ? {...param, name: `${prefix}.${param.name}`} : param;
 
@@ -19,6 +19,7 @@ const Report: ComponentProps = ({
     hidden,
     fetch,
     methods,
+    table,
     onDropdown,
     onCustomization,
     resultSet = 'result'
@@ -58,7 +59,7 @@ const Report: ComponentProps = ({
                 params={init}
                 hidden={hidden}
                 pageSize={20}
-                table={table}
+                table={React.useMemo(() => ({...tableDefaults, ...table}), [table])}
                 methods={methods}
                 onDropdown={onDropdown}
                 onCustomization={onCustomization}

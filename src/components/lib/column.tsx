@@ -92,6 +92,7 @@ export default function columnProps({
         name={filterId}
     />;
     switch (type || property?.format || getType(property?.type)) {
+        case 'currency':
         case 'integer':
         case 'number':
             alignHeader = 'right';
@@ -290,8 +291,35 @@ export default function columnProps({
                         onChange={event => p.editorCallback(event.value)}
                         disabled={property?.readOnly}
                         className='w-full'
+                        inputClassName='w-full text-right'
                         showButtons
                         inputId={inputId}
+                        {...testid(inputId)}
+                        {...props}
+                        name={inputName}
+                    />;
+                case 'number':
+                    return <InputNumber
+                        value={p.rowData[fieldName]}
+                        onChange={event => p.editorCallback(event.value)}
+                        disabled={property?.readOnly}
+                        className='w-full'
+                        inputClassName='w-full text-right'
+                        inputId={inputId}
+                        {...testid(inputId)}
+                        {...props}
+                        name={inputName}
+                    />;
+                case 'currency':
+                    return <InputNumber
+                        value={p.rowData[fieldName]}
+                        onChange={event => p.editorCallback(event.value)}
+                        disabled={property?.readOnly}
+                        className='w-full'
+                        inputClassName='w-full text-right'
+                        inputId={inputId}
+                        minFractionDigits={2}
+                        maxFractionDigits={4}
                         {...testid(inputId)}
                         {...props}
                         name={inputName}
@@ -389,6 +417,8 @@ export default function columnProps({
                         value={p.rowData[fieldName]}
                         onInput={event => p.editorCallback(event.currentTarget.value)}
                         id={inputId}
+                        className='w-full'
+                        inputClassName='w-full'
                         feedback={false}
                         {...testid(inputId)}
                         {...props}

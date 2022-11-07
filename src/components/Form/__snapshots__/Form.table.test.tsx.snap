@@ -97,7 +97,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                           />
                         </div>
                         <div
-                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                           data-scrollselectors=".p-datatable-wrapper"
                           data-testid="table1"
                           id="table1"
@@ -366,11 +366,11 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                       </span>
                                     </span>
                                     <div
-                                      class="p-password p-component p-inputwrapper"
+                                      class="p-password p-component p-inputwrapper w-full"
                                       id="table1-0-password"
                                     >
                                       <input
-                                        class="p-inputtext p-component p-password-input"
+                                        class="p-inputtext p-component p-password-input w-full"
                                         data-testid="table1-0-password"
                                         name="table1[0].password"
                                         type="password"
@@ -676,7 +676,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                           />
                         </div>
                         <div
-                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                           data-scrollselectors=".p-datatable-wrapper"
                           data-testid="table2"
                           id="table2"
@@ -739,7 +739,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                     </div>
                                   </th>
                                   <th
-                                    class=""
+                                    class="p-align-right"
                                     role="columnheader"
                                   >
                                     <div
@@ -904,17 +904,23 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                         Number
                                       </span>
                                     </span>
-                                    <input
-                                      class="p-inputtext p-component w-full"
-                                      data-testid="table2-0-number"
-                                      id="table2-0-number"
-                                      name="table2[0].number"
-                                      type="text"
-                                      value=""
-                                    />
+                                    <span
+                                      class="p-inputnumber p-component p-inputwrapper w-full"
+                                    >
+                                      <input
+                                        class="p-inputtext p-component p-inputnumber-input w-full text-right"
+                                        data-testid="table2-0-number"
+                                        id="table2-0-number"
+                                        inputmode="numeric"
+                                        name="table2[0].number"
+                                        role="spinbutton"
+                                        type="text"
+                                        value=""
+                                      />
+                                    </span>
                                   </td>
                                   <td
-                                    class="p-editable-column p-cell-editing"
+                                    class="text-right p-editable-column p-cell-editing"
                                     role="cell"
                                   >
                                     <span
@@ -926,15 +932,20 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                         Currency
                                       </span>
                                     </span>
-                                    <input
-                                      class="p-inputtext p-component w-full"
-                                      currency="USD"
-                                      data-testid="table2-0-currency"
-                                      id="table2-0-currency"
-                                      name="table2[0].currency"
-                                      type="text"
-                                      value=""
-                                    />
+                                    <span
+                                      class="p-inputnumber p-component p-inputwrapper w-full"
+                                    >
+                                      <input
+                                        class="p-inputtext p-component p-inputnumber-input w-full text-right"
+                                        data-testid="table2-0-currency"
+                                        id="table2-0-currency"
+                                        inputmode="decimal"
+                                        name="table2[0].currency"
+                                        role="spinbutton"
+                                        type="text"
+                                        value=""
+                                      />
+                                    </span>
                                   </td>
                                   <td
                                     class="text-right p-editable-column p-cell-editing"
@@ -953,7 +964,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                       class="p-inputnumber p-component p-inputwrapper p-inputnumber-buttons-stacked w-full"
                                     >
                                       <input
-                                        class="p-inputtext p-component p-inputnumber-input"
+                                        class="p-inputtext p-component p-inputnumber-input w-full text-right"
                                         data-testid="table2-0-integer"
                                         id="table2-0-integer"
                                         inputmode="numeric"
@@ -1226,7 +1237,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                           />
                         </div>
                         <div
-                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                           data-scrollselectors=".p-datatable-wrapper"
                           data-testid="table3"
                           id="table3"
@@ -1610,7 +1621,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                           />
                         </div>
                         <div
-                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                           data-scrollselectors=".p-datatable-wrapper"
                           data-testid="table4"
                           id="table4"
@@ -1966,7 +1977,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                           />
                         </div>
                         <div
-                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                           data-scrollselectors=".p-datatable-wrapper"
                           data-testid="table1"
                           id="table1"
@@ -2235,11 +2246,11 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                                       </span>
                                     </span>
                                     <div
-                                      class="p-password p-component p-inputwrapper"
+                                      class="p-password p-component p-inputwrapper w-full"
                                       id="table1-0-password"
                                     >
                                       <input
-                                        class="p-inputtext p-component p-password-input"
+                                        class="p-inputtext p-component p-password-input w-full"
                                         data-testid="table1-0-password"
                                         name="table1[0].password"
                                         type="password"
@@ -2545,7 +2556,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                           />
                         </div>
                         <div
-                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                           data-scrollselectors=".p-datatable-wrapper"
                           data-testid="table2"
                           id="table2"
@@ -2608,7 +2619,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                                     </div>
                                   </th>
                                   <th
-                                    class=""
+                                    class="p-align-right"
                                     role="columnheader"
                                   >
                                     <div
@@ -2773,17 +2784,23 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                                         رقم
                                       </span>
                                     </span>
-                                    <input
-                                      class="p-inputtext p-component w-full"
-                                      data-testid="table2-0-number"
-                                      id="table2-0-number"
-                                      name="table2[0].number"
-                                      type="text"
-                                      value=""
-                                    />
+                                    <span
+                                      class="p-inputnumber p-component p-inputwrapper w-full"
+                                    >
+                                      <input
+                                        class="p-inputtext p-component p-inputnumber-input w-full text-right"
+                                        data-testid="table2-0-number"
+                                        id="table2-0-number"
+                                        inputmode="numeric"
+                                        name="table2[0].number"
+                                        role="spinbutton"
+                                        type="text"
+                                        value=""
+                                      />
+                                    </span>
                                   </td>
                                   <td
-                                    class="p-editable-column p-cell-editing"
+                                    class="text-right p-editable-column p-cell-editing"
                                     role="cell"
                                   >
                                     <span
@@ -2795,15 +2812,20 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                                         عملة
                                       </span>
                                     </span>
-                                    <input
-                                      class="p-inputtext p-component w-full"
-                                      currency="USD"
-                                      data-testid="table2-0-currency"
-                                      id="table2-0-currency"
-                                      name="table2[0].currency"
-                                      type="text"
-                                      value=""
-                                    />
+                                    <span
+                                      class="p-inputnumber p-component p-inputwrapper w-full"
+                                    >
+                                      <input
+                                        class="p-inputtext p-component p-inputnumber-input w-full text-right"
+                                        data-testid="table2-0-currency"
+                                        id="table2-0-currency"
+                                        inputmode="decimal"
+                                        name="table2[0].currency"
+                                        role="spinbutton"
+                                        type="text"
+                                        value=""
+                                      />
+                                    </span>
                                   </td>
                                   <td
                                     class="text-right p-editable-column p-cell-editing"
@@ -2822,7 +2844,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                                       class="p-inputnumber p-component p-inputwrapper p-inputnumber-buttons-stacked w-full"
                                     >
                                       <input
-                                        class="p-inputtext p-component p-inputnumber-input"
+                                        class="p-inputtext p-component p-inputnumber-input w-full text-right"
                                         data-testid="table2-0-integer"
                                         id="table2-0-integer"
                                         inputmode="numeric"
@@ -3095,7 +3117,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                           />
                         </div>
                         <div
-                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                           data-scrollselectors=".p-datatable-wrapper"
                           data-testid="table3"
                           id="table3"
@@ -3479,7 +3501,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                           />
                         </div>
                         <div
-                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                           data-scrollselectors=".p-datatable-wrapper"
                           data-testid="table4"
                           id="table4"
@@ -3834,7 +3856,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                           />
                         </div>
                         <div
-                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                           data-scrollselectors=".p-datatable-wrapper"
                           data-testid="table1"
                           id="table1"
@@ -4103,11 +4125,11 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                                       </span>
                                     </span>
                                     <div
-                                      class="p-password p-component p-inputwrapper"
+                                      class="p-password p-component p-inputwrapper w-full"
                                       id="table1-0-password"
                                     >
                                       <input
-                                        class="p-inputtext p-component p-password-input"
+                                        class="p-inputtext p-component p-password-input w-full"
                                         data-testid="table1-0-password"
                                         name="table1[0].password"
                                         type="password"
@@ -4413,7 +4435,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                           />
                         </div>
                         <div
-                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                           data-scrollselectors=".p-datatable-wrapper"
                           data-testid="table2"
                           id="table2"
@@ -4476,7 +4498,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                                     </div>
                                   </th>
                                   <th
-                                    class=""
+                                    class="p-align-right"
                                     role="columnheader"
                                   >
                                     <div
@@ -4641,17 +4663,23 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                                         Число
                                       </span>
                                     </span>
-                                    <input
-                                      class="p-inputtext p-component w-full"
-                                      data-testid="table2-0-number"
-                                      id="table2-0-number"
-                                      name="table2[0].number"
-                                      type="text"
-                                      value=""
-                                    />
+                                    <span
+                                      class="p-inputnumber p-component p-inputwrapper w-full"
+                                    >
+                                      <input
+                                        class="p-inputtext p-component p-inputnumber-input w-full text-right"
+                                        data-testid="table2-0-number"
+                                        id="table2-0-number"
+                                        inputmode="numeric"
+                                        name="table2[0].number"
+                                        role="spinbutton"
+                                        type="text"
+                                        value=""
+                                      />
+                                    </span>
                                   </td>
                                   <td
-                                    class="p-editable-column p-cell-editing"
+                                    class="text-right p-editable-column p-cell-editing"
                                     role="cell"
                                   >
                                     <span
@@ -4663,15 +4691,20 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                                         Валута
                                       </span>
                                     </span>
-                                    <input
-                                      class="p-inputtext p-component w-full"
-                                      currency="USD"
-                                      data-testid="table2-0-currency"
-                                      id="table2-0-currency"
-                                      name="table2[0].currency"
-                                      type="text"
-                                      value=""
-                                    />
+                                    <span
+                                      class="p-inputnumber p-component p-inputwrapper w-full"
+                                    >
+                                      <input
+                                        class="p-inputtext p-component p-inputnumber-input w-full text-right"
+                                        data-testid="table2-0-currency"
+                                        id="table2-0-currency"
+                                        inputmode="decimal"
+                                        name="table2[0].currency"
+                                        role="spinbutton"
+                                        type="text"
+                                        value=""
+                                      />
+                                    </span>
                                   </td>
                                   <td
                                     class="text-right p-editable-column p-cell-editing"
@@ -4690,7 +4723,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                                       class="p-inputnumber p-component p-inputwrapper p-inputnumber-buttons-stacked w-full"
                                     >
                                       <input
-                                        class="p-inputtext p-component p-inputnumber-input"
+                                        class="p-inputtext p-component p-inputnumber-input w-full text-right"
                                         data-testid="table2-0-integer"
                                         id="table2-0-integer"
                                         inputmode="numeric"
@@ -4963,7 +4996,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                           />
                         </div>
                         <div
-                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                           data-scrollselectors=".p-datatable-wrapper"
                           data-testid="table3"
                           id="table3"
@@ -5347,7 +5380,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                           />
                         </div>
                         <div
-                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                           data-scrollselectors=".p-datatable-wrapper"
                           data-testid="table4"
                           id="table4"

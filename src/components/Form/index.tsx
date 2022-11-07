@@ -158,9 +158,11 @@ const Form: ComponentProps = ({
             {!!errorList.length && <div className='col-12'>{errorList}</div>}
             {layoutState.visibleCards.map((id1, level1) => {
                 const nested = [].concat(id1);
-                const firstCard = cards[widgetName(nested[0])];
+                const firstCardName = widgetName(nested[0]);
+                const firstCard = firstCardName ? cards[firstCardName] : nested[0];
                 const nestedCards = nested.map((widget, level2) => {
                     const key = widgetName(widget);
+                    if (!key) return <></>;
                     const currentCard = cards?.[key];
                     if (currentCard?.hidden && !design) return null;
                     const watched = currentCard?.watch && watch(currentCard.watch);

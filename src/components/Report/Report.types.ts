@@ -13,6 +13,7 @@ export interface Props {
     columns: WidgetReference[],
     design?: ExplorerProps['design'],
     methods?: object;
+    table?: ExplorerProps['table'],
     onDropdown: ExplorerProps['onDropdown'],
     onCustomization?: ExplorerProps['onCustomization'],
     fetch: ExplorerProps['fetch'];
