@@ -1,3 +1,12 @@
+## [2.36.5](https://github.com/softwaregroup-bg/ut-prime/compare/v2.36.4...v2.36.5) (2022-11-07)
+
+
+### Bug Fixes
+
+* storybook ([5ab7edd](https://github.com/softwaregroup-bg/ut-prime/commit/5ab7edd55ab3a5c32d9b0ba1aa2534a64632cfc3))
+
+
+
 ## [2.36.4](https://github.com/softwaregroup-bg/ut-prime/compare/v2.36.3...v2.36.4) (2022-11-07)
 
 
