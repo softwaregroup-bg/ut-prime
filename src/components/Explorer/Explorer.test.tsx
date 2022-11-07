@@ -4,6 +4,7 @@ import {waitFor} from '@testing-library/react';
 import { render } from '../test';
 import Explorer from './index';
 import {fetchItems} from './mock';
+import {Details} from './Explorer.stories';
 
 describe('<Explorer />', () => {
     it('render equals snapshot', async() => {
@@ -34,7 +35,7 @@ describe('<Explorer />', () => {
             details={{
                 page: 'details'
             }}
-        />);
+        />, undefined, undefined, Details.args.middleware);
         await waitFor(() => expect(getByTestId('ut-front-test').querySelector('tr.p-selectable-row')).toBeTruthy());
         expect(getByTestId('ut-front-test')).toMatchSnapshot();
     });

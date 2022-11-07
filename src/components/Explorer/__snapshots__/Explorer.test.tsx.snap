@@ -922,7 +922,23 @@ exports[`<Explorer /> render equals snapshot 1`] = `
             >
               <div
                 class="w-full"
-              />
+              >
+                <div>
+                  <div>
+                    Name
+                    : 
+                  </div>
+                  <div>
+                    Size
+                    : 
+                  </div>
+                  <div>
+                    Records
+                    : 
+                    55
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

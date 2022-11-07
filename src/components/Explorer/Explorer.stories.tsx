@@ -199,9 +199,9 @@ Details.args = {
         _store => next => action => (action.type === 'portal.component.get')
             ? Promise.resolve(function Details({value: {preview: {current, pagination}}}) {
                 return <div>
-                    <div><Text>Name</Text>: {current.name}</div>
-                    <div><Text>Size</Text>: {current.size}</div>
-                    <div><Text>Records</Text>: {pagination.recordsTotal}</div>
+                    <div><Text>Name</Text>: {current?.name}</div>
+                    <div><Text>Size</Text>: {current?.size}</div>
+                    <div><Text>Records</Text>: {pagination?.recordsTotal}</div>
                 </div>;
             })
             : next(action)

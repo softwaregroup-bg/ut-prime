@@ -30,7 +30,8 @@ const fieldName = column => typeof column === 'string' ? column : column.name;
 
 const useStyles = createUseStyles({
     current: {
-        backgroundColor: 'var(--surface-ground) !important'
+        outline: '0.15rem solid var(--primary-color)',
+        outlineOffset: '-0.15rem'
     },
     explorer: {
         '& .p-card .p-card-content': {
@@ -161,8 +162,12 @@ const Explorer: ComponentProps = ({
         onChange?.({...e, value: e.data});
         setCurrent(e.data);
     }, [onChange]);
+    const handleRowUnselect = React.useCallback(e => {
+        onChange?.({...e, value: e.data});
+        setCurrent(null);
+    }, [onChange]);
     const rowClass = React.useCallback(
-        (data: object) => data?.[keyField] === currentState?.[keyField] ? classes.current : undefined,
+        (data: object) => currentState && (data?.[keyField] === currentState?.[keyField]) ? classes.current : undefined,
         [currentState, classes, keyField]
     );
 
@@ -322,9 +327,9 @@ const Explorer: ComponentProps = ({
     const detailsPanel = React.useMemo(() => detailsOpened && details &&
         <SplitterPanel style={height} key='details' size={10}>
             <div className='w-full'>{
-                current && <Component {...details} value={{preview: {...result, ...getValues()}}} />
+                <Component {...details} value={{preview: {...result, ...getValues()}}} />
             }</div>
-        </SplitterPanel>, [current, getValues, result, details, detailsOpened, height]);
+        </SplitterPanel>, [getValues, result, details, detailsOpened, height]);
 
     const filterBy = (name: string, key: string) => e => {
         const value = lodashGet(e, key);
@@ -482,7 +487,7 @@ const Explorer: ComponentProps = ({
                 filterDisplay={filterDisplay}
                 onSelectionChange={handleSelectionChange}
                 onRowSelect={handleRowSelect}
-                onRowUnselect={handleRowSelect}
+                onRowUnselect={handleRowUnselect}
                 {...tableProps}
             >
                 {keyField && (!tableProps?.selectionMode || tableProps?.selectionMode === 'checkbox') && <Column selectionMode="multiple" className='flex-grow-0'/>}

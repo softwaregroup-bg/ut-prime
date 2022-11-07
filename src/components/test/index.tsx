@@ -16,7 +16,7 @@ export { act } from '@testing-library/react';
 config.disabled = true;
 window.HTMLElement.prototype.scrollIntoView = function() {};
 
-export function render(children: React.ReactNode, initialStore: State = {}, language = undefined) : RenderResult {
+export function render(children: React.ReactNode, initialStore: State = {}, language = undefined, middleware = undefined) : RenderResult {
     const theme = {
         ut: {
             classes: {},
@@ -24,7 +24,7 @@ export function render(children: React.ReactNode, initialStore: State = {}, lang
         }
     };
     const store = <DndProvider backend={HTML5Backend}>
-        <Store state={merge({}, defaultState, initialStore)}>
+        <Store state={merge({}, defaultState, initialStore)} middleware={middleware}>
             <ThemeProvider theme={theme}>
                 <Context.Provider value={{portalName: 'Administration Portal', customization: true}}>
                     {language ? <Translate language={language}>
