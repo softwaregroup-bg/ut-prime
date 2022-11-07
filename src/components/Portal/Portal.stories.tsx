@@ -6,6 +6,7 @@ import type { Props } from './Portal.types';
 import Portal from './index';
 import Explorer from '../Explorer';
 import decorators from '../test/decorator';
+import Text from '../Text';
 
 import { Tabs, Design } from '../Editor/Editor.stories';
 import {Design as ExplorerDesign} from '../Explorer/Explorer.stories';
@@ -26,6 +27,16 @@ const Template: Story<Props & {state: object}> = ({state, ...args}) => <Portal {
 
 export const Basic: Story<Props> = Template.bind({});
 Basic.args = {
+    middleware: [
+        _store => next => action => (action.type === 'portal.component.get')
+            ? Promise.resolve(function Details({value: {preview: {current, pagination}}}) {
+                return <div>
+                    <div><Text>Name</Text>: {current?.name}</div>
+                    <div><Text>Size</Text>: {current?.size}</div>
+                </div>;
+            })
+            : next(action)
+    ],
     state: {
         portal: {
             tabs: [{
