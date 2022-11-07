@@ -1,3 +1,14 @@
+## [2.36.4](https://github.com/softwaregroup-bg/ut-prime/compare/v2.36.3...v2.36.4) (2022-11-07)
+
+
+### Bug Fixes
+
+* **Explorer:** improve details and selection ([81334e1](https://github.com/softwaregroup-bg/ut-prime/commit/81334e13be461a12f4b788bef4c0b04d42d08e89))
+* improve number and currency columns ([bb9396e](https://github.com/softwaregroup-bg/ut-prime/commit/bb9396e60b184be4ec973366c15cf380197e95bf))
+* **Table:** small size by default ([ca9884a](https://github.com/softwaregroup-bg/ut-prime/commit/ca9884a2880887d962c55e4e186db19f8d895308))
+
+
+
 ## [2.36.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.36.2...v2.36.3) (2022-11-06)
 
 
