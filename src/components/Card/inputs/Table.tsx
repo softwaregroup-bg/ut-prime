@@ -256,6 +256,7 @@ export default React.forwardRef<object, any>(function Table({
                 onSelectionChange={handleSelected}
                 dataKey={KEY}
                 id={resultSet}
+                size='small'
                 {...testid(props.id || resultSet)}
                 {...props}
                 className={clsx(props.className, classes.table)}

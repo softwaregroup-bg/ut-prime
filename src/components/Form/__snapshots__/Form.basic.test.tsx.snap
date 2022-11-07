@@ -339,7 +339,7 @@ exports[`<Form /> Basic equals snapshot 1`] = `
                           />
                         </div>
                         <div
-                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                           data-scrollselectors=".p-datatable-wrapper"
                           data-testid="tree-links"
                           id="tree-links"
@@ -828,7 +828,7 @@ exports[`<Form /> BasicAR equals snapshot 1`] = `
                           />
                         </div>
                         <div
-                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                           data-scrollselectors=".p-datatable-wrapper"
                           data-testid="tree-links"
                           id="tree-links"
@@ -1316,7 +1316,7 @@ exports[`<Form /> BasicBG equals snapshot 1`] = `
                           />
                         </div>
                         <div
-                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                           data-scrollselectors=".p-datatable-wrapper"
                           data-testid="tree-links"
                           id="tree-links"

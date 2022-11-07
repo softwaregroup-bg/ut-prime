@@ -425,7 +425,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                             />
                           </div>
                           <div
-                            class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                            class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="tree-links"
                             id="tree-links"
@@ -1218,7 +1218,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                             />
                           </div>
                           <div
-                            class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                            class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="person"
                             id="person"
@@ -1548,7 +1548,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                             />
                           </div>
                           <div
-                            class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                            class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="document"
                             id="document"
@@ -1949,7 +1949,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                             />
                           </div>
                           <div
-                            class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                            class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="attachment"
                             id="attachment"
@@ -3112,7 +3112,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                               />
                             </div>
                             <div
-                              class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                              class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                               data-scrollselectors=".p-datatable-wrapper"
                               data-testid="tree-links"
                               id="tree-links"
@@ -3934,7 +3934,7 @@ exports[`<Editor /> Files render equals snapshot 1`] = `
                             />
                           </div>
                           <div
-                            class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                            class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="tree-documents"
                             id="tree-documents"
@@ -5002,7 +5002,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
                             />
                           </div>
                           <div
-                            class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                            class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="person"
                             id="person"
@@ -5380,7 +5380,7 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
                             />
                           </div>
                           <div
-                            class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                            class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="shape"
                             id="shape"
@@ -5747,7 +5747,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                           class="w-full"
                         >
                           <div
-                            class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                            class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="schedule"
                             id="schedule"
@@ -6365,7 +6365,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                           class="w-full"
                         >
                           <div
-                            class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                            class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="permission"
                             id="permission"
@@ -8720,7 +8720,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
                             />
                           </div>
                           <div
-                            class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                            class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="tree-links"
                             id="tree-links"
@@ -9541,7 +9541,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                             />
                           </div>
                           <div
-                            class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                            class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="tree-links"
                             id="tree-links"
@@ -11673,7 +11673,7 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
                             />
                           </div>
                           <div
-                            class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                            class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="tree-links"
                             id="tree-links"
@@ -12452,7 +12452,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                             />
                           </div>
                           <div
-                            class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                            class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="tree-links"
                             id="tree-links"

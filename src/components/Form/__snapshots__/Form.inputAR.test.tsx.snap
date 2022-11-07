@@ -1069,7 +1069,7 @@ exports[`<Form /> InputAR render equals snapshot 1`] = `
                           />
                         </div>
                         <div
-                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                          class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                           data-scrollselectors=".p-datatable-wrapper"
                           data-testid="input-table"
                           id="input-table"
@@ -1314,7 +1314,7 @@ exports[`<Form /> InputAR render equals snapshot 1`] = `
                       class="flex align-items-center relative col-12 md:col-8"
                     >
                       <div
-                        class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                        class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                         data-scrollselectors=".p-datatable-wrapper"
                         data-testid="input-selectTable"
                         id="input-selectTable"
@@ -1703,7 +1703,7 @@ exports[`<Form /> InputAR render equals snapshot 1`] = `
                       class="flex align-items-center relative col-12 md:col-8"
                     >
                       <div
-                        class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack w-full table-0-2-3"
+                        class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                         data-scrollselectors=".p-datatable-wrapper"
                         data-testid="input-selectTableWithFlags"
                         id="input-selectTableWithFlags"

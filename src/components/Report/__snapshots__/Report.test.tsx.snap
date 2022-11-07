@@ -210,7 +210,7 @@ exports[`<Report /> render equals snapshot 1`] = `
           style="height: 768px;"
         >
           <div
-            class="p-datatable p-component p-datatable-auto-layout p-datatable-scrollable p-datatable-scrollable-vertical p-datatable-flex-scrollable p-datatable-responsive-stack"
+            class="p-datatable p-component p-datatable-auto-layout p-datatable-scrollable p-datatable-scrollable-vertical p-datatable-flex-scrollable p-datatable-responsive-stack p-datatable-sm"
             data-scrollselectors=".p-datatable-wrapper"
             pr_id_3=""
           >
