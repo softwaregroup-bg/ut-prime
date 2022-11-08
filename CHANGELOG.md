@@ -1,3 +1,12 @@
+# [2.37.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.36.5...v2.37.0) (2022-11-08)
+
+
+### Features
+
+* json column ([3796d3a](https://github.com/softwaregroup-bg/ut-prime/commit/3796d3ad4103687e847c95d07db03b33f60ec43a))
+
+
+
 ## [2.36.5](https://github.com/softwaregroup-bg/ut-prime/compare/v2.36.4...v2.36.5) (2022-11-07)
 
 
