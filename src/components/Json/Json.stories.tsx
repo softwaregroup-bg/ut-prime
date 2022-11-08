@@ -71,3 +71,15 @@ export const Diff: React.FC = () =>
 
 export const View: React.FC = () =>
     <Json value={value}/>;
+
+export const KeyValue: React.FC = () =>
+    <Json keyValue className='w-full' value={[
+        ['Country', 'Albania'],
+        ['Country', 'Afghanistan'],
+        ['city', 'Burgas'],
+        ['region', 'West'],
+        ['organization', 'Software Group'],
+        ['organization', 'Bulgaria'],
+        ['exchange']
+    ]}
+    />;

@@ -142,6 +142,7 @@ export default function input(
                 {...props}
             />
         </Field>;
+        case 'json':
         case 'jsonView': return <Field {...{label, error, inputClass}}>
             <Json
                 {...field}

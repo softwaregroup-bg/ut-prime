@@ -13,6 +13,7 @@ import {
     RadioButton,
     SelectButton
 } from '../prime';
+import Json from '../Json';
 import type { Property, PropertyEditor } from '../types';
 import titleCase from './titleCase';
 import getType from './getType';
@@ -150,6 +151,15 @@ export default function columnProps({
                     // onChange={(e) => {}}
                     {...props}
                     name={filterId}
+                />;
+            };
+            break;
+        case 'json':
+            body = function body(rowData) {
+                return <Json
+                    value={rowData[fieldName]}
+                    {...testid(props.id)}
+                    {...props}
                 />;
             };
             break;

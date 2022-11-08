@@ -29,6 +29,7 @@ export interface PropertyEditor {
         'imageUpload' |
         'integer' |
         'jsonView' |
+        'json' |
         'label' |
         'mask' |
         'multiSelect' |
@@ -192,7 +193,7 @@ export interface Cards {
 interface IndexItem extends MenuItem {
     id?: string;
     items?: IndexItem[];
-    widgets?: (string | string[])[];
+    widgets?: (string | string[] | MenuItem)[];
 }
 
 interface IndexItemId extends IndexItem {

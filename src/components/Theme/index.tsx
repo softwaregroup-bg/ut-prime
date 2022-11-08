@@ -194,6 +194,15 @@ export const useStyles = createUseStyles(({fontSize = 14}: Theme) => ({
         },
         body: {
             margin: 0
+        },
+        '.nowrap': {
+            whiteSpace: 'nowrap !important'
+        },
+        '.pre': {
+            whiteSpace: 'pre !important'
+        },
+        '.pre-wrap': {
+            whiteSpace: 'pre-wrap !important'
         }
     }
 }));
