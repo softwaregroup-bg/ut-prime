@@ -24,7 +24,8 @@ export const MasterDetail = () =>
                             fullName: {},
                             nationalId: {title: 'National ID'},
                             birthDate: {format: 'date'}
-                        }
+                        },
+                        required: ['fullName']
                     },
                     title: '',
                     widget: {

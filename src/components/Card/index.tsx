@@ -36,6 +36,14 @@ const useStyles = createUseStyles({
     }
 });
 
+const useLabelStyles = createUseStyles({
+    required: {
+        '&:after': {
+            content: '"*"'
+        }
+    }
+});
+
 const Card: ComponentProps = ({
     cardName,
     index1 = 0,
@@ -56,9 +64,11 @@ const Card: ComponentProps = ({
     inspected,
     onInspect,
     onFieldChange,
+    isPropertyRequired = () => false,
     classNames
 }) => {
     const classes = useStyles();
+    const labelClasses = useLabelStyles();
     const counter = React.useRef(0);
     const InputWrap = React.useCallback(function Input({
         Label,
@@ -83,7 +93,7 @@ const Card: ComponentProps = ({
             if (inputClassName) inputWidget.className = inputClassName;
         }
         const render = ({field, fieldState}) => input(
-            Label && <Label name={propertyName} className={labelClass} label={widget.label}/>,
+            Label && <Label name={propertyName} className={labelClass} label={widget.label} isRequired={isPropertyRequired(propertyName)}/>,
             ErrorLabel && <ErrorLabel name={propertyName} className={labelClass} />,
             {
                 className: clsx({'w-full': !['boolean'].includes(inputWidget.type)}, { 'p-invalid': fieldState.error }),
@@ -173,7 +183,8 @@ const Card: ComponentProps = ({
         submit,
         formApi,
         onFieldChange,
-        value
+        value,
+        isPropertyRequired
     ]);
 
     const InputWrapEdit = React.useCallback(
@@ -184,12 +195,12 @@ const Card: ComponentProps = ({
         [InputWrap]
     );
 
-    const Label = React.useCallback(({name, className = 'md:col-4', label = layoutState.index.properties?.[name]?.title}) => {
+    const Label = React.useCallback(({name, className = 'md:col-4', label = layoutState.index.properties?.[name]?.title, isRequired = false}) => {
         if (label === undefined) label = titleCase(name.split('.').pop());
         return label
-            ? <label className={clsx('col-12', className)} htmlFor={name.replace(/\./g, '-')}><Text>{label}</Text></label>
+            ? <label className={clsx('col-12', className, {[labelClasses.required]: isRequired})} htmlFor={name.replace(/\./g, '-')}><Text>{label}</Text></label>
             : null;
-    }, [layoutState.index]);
+    }, [layoutState.index, labelClasses.required]);
 
     const ErrorLabel = React.useCallback(({name, className = 'md:col-4'}) => {
         const error = get(formApi?.formState?.errors, name);

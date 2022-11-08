@@ -71,6 +71,21 @@ const Form: ComponentProps = ({
         () => joiResolver(validation || getValidation(schema), {stripUnknown: true, abortEarly: false}),
         [validation, schema]
     );
+    const validationSchema = React.useMemo(
+        () => validation || getValidation(schema),
+        [validation, schema]
+    );
+    const isPropertyRequired = React.useCallback((propertyName) => {
+        try {
+            const schema = validationSchema.extract(propertyName);
+            return schema._flags.presence === 'required';
+        } catch (e) {
+            console.log(validationSchema);
+            // in case of arrays in master detail and master detail polymorphic
+            console.error(e);
+            return false;
+        }
+    }, [validationSchema]);
     const formApi = useForm({resolver});
     const {
         handleSubmit: formSubmit,
@@ -187,6 +202,7 @@ const Form: ComponentProps = ({
                                 inspected={inspected}
                                 onInspect={onInspect}
                                 onFieldChange={onFieldChange}
+                                isPropertyRequired={isPropertyRequired}
                         />
                         : null;
                 }).filter(Boolean);

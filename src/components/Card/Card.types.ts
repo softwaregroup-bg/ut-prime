@@ -28,7 +28,8 @@ export interface Props {
         destination: object
     ) => void,
     toolbar?: boolean,
-    classNames?: object
+    classNames?: object,
+    isPropertyRequired?: (propertyName) => boolean
 }
 
 export type ComponentProps = React.FC<Props>
