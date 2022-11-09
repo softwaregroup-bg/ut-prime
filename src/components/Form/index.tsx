@@ -66,7 +66,6 @@ const Form: ComponentProps = ({
     ...rest
 }) => {
     const classes = useStyles();
-    // console.log(joiSchema.describe());
     const resolver = React.useMemo(
         () => joiResolver(validation || getValidation(schema), {stripUnknown: true, abortEarly: false}),
         [validation, schema]
@@ -80,8 +79,8 @@ const Form: ComponentProps = ({
             const schema = validationSchema.extract(propertyName);
             return schema._flags.presence === 'required';
         } catch (e) {
-            console.log(validationSchema);
             // in case of arrays in master detail and master detail polymorphic
+            // eslint-disable-next-line no-console
             console.error(e);
             return false;
         }
