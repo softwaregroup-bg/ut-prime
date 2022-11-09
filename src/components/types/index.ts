@@ -73,6 +73,7 @@ export interface PropertyEditor {
     labelClass?: string,
     hidden?: boolean | ViewEffect,
     disabled?: boolean | ViewEffect,
+    onChange?: string,
     [editorProperties: string]: unknown
 }
 
