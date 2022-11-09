@@ -56,7 +56,7 @@ const evaluate = (definition, formApi) => {
             }
         }
     }
-    return computed || false;
+    return computed === true;
 };
 
 const Card: ComponentProps = ({
