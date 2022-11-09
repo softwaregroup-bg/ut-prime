@@ -51,6 +51,7 @@ const evaluate = (definition, formApi) => {
                 const result = validation.validate(obj);
                 computed = !result.error;
             } catch (e) {
+                // eslint-disable-next-line no-console
                 console.error(e);
             }
         }
