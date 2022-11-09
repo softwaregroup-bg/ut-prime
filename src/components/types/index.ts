@@ -10,6 +10,11 @@ import Joi from 'joi';
 export type DataTable = Omit<DataTableProps, 'children'>;
 export type DataView = Omit<DataViewProps, 'children'>;
 
+interface ViewEffect {
+    watch: string[];
+    validation: Joi.Schema;
+}
+
 export interface PropertyEditor {
     type?:
         'autocomplete' |
@@ -66,6 +71,8 @@ export interface PropertyEditor {
     className?: string,
     fieldClass?: string,
     labelClass?: string,
+    hidden?: boolean | ViewEffect,
+    disabled?: boolean | ViewEffect,
     [editorProperties: string]: unknown
 }
 
@@ -157,9 +164,7 @@ export type WidgetReference = string | {
     hidden?: string[],
     compare?: string,
     filter?: object,
-    disabled?: 'current' | 'selected' | 'single' | boolean | Joi.Schema,
-    enabled?: 'current' | 'selected' | 'single' | boolean | Joi.Schema,
-    visible: boolean | Joi.Schema
+    disabled?: 'current' | 'selected' | 'single' | boolean | Joi.Schema;
 }
 export interface Card {
     label?: string;
@@ -178,9 +183,8 @@ export interface Card {
         }
     },
     flex?: string;
-    hidden?: boolean;
+    hidden?: boolean | Joi.Schema;
     disabled?: boolean | Joi.Schema;
-    visible?: boolean | Joi.Schema;
 }
 
 export interface Cards {

@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import get from 'lodash.get';
+import set from 'lodash.set';
 import {createUseStyles} from 'react-jss';
 
 import type { ComponentProps } from './Card.types';
@@ -35,6 +36,27 @@ const useStyles = createUseStyles({
         }
     }
 });
+
+const evaluate = (definition, formApi) => {
+    let computed = definition;
+    if (definition?.validation && definition?.watch) {
+        const { watch, validation } = definition || {};
+        const hw = watch && formApi?.watch?.(watch);
+        if (hw) {
+            const obj = {};
+            for (const i of watch.keys()) {
+                set(obj, watch[i], hw[i]);
+            }
+            try {
+                const result = validation.validate(obj);
+                computed = !result.error;
+            } catch (e) {
+                console.error(e);
+            }
+        }
+    }
+    return computed || false;
+};
 
 const Card: ComponentProps = ({
     cardName,
@@ -76,8 +98,12 @@ const Card: ComponentProps = ({
             fieldClass = null,
             labelClass = defaultLabelClass,
             onChange = onFieldChange,
+            hidden = null,
+            disabled = null,
             ...inputWidget
         } = {id: name.replace(/\./g, '-') || widget.label, ...layoutState.index.properties[propertyName]?.widget, ...widget, parent};
+        inputWidget.hidden = evaluate(hidden, formApi);
+        inputWidget.disabled = evaluate(disabled, formApi);
         if (!inputWidget.className) {
             const inputClassName = classes?.default?.input || classes?.[name]?.input;
             if (inputClassName) inputWidget.className = inputClassName;
@@ -207,16 +233,16 @@ const Card: ComponentProps = ({
     if (typeof cardName === 'object') cardName = cardName.name;
     let cardDisabled = cards[cardName]?.disabled;
     if (typeof cardDisabled === 'object' && 'validate' in cardDisabled) cardDisabled = !cardDisabled.validate(values()).error;
-    let cardVisible = cards[cardName]?.visible;
-    if (typeof cardVisible === 'object' && 'validate' in cardVisible) cardVisible = !cardVisible.validate(values()).error;
+    let cardHidden = cards[cardName]?.hidden;
+    if (typeof cardHidden === 'object' && 'validate' in cardHidden) cardHidden = !cardHidden.validate(values()).error;
 
     const field = (length: number, flex: string, cardName: string, classes: CardType['classes'], init = {}) => function field(widget, ind: number) {
         if (typeof widget === 'string') widget = {name: widget};
         let disabled = widget.disabled || layoutState.index.properties[widget.name]?.widget?.disabled || cardDisabled;
         if (disabled?.validate) disabled = !disabled.validate(values()).error;
-        let visible = widget.visible || layoutState.index.properties[widget.name]?.widget?.visible;
-        if (visible?.validate) visible = !visible.validate(values()).error;
-        if (visible === false) return null;
+        let hidden = widget.hidden || layoutState.index.properties[widget.name]?.widget?.hidden || cardHidden;
+        if (hidden?.validate) hidden = !hidden.validate(values()).error;
+        if (hidden === true) return null;
         const {
             name = '',
             id,
@@ -274,7 +300,7 @@ const Card: ComponentProps = ({
             {widgets.length > 0 && widgets.map(field(widgets.length, flex, cardName, cardClasses, {widget: '', label: ''}))}
         </div>;
     }
-    if (cardVisible === false) return null;
+    if (cardHidden === true) return null;
     return (
         <ConfigCard
             title={label}
@@ -287,7 +313,7 @@ const Card: ComponentProps = ({
             move={move}
             flex={flex}
             design={design}
-            hidden={hidden}
+            hidden={hidden as boolean}
             inspected={inspected}
             onInspect={onInspect}
         >

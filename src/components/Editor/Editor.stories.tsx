@@ -277,7 +277,7 @@ ViewEffects.args = merge({}, Basic.args, {
                 properties: {
                     treeDescription: {
                         widget: {
-                            visible: Joi.object({
+                            hidden: Joi.object({
                                 tree: Joi.object({
                                     treeName: Joi.string().required()
                                 }).required().unknown(true)
@@ -291,6 +291,30 @@ ViewEffects.args = merge({}, Basic.args, {
                                     treeName: Joi.string().required()
                                 }).required().unknown(true)
                             }).unknown(true)
+                        }
+                    },
+                    seedDescription: {
+                        widget: {
+                            disabled: {
+                                watch: ['tree.treeName'],
+                                validation: Joi.object({
+                                    tree: Joi.object({
+                                        treeName: Joi.string().required()
+                                    }).required().unknown(true)
+                                }).unknown(true)
+                            }
+                        }
+                    },
+                    flowerDescription: {
+                        widget: {
+                            hidden: {
+                                watch: ['tree.treeName'],
+                                validation: Joi.object({
+                                    tree: Joi.object({
+                                        treeName: Joi.string().min(1).required()
+                                    }).required().unknown(true)
+                                }).unknown(true)
+                            }
                         }
                     }
                 }
@@ -306,7 +330,7 @@ ViewEffects.args = merge({}, Basic.args, {
             }).unknown(true)
         },
         habitat: {
-            visible: Joi.object({
+            hidden: Joi.object({
                 tree: Joi.object({
                     treeName: Joi.string().required()
                 }).required().unknown(true)
