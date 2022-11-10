@@ -1,3 +1,12 @@
+# [2.39.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.38.0...v2.39.0) (2022-11-10)
+
+
+### Features
+
+* add required class to label based on joi validation ([#19](https://github.com/softwaregroup-bg/ut-prime/issues/19)) ([73dffd3](https://github.com/softwaregroup-bg/ut-prime/commit/73dffd3d91577373207170ef421732c48a92e94f))
+
+
+
 # [2.38.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.37.0...v2.38.0) (2022-11-10)
 
 
