@@ -353,11 +353,6 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                 class="p-card-body"
               >
                 <div
-                  class="p-card-title"
-                >
-                  Links
-                </div>
-                <div
                   class="p-card-content"
                 >
                   <div
@@ -379,6 +374,15 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                           >
                             <div
                               class="p-toolbar-group-left"
+                            >
+                              <span
+                                class="p-card-title"
+                              >
+                                Links
+                              </span>
+                            </div>
+                            <div
+                              class="p-toolbar-group-right"
                             >
                               <button
                                 aria-label="Add"
@@ -420,9 +424,6 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                                 </span>
                               </button>
                             </div>
-                            <div
-                              class="p-toolbar-group-right"
-                            />
                           </div>
                           <div
                             class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
@@ -3039,9 +3040,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                     <div
                       draggable="true"
                       style="cursor: move;"
-                    >
-                      Links
-                    </div>
+                    />
                   </div>
                   <div
                     class="p-card-content"
@@ -3066,6 +3065,15 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                             >
                               <div
                                 class="p-toolbar-group-left"
+                              >
+                                <span
+                                  class="p-card-title"
+                                >
+                                  Links
+                                </span>
+                              </div>
+                              <div
+                                class="p-toolbar-group-right"
                               >
                                 <button
                                   aria-label="Add"
@@ -3107,9 +3115,6 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                                   </span>
                                 </button>
                               </div>
-                              <div
-                                class="p-toolbar-group-right"
-                              />
                             </div>
                             <div
                               class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
@@ -4762,11 +4767,6 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
               <div
                 class="p-card-body"
               >
-                <div
-                  class="p-card-title"
-                >
-                  Links
-                </div>
                 <div
                   class="p-card-content"
                 >
@@ -8648,11 +8648,6 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
                 class="p-card-body"
               >
                 <div
-                  class="p-card-title"
-                >
-                  Links
-                </div>
-                <div
                   class="p-card-content"
                 >
                   <div
@@ -8674,6 +8669,15 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
                           >
                             <div
                               class="p-toolbar-group-left"
+                            >
+                              <span
+                                class="p-card-title"
+                              >
+                                Links
+                              </span>
+                            </div>
+                            <div
+                              class="p-toolbar-group-right"
                             >
                               <button
                                 aria-label="Add"
@@ -8715,9 +8719,6 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
                                 </span>
                               </button>
                             </div>
-                            <div
-                              class="p-toolbar-group-right"
-                            />
                           </div>
                           <div
                             class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
@@ -9469,11 +9470,6 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                 class="p-card-body"
               >
                 <div
-                  class="p-card-title"
-                >
-                  Links
-                </div>
-                <div
                   class="p-card-content"
                 >
                   <div
@@ -9495,6 +9491,15 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                           >
                             <div
                               class="p-toolbar-group-left"
+                            >
+                              <span
+                                class="p-card-title"
+                              >
+                                Links
+                              </span>
+                            </div>
+                            <div
+                              class="p-toolbar-group-right"
                             >
                               <button
                                 aria-label="Add"
@@ -9536,9 +9541,6 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                                 </span>
                               </button>
                             </div>
-                            <div
-                              class="p-toolbar-group-right"
-                            />
                           </div>
                           <div
                             class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
@@ -11601,11 +11603,6 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
                 class="p-card-body"
               >
                 <div
-                  class="p-card-title"
-                >
-                  Links
-                </div>
-                <div
                   class="p-card-content"
                 >
                   <div
@@ -11627,6 +11624,15 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
                           >
                             <div
                               class="p-toolbar-group-left"
+                            >
+                              <span
+                                class="p-card-title"
+                              >
+                                Links
+                              </span>
+                            </div>
+                            <div
+                              class="p-toolbar-group-right"
                             >
                               <button
                                 aria-label="Add"
@@ -11668,9 +11674,6 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
                                 </span>
                               </button>
                             </div>
-                            <div
-                              class="p-toolbar-group-right"
-                            />
                           </div>
                           <div
                             class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
@@ -12380,11 +12383,6 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                 class="p-card-body"
               >
                 <div
-                  class="p-card-title"
-                >
-                  Links
-                </div>
-                <div
                   class="p-card-content"
                 >
                   <div
@@ -12406,6 +12404,15 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                           >
                             <div
                               class="p-toolbar-group-left"
+                            >
+                              <span
+                                class="p-card-title"
+                              >
+                                Links
+                              </span>
+                            </div>
+                            <div
+                              class="p-toolbar-group-right"
                             >
                               <button
                                 aria-label="Add"
@@ -12447,9 +12454,6 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                                 </span>
                               </button>
                             </div>
-                            <div
-                              class="p-toolbar-group-right"
-                            />
                           </div>
                           <div
                             class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"

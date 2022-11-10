@@ -57,6 +57,7 @@ const tree: {schema: Schema, cards: Cards} = {
                     links: {
                         title: '',
                         widget: {
+                            label: 'Links',
                             type: 'table'
                         },
                         items: {
@@ -111,7 +112,6 @@ const tree: {schema: Schema, cards: Cards} = {
             widgets: []
         },
         links: {
-            label: 'Links',
             widgets: [{
                 name: 'tree.links',
                 widgets: ['title', 'url']

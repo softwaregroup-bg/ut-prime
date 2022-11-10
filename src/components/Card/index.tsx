@@ -24,8 +24,12 @@ const getFieldClass = (index, classes, name, className) =>
 const useStyles = createUseStyles({
     card: {
         '& .p-card-body': {
-            '& .p-card-content': {
-                paddingBottom: 0
+            '& > .p-card-content': {
+                paddingBottom: 0,
+                paddingTop: 0
+            },
+            '& > .p-card-title': {
+                marginBottom: '1.5rem'
             }
         },
         '& .p-chips': {

@@ -4,6 +4,7 @@ import {createUseStyles} from 'react-jss';
 import clsx from 'clsx';
 
 import {DataTable, Column, Toolbar, Button} from '../../prime';
+import Text from '../../Text';
 import columnProps from '../../lib/column';
 import {CHANGE, INDEX, KEY, NEW} from '../const';
 import type {Properties} from '../../types';
@@ -87,6 +88,7 @@ export default React.forwardRef<object, any>(function Table({
     disabled,
     autoSelect,
     selectionPath = '$.selected',
+    label,
     pivot: {
         dropdown = '',
         master: pivotMaster = null,
@@ -247,9 +249,16 @@ export default React.forwardRef<object, any>(function Table({
         handleSelected({value: rows[selected[KEY]]});
     }
     if (master && !parent) return null;
+    const {left, right} = label ? {
+        left: <span className='p-card-title'><Text>{label}</Text></span>,
+        right: leftToolbarTemplate
+    } : {
+        left: leftToolbarTemplate,
+        right: null
+    };
     return (
         <>
-            {!disabled && (allowAdd || allowDelete) && <Toolbar className="p-0 border-none" left={leftToolbarTemplate} right={null} style={backgroundNone}></Toolbar>}
+            {!disabled && (allowAdd || allowDelete) && <Toolbar className="p-0 border-none" left={left} right={right} style={backgroundNone}></Toolbar>}
             <DataTable
                 editMode='row'
                 selection={selected}
