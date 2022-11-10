@@ -1,3 +1,17 @@
+# [2.38.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.37.0...v2.38.0) (2022-11-10)
+
+
+### Bug Fixes
+
+* sticky tabs on ThumbIndex top orientation [#17](https://github.com/softwaregroup-bg/ut-prime/issues/17) ([3b74426](https://github.com/softwaregroup-bg/ut-prime/commit/3b7442606baf004e5085c789376fb774200b9770))
+
+
+### Features
+
+* Table label ([395e7b8](https://github.com/softwaregroup-bg/ut-prime/commit/395e7b8167028c89035dd519418e344fb9f7b5cd))
+
+
+
 # [2.37.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.36.5...v2.37.0) (2022-11-08)
 
 
