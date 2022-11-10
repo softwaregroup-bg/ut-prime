@@ -56,31 +56,46 @@ function validation(name, field) {
     return result.label(field.title || name);
 }
 
-export default function getValidation(schema: Schema | Property, filter?: string[], path = '', propertyName = '') : Joi.Schema {
+export default function getValidation(schema: Schema | Property, filter?: string[], path = '', propertyName = '') : [Joi.Schema, string[]] {
     if (schema?.type === 'object' || schema?.properties) {
         return Object.entries(schema?.properties || {}).reduce(
-            (prev, [name, field]) => {
-                const next = getValidation(field, filter, path ? path + '.' + name : name, name);
-                if (!next) return prev;
-                return prev.append({[name]: schema?.required?.includes(name) ? next.empty([null, '']).required() : next.allow(null)});
+            ([prevSchema, prevRequired], [name, field]) => {
+                const [nextSchema, required] = getValidation(field, filter, path ? path + '.' + name : name, name);
+                if (!nextSchema) return [prevSchema, prevRequired];
+                return [
+                    prevSchema.append({
+                        [name]: schema?.required?.includes(name)
+                            ? nextSchema.empty([null, '']).required()
+                            : nextSchema.allow(null)
+                    }),
+                    [...prevRequired, ...required]
+                ];
             },
-            Joi.object(path ? {} : {
-                $: Joi.any().strip(),
-                $key: Joi.any().strip(),
-                ...filter?.includes('$original') && {$original: Joi.any()}
-            })
+            [
+                Joi.object(
+                    path
+                        ? {}
+                        : {
+                            $: Joi.any().strip(),
+                            $key: Joi.any().strip(),
+                            ...(filter?.includes('$original') && { $original: Joi.any() })
+                        }
+                ),
+                [].concat(schema?.required?.map?.((r) => [path, r].filter(Boolean).join('.'))).filter(Boolean)
+            ]
         );
     }
-    if (filter && !filter?.includes(path)) return null;
+    if (filter && !filter?.includes(path)) return [null, []];
     if (schema?.type === 'array' || schema?.items) {
-        return schema?.items ? Joi.array().sparse().items(getValidation(schema.items as Schema, filter, path, propertyName)) : Joi.array();
+        const [validation, required] = schema?.items && getValidation(schema.items as Schema, filter, path, propertyName);
+        return [schema?.items ? Joi.array().sparse().items(validation) : Joi.array(), required];
     } else if (schema?.oneOf) {
-        return Joi.alternatives().try(...schema.oneOf.map(item => getValidation(item as Schema, filter, path, propertyName)).filter(Boolean)).match('one');
+        return [Joi.alternatives().try(...schema.oneOf.map(item => getValidation(item as Schema, filter, path, propertyName)[0]).filter(Boolean)).match('one'), []];
     } else if (schema?.anyOf) {
-        return Joi.alternatives().try(...schema.anyOf.map(item => getValidation(item as Schema, filter, path, propertyName)).filter(Boolean)).match('any');
+        return [Joi.alternatives().try(...schema.anyOf.map(item => getValidation(item as Schema, filter, path, propertyName)[0]).filter(Boolean)).match('any'), []];
     } else if (schema?.allOf) {
-        return Joi.alternatives().try(...schema.allOf.map(item => getValidation(item as Schema, filter, path, propertyName)).filter(Boolean)).match('all');
+        return [Joi.alternatives().try(...schema.allOf.map(item => getValidation(item as Schema, filter, path, propertyName)[0]).filter(Boolean)).match('all'), []];
     } else {
-        return validation(propertyName, schema);
+        return [validation(propertyName, schema), []];
     }
 }

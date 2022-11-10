@@ -191,7 +191,7 @@ const Card: ComponentProps = ({
     const Label = React.useCallback(({name, className = 'md:col-4', label = layoutState.index.properties?.[name]?.title, isRequired = false}) => {
         if (label === undefined) label = titleCase(name.split('.').pop());
         return label
-            ? <label className={clsx('col-12', className, ut?.classes?.labelRequired && {[ut?.classes?.labelRequired]: isRequired})} htmlFor={name.replace(/\./g, '-')}><Text>{label}</Text></label>
+            ? <label className={clsx('col-12', className, isRequired && ut?.classes?.labelRequired)} htmlFor={name.replace(/\./g, '-')}><Text>{label}</Text></label>
             : null;
     }, [layoutState.index, ut?.classes?.labelRequired]);
 

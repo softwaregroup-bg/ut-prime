@@ -46,7 +46,7 @@ export default function fieldNames(
 
     return {
         fields,
-        validation: getValidation(mergedSchema, fields),
+        validation: getValidation(mergedSchema, fields)[0],
         dropdownNames: fields
             .map(name => {
                 const property =

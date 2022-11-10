@@ -16,7 +16,6 @@ import useForm from '../hooks/useForm';
 import useSubmit from '../hooks/useSubmit';
 import useLayout from '../hooks/useLayout';
 import getValidation from './schema';
-import isRequired from './util';
 
 const useStyles = createUseStyles({
     form: {
@@ -67,14 +66,12 @@ const Form: ComponentProps = ({
     ...rest
 }) => {
     const classes = useStyles();
+    const [validationSchema, requiredProperties] = React.useMemo(() => getValidation(schema), [schema]);
     const resolver = React.useMemo(
-        () => joiResolver(validation || getValidation(schema), {stripUnknown: true, abortEarly: false}),
-        [validation, schema]
+        () => joiResolver(validation || validationSchema, {stripUnknown: true, abortEarly: false}),
+        [validation, validationSchema]
     );
-    const isPropertyRequired = React.useCallback((propertyName) => {
-        const propJsonPointer = `#/${propertyName.split('.').map(p => `properties/${p}`).join('/')}`;
-        return isRequired(schema, propJsonPointer, schema);
-    }, [schema]);
+    const isPropertyRequired = React.useCallback((propertyName) => requiredProperties.includes(propertyName), [requiredProperties]);
     const formApi = useForm({resolver});
     const {
         handleSubmit: formSubmit,
