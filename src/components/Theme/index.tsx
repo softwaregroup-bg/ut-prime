@@ -46,7 +46,8 @@ export interface Theme {
         classes: {
             headerLogo?: string,
             loginTop?: string,
-            loginBottom?: string
+            loginBottom?: string,
+            labelRequired?: string,
         },
         portalName?: string,
     },

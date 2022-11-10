@@ -1,10 +1,11 @@
 import React from 'react';
 import clsx from 'clsx';
 import get from 'lodash.get';
-import {createUseStyles} from 'react-jss';
+import {createUseStyles, useTheme} from 'react-jss';
 
 import type { ComponentProps } from './Card.types';
 
+import type { Theme } from '../Theme';
 import type { Card as CardType } from '../types';
 import Text from '../Text';
 import titleCase from '../lib/titleCase';
@@ -36,14 +37,6 @@ const useStyles = createUseStyles({
     }
 });
 
-const useLabelStyles = createUseStyles({
-    required: {
-        '&:after': {
-            content: '"*"'
-        }
-    }
-});
-
 const Card: ComponentProps = ({
     cardName,
     index1 = 0,
@@ -68,7 +61,7 @@ const Card: ComponentProps = ({
     classNames
 }) => {
     const classes = useStyles();
-    const labelClasses = useLabelStyles();
+    const {ut} = useTheme<Theme>();
     const counter = React.useRef(0);
     const InputWrap = React.useCallback(function Input({
         Label,
@@ -198,9 +191,9 @@ const Card: ComponentProps = ({
     const Label = React.useCallback(({name, className = 'md:col-4', label = layoutState.index.properties?.[name]?.title, isRequired = false}) => {
         if (label === undefined) label = titleCase(name.split('.').pop());
         return label
-            ? <label className={clsx('col-12', className, {[labelClasses.required]: isRequired})} htmlFor={name.replace(/\./g, '-')}><Text>{label}</Text></label>
+            ? <label className={clsx('col-12', className, ut?.classes?.labelRequired && {[ut?.classes?.labelRequired]: isRequired})} htmlFor={name.replace(/\./g, '-')}><Text>{label}</Text></label>
             : null;
-    }, [layoutState.index, labelClasses.required]);
+    }, [layoutState.index, ut?.classes?.labelRequired]);
 
     const ErrorLabel = React.useCallback(({name, className = 'md:col-4'}) => {
         const error = get(formApi?.formState?.errors, name);
