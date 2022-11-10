@@ -4189,7 +4189,7 @@ exports[`<Editor /> FilesInTab render equals snapshot 1`] = `
     class="flex overflow-x-hidden w-full flex-column"
   >
     <div
-      class="flex flex-row pb-0 thumbs-0-2-5"
+      class="flex flex-row pb-0 sticky top-0 z-1 surface-0 thumbs-0-2-5"
     >
       <div
         class="p-tabmenu p-component"
@@ -9956,7 +9956,7 @@ exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
     class="flex overflow-x-hidden w-full flex-column"
   >
     <div
-      class="flex flex-row pb-0 thumbs-0-2-5"
+      class="flex flex-row pb-0 sticky top-0 z-1 surface-0 thumbs-0-2-5"
     >
       <div
         class="p-tabmenu p-component"
@@ -10378,7 +10378,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
     class="flex overflow-x-hidden w-full flex-column"
   >
     <div
-      class="flex flex-row pb-0 thumbs-0-2-5"
+      class="flex flex-row pb-0 sticky top-0 z-1 surface-0 thumbs-0-2-5"
     >
       <div
         class="p-tabmenu p-component"
