@@ -9,6 +9,15 @@ import type { Theme } from '../Theme';
 import { ThemeProvider } from '../Theme';
 import defaultState from './state';
 import {Translate} from '../Text/Text.mock';
+import {createUseStyles} from 'react-jss';
+
+const useLabelStyles = createUseStyles({
+    labelRequired: {
+        '&:after': {
+            content: '"*"'
+        }
+    }
+});
 
 function Wrap({
     children,
@@ -19,12 +28,15 @@ function Wrap({
     middleware,
     portalName = 'Storybook'
 }) {
+    const classes = useLabelStyles();
     const theme: Theme = {
         palette: {
             type: type ?? 'dark-compact'
         },
         ut: {
-            classes: {},
+            classes: {
+                labelRequired: classes.labelRequired
+            },
             portalName: 'Administration'
         },
         dir

@@ -66,11 +66,12 @@ const Form: ComponentProps = ({
     ...rest
 }) => {
     const classes = useStyles();
-    // console.log(joiSchema.describe());
+    const [validationSchema, requiredProperties] = React.useMemo(() => getValidation(schema), [schema]);
     const resolver = React.useMemo(
-        () => joiResolver(validation || getValidation(schema), {stripUnknown: true, abortEarly: false}),
-        [validation, schema]
+        () => joiResolver(validation || validationSchema, {stripUnknown: true, abortEarly: false}),
+        [validation, validationSchema]
     );
+    const isPropertyRequired = React.useCallback((propertyName) => requiredProperties.includes(propertyName), [requiredProperties]);
     const formApi = useForm({resolver});
     const {
         handleSubmit: formSubmit,
@@ -187,6 +188,7 @@ const Form: ComponentProps = ({
                                 inspected={inspected}
                                 onInspect={onInspect}
                                 onFieldChange={onFieldChange}
+                                isPropertyRequired={isPropertyRequired}
                         />
                         : null;
                 }).filter(Boolean);
