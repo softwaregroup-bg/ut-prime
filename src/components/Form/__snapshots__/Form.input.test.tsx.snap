@@ -1705,7 +1705,6 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                         data-scrollselectors=".p-datatable-wrapper"
                         data-testid="input-selectTableWithFlags"
                         id="input-selectTableWithFlags"
-                        items="[object Object]"
                         pr_id_7=""
                       >
                         <div
