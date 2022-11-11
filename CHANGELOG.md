@@ -1,3 +1,12 @@
+## [2.39.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.39.0...v2.39.1) (2022-11-11)
+
+
+### Bug Fixes
+
+* selectTable properties ([830b794](https://github.com/softwaregroup-bg/ut-prime/commit/830b7945ef5a6d8c8e2228c0416ca6acf034eeeb))
+
+
+
 # [2.39.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.38.0...v2.39.0) (2022-11-10)
 
 
