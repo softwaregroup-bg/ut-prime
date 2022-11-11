@@ -101,15 +101,15 @@ const properties: Properties = {
         }
     },
     selectTableWithFlags: {
+        items: {
+            properties: {
+                flag1: {widget: {type: 'select-table-radio'}},
+                flag2: {widget: {type: 'select-table-radio'}}
+            }
+        },
         widget: {
             type: 'selectTable',
             dropdown: 'select',
-            items: {
-                properties: {
-                    flag1: {widget: {type: 'select-table-radio'}},
-                    flag2: {widget: {type: 'select-table-radio'}}
-                }
-            },
             widgets: ['flag1', 'flag2'],
             selectionMode: 'checkbox'
         }

@@ -299,7 +299,7 @@ export default function input(
                         actions={noActions}
                         dataKey={dataKey}
                         value={value}
-                        properties={schema?.widget?.items?.properties}
+                        properties={schema?.items?.properties}
                         selection={selection}
                         onSelectionChange={event => {
                             if (props.disabled) return;
