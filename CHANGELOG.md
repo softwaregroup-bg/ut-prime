@@ -1,3 +1,12 @@
+## [2.40.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.40.0...v2.40.1) (2022-11-14)
+
+
+### Bug Fixes
+
+* Explorer file params ([e071511](https://github.com/softwaregroup-bg/ut-prime/commit/e071511e667864b80fb9f38d938caac9c639da03))
+
+
+
 # [2.40.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.39.1...v2.40.0) (2022-11-14)
 
 
