@@ -167,6 +167,10 @@ export const useStyles = createUseStyles(({fontSize = 14}: Theme) => ({
                     marginLeft: '0px',
                     marginRight: 'var(--inline-spacing)'
                 },
+                '& .p-multiselect .p-multiselect-clear-icon': {
+                    right: 'inherit',
+                    left: '2.357rem'
+                },
                 '& ul.p-submenu-list': {
                     left: 0,
                     right: 'initial!important'

@@ -1491,14 +1491,40 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                         Multi Select
                                       </span>
                                     </span>
-                                    <input
-                                      class="p-inputtext p-component w-full"
+                                    <div
+                                      class="p-multiselect p-component p-inputwrapper p-multiselect-chip p-multiselect-clearable w-full"
                                       data-testid="table3-0-multiSelect"
-                                      id="table3-0-multiSelect"
-                                      name="table3[0].multiSelect"
-                                      type="text"
-                                      value=""
-                                    />
+                                    >
+                                      <div
+                                        class="p-hidden-accessible"
+                                      >
+                                        <input
+                                          aria-expanded="false"
+                                          id="table3-0-multiSelect"
+                                          name="table3[0].multiSelect"
+                                          readonly=""
+                                          role="listbox"
+                                          tabindex="0"
+                                          type="text"
+                                        />
+                                      </div>
+                                      <div
+                                        class="p-multiselect-label-container"
+                                      >
+                                        <div
+                                          class="p-multiselect-label p-multiselect-label-empty"
+                                        >
+                                          empty
+                                        </div>
+                                      </div>
+                                      <div
+                                        class="p-multiselect-trigger"
+                                      >
+                                        <span
+                                          class="p-multiselect-trigger-icon p-c pi pi-chevron-down"
+                                        />
+                                      </div>
+                                    </div>
                                   </td>
                                   <td
                                     class="p-editable-column p-cell-editing"
@@ -3371,14 +3397,40 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                                         تحديد متعدد
                                       </span>
                                     </span>
-                                    <input
-                                      class="p-inputtext p-component w-full"
+                                    <div
+                                      class="p-multiselect p-component p-inputwrapper p-multiselect-chip p-multiselect-clearable w-full"
                                       data-testid="table3-0-multiSelect"
-                                      id="table3-0-multiSelect"
-                                      name="table3[0].multiSelect"
-                                      type="text"
-                                      value=""
-                                    />
+                                    >
+                                      <div
+                                        class="p-hidden-accessible"
+                                      >
+                                        <input
+                                          aria-expanded="false"
+                                          id="table3-0-multiSelect"
+                                          name="table3[0].multiSelect"
+                                          readonly=""
+                                          role="listbox"
+                                          tabindex="0"
+                                          type="text"
+                                        />
+                                      </div>
+                                      <div
+                                        class="p-multiselect-label-container"
+                                      >
+                                        <div
+                                          class="p-multiselect-label p-multiselect-label-empty"
+                                        >
+                                          empty
+                                        </div>
+                                      </div>
+                                      <div
+                                        class="p-multiselect-trigger"
+                                      >
+                                        <span
+                                          class="p-multiselect-trigger-icon p-c pi pi-chevron-down"
+                                        />
+                                      </div>
+                                    </div>
                                   </td>
                                   <td
                                     class="p-editable-column p-cell-editing"
@@ -5250,14 +5302,40 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                                         Мулти избор
                                       </span>
                                     </span>
-                                    <input
-                                      class="p-inputtext p-component w-full"
+                                    <div
+                                      class="p-multiselect p-component p-inputwrapper p-multiselect-chip p-multiselect-clearable w-full"
                                       data-testid="table3-0-multiSelect"
-                                      id="table3-0-multiSelect"
-                                      name="table3[0].multiSelect"
-                                      type="text"
-                                      value=""
-                                    />
+                                    >
+                                      <div
+                                        class="p-hidden-accessible"
+                                      >
+                                        <input
+                                          aria-expanded="false"
+                                          id="table3-0-multiSelect"
+                                          name="table3[0].multiSelect"
+                                          readonly=""
+                                          role="listbox"
+                                          tabindex="0"
+                                          type="text"
+                                        />
+                                      </div>
+                                      <div
+                                        class="p-multiselect-label-container"
+                                      >
+                                        <div
+                                          class="p-multiselect-label p-multiselect-label-empty"
+                                        >
+                                          empty
+                                        </div>
+                                      </div>
+                                      <div
+                                        class="p-multiselect-trigger"
+                                      >
+                                        <span
+                                          class="p-multiselect-trigger-icon p-c pi pi-chevron-down"
+                                        />
+                                      </div>
+                                    </div>
                                   </td>
                                   <td
                                     class="p-editable-column p-cell-editing"

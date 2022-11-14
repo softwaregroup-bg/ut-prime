@@ -9,6 +9,7 @@ import {
     InputNumber,
     InputText,
     InputTextarea,
+    MultiSelect,
     Password,
     RadioButton,
     SelectButton
@@ -127,6 +128,19 @@ export default function columnProps({
             />;
             body = function body(rowData) {
                 return rowData[property?.body || fieldName];
+            };
+            break;
+        case 'multiSelect':
+            body = function body(rowData) {
+                return <MultiSelect
+                    className='w-full'
+                    options={dropdowns?.[dropdown] || []}
+                    value={rowData[fieldName]}
+                    disabled
+                    display='chip'
+                    {...props}
+                    name={filterId}
+                />;
             };
             break;
         case 'select':
@@ -352,6 +366,25 @@ export default function columnProps({
                             p.editorCallback(event.value);
                         }}
                         showClear
+                        inputId={inputId}
+                        {...testid(inputId)}
+                        {...props}
+                        name={inputName}
+                    />;
+                case 'multiSelect':
+                    return <MultiSelect
+                        className='w-full'
+                        options={dropdowns?.[dropdown] || []}
+                        value={p.rowData[fieldName]}
+                        onChange={event => {
+                            if (property?.body) {
+                                const items = dropdowns?.[dropdown]?.find(({value}) => event?.value?.includes(value)).map(({label}) => label);
+                                p.rowData[property?.body] = items?.join(', ');
+                            }
+                            p.editorCallback(event.value);
+                        }}
+                        showClear
+                        display='chip'
                         inputId={inputId}
                         {...testid(inputId)}
                         {...props}
