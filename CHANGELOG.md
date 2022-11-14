@@ -1,3 +1,12 @@
+# [2.40.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.39.1...v2.40.0) (2022-11-14)
+
+
+### Features
+
+* multiSelect column ([2f3b806](https://github.com/softwaregroup-bg/ut-prime/commit/2f3b806f92ed762c9a93911479a8a7bbf41c4f0c))
+
+
+
 ## [2.39.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.39.0...v2.39.1) (2022-11-11)
 
 
