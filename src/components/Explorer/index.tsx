@@ -180,15 +180,19 @@ const Explorer: ComponentProps = ({
 
     const [dropdowns, setDropdown] = React.useState({});
 
-    const {dropdownNames: formDropdownNames = []} = paramsLayout ? fieldNames(paramsLayout, mergedCards, mergedSchema, editors) : {};
-
-    const dropdownNames = (columns || [])
-        .flat()
-        .filter(Boolean)
-        .map(column => lodashGet(properties, fieldName(column)?.replace(/\./g, '.properties.'))?.widget?.dropdown)
-        .filter(Boolean)
-        .concat(formDropdownNames)
-        .join(',');
+    const [dropdownNames, layoutFields] = React.useMemo(() => {
+        const {fields, dropdownNames} = paramsLayout ? fieldNames(paramsLayout, mergedCards, mergedSchema, editors) : {fields: [], dropdownNames: []};
+        return [
+            (columns || [])
+                .flat()
+                .filter(Boolean)
+                .map(column => lodashGet(properties, fieldName(column)?.replace(/\./g, '.properties.'))?.widget?.dropdown)
+                .filter(Boolean)
+                .concat(dropdownNames)
+                .join(','),
+            fields
+        ];
+    }, [columns, editors, mergedCards, mergedSchema, paramsLayout, properties]);
 
     const getValues = React.useMemo(() => () => ({
         id: current && current[keyField],
@@ -404,13 +408,14 @@ const Explorer: ComponentProps = ({
                 value={paramValues[0]}
                 dropdowns={dropdowns}
                 setTrigger={setTrigger}
+                layoutFields={layoutFields}
                 triggerNotDirty
                 autoSubmit
                 {...formProps}
                 designCards={false}
             />
         </div>;
-    }, [paramsLayout, mergedSchema, editors, methods, cards, paramValues, dropdowns, formProps]);
+    }, [paramsLayout, mergedSchema, editors, methods, cards, paramValues, dropdowns, formProps, layoutFields]);
 
     const left = React.useMemo(() => paramsElement ?? <>
         {hasChildren && <Button {...testid(`${resultSet}.navigator.toggleButton`)} icon="pi pi-bars" className="mr-2" onClick={navigationToggle}/>}
@@ -421,7 +426,7 @@ const Explorer: ComponentProps = ({
         {details && <Button {...testid(`${resultSet}.details.toggleButton`)} icon="pi pi-bars" className="mr-2" onClick={detailsToggle}/>}
         {customizationToolbar}
     </>;
-    const layoutState = useLayout(mergedSchema, mergedCards, layout, editors, keyField, []);
+    const layoutState = useLayout(mergedSchema, mergedCards, layout, editors, keyField, layoutFields);
     const cardName = layout?.flat()[0];
     const itemTemplate = React.useMemo(() => item => {
         function renderItem() {
