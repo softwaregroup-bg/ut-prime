@@ -1,3 +1,12 @@
+# [2.41.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.40.1...v2.41.0) (2022-11-15)
+
+
+### Features
+
+* autocomplete columns ([cdb0145](https://github.com/softwaregroup-bg/ut-prime/commit/cdb0145471b593b28cd33c0c8d853b36d4dcfb1c))
+
+
+
 ## [2.40.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.40.0...v2.40.1) (2022-11-14)
 
 
