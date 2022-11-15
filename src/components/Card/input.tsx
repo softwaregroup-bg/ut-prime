@@ -195,6 +195,14 @@ export default function input(
         case 'autocomplete': {
             const handleSelect = event => field.onChange?.({...event, value: event.value});
             const handleClear = event => field.onChange?.({...event, value: {}});
+            const itemTemplate = item => Array.isArray(columns)
+                ? <div className='grid grid-nogutter'>{
+                    columns.map((column, index) => {
+                        const {name, className = undefined} = typeof column === 'string' ? {name: column} : column;
+                        return <div className={className || 'col'} key={index}>{item?.[name]}</div>;
+                    })
+                }</div>
+                : item?.label;
             const template = ({label}) => label;
             return <Field {...{label, error, inputClass}}>
                 <AutoComplete
@@ -207,7 +215,7 @@ export default function input(
                     onSelect={handleSelect}
                     onChange={event => field.onChange?.({...event, value: {value: event.value || null}})}
                     onClear={handleClear}
-                    itemTemplate={template}
+                    itemTemplate={itemTemplate}
                     selectedItemTemplate={template}
                     {...props}
                 />

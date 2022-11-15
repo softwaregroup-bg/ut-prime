@@ -30,11 +30,11 @@ const Template: Story<Props> = ({methods, ...args}) => {
                 async handleAutocomplete() {
                     return {
                         suggestions: [{
-                            value: 1, label: 'value 1'
+                            value: 1, label: 'value 1', status: 'active'
                         }, {
-                            value: 2, label: 'value 2'
+                            value: 2, label: 'value 2', status: 'pending'
                         }, {
-                            value: 3, label: 'value 3'
+                            value: 3, label: 'value 3', status: 'new'
                         }]
                     };
                 },

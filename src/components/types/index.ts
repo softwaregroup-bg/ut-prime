@@ -63,7 +63,7 @@ export interface PropertyEditor {
     optionsFilter?: Record<string, unknown>,
     method?: string,
     page?: string,
-    columns?: string,
+    columns?: string | string [] | {name: string, className?: string}[],
     widgets?: string[],
     dataKey?: string,
     change?: Record<string, unknown>,

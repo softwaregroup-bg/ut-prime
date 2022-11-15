@@ -34,6 +34,14 @@ const properties: Properties = {
         widget: {
             type: 'autocomplete',
             autocomplete: 'handleAutocomplete',
+            columns: [{
+                name: 'label',
+                className: 'col-8'
+            }, {
+                name: 'status',
+                className: 'col-4 text-green-500'
+            }],
+            panelStyle: {width: 400},
             minLength: 2,
             maxLength: 34,
             delay: 300
