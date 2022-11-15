@@ -28,14 +28,16 @@ const ThumbIndex: ComponentProps = ({
     trigger,
     loading,
     onFilter,
+    validate = () => ({}),
     ...rest
 }) => {
     const classes = useStyles();
     const [[selectedList, activeIndex], setList] = React.useState([items[0], 0]);
     const handleListChange = React.useCallback(({item, value = item, index = value.index}) => {
+        if (validate().error) return;
         setList([value, index]);
         onFilter([value?.items?.[0] || value, index]);
-    }, [onFilter]);
+    }, [onFilter, validate]);
     const model = React.useMemo(() => {
         const command = index => ({item}) => onFilter && onFilter([item, index]);
         const result = (selectedList?.items || []).map((item, index) => ({

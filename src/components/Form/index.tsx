@@ -6,6 +6,7 @@ import clonedeep from 'lodash.clonedeep';
 import { joiResolver } from '@hookform/resolvers/joi';
 import { DevTool } from '@hookform/devtools';
 import {createUseStyles} from 'react-jss';
+import Joi from 'joi';
 
 import { ComponentProps } from './Form.types';
 import { ConfigCard} from './DragDrop';
@@ -63,10 +64,11 @@ const Form: ComponentProps = ({
     value,
     dropdowns,
     validation,
+    setValidate,
     ...rest
 }) => {
     const classes = useStyles();
-    const [validationSchema, requiredProperties] = React.useMemo(() => getValidation(schema), [schema]);
+    const [validationSchema, requiredProperties] = React.useMemo<[Joi.Schema, string[]]>(() => getValidation(schema), [schema]);
     const resolver = React.useMemo(
         () => joiResolver(validation || validationSchema, {stripUnknown: true, abortEarly: false}),
         [validation, validationSchema]
@@ -84,10 +86,22 @@ const Form: ComponentProps = ({
         },
         watch,
         setError,
-        clearErrors
+        clearErrors,
+        getValues
     } = formApi;
     const errorFields = flat(errors);
     const layoutState = useLayout(schema, cards, layout, editors, undefined, layoutFields);
+
+    const validateCurrent = React.useCallback(() => {
+        const result = validationSchema.validate((({$original, ...values}) => values)(getValues()));
+        // TODO: respect layout visibleProperties and filter the errors
+        console.log(result);
+        return result;
+    }, [validationSchema, getValues]);
+
+    React.useEffect(() => {
+        setValidate && setValidate(() => validateCurrent);
+    }, [setValidate, validateCurrent]);
 
     const {handleSubmit, toast} = useSubmit(
         async(form, event) => {

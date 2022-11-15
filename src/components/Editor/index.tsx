@@ -76,6 +76,7 @@ const Editor: ComponentProps = ({
     const schema = (schemaCreate && keyValue == null) ? schemaCreate : schemaEdit;
 
     const [trigger, setTrigger] = React.useState();
+    const [validate, setValidate] = React.useState();
     const [didSubmit, setDidSubmit] = React.useState(false);
     const [value, setEditValue] = React.useState({});
     const [loadedValue, setLoadedValue] = React.useState<object>();
@@ -83,7 +84,7 @@ const Editor: ComponentProps = ({
     const [[mode, layoutState], setMode] = React.useState([id == null ? 'create' : 'edit' as 'create' | 'edit', layoutName]);
     const [loading, setLoading] = React.useState(loadingValue);
     const [customizationToolbar, mergedSchema, mergedCards, inspector, loadCustomization, items, orientation, thumbIndex, layout, formProps] =
-        useCustomization(designDefault, schema, cards, layouts, customization, mode, layoutState, Editor, undefined, onCustomization, methods, name, loading, trigger);
+        useCustomization(designDefault, schema, cards, layouts, customization, mode, layoutState, Editor, undefined, onCustomization, methods, name, loading, trigger, validate);
     name = name ? name + '.' : '';
     const {properties = empty} = mergedSchema;
 
@@ -230,6 +231,7 @@ const Editor: ComponentProps = ({
                         validation={validation}
                         toolbarRef={toolbarRef}
                         layoutFields={layoutFields}
+                        setValidate={setValidate}
                         {...formProps}
                     />
                     {inspector}

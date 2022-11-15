@@ -53,7 +53,8 @@ export default function useCustomization(
     methods,
     name,
     loading,
-    trigger
+    trigger,
+    validate
 ) {
     const [inspected, onInspect] = React.useState(null);
     const {customization: customizationEnabled} = React.useContext(Context);
@@ -349,7 +350,7 @@ export default function useCustomization(
         customizationResult?.component && setCustomization({schema: {}, card: {}, layout: {}, ...(customizationResult.component as {componentConfig?:object}).componentConfig});
     }, [customizationDefault, customizationEnabled, methods, name]);
 
-    const thumbIndex = items && <ThumbIndex name={name} items={items} orientation={orientation} type={indexType} onFilter={setFilter} trigger={trigger} loading={loading}/>;
+    const thumbIndex = items && <ThumbIndex name={name} items={items} orientation={orientation} type={indexType} onFilter={setFilter} trigger={trigger} loading={loading} validate={validate}/>;
 
     return [
         customizationToolbar,

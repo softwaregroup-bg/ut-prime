@@ -131,7 +131,7 @@ const Explorer: ComponentProps = ({
     const [loading, setLoading] = React.useState('');
     const [inspectorHeight, setInspectorHeight] = React.useState<{maxHeight: number}>();
     const [customizationToolbar, mergedSchema, mergedCards, inspector, loadCustomization, , , , , formProps] =
-        useCustomization(designDefault, schema, cards, layouts, customization, 'view', '', Editor, inspectorHeight, onCustomization, methods, name, loading, undefined);
+        useCustomization(designDefault, schema, cards, layouts, customization, 'view', '', Editor, inspectorHeight, onCustomization, methods, name, loading, undefined, undefined);
     const layoutProps = layouts?.[layoutName] || {};
     const columnsCard = ('columns' in layoutProps) ? layoutProps.columns : 'browse';
     const toolbarCard = ('toolbar' in layoutProps) ? layoutProps.toolbar : 'toolbarBrowse';
