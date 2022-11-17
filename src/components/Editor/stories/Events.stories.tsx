@@ -77,10 +77,25 @@ EventsFormAPI.args = {
             },
             discount: {
                 type: 'number',
-                widget: {onChange: 'handleDiscount'}
+                widget: {
+                    onChange: 'handleDiscount',
+                    enabled: '$.calc.positive'
+                }
             },
             bitmask: {
                 widget: {onChange: 'handleBitmask'}
+            },
+            input: {
+                widget: {
+                    visible: 'visible',
+                    enabled: 'enabled'
+                }
+            },
+            visible: {
+                type: 'boolean'
+            },
+            enabled: {
+                type: 'boolean'
             }
         }
     },
@@ -92,17 +107,24 @@ EventsFormAPI.args = {
                 'b',
                 'sum',
                 'discount',
-                'bitmask'
+                'bitmask',
+                'visible',
+                'enabled',
+                'input'
             ]
         }
     },
-    onGet: () => Promise.resolve({a: 0, b: 0, sum: 0}),
+    onGet: () => Promise.resolve({a: 0, b: 0, sum: 0, visible: true, enabled: true}),
     methods: {
         async handleA({form, value}) {
-            form.setValue('sum', Number(form.getValues('b')) + Number(value));
+            const sum = Number(form.getValues('b')) + Number(value);
+            form.setValue('sum', sum);
+            form.setValue('$.calc.positive', sum > 0);
         },
         async handleB({form, value}) {
-            form.setValue('sum', Number(form.getValues('a')) + Number(value));
+            const sum = Number(form.getValues('a')) + Number(value);
+            form.setValue('sum', sum);
+            form.setValue('$.calc.positive', sum > 0);
         },
         async handleDiscount({value, form}) {
             if (Number(value) < 0) throw new Error('Discount must be > 0'); // throwing means abort the edit and show error

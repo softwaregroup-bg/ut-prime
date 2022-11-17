@@ -148,7 +148,7 @@ export interface ActionItem extends MenuItem {
     enabled?: string | boolean;
     method?: string;
     action?: ActionHandler;
-    params?: object;
+    params?: string | object;
 }
 
 export type WidgetReference = string | {
