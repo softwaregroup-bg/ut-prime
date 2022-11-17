@@ -1,3 +1,12 @@
+# [2.42.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.41.0...v2.42.0) (2022-11-17)
+
+
+### Features
+
+* ActionButton menu ([5cd2e3f](https://github.com/softwaregroup-bg/ut-prime/commit/5cd2e3fda672ebac8e547388edf84f0e193e334e))
+
+
+
 # [2.41.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.40.1...v2.41.0) (2022-11-15)
 
 
