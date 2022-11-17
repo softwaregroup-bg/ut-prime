@@ -24,6 +24,5 @@ export { default as Portal } from './Portal';
 export { default as Report } from './Report';
 export { default as ScrollBox } from './ScrollBox';
 export { default as Store } from './Store';
-export { default as SubmitButton } from './SubmitButton';
 export { default as Text } from './Text';
 export { default as ThumbIndex } from './ThumbIndex';

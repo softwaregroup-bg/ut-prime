@@ -142,6 +142,15 @@ export type Selection = {
 }
 export type ActionHandler = ((item: Selection) => void) | string | {type: string}
 
+export interface ActionItem extends MenuItem {
+    items?: ActionItem[] | ActionItem[][];
+    permission?: string;
+    enabled?: string | boolean;
+    method?: string;
+    action?: ActionHandler;
+    params?: object;
+}
+
 export type WidgetReference = string | {
     name?: string,
     id?: string,
@@ -158,6 +167,7 @@ export type WidgetReference = string | {
     selectionPath?: string,
     propertyName?: string,
     actions?: object,
+    menu?: ActionItem[],
     widgets?: string[],
     hidden?: string[],
     compare?: string,

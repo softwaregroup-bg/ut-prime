@@ -7,7 +7,6 @@ import {createUseStyles} from 'react-jss';
 import Card from '../Card';
 import { Button, DataTable, DataView, Column, Toolbar, Splitter, SplitterPanel } from '../prime';
 import ActionButton from '../ActionButton';
-import SubmitButton from '../SubmitButton';
 import Component from '../Component';
 import useToggle from '../hooks/useToggle';
 import useSubmit from '../hooks/useSubmit';
@@ -205,7 +204,7 @@ const Explorer: ComponentProps = ({
     }, [methods, getValues]);
 
     const buttons = React.useMemo(() => (toolbar || []).map((widget, index) => {
-        const {title, action, method, params, enabled, disabled, permission} = (typeof widget === 'string') ? properties[widget].widget : widget;
+        const {title, action, method, params, enabled, disabled, permission, menu} = (typeof widget === 'string') ? properties[widget].widget : widget;
         const check = criteria => {
             if (typeof criteria?.validate === 'function') return !criteria.validate({current, selected}).error;
             if (typeof criteria !== 'string') return !!criteria;
@@ -222,23 +221,16 @@ const Explorer: ComponentProps = ({
                 : disabled != null
                     ? check(disabled)
                     : undefined;
-        return method ? <SubmitButton
+        return <ActionButton
             key={index}
             permission={permission}
             {...testid(`${permission ? (permission + 'Button') : ('button' + index)}`)}
             label={title}
-            method={method}
             submit={submit}
-            params={params}
-            disabled={isDisabled}
-            className="mr-2"
-        /> : <ActionButton
-            key={index}
-            permission={permission}
-            {...testid(`${permission ? (permission + 'Button') : ('button' + index)}`)}
-            label={title}
             action={action}
+            method={method}
             params={params}
+            menu={menu}
             getValues={getValues}
             disabled={isDisabled}
             className="mr-2"
@@ -373,6 +365,7 @@ const Explorer: ComponentProps = ({
                     label={row[field]}
                     className='p-button-link p-0'
                     action={action}
+                    submit={submit}
                     params={widget.params ?? property?.params}
                     getValues={() => ({
                         filter: externalFilter,
@@ -391,7 +384,7 @@ const Explorer: ComponentProps = ({
                 {...columnProps({index, card: columnsCard, name, widget: !isString && widget, property, dropdowns, tableFilter, filterBy, ...formProps})}
             />
         );
-    }), [columns, columnsCard, properties, showFilter, dropdowns, tableFilter, keyField, resultSet, formProps, externalFilter]);
+    }), [columns, columnsCard, properties, showFilter, dropdowns, tableFilter, keyField, resultSet, formProps, externalFilter, submit]);
     const hasChildren = !!children;
 
     const paramsElement = React.useMemo(() => {

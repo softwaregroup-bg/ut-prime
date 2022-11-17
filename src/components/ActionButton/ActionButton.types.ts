@@ -1,15 +1,18 @@
 import React from 'react';
 import type {ButtonProps} from '../prime';
 
-import type {ActionHandler, Selection} from '../types';
+import type {ActionHandler, Selection, ActionItem} from '../types';
 import type { Schema } from 'joi';
 
-export interface Props extends ButtonProps {
+interface Props extends ButtonProps {
     permission?: string;
     enabled?: string | boolean | Schema;
-    action: ActionHandler;
-    params?: object;
-    getValues: () => Selection;
+    action?: ActionHandler;
+    method?: string;
+    params?: string | object;
+    menu?: ActionItem[];
+    getValues?: () => Selection;
+    submit?: (event: unknown) => void;
 }
 
 export type ComponentProps = React.FC<Props>

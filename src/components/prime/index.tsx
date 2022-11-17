@@ -30,6 +30,7 @@ export { InputText } from 'primereact/inputtext';
 export { InputTextarea } from 'primereact/inputtextarea';
 export { ListBox } from 'primereact/listbox';
 export { Menubar } from 'primereact/menubar';
+export { Menu } from 'primereact/menu';
 export { PanelMenu } from 'primereact/panelmenu';
 export { Password } from 'primereact/password';
 export { ProgressBar } from 'primereact/progressbar';

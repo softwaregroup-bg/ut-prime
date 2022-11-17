@@ -134,7 +134,7 @@ const Template: Story<{
                             widgets: buttons || [{
                                 title: 'Create',
                                 permission: createPermission,
-                                action: () => {}
+                                action: show({action: 'create'})
                             }, {
                                 title: 'Edit',
                                 permission: editPermission,
@@ -145,6 +145,15 @@ const Template: Story<{
                                 permission: deletePermission,
                                 enabled: 'selected',
                                 action: show({action: 'delete'})
+                            }, {
+                                title: 'Review',
+                                menu: [{
+                                    action: show({action: 'reject'}),
+                                    label: 'Reject'
+                                }, {
+                                    action: show({action: 'approve'}),
+                                    label: 'Approve'
+                                }]
                             }]
                         }
                     }}
@@ -233,7 +242,7 @@ Submit.args = {
     ...Basic.args,
     buttons: [{
         title: 'Submit id',
-        enabled: 'single',
+        enabled: 'current',
         method: 'explorer.submit',
         params: '${id}'
     }, {

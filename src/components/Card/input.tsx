@@ -32,7 +32,6 @@ import testid from '../lib/testid';
 import Table from './inputs/Table';
 import Ocr from './inputs/Ocr';
 import ActionButton from '../ActionButton';
-import SubmitButton from '../SubmitButton';
 import Json from '../Json';
 import Component from '../Component';
 
@@ -96,14 +95,12 @@ export default function input(
         case 'button': return <ActionButton
             className={inputClass ?? 'mr-2'}
             label={label}
-            action=''
             {...props}
             getValues={getValues as Parameters<typeof ActionButton>[0]['getValues']}
         />;
-        case 'submit': return <SubmitButton
+        case 'submit': return <ActionButton
             className={inputClass ?? 'mr-2'}
             label={label}
-            method=''
             {...props}
             submit={submit}
         />;
@@ -273,7 +270,7 @@ export default function input(
                 inline
                 flex
                 itemClassName='col-3'
-                {...columns && {itemClassName: [undefined, 'w-12', 'w-6', 'w-4', 'w-3', undefined, 'w-2'][columns]}}
+                {...typeof columns === 'string' && {itemClassName: [undefined, 'w-12', 'w-6', 'w-4', 'w-3', undefined, 'w-2'][columns]}}
                 {...props}
             />
         </Field>;
