@@ -84,7 +84,15 @@ const Card: ComponentProps = ({
             labelClass = defaultLabelClass,
             onChange = onFieldChange,
             ...inputWidget
-        } = {id: name.replace(/\./g, '-') || widget.label, ...layoutState.index.properties[propertyName]?.widget, ...widget, parent};
+        } = {
+            id: name.replace(/\./g, '-') || widget.label,
+            ...layoutState.index.properties[propertyName]?.widget,
+            ...widget,
+            parent
+        };
+        if (typeof inputWidget.visible === 'string' && !formApi?.watch?.(inputWidget.visible)) return null;
+        if (typeof inputWidget.enabled === 'string') inputWidget.disabled = !formApi?.watch?.(inputWidget.enabled);
+        if (typeof inputWidget.disabled === 'string') inputWidget.disabled = !!formApi?.watch?.(inputWidget.disabled);
         if (!inputWidget.className) {
             const inputClassName = classes?.default?.input || classes?.[name]?.input;
             if (inputClassName) inputWidget.className = inputClassName;
