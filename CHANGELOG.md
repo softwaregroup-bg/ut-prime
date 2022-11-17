@@ -1,3 +1,13 @@
+# [2.43.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.42.0...v2.43.0) (2022-11-17)
+
+
+### Features
+
+* visible,disabled stories ([2cfa43a](https://github.com/softwaregroup-bg/ut-prime/commit/2cfa43afa5c7ee1078de8c338fa00751bf0fefa1))
+* widget visible,disabled based on form data ([f8b1154](https://github.com/softwaregroup-bg/ut-prime/commit/f8b1154bc167cbb63c74badf8f78e03450ad88d5))
+
+
+
 # [2.42.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.41.0...v2.42.0) (2022-11-17)
 
 
