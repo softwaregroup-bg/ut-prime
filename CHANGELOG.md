@@ -1,3 +1,12 @@
+# [2.44.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.43.0...v2.44.0) (2022-11-18)
+
+
+### Features
+
+* column dropdown filter ([e3ad58c](https://github.com/softwaregroup-bg/ut-prime/commit/e3ad58c02c9c10e0e78307256d8dff42fe942244))
+
+
+
 # [2.43.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.42.0...v2.43.0) (2022-11-17)
 
 
