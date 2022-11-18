@@ -27,6 +27,7 @@ function getLayout(cards: Cards, layouts: Layouts, mode: 'create' | 'edit', name
     let layout: string[];
     const orientation = items?.orientation;
     const type = items?.type;
+    const disableBack = items?.disableBack;
     if (orientation) items = items.items;
     if (typeof (items?.[0]?.[0] || items?.[0]) === 'string') {
         layout = items;
@@ -36,7 +37,7 @@ function getLayout(cards: Cards, layouts: Layouts, mode: 'create' | 'edit', name
     if (!cards[toolbar]) toolbar = `toolbar${capital(name)}`;
     if (!cards[toolbar]) toolbar = `toolbar${capital(mode)}`;
     if (!cards[toolbar]) toolbar = 'toolbar';
-    return [items, layout, type, orientation || 'left', toolbar, layoutName];
+    return [items, layout, type, orientation || 'left', toolbar, layoutName, disableBack || false];
 }
 
 export default function useCustomization(
@@ -54,7 +55,8 @@ export default function useCustomization(
     name,
     loading,
     trigger,
-    validate
+    validate,
+    formApi
 ) {
     const [inspected, onInspect] = React.useState(null);
     const {customization: customizationEnabled} = React.useContext(Context);
@@ -65,7 +67,7 @@ export default function useCustomization(
     const mergedLayouts = React.useMemo(() => merge({}, layouts, mergedCustomization.layout), [layouts, mergedCustomization.layout]);
     const [addField, setAddField] = React.useState(null);
     const [addCard, setAddCard] = React.useState(null);
-    const [items, layout, indexType, orientation, toolbar, currentLayoutName] = React.useMemo(
+    const [items, layout, indexType, orientation, toolbar, currentLayoutName, disableBack] = React.useMemo(
         () => getLayout(mergedCards, mergedLayouts, mode, layoutState),
         [mergedCards, mergedLayouts, mode, layoutState]
     );
@@ -350,7 +352,21 @@ export default function useCustomization(
         customizationResult?.component && setCustomization({schema: {}, card: {}, layout: {}, ...(customizationResult.component as {componentConfig?:object}).componentConfig});
     }, [customizationDefault, customizationEnabled, methods, name]);
 
-    const thumbIndex = items && <ThumbIndex name={name} items={items} orientation={orientation} type={indexType} onFilter={setFilter} trigger={trigger} loading={loading} validate={validate}/>;
+    const thumbIndex = items && (
+        <ThumbIndex
+            name={name}
+            items={items}
+            orientation={orientation}
+            type={indexType}
+            onFilter={setFilter}
+            trigger={trigger}
+            loading={loading}
+            validate={validate}
+            disableBack={disableBack}
+            methods={methods}
+            formApi={formApi}
+        />
+    );
 
     return [
         customizationToolbar,

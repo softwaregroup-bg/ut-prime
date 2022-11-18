@@ -3,10 +3,8 @@ import ReactDOM from 'react-dom';
 import clsx from 'clsx';
 import get from 'lodash.get';
 import clonedeep from 'lodash.clonedeep';
-import { joiResolver } from '@hookform/resolvers/joi';
 import { DevTool } from '@hookform/devtools';
 import {createUseStyles} from 'react-jss';
-import Joi from 'joi';
 
 import { ComponentProps } from './Form.types';
 import { ConfigCard} from './DragDrop';
@@ -16,7 +14,6 @@ import Card from '../Card';
 import useForm from '../hooks/useForm';
 import useSubmit from '../hooks/useSubmit';
 import useLayout from '../hooks/useLayout';
-import getValidation from './schema';
 
 const useStyles = createUseStyles({
     form: {
@@ -64,16 +61,12 @@ const Form: ComponentProps = ({
     value,
     dropdowns,
     validation,
-    setValidate,
+    setFormApi,
+    resolver,
+    isPropertyRequired,
     ...rest
 }) => {
     const classes = useStyles();
-    const [validationSchema, requiredProperties] = React.useMemo<[Joi.Schema, string[]]>(() => getValidation(schema), [schema]);
-    const resolver = React.useMemo(
-        () => joiResolver(validation || validationSchema, {stripUnknown: true, abortEarly: false}),
-        [validation, validationSchema]
-    );
-    const isPropertyRequired = React.useCallback((propertyName) => requiredProperties.includes(propertyName), [requiredProperties]);
     const formApi = useForm({resolver});
     const {
         handleSubmit: formSubmit,
@@ -86,22 +79,14 @@ const Form: ComponentProps = ({
         },
         watch,
         setError,
-        clearErrors,
-        getValues
+        clearErrors
     } = formApi;
     const errorFields = flat(errors);
     const layoutState = useLayout(schema, cards, layout, editors, undefined, layoutFields);
 
-    const validateCurrent = React.useCallback(() => {
-        const result = validationSchema.validate((({$original, ...values}) => values)(getValues()));
-        // TODO: respect layout visibleProperties and filter the errors
-        console.log(result);
-        return result;
-    }, [validationSchema, getValues]);
-
     React.useEffect(() => {
-        setValidate && setValidate(() => validateCurrent);
-    }, [setValidate, validateCurrent]);
+        setFormApi(formApi);
+    }, [setFormApi, formApi]);
 
     const {handleSubmit, toast} = useSubmit(
         async(form, event) => {

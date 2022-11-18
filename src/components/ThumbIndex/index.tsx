@@ -28,16 +28,20 @@ const ThumbIndex: ComponentProps = ({
     trigger,
     loading,
     onFilter,
-    validate = () => ({}),
+    validate,
+    disableBack,
+    methods,
+    formApi,
     ...rest
 }) => {
     const classes = useStyles();
     const [[selectedList, activeIndex], setList] = React.useState([items[0], 0]);
-    const handleListChange = React.useCallback(({item, value = item, index = value.index}) => {
-        if (validate().error) return;
+    const handleListChange = React.useCallback(async({item, value = item, index = value.index}) => {
+        if (validate && validate(selectedList)?.error) return;
+        if (value.onMount && !(await methods[value.onMount]({form: formApi}))) return;
         setList([value, index]);
         onFilter([value?.items?.[0] || value, index]);
-    }, [onFilter, validate]);
+    }, [onFilter, validate, selectedList, methods, formApi]);
     const model = React.useMemo(() => {
         const command = index => ({item}) => onFilter && onFilter([item, index]);
         const result = (selectedList?.items || []).map((item, index) => ({
@@ -71,8 +75,8 @@ const ThumbIndex: ComponentProps = ({
         [activeIndex, handleListChange, items]
     );
     const previous = React.useCallback(
-        event => activeIndex && handleListChange({item: items[activeIndex - 1], index: activeIndex - 1}),
-        [activeIndex, handleListChange, items]
+        event => !disableBack && activeIndex && handleListChange({item: items[activeIndex - 1], index: activeIndex - 1}),
+        [activeIndex, handleListChange, items, disableBack]
     );
 
     let tabs;

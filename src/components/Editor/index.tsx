@@ -1,20 +1,24 @@
-import React from 'react';
+import clsx from 'clsx';
+import Joi from 'joi';
 import lodashGet from 'lodash.get';
 import lodashSet from 'lodash.set';
+import React from 'react';
 import merge from 'ut-function.merge';
-import clsx from 'clsx';
 
-import { ComponentProps } from './Editor.types';
+import { joiResolver } from '@hookform/resolvers/joi';
+import type { UseFormReturn } from 'react-hook-form';
 
 import Form from '../Form';
-import {Toolbar, Button, ConfirmPopup, confirmPopup} from '../prime';
-import useLoad from '../hooks/useLoad';
+import getValidation from '../Form/schema';
 import ScrollBox from '../ScrollBox';
+import useCustomization from '../hooks/useCustomization';
+import useLoad from '../hooks/useLoad';
+import fieldNames from '../lib/fields';
 import prepareSubmit from '../lib/prepareSubmit';
 import testid from '../lib/testid';
-import fieldNames from '../lib/fields';
+import { Button, ConfirmPopup, Toolbar, confirmPopup } from '../prime';
 import type {Schema} from '../types';
-import useCustomization from '../hooks/useCustomization';
+import { ComponentProps } from './Editor.types';
 
 const backgroundNone = {background: 'none'};
 
@@ -76,7 +80,8 @@ const Editor: ComponentProps = ({
     const schema = (schemaCreate && keyValue == null) ? schemaCreate : schemaEdit;
 
     const [trigger, setTrigger] = React.useState();
-    const [validate, setValidate] = React.useState();
+    const [validate, setValidate] = React.useState<(selectedList: object) => object>();
+    const [formApi, setFormApi] = React.useState<UseFormReturn>();
     const [didSubmit, setDidSubmit] = React.useState(false);
     const [value, setEditValue] = React.useState({});
     const [loadedValue, setLoadedValue] = React.useState<object>();
@@ -84,7 +89,7 @@ const Editor: ComponentProps = ({
     const [[mode, layoutState], setMode] = React.useState([id == null ? 'create' : 'edit' as 'create' | 'edit', layoutName]);
     const [loading, setLoading] = React.useState(loadingValue);
     const [customizationToolbar, mergedSchema, mergedCards, inspector, loadCustomization, items, orientation, thumbIndex, layout, formProps] =
-        useCustomization(designDefault, schema, cards, layouts, customization, mode, layoutState, Editor, undefined, onCustomization, methods, name, loading, trigger, validate);
+        useCustomization(designDefault, schema, cards, layouts, customization, mode, layoutState, Editor, undefined, onCustomization, methods, name, loading, trigger, validate, formApi);
     name = name ? name + '.' : '';
     const {properties = empty} = mergedSchema;
 
@@ -102,6 +107,23 @@ const Editor: ComponentProps = ({
         };
         return [validation, dropdownNames, getValue, fields];
     }, [mergedCards, editors, items, layoutItems, mergedSchema]);
+
+    const [validationSchema, requiredProperties] = React.useMemo<[Joi.Schema, string[]]>(() => getValidation(schema), [schema]);
+    const resolver = React.useMemo(
+        () => joiResolver(validation || validationSchema, {stripUnknown: true, abortEarly: false}),
+        [validation, validationSchema]
+    );
+    const isPropertyRequired = React.useCallback((propertyName) => requiredProperties.includes(propertyName), [requiredProperties]);
+
+    React.useEffect(() => {
+        const validator = (selectedList) => {
+            // in the future here might be used validationSchema.validate with respect to the layout properties
+            if (!formApi || typeof selectedList?.validation?.validate !== 'function') return;
+            const result = selectedList?.validation?.validate((({$original, ...values}) => values)(formApi.getValues()));
+            return result;
+        };
+        setValidate(() => validator);
+    }, [formApi]);
 
     async function get() {
         setLoading(loadingValue);
@@ -232,6 +254,9 @@ const Editor: ComponentProps = ({
                         toolbarRef={toolbarRef}
                         layoutFields={layoutFields}
                         setValidate={setValidate}
+                        setFormApi={setFormApi}
+                        resolver={resolver}
+                        isPropertyRequired={isPropertyRequired}
                         {...formProps}
                     />
                     {inspector}

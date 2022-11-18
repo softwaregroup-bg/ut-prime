@@ -114,7 +114,8 @@ const Explorer: ComponentProps = ({
     layout: layoutName,
     cards,
     editors,
-    methods
+    methods,
+    fetchValidation = null
 }) => {
     const [trigger, setTrigger] = React.useState<() => void>();
     const [paramValues, submitParams] = React.useState<[Record<string, unknown>] | [Record<string, unknown>, {files: []}]>([params]);
@@ -131,7 +132,7 @@ const Explorer: ComponentProps = ({
     const [loading, setLoading] = React.useState('');
     const [inspectorHeight, setInspectorHeight] = React.useState<{maxHeight: number}>();
     const [customizationToolbar, mergedSchema, mergedCards, inspector, loadCustomization, , , , , formProps] =
-        useCustomization(designDefault, schema, cards, layouts, customization, 'view', '', Editor, inspectorHeight, onCustomization, methods, name, loading, undefined, undefined);
+        useCustomization(designDefault, schema, cards, layouts, customization, 'view', '', Editor, inspectorHeight, onCustomization, methods, name, loading, undefined, undefined, undefined);
     const layoutProps = layouts?.[layoutName] || {};
     const columnsCard = ('columns' in layoutProps) ? layoutProps.columns : 'browse';
     const toolbarCard = ('toolbar' in layoutProps) ? layoutProps.toolbar : 'toolbarBrowse';
@@ -253,7 +254,7 @@ const Explorer: ComponentProps = ({
             } else {
                 setLoading('loading');
                 try {
-                    const items = await fetch(prepareSubmit([merge(
+                    const fetchParams = prepareSubmit([merge(
                         {},
                         filter,
                         externalFilter,
@@ -272,7 +273,9 @@ const Explorer: ComponentProps = ({
                                 pageNumber: Math.floor(tableFilter.first / pageSize) + 1
                             }
                         }
-                    ), index]));
+                    ), index]);
+                    if (fetchValidation?.validate === 'function' && fetchValidation.validate(fetchParams)?.error) return;
+                    const items = await fetch(fetchParams);
                     const records = (resultSet ? items[resultSet] : items) as unknown[];
                     let total = items.pagination?.recordsTotal || items.pagination?.[0]?.recordsTotal;
                     if (total == null) {
@@ -286,7 +289,7 @@ const Explorer: ComponentProps = ({
                 }
             }
         },
-        [fetch, filter, index, pageSize, resultSet, tableFilter, externalFilter]
+        [fetch, filter, index, pageSize, resultSet, tableFilter, externalFilter, fetchValidation]
     );
     useLoad(async() => {
         if (onDropdown) setDropdown(await onDropdown(dropdownNames.split(',').filter(Boolean)));
