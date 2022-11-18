@@ -115,7 +115,7 @@ const Explorer: ComponentProps = ({
     cards,
     editors,
     methods,
-    fetchValidation = null
+    fetchValidation
 }) => {
     const [trigger, setTrigger] = React.useState<() => void>();
     const [paramValues, submitParams] = React.useState<[Record<string, unknown>] | [Record<string, unknown>, {files: []}]>([params]);

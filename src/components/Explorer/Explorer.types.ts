@@ -1,4 +1,5 @@
 import React from 'react';
+import Joi from 'joi';
 import { DataTableProps, DataViewProps } from '../prime';
 
 import type {Schema, Cards, Editors, Dropdowns, WidgetReference, Layouts} from '../types';
@@ -77,7 +78,8 @@ export interface Props {
     onFieldChange?: string,
     value?: unknown,
     onChange?: (params: object) => void,
-    onCustomization?: (customization: {component: {componentId: string, componentConfig: Customization}}) => Promise<object>,
+    onCustomization?: (customization: {component: {componentId: string, componentConfig: Customization}}) => Promise<object>;
+    fetchValidation?: Joi.Schema
 }
 
 export type ComponentProps = React.FC<Props>
