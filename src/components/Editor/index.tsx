@@ -119,7 +119,7 @@ const Editor: ComponentProps = ({
         const validator = (selectedList) => {
             // in the future here might be used validationSchema.validate with respect to the layout properties
             if (!formApi || typeof selectedList?.validation?.validate !== 'function') return;
-            const result = selectedList?.validation?.validate((({$original, ...values}) => values)(formApi.getValues()));
+            const result = selectedList?.validation?.validate(formApi.getValues());
             return result;
         };
         setValidate(() => validator);
