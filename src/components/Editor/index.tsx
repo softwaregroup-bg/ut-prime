@@ -253,7 +253,6 @@ const Editor: ComponentProps = ({
                         validation={validation}
                         toolbarRef={toolbarRef}
                         layoutFields={layoutFields}
-                        setValidate={setValidate}
                         setFormApi={setFormApi}
                         resolver={resolver}
                         isPropertyRequired={isPropertyRequired}

@@ -85,7 +85,7 @@ const Form: ComponentProps = ({
     const layoutState = useLayout(schema, cards, layout, editors, undefined, layoutFields);
 
     React.useEffect(() => {
-        setFormApi(formApi);
+        setFormApi && setFormApi(formApi);
     }, [setFormApi, formApi]);
 
     const {handleSubmit, toast} = useSubmit(

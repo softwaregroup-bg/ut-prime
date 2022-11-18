@@ -52,8 +52,7 @@ exports[`<Form /> InputBG render equals snapshot 1`] = `
                         class="p-inputtext p-component p-filled w-full"
                         id="input-input"
                         name="input.input"
-                        type="text"
-                        value="input"
+                        value="i"
                       />
                     </div>
                   </div>
@@ -1072,7 +1071,7 @@ exports[`<Form /> InputBG render equals snapshot 1`] = `
                           data-scrollselectors=".p-datatable-wrapper"
                           data-testid="input-table"
                           id="input-table"
-                          pr_id_5=""
+                          pr_id_23=""
                         >
                           <div
                             class="p-datatable-wrapper"
@@ -1317,7 +1316,7 @@ exports[`<Form /> InputBG render equals snapshot 1`] = `
                         data-scrollselectors=".p-datatable-wrapper"
                         data-testid="input-selectTable"
                         id="input-selectTable"
-                        pr_id_6=""
+                        pr_id_24=""
                       >
                         <div
                           class="p-datatable-wrapper"
@@ -1706,7 +1705,7 @@ exports[`<Form /> InputBG render equals snapshot 1`] = `
                         data-scrollselectors=".p-datatable-wrapper"
                         data-testid="input-selectTableWithFlags"
                         id="input-selectTableWithFlags"
-                        pr_id_7=""
+                        pr_id_25=""
                       >
                         <div
                           class="p-datatable-wrapper"
