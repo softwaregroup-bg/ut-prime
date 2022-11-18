@@ -64,6 +64,7 @@ export default function columnProps({
     inspected,
     onInspect,
     move,
+    getValues,
     toolbar
 }: {
     resultSet: string,
@@ -79,11 +80,12 @@ export default function columnProps({
     design?: boolean,
     inspected?: unknown,
     onInspect?: unknown,
+    getValues?: (fieldName: string) => unknown,
     move?: undefined,
     toolbar?: undefined
 }) {
     const resultSetDot = resultSet ? resultSet + '.' : '';
-    const { type, dropdown, parent, column, lookup, compare, download, basePath, ...props } = widget || property?.widget || { name };
+    const { type, dropdown, parent, column, lookup, compare, download, basePath, optionsFilter, ...props } = widget || property?.widget || { name };
     const fieldName = name.split('.').pop();
     let filterElement, body, editor, bodyClassName, alignHeader;
     const filterId = `${resultSetDot}${name}Filter`;
@@ -118,7 +120,7 @@ export default function columnProps({
         case 'dropdown':
             filterElement = filterBy && <Dropdown
                 className='w-full'
-                options={dropdowns?.[dropdown] || []}
+                options={dropdowns?.[dropdown]?.filter(filterBy) || []}
                 value={tableFilter?.filters?.[fieldName]?.value}
                 onChange={filterBy(fieldName, 'value')}
                 showClear
@@ -289,6 +291,8 @@ export default function columnProps({
             const widget = p.rowData?.$pivot?.[fieldName]?.widget || p.rowData?.$pivot?.widget;
             const inputName = `${resultSet}[${p.rowData[KEY]}].${fieldName}`;
             const inputId = `${resultSet}-${p.rowData[KEY]}-${fieldName}`;
+            const parentValue = parent && getValues?.(parent);
+            const filterBy = item => (!parent && !optionsFilter) || !getValues || Object.entries({...optionsFilter, parent: parentValue}).every(([name, value]) => String(item[name]) === String(value));
             switch (widget?.type || type || property?.format || getType(property?.type)) {
                 case 'file':
                     return <FileUpload
@@ -351,7 +355,7 @@ export default function columnProps({
                 case 'dropdown':
                     return <Dropdown
                         className='w-full'
-                        options={dropdowns?.[dropdown] || []}
+                        options={dropdowns?.[dropdown]?.filter(filterBy) || []}
                         value={p.rowData[fieldName]}
                         onChange={event => {
                             if (lookup) {
@@ -374,7 +378,7 @@ export default function columnProps({
                 case 'multiSelect':
                     return <MultiSelect
                         className='w-full'
-                        options={dropdowns?.[dropdown] || []}
+                        options={dropdowns?.[dropdown]?.filter(filterBy) || []}
                         value={p.rowData[fieldName]}
                         onChange={event => {
                             if (property?.body) {
@@ -393,7 +397,7 @@ export default function columnProps({
                 case 'select':
                     return <SelectButton
                         className='w-full white-space-nowrap'
-                        options={dropdowns?.[dropdown] || []}
+                        options={dropdowns?.[dropdown]?.filter(filterBy) || []}
                         value={props?.split ? p.rowData[fieldName]?.split(props.split).filter(Boolean) : p.rowData[fieldName]}
                         onChange={event => p.editorCallback(props?.split ? event.value.join(props.split) || null : event.value)}
                         id={inputId}

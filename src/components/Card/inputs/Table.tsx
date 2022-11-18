@@ -285,6 +285,7 @@ export default React.forwardRef<object, any>(function Table({
                         return (<Column
                             key={name}
                             {...columnProps({
+                                getValues,
                                 resultSet,
                                 index,
                                 name,
