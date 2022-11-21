@@ -1,3 +1,12 @@
+## [2.44.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.44.0...v2.44.1) (2022-11-21)
+
+
+### Bug Fixes
+
+* ActionButton permissions ([9596622](https://github.com/softwaregroup-bg/ut-prime/commit/9596622cb5594584918dd05dce0be1511cc7ae43))
+
+
+
 # [2.44.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.43.0...v2.44.0) (2022-11-18)
 
 
