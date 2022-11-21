@@ -1,9 +1,10 @@
 import React from 'react';
-import {useDispatch} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import {useHistory} from 'react-router-dom';
 
 import {Button, Menu} from '../prime';
-import template from '../lib/menuTemplate';
+import filterMenu from '../lib/filterMenu';
+import {State} from '../Store/Store.types';
 
 import {ComponentProps} from './ActionButton.types';
 
@@ -11,6 +12,7 @@ const ActionButton: ComponentProps = ({getValues, action, method, params, menu, 
     const menuRef = React.useRef(null);
     const dispatch = useDispatch();
     const history = useHistory();
+    const permissions = useSelector(({login}: State) => login).result?.['permission.get'] || false;
     const perform = React.useCallback((event, performMethod, performAction, performParams) => {
         if (performMethod) {
             event.method = performMethod;
@@ -29,13 +31,13 @@ const ActionButton: ComponentProps = ({getValues, action, method, params, menu, 
         event.preventDefault();
         perform(event, method, action, params);
     }, [method, action, params, perform]);
-    const model = React.useMemo(() => menu?.map(item => ({
-        ...item,
-        template,
-        command(event) {
-            perform(event, item.method, item.action, item.params);
-        }
-    })), [menu, perform]);
+    const model = React.useMemo(() => filterMenu(
+        permissions,
+        event => {
+            perform(event, event.item.method, event.item.action, event.item.params);
+        },
+        menu
+    ), [perform, menu, permissions]);
     return model ? <>
         <Menu popup model={model} ref={menuRef}/>
         <Button onClick={event => menuRef.current.toggle(event)} {...props} icon="pi pi-angle-down" iconPos="right" />

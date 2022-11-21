@@ -2,7 +2,8 @@ import React from 'react';
 
 import { Ripple } from '../prime';
 import Text from '../Text';
-import testid from '../lib/testid';
+import testid from './testid';
+import permissionCheck from './permission';
 
 const template = (item, {onClick, onKeyDown, className, iconClassName, labelClassName, submenuIconClassName}) => (
     <a
@@ -22,4 +23,16 @@ const template = (item, {onClick, onKeyDown, className, iconClassName, labelClas
     </a>
 );
 
-export default template;
+const filterMenu = (permissions, command, items) => items
+    ?.filter(Boolean)
+    .filter(permissions ? permissionCheck(permissions) : Boolean)
+    .map(({title, items, ...item}) => ({
+        ...(item.path || item.id) && {template},
+        title,
+        label: title,
+        ...items ? {items: filterMenu(permissions, command, items)} : {command},
+        ...item
+    }))
+    .filter(item => item?.items?.length || item.component || item.action);
+
+export default filterMenu;

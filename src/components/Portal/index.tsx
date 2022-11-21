@@ -7,11 +7,10 @@ import {ErrorBoundary} from 'react-error-boundary';
 
 import type { Theme } from '../Theme';
 import { Menubar, TabView, TabPanel } from '../prime';
-import template from '../lib/menuTemplate';
+import filterMenu from '../lib/filterMenu';
 import Context from '../Context';
 import Text from '../Text';
 import {logout} from '../Login/actions';
-import permissionCheck from '../lib/permission';
 import {State} from '../Store/Store.types';
 
 import { useStyles, ComponentProps } from './Portal.types';
@@ -28,18 +27,6 @@ function ErrorFallback({error}) {
         </div>
     );
 }
-
-const filterMenu = (permissions, command, items) => items
-    .filter(Boolean)
-    .filter(permissions ? permissionCheck(permissions) : Boolean)
-    .map(({title, items, ...item}) => ({
-        ...(item.path || item.id) && {template},
-        title,
-        label: title,
-        ...items ? {items: filterMenu(permissions, command, items)} : {command},
-        ...item
-    }))
-    .filter(item => item?.items?.length || item.component || item.action);
 
 const Portal: ComponentProps = ({ children }) => {
     const classes = useStyles();

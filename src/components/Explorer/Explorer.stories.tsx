@@ -153,6 +153,14 @@ const Template: Story<{
                                 }, {
                                     action: show({action: 'approve'}),
                                     label: 'Approve'
+                                }, {
+                                    action: show({action: 'granted'}),
+                                    permission: 'granted',
+                                    label: 'Granted'
+                                }, {
+                                    action: show({action: 'forbidden'}),
+                                    permission: 'forbidden',
+                                    label: 'Forbidden'
                                 }]
                             }]
                         }
