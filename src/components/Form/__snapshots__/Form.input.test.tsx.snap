@@ -689,6 +689,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                               tabindex="0"
                             >
                               <input
+                                accept="image/*"
                                 type="file"
                               />
                               <span
@@ -706,6 +707,9 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                           >
                             <div>
                               <div />
+                            </div>
+                            <div>
+                              No picture...
                             </div>
                           </div>
                         </div>

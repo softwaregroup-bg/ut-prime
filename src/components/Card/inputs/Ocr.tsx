@@ -4,7 +4,7 @@ import corePath from 'tesseract.js-core/tesseract-core.wasm.js';
 import workerPath from 'tesseract.js/dist/worker.min.js';
 import path from 'path';
 
-import {FileUpload, ProgressBar, type FileUploadProps} from '../../prime';
+import {FileUpload, Image, ProgressBar, type FileUploadProps} from '../../prime';
 
 let worker;
 
@@ -17,6 +17,7 @@ export interface Props {
         flags?: string
     },
     value?: unknown,
+    basePath?: string;
     className: FileUploadProps['className'],
     setValue: (name: string, value: unknown) => void,
     onSelect: FileUploadProps['onSelect']
@@ -54,14 +55,6 @@ async function recognize(event, {threshold, language = 'eng', match, flags = 'ms
     }
 }
 
-const itemTemplate = (file, props) => {
-    return (
-        <div className="flex align-items-center flex-wrap">
-            <img alt={file.name} role="presentation" src={file.objectURL} className='w-full' />
-        </div>
-    );
-};
-
 const headerTemplate = ({className, style, chooseButton}) => <div className={className} style={style}>{chooseButton}</div>;
 
 const Ocr = React.forwardRef<ProgressBar, Props>(function Ocr({ocr, onSelect, setValue, className, value, ...props}, ref) {
@@ -73,13 +66,40 @@ const Ocr = React.forwardRef<ProgressBar, Props>(function Ocr({ocr, onSelect, se
         }).catch(console.error); // eslint-disable-line no-console
         return onSelect?.(event);
     }, [ocr, onSelect, setValue, setProgress]);
+
+    let src = null;
+    if (Array.isArray(value)) {
+        src = value?.[0]?.objectURL;
+    } else if (value) {
+        src = (props.basePath || '') + value;
+    }
+
     return <div className={className}>
         <FileUpload
             mode='advanced'
-            itemTemplate={itemTemplate}
             headerTemplate={headerTemplate}
             {...props}
             onSelect={handleSelect}
+            accept='image/*'
+            multiple={false}
+            itemTemplate={() => {
+                return (
+                    <Image
+                        imageClassName='w-full'
+                        preview
+                        src={src}
+                        {...(({basePath, ...rest}) => rest)(props)}
+                    />
+                );
+            }}
+            emptyTemplate={() => {
+                return src ? <Image
+                    imageClassName='w-full'
+                    preview
+                    src={src}
+                    {...(({basePath, ...rest}) => rest)(props)}
+                /> : <div>No picture...</div>;
+            }}
         />
         {(progress < 100 && progress > 0) ? <ProgressBar value={progress} className='absolute bottom-0 left-50 right-0' ref={ref}/> : null}
     </div>;
