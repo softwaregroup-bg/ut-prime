@@ -1,6 +1,11 @@
 import React from 'react';
 import merge from 'ut-function.merge';
 import clsx from 'clsx';
+import lodashGet from 'lodash.get';
+import lodashSet from 'lodash.set';
+import { joiResolver } from '@hookform/resolvers/joi';
+import getValidation from '../Form/schema';
+import fieldNames from '../lib/fields';
 
 import useToggle from './useToggle';
 
@@ -12,6 +17,7 @@ import Context from '../Context';
 import {ConfigField, ConfigCard, useDragging} from '../Form/DragDrop';
 import {Button} from '../prime';
 import testid from '../lib/testid';
+import useForm from '../hooks/useForm';
 import type {Cards, Layouts} from '../types';
 
 const capital = (string: string) => string.charAt(0).toUpperCase() + string.slice(1);
@@ -56,7 +62,7 @@ export default function useCustomization(
     loading,
     trigger,
     validate,
-    formApi
+    editors
 ) {
     const [inspected, onInspect] = React.useState(null);
     const {customization: customizationEnabled} = React.useContext(Context);
@@ -352,6 +358,30 @@ export default function useCustomization(
         customizationResult?.component && setCustomization({schema: {}, card: {}, layout: {}, ...(customizationResult.component as {componentConfig?:object}).componentConfig});
     }, [customizationDefault, customizationEnabled, methods, name]);
 
+    const layoutItems = items ? false : layout; // preserve memoization
+    const [validation, dropdownNames, getValue, layoutFields] = React.useMemo(() => {
+        const indexCards = items && items.map(item => [item.widgets, item?.items?.map(item => item.widgets)]).flat(2).filter(Boolean);
+        const {fields, validation, dropdownNames} = fieldNames(indexCards || layoutItems || [], mergedCards, mergedSchema, editors);
+        const getValue = (value) => {
+            const editValue = {};
+            fields.forEach(field => {
+                const fieldValue = lodashGet(value, field);
+                if (fieldValue !== undefined) lodashSet(editValue, field, fieldValue);
+            });
+            return editValue;
+        };
+        return [validation, dropdownNames, getValue, fields];
+    }, [mergedCards, editors, items, layoutItems, mergedSchema]);
+
+    const [resolver, isPropertyRequired] = React.useMemo(() => {
+        const [validationSchema, requiredProperties] = getValidation(mergedSchema);
+        return [
+            joiResolver(validation || validationSchema, {stripUnknown: true, abortEarly: false}),
+            propertyName => requiredProperties.includes(propertyName)
+        ];
+    }, [validation, mergedSchema]);
+    const formApi = useForm({resolver});
+
     const thumbIndex = items && (
         <ThumbIndex
             name={name}
@@ -374,10 +404,14 @@ export default function useCustomization(
         mergedCards,
         inspector,
         loadCustomization,
-        items,
         orientation,
         thumbIndex,
         layout || filter?.widgets,
-        React.useMemo(() => ({move, inspected, onInspect, toolbar, design, designCards: design}), [move, inspected, onInspect, toolbar, design])
+        React.useMemo(() => ({move, inspected, onInspect, toolbar, design, designCards: design}), [move, inspected, onInspect, toolbar, design]),
+        dropdownNames,
+        getValue,
+        layoutFields,
+        formApi,
+        isPropertyRequired
     ];
 }

@@ -1,19 +1,12 @@
 import clsx from 'clsx';
-import Joi from 'joi';
 import lodashGet from 'lodash.get';
-import lodashSet from 'lodash.set';
 import React from 'react';
 import merge from 'ut-function.merge';
 
-import { joiResolver } from '@hookform/resolvers/joi';
-import type { UseFormReturn } from 'react-hook-form';
-
 import Form from '../Form';
-import getValidation from '../Form/schema';
 import ScrollBox from '../ScrollBox';
 import useCustomization from '../hooks/useCustomization';
 import useLoad from '../hooks/useLoad';
-import fieldNames from '../lib/fields';
 import prepareSubmit from '../lib/prepareSubmit';
 import testid from '../lib/testid';
 import { Button, ConfirmPopup, Toolbar, confirmPopup } from '../prime';
@@ -81,39 +74,47 @@ const Editor: ComponentProps = ({
 
     const [trigger, setTrigger] = React.useState();
     const [validate, setValidate] = React.useState<(selectedList: object) => object>();
-    const [formApi, setFormApi] = React.useState<UseFormReturn>();
     const [didSubmit, setDidSubmit] = React.useState(false);
     const [value, setEditValue] = React.useState({});
     const [loadedValue, setLoadedValue] = React.useState<object>();
     const [dropdowns, setDropdown] = React.useState({});
     const [[mode, layoutState], setMode] = React.useState([id == null ? 'create' : 'edit' as 'create' | 'edit', layoutName]);
     const [loading, setLoading] = React.useState(loadingValue);
-    const [customizationToolbar, mergedSchema, mergedCards, inspector, loadCustomization, items, orientation, thumbIndex, layout, formProps] =
-        useCustomization(designDefault, schema, cards, layouts, customization, mode, layoutState, Editor, undefined, onCustomization, methods, name, loading, trigger, validate, formApi);
+    const [
+        customizationToolbar,
+        mergedSchema,
+        mergedCards,
+        inspector,
+        loadCustomization,
+        orientation,
+        thumbIndex,
+        layout,
+        formProps,
+        dropdownNames,
+        getValue,
+        layoutFields,
+        formApi,
+        isPropertyRequired
+    ] = useCustomization(
+        designDefault,
+        schema,
+        cards,
+        layouts,
+        customization,
+        mode,
+        layoutState,
+        Editor,
+        undefined,
+        onCustomization,
+        methods,
+        name,
+        loading,
+        trigger,
+        validate,
+        editors
+    );
     name = name ? name + '.' : '';
     const {properties = empty} = mergedSchema;
-
-    const layoutItems = items ? false : layout; // preserve memoization
-    const [validation, dropdownNames, getValue, layoutFields] = React.useMemo(() => {
-        const indexCards = items && items.map(item => [item.widgets, item?.items?.map(item => item.widgets)]).flat(2).filter(Boolean);
-        const {fields, validation, dropdownNames} = fieldNames(indexCards || layoutItems || [], mergedCards, mergedSchema, editors);
-        const getValue = (value) => {
-            const editValue = {};
-            fields.forEach(field => {
-                const fieldValue = lodashGet(value, field);
-                if (fieldValue !== undefined) lodashSet(editValue, field, fieldValue);
-            });
-            return editValue;
-        };
-        return [validation, dropdownNames, getValue, fields];
-    }, [mergedCards, editors, items, layoutItems, mergedSchema]);
-
-    const [validationSchema, requiredProperties] = React.useMemo<[Joi.Schema, string[]]>(() => getValidation(schema), [schema]);
-    const resolver = React.useMemo(
-        () => joiResolver(validation || validationSchema, {stripUnknown: true, abortEarly: false}),
-        [validation, validationSchema]
-    );
-    const isPropertyRequired = React.useCallback((propertyName) => requiredProperties.includes(propertyName), [requiredProperties]);
 
     React.useEffect(() => {
         const validator = (selectedList) => {
@@ -250,11 +251,9 @@ const Editor: ComponentProps = ({
                         dropdowns={dropdowns}
                         loading={loading}
                         setTrigger={setTrigger}
-                        validation={validation}
                         toolbarRef={toolbarRef}
                         layoutFields={layoutFields}
-                        setFormApi={setFormApi}
-                        resolver={resolver}
+                        formApi={formApi}
                         isPropertyRequired={isPropertyRequired}
                         {...formProps}
                     />

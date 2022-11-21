@@ -131,9 +131,40 @@ const Explorer: ComponentProps = ({
 
     const [loading, setLoading] = React.useState('');
     const [inspectorHeight, setInspectorHeight] = React.useState<{maxHeight: number}>();
-    const [customizationToolbar, mergedSchema, mergedCards, inspector, loadCustomization, , , , , formProps] =
-        useCustomization(designDefault, schema, cards, layouts, customization, 'view', '', Editor, inspectorHeight, onCustomization, methods, name, loading, undefined, undefined, undefined);
-    const layoutProps = layouts?.[layoutName] || {};
+    const [
+        customizationToolbar,
+        mergedSchema,
+        mergedCards,
+        inspector,
+        loadCustomization,
+        ,
+        ,
+        ,
+        formProps,
+        ,
+        ,
+        ,
+        formApi,
+        isPropertyRequired
+    ] = useCustomization(
+        designDefault,
+        schema,
+        cards,
+        layouts,
+        customization,
+        'view',
+        '',
+        Editor,
+        inspectorHeight,
+        onCustomization,
+        methods,
+        name,
+        loading,
+        undefined,
+        undefined,
+        editors
+    );
+    const layoutProps = layouts?.[layoutName] || {toolbar: undefined};
     const columnsCard = ('columns' in layoutProps) ? layoutProps.columns : 'browse';
     const toolbarCard = ('toolbar' in layoutProps) ? layoutProps.toolbar : 'toolbarBrowse';
     const layout = ('layout' in layoutProps) ? layoutProps.layout : empty;
@@ -274,7 +305,7 @@ const Explorer: ComponentProps = ({
                             }
                         }
                     ), index]);
-                    if (fetchValidation?.validate === 'function' && fetchValidation.validate(fetchParams)?.error) return;
+                    if (typeof fetchValidation?.validate === 'function' && fetchValidation.validate(fetchParams)?.error) return;
                     const items = await fetch(fetchParams);
                     const records = (resultSet ? items[resultSet] : items) as unknown[];
                     let total = items.pagination?.recordsTotal || items.pagination?.[0]?.recordsTotal;
@@ -412,13 +443,15 @@ const Explorer: ComponentProps = ({
                 dropdowns={dropdowns}
                 setTrigger={setTrigger}
                 layoutFields={layoutFields}
+                formApi={formApi}
+                isPropertyRequired={isPropertyRequired}
                 triggerNotDirty
                 autoSubmit
                 {...formProps}
                 designCards={false}
             />
         </div>;
-    }, [paramsLayout, mergedSchema, editors, methods, cards, paramValues, dropdowns, formProps, layoutFields]);
+    }, [paramsLayout, mergedSchema, editors, methods, cards, paramValues, dropdowns, formProps, layoutFields, formApi, isPropertyRequired]);
 
     const left = React.useMemo(() => paramsElement ?? <>
         {hasChildren && <Button {...testid(`${resultSet}.navigator.toggleButton`)} icon="pi pi-bars" className="mr-2" onClick={navigationToggle}/>}

@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Schema as Validation } from 'joi';
-import type { UseFormReturn, Resolver } from 'react-hook-form';
+import type { UseFormReturn } from 'react-hook-form';
 
 import {Schema, Editors, Cards, Dropdowns} from '../types';
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
@@ -35,8 +35,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
         source: object,
         destination: object
     ) => void;
-    setFormApi?: (formApi: UseFormReturn) => void;
-    resolver: Resolver;
+    formApi?: UseFormReturn;
     isPropertyRequired?: (propertyName: string) => boolean
 }
 

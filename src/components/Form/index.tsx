@@ -11,7 +11,6 @@ import { ConfigCard} from './DragDrop';
 import Context from '../Context';
 import Card from '../Card';
 
-import useForm from '../hooks/useForm';
 import useSubmit from '../hooks/useSubmit';
 import useLayout from '../hooks/useLayout';
 
@@ -61,13 +60,11 @@ const Form: ComponentProps = ({
     value,
     dropdowns,
     validation,
-    setFormApi,
-    resolver,
+    formApi,
     isPropertyRequired,
     ...rest
 }) => {
     const classes = useStyles();
-    const formApi = useForm({resolver});
     const {
         handleSubmit: formSubmit,
         control,
@@ -83,10 +80,6 @@ const Form: ComponentProps = ({
     } = formApi;
     const errorFields = flat(errors);
     const layoutState = useLayout(schema, cards, layout, editors, undefined, layoutFields);
-
-    React.useEffect(() => {
-        setFormApi && setFormApi(formApi);
-    }, [setFormApi, formApi]);
 
     const {handleSubmit, toast} = useSubmit(
         async(form, event) => {
