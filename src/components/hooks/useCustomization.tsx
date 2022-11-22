@@ -382,7 +382,7 @@ export default function useCustomization(
     const formApi = useForm({resolver});
 
     const validate = React.useCallback(selectedList => {
-        if (formApi && typeof selectedList?.validation?.validate !== 'function') {
+        if (formApi && typeof selectedList?.validation?.validate === 'function') {
             return selectedList.validation.validate(formApi.getValues());
         }
     }, [formApi]);
