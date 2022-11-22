@@ -1,3 +1,12 @@
+# [2.45.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.44.3...v2.45.0) (2022-11-22)
+
+
+### Features
+
+* explorer validation, thumbindex validate, onMount and disableBack ([#20](https://github.com/softwaregroup-bg/ut-prime/issues/20)) ([dd19bec](https://github.com/softwaregroup-bg/ut-prime/commit/dd19becd5533d6d47d29600906f373e574d78bea))
+
+
+
 ## [2.44.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.44.2...v2.44.3) (2022-11-22)
 
 
