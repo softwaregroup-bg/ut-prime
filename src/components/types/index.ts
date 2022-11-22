@@ -206,7 +206,7 @@ interface Index extends MenuItem {
     orientation?: 'left' | 'top';
     type?: 'tabs' | 'thumbs' | 'steps';
     items?: IndexItem[];
-    disableBack: boolean;
+    disableBack?: boolean;
 }
 
 export type Layout = (WidgetReference | WidgetReference[])[];

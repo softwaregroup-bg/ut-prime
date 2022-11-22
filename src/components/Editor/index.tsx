@@ -73,7 +73,6 @@ const Editor: ComponentProps = ({
     const schema = (schemaCreate && keyValue == null) ? schemaCreate : schemaEdit;
 
     const [trigger, setTrigger] = React.useState();
-    const [validate, setValidate] = React.useState<(selectedList: object) => object>();
     const [didSubmit, setDidSubmit] = React.useState(false);
     const [value, setEditValue] = React.useState({});
     const [loadedValue, setLoadedValue] = React.useState<object>();
@@ -110,21 +109,10 @@ const Editor: ComponentProps = ({
         name,
         loading,
         trigger,
-        validate,
         editors
     );
     name = name ? name + '.' : '';
     const {properties = empty} = mergedSchema;
-
-    React.useEffect(() => {
-        const validator = (selectedList) => {
-            // in the future here might be used validationSchema.validate with respect to the layout properties
-            if (!formApi || typeof selectedList?.validation?.validate !== 'function') return;
-            const result = selectedList?.validation?.validate(formApi.getValues());
-            return result;
-        };
-        setValidate(() => validator);
-    }, [formApi]);
 
     async function get() {
         setLoading(loadingValue);

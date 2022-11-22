@@ -61,7 +61,6 @@ export default function useCustomization(
     name,
     loading,
     trigger,
-    validate,
     editors
 ) {
     const [inspected, onInspect] = React.useState(null);
@@ -381,6 +380,12 @@ export default function useCustomization(
         ];
     }, [validation, mergedSchema]);
     const formApi = useForm({resolver});
+
+    const validate = React.useCallback(selectedList => {
+        if (formApi && typeof selectedList?.validation?.validate !== 'function') {
+            return selectedList.validation.validate(formApi.getValues());
+        }
+    }, [formApi]);
 
     const thumbIndex = items && (
         <ThumbIndex

@@ -161,7 +161,6 @@ const Explorer: ComponentProps = ({
         name,
         loading,
         undefined,
-        undefined,
         editors
     );
     const layoutProps = layouts?.[layoutName] || {toolbar: undefined};
