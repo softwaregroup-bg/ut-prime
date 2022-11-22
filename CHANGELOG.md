@@ -1,3 +1,12 @@
+## [2.44.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.44.2...v2.44.3) (2022-11-22)
+
+
+### Bug Fixes
+
+* Explorer link text overflow ([961d287](https://github.com/softwaregroup-bg/ut-prime/commit/961d28789de8ca7f276c1dc637bedc7b048f36a2))
+
+
+
 ## [2.44.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.44.1...v2.44.2) (2022-11-21)
 
 
