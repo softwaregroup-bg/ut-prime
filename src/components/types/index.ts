@@ -204,6 +204,8 @@ interface IndexItem extends MenuItem {
     id?: string;
     items?: IndexItem[];
     widgets?: (string | string[] | MenuItem)[];
+    onMount?: string;
+    validation?: Joi.Schema | ((value: any) => Joi.ValidationResult);
 }
 
 interface IndexItemId extends IndexItem {
@@ -214,6 +216,7 @@ interface Index extends MenuItem {
     orientation?: 'left' | 'top';
     type?: 'tabs' | 'thumbs' | 'steps';
     items?: IndexItem[];
+    disableBack?: boolean;
 }
 
 export type Layout = (WidgetReference | WidgetReference[])[];

@@ -9,6 +9,7 @@ import tree from '../test/tree';
 import document from '../test/document';
 import decorators from '../test/decorator';
 import useToast from '../hooks/useToast';
+import joi from 'joi';
 
 const meta: Meta = {
     title: 'Editor',
@@ -115,6 +116,11 @@ Steps.args = {
             items: [{
                 id: 'general',
                 label: 'General',
+                validation: joi.object({
+                    tree: joi.object({
+                        habitat: joi.array().min(1)
+                    }).unknown()
+                }).unknown(),
                 widgets: ['edit', 'habitat']
             }, {
                 id: 'details',

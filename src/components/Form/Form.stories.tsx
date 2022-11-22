@@ -9,6 +9,7 @@ import tree from '../test/tree';
 import {input, dropdowns} from '../test/input';
 import decorators from '../test/decorator';
 import {middleware} from '../Text/Text.mock';
+import useForm from '../hooks/useForm';
 
 const meta: Meta = {
     title: 'Form',
@@ -26,10 +27,12 @@ declare type StoryTemplate = Story<Partial<Props>> & {
     play: (context: {canvasElement: HTMLElement}) => Promise<void>
 }
 
-const Template: Story<Props> = args =>
-    <div className='flex' style={{overflowX: 'hidden', width: '100%'}}>
-        <Form {...args} />
+const Template: Story<Props> = args => {
+    const formApi = useForm();
+    return <div className='flex' style={{overflowX: 'hidden', width: '100%'}}>
+        <Form formApi={formApi} {...args} />
     </div>;
+};
 
 export const Basic: StoryTemplate = Template.bind({});
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import type { MenuItem } from 'primereact/menuitem';
+import type { UseFormReturn } from 'react-hook-form';
 
 interface Item extends MenuItem {
     id?: string;
@@ -10,11 +11,15 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     className?: string;
     name?: string;
     items: Item[];
-    orientation?: 'left' | 'top',
-    type?: 'steps' | 'tabs' | 'thumbs',
-    loading?: boolean,
-    trigger?: React.MouseEventHandler,
-    onFilter: (filter: unknown) => void
+    orientation?: 'left' | 'top';
+    type?: 'steps' | 'tabs' | 'thumbs';
+    loading?: boolean;
+    trigger?: React.MouseEventHandler;
+    onFilter: (filter: unknown) => void;
+    validate?: (selectedList: object) => {error?: object, values: object};
+    disableBack?: boolean;
+    methods?: object;
+    formApi?: UseFormReturn
 }
 
 export type ComponentProps = React.FC<Props>

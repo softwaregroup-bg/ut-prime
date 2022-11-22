@@ -41,6 +41,8 @@ const useStyles = createUseStyles({
     }
 });
 
+const notRequired = () => false;
+
 const Card: ComponentProps = ({
     cardName,
     index1 = 0,
@@ -61,7 +63,7 @@ const Card: ComponentProps = ({
     inspected,
     onInspect,
     onFieldChange,
-    isPropertyRequired = () => false,
+    isPropertyRequired = notRequired,
     classNames
 }) => {
     const classes = useStyles();

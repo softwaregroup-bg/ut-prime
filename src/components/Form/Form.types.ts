@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Schema as Validation } from 'joi';
+import type { UseFormReturn } from 'react-hook-form';
 
 import {Schema, Editors, Cards, Dropdowns} from '../types';
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
@@ -33,7 +34,9 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
         type: 'card' | 'field',
         source: object,
         destination: object
-    ) => void,
+    ) => void;
+    formApi?: UseFormReturn;
+    isPropertyRequired?: (propertyName: string) => boolean
 }
 
 export type ComponentProps = React.FC<Props>

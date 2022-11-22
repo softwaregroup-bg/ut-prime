@@ -1,20 +1,17 @@
-import React from 'react';
-import lodashGet from 'lodash.get';
-import lodashSet from 'lodash.set';
-import merge from 'ut-function.merge';
 import clsx from 'clsx';
-
-import { ComponentProps } from './Editor.types';
+import lodashGet from 'lodash.get';
+import React from 'react';
+import merge from 'ut-function.merge';
 
 import Form from '../Form';
-import {Toolbar, Button, ConfirmPopup, confirmPopup} from '../prime';
-import useLoad from '../hooks/useLoad';
 import ScrollBox from '../ScrollBox';
+import useCustomization from '../hooks/useCustomization';
+import useLoad from '../hooks/useLoad';
 import prepareSubmit from '../lib/prepareSubmit';
 import testid from '../lib/testid';
-import fieldNames from '../lib/fields';
+import { Button, ConfirmPopup, Toolbar, confirmPopup } from '../prime';
 import type {Schema} from '../types';
-import useCustomization from '../hooks/useCustomization';
+import { ComponentProps } from './Editor.types';
 
 const backgroundNone = {background: 'none'};
 
@@ -82,25 +79,40 @@ const Editor: ComponentProps = ({
     const [dropdowns, setDropdown] = React.useState({});
     const [[mode, layoutState], setMode] = React.useState([id == null ? 'create' : 'edit' as 'create' | 'edit', layoutName]);
     const [loading, setLoading] = React.useState(loadingValue);
-    const [customizationToolbar, mergedSchema, mergedCards, inspector, loadCustomization, items, orientation, thumbIndex, layout, formProps] =
-        useCustomization(designDefault, schema, cards, layouts, customization, mode, layoutState, Editor, undefined, onCustomization, methods, name, loading, trigger);
+    const [
+        customizationToolbar,
+        mergedSchema,
+        mergedCards,
+        inspector,
+        loadCustomization,
+        orientation,
+        thumbIndex,
+        layout,
+        formProps,
+        dropdownNames,
+        getValue,
+        layoutFields,
+        formApi,
+        isPropertyRequired
+    ] = useCustomization(
+        designDefault,
+        schema,
+        cards,
+        layouts,
+        customization,
+        mode,
+        layoutState,
+        Editor,
+        undefined,
+        onCustomization,
+        methods,
+        name,
+        loading,
+        trigger,
+        editors
+    );
     name = name ? name + '.' : '';
     const {properties = empty} = mergedSchema;
-
-    const layoutItems = items ? false : layout; // preserve memoization
-    const [validation, dropdownNames, getValue, layoutFields] = React.useMemo(() => {
-        const indexCards = items && items.map(item => [item.widgets, item?.items?.map(item => item.widgets)]).flat(2).filter(Boolean);
-        const {fields, validation, dropdownNames} = fieldNames(indexCards || layoutItems || [], mergedCards, mergedSchema, editors);
-        const getValue = (value) => {
-            const editValue = {};
-            fields.forEach(field => {
-                const fieldValue = lodashGet(value, field);
-                if (fieldValue !== undefined) lodashSet(editValue, field, fieldValue);
-            });
-            return editValue;
-        };
-        return [validation, dropdownNames, getValue, fields];
-    }, [mergedCards, editors, items, layoutItems, mergedSchema]);
 
     async function get() {
         setLoading(loadingValue);
@@ -227,9 +239,10 @@ const Editor: ComponentProps = ({
                         dropdowns={dropdowns}
                         loading={loading}
                         setTrigger={setTrigger}
-                        validation={validation}
                         toolbarRef={toolbarRef}
                         layoutFields={layoutFields}
+                        formApi={formApi}
+                        isPropertyRequired={isPropertyRequired}
                         {...formProps}
                     />
                     {inspector}

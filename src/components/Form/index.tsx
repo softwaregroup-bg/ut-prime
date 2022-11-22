@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import clsx from 'clsx';
 import get from 'lodash.get';
 import clonedeep from 'lodash.clonedeep';
-import { joiResolver } from '@hookform/resolvers/joi';
 import { DevTool } from '@hookform/devtools';
 import {createUseStyles} from 'react-jss';
 
@@ -12,10 +11,8 @@ import { ConfigCard} from './DragDrop';
 import Context from '../Context';
 import Card from '../Card';
 
-import useForm from '../hooks/useForm';
 import useSubmit from '../hooks/useSubmit';
 import useLayout from '../hooks/useLayout';
-import getValidation from './schema';
 
 const useStyles = createUseStyles({
     form: {
@@ -63,16 +60,11 @@ const Form: ComponentProps = ({
     value,
     dropdowns,
     validation,
+    formApi,
+    isPropertyRequired,
     ...rest
 }) => {
     const classes = useStyles();
-    const [validationSchema, requiredProperties] = React.useMemo(() => getValidation(schema), [schema]);
-    const resolver = React.useMemo(
-        () => joiResolver(validation || validationSchema, {stripUnknown: true, abortEarly: false}),
-        [validation, validationSchema]
-    );
-    const isPropertyRequired = React.useCallback((propertyName) => requiredProperties.includes(propertyName), [requiredProperties]);
-    const formApi = useForm({resolver});
     const {
         handleSubmit: formSubmit,
         control,
