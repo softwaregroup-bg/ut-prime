@@ -37,7 +37,12 @@ const useStyles = createUseStyles({
             padding: 0
         },
         '& .p-datatable-tbody .p-button': {
+            maxWidth: '100%',
             width: 'fit-content'
+        },
+        '& .p-datatable-tbody .p-button .p-button-label': {
+            overflow: 'hidden',
+            textOverflow: 'ellipsis'
         },
         '& .p-datatable-wrapper': {
             overflowX: 'auto',
