@@ -8,6 +8,7 @@ import Form from '../Form';
 import {Schema, PropertyEditor} from '../types';
 import {Toolbar, Button} from '../prime';
 import useToast from '../hooks/useToast';
+import useForm from '../hooks/useForm';
 import decorators from '../test/decorator';
 import ScrollBox from '../ScrollBox';
 
@@ -159,6 +160,7 @@ export const Basic: React.FC = () => {
     const [filter, setFilter] = React.useState(items?.[0]?.items?.[0]);
     const [trigger, setTrigger] = React.useState<(event: object) => void>();
     const {toast, submit} = useToast(sticky);
+    const formApi = useForm();
     return (
         <>
             {toast}
@@ -173,6 +175,7 @@ export const Basic: React.FC = () => {
                         onSubmit={submit}
                         setTrigger={setTrigger}
                         value={data}
+                        formApi={formApi}
                     />
                 </ScrollBox>
             </div>
