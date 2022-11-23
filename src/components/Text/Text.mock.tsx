@@ -82,6 +82,33 @@ const translations = {
         Flag1=Флаг1
         Flag2=Флаг2
         Radio=Радио
+
+        Current=Текущ
+        Previous=Предишен
+        Diff=Разлики
+        General Info=Обща информация
+        First name=Собствено име
+        Last name=Фамилия
+        National id=ЕГН
+        Gender=Пол
+        User Classification=Класификация
+        Phone model=Модел телефон
+        Computer model=Модел компютър
+        Business Unit=Организация
+        Business Unit Type=Тип организация
+        Lock Status=Статус заключване
+        Addresses=Адреси
+        Phone Numbers=Телефони
+        Assigned Roles=Роли
+        Credentials=Пароли
+        Set Username=Потребителско име
+        Access Policy Status=Статус достъп
+        Override User Access Policy=Политика за достъп
+        External Credentials=Външни пароли
+        External System=Външна система
+        User Type=Тип потребител
+        Username=Потребителско име
+        Documents=Документи
     `),
     ar: parse(`
         Dashboard=لوحة القيادة
@@ -152,6 +179,33 @@ const translations = {
         Create=خلق
         Size=بحجم
         Navigation component=مكون التنقل
+
+        Current=تيار
+        Previous=سابق
+        Diff=الفارق
+        General Info=معلومات عامة
+        First name=الاسم الاول
+        Last name=اللقب
+        National id=الهوية الوطنية
+        Gender=جنس
+        User Classification=تصنيف المستخدم
+        Phone model=طراز الهاتف
+        Computer model=طراز الكمبيوتر
+        Business Unit=وحدة عمل
+        Business Unit Type=نوع وحدة الأعمال
+        Lock Status=حالة القفل
+        Addresses=عناوين
+        Phone Numbers=أرقام الهواتف
+        Assigned Roles=الأدوار المعينة
+        Credentials=أوراق اعتماد
+        Set Username=تعيين اسم المستخدم
+        Access Policy Status=الوصول إلى حالة السياسة
+        Override User Access Policy=تجاوز نهج وصول المستخدم
+        External Credentials=أوراق الاعتماد الخارجية
+        External System=النظام الخارجي
+        User Type=نوع المستخدم
+        Username=اسم المستخدم
+        Documents=وثائق
     `)
 };
 /* spell-checker: enable */

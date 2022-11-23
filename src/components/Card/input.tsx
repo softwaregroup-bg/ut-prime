@@ -144,6 +144,7 @@ export default function input(
             <Json
                 {...field}
                 value={field.value || ''}
+                {...parentField && {previous: parentValue}}
                 {...props}
             />
         </Field>;

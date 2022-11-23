@@ -10,17 +10,16 @@ const useStyles = createUseStyles({
     json: {
         '& tr td:first-child': {
             width: 1,
+            whiteSpace: 'pre'
+        },
+        '& tr td': {
             whiteSpace: 'nowrap'
         }
     },
     unchanged: {color: 'var(--primary-color)'},
     changed: {color: 'var(--primary-color)'},
     deleted: {color: 'var(--red-500)'},
-    added: {color: 'var(--green-500)'},
-    spaces: {
-        whiteSpace: 'pre-wrap',
-        display: 'inline-block'
-    }
+    added: {color: 'var(--green-500)'}
 });
 
 const convert = keyValue => {
@@ -65,7 +64,7 @@ const Json: ComponentProps = ({
         const textValue = <span className={clsx('ml-2', className)}><Text>{value}</Text></span>;
         return noLabel ? textValue : isNaN(idx) ? <>
             <td>
-                {line.level > 1 && <span className={classes.spaces}>{' '.repeat((line.level - 1) * 2)}</span>}
+                {line.level > 1 && <span>{' '.repeat((line.level - 1) * 2)}</span>}
                 <span className={clsx(isTitle && 'text-xl font-bold')}>
                     <Text>{String(key)}</Text>
                 </span>
@@ -77,7 +76,7 @@ const Json: ComponentProps = ({
             </td>
         </> : <>
             <td>
-                {line.level > 1 && <span className={classes.spaces}>{' '.repeat((line.level - 1) * 2)}</span>}
+                {line.level > 1 && <span>{' '.repeat((line.level - 1) * 2)}</span>}
                 <span>{`[${key}]`}</span>
             </td>
             <td>

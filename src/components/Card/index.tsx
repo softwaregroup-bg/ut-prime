@@ -80,7 +80,6 @@ const Card: ComponentProps = ({
     }) {
         widget.parent = widget.parent || name.match(/^\$\.edit\.[^.]+/)?.[0].replace('.edit.', '.selected.') || widget?.selectionPath;
         const parent = widget.parent || layoutState.index.properties[propertyName]?.widget?.parent;
-        const parentWatch = parent && formApi?.watch?.(parent);
         const {
             fieldClass = null,
             labelClass = defaultLabelClass,
@@ -99,83 +98,86 @@ const Card: ComponentProps = ({
             const inputClassName = classes?.default?.input || classes?.[name]?.input;
             if (inputClassName) inputWidget.className = inputClassName;
         }
-        const render = ({field, fieldState}) => input(
-            Label && <Label name={propertyName} className={labelClass} label={widget.label} isRequired={isPropertyRequired(propertyName)}/>,
-            ErrorLabel && <ErrorLabel name={propertyName} className={labelClass} />,
-            {
-                className: clsx({'w-full': !['boolean'].includes(inputWidget.type)}, { 'p-invalid': fieldState.error }),
-                ...field,
-                onChange: async(event: {value: unknown, originalEvent: unknown}, {select = false, field: changeField = true, children = true} = {}) => {
-                    if (onChange && methods) {
-                        try {
-                            if (await methods[onChange]({
-                                field,
-                                value: event.value,
-                                event: event.originalEvent,
-                                form: formApi
-                            }) === false) return;
-                        } catch (error) {
-                            formApi.setError(field.name, {message: error.message});
-                            return;
+        const render = ({field, fieldState}) => {
+            const parentWatch = parent && formApi?.watch?.(parent);
+            return input(
+                Label && <Label name={propertyName} className={labelClass} label={widget.label} isRequired={isPropertyRequired(propertyName)}/>,
+                ErrorLabel && <ErrorLabel name={propertyName} className={labelClass} />,
+                {
+                    className: clsx({'w-full': !['boolean'].includes(inputWidget.type)}, { 'p-invalid': fieldState.error }),
+                    ...field,
+                    onChange: async(event: {value: unknown, originalEvent: unknown}, {select = false, field: changeField = true, children = true} = {}) => {
+                        if (onChange && methods) {
+                            try {
+                                if (await methods[onChange]({
+                                    field,
+                                    value: event.value,
+                                    event: event.originalEvent,
+                                    form: formApi
+                                }) === false) return;
+                            } catch (error) {
+                                formApi.setError(field.name, {message: error.message});
+                                return;
+                            }
                         }
-                    }
-                    if (select) {
-                        const prefix = `$.edit.${propertyName}.`;
-                        const selectionPrefix = widget?.selectionPath || '$.selected';
-                        formApi?.setValue?.(
+                        if (select) {
+                            const prefix = `$.edit.${propertyName}.`;
+                            const selectionPrefix = widget?.selectionPath || '$.selected';
+                            formApi?.setValue?.(
                             `${selectionPrefix}.${propertyName}`,
                             event?.value,
                             selectionPrefix.startsWith('$.') ? {shouldDirty: false, shouldTouch: false} : {shouldDirty: true, shouldTouch: true}
-                        );
-                        layoutState.visibleProperties.forEach(property => {
-                            if (property.startsWith(prefix)) {
-                                formApi?.setValue?.(
-                                    property,
-                                    event?.value?.[property.substr(prefix.length)],
-                                    {shouldDirty: false, shouldTouch: false}
-                                );
+                            );
+                            layoutState.visibleProperties.forEach(property => {
+                                if (property.startsWith(prefix)) {
+                                    formApi?.setValue?.(
+                                        property,
+                                        event?.value?.[property.substr(prefix.length)],
+                                        {shouldDirty: false, shouldTouch: false}
+                                    );
+                                }
+                            });
+                        }
+                        try {
+                            if (children) {
+                                const items = layoutState.index.children[propertyName];
+                                if (items) {
+                                    items.forEach(child => {
+                                        let childValue = null;
+                                        const autocompleteProp = child.split('.').pop();
+                                        const autocomplete = (event as {value?: Record<string, unknown>})?.value?.[autocompleteProp];
+                                        if (layoutState.index.properties[propertyName]?.widget?.type === 'autocomplete' && autocomplete) childValue = autocomplete;
+                                        formApi?.setValue?.(child, childValue);
+                                    });
+                                }
                             }
-                        });
-                    }
-                    try {
-                        if (children) {
-                            const items = layoutState.index.children[propertyName];
-                            if (items) {
-                                items.forEach(child => {
-                                    let childValue = null;
-                                    const autocompleteProp = child.split('.').pop();
-                                    const autocomplete = (event as {value?: Record<string, unknown>})?.value?.[autocompleteProp];
-                                    if (layoutState.index.properties[propertyName]?.widget?.type === 'autocomplete' && autocomplete) childValue = autocomplete;
-                                    formApi?.setValue?.(child, childValue);
-                                });
+                        } finally {
+                            if (changeField) {
+                                field.onChange(event.value);
+                                if (parentWatch?.[CHANGE] && name.startsWith('$.edit.')) {
+                                    const old = {...parentWatch};
+                                    parentWatch[name.split('.').pop()] = event?.value;
+                                    parentWatch[CHANGE]({data: old, newData: parentWatch});
+                                }
                             }
                         }
-                    } finally {
-                        if (changeField) {
-                            field.onChange(event.value);
-                            if (parentWatch?.[CHANGE] && name.startsWith('$.edit.')) {
-                                const old = {...parentWatch};
-                                parentWatch[name.split('.').pop()] = event?.value;
-                                parentWatch[CHANGE]({data: old, newData: parentWatch});
-                            }
-                        }
                     }
-                }
-            },
-            getFieldClass(layoutState.index, classes, propertyName, fieldClass),
-            inputWidget.className,
-            inputWidget,
-            layoutState.index.properties[propertyName],
-            dropdowns,
-            parentWatch,
-            loading,
-            formApi?.getValues,
-            formApi?.setValue,
-            counter,
-            methods,
-            submit,
-            !formApi?.getValues && 'label'
-        );
+                },
+                getFieldClass(layoutState.index, classes, propertyName, fieldClass),
+                inputWidget.className,
+                inputWidget,
+                layoutState.index.properties[propertyName],
+                dropdowns,
+                parentWatch,
+                loading,
+                formApi?.getValues,
+                formApi?.setValue,
+                counter,
+                methods,
+                submit,
+                !formApi?.getValues && 'label'
+            );
+        };
         return (name && formApi?.control) ? <Controller
             control={formApi.control}
             name={name}

@@ -172,6 +172,7 @@ export type WidgetReference = string | {
     hidden?: string[],
     compare?: string,
     filter?: object,
+    parent?: string,
     disabled?: 'current' | 'selected' | 'single' | boolean | Joi.Schema,
     enabled?: 'current' | 'selected' | 'single' | boolean | Joi.Schema
 }
