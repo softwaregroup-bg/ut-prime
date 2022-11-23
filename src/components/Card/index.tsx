@@ -92,6 +92,7 @@ const Card: ComponentProps = ({
             parent
         };
         if (typeof inputWidget.visible === 'string' && !formApi?.watch?.(inputWidget.visible)) return null;
+        if ('visible' in inputWidget && !inputWidget.visible) return null;
         if (typeof inputWidget.enabled === 'string') inputWidget.disabled = !formApi?.watch?.(inputWidget.enabled);
         if (typeof inputWidget.disabled === 'string') inputWidget.disabled = !!formApi?.watch?.(inputWidget.disabled);
         if (!inputWidget.className) {

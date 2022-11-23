@@ -187,20 +187,22 @@ const Explorer: ComponentProps = ({
         first: 0,
         page: 1
     });
+    const multiSelect = keyField && (!tableProps?.selectionMode || tableProps?.selectionMode === 'checkbox');
     const handleFilterPageSort = React.useCallback(event => setFilters(prev => ({...prev, ...event})), []);
 
-    const [selectedState, setSelected] = React.useState(null);
-    const handleSelectionChange = React.useCallback(e => setSelected(e.value), []);
+    const [{current: currentState, selected: selectedState}, setCurrentSelected] = React.useState({current: null, selected: null});
+    const handleCurrentSelect = React.useCallback((value, event) => {
+        setCurrentSelected(({...prev}) => {
+            if ('current' in value) prev.current = value.current;
+            if ('selected' in value) prev.selected = value.selected;
+            if (event) onChange?.({...event, value: multiSelect ? prev : prev.current});
+            return prev;
+        });
+    }, [setCurrentSelected, multiSelect, onChange]);
 
-    const [currentState, setCurrent] = React.useState(null);
-    const handleRowSelect = React.useCallback(e => {
-        onChange?.({...e, value: e.data});
-        setCurrent(e.data);
-    }, [onChange]);
-    const handleRowUnselect = React.useCallback(e => {
-        onChange?.({...e, value: e.data});
-        setCurrent(null);
-    }, [onChange]);
+    const handleSelectionChange = React.useCallback(e => handleCurrentSelect({selected: e.value}, e), [handleCurrentSelect]);
+    const handleRowSelect = React.useCallback(e => handleCurrentSelect({current: e.data}, e), [handleCurrentSelect]);
+    const handleRowUnselect = React.useCallback(e => handleCurrentSelect({current: null}, e), [handleCurrentSelect]);
     const rowClass = React.useCallback(
         (data: object) => currentState && (data?.[keyField] === currentState?.[keyField]) ? classes.current : undefined,
         [currentState, classes, keyField]
@@ -210,8 +212,9 @@ const Explorer: ComponentProps = ({
     const [detailsOpened, detailsToggle] = useToggle(true);
 
     const [[items, totalRecords, result], setItems] = React.useState([[], 0, {}]);
-    const found = (onChange && keyField && value?.[keyField] && items?.find(item => item[keyField] === value?.[keyField]));
-    const [current, selected] = found ? [found, [found]] : [currentState, selectedState];
+    const keys = onChange && keyField && (multiSelect ? value?.selected?.map(item => item[keyField]) : [value?.[keyField]]);
+    const found = keys && items?.filter(item => keys.includes(item[keyField]));
+    const [current, selected] = found ? [found[0], found] : [currentState, selectedState];
 
     const [dropdowns, setDropdown] = React.useState({});
 
@@ -232,8 +235,9 @@ const Explorer: ComponentProps = ({
     const getValues = React.useMemo(() => () => ({
         id: current && current[keyField],
         current,
-        selected
-    }), [current, keyField, selected]);
+        selected,
+        filter: externalFilter
+    }), [current, keyField, selected, externalFilter]);
 
     const submit = React.useCallback(async({method, params}) => {
         await methods[method](prepareSubmit([getValues(), {}, {method, params}]));
@@ -528,7 +532,7 @@ const Explorer: ComponentProps = ({
                 onRowUnselect={handleRowUnselect}
                 {...tableProps}
             >
-                {keyField && (!tableProps?.selectionMode || tableProps?.selectionMode === 'checkbox') && <Column selectionMode="multiple" className='flex-grow-0'/>}
+                {multiSelect && <Column selectionMode="multiple" className='flex-grow-0'/>}
                 {Columns}
             </DataTable>}
         </div>

@@ -46,9 +46,6 @@ PortalComponent.args = {
                             columns: 'basic'
                         }
                     }}
-                    table={{
-                        selectionMode: 'single'
-                    }}
                     layout='basic'
                     {...props}
                 />;
@@ -58,6 +55,13 @@ PortalComponent.args = {
     onGet: () => Promise.resolve({
         explorer: {
             id: 3
+        },
+        multiselect: {
+            selected: [{
+                id: 3
+            }, {
+                id: 5
+            }]
         }
     }),
     onDropdown: names => Promise.resolve({}),
@@ -66,14 +70,29 @@ PortalComponent.args = {
             explorer: {
                 widget: {
                     type: 'page',
+                    page: 'portal.explorer',
+                    table: {
+                        selectionMode: 'single'
+                    }
+                }
+            },
+            multiselect: {
+                widget: {
+                    type: 'page',
                     page: 'portal.explorer'
                 }
             }
         }
     },
     cards: {
-        edit: {
+        explorer: {
             widgets: ['explorer']
+        },
+        multiselect: {
+            widgets: ['multiselect']
         }
+    },
+    layouts: {
+        edit: ['explorer', 'multiselect']
     }
 };
