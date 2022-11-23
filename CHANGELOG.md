@@ -1,3 +1,12 @@
+# [2.46.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.45.0...v2.46.0) (2022-11-23)
+
+
+### Features
+
+* json diff in forms ([3147137](https://github.com/softwaregroup-bg/ut-prime/commit/31471371f1d795c74268457319ea0a72c6ffa82f))
+
+
+
 # [2.45.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.44.3...v2.45.0) (2022-11-22)
 
 
