@@ -38,6 +38,7 @@ const ActionButton: ComponentProps = ({getValues, action, method, params, menu, 
         },
         menu
     ), [perform, menu, permissions]);
+    if (model && !model.length) return null; // no permissions
     return model ? <>
         <Menu popup model={model} ref={menuRef}/>
         <Button onClick={event => menuRef.current.toggle(event)} {...props} icon="pi pi-angle-down" iconPos="right" />

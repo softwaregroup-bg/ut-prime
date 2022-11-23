@@ -162,6 +162,13 @@ const Template: Story<{
                                     permission: 'forbidden',
                                     label: 'Forbidden'
                                 }]
+                            }, {
+                                title: 'Forbidden',
+                                menu: [{
+                                    action: show({action: 'forbidden'}),
+                                    permission: 'forbidden',
+                                    label: 'Forbidden'
+                                }]
                             }]
                         }
                     }}
