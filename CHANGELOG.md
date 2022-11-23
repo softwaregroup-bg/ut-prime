@@ -1,3 +1,13 @@
+## [2.46.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.46.0...v2.46.1) (2022-11-23)
+
+
+### Bug Fixes
+
+* Explorer form widget multiselect ([896c719](https://github.com/softwaregroup-bg/ut-prime/commit/896c719936711cb9ce316d8caf3d74a380caa086))
+* hide ActionButton with empty menu ([96c48dc](https://github.com/softwaregroup-bg/ut-prime/commit/96c48dc7dbfa0bf85a2f626e3eb9db5fadc1dd0c))
+
+
+
 # [2.46.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.45.0...v2.46.0) (2022-11-23)
 
 
