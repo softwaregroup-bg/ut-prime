@@ -10,6 +10,7 @@ import { DataTable as PrimeDataTable } from 'primereact/datatable';
 import React from 'react';
 import Text from '../Text';
 import Permission from '../Permission';
+import {confirmPopup} from 'primereact/confirmpopup';
 
 export { Calendar } from 'primereact/calendar';
 export { CascadeSelect } from 'primereact/cascadeselect';
@@ -82,9 +83,16 @@ export const DateRange = React.forwardRef<HTMLInputElement, CalendarProps>(funct
 export const Card = ({title, ...props}: CardProps) =>
     <PrimeCard title={title && <Text>{title}</Text>} {...props}/>;
 
-export type ButtonProps = PrimeButtonProps & Partial<Pick<Parameters<typeof Permission>[0], 'permission'>>
-export const Button = ({children, permission, ...props}: ButtonProps) => {
-    const button = <PrimeButton {...props}>{children && <span className='p-button-label p-c'><Text>{children}</Text></span>}</PrimeButton>;
+export type ButtonProps = PrimeButtonProps & Partial<Pick<Parameters<typeof Permission>[0], 'permission'>> & {confirm?: string}
+export const Button = ({children, permission, confirm, onClick, ...props}: ButtonProps) => {
+    const handleClick = React.useCallback(event => confirm ? confirmPopup({
+        target: event.currentTarget,
+        message: <Text>{confirm}</Text>,
+        icon: 'pi pi-exclamation-triangle',
+        reject: () => {},
+        accept: () => onClick(event)
+    }) : onClick(event), [onClick, confirm]);
+    const button = <PrimeButton {...props} onClick={handleClick}>{children && <span className='p-button-label p-c'><Text>{children}</Text></span>}</PrimeButton>;
     return (permission == null) ? button : <Permission permission={permission}>{button}</Permission>;
 };
 export const DataTable = ({emptyMessage = 'No results found', ...props}: DataTableProps) =>

@@ -142,19 +142,23 @@ const Template: Story<{
                                 action: show({action: 'edit'})
                             }, {
                                 title: 'Delete',
+                                confirm: 'Do you confirm the deletion of the selected rows ?',
                                 permission: deletePermission,
                                 enabled: 'selected',
                                 action: show({action: 'delete'})
                             }, {
                                 title: 'Review',
                                 menu: [{
+                                    id: 'reject',
                                     action: show({action: 'reject'}),
                                     label: 'Reject'
                                 }, {
+                                    id: 'approve',
                                     action: show({action: 'approve'}),
                                     label: 'Approve'
                                 }, {
                                     action: show({action: 'granted'}),
+                                    id: 'granted',
                                     permission: 'granted',
                                     label: 'Granted'
                                 }, {
@@ -203,6 +207,12 @@ const Template: Story<{
 
 export const Basic = Template.bind({});
 Basic.args = {};
+
+export const BasicBG = Template.bind({});
+BasicBG.args = {
+    ...Basic.args,
+    lang: 'bg'
+};
 
 export const Design = Template.bind({});
 Design.args = {

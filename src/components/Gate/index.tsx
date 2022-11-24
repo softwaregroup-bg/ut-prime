@@ -5,6 +5,7 @@ import { useParams, Redirect } from 'react-router-dom';
 import { cookieCheck } from '../Login/actions';
 import Loader from '../Loader';
 import Context from '../Text/context';
+import { ConfirmPopup } from '../prime';
 
 import Permission from './Permission';
 import { ComponentProps } from './Gate.types';
@@ -71,6 +72,7 @@ const Gate: ComponentProps = ({ children, cookieCheck, corePortalGet, loginPage 
         return (
             <div className='h-full'>
                 {loaded ? <Context.Provider value={loaded}>
+                    <ConfirmPopup />
                     <Permission>
                         {children}
                     </Permission>

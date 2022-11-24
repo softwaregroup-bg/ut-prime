@@ -9,7 +9,7 @@ import useCustomization from '../hooks/useCustomization';
 import useLoad from '../hooks/useLoad';
 import prepareSubmit from '../lib/prepareSubmit';
 import testid from '../lib/testid';
-import { Button, ConfirmPopup, Toolbar, confirmPopup } from '../prime';
+import { Button, Toolbar } from '../prime';
 import type {Schema} from '../types';
 import { ComponentProps } from './Editor.types';
 
@@ -171,24 +171,12 @@ const Editor: ComponentProps = ({
         }, [keyValue, onEdit, getValue, onAdd, keyField, resultSet, properties, typeField, methods]
     );
 
-    const handleReset = React.useCallback(
-        async function handleReset(event) {
-            const accept = () => {
-                const value = loadedValue ? getValue(loadedValue) : {[resultSet]: null};
-                setEditValue(value);
-                setMode(prev => ['edit', typeField ? lodashGet(value, typeField) : prev[1]]);
-                setDidSubmit(false);
-            };
-            if (!trigger) return accept();
-            return confirmPopup({
-                target: event.currentTarget,
-                message: 'Changed data will not be saved. Are you sure you want to proceed?',
-                icon: 'pi pi-exclamation-triangle',
-                reject: () => {},
-                accept
-            });
-        }, [trigger, typeField, loadedValue, resultSet, getValue]
-    );
+    const handleReset = React.useCallback(function handleReset() {
+        const value = loadedValue ? getValue(loadedValue) : {[resultSet]: null};
+        setEditValue(value);
+        setMode(prev => ['edit', typeField ? lodashGet(value, typeField) : prev[1]]);
+        setDidSubmit(false);
+    }, [typeField, loadedValue, resultSet, getValue]);
 
     useLoad(async() => {
         if (keyValue) await get();
@@ -197,7 +185,6 @@ const Editor: ComponentProps = ({
 
     return (
         <>
-            <ConfirmPopup />
             {toolbar ? <Toolbar
                 className='border-none border-bottom-1 border-50 p-2'
                 style={backgroundNone}
@@ -213,6 +200,7 @@ const Editor: ComponentProps = ({
                     <Button
                         icon='pi pi-replay'
                         onClick={handleReset}
+                        confirm='Changed data will not be saved. Are you sure you want to proceed ?'
                         disabled={(!trigger && (!didSubmit || !!loadedValue)) || !!loading}
                         aria-label='reset'
                         className='mr-2'

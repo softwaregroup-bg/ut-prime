@@ -244,7 +244,7 @@ const Explorer: ComponentProps = ({
     }, [methods, getValues]);
 
     const buttons = React.useMemo(() => (toolbar || []).map((widget, index) => {
-        const {title, action, method, params, enabled, disabled, permission, menu} = (typeof widget === 'string') ? properties[widget].widget : widget;
+        const {title, action, method, params, enabled, disabled, permission, menu, confirm} = (typeof widget === 'string') ? properties[widget].widget : widget;
         const check = criteria => {
             if (typeof criteria?.validate === 'function') return !criteria.validate({current, selected}).error;
             if (typeof criteria !== 'string') return !!criteria;
@@ -252,7 +252,7 @@ const Explorer: ComponentProps = ({
                 case 'current': return !!current;
                 case 'selected': return selected && selected.length > 0;
                 case 'single': return selected && selected.length === 1;
-                default: return false;
+                default: return !!lodashGet(current, criteria);
             }
         };
         const isDisabled =
@@ -265,16 +265,16 @@ const Explorer: ComponentProps = ({
             key={index}
             permission={permission}
             {...testid(`${permission ? (permission + 'Button') : ('button' + index)}`)}
-            label={title}
             submit={submit}
             action={action}
             method={method}
             params={params}
             menu={menu}
+            confirm={confirm}
             getValues={getValues}
             disabled={isDisabled}
             className="mr-2"
-        />;
+        >{title}</ActionButton>;
     }
     ), [toolbar, current, selected, getValues, properties, submit]);
     const {toast, handleSubmit: load} = useSubmit(

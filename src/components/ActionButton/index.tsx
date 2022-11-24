@@ -38,11 +38,12 @@ const ActionButton: ComponentProps = ({getValues, action, method, params, menu, 
         },
         menu
     ), [perform, menu, permissions]);
+    const onClick = React.useCallback(event => model ? menuRef.current.toggle(event) : handleClick(event), [model, handleClick]);
     if (model && !model.length) return null; // no permissions
     return model ? <>
         <Menu popup model={model} ref={menuRef}/>
-        <Button onClick={event => menuRef.current.toggle(event)} {...props} icon="pi pi-angle-down" iconPos="right" />
-    </> : <Button onClick={handleClick} {...props} />;
+        <Button onClick={onClick} {...props} icon="pi pi-angle-down p-button-icon-right" />
+    </> : <Button onClick={onClick} {...props} />;
 };
 
 export default ActionButton;

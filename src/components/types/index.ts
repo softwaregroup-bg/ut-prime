@@ -161,6 +161,7 @@ export type WidgetReference = string | {
     fieldClass?: string,
     labelClass?: string,
     permission?: string,
+    confirm?: string,
     action?: ActionHandler,
     method?: string,
     params?: object | string,

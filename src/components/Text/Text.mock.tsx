@@ -83,6 +83,15 @@ const translations = {
         Flag2=Флаг2
         Radio=Радио
 
+        Edit=Редактирай
+        Create=Създай
+        Size=Размер
+        Do you confirm the deletion of the selected rows ?=Потвърждавате ли изтриването ?
+        Review=Преглед
+        Reject=Откажи
+        Approve=Приеми
+        Granded=Осигурен достъп
+
         Current=Текущ
         Previous=Предишен
         Diff=Разлики
