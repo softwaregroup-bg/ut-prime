@@ -1,3 +1,12 @@
+# [2.47.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.46.1...v2.47.0) (2022-11-24)
+
+
+### Features
+
+* Button.confirm ([aaa930a](https://github.com/softwaregroup-bg/ut-prime/commit/aaa930a51716d4ea317fcec3ee551b3394648aa4))
+
+
+
 ## [2.46.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.46.0...v2.46.1) (2022-11-23)
 
 
