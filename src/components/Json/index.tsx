@@ -36,7 +36,7 @@ const convert = keyValue => {
     };
 };
 
-const arrow = <span className='ml-2'>→</span>;
+const arrow = <span className='ml-2 pi pi-arrow-right' />;
 const Json: ComponentProps = ({
     showUnchangedValues = true,
     value,
