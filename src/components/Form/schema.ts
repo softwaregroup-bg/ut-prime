@@ -11,6 +11,12 @@ function validation(name, field) {
             case 'password':
             case 'string':
                 result = Joi.string();
+                if (field?.minLength) {
+                    result = result.min(field?.minLength)
+                }
+                if (field?.maxLength) {
+                    result = result.max(field?.maxLength)
+                }
                 break;
             case 'unknown':
                 result = Joi.alternatives().try(Joi.string(), Joi.number());
@@ -18,6 +24,18 @@ function validation(name, field) {
             case 'currency':
             case 'number':
                 result = Joi.number();
+                if (field?.exclusiveMinimum) {
+                    result = result.greater(field?.minimum)
+                }
+                if (field?.exclusiveMaximum) {
+                    result = result.less(field?.maximum)
+                }
+                if (field?.minimum) {
+                    result = result.min(field?.minimum)
+                }
+                if (field?.maximum) {
+                    result = result.max(field?.maximum)
+                }
                 break;
             case 'integer':
                 result = Joi.number().integer();
@@ -27,15 +45,29 @@ function validation(name, field) {
                 break;
             case 'selectTable':
                 result = field?.widget?.selectionMode === 'single' ? Joi.any() : Joi.array();
+                if (field?.widget?.selectionMode === 'single') {
+                    result = Joi.any();
+                } else {
+                    result = Joi.array();
+                    if (field?.minItems) {
+                        result = result.min(field?.minItems).required()
+                    }
+                }
                 break;
             case 'multiSelect':
             case 'multiSelectPanel':
             case 'multiSelectTree':
                 result = Joi.array();
+                if (field?.minItems) {
+                    result = result.min(field?.minItems).required()
+                }
                 break;
             case 'table':
             case 'array':
                 result = Joi.array().sparse();
+                if (field?.minItems) {
+                    result = result.min(field?.minItems).required()
+                }
                 break;
             case 'date-time':
             case 'time':
