@@ -1,3 +1,12 @@
+## [2.47.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.47.0...v2.47.1) (2022-11-28)
+
+
+### Bug Fixes
+
+* additional theme names ([814a38a](https://github.com/softwaregroup-bg/ut-prime/commit/814a38adf0020c9c37b840246d204a211b64b76a))
+
+
+
 # [2.47.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.46.1...v2.47.0) (2022-11-24)
 
 
