@@ -22,6 +22,12 @@ const themes = {
     dark: {
         fontSize: 16
     },
+    big: {
+        fontSize: 16
+    },
+    compact: {
+        fontSize: 14
+    },
     'light-compact': {
         fontSize: 14
     },
@@ -54,7 +60,7 @@ export interface Theme {
     fontSize?: number;
     name?: string,
     palette?: {
-        type: 'dark' | 'light' | 'dark-compact' | 'light-compact';
+        type: 'dark' | 'light' | 'dark-compact' | 'light-compact' | 'big' | 'compact';
     }
 }
 
@@ -219,11 +225,13 @@ export const ThemeProvider = ({ theme, children }: { theme: Theme, children: Rea
         case 'custom':
             last = isDark ? theme?.dark?.use?.() : theme?.light?.use?.();
             break;
+        case 'compact':
         case 'dark-compact':
         case 'light-compact':
             last = isDark ? darkCompact?.use?.() : lightCompact?.use?.();
             break;
         case 'dark':
+        case 'big':
         default:
             last = isDark ? dark?.use?.() : light?.use?.();
     }
