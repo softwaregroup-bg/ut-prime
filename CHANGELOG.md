@@ -1,3 +1,12 @@
+## [2.48.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.48.0...v2.48.1) (2022-11-29)
+
+
+### Bug Fixes
+
+* Steps and Json arrow rtl styles ([#22](https://github.com/softwaregroup-bg/ut-prime/issues/22)) ([339072a](https://github.com/softwaregroup-bg/ut-prime/commit/339072a4d9657aee200b7f2c40767b24a6845de0))
+
+
+
 # [2.48.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.47.1...v2.48.0) (2022-11-29)
 
 
