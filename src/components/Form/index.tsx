@@ -72,7 +72,8 @@ const Form: ComponentProps = ({
         formState: {
             errors,
             isDirty,
-            isSubmitting
+            isSubmitting,
+            dirtyFields
         },
         watch,
         setError,
@@ -102,7 +103,8 @@ const Form: ComponentProps = ({
 
     const submit = React.useMemo(() => formSubmit(handleSubmit), [formSubmit, handleSubmit]);
 
-    const canSetTrigger = (isDirty || triggerNotDirty) && !isSubmitting;
+    const canSetTrigger = ((dirtyFields && Object.keys(dirtyFields).length > 0) || triggerNotDirty) && !isSubmitting;
+
     React.useEffect(() => {
         if (setTrigger) setTrigger(canSetTrigger ? () => submit : undefined);
     }, [setTrigger, submit, isDirty, canSetTrigger]);
