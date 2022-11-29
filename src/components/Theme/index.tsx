@@ -191,6 +191,18 @@ export const useStyles = createUseStyles(({fontSize = 14}: Theme) => ({
                 '& .pi-chevron-right, & .pi-chevron-left': {
                     rotate: '180deg'
                 },
+                '& .pi-caret-right:before': {
+                    content: '"\\e904"'
+                },
+                '& .pi-caret-left:before': {
+                    content: '"\\e905"'
+                },
+                '& .pi-arrow-right:before': {
+                    content: '"\\e91a"'
+                },
+                '& .pi-arrow-left:before': {
+                    content: '"\\e91b"'
+                },
                 '@media screen and (max-width: 960px)': {
                     '& .p-menubar-mobile-active .p-menubar-root-list': {
                         left: '0!important',
