@@ -1,3 +1,12 @@
+# [2.48.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.47.1...v2.48.0) (2022-11-29)
+
+
+### Features
+
+* ActionButton error handling ([f15746c](https://github.com/softwaregroup-bg/ut-prime/commit/f15746cf5d6ea8ac31945827357d5962f6d3961c))
+
+
+
 ## [2.47.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.47.0...v2.47.1) (2022-11-28)
 
 
