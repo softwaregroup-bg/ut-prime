@@ -5,6 +5,7 @@ import { useParams, Redirect } from 'react-router-dom';
 import { cookieCheck } from '../Login/actions';
 import Loader from '../Loader';
 import Context from '../Text/context';
+import AppContext from '../Context';
 import { ConfirmPopup } from '../prime';
 
 import Permission from './Permission';
@@ -23,6 +24,7 @@ const Gate: ComponentProps = ({ children, cookieCheck, corePortalGet, loginPage 
     const login = useSelector((state: State) => state.login);
     const {appId} = useParams();
     const loginHash = !loginPage || loginPage.startsWith('#');
+    const {setLanguage} = React.useContext(AppContext);
 
     useEffect(() => {
         async function load() {
@@ -47,8 +49,9 @@ const Gate: ComponentProps = ({ children, cookieCheck, corePortalGet, loginPage 
         }
 
         async function check() {
-            await cookieCheck({ appId });
+            const result = await cookieCheck({ appId });
             setCookieChecked(true);
+            if (result?.result?.language?.iso2Code) setLanguage(result.result.language.iso2Code);
         }
 
         if (!cookieChecked && !login) {
@@ -64,7 +67,7 @@ const Gate: ComponentProps = ({ children, cookieCheck, corePortalGet, loginPage 
         } else if (loaded && !login) {
             setLoaded(false);
         }
-    }, [cookieChecked, login, loaded, corePortalGet, cookieCheck, appId, loginPage, loginHash]);
+    }, [cookieChecked, login, loaded, corePortalGet, cookieCheck, appId, loginPage, loginHash, setLanguage]);
 
     if (!cookieChecked && !login) {
         return <Loader />;

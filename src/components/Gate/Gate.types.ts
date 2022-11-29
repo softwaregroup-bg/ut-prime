@@ -3,7 +3,7 @@ import type { PortalConfiguration } from '../Text/context';
 
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     loginPage?: string;
-    cookieCheck?: ({ appId }) => { result?: object; error?: object };
+    cookieCheck?: ({ appId }) => Promise<{ result?: {language?: {iso2Code: string}}; error?: object }>;
     corePortalGet?: (params: {
         languageId: string | number;
         dictName: string[];
