@@ -1,3 +1,12 @@
+## [2.48.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.48.1...v2.48.2) (2022-11-29)
+
+
+### Bug Fixes
+
+* set language after reload with active session ([182032d](https://github.com/softwaregroup-bg/ut-prime/commit/182032d0155aea799a002f112be921304245c482))
+
+
+
 ## [2.48.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.48.0...v2.48.1) (2022-11-29)
 
 
