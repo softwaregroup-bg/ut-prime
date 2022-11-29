@@ -6,6 +6,7 @@ import merge from 'ut-function.merge';
 import { ConfirmPopup } from '../prime';
 import Context from '../Context';
 import Store from '../Store';
+import Error from '../Error';
 import type { Theme } from '../Theme';
 import { ThemeProvider } from '../Theme';
 import defaultState from './state';
@@ -50,6 +51,7 @@ function Wrap({
                         <Translate language={language}>
                             <ConfirmPopup />
                             {children}
+                            <Error />
                         </Translate>
                     </Context.Provider>
                 </ThemeProvider>

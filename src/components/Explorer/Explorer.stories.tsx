@@ -19,6 +19,10 @@ const meta: Meta = {
 };
 export default meta;
 
+interface ErrorPrint extends Error {
+    print?: string;
+}
+
 const Template: Story<{
     createPermission?: string,
     editPermission?: string,
@@ -46,6 +50,11 @@ const Template: Story<{
         summary: 'Submit',
         detail: <pre>{JSON.stringify({...props, params}, null, 2)}</pre>
     });
+    const error = message => params => {
+        const error: ErrorPrint = new Error(message);
+        error.print = message;
+        throw error;
+    };
     return (
         <>
             <div style={{height: 'fit-content', display: 'flex', flexDirection: 'column'}}>
@@ -58,7 +67,8 @@ const Template: Story<{
                         async 'portal.customization.get'() {
                             return {};
                         },
-                        'explorer.submit': show({method: 'explorer.submit'})
+                        'explorer.submit': show({method: 'explorer.submit'}),
+                        'explorer.submitError': error('submit error')
                     }}
                     schema={{
                         properties: {
@@ -166,6 +176,9 @@ const Template: Story<{
                                     permission: 'forbidden',
                                     label: 'Forbidden'
                                 }]
+                            }, {
+                                title: 'Error',
+                                action: error('action error')
                             }, {
                                 title: 'Forbidden',
                                 menu: [{
@@ -288,6 +301,10 @@ Submit.args = {
             id: '${id}',
             size: '${current.size}'
         }
+    }, {
+        title: 'Error',
+        method: 'explorer.submitError',
+        params: {}
     }]
 };
 

@@ -5,6 +5,7 @@ import {useHistory} from 'react-router-dom';
 import {Button, Menu} from '../prime';
 import filterMenu from '../lib/filterMenu';
 import {State} from '../Store/Store.types';
+import useSubmit from '../hooks/useSubmit';
 
 import {ComponentProps} from './ActionButton.types';
 
@@ -13,11 +14,11 @@ const ActionButton: ComponentProps = ({getValues, action, method, params, menu, 
     const dispatch = useDispatch();
     const history = useHistory();
     const permissions = useSelector(({login}: State) => login).result?.['permission.get'] || false;
-    const perform = React.useCallback((event, performMethod, performAction, performParams) => {
+    const {handleSubmit: perform} = useSubmit(async(event, performMethod, performAction, performParams) => {
         if (performMethod) {
             event.method = performMethod;
             event.params = performParams;
-            return submit(event);
+            return await submit(event);
         }
         if (typeof performAction === 'function') return performAction(getValues?.());
         if (performAction === 'link') return history.push(performParams);

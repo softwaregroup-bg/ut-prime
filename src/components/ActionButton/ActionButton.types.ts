@@ -12,7 +12,7 @@ interface Props extends ButtonProps {
     params?: string | object;
     menu?: ActionItem[];
     getValues?: () => Selection;
-    submit?: (event: unknown) => void;
+    submit?: (event: unknown) => Promise<void>;
 }
 
 export type ComponentProps = React.FC<Props>
