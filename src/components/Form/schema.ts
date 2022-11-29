@@ -2,6 +2,40 @@ import Joi from 'joi';
 import { Schema, Property } from '../types';
 import getType from '../lib/getType';
 
+function numeric(field: Schema) {
+    let result = Joi.number();
+    if (field.maximum) result = result.max(field.maximum);
+    if (field.exclusiveMaximum) result = result.less(field.exclusiveMaximum);
+    if (field.minimum) result = result.min(field.minimum);
+    if (field.exclusiveMinimum) result = result.greater(field.exclusiveMinimum);
+    if (field.multipleOf) result = result.multiple(field.multipleOf);
+    return result;
+}
+
+function string(field: Schema) {
+    let result = Joi.string();
+    if (field.minLength) result = result.min(field.minLength);
+    if (field.maxLength) result = result.max(field.maxLength);
+    if (field.pattern) result = result.pattern(new RegExp(field.pattern));
+    return result;
+}
+
+function array(field: Schema, filter?: string[], path?: string, propertyName?: string) {
+    let result = Joi.array();
+    if (field.minItems) result = result.min(field.minItems);
+    if (field.maxItems) result = result.max(field.maxItems);
+    if (field.uniqueItems) result = result.unique();
+    if (field.contains) result.has(getValidation(field.contains as Schema, filter, path, propertyName)[0]);
+    return result;
+}
+
+function object(field: Schema, keys: object) {
+    let result = Joi.object(keys);
+    if (field.maxProperties) result = result.max(field.maxProperties);
+    if (field.minProperties) result = result.min(field.minProperties);
+    return result;
+}
+
 function validation(name, field) {
     let result = field.validation;
     if (!result) {
@@ -10,32 +44,32 @@ function validation(name, field) {
             case 'text':
             case 'password':
             case 'string':
-                result = Joi.string();
+                result = string(field);
                 break;
             case 'unknown':
                 result = Joi.alternatives().try(Joi.string(), Joi.number());
                 break;
             case 'currency':
             case 'number':
-                result = Joi.number();
+                result = numeric(field);
                 break;
             case 'integer':
-                result = Joi.number().integer();
+                result = numeric(field).integer();
                 break;
             case 'boolean':
                 result = Joi.boolean();
                 break;
             case 'selectTable':
-                result = field?.widget?.selectionMode === 'single' ? Joi.any() : Joi.array();
+                result = field?.widget?.selectionMode === 'single' ? Joi.any() : array(field);
                 break;
             case 'multiSelect':
             case 'multiSelectPanel':
             case 'multiSelectTree':
-                result = Joi.array();
+                result = array(field);
                 break;
             case 'table':
             case 'array':
-                result = Joi.array().sparse();
+                result = array(field).sparse();
                 break;
             case 'date-time':
             case 'time':
@@ -52,6 +86,8 @@ function validation(name, field) {
                 result = Joi.any();
                 break;
         }
+        if (field.enum) result = result.valid(...field.enum);
+        if (field.const) result = result.valid(field.const);
     }
     return result.label(field.title || name);
 }
@@ -72,7 +108,8 @@ export default function getValidation(schema: Schema | Property, filter?: string
                 ];
             },
             [
-                Joi.object(
+                object(
+                    schema,
                     path
                         ? {}
                         : {
@@ -88,7 +125,7 @@ export default function getValidation(schema: Schema | Property, filter?: string
     if (filter && !filter?.includes(path)) return [null, []];
     if (schema?.type === 'array' || schema?.items) {
         const [validation, required] = schema?.items && getValidation(schema.items as Schema, filter, path, propertyName);
-        return [schema?.items ? Joi.array().sparse().items(validation) : Joi.array(), required];
+        return [schema?.items ? array(schema, filter, path, propertyName).sparse().items(validation) : array(schema, filter, path, propertyName), required];
     } else if (schema?.oneOf) {
         return [Joi.alternatives().try(...schema.oneOf.map(item => getValidation(item as Schema, filter, path, propertyName)[0]).filter(Boolean)).match('one'), []];
     } else if (schema?.anyOf) {
