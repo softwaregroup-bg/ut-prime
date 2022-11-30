@@ -55,6 +55,9 @@ const Template: Story<{
         error.print = message;
         throw error;
     };
+    const delay = params => {
+        return new Promise(resolve => setTimeout(resolve, 2000));
+    };
     return (
         <>
             <div style={{height: 'fit-content', display: 'flex', flexDirection: 'column'}}>
@@ -68,7 +71,8 @@ const Template: Story<{
                             return {};
                         },
                         'explorer.submit': show({method: 'explorer.submit'}),
-                        'explorer.submitError': error('submit error')
+                        'explorer.submitError': error('submit error'),
+                        'explorer.submitDelay': delay
                     }}
                     schema={{
                         properties: {
@@ -305,6 +309,9 @@ Submit.args = {
         title: 'Error',
         method: 'explorer.submitError',
         params: {}
+    }, {
+        title: 'Delay',
+        method: 'explorer.submitDelay'
     }]
 };
 

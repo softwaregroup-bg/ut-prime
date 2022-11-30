@@ -154,21 +154,26 @@ const Editor: ComponentProps = ({
         async function handleSubmit(data) {
             let response;
             let key = keyValue;
-            if (data?.[2].method) {
-                response = getValue(handleArray(await methods[data[2].method](prepareSubmit(data)), properties));
-            } else if (keyValue != null) {
-                response = getValue(handleArray(await onEdit(prepareSubmit(data)), properties));
-            } else {
-                response = getValue(handleArray(await onAdd(prepareSubmit(data)), properties));
-                key = lodashGet(response, `${resultSet}.${keyField}`);
-                setKeyValue(key);
+            setLoading('submit');
+            try {
+                if (data?.[2].method) {
+                    response = getValue(handleArray(await methods[data[2].method](prepareSubmit(data)), properties));
+                } else if (keyValue != null) {
+                    response = getValue(handleArray(await onEdit(prepareSubmit(data)), properties));
+                } else {
+                    response = getValue(handleArray(await onAdd(prepareSubmit(data)), properties));
+                    key = lodashGet(response, `${resultSet}.${keyField}`);
+                    setKeyValue(key);
+                }
+                setDidSubmit(true);
+                const value = merge({}, data[0], response);
+                setEditValue(value);
+                if (key) setLoadedValue(getValue(value));
+                setMode(prev => ['edit', typeField ? lodashGet(value, typeField) : prev[1]]);
+            } finally {
+                setLoading('');
             }
-            setDidSubmit(true);
-            const value = merge({}, data[0], response);
-            setEditValue(value);
-            if (key) setLoadedValue(getValue(value));
-            setMode(prev => ['edit', typeField ? lodashGet(value, typeField) : prev[1]]);
-        }, [keyValue, onEdit, getValue, onAdd, keyField, resultSet, properties, typeField, methods]
+        }, [keyValue, onEdit, getValue, onAdd, keyField, resultSet, properties, typeField, methods, setLoading]
     );
 
     const handleReset = React.useCallback(function handleReset() {

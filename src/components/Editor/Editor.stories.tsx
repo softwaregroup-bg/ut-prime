@@ -27,6 +27,9 @@ declare type StoryTemplate = Story<Partial<Props>> & {
 }
 
 const sticky = {sticky: true};
+const delay = params => {
+    return new Promise(resolve => setTimeout(() => resolve({}), 2000));
+};
 
 const Template: Story<Props> = args => {
     const {toast, submit} = useToast(sticky);
@@ -34,6 +37,13 @@ const Template: Story<Props> = args => {
         <>
             {toast}
             <Editor
+                methods={{
+                    async 'portal.customization.get'() {
+                        return {};
+                    },
+                    'editor.submit': submit,
+                    'editor.submitDelay': delay
+                }}
                 onAdd={submit}
                 onEdit={submit}
                 onCustomization={submit}
@@ -257,17 +267,23 @@ Toolbar.args = {
         toolbar: {
             type: 'toolbar',
             widgets: [{
-                type: 'button',
+                type: 'submit',
                 id: 'button1',
-                action: 'subject.object.predicate',
+                method: 'editor.submit',
                 params: {},
                 label: 'Browse'
             }, {
-                type: 'button',
+                type: 'submit',
                 id: 'button2',
-                action: 'subject.object.predicate',
+                method: 'editor.submit',
                 params: {id: 1},
                 label: 'Open'
+            }, {
+                type: 'submit',
+                id: 'button2',
+                method: 'editor.submitDelay',
+                params: {id: 1},
+                label: 'Delay'
             }]
         }
     }

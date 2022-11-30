@@ -277,11 +277,11 @@ const Explorer: ComponentProps = ({
             menu={menu}
             confirm={confirm}
             getValues={getValues}
-            disabled={isDisabled}
+            disabled={!!loading || isDisabled}
             className="mr-2"
         >{title}</ActionButton>;
     }
-    ), [toolbar, current, selected, getValues, properties, submit]);
+    ), [toolbar, current, selected, getValues, properties, submit, loading]);
     const {toast, handleSubmit: load} = useSubmit(
         async function() {
             if (!fetch) {
