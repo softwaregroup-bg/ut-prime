@@ -1,3 +1,12 @@
+## [2.48.4](https://github.com/softwaregroup-bg/ut-prime/compare/v2.48.3...v2.48.4) (2022-11-30)
+
+
+### Bug Fixes
+
+* improve Form change detection ([#23](https://github.com/softwaregroup-bg/ut-prime/issues/23)) ([faea982](https://github.com/softwaregroup-bg/ut-prime/commit/faea9823613fbc1b81c34c0b0345da4ba035dcc6))
+
+
+
 ## [2.48.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.48.2...v2.48.3) (2022-11-29)
 
 
