@@ -1072,8 +1072,9 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
     >
       <button
         aria-label="save"
-        class="p-button p-component mr-2 p-button-icon-only"
+        class="p-button p-component mr-2 p-button-icon-only p-disabled"
         data-testid="saveButton"
+        disabled=""
       >
         <span
           class="p-button-icon p-c pi pi-save"
@@ -1086,8 +1087,9 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
       </button>
       <button
         aria-label="reset"
-        class="p-button p-component mr-2 p-button-icon-only"
+        class="p-button p-component mr-2 p-button-icon-only p-disabled"
         data-testid="resetButton"
+        disabled=""
       >
         <span
           class="p-button-icon p-c pi pi-replay"
