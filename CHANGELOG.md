@@ -1,3 +1,12 @@
+## [2.48.5](https://github.com/softwaregroup-bg/ut-prime/compare/v2.48.4...v2.48.5) (2022-12-01)
+
+
+### Bug Fixes
+
+* show confirmation only when there are changes ([b942395](https://github.com/softwaregroup-bg/ut-prime/commit/b9423951bbf51f955012b52316d8e975bb7e525c))
+
+
+
 ## [2.48.4](https://github.com/softwaregroup-bg/ut-prime/compare/v2.48.3...v2.48.4) (2022-11-30)
 
 
