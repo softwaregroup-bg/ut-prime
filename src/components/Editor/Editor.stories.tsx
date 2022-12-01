@@ -35,9 +35,11 @@ const Template: Story<Props> = args => {
     const {toast, submit} = useToast(sticky);
     return (
         <>
-            {toast}
             <Editor
                 methods={{
+                    async handleFieldChange({field, value, event}: {field: unknown, value, event: Event}) {
+                        submit({field, value});
+                    },
                     async 'portal.customization.get'() {
                         return {};
                     },
@@ -49,6 +51,7 @@ const Template: Story<Props> = args => {
                 onCustomization={submit}
                 {...args}
             />
+            {toast}
         </>
     );
 };

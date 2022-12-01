@@ -9,7 +9,7 @@ import useSubmit from '../hooks/useSubmit';
 
 import {ComponentProps} from './ActionButton.types';
 
-const ActionButton: ComponentProps = ({getValues, action, method, params, menu, submit, ...props}) => {
+const ActionButton: ComponentProps = ({getValues, action, method, params, menu, submit, overlay, ...props}) => {
     const menuRef = React.useRef(null);
     const dispatch = useDispatch();
     const history = useHistory();
@@ -27,7 +27,7 @@ const ActionButton: ComponentProps = ({getValues, action, method, params, menu, 
             method: 'handle.action',
             params: [{action: performAction, params: performParams}, getValues?.()]
         });
-    }, [dispatch, getValues, history, submit]);
+    }, [dispatch, getValues, history, submit], {overlay});
     const handleClick = React.useMemo(() => event => {
         event.preventDefault();
         perform(event, method, action, params);
