@@ -60,7 +60,7 @@ const headerTemplate = ({className, style, chooseButton}) => <div className={cla
 const Ocr = React.forwardRef<ProgressBar, Props>(function Ocr({ocr, onSelect, setValue, className, value, ...props}, ref) {
     const [progress, setProgress] = React.useState(null);
     const handleSelect = React.useMemo(() => event => {
-        recognize(event, ocr, setProgress).then(text => {
+        event.text = recognize(event, ocr, setProgress).then(text => {
             ocr.update && setValue(ocr.update, text);
             return text;
         }).catch(console.error); // eslint-disable-line no-console
