@@ -1,3 +1,12 @@
+# [2.49.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.48.5...v2.49.0) (2022-12-02)
+
+
+### Features
+
+* set text in Ocr onChange ([c98116f](https://github.com/softwaregroup-bg/ut-prime/commit/c98116f67e434bc601b54d8361a6d7f18ffdae8e))
+
+
+
 ## [2.48.5](https://github.com/softwaregroup-bg/ut-prime/compare/v2.48.4...v2.48.5) (2022-12-01)
 
 
