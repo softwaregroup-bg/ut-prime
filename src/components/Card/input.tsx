@@ -522,7 +522,7 @@ export default function input(
                     {...field}
                     setValue={setValue}
                     onSelect={e => {
-                        onChange?.({...e, value: [...e.files || []]});
+                        onChange?.({...e, value: {file: e.files?.[0], text: e.text}});
                     }}
                     {...props}
                 />

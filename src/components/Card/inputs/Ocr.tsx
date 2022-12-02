@@ -20,7 +20,7 @@ export interface Props {
     basePath?: string;
     className: FileUploadProps['className'],
     setValue: (name: string, value: unknown) => void,
-    onSelect: FileUploadProps['onSelect']
+    onSelect: (event: Parameters<FileUploadProps['onSelect']>[0] & {text: string}) => void
 }
 
 async function recognize(event, {threshold, language = 'eng', match, flags = 'ms'} : Props['ocr'], setProgress) {
