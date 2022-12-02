@@ -26,15 +26,11 @@ declare type StoryTemplate = Story<Partial<Props>> & {
     play: (context: {canvasElement: HTMLElement}) => Promise<void>
 }
 
-const sticky = {sticky: true};
-const delay = params => {
-    return new Promise(resolve => setTimeout(() => resolve({}), 2000));
-};
-
 const Template: Story<Props> = args => {
-    const {toast, submit} = useToast(sticky);
+    const {toast, submit, delay, error} = useToast();
     return (
         <>
+            {toast}
             <Editor
                 methods={{
                     async handleFieldChange({field, value, event}: {field: unknown, value, event: Event}) {
@@ -44,6 +40,7 @@ const Template: Story<Props> = args => {
                         return {};
                     },
                     'editor.submit': submit,
+                    'editor.submitError': error('submit error'),
                     'editor.submitDelay': delay
                 }}
                 onAdd={submit}
@@ -51,7 +48,6 @@ const Template: Story<Props> = args => {
                 onCustomization={submit}
                 {...args}
             />
-            {toast}
         </>
     );
 };
@@ -283,7 +279,13 @@ Toolbar.args = {
                 label: 'Open'
             }, {
                 type: 'submit',
-                id: 'button2',
+                id: 'button3',
+                method: 'editor.submitError',
+                params: {},
+                label: 'Error'
+            }, {
+                type: 'submit',
+                id: 'button4',
                 method: 'editor.submitDelay',
                 params: {id: 1},
                 label: 'Delay'

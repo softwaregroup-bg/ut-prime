@@ -1,13 +1,10 @@
 import React from 'react';
-import type { Story, Meta } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 
 import page from './README.mdx';
 import decorators from '../test/decorator';
-import type { Props } from './ActionButton.types';
 import ActionButton from './index';
-import useSubmit from '../hooks/useSubmit';
-import { useToast } from '../hooks';
-import { OverlayPanel } from '../prime';
+import { useToast } from 'ut-prime/src/components/hooks';
 
 const meta: Meta = {
     title: 'ActionButton',
@@ -20,25 +17,18 @@ const meta: Meta = {
 };
 export default meta;
 
-declare type StoryTemplate = Story<Partial<Props>> & {
-    play: (context: {canvasElement: HTMLElement}) => Promise<void>
-}
-
-const sticky = {sticky: false};
-
-const Template: Story<Props> = args => {
-    const {toast, submit} = useToast(sticky);
-    const overlay = React.useRef(null);
-    return <div className='m-5'>
-        <ActionButton action={submit} overlay={overlay} {...args} />
+export const Basic: React.FC = () => {
+    const {toast, submit, delay, error} = useToast();
+    return <>
+        <div className='m-5'>
+            <ActionButton action={submit} overlay={<div>saved</div>}>Submit</ActionButton>
+        </div>
+        <div className='m-5'>
+            <ActionButton action={delay} overlay={<div>saved</div>}>Delay</ActionButton>
+        </div>
+        <div className='m-5'>
+            <ActionButton action={error('action error')} overlay={<div>saved</div>}>Error</ActionButton>
+        </div>
         {toast}
-        <OverlayPanel ref={overlay}>
-            saved
-        </OverlayPanel>
-    </div>;
-};
-
-export const Basic: StoryTemplate = Template.bind({});
-Basic.args = {
-    label: 'Save'
+    </>;
 };

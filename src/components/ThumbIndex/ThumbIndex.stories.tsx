@@ -154,12 +154,10 @@ const cards = {
     person: {label: 'Contact person', widgets: ['personName', 'personPosition']}
 };
 
-const sticky = {sticky: true};
-
 export const Basic: React.FC = () => {
     const [filter, setFilter] = React.useState(items?.[0]?.items?.[0]);
     const [trigger, setTrigger] = React.useState<(event: object) => void>();
-    const {toast, submit} = useToast(sticky);
+    const {toast, submit} = useToast();
     const formApi = useForm();
     return (
         <>

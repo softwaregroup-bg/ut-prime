@@ -31,6 +31,10 @@ export interface State {
         requests: number;
         message: string;
     };
+    hint?: {
+        content: React.ReactNode;
+        event: React.SyntheticEvent;
+    },
     login?: {
         language?: {
             languageId: string | number;

@@ -1,12 +1,12 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
-import {Toast} from '../prime';
 
 import page from './README.mdx';
 import Explorer from './index';
 import Text from '../Text';
 import {fetchItems, updateItems} from './mock';
 import decorators from '../test/decorator';
+import useToast from '../hooks/useToast';
 
 const meta: Meta = {
     title: 'Explorer',
@@ -18,10 +18,6 @@ const meta: Meta = {
     }
 };
 export default meta;
-
-interface ErrorPrint extends Error {
-    print?: string;
-}
 
 const Template: Story<{
     createPermission?: string,
@@ -44,20 +40,7 @@ const Template: Story<{
     buttons,
     ...props
 }) => {
-    const toast = React.useRef(null);
-    const show = props => params => toast.current.show({
-        severity: 'success',
-        summary: 'Submit',
-        detail: <pre>{JSON.stringify({...props, params}, null, 2)}</pre>
-    });
-    const error = message => params => {
-        const error: ErrorPrint = new Error(message);
-        error.print = message;
-        throw error;
-    };
-    const delay = params => {
-        return new Promise(resolve => setTimeout(resolve, 2000));
-    };
+    const {toast, show, delay, error} = useToast();
     return (
         <>
             <div style={{height: 'fit-content', display: 'flex', flexDirection: 'column'}}>
@@ -70,17 +53,17 @@ const Template: Story<{
                         async 'portal.customization.get'() {
                             return {};
                         },
-                        'explorer.submit': show({method: 'explorer.submit'}),
+                        'explorer.submit': show('submit'),
                         'explorer.submitError': error('submit error'),
                         'explorer.submitDelay': delay
                     }}
                     schema={{
                         properties: {
                             id: {
-                                action: show({action: 'action'})
+                                action: show('action')
                             },
                             name: {
-                                action: show({action: 'action'}),
+                                action: show('action'),
                                 title: 'Name',
                                 filter: true,
                                 sort: true
@@ -111,7 +94,7 @@ const Template: Story<{
                         }
                     }}
                     subscribe={updateItems}
-                    onCustomization={show({handler: 'onCustomization'})}
+                    onCustomization={show('onCustomization')}
                     details={details}
                     filter={{}}
                     cards={{
@@ -148,35 +131,35 @@ const Template: Story<{
                             widgets: buttons || [{
                                 title: 'Create',
                                 permission: createPermission,
-                                action: show({action: 'create'})
+                                action: show('create')
                             }, {
                                 title: 'Edit',
                                 permission: editPermission,
                                 enabled: 'current',
-                                action: show({action: 'edit'})
+                                action: show('edit')
                             }, {
                                 title: 'Delete',
                                 confirm: 'Do you confirm the deletion of the selected rows ?',
                                 permission: deletePermission,
                                 enabled: 'selected',
-                                action: show({action: 'delete'})
+                                action: show('delete')
                             }, {
                                 title: 'Review',
                                 menu: [{
                                     id: 'reject',
-                                    action: show({action: 'reject'}),
+                                    action: show('reject'),
                                     label: 'Reject'
                                 }, {
                                     id: 'approve',
-                                    action: show({action: 'approve'}),
+                                    action: show('approve'),
                                     label: 'Approve'
                                 }, {
-                                    action: show({action: 'granted'}),
+                                    action: show('granted'),
                                     id: 'granted',
                                     permission: 'granted',
                                     label: 'Granted'
                                 }, {
-                                    action: show({action: 'forbidden'}),
+                                    action: show('forbidden'),
                                     permission: 'forbidden',
                                     label: 'Forbidden'
                                 }]
@@ -186,7 +169,7 @@ const Template: Story<{
                             }, {
                                 title: 'Forbidden',
                                 menu: [{
-                                    action: show({action: 'forbidden'}),
+                                    action: show('forbidden'),
                                     permission: 'forbidden',
                                     label: 'Forbidden'
                                 }]
@@ -217,7 +200,7 @@ const Template: Story<{
                     {children}
                 </Explorer>
             </div>
-            <Toast ref={toast} />
+            {toast}
         </>
     );
 };
