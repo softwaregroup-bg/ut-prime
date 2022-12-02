@@ -1,3 +1,12 @@
+## [2.49.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.49.1...v2.49.2) (2022-12-02)
+
+
+### Bug Fixes
+
+* ocr display image ([ce311eb](https://github.com/softwaregroup-bg/ut-prime/commit/ce311ebfca9ef6b0e9cb1f818936bc1ec8b14b56))
+
+
+
 ## [2.49.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.49.0...v2.49.1) (2022-12-02)
 
 
