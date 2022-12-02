@@ -9,7 +9,8 @@ import useCustomization from '../hooks/useCustomization';
 import useLoad from '../hooks/useLoad';
 import prepareSubmit from '../lib/prepareSubmit';
 import testid from '../lib/testid';
-import { Button, Toolbar } from '../prime';
+import { Toolbar } from '../prime';
+import ActionButton from '../ActionButton';
 import type {Schema} from '../types';
 import { ComponentProps } from './Editor.types';
 
@@ -67,6 +68,10 @@ const Editor: ComponentProps = ({
     onEdit,
     onChange,
     onFieldChange,
+    buttons: {
+        save,
+        reset
+    } = {},
     toolbar = !!(onAdd || onEdit || onGet)
 }) => {
     const [keyValue, setKeyValue] = React.useState(id);
@@ -194,15 +199,16 @@ const Editor: ComponentProps = ({
                 className='border-none border-bottom-1 border-50 p-2'
                 style={backgroundNone}
                 left={<>
-                    <Button
+                    {save === false ? null : <ActionButton
                         icon='pi pi-save'
                         onClick={trigger}
                         disabled={!trigger || !!loading}
                         aria-label='save'
                         className='mr-2'
                         {...testid(name + 'saveButton')}
-                    />
-                    <Button
+                        {...save}
+                    />}
+                    {reset === false ? null : <ActionButton
                         icon='pi pi-replay'
                         onClick={handleReset}
                         confirm='Changed data will not be saved. Are you sure you want to proceed ?'
@@ -210,7 +216,8 @@ const Editor: ComponentProps = ({
                         aria-label='reset'
                         className='mr-2'
                         {...testid(name + 'resetButton')}
-                    />
+                        {...reset}
+                    />}
                     <div ref={toolbarRef}></div>
                 </>}
                 right={customizationToolbar}

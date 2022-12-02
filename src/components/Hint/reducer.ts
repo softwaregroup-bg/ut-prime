@@ -1,7 +1,8 @@
 export default (state = {content: '', event: null}, action) => {
     return (action.type === 'front.hint.open') ? {
         ...state,
-        content: action.content,
+        result: null || action.result,
+        error: null || action.error,
         event: action.event
     } : state;
 };

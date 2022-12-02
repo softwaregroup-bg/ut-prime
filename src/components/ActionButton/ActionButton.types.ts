@@ -12,7 +12,7 @@ export interface Props extends ButtonProps {
     params?: string | object;
     menu?: ActionItem[];
     getValues?: () => Selection;
-    overlay?: React.ReactNode;
+    successHint?: React.ReactNode;
     submit?: (event: unknown) => Promise<void>;
 }
 

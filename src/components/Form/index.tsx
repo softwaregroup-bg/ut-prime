@@ -10,8 +10,8 @@ import { ComponentProps } from './Form.types';
 import { ConfigCard} from './DragDrop';
 import Context from '../Context';
 import Card from '../Card';
+import {Toast} from '../prime';
 
-import useSubmit from '../hooks/useSubmit';
 import useLayout from '../hooks/useLayout';
 
 const useStyles = createUseStyles({
@@ -82,26 +82,29 @@ const Form: ComponentProps = ({
     const errorFields = flat(errors);
     const layoutState = useLayout(schema, cards, layout, editors, undefined, layoutFields);
 
-    const {handleSubmit, toast} = useSubmit(
-        async(form, event) => {
+    const handleSubmit = React.useCallback(
+        async(event, form) => {
             try {
                 clearErrors();
                 return await onSubmit([form, layoutState.index, event]);
             } catch (error) {
-                if (!Array.isArray(error.validation)) throw error;
-                error.validation.forEach(({path = [], message = ''} = {}) => {
-                    if (path && message) {
-                        if (Array.isArray(path)) {
-                            if (path[0] === 'params') setError(path.slice(1).join('.'), {message});
-                        } else setError(path, {message});
-                    }
-                });
+                if (Array.isArray(error?.validation)) {
+                    error.validation.forEach(({path = [], message = ''} = {}) => {
+                        if (path && message) {
+                            if (Array.isArray(path)) {
+                                if (path[0] === 'params') setError(path.slice(1).join('.'), {message});
+                            } else setError(path, {message});
+                        }
+                    });
+                    error.silent = !error.print;
+                }
+                throw error;
             }
         },
         [onSubmit, setError, clearErrors, layoutState.index]
     );
 
-    const submit = React.useMemo(() => formSubmit(handleSubmit), [formSubmit, handleSubmit]);
+    const submit = React.useMemo(() => formSubmit((form, event) => handleSubmit(event, form)), [formSubmit, handleSubmit]);
 
     const canSetTrigger = ((dirtyFields && Object.keys(dirtyFields).length > 0) || triggerNotDirty) && !isSubmitting;
 
@@ -147,7 +150,7 @@ const Form: ComponentProps = ({
 
     return (<>
         {devTool ? <DevTool control={control} placement="top-right" /> : null}
-        {toast}
+        <Toast />
         {toolbarElement}
         <div {...rest} className={clsx('grid col align-self-start', classes.form, className)}>
             {!!errorList.length && <div className='col-12'>{errorList}</div>}

@@ -46,6 +46,11 @@ const Template: Story<Props> = args => {
                 onAdd={submit}
                 onEdit={submit}
                 onCustomization={submit}
+                buttons={{
+                    save: {
+                        successHint: 'saved'
+                    }
+                }}
                 {...args}
             />
         </>
@@ -233,6 +238,7 @@ Validation.play = async({canvasElement}) => {
 const serverError = () => {
     interface ValidationError extends Error {
         validation: {path: string[], message: string}[];
+        print: string;
     }
     const error = new Error('Server error');
     (error as ValidationError).validation = [{
@@ -242,6 +248,7 @@ const serverError = () => {
         path: ['params', 'tree', 'treeType'],
         message: 'Invalid Type'
     }];
+    (error as ValidationError).print = 'validation message';
     throw error;
 };
 

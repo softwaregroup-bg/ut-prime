@@ -21,13 +21,13 @@ export const Basic: React.FC = () => {
     const {toast, submit, delay, error} = useToast();
     return <>
         <div className='m-5'>
-            <ActionButton action={submit} overlay={<div>saved</div>}>Submit</ActionButton>
+            <ActionButton action={submit} successHint={<div>saved</div>}>Submit</ActionButton>
         </div>
         <div className='m-5'>
-            <ActionButton action={delay} overlay={<div>saved</div>}>Delay</ActionButton>
+            <ActionButton action={delay} successHint={<div>saved after delay</div>}>Delay</ActionButton>
         </div>
         <div className='m-5'>
-            <ActionButton action={error('action error')} overlay={<div>saved</div>}>Error</ActionButton>
+            <ActionButton action={error('action error')}>Error</ActionButton>
         </div>
         {toast}
     </>;
