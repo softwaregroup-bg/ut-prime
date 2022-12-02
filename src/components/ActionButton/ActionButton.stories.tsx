@@ -4,7 +4,7 @@ import type { Meta } from '@storybook/react';
 import page from './README.mdx';
 import decorators from '../test/decorator';
 import ActionButton from './index';
-import { useToast } from 'ut-prime/src/components/hooks';
+import { useToast } from '../hooks';
 
 const meta: Meta = {
     title: 'ActionButton',
