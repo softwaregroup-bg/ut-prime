@@ -16,7 +16,7 @@ export interface Props {
         match?: string,
         flags?: string
     },
-    value?: unknown,
+    value?: string | {file: {objectURL?: string}, text: string},
     basePath?: string;
     className: FileUploadProps['className'],
     setValue: (name: string, value: unknown) => void,
@@ -68,8 +68,8 @@ const Ocr = React.forwardRef<ProgressBar, Props>(function Ocr({ocr, onSelect, se
     }, [ocr, onSelect, setValue, setProgress]);
 
     let src = null;
-    if (Array.isArray(value)) {
-        src = value?.[0]?.objectURL;
+    if (typeof value === 'object' && value?.file?.objectURL) {
+        src = value?.file?.objectURL;
     } else if (value) {
         src = (props.basePath || '') + value;
     }
