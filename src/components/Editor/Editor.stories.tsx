@@ -237,18 +237,18 @@ Validation.play = async({canvasElement}) => {
 
 const serverError = () => {
     interface ValidationError extends Error {
-        validation: {path: string[], message: string}[];
-        print: string;
+        validation?: {path: string[], message: string}[];
+        print?: string;
     }
-    const error = new Error('Server error');
-    (error as ValidationError).validation = [{
+    const error: ValidationError = new Error('Server error');
+    error.validation = [{
         path: ['params', 'tree', 'treeName'],
         message: 'Duplicate name'
     }, {
         path: ['params', 'tree', 'treeType'],
         message: 'Invalid Type'
     }];
-    (error as ValidationError).print = 'validation message';
+    error.print = 'server validation message';
     throw error;
 };
 

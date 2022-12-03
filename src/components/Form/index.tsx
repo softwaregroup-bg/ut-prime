@@ -104,7 +104,19 @@ const Form: ComponentProps = ({
         [onSubmit, setError, clearErrors, layoutState.index]
     );
 
-    const submit = React.useMemo(() => formSubmit((form, event) => handleSubmit(event, form)), [formSubmit, handleSubmit]);
+    interface ValidationError extends Error {
+        print?: string;
+        errors?: unknown
+    }
+
+    const submit = React.useMemo(() => formSubmit(
+        (form, event) => handleSubmit(event, form),
+        (errors, event) => {
+            const error: ValidationError = new Error('validation error');
+            error.print = error.message;
+            error.errors = errors;
+            throw error;
+        }), [formSubmit, handleSubmit]);
 
     const canSetTrigger = ((dirtyFields && Object.keys(dirtyFields).length > 0) || triggerNotDirty) && !isSubmitting;
 
