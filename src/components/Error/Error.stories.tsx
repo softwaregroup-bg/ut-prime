@@ -1,4 +1,3 @@
-import React from 'react';
 import type { Meta } from '@storybook/react';
 
 import page from './README.mdx';
@@ -20,11 +19,30 @@ const meta: Meta = {
 };
 export default meta;
 
-export const Basic = () => <Error message='This is intentional error message' />;
-export const InvalidCredentials = () => <Error />;
-export const InterpolateProps = () => <Error message='This is intentional error {message}' params={{message: 'message'}} />;
-export const InterpolateRedux = () => <Error />;
-export const Details = () => <Error />;
+export const Basic = () => null;
+export const InvalidCredentials = () => null;
+export const InterpolateProps = () => null;
+export const InterpolateRedux = () => null;
+export const Details = () => null;
+
+Basic.args = {
+    state: {
+        error: {
+            open: true,
+            message: 'This is intentional error message'
+        }
+    }
+};
+
+InterpolateProps.args = {
+    state: {
+        error: {
+            open: true,
+            message: 'This is intentional error {message}',
+            params: {message: 'message'}
+        }
+    }
+};
 
 InvalidCredentials.args = {
     state: {
