@@ -10,7 +10,6 @@ import { ComponentProps } from './Form.types';
 import { ConfigCard} from './DragDrop';
 import Context from '../Context';
 import Card from '../Card';
-import {Toast} from '../prime';
 
 import useLayout from '../hooks/useLayout';
 
@@ -137,6 +136,7 @@ const Form: ComponentProps = ({
     let toolbarElement = null;
     if (toolbarRef?.current && cards[toolbar]?.widgets?.length) {
         toolbarElement = ReactDOM.createPortal(<Card
+            key='toolbar'
             cardName={toolbar}
             cards={cards}
             layoutState={layoutState}
@@ -162,7 +162,6 @@ const Form: ComponentProps = ({
 
     return (<>
         {devTool ? <DevTool control={control} placement="top-right" /> : null}
-        <Toast />
         {toolbarElement}
         <div {...rest} className={clsx('grid col align-self-start', classes.form, className)}>
             {!!errorList.length && <div className='col-12'>{errorList}</div>}

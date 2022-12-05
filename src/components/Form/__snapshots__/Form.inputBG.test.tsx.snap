@@ -9,11 +9,6 @@ exports[`<Form /> InputBG render equals snapshot 1`] = `
     style="overflow-x: hidden; width: 100%;"
   >
     <div
-      class="p-toast p-component p-toast-top-right"
-    >
-      <div />
-    </div>
-    <div
       class="grid col align-self-start form-0-2-1"
       lang="bg"
     >

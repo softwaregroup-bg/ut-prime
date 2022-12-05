@@ -200,7 +200,7 @@ const Editor: ComponentProps = ({
                 style={backgroundNone}
                 left={<>
                     {save === false ? null : <ActionButton
-                        icon='pi pi-save'
+                        icon={loading === 'submit' ? 'pi pi-spin pi-spinner' : (didSubmit && !trigger) ? 'pi pi-check' : 'pi pi-save'}
                         onClick={trigger}
                         disabled={!trigger || !!loading}
                         aria-label='save'

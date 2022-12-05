@@ -249,7 +249,7 @@ const Explorer: ComponentProps = ({
     }, [methods, getValues]);
 
     const buttons = React.useMemo(() => (toolbar || []).map((widget, index) => {
-        const {title, action, method, params, enabled, disabled, permission, menu, confirm} = (typeof widget === 'string') ? properties[widget].widget : widget;
+        const {title, action, method, params, enabled, disabled, permission, menu, confirm, successHint} = (typeof widget === 'string') ? properties[widget].widget : widget;
         const check = criteria => {
             if (typeof criteria?.validate === 'function') return !criteria.validate({current, selected}).error;
             if (typeof criteria !== 'string') return !!criteria;
@@ -278,6 +278,7 @@ const Explorer: ComponentProps = ({
             confirm={confirm}
             getValues={getValues}
             disabled={!!loading || isDisabled}
+            successHint={successHint}
             className="mr-2"
         >{title}</ActionButton>;
     }

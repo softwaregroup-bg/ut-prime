@@ -290,10 +290,12 @@ Submit.args = {
         }
     }, {
         title: 'Error',
+        type: 'submit',
         method: 'explorer.submitError',
         params: {}
     }, {
         title: 'Delay',
+        successHint: 'Done',
         method: 'explorer.submitDelay'
     }]
 };

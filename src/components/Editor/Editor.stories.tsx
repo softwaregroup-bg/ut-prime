@@ -294,6 +294,7 @@ Toolbar.args = {
                 type: 'submit',
                 id: 'button4',
                 method: 'editor.submitDelay',
+                successHint: 'Done',
                 params: {id: 1},
                 label: 'Delay'
             }]

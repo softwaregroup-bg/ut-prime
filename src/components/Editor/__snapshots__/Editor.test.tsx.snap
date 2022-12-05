@@ -77,11 +77,6 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
       style="max-height: 768px;"
     >
       <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
-      <div
         class="grid col align-self-start form-0-2-1"
       >
         <div
@@ -840,11 +835,6 @@ exports[`<Editor /> CascadedDropdowns render equals snapshot 1`] = `
       style="max-height: 768px;"
     >
       <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
-      <div
         class="grid col align-self-start form-0-2-1"
       >
         <div
@@ -1128,11 +1118,6 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
       class="flex flex-grow-1"
       style="max-height: 768px;"
     >
-      <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
       <div
         class="grid col align-self-start form-0-2-1"
       >
@@ -2273,11 +2258,6 @@ exports[`<Editor /> CustomEditors render equals snapshot 1`] = `
       style="max-height: 768px;"
     >
       <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
-      <div
         class="grid col align-self-start form-0-2-1"
       >
         <div
@@ -2568,11 +2548,6 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
       class="flex flex-grow-1"
       style="max-height: 768px;"
     >
-      <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
       <div
         class="grid col align-self-start form-0-2-1"
       >
@@ -3673,7 +3648,7 @@ exports[`<Editor /> Files render equals snapshot 1`] = `
         disabled=""
       >
         <span
-          class="p-button-icon p-c pi pi-save"
+          class="p-button-icon p-c pi pi-check"
         />
         <span
           class="p-button-label p-c"
@@ -3724,11 +3699,6 @@ exports[`<Editor /> Files render equals snapshot 1`] = `
       class="flex flex-grow-1"
       style="max-height: 768px;"
     >
-      <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
       <div
         class="grid col align-self-start form-0-2-1"
       >
@@ -4142,7 +4112,7 @@ exports[`<Editor /> FilesInTab render equals snapshot 1`] = `
         disabled=""
       >
         <span
-          class="p-button-icon p-c pi pi-save"
+          class="p-button-icon p-c pi pi-check"
         />
         <span
           class="p-button-label p-c"
@@ -4254,11 +4224,6 @@ exports[`<Editor /> FilesInTab render equals snapshot 1`] = `
       class="flex flex-grow-1"
       style="max-height: 768px;"
     >
-      <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
       <div
         class="grid col align-self-start form-0-2-1"
       >
@@ -4542,11 +4507,6 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
       class="flex flex-grow-1"
       style="max-height: 768px;"
     >
-      <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
       <div
         class="grid col align-self-start form-0-2-1"
       >
@@ -4909,11 +4869,6 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
       class="flex flex-grow-1"
       style="max-height: 768px;"
     >
-      <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
       <div
         class="grid col align-self-start form-0-2-1"
       >
@@ -5287,11 +5242,6 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
       class="flex flex-grow-1"
       style="max-height: 768px;"
     >
-      <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
       <div
         class="grid col align-self-start form-0-2-1"
       >
@@ -5705,11 +5655,6 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
       class="flex flex-grow-1"
       style="max-height: 768px;"
     >
-      <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
       <div
         class="grid col align-self-start form-0-2-1"
       >
@@ -7089,11 +7034,6 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
           style="max-height: 768px;"
         >
           <div
-            class="p-toast p-component p-toast-top-right"
-          >
-            <div />
-          </div>
-          <div
             class="grid col align-self-start form-0-2-1"
           >
             <div
@@ -7239,11 +7179,6 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
           class="flex flex-grow-1"
           style="max-height: 768px;"
         >
-          <div
-            class="p-toast p-component p-toast-top-right"
-          >
-            <div />
-          </div>
           <div
             class="grid col align-self-start form-0-2-1"
           >
@@ -7391,11 +7326,6 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
           class="flex flex-grow-1"
           style="max-height: 768px;"
         >
-          <div
-            class="p-toast p-component p-toast-top-right"
-          >
-            <div />
-          </div>
           <div
             class="grid col align-self-start form-0-2-1"
           >
@@ -7548,11 +7478,6 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
       class="flex flex-grow-1"
       style="max-height: 768px;"
     >
-      <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
       <div
         class="grid col align-self-start form-0-2-1"
       >
@@ -8354,11 +8279,6 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
       style="max-height: 768px;"
     >
       <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
-      <div
         class="grid col align-self-start form-0-2-1"
       >
         <div
@@ -9140,7 +9060,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
         disabled=""
       >
         <span
-          class="p-button-icon p-c pi pi-save"
+          class="p-button-icon p-c pi pi-check"
         />
         <span
           class="p-button-label p-c"
@@ -9191,11 +9111,6 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
       class="flex flex-grow-1"
       style="max-height: 768px;"
     >
-      <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
       <div
         class="grid col align-self-start form-0-2-1"
       >
@@ -10034,11 +9949,6 @@ exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
       style="max-height: 768px;"
     >
       <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
-      <div
         class="grid col align-self-start form-0-2-1"
       >
         <div
@@ -10458,11 +10368,6 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
       class="flex flex-grow-1"
       style="max-height: 768px;"
     >
-      <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
       <div
         class="grid col align-self-start form-0-2-1"
       >
@@ -11058,11 +10963,6 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
       style="max-height: 768px;"
     >
       <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
-      <div
         class="grid col align-self-start form-0-2-1"
       >
         <div
@@ -11348,11 +11248,6 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
       class="flex flex-grow-1"
       style="max-height: 768px;"
     >
-      <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
       <div
         class="grid col align-self-start form-0-2-1"
       >
@@ -12117,11 +12012,6 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
       class="flex flex-grow-1"
       style="max-height: 768px;"
     >
-      <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
       <div
         class="grid col align-self-start form-0-2-1"
       >

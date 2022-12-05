@@ -164,6 +164,7 @@ export type WidgetReference = string | {
     confirm?: string,
     action?: ActionHandler,
     method?: string,
+    successHint?: React.ReactNode,
     params?: object | string,
     selectionPath?: string,
     propertyName?: string,
