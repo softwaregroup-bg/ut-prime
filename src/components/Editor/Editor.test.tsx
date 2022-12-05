@@ -19,6 +19,7 @@ config.disabled = true;
 describe('<Editor />', () => {
     it('Basic render equals snapshot', async() => {
         const { findByTestId } = render(<Basic {...Basic.args} />);
+        await act(() => new Promise(resolve => setTimeout(resolve, 1000)));
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
     it('Loading render equals snapshot', async() => {
