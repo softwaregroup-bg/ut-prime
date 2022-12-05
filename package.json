@@ -1,7 +1,7 @@
 {
   "name": "ut-prime",
   "description": "UT higher order UI components based on PrimeReact",
-  "version": "2.48.4",
+  "version": "2.49.4",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
@@ -131,9 +131,9 @@
     "lodash.clonedeep": "4.5.0",
     "lodash.get": "4.4.2",
     "lodash.set": "4.3.2",
-    "primeflex": "^3.2.1",
+    "primeflex": "^3.3.0",
     "primeicons": "^6.0.1",
-    "primereact": "8.7.1",
+    "primereact": "8.7.3",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dnd": "^14.0.5",

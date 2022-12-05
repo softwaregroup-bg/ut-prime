@@ -50,7 +50,7 @@ export { Toolbar } from 'primereact/toolbar';
 export { Tree } from 'primereact/tree';
 export { TreeSelect } from 'primereact/treeselect';
 export { TreeTable } from 'primereact/treetable';
-export { MultiSelect } from './multiselect/MultiSelect';
+export { MultiSelect } from 'primereact/multiselect';
 export type { DataTableProps };
 export type { DataViewProps };
 export type { FileUploadProps };

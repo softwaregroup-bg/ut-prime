@@ -5,7 +5,6 @@ import get from 'lodash.get';
 
 import {
     AutoComplete,
-    Button,
     Calendar,
     Checkbox,
     Chips,
@@ -97,7 +96,7 @@ function input(
 ) {
     const widgetType = type || defaultWidgetType || schema?.format || getType(schema?.type);
     if (loading) {
-        if (loading === 'loading' && ['button', 'submit'].includes(widgetType)) return <Button className={inputClass ?? 'mr-2'} {...props} disabled/>;
+        if (loading === 'loading' && ['button', 'submit'].includes(widgetType)) return <ActionButton className={inputClass ?? 'mr-2'} {...props} disabled/>;
         if (loading === 'loading') return <>{label}<div className={inputClass}><Skeleton className='p-inputtext'/></div></>;
     }
     props.disabled ??= schema?.readOnly || (parentField && !parentValue);

@@ -573,7 +573,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                         class="flex align-items-center relative col-12"
                       >
                         <div
-                          class="p-multiselect p-component p-inputwrapper p-inputwrapper-focus w-full"
+                          class="p-multiselect p-component p-inputwrapper w-full"
                           data-testid="tree-habitat"
                           id="tree-habitat"
                         >
@@ -581,7 +581,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                             class="p-hidden-accessible"
                           >
                             <input
-                              aria-expanded="true"
+                              aria-expanded="false"
                               name="tree.habitat"
                               readonly=""
                               role="listbox"
@@ -4387,7 +4387,7 @@ exports[`<Editor /> FilesInTab render equals snapshot 1`] = `
                         class="flex align-items-center relative col-12"
                       >
                         <div
-                          class="p-multiselect p-component p-inputwrapper p-inputwrapper-focus w-full"
+                          class="p-multiselect p-component p-inputwrapper w-full"
                           data-testid="tree-habitat"
                           id="tree-habitat"
                         >
@@ -4395,7 +4395,7 @@ exports[`<Editor /> FilesInTab render equals snapshot 1`] = `
                             class="p-hidden-accessible"
                           >
                             <input
-                              aria-expanded="true"
+                              aria-expanded="false"
                               name="tree.habitat"
                               readonly=""
                               role="listbox"
@@ -8795,7 +8795,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
                         class="flex align-items-center relative col-12"
                       >
                         <div
-                          class="p-multiselect p-component p-inputwrapper p-inputwrapper-focus w-full"
+                          class="p-multiselect p-component p-inputwrapper w-full"
                           data-testid="tree-habitat"
                           id="tree-habitat"
                         >
@@ -8803,7 +8803,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
                             class="p-hidden-accessible"
                           >
                             <input
-                              aria-expanded="true"
+                              aria-expanded="false"
                               name="tree.habitat"
                               readonly=""
                               role="listbox"
@@ -9612,7 +9612,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                         class="flex align-items-center relative col-12"
                       >
                         <div
-                          class="p-multiselect p-component p-inputwrapper p-inputwrapper-focus w-full"
+                          class="p-multiselect p-component p-inputwrapper w-full"
                           data-testid="tree-habitat"
                           id="tree-habitat"
                         >
@@ -9620,7 +9620,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                             class="p-hidden-accessible"
                           >
                             <input
-                              aria-expanded="true"
+                              aria-expanded="false"
                               name="tree.habitat"
                               readonly=""
                               role="listbox"
@@ -12522,7 +12522,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                         class="flex align-items-center relative col-12"
                       >
                         <div
-                          class="p-multiselect p-component p-inputwrapper p-inputwrapper-focus w-full"
+                          class="p-multiselect p-component p-inputwrapper w-full"
                           data-testid="tree-habitat"
                           id="tree-habitat"
                         >
@@ -12530,7 +12530,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                             class="p-hidden-accessible"
                           >
                             <input
-                              aria-expanded="true"
+                              aria-expanded="false"
                               name="tree.habitat"
                               readonly=""
                               role="listbox"
