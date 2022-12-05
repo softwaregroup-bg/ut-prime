@@ -104,6 +104,7 @@ const Form: ComponentProps = ({
     );
 
     interface ValidationError extends Error {
+        silent?: boolean;
         print?: string;
         errors?: unknown
     }
@@ -112,7 +113,8 @@ const Form: ComponentProps = ({
         (form, event) => handleSubmit(event, form),
         (errors, event) => {
             const error: ValidationError = new Error('validation error');
-            error.print = error.message;
+            // todo: decide about error.print
+            error.silent = !error.print;
             error.errors = errors;
             throw error;
         }), [formSubmit, handleSubmit]);
