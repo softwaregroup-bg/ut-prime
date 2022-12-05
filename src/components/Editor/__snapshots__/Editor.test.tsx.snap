@@ -3737,6 +3737,7 @@ exports[`<Editor /> Files render equals snapshot 1`] = `
                           class="p-inputtext p-component p-filled w-full"
                           id="tree-treeName"
                           name="tree.treeName"
+                          type="text"
                           value="test"
                         />
                       </div>
@@ -3914,7 +3915,7 @@ exports[`<Editor /> Files render equals snapshot 1`] = `
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="tree-documents"
                             id="tree-documents"
-                            pr_id_27=""
+                            pr_id_21=""
                           >
                             <div
                               class="p-datatable-wrapper"
@@ -4267,6 +4268,7 @@ exports[`<Editor /> FilesInTab render equals snapshot 1`] = `
                           class="p-inputtext p-component p-filled w-full"
                           id="tree-treeName"
                           name="tree.treeName"
+                          type="text"
                           value="test"
                         />
                       </div>
@@ -8645,7 +8647,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="tree-links"
                             id="tree-links"
-                            pr_id_23=""
+                            pr_id_19=""
                           >
                             <div
                               class="p-datatable-wrapper"
@@ -9462,7 +9464,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="tree-links"
                             id="tree-links"
-                            pr_id_19=""
+                            pr_id_17=""
                           >
                             <div
                               class="p-datatable-wrapper"
@@ -11597,7 +11599,7 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="tree-links"
                             id="tree-links"
-                            pr_id_24=""
+                            pr_id_20=""
                           >
                             <div
                               class="p-datatable-wrapper"
@@ -12372,7 +12374,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="tree-links"
                             id="tree-links"
-                            pr_id_20=""
+                            pr_id_18=""
                           >
                             <div
                               class="p-datatable-wrapper"

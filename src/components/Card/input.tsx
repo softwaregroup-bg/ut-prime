@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import { RefCallBack } from 'react-hook-form';
+import get from 'lodash.get';
 
 import {
     AutoComplete,
@@ -34,6 +35,16 @@ import Ocr from './inputs/Ocr';
 import ActionButton from '../ActionButton';
 import Json from '../Json';
 import Component from '../Component';
+import {CHANGE} from './const';
+import Controller from '../Controller';
+
+const getFieldClass = (index, classes, name, className) =>
+    name === '' ? className : clsx(
+        'flex align-items-center relative col-12', {
+            ...classes?.default,
+            ...classes?.[name]
+        }.field || ((index.properties[name]?.title !== '' || className) && (className || 'md:col-8'))
+    );
 
 const noActions = {allowAdd: false, allowEdit: false, allowDelete: false};
 
@@ -50,7 +61,7 @@ const Clear = ({showClear, field}) =>
         </div>
         : null;
 
-export default function input(
+function input(
     label,
     error,
     field: {
@@ -554,4 +565,134 @@ export default function input(
             <Clear field={field} showClear={clear}/>
         </Field>;
     }
+}
+
+export default function Input({
+    Label,
+    ErrorLabel,
+    labelClass: defaultLabelClass,
+    name,
+    propertyName = name.replace('$.edit.', ''),
+    classes,
+    api: {
+        index,
+        visibleProperties,
+        onFieldChange,
+        formApi,
+        isPropertyRequired,
+        methods,
+        dropdowns,
+        loading,
+        counter,
+        submit,
+        value
+    },
+    ...widget
+}) {
+    widget.parent = widget.parent || name.match(/^\$\.edit\.[^.]+/)?.[0].replace('.edit.', '.selected.') || widget?.selectionPath;
+    const parent = widget.parent || index.properties[propertyName]?.widget?.parent;
+    const {
+        fieldClass = null,
+        labelClass = defaultLabelClass,
+        onChange = onFieldChange,
+        ...inputWidget
+    } = {
+        id: name.replace(/\./g, '-') || widget.label,
+        ...index.properties[propertyName]?.widget,
+        ...widget,
+        parent
+    };
+    if (typeof inputWidget.visible === 'string' && !formApi?.watch?.(inputWidget.visible)) return null;
+    if ('visible' in inputWidget && !inputWidget.visible) return null;
+    if (typeof inputWidget.enabled === 'string') inputWidget.disabled = !formApi?.watch?.(inputWidget.enabled);
+    if (typeof inputWidget.disabled === 'string') inputWidget.disabled = !!formApi?.watch?.(inputWidget.disabled);
+    if (!inputWidget.className) {
+        const inputClassName = classes?.default?.input || classes?.[name]?.input;
+        if (inputClassName) inputWidget.className = inputClassName;
+    }
+    const render = ({field, fieldState}) => {
+        const parentWatch = parent && formApi?.watch?.(parent);
+        return input(
+            Label && <Label name={propertyName} className={labelClass} label={widget.label} isRequired={isPropertyRequired(propertyName)}/>,
+            ErrorLabel && <ErrorLabel name={propertyName} className={labelClass} />,
+            {
+                className: clsx({'w-full': !['boolean'].includes(inputWidget.type)}, { 'p-invalid': fieldState.error }),
+                ...field,
+                onChange: async(event: {value: unknown, originalEvent: unknown}, {select = false, field: changeField = true, children = true} = {}) => {
+                    if (onChange && methods) {
+                        try {
+                            if (await methods[onChange]({
+                                field,
+                                value: event.value,
+                                event: event.originalEvent,
+                                form: formApi
+                            }) === false) return;
+                        } catch (error) {
+                            formApi.setError(field.name, {message: error.message});
+                            return;
+                        }
+                    }
+                    if (select) {
+                        const prefix = `$.edit.${propertyName}.`;
+                        const selectionPrefix = widget?.selectionPath || '$.selected';
+                        formApi?.setValue?.(
+                            `${selectionPrefix}.${propertyName}`,
+                            event?.value,
+                            selectionPrefix.startsWith('$.') ? {shouldDirty: false, shouldTouch: false} : {shouldDirty: true, shouldTouch: true}
+                        );
+                        visibleProperties.forEach(property => {
+                            if (property.startsWith(prefix)) {
+                                formApi?.setValue?.(
+                                    property,
+                                    event?.value?.[property.substr(prefix.length)],
+                                    {shouldDirty: false, shouldTouch: false}
+                                );
+                            }
+                        });
+                    }
+                    try {
+                        if (children) {
+                            const items = index.children[propertyName];
+                            if (items) {
+                                items.forEach(child => {
+                                    let childValue = null;
+                                    const autocompleteProp = child.split('.').pop();
+                                    const autocomplete = (event as {value?: Record<string, unknown>})?.value?.[autocompleteProp];
+                                    if (index.properties[propertyName]?.widget?.type === 'autocomplete' && autocomplete) childValue = autocomplete;
+                                    formApi?.setValue?.(child, childValue);
+                                });
+                            }
+                        }
+                    } finally {
+                        if (changeField) {
+                            field.onChange(event.value);
+                            if (parentWatch?.[CHANGE] && name.startsWith('$.edit.')) {
+                                const old = {...parentWatch};
+                                parentWatch[name.split('.').pop()] = event?.value;
+                                parentWatch[CHANGE]({data: old, newData: parentWatch});
+                            }
+                        }
+                    }
+                }
+            },
+            getFieldClass(index, classes, propertyName, fieldClass),
+            inputWidget.className,
+            inputWidget,
+            index.properties[propertyName],
+            dropdowns,
+            parentWatch,
+            loading,
+            formApi?.getValues,
+            formApi?.setValue,
+            counter,
+            methods,
+            submit,
+            !formApi?.getValues && 'label'
+        );
+    };
+    return (name && formApi?.control) ? <Controller
+        control={formApi.control}
+        name={name}
+        render={render}
+    /> : render({field: value ? {value: get(value, name.split('.').pop()), name} : {}, fieldState: {}});
 }
