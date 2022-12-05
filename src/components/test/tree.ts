@@ -68,7 +68,10 @@ const tree: {schema: Schema, cards: Cards} = {
                         }
                     },
                     picture: {
-                        widget: {type: 'file'}
+                        widget: {type: 'imageUpload'}
+                    },
+                    ocr: {
+                        widget: {type: 'ocr'}
                     },
                     icon: {
                         widget: {type: 'file'}
@@ -97,7 +100,7 @@ const tree: {schema: Schema, cards: Cards} = {
             widgets: ['tree.treeName', 'tree.treeDescription', 'tree.treeType']
         },
         files: {
-            widgets: ['tree.treeName', 'tree.treeDescription', 'tree.picture', 'tree.icon', 'tree.documents']
+            widgets: ['tree.treeName', 'tree.treeDescription', 'tree.ocr', 'tree.picture', 'tree.icon', 'tree.documents']
         },
         reproduction: {
             label: 'Reproduction',
