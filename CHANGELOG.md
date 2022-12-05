@@ -1,3 +1,13 @@
+## [2.49.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.49.2...v2.49.3) (2022-12-05)
+
+
+### Bug Fixes
+
+* OCR submit ([9acb40e](https://github.com/softwaregroup-bg/ut-prime/commit/9acb40e7630b536875140acdec83d18af20891cc))
+* OCR submit story ([3e2c2df](https://github.com/softwaregroup-bg/ut-prime/commit/3e2c2df93de651c91663d9e25b7ab8e0966c6f79))
+
+
+
 ## [2.49.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.49.1...v2.49.2) (2022-12-02)
 
 
