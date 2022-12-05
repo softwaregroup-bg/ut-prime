@@ -22,10 +22,11 @@ export default ([form, {tables = [], files = []} = {}, {method, params} = {metho
         const formData = new FormData();
         const parts = [];
         const skip = [];
-        files.forEach(name => query(value, name)?.forEach(({name, value: file}) => {
-            if (file?.[0]?.constructor !== File) return;
-            parts.push([name, file[0]]);
-            skip.push(file);
+        files.forEach(name => query(value, name)?.forEach(({name, value}) => {
+            const file = value?.file?.constructor === File ? value.file : value?.[0]?.constructor === File ? value[0] : null;
+            if (!file) return;
+            parts.push([name, file]);
+            skip.push(value);
         }));
         formData.append('$', JSON.stringify(value, (key, value) => skip.includes(value) ? undefined : value));
         parts.forEach(([name, file]) => file && formData.append('$.' + name, file));
