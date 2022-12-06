@@ -1,3 +1,12 @@
+# [2.50.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.49.4...v2.50.0) (2022-12-06)
+
+
+### Features
+
+* improve submit processing - spinners, disabling, etc. ([51ab4e8](https://github.com/softwaregroup-bg/ut-prime/commit/51ab4e81bab8fc0f139211b6ae0bfbb98c2a056c))
+
+
+
 ## [2.49.4](https://github.com/softwaregroup-bg/ut-prime/compare/v2.49.3...v2.49.4) (2022-12-05)
 
 
