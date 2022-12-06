@@ -1,3 +1,12 @@
+# [2.51.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.50.1...v2.51.0) (2022-12-06)
+
+
+### Features
+
+* **Explorer:** fetch after ActionButton submit ([6d6310e](https://github.com/softwaregroup-bg/ut-prime/commit/6d6310e6843938e5232b335230d99fdefd8b7e01))
+
+
+
 ## [2.50.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.50.0...v2.50.1) (2022-12-06)
 
 
