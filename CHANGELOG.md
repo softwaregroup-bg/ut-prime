@@ -1,3 +1,12 @@
+## [2.50.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.50.0...v2.50.1) (2022-12-06)
+
+
+### Bug Fixes
+
+* handle errors during fetch ([ad3d004](https://github.com/softwaregroup-bg/ut-prime/commit/ad3d004c811cbd9c31b1d0ce52a7acc5bc5cfadc))
+
+
+
 # [2.50.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.49.4...v2.50.0) (2022-12-06)
 
 
