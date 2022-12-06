@@ -10,6 +10,7 @@ import { ComponentProps } from './Form.types';
 import { ConfigCard} from './DragDrop';
 import Context from '../Context';
 import Card from '../Card';
+import type {UtError} from '../types';
 
 import useLayout from '../hooks/useLayout';
 
@@ -103,16 +104,10 @@ const Form: ComponentProps = ({
         [onSubmit, setError, clearErrors, layoutState.index]
     );
 
-    interface ValidationError extends Error {
-        silent?: boolean;
-        print?: string;
-        errors?: unknown
-    }
-
     const submit = React.useMemo(() => formSubmit(
         (form, event) => handleSubmit(event, form),
         (errors, event) => {
-            const error: ValidationError = new Error('validation error');
+            const error: UtError = new Error('validation error');
             // todo: decide about error.print
             error.silent = !error.print;
             error.errors = errors;

@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
 import { userEvent, within } from '@storybook/testing-library';
+import joi from 'joi';
 
 import page from './README.mdx';
 import Editor from './index';
@@ -9,7 +10,8 @@ import tree from '../test/tree';
 import document from '../test/document';
 import decorators from '../test/decorator';
 import useToast from '../hooks/useToast';
-import joi from 'joi';
+import unauthenticated from '../test/unauthenticated';
+import type {UtError} from '../types';
 
 const meta: Meta = {
     title: 'Editor',
@@ -86,6 +88,18 @@ export const Loading: StoryTemplate = Template.bind({});
 Loading.args = {
     ...Basic.args,
     onGet: params => new Promise((resolve, reject) => {})
+};
+
+export const DropdownError: StoryTemplate = Template.bind({});
+DropdownError.args = {
+    ...Basic.args,
+    onDropdown: unauthenticated
+};
+
+export const GetError: StoryTemplate = Template.bind({});
+GetError.args = {
+    ...Basic.args,
+    onGet: unauthenticated
 };
 
 export const Design: StoryTemplate = Template.bind({});
@@ -236,11 +250,7 @@ Validation.play = async({canvasElement}) => {
 };
 
 const serverError = () => {
-    interface ValidationError extends Error {
-        validation?: {path: string[], message: string}[];
-        print?: string;
-    }
-    const error: ValidationError = new Error('Server error');
+    const error: UtError = new Error('Server error');
     error.validation = [{
         path: ['params', 'tree', 'treeName'],
         message: 'Duplicate name'

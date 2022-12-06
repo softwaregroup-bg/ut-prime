@@ -157,6 +157,7 @@ export type WidgetReference = string | {
     label?: string,
     title?: string,
     type?: PropertyEditor['type'],
+    dropdown?: string,
     className?: string,
     fieldClass?: string,
     labelClass?: string,
@@ -241,4 +242,12 @@ export interface Action {
     enabled?: string | boolean;
     action: ActionHandler;
     params?: object;
+}
+
+export interface UtError extends Error {
+    statusCode?: number;
+    validation?: {path: string[], message: string}[];
+    print?: string;
+    silent?: boolean;
+    errors?: unknown;
 }

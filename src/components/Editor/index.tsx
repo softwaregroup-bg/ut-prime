@@ -13,6 +13,7 @@ import { Toolbar } from '../prime';
 import ActionButton from '../ActionButton';
 import type {Schema} from '../types';
 import { ComponentProps } from './Editor.types';
+import useSubmit from '../hooks/useSubmit';
 
 const backgroundNone = {background: 'none'};
 
@@ -144,10 +145,11 @@ const Editor: ComponentProps = ({
         edit();
     }, [getValue, initValue, mergedSchema, onInit]);
 
+    const {handleSubmit: loadDropDown} = useSubmit(async() => setDropdown(await onDropdown(dropdownNames)), [dropdownNames, onDropdown]);
+
     React.useEffect(() => {
-        const loadDropDown = async() => setDropdown(await onDropdown(dropdownNames));
         loadDropDown();
-    }, [dropdownNames, onDropdown]);
+    }, [loadDropDown]);
 
     const toolbarRef = React.useRef(null);
 

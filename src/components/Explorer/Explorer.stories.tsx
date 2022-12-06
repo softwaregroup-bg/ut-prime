@@ -7,6 +7,7 @@ import Text from '../Text';
 import {fetchItems, updateItems} from './mock';
 import decorators from '../test/decorator';
 import useToast from '../hooks/useToast';
+import unauthenticated from '../test/unauthenticated';
 
 const meta: Meta = {
     title: 'Explorer',
@@ -104,6 +105,13 @@ const Template: Story<{
                         dateTime: {
                             widgets: ['date', 'time', 'dateTime']
                         },
+                        dropdown: {
+                            widgets: ['name', {
+                                name: 'size',
+                                type: 'dropdown',
+                                dropdown: 'item.size'
+                            }]
+                        },
                         grid: {
                             widgets: [{
                                 name: 'name', type: 'label'
@@ -181,6 +189,10 @@ const Template: Story<{
                             columns: 'basic',
                             toolbar: 'toolbar'
                         },
+                        dropdown: {
+                            columns: 'dropdown',
+                            toolbar: 'toolbar'
+                        },
                         dateTime: {
                             columns: 'dateTime',
                             toolbar: 'toolbar'
@@ -212,6 +224,25 @@ export const BasicBG = Template.bind({});
 BasicBG.args = {
     ...Basic.args,
     lang: 'bg'
+};
+
+export const Loading = Template.bind({});
+Loading.args = {
+    ...Basic.args,
+    fetch: params => new Promise((resolve, reject) => {})
+};
+
+export const DropdownError = Template.bind({});
+DropdownError.args = {
+    ...Basic.args,
+    layout: 'dropdown',
+    onDropdown: unauthenticated
+};
+
+export const GetError = Template.bind({});
+GetError.args = {
+    ...Basic.args,
+    fetch: unauthenticated
 };
 
 export const Design = Template.bind({});

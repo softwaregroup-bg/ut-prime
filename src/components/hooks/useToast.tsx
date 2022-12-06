@@ -1,12 +1,9 @@
 import React from 'react';
 import {Toast} from '../prime';
-
-interface ErrorPrint extends Error {
-    print?: string;
-}
+import type {UtError} from '../types';
 
 const error = message => params => {
-    const error: ErrorPrint = new Error(message);
+    const error: UtError = new Error(message);
     error.print = message;
     throw error;
 };
