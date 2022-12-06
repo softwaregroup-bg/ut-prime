@@ -17,7 +17,13 @@ exports[`<ThumbIndex /> render equals snapshot 1`] = `
           aria-multiselectable="false"
           class="p-listbox-list"
           role="listbox"
-        />
+        >
+          <li
+            class="p-listbox-empty-message"
+          >
+            No results found
+          </li>
+        </ul>
       </div>
     </div>
   </div>

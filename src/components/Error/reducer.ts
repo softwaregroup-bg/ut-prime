@@ -3,6 +3,7 @@ import {LOGOUT} from '../Login/actions';
 import errorMessage from './errorMessage';
 
 export default (state = {open: false, title: '', message: '', details: '', type: '', params: {}}, action) => {
+    if (action.type === 'front.hint.open') return state;
     if (['front.error.close', LOGOUT].includes(action.type)) {
         return {
             ...state,

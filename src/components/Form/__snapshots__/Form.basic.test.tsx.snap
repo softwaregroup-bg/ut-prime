@@ -9,11 +9,6 @@ exports[`<Form /> Basic equals snapshot 1`] = `
     style="overflow-x: hidden; width: 100%;"
   >
     <div
-      class="p-toast p-component p-toast-top-right"
-    >
-      <div />
-    </div>
-    <div
       class="grid col align-self-start form-0-2-1"
     >
       <div
@@ -496,11 +491,6 @@ exports[`<Form /> BasicAR equals snapshot 1`] = `
     class="flex"
     style="overflow-x: hidden; width: 100%;"
   >
-    <div
-      class="p-toast p-component p-toast-top-right"
-    >
-      <div />
-    </div>
     <div
       class="grid col align-self-start form-0-2-1"
       dir="rtl"
@@ -986,11 +976,6 @@ exports[`<Form /> BasicBG equals snapshot 1`] = `
     class="flex"
     style="overflow-x: hidden; width: 100%;"
   >
-    <div
-      class="p-toast p-component p-toast-top-right"
-    >
-      <div />
-    </div>
     <div
       class="grid col align-self-start form-0-2-1"
       lang="bg"

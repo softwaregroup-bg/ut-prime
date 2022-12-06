@@ -77,11 +77,6 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
       style="max-height: 768px;"
     >
       <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
-      <div
         class="grid col align-self-start form-0-2-1"
       >
         <div
@@ -578,7 +573,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                         class="flex align-items-center relative col-12"
                       >
                         <div
-                          class="p-multiselect p-component p-inputwrapper p-inputwrapper-focus w-full"
+                          class="p-multiselect p-component p-inputwrapper w-full"
                           data-testid="tree-habitat"
                           id="tree-habitat"
                         >
@@ -586,7 +581,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                             class="p-hidden-accessible"
                           >
                             <input
-                              aria-expanded="true"
+                              aria-expanded="false"
                               name="tree.habitat"
                               readonly=""
                               role="listbox"
@@ -839,11 +834,6 @@ exports[`<Editor /> CascadedDropdowns render equals snapshot 1`] = `
       class="flex flex-grow-1"
       style="max-height: 768px;"
     >
-      <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
       <div
         class="grid col align-self-start form-0-2-1"
       >
@@ -1128,11 +1118,6 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
       class="flex flex-grow-1"
       style="max-height: 768px;"
     >
-      <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
       <div
         class="grid col align-self-start form-0-2-1"
       >
@@ -2273,11 +2258,6 @@ exports[`<Editor /> CustomEditors render equals snapshot 1`] = `
       style="max-height: 768px;"
     >
       <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
-      <div
         class="grid col align-self-start form-0-2-1"
       >
         <div
@@ -2568,11 +2548,6 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
       class="flex flex-grow-1"
       style="max-height: 768px;"
     >
-      <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
       <div
         class="grid col align-self-start form-0-2-1"
       >
@@ -3673,7 +3648,7 @@ exports[`<Editor /> Files render equals snapshot 1`] = `
         disabled=""
       >
         <span
-          class="p-button-icon p-c pi pi-save"
+          class="p-button-icon p-c pi pi-check"
         />
         <span
           class="p-button-label p-c"
@@ -3724,11 +3699,6 @@ exports[`<Editor /> Files render equals snapshot 1`] = `
       class="flex flex-grow-1"
       style="max-height: 768px;"
     >
-      <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
       <div
         class="grid col align-self-start form-0-2-1"
       >
@@ -4206,7 +4176,7 @@ exports[`<Editor /> FilesInTab render equals snapshot 1`] = `
         disabled=""
       >
         <span
-          class="p-button-icon p-c pi pi-save"
+          class="p-button-icon p-c pi pi-check"
         />
         <span
           class="p-button-label p-c"
@@ -4318,11 +4288,6 @@ exports[`<Editor /> FilesInTab render equals snapshot 1`] = `
       class="flex flex-grow-1"
       style="max-height: 768px;"
     >
-      <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
       <div
         class="grid col align-self-start form-0-2-1"
       >
@@ -4485,7 +4450,7 @@ exports[`<Editor /> FilesInTab render equals snapshot 1`] = `
                         class="flex align-items-center relative col-12"
                       >
                         <div
-                          class="p-multiselect p-component p-inputwrapper p-inputwrapper-focus w-full"
+                          class="p-multiselect p-component p-inputwrapper w-full"
                           data-testid="tree-habitat"
                           id="tree-habitat"
                         >
@@ -4493,7 +4458,7 @@ exports[`<Editor /> FilesInTab render equals snapshot 1`] = `
                             class="p-hidden-accessible"
                           >
                             <input
-                              aria-expanded="true"
+                              aria-expanded="false"
                               name="tree.habitat"
                               readonly=""
                               role="listbox"
@@ -4607,11 +4572,6 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
       class="flex flex-grow-1"
       style="max-height: 768px;"
     >
-      <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
       <div
         class="grid col align-self-start form-0-2-1"
       >
@@ -4974,11 +4934,6 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
       class="flex flex-grow-1"
       style="max-height: 768px;"
     >
-      <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
       <div
         class="grid col align-self-start form-0-2-1"
       >
@@ -5352,11 +5307,6 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
       class="flex flex-grow-1"
       style="max-height: 768px;"
     >
-      <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
       <div
         class="grid col align-self-start form-0-2-1"
       >
@@ -5770,11 +5720,6 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
       class="flex flex-grow-1"
       style="max-height: 768px;"
     >
-      <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
       <div
         class="grid col align-self-start form-0-2-1"
       >
@@ -7154,11 +7099,6 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
           style="max-height: 768px;"
         >
           <div
-            class="p-toast p-component p-toast-top-right"
-          >
-            <div />
-          </div>
-          <div
             class="grid col align-self-start form-0-2-1"
           >
             <div
@@ -7304,11 +7244,6 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
           class="flex flex-grow-1"
           style="max-height: 768px;"
         >
-          <div
-            class="p-toast p-component p-toast-top-right"
-          >
-            <div />
-          </div>
           <div
             class="grid col align-self-start form-0-2-1"
           >
@@ -7456,11 +7391,6 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
           class="flex flex-grow-1"
           style="max-height: 768px;"
         >
-          <div
-            class="p-toast p-component p-toast-top-right"
-          >
-            <div />
-          </div>
           <div
             class="grid col align-self-start form-0-2-1"
           >
@@ -7613,11 +7543,6 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
       class="flex flex-grow-1"
       style="max-height: 768px;"
     >
-      <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
       <div
         class="grid col align-self-start form-0-2-1"
       >
@@ -8419,11 +8344,6 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
       style="max-height: 768px;"
     >
       <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
-      <div
         class="grid col align-self-start form-0-2-1"
       >
         <div
@@ -8938,7 +8858,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
                         class="flex align-items-center relative col-12"
                       >
                         <div
-                          class="p-multiselect p-component p-inputwrapper p-inputwrapper-focus w-full"
+                          class="p-multiselect p-component p-inputwrapper w-full"
                           data-testid="tree-habitat"
                           id="tree-habitat"
                         >
@@ -8946,7 +8866,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
                             class="p-hidden-accessible"
                           >
                             <input
-                              aria-expanded="true"
+                              aria-expanded="false"
                               name="tree.habitat"
                               readonly=""
                               role="listbox"
@@ -9205,7 +9125,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
         disabled=""
       >
         <span
-          class="p-button-icon p-c pi pi-save"
+          class="p-button-icon p-c pi pi-check"
         />
         <span
           class="p-button-label p-c"
@@ -9256,11 +9176,6 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
       class="flex flex-grow-1"
       style="max-height: 768px;"
     >
-      <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
       <div
         class="grid col align-self-start form-0-2-1"
       >
@@ -9760,7 +9675,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                         class="flex align-items-center relative col-12"
                       >
                         <div
-                          class="p-multiselect p-component p-inputwrapper p-inputwrapper-focus w-full"
+                          class="p-multiselect p-component p-inputwrapper w-full"
                           data-testid="tree-habitat"
                           id="tree-habitat"
                         >
@@ -9768,7 +9683,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                             class="p-hidden-accessible"
                           >
                             <input
-                              aria-expanded="true"
+                              aria-expanded="false"
                               name="tree.habitat"
                               readonly=""
                               role="listbox"
@@ -10098,11 +10013,6 @@ exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
       class="flex flex-grow-1"
       style="max-height: 768px;"
     >
-      <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
       <div
         class="grid col align-self-start form-0-2-1"
       >
@@ -10523,11 +10433,6 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
       class="flex flex-grow-1"
       style="max-height: 768px;"
     >
-      <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
       <div
         class="grid col align-self-start form-0-2-1"
       >
@@ -11123,11 +11028,6 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
       style="max-height: 768px;"
     >
       <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
-      <div
         class="grid col align-self-start form-0-2-1"
       >
         <div
@@ -11362,6 +11262,28 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
               Open
             </span>
           </button>
+          <button
+            aria-label="Error"
+            class="p-button p-component mr-2"
+            id="button3"
+          >
+            <span
+              class="p-button-label p-c"
+            >
+              Error
+            </span>
+          </button>
+          <button
+            aria-label="Delay"
+            class="p-button p-component mr-2"
+            id="button4"
+          >
+            <span
+              class="p-button-label p-c"
+            >
+              Delay
+            </span>
+          </button>
         </div>
       </div>
     </div>
@@ -11391,11 +11313,6 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
       class="flex flex-grow-1"
       style="max-height: 768px;"
     >
-      <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
       <div
         class="grid col align-self-start form-0-2-1"
       >
@@ -12161,11 +12078,6 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
       style="max-height: 768px;"
     >
       <div
-        class="p-toast p-component p-toast-top-right"
-      >
-        <div />
-      </div>
-      <div
         class="grid col align-self-start form-0-2-1"
       >
         <div
@@ -12673,7 +12585,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                         class="flex align-items-center relative col-12"
                       >
                         <div
-                          class="p-multiselect p-component p-inputwrapper p-inputwrapper-focus w-full"
+                          class="p-multiselect p-component p-inputwrapper w-full"
                           data-testid="tree-habitat"
                           id="tree-habitat"
                         >
@@ -12681,7 +12593,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                             class="p-hidden-accessible"
                           >
                             <input
-                              aria-expanded="true"
+                              aria-expanded="false"
                               name="tree.habitat"
                               readonly=""
                               role="listbox"

@@ -8,10 +8,8 @@ import {input, dropdowns} from '../../test/input';
 
 export {default} from '../Editor.stories';
 
-const sticky = {sticky: false};
-
 const Template: Story<Props> = ({methods, ...args}) => {
-    const {toast, submit} = useToast(sticky);
+    const {toast, submit} = useToast();
     return <>
         <Editor
             id={1}

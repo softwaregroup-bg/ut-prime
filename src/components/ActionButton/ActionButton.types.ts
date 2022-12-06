@@ -4,7 +4,7 @@ import type {ButtonProps} from '../prime';
 import type {ActionHandler, Selection, ActionItem} from '../types';
 import type { Schema } from 'joi';
 
-interface Props extends ButtonProps {
+export interface Props extends ButtonProps {
     permission?: string;
     enabled?: string | boolean | Schema;
     action?: ActionHandler;
@@ -12,6 +12,7 @@ interface Props extends ButtonProps {
     params?: string | object;
     menu?: ActionItem[];
     getValues?: () => Selection;
+    successHint?: React.ReactNode;
     submit?: (event: unknown) => Promise<void>;
 }
 

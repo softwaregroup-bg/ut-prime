@@ -26,17 +26,31 @@ declare type StoryTemplate = Story<Partial<Props>> & {
     play: (context: {canvasElement: HTMLElement}) => Promise<void>
 }
 
-const sticky = {sticky: true};
-
 const Template: Story<Props> = args => {
-    const {toast, submit} = useToast(sticky);
+    const {toast, submit, delay, error} = useToast();
     return (
         <>
             {toast}
             <Editor
+                methods={{
+                    async handleFieldChange({field, value, event}: {field: unknown, value, event: Event}) {
+                        submit({field, value});
+                    },
+                    async 'portal.customization.get'() {
+                        return {};
+                    },
+                    'editor.submit': submit,
+                    'editor.submitError': error('submit error'),
+                    'editor.submitDelay': delay
+                }}
                 onAdd={submit}
                 onEdit={submit}
                 onCustomization={submit}
+                buttons={{
+                    save: {
+                        successHint: 'saved'
+                    }
+                }}
                 {...args}
             />
         </>
@@ -223,16 +237,18 @@ Validation.play = async({canvasElement}) => {
 
 const serverError = () => {
     interface ValidationError extends Error {
-        validation: {path: string[], message: string}[];
+        validation?: {path: string[], message: string}[];
+        print?: string;
     }
-    const error = new Error('Server error');
-    (error as ValidationError).validation = [{
+    const error: ValidationError = new Error('Server error');
+    error.validation = [{
         path: ['params', 'tree', 'treeName'],
         message: 'Duplicate name'
     }, {
         path: ['params', 'tree', 'treeType'],
         message: 'Invalid Type'
     }];
+    error.print = 'server validation message';
     throw error;
 };
 
@@ -257,17 +273,30 @@ Toolbar.args = {
         toolbar: {
             type: 'toolbar',
             widgets: [{
-                type: 'button',
+                type: 'submit',
                 id: 'button1',
-                action: 'subject.object.predicate',
+                method: 'editor.submit',
                 params: {},
                 label: 'Browse'
             }, {
-                type: 'button',
+                type: 'submit',
                 id: 'button2',
-                action: 'subject.object.predicate',
+                method: 'editor.submit',
                 params: {id: 1},
                 label: 'Open'
+            }, {
+                type: 'submit',
+                id: 'button3',
+                method: 'editor.submitError',
+                params: {},
+                label: 'Error'
+            }, {
+                type: 'submit',
+                id: 'button4',
+                method: 'editor.submitDelay',
+                successHint: 'Done',
+                params: {id: 1},
+                label: 'Delay'
             }]
         }
     }

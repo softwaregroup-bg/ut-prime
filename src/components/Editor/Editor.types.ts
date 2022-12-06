@@ -1,6 +1,7 @@
 import React from 'react';
 
 import type {Schema, Editors, Cards, Dropdowns, Layouts} from '../types';
+import type {Props as ActionButtonProps} from '../ActionButton/ActionButton.types';
 
 interface Customization {
     schema?: Schema,
@@ -40,6 +41,10 @@ export interface Props {
     onGet?: (params: object) => Promise<object>,
     onEdit?: (params: object) => Promise<object>,
     onFieldChange?: string,
+    buttons?: {
+        save?: ActionButtonProps | false,
+        reset?: ActionButtonProps | false
+    }
     onChange?: (params: object) => void
 }
 

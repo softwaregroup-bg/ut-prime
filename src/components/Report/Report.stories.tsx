@@ -20,10 +20,8 @@ const meta: Meta = {
 };
 export default meta;
 
-const sticky = {sticky: true};
-
 const Template: Story<Props> = props => {
-    const {toast, submit} = useToast(sticky);
+    const {toast, submit} = useToast();
     return <>
         {toast}
         <Report

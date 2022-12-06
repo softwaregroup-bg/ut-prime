@@ -11,7 +11,6 @@ import { ConfigCard} from './DragDrop';
 import Context from '../Context';
 import Card from '../Card';
 
-import useSubmit from '../hooks/useSubmit';
 import useLayout from '../hooks/useLayout';
 
 const useStyles = createUseStyles({
@@ -82,26 +81,43 @@ const Form: ComponentProps = ({
     const errorFields = flat(errors);
     const layoutState = useLayout(schema, cards, layout, editors, undefined, layoutFields);
 
-    const {handleSubmit, toast} = useSubmit(
-        async(form, event) => {
+    const handleSubmit = React.useCallback(
+        async(event, form) => {
             try {
                 clearErrors();
                 return await onSubmit([form, layoutState.index, event]);
             } catch (error) {
-                if (!Array.isArray(error.validation)) throw error;
-                error.validation.forEach(({path = [], message = ''} = {}) => {
-                    if (path && message) {
-                        if (Array.isArray(path)) {
-                            if (path[0] === 'params') setError(path.slice(1).join('.'), {message});
-                        } else setError(path, {message});
-                    }
-                });
+                if (Array.isArray(error?.validation)) {
+                    error.validation.forEach(({path = [], message = ''} = {}) => {
+                        if (path && message) {
+                            if (Array.isArray(path)) {
+                                if (path[0] === 'params') setError(path.slice(1).join('.'), {message});
+                            } else setError(path, {message});
+                        }
+                    });
+                    error.silent = !error.print;
+                }
+                throw error;
             }
         },
         [onSubmit, setError, clearErrors, layoutState.index]
     );
 
-    const submit = React.useMemo(() => formSubmit(handleSubmit), [formSubmit, handleSubmit]);
+    interface ValidationError extends Error {
+        silent?: boolean;
+        print?: string;
+        errors?: unknown
+    }
+
+    const submit = React.useMemo(() => formSubmit(
+        (form, event) => handleSubmit(event, form),
+        (errors, event) => {
+            const error: ValidationError = new Error('validation error');
+            // todo: decide about error.print
+            error.silent = !error.print;
+            error.errors = errors;
+            throw error;
+        }), [formSubmit, handleSubmit]);
 
     const canSetTrigger = ((dirtyFields && Object.keys(dirtyFields).length > 0) || triggerNotDirty) && !isSubmitting;
 
@@ -116,12 +132,13 @@ const Form: ComponentProps = ({
             const watcher = watch(value => onChange(JSON.parse(JSON.stringify(value))));
             return () => watcher.unsubscribe();
         }
-    }, [value, reset, loading, watch, onChange]);
+    }, [value, reset, watch, onChange]);
 
     const {devTool} = React.useContext(Context);
     let toolbarElement = null;
     if (toolbarRef?.current && cards[toolbar]?.widgets?.length) {
         toolbarElement = ReactDOM.createPortal(<Card
+            key='toolbar'
             cardName={toolbar}
             cards={cards}
             layoutState={layoutState}
@@ -147,7 +164,6 @@ const Form: ComponentProps = ({
 
     return (<>
         {devTool ? <DevTool control={control} placement="top-right" /> : null}
-        {toast}
         {toolbarElement}
         <div {...rest} className={clsx('grid col align-self-start', classes.form, className)}>
             {!!errorList.length && <div className='col-12'>{errorList}</div>}

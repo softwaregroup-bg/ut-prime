@@ -2,6 +2,7 @@ import React from 'react';
 
 import Loader from '../Loader';
 import Error from '../Error';
+import Hint from '../Hint';
 import Gate from '../Gate';
 import Portal from '../Portal';
 
@@ -12,6 +13,7 @@ const Main: ComponentProps = props => <Gate {...props}>
         <Portal />
         <Loader />
         <Error />
+        <Hint />
     </div>
 </Gate>;
 

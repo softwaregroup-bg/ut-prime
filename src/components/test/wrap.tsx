@@ -7,6 +7,7 @@ import { ConfirmPopup } from '../prime';
 import Context from '../Context';
 import Store from '../Store';
 import Error from '../Error';
+import Hint from '../Hint';
 import type { Theme } from '../Theme';
 import { ThemeProvider } from '../Theme';
 import defaultState from './state';
@@ -52,6 +53,7 @@ function Wrap({
                             <ConfirmPopup />
                             {children}
                             <Error />
+                            <Hint />
                         </Translate>
                     </Context.Provider>
                 </ThemeProvider>

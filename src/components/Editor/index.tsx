@@ -9,7 +9,8 @@ import useCustomization from '../hooks/useCustomization';
 import useLoad from '../hooks/useLoad';
 import prepareSubmit from '../lib/prepareSubmit';
 import testid from '../lib/testid';
-import { Button, Toolbar } from '../prime';
+import { Toolbar } from '../prime';
+import ActionButton from '../ActionButton';
 import type {Schema} from '../types';
 import { ComponentProps } from './Editor.types';
 
@@ -67,6 +68,10 @@ const Editor: ComponentProps = ({
     onEdit,
     onChange,
     onFieldChange,
+    buttons: {
+        save,
+        reset
+    } = {},
     toolbar = !!(onAdd || onEdit || onGet)
 }) => {
     const [keyValue, setKeyValue] = React.useState(id);
@@ -154,21 +159,26 @@ const Editor: ComponentProps = ({
         async function handleSubmit(data) {
             let response;
             let key = keyValue;
-            if (data?.[2].method) {
-                response = getValue(handleArray(await methods[data[2].method](prepareSubmit(data)), properties));
-            } else if (keyValue != null) {
-                response = getValue(handleArray(await onEdit(prepareSubmit(data)), properties));
-            } else {
-                response = getValue(handleArray(await onAdd(prepareSubmit(data)), properties));
-                key = lodashGet(response, `${resultSet}.${keyField}`);
-                setKeyValue(key);
+            setLoading('submit');
+            try {
+                if (data?.[2].method) {
+                    response = getValue(handleArray(await methods[data[2].method](prepareSubmit(data)), properties));
+                } else if (keyValue != null) {
+                    response = getValue(handleArray(await onEdit(prepareSubmit(data)), properties));
+                } else {
+                    response = getValue(handleArray(await onAdd(prepareSubmit(data)), properties));
+                    key = lodashGet(response, `${resultSet}.${keyField}`);
+                    setKeyValue(key);
+                }
+                setDidSubmit(true);
+                const value = merge({}, data[0], response);
+                setEditValue(value);
+                if (key) setLoadedValue(getValue(value));
+                setMode(prev => ['edit', typeField ? lodashGet(value, typeField) : prev[1]]);
+            } finally {
+                setLoading('');
             }
-            setDidSubmit(true);
-            const value = merge({}, data[0], response);
-            setEditValue(value);
-            if (key) setLoadedValue(getValue(value));
-            setMode(prev => ['edit', typeField ? lodashGet(value, typeField) : prev[1]]);
-        }, [keyValue, onEdit, getValue, onAdd, keyField, resultSet, properties, typeField, methods]
+        }, [keyValue, onEdit, getValue, onAdd, keyField, resultSet, properties, typeField, methods, setLoading]
     );
 
     const handleReset = React.useCallback(function handleReset() {
@@ -189,15 +199,16 @@ const Editor: ComponentProps = ({
                 className='border-none border-bottom-1 border-50 p-2'
                 style={backgroundNone}
                 left={<>
-                    <Button
-                        icon='pi pi-save'
+                    {save === false ? null : <ActionButton
+                        icon={loading === 'submit' ? 'pi pi-spin pi-spinner' : (didSubmit && !trigger) ? 'pi pi-check' : 'pi pi-save'}
                         onClick={trigger}
                         disabled={!trigger || !!loading}
                         aria-label='save'
                         className='mr-2'
                         {...testid(name + 'saveButton')}
-                    />
-                    <Button
+                        {...save}
+                    />}
+                    {reset === false ? null : <ActionButton
                         icon='pi pi-replay'
                         onClick={handleReset}
                         confirm={trigger ? 'Changed data will not be saved. Are you sure you want to proceed ?' : ''}
@@ -205,7 +216,8 @@ const Editor: ComponentProps = ({
                         aria-label='reset'
                         className='mr-2'
                         {...testid(name + 'resetButton')}
-                    />
+                        {...reset}
+                    />}
                     <div ref={toolbarRef}></div>
                 </>}
                 right={customizationToolbar}

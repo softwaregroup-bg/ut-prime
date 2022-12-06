@@ -10,17 +10,7 @@ import type { Card as CardType } from '../types';
 import Text from '../Text';
 import titleCase from '../lib/titleCase';
 import { ConfigField, ConfigCard} from '../Form/DragDrop';
-import input from './input';
-import {CHANGE} from './const';
-import Controller from '../Controller';
-
-const getFieldClass = (index, classes, name, className) =>
-    name === '' ? className : clsx(
-        'flex align-items-center relative col-12', {
-            ...classes?.default,
-            ...classes?.[name]
-        }.field || ((index.properties[name]?.title !== '' || className) && (className || 'md:col-8'))
-    );
+import Input from './input';
 
 const useStyles = createUseStyles({
     card: {
@@ -69,122 +59,19 @@ const Card: ComponentProps = ({
     const classes = useStyles();
     const {ut} = useTheme<Theme>();
     const counter = React.useRef(0);
-    const InputWrap = React.useCallback(function Input({
-        Label,
-        ErrorLabel,
-        labelClass: defaultLabelClass,
-        name,
-        propertyName = name.replace('$.edit.', ''),
-        classes,
-        ...widget
-    }) {
-        widget.parent = widget.parent || name.match(/^\$\.edit\.[^.]+/)?.[0].replace('.edit.', '.selected.') || widget?.selectionPath;
-        const parent = widget.parent || layoutState.index.properties[propertyName]?.widget?.parent;
-        const {
-            fieldClass = null,
-            labelClass = defaultLabelClass,
-            onChange = onFieldChange,
-            ...inputWidget
-        } = {
-            id: name.replace(/\./g, '-') || widget.label,
-            ...layoutState.index.properties[propertyName]?.widget,
-            ...widget,
-            parent
-        };
-        if (typeof inputWidget.visible === 'string' && !formApi?.watch?.(inputWidget.visible)) return null;
-        if ('visible' in inputWidget && !inputWidget.visible) return null;
-        if (typeof inputWidget.enabled === 'string') inputWidget.disabled = !formApi?.watch?.(inputWidget.enabled);
-        if (typeof inputWidget.disabled === 'string') inputWidget.disabled = !!formApi?.watch?.(inputWidget.disabled);
-        if (!inputWidget.className) {
-            const inputClassName = classes?.default?.input || classes?.[name]?.input;
-            if (inputClassName) inputWidget.className = inputClassName;
-        }
-        const render = ({field, fieldState}) => {
-            const parentWatch = parent && formApi?.watch?.(parent);
-            return input(
-                Label && <Label name={propertyName} className={labelClass} label={widget.label} isRequired={isPropertyRequired(propertyName)}/>,
-                ErrorLabel && <ErrorLabel name={propertyName} className={labelClass} />,
-                {
-                    className: clsx({'w-full': !['boolean'].includes(inputWidget.type)}, { 'p-invalid': fieldState.error }),
-                    ...field,
-                    onChange: async(event: {value: unknown, originalEvent: unknown}, {select = false, field: changeField = true, children = true} = {}) => {
-                        if (onChange && methods) {
-                            try {
-                                if (await methods[onChange]({
-                                    field,
-                                    value: event.value,
-                                    event: event.originalEvent,
-                                    form: formApi
-                                }) === false) return;
-                            } catch (error) {
-                                formApi.setError(field.name, {message: error.message});
-                                return;
-                            }
-                        }
-                        if (select) {
-                            const prefix = `$.edit.${propertyName}.`;
-                            const selectionPrefix = widget?.selectionPath || '$.selected';
-                            formApi?.setValue?.(
-                            `${selectionPrefix}.${propertyName}`,
-                            event?.value,
-                            selectionPrefix.startsWith('$.') ? {shouldDirty: false, shouldTouch: false} : {shouldDirty: true, shouldTouch: true}
-                            );
-                            layoutState.visibleProperties.forEach(property => {
-                                if (property.startsWith(prefix)) {
-                                    formApi?.setValue?.(
-                                        property,
-                                        event?.value?.[property.substr(prefix.length)],
-                                        {shouldDirty: false, shouldTouch: false}
-                                    );
-                                }
-                            });
-                        }
-                        try {
-                            if (children) {
-                                const items = layoutState.index.children[propertyName];
-                                if (items) {
-                                    items.forEach(child => {
-                                        let childValue = null;
-                                        const autocompleteProp = child.split('.').pop();
-                                        const autocomplete = (event as {value?: Record<string, unknown>})?.value?.[autocompleteProp];
-                                        if (layoutState.index.properties[propertyName]?.widget?.type === 'autocomplete' && autocomplete) childValue = autocomplete;
-                                        formApi?.setValue?.(child, childValue);
-                                    });
-                                }
-                            }
-                        } finally {
-                            if (changeField) {
-                                field.onChange(event.value);
-                                if (parentWatch?.[CHANGE] && name.startsWith('$.edit.')) {
-                                    const old = {...parentWatch};
-                                    parentWatch[name.split('.').pop()] = event?.value;
-                                    parentWatch[CHANGE]({data: old, newData: parentWatch});
-                                }
-                            }
-                        }
-                    }
-                },
-                getFieldClass(layoutState.index, classes, propertyName, fieldClass),
-                inputWidget.className,
-                inputWidget,
-                layoutState.index.properties[propertyName],
-                dropdowns,
-                parentWatch,
-                loading,
-                formApi?.getValues,
-                formApi?.setValue,
-                counter,
-                methods,
-                submit,
-                !formApi?.getValues && 'label'
-            );
-        };
-        return (name && formApi?.control) ? <Controller
-            control={formApi.control}
-            name={name}
-            render={render}
-        /> : render({field: value ? {value: get(value, name.split('.').pop()), name} : {}, fieldState: {}});
-    }, [
+    const api = React.useMemo(() => ({
+        index: layoutState.index,
+        visibleProperties: layoutState.visibleProperties,
+        dropdowns,
+        loading,
+        methods,
+        submit,
+        counter,
+        formApi,
+        onFieldChange,
+        value,
+        isPropertyRequired
+    }), [
         layoutState.index,
         layoutState.visibleProperties,
         dropdowns,
@@ -196,6 +83,9 @@ const Card: ComponentProps = ({
         value,
         isPropertyRequired
     ]);
+    const InputWrap = React.useCallback(function InputWrap(props) {
+        return <Input {...props} api={api} />;
+    }, [api]);
 
     const InputWrapEdit = React.useCallback(
         function InputEdit({name, ...props}) {
@@ -212,12 +102,13 @@ const Card: ComponentProps = ({
             : null;
     }, [layoutState.index, ut?.classes?.labelRequired]);
 
+    const formErrors = Object.keys(formApi?.formState?.errors).length && formApi?.formState?.errors;
     const ErrorLabel = React.useCallback(({name, className = 'md:col-4'}) => {
-        const error = get(formApi?.formState?.errors, name);
+        const error = formErrors && get(formErrors, name);
         return error
             ? <><small className={clsx('col-12', className)}/><small className='col p-error'>{error.message}</small></>
             : null;
-    }, [formApi?.formState?.errors]);
+    }, [formErrors]);
 
     let formValues;
     const values = () => {
@@ -254,7 +145,7 @@ const Card: ComponentProps = ({
                 });
             }
             return (
-                <InputWrap
+                <Input
                     Label={Label}
                     ErrorLabel={ErrorLabel}
                     propertyName={propertyName}
@@ -264,6 +155,7 @@ const Card: ComponentProps = ({
                     labelClass={labelClass}
                     {...widget as object}
                     {...disabled != null && {disabled}}
+                    api={api}
                 />
             );
         }

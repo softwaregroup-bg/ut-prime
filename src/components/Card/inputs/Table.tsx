@@ -224,7 +224,7 @@ export default React.forwardRef<object, any>(function Table({
         };
         return (
             <React.Fragment>
-                {allowAdd && <Button
+                {allowAdd && !disabled && <Button
                     label=' '
                     aria-label='Add'
                     icon="pi pi-plus"
@@ -232,7 +232,7 @@ export default React.forwardRef<object, any>(function Table({
                     onClick={addNewRow}
                     {...testid(`${resultSet}.addButton`)}
                 >Add</Button>}
-                {allowDelete && <Button
+                {allowDelete && !disabled && <Button
                     label=' '
                     aria-label='Delete'
                     icon="pi pi-trash"
@@ -243,7 +243,7 @@ export default React.forwardRef<object, any>(function Table({
                 >Delete</Button>}
             </React.Fragment>
         );
-    }, [allowAdd, allowDelete, selected, identity, master, filter, parent, allRows, onChange, handleSelected, counter, properties, resultSet]);
+    }, [allowAdd, allowDelete, selected, identity, master, filter, parent, allRows, onChange, handleSelected, counter, properties, resultSet, disabled]);
 
     if (selected && props.selectionMode === 'single' && !rows.includes(selected)) {
         handleSelected({value: rows[selected[KEY]]});
@@ -258,7 +258,7 @@ export default React.forwardRef<object, any>(function Table({
     };
     return (
         <>
-            {!disabled && (allowAdd || allowDelete) && <Toolbar className="p-0 border-none" left={left} right={right} style={backgroundNone}></Toolbar>}
+            {(allowAdd || allowDelete) && <Toolbar className="p-0 border-none" left={left} right={right} style={backgroundNone}></Toolbar>}
             <DataTable
                 editMode='row'
                 selection={selected}

@@ -16,6 +16,10 @@ export interface MenuItem extends PrimeMenuItem {
     items?: MenuItem[] | MenuItem[][];
     action?: () => AnyAction
 }
+interface ErrorPrint extends Error {
+    print?: string;
+}
+
 export interface State {
     error?: {
         open: boolean;
@@ -31,6 +35,11 @@ export interface State {
         requests: number;
         message: string;
     };
+    hint?: {
+        result: React.ReactNode;
+        error: ErrorPrint;
+        event: React.SyntheticEvent;
+    },
     login?: {
         language?: {
             languageId: string | number;
