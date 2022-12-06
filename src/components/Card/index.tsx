@@ -102,7 +102,7 @@ const Card: ComponentProps = ({
             : null;
     }, [layoutState.index, ut?.classes?.labelRequired]);
 
-    const formErrors = Object.keys(formApi?.formState?.errors).length && formApi?.formState?.errors;
+    const formErrors = Object.keys(formApi?.formState?.errors || {}).length && formApi?.formState?.errors;
     const ErrorLabel = React.useCallback(({name, className = 'md:col-4'}) => {
         const error = formErrors && get(formErrors, name);
         return error
