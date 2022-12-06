@@ -240,12 +240,19 @@ const Explorer: ComponentProps = ({
     }), [current, keyField, selected, externalFilter]);
 
     const submit = React.useCallback(async({method, params}) => {
+        let system;
+        if (typeof params === 'object') {
+            const {$, ...rest} = params;
+            system = $;
+            params = rest;
+        }
         setLoading('loading');
         try {
             await methods[method](prepareSubmit([getValues(), {}, {method, params}]));
         } finally {
             setLoading('');
         }
+        if (system?.fetch) setFilters(prev => merge({}, prev, system.fetch));
     }, [methods, getValues]);
 
     const buttons = React.useMemo(() => (toolbar || []).map((widget, index) => {
