@@ -23,13 +23,13 @@ const useStyles = createUseStyles({
 });
 
 const convert = keyValue => {
-    const left = keyValue.map(([key, value]) => ({
+    const left = keyValue?.map?.(([key, value]) => ({
         unchanged: true,
         level: 0,
         empty: value == null,
         label: key,
         value
-    }));
+    })) ?? [];
     return {
         left,
         right: left
