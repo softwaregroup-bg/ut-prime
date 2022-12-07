@@ -1,3 +1,12 @@
+## [2.51.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.51.0...v2.51.1) (2022-12-07)
+
+
+### Bug Fixes
+
+* avoid double session expired message ([b8b3966](https://github.com/softwaregroup-bg/ut-prime/commit/b8b3966c3212a7f4c6be82084567617ba88a631f))
+
+
+
 # [2.51.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.50.1...v2.51.0) (2022-12-06)
 
 
