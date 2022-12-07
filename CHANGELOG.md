@@ -1,3 +1,12 @@
+## [2.51.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.51.1...v2.51.2) (2022-12-07)
+
+
+### Bug Fixes
+
+* **Json:** handle null ([35fd0e4](https://github.com/softwaregroup-bg/ut-prime/commit/35fd0e48b279a375de474f4f81ac7a6cde901734))
+
+
+
 ## [2.51.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.51.0...v2.51.1) (2022-12-07)
 
 
