@@ -2,10 +2,12 @@ import {LOGOUT} from '../Login/actions';
 
 const handlers = {
     [LOGOUT](state, action) {
-        return {
-            ...state,
-            tabs: []
-        };
+        if (action.methodRequestState === 'finished') {
+            return {
+                ...state,
+                tabs: []
+            };
+        } else return state;
     },
     'front.tab.show'(state, {title, path, Component, params}) {
         if (state.tabs && state.tabs.find(tab => tab.path === path)) return state;
