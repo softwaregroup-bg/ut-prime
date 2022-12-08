@@ -240,14 +240,16 @@ const Explorer: ComponentProps = ({
     }), [current, keyField, selected, externalFilter]);
 
     const submit = React.useCallback(async({method, params}) => {
-        const {$, ...rest} = prepareSubmit([getValues(), {}, {method, params}]);
+        params = prepareSubmit([getValues(), {}, {method, params}]);
+        const system = params?.$;
+        delete params?.$;
         setLoading('loading');
         try {
-            await methods[method](rest);
+            await methods[method](params);
         } finally {
             setLoading('');
         }
-        if ($?.fetch) setFilters(prev => merge({}, prev, $.fetch));
+        if (system?.fetch) setFilters(prev => merge({}, prev, system.fetch));
     }, [methods, getValues]);
 
     const buttons = React.useMemo(() => (toolbar || []).map((widget, index) => {
@@ -289,6 +291,7 @@ const Explorer: ComponentProps = ({
         async function() {
             if (!fetch) {
                 setItems([[], 0, {}]);
+                setCurrentSelected({current: null, selected: null});
                 setDropdown({});
             } else {
                 setLoading('loading');
@@ -323,6 +326,7 @@ const Explorer: ComponentProps = ({
                         total = tableFilter.first + total;
                     }
                     setItems([records, total, items]);
+                    setCurrentSelected({current: null, selected: null});
                 } finally {
                     setLoading('');
                 }
