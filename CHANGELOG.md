@@ -1,3 +1,12 @@
+## [2.51.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.51.2...v2.51.3) (2022-12-08)
+
+
+### Bug Fixes
+
+* **Explorer:** remove $ during submit with string ([28757a5](https://github.com/softwaregroup-bg/ut-prime/commit/28757a5532bfdae4bf25f88d0dfe6e3551966409))
+
+
+
 ## [2.51.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.51.1...v2.51.2) (2022-12-07)
 
 
