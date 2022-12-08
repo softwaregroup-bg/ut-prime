@@ -80,12 +80,10 @@ const Editor: ComponentProps = ({
 
     const [trigger, setTrigger] = React.useState();
     const [didSubmit, setDidSubmit] = React.useState(false);
-    const [value, setEditValue] = React.useState({});
-    const [loadedValue, setLoadedValue] = React.useState<object>();
     const [dropdowns, setDropdown] = React.useState({});
-    const [[mode, layoutState], setMode] = React.useState([id == null ? 'create' : 'edit' as 'create' | 'edit', layoutName]);
+    const [[value, mode, layoutState, loadedValue], setValueMode] = React.useState([{}, id == null ? 'create' : 'edit' as 'create' | 'edit', layoutName, undefined]);
     const [loading, setLoading] = React.useState(loadingValue);
-    const [
+    const {
         customizationToolbar,
         mergedSchema,
         mergedCards,
@@ -97,10 +95,11 @@ const Editor: ComponentProps = ({
         formProps,
         dropdownNames,
         getValue,
+        getLayoutValue,
         layoutFields,
         formApi,
         isPropertyRequired
-    ] = useCustomization(
+    } = useCustomization({
         designDefault,
         schema,
         cards,
@@ -109,14 +108,13 @@ const Editor: ComponentProps = ({
         mode,
         layoutState,
         Editor,
-        undefined,
         onCustomization,
         methods,
         name,
         loading,
         trigger,
         editors
-    );
+    });
     name = name ? name + '.' : '';
     const {properties = empty} = mergedSchema;
 
@@ -127,8 +125,7 @@ const Editor: ComponentProps = ({
             loadCustomization()
         ]);
         handleArray(result, properties);
-        if (typeField) setMode(['edit', lodashGet(result, typeField)]);
-        setLoadedValue(result);
+        setValueMode(prev => [prev[0], 'edit', lodashGet(result, typeField), result]);
         setLoading('');
     }
     async function init() {
@@ -140,7 +137,7 @@ const Editor: ComponentProps = ({
     React.useEffect(() => {
         async function edit() {
             const value = merge(getDefault(mergedSchema), initValue, onInit && await onInit(initValue));
-            if (value !== undefined) setEditValue(getValue(value));
+            if (value !== undefined) setValueMode(prev => [getValue(value), prev[1], prev[2], prev[3]]);
         }
         edit();
     }, [getValue, initValue, mergedSchema, onInit]);
@@ -154,8 +151,8 @@ const Editor: ComponentProps = ({
     const toolbarRef = React.useRef(null);
 
     React.useEffect(() => {
-        if (loadedValue !== undefined) setEditValue(getValue(loadedValue));
-    }, [loadedValue, getValue, setEditValue]);
+        if (loadedValue !== undefined) setValueMode(prev => [getValue(loadedValue), prev[1], prev[2], prev[3]]);
+    }, [loadedValue, getValue, setValueMode]);
 
     const handleSubmit = React.useCallback(
         async function handleSubmit(data) {
@@ -164,29 +161,30 @@ const Editor: ComponentProps = ({
             setLoading('submit');
             try {
                 if (data?.[2].method) {
-                    response = getValue(handleArray(await methods[data[2].method](prepareSubmit(data)), properties));
+                    response = handleArray(await methods[data[2].method](prepareSubmit(data)), properties);
                 } else if (keyValue != null) {
-                    response = getValue(handleArray(await onEdit(prepareSubmit(data)), properties));
+                    response = handleArray(await onEdit(prepareSubmit(data)), properties);
                 } else {
-                    response = getValue(handleArray(await onAdd(prepareSubmit(data)), properties));
+                    response = handleArray(await onAdd(prepareSubmit(data)), properties);
                     key = lodashGet(response, `${resultSet}.${keyField}`);
                     setKeyValue(key);
                 }
                 setDidSubmit(true);
-                const value = merge({}, data[0], response);
-                setEditValue(value);
-                if (key) setLoadedValue(getValue(value));
-                setMode(prev => ['edit', typeField ? lodashGet(value, typeField) : prev[1]]);
+                setValueMode(prev => {
+                    const merged = merge({}, data[0], response);
+                    const newLayout = typeField ? lodashGet(merged, typeField) : prev[2];
+                    const value = getLayoutValue('edit', newLayout)(merged);
+                    return [value, 'edit', newLayout, key == null ? prev[3] : value];
+                });
             } finally {
                 setLoading('');
             }
-        }, [keyValue, onEdit, getValue, onAdd, keyField, resultSet, properties, typeField, methods, setLoading]
+        }, [keyValue, onEdit, getLayoutValue, onAdd, keyField, resultSet, properties, typeField, methods, setLoading]
     );
 
     const handleReset = React.useCallback(function handleReset() {
         const value = loadedValue ? getValue(loadedValue) : {[resultSet]: null};
-        setEditValue(value);
-        setMode(prev => ['edit', typeField ? lodashGet(value, typeField) : prev[1]]);
+        setValueMode(prev => [value, prev[1], typeField ? lodashGet(value, typeField) : prev[2], prev[3]]);
         setDidSubmit(false);
     }, [typeField, loadedValue, resultSet, getValue]);
 

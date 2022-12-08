@@ -18,11 +18,11 @@ import {ConfigField, ConfigCard, useDragging} from '../Form/DragDrop';
 import {Button} from '../prime';
 import testid from '../lib/testid';
 import useForm from '../hooks/useForm';
-import type {Cards, Layouts} from '../types';
+import type {Cards, Layouts, LayoutMode} from '../types';
 
 const capital = (string: string) => string.charAt(0).toUpperCase() + string.slice(1);
 
-function getLayout(cards: Cards, layouts: Layouts, mode: 'create' | 'edit', name = '') {
+function getLayout(cards: Cards, layouts: Layouts, mode: LayoutMode, name = '') {
     let layoutName = mode + capital(name);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let items: any = layouts?.[layoutName];
@@ -46,23 +46,34 @@ function getLayout(cards: Cards, layouts: Layouts, mode: 'create' | 'edit', name
     return [items, layout, type, orientation || 'left', toolbar, layoutName, disableBack || false];
 }
 
-export default function useCustomization(
+const indexCards = items => items && items.map(item => [item.widgets, item?.items?.map(item => item.widgets)]).flat(2).filter(Boolean);
+
+const getFieldsValue = fields => value => {
+    const editValue = {};
+    fields.forEach(field => {
+        const fieldValue = lodashGet(value, field);
+        if (fieldValue !== undefined) lodashSet(editValue, field, fieldValue);
+    });
+    return editValue;
+};
+
+export default function useCustomization({
     designDefault,
     schema,
     cards,
     layouts,
-    customizationDefault,
-    mode,
-    layoutState,
+    customization: customizationDefault,
+    mode = 'view' as LayoutMode,
+    layoutState = '',
     Editor,
-    maxHeight,
+    maxHeight = undefined,
     onCustomization,
     methods,
     name,
     loading,
-    trigger,
+    trigger = undefined,
     editors
-) {
+}) {
     const [inspected, onInspect] = React.useState(null);
     const {customization: customizationEnabled} = React.useContext(Context);
     const [design, toggleDesign] = useToggle(designDefault);
@@ -358,19 +369,27 @@ export default function useCustomization(
     }, [customizationDefault, customizationEnabled, methods, name]);
 
     const layoutItems = items ? false : layout; // preserve memoization
-    const [validation, dropdownNames, getValue, layoutFields] = React.useMemo(() => {
-        const indexCards = items && items.map(item => [item.widgets, item?.items?.map(item => item.widgets)]).flat(2).filter(Boolean);
-        const {fields, validation, dropdownNames} = fieldNames(indexCards || layoutItems || [], mergedCards, mergedSchema, editors);
-        const getValue = (value) => {
-            const editValue = {};
-            fields.forEach(field => {
-                const fieldValue = lodashGet(value, field);
-                if (fieldValue !== undefined) lodashSet(editValue, field, fieldValue);
-            });
-            return editValue;
-        };
-        return [validation, dropdownNames, getValue, fields];
+    const [
+        validation,
+        dropdownNames,
+        getValue,
+        layoutFields
+    ] = React.useMemo(() => {
+        const {fields, validation, dropdownNames} = fieldNames(indexCards(items) || layoutItems || [], mergedCards, mergedSchema, editors);
+        return [
+            validation,
+            dropdownNames,
+            getFieldsValue(fields),
+            fields
+        ];
     }, [mergedCards, editors, items, layoutItems, mergedSchema]);
+
+    const getLayoutValue = React.useCallback((mode, layoutState) => {
+        const [items, layout] = getLayout(mergedCards, mergedLayouts, mode, layoutState);
+        const layoutItems = items ? false : layout;
+        const {fields} = fieldNames(indexCards(items) || layoutItems || [], mergedCards, mergedSchema, editors);
+        return getFieldsValue(fields);
+    }, [editors, mergedCards, mergedLayouts, mergedSchema]);
 
     const [resolver, isPropertyRequired] = React.useMemo(() => {
         const [validationSchema, requiredProperties] = getValidation(mergedSchema);
@@ -403,7 +422,7 @@ export default function useCustomization(
         />
     );
 
-    return [
+    return {
         customizationToolbar,
         mergedSchema,
         mergedCards,
@@ -411,12 +430,13 @@ export default function useCustomization(
         loadCustomization,
         orientation,
         thumbIndex,
-        layout || filter?.widgets,
-        React.useMemo(() => ({move, inspected, onInspect, toolbar, design, designCards: design}), [move, inspected, onInspect, toolbar, design]),
+        layout: layout || filter?.widgets,
+        formProps: React.useMemo(() => ({move, inspected, onInspect, toolbar, design, designCards: design}), [move, inspected, onInspect, toolbar, design]),
         dropdownNames,
         getValue,
+        getLayoutValue,
         layoutFields,
         formApi,
         isPropertyRequired
-    ];
+    };
 }

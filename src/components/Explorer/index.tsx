@@ -135,38 +135,29 @@ const Explorer: ComponentProps = ({
 
     const [loading, setLoading] = React.useState('');
     const [inspectorHeight, setInspectorHeight] = React.useState<{maxHeight: number}>();
-    const [
+    const {
         customizationToolbar,
         mergedSchema,
         mergedCards,
         inspector,
         loadCustomization,
-        ,
-        ,
-        ,
         formProps,
-        ,
-        ,
-        ,
         formApi,
         isPropertyRequired
-    ] = useCustomization(
+    } = useCustomization({
         designDefault,
         schema,
         cards,
         layouts,
         customization,
-        'view',
-        '',
         Editor,
-        inspectorHeight,
+        maxHeight: inspectorHeight,
         onCustomization,
         methods,
         name,
         loading,
-        undefined,
         editors
-    );
+    });
     const layoutProps = layouts?.[layoutName] || {toolbar: undefined};
     const columnsCard = ('columns' in layoutProps) ? layoutProps.columns : 'browse';
     const toolbarCard = ('toolbar' in layoutProps) ? layoutProps.toolbar : 'toolbarBrowse';

@@ -67,7 +67,7 @@ export default function columnProps({
     getValues,
     toolbar
 }: {
-    resultSet: string,
+    resultSet?: string,
     name: string,
     property: Property,
     widget?: PropertyEditor,
@@ -81,7 +81,7 @@ export default function columnProps({
     inspected?: unknown,
     onInspect?: unknown,
     getValues?: (fieldName: string) => unknown,
-    move?: undefined,
+    move?: unknown,
     toolbar?: undefined
 }) {
     const resultSetDot = resultSet ? resultSet + '.' : '';

@@ -251,3 +251,5 @@ export interface UtError extends Error {
     silent?: boolean;
     errors?: unknown;
 }
+
+export type LayoutMode = 'create' | 'edit' | 'view';
