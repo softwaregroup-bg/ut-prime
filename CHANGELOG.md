@@ -1,3 +1,12 @@
+## [2.51.4](https://github.com/softwaregroup-bg/ut-prime/compare/v2.51.3...v2.51.4) (2022-12-08)
+
+
+### Bug Fixes
+
+* **Explorer:** enable submitting non object params ([43653ef](https://github.com/softwaregroup-bg/ut-prime/commit/43653efd9385e5db5101d74ae32b537b6c7a31ed))
+
+
+
 ## [2.51.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.51.2...v2.51.3) (2022-12-08)
 
 
