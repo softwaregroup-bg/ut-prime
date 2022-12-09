@@ -99,9 +99,16 @@ function input(
         if (loading === 'loading' && ['button', 'submit'].includes(widgetType)) return <ActionButton className={inputClass ?? 'mr-2'} {...props} disabled/>;
         if (loading === 'loading') return <>{label}<div className={inputClass}><Skeleton className='p-inputtext'/></div></>;
     }
-    props.disabled ??= schema?.readOnly || (parentField && !parentValue);
+    props.disabled ??= schema?.readOnly || (parentField && !parentValue || (Array.isArray(parentValue) && (parentValue.includes(undefined) || parentValue.includes(null))));
     if (loading) props.disabled = true;
-    const filterBy = item => (!parentField && !optionsFilter) || Object.entries({...optionsFilter, parent: parentValue}).every(([name, value]) => String(item[name]) === String(value));
+    const filterBy = item => (!parentField && !optionsFilter) || Object.entries({...optionsFilter, parent: parentValue}).every( ([name, value]) => {
+        if (Array.isArray(item[name])) {
+            return item[name].every((parent, index) => {
+                return String(parent) === String(value[index])
+            });
+        }
+        return String(item[name]) === String(value)
+    });
     switch (widgetType) {
         case 'button': return <ActionButton
             className={inputClass ?? 'mr-2'}
