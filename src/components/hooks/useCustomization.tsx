@@ -48,7 +48,7 @@ function getLayout(cards: Cards, layouts: Layouts, mode: LayoutMode, name = '') 
 
 const indexCards = items => items && items.map(item => [item.widgets, item?.items?.map(item => item.widgets)]).flat(2).filter(Boolean);
 
-const getFieldsValue = fields => value => {
+const getFieldsValue = (fields, value) => {
     const editValue = {};
     fields.forEach(field => {
         const fieldValue = lodashGet(value, field);
@@ -372,23 +372,21 @@ export default function useCustomization({
     const [
         validation,
         dropdownNames,
-        getValue,
         layoutFields
     ] = React.useMemo(() => {
         const {fields, validation, dropdownNames} = fieldNames(indexCards(items) || layoutItems || [], mergedCards, mergedSchema, editors);
         return [
             validation,
             dropdownNames,
-            getFieldsValue(fields),
             fields
         ];
     }, [mergedCards, editors, items, layoutItems, mergedSchema]);
 
-    const getLayoutValue = React.useCallback((mode, layoutState) => {
+    const getLayoutValue = React.useCallback((mode, layoutState, value) => {
         const [items, layout] = getLayout(mergedCards, mergedLayouts, mode, layoutState);
         const layoutItems = items ? false : layout;
         const {fields} = fieldNames(indexCards(items) || layoutItems || [], mergedCards, mergedSchema, editors);
-        return getFieldsValue(fields);
+        return getFieldsValue(fields, value);
     }, [editors, mergedCards, mergedLayouts, mergedSchema]);
 
     const [resolver, isPropertyRequired] = React.useMemo(() => {
@@ -433,7 +431,6 @@ export default function useCustomization({
         layout: layout || filter?.widgets,
         formProps: React.useMemo(() => ({move, inspected, onInspect, toolbar, design, designCards: design}), [move, inspected, onInspect, toolbar, design]),
         dropdownNames,
-        getValue,
         getLayoutValue,
         layoutFields,
         formApi,

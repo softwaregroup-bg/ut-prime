@@ -94,7 +94,6 @@ const Editor: ComponentProps = ({
         layout,
         formProps,
         dropdownNames,
-        getValue,
         getLayoutValue,
         layoutFields,
         formApi,
@@ -137,10 +136,10 @@ const Editor: ComponentProps = ({
     React.useEffect(() => {
         async function edit() {
             const value = merge(getDefault(mergedSchema), initValue, onInit && await onInit(initValue));
-            if (value !== undefined) setValueMode(prev => [getValue(value), prev[1], prev[2], prev[3]]);
+            if (value !== undefined) setValueMode(prev => [getLayoutValue(prev[1], prev[2], value), prev[1], prev[2], prev[3]]);
         }
         edit();
-    }, [getValue, initValue, mergedSchema, onInit]);
+    }, [getLayoutValue, initValue, mergedSchema, onInit]);
 
     const {handleSubmit: loadDropDown} = useSubmit(async() => setDropdown(await onDropdown(dropdownNames)), [dropdownNames, onDropdown]);
 
@@ -151,8 +150,8 @@ const Editor: ComponentProps = ({
     const toolbarRef = React.useRef(null);
 
     React.useEffect(() => {
-        if (loadedValue !== undefined) setValueMode(prev => [getValue(loadedValue), prev[1], prev[2], prev[3]]);
-    }, [loadedValue, getValue, setValueMode]);
+        if (loadedValue !== undefined) setValueMode(prev => [getLayoutValue(prev[1], prev[2], loadedValue), prev[1], prev[2], prev[3]]);
+    }, [loadedValue, getLayoutValue, setValueMode]);
 
     const handleSubmit = React.useCallback(
         async function handleSubmit(data) {
@@ -173,7 +172,7 @@ const Editor: ComponentProps = ({
                 setValueMode(prev => {
                     const merged = merge({}, data[0], response);
                     const newLayout = typeField ? lodashGet(merged, typeField) : prev[2];
-                    const value = getLayoutValue('edit', newLayout)(merged);
+                    const value = getLayoutValue('edit', newLayout, merged);
                     return [value, 'edit', newLayout, key == null ? prev[3] : value];
                 });
             } finally {
@@ -183,10 +182,12 @@ const Editor: ComponentProps = ({
     );
 
     const handleReset = React.useCallback(function handleReset() {
-        const value = loadedValue ? getValue(loadedValue) : {[resultSet]: null};
-        setValueMode(prev => [value, prev[1], typeField ? lodashGet(value, typeField) : prev[2], prev[3]]);
+        setValueMode(prev => {
+            const newLayout = typeField ? lodashGet(loadedValue, typeField) : prev[2];
+            return [(loadedValue ? getLayoutValue(prev[1], newLayout, loadedValue) : {[resultSet]: null}), prev[1], newLayout, prev[3]];
+        });
         setDidSubmit(false);
-    }, [typeField, loadedValue, resultSet, getValue]);
+    }, [typeField, loadedValue, resultSet, getLayoutValue]);
 
     useLoad(async() => {
         if (keyValue) await get();
