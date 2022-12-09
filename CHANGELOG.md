@@ -1,3 +1,12 @@
+## [2.51.6](https://github.com/softwaregroup-bg/ut-prime/compare/v2.51.5...v2.51.6) (2022-12-09)
+
+
+### Bug Fixes
+
+* improve layout handling after save ([0c254a3](https://github.com/softwaregroup-bg/ut-prime/commit/0c254a39a7776151c75a4c7e917243495de66fce))
+
+
+
 ## [2.51.5](https://github.com/softwaregroup-bg/ut-prime/compare/v2.51.4...v2.51.5) (2022-12-08)
 
 
