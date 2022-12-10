@@ -1,3 +1,12 @@
+## [2.51.8](https://github.com/softwaregroup-bg/ut-prime/compare/v2.51.7...v2.51.8) (2022-12-10)
+
+
+### Bug Fixes
+
+* null handling ([6eedff5](https://github.com/softwaregroup-bg/ut-prime/commit/6eedff522191e3684497704286f7063b3fbd8faa))
+
+
+
 ## [2.51.7](https://github.com/softwaregroup-bg/ut-prime/compare/v2.51.6...v2.51.7) (2022-12-10)
 
 
