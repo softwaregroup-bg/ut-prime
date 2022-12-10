@@ -18,6 +18,7 @@ import useSubmit from '../hooks/useSubmit';
 const backgroundNone = {background: 'none'};
 
 function handleArray(result, properties) {
+    if (!result) return result;
     Object.entries(result).forEach(([name, value]) => {
         // back end wrongly returned an array with a single item
         if (Array.isArray(value) && properties[name]?.properties) result[name] = value[0];
