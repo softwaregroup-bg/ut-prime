@@ -124,7 +124,7 @@ export default function getValidation(schema: Schema | Property, filter?: string
     }
     if (filter && !filter?.includes(path)) return [null, []];
     if (schema?.type === 'array' || schema?.items) {
-        const [validation, required] = schema?.items && getValidation(schema.items as Schema, filter, path, propertyName);
+        const [validation, required] = schema?.items ? getValidation(schema.items as Schema, filter, path, propertyName) : [null, []];
         return [schema?.items ? array(schema, filter, path, propertyName).sparse().items(validation) : array(schema, filter, path, propertyName), required];
     } else if (schema?.oneOf) {
         return [Joi.alternatives().try(...schema.oneOf.map(item => getValidation(item as Schema, filter, path, propertyName)[0]).filter(Boolean)).match('one'), []];
