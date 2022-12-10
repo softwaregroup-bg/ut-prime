@@ -1,3 +1,12 @@
+## [2.51.7](https://github.com/softwaregroup-bg/ut-prime/compare/v2.51.6...v2.51.7) (2022-12-10)
+
+
+### Bug Fixes
+
+* handle missing schema.items ([8d83a28](https://github.com/softwaregroup-bg/ut-prime/commit/8d83a284c6c87bf0866fcce051d39fb4fa0e9715))
+
+
+
 ## [2.51.6](https://github.com/softwaregroup-bg/ut-prime/compare/v2.51.5...v2.51.6) (2022-12-09)
 
 
