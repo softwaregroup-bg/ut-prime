@@ -1,3 +1,12 @@
+## [2.51.9](https://github.com/softwaregroup-bg/ut-prime/compare/v2.51.8...v2.51.9) (2022-12-12)
+
+
+### Bug Fixes
+
+* report params ([f7a3c34](https://github.com/softwaregroup-bg/ut-prime/commit/f7a3c343c612b4195020e15dd7764ec393f57505))
+
+
+
 ## [2.51.8](https://github.com/softwaregroup-bg/ut-prime/compare/v2.51.7...v2.51.8) (2022-12-10)
 
 
