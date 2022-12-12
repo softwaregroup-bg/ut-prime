@@ -432,35 +432,30 @@ const Explorer: ComponentProps = ({
     }), [columns, columnsCard, properties, showFilter, dropdowns, tableFilter, keyField, resultSet, formProps, externalFilter, submit]);
     const hasChildren = !!children;
 
-    const paramsElement = React.useMemo(() => {
-        if (!paramsLayout) return null;
-        return <div className='flex align-items-center w-full'>
-            <Form
-                className='p-0 m-0 flex-grow-1'
-                schema={mergedSchema}
-                editors={editors}
-                methods={methods}
-                cards={cards}
-                layout={paramsLayout}
-                onSubmit={submitParams}
-                value={paramValues[0]}
-                dropdowns={dropdowns}
-                setTrigger={setTrigger}
-                layoutFields={layoutFields}
-                formApi={formApi}
-                isPropertyRequired={isPropertyRequired}
-                triggerNotDirty
-                autoSubmit
-                {...formProps}
-                designCards={false}
-            />
-        </div>;
-    }, [paramsLayout, mergedSchema, editors, methods, cards, paramValues, dropdowns, formProps, layoutFields, formApi, isPropertyRequired]);
-
-    const left = React.useMemo(() => paramsElement ?? <>
+    const left = paramsLayout ? <div className='flex align-items-center w-full'>
+        <Form
+            className='p-0 m-0 flex-grow-1'
+            schema={mergedSchema}
+            editors={editors}
+            methods={methods}
+            cards={cards}
+            layout={paramsLayout}
+            onSubmit={submitParams}
+            value={paramValues[0]}
+            dropdowns={dropdowns}
+            setTrigger={setTrigger}
+            layoutFields={layoutFields}
+            formApi={formApi}
+            isPropertyRequired={isPropertyRequired}
+            triggerNotDirty
+            autoSubmit
+            {...formProps}
+            designCards={false}
+        />
+    </div> : <>
         {hasChildren && <Button {...testid(`${resultSet}.navigator.toggleButton`)} icon="pi pi-bars" className="mr-2" onClick={navigationToggle}/>}
         {buttons}
-    </>, [navigationToggle, buttons, hasChildren, resultSet, paramsElement]);
+    </>;
     const right = <>
         <Button icon="pi pi-search" className="mr-2 ml-2" disabled={!!loading} onClick={trigger || load} {...testid(`${resultSet}.refreshButton`)}/>
         {details && <Button {...testid(`${resultSet}.details.toggleButton`)} icon="pi pi-bars" className="mr-2" onClick={detailsToggle}/>}

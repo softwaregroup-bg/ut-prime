@@ -42,7 +42,8 @@ const Report: ComponentProps = ({
         report: {
             columns: 'columns',
             params: ['params']
-        }
+        },
+        view: ['params']
     }], [params, columns]);
 
     return (
