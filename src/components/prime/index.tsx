@@ -96,10 +96,21 @@ export const Button = ({children, permission, confirm, onClick, ...props}: Butto
     const button = <PrimeButton {...props} onClick={handleClick}>{children && <span className='p-button-label p-c'><Text>{children}</Text></span>}</PrimeButton>;
     return (permission == null) ? button : <Permission permission={permission}>{button}</Permission>;
 };
-export const DataTable = ({emptyMessage = 'No results found', ...props}: DataTableProps) =>
-    <PrimeDataTable emptyMessage={emptyMessage && <Text>{emptyMessage}</Text>} {...props}/>;
-export const AutoComplete = React.forwardRef<PrimeAutoComplete, AutoCompleteProps & {methods: unknown, autocomplete?: string}>(
-    function AutoComplete({methods, autocomplete, ...props}, ref) {
+export const DataTable = ({ emptyMessageIcon = '', emptyMessageHeader = '', emptyMessage = 'No results found', showTable = true, value, ...props }: DataTableProps) => {
+    const defaultTable = <PrimeDataTable emptyMessage={emptyMessage && <Text>{emptyMessage}</Text>} value={value} {...props} />;
+    const noTable = <div className="flex align-items-center flex-column mt-8">
+        {emptyMessageIcon && <span className="p-3 shadow-2 mb-3 inline-block" style={{ borderRadius: '10px' }}>
+            <i className={`pi ${emptyMessageIcon} text-4xl text-blue-500`}></i>
+        </span>}
+        {emptyMessageHeader && <div className="text-900 text xl mb-3 font-medium">{emptyMessageHeader}</div>}
+        <span className="text-700 line-height-3">{emptyMessage}</span>
+    </div>;
+    const primeDataTable = !showTable && Array.isArray(value) && !value.length ? noTable : defaultTable;
+
+    return primeDataTable;
+};
+export const AutoComplete = React.forwardRef<PrimeAutoComplete, AutoCompleteProps & { methods: unknown, autocomplete?: string }>(
+    function AutoComplete({ methods, autocomplete, ...props }, ref) {
         const [suggestions, setSuggestions] = React.useState();
         const complete = React.useCallback(
             async({query}) => methods && autocomplete && setSuggestions((await methods[autocomplete]({query})).suggestions), [methods, autocomplete]);
