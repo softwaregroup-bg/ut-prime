@@ -1,7 +1,7 @@
 {
   "name": "ut-prime",
   "description": "UT higher order UI components based on PrimeReact",
-  "version": "2.51.9",
+  "version": "2.51.10",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
@@ -69,7 +69,7 @@
     "joi": "17.4.2",
     "primeflex": "^3.2.1",
     "primeicons": "^5.0.0",
-    "primereact": "^8.7.1",
+    "primereact": "8.7.3",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dnd": "^14.0.5",

@@ -1,3 +1,12 @@
+## [2.51.10](https://github.com/softwaregroup-bg/ut-prime/compare/v2.51.9...v2.51.10) (2022-12-16)
+
+
+### Bug Fixes
+
+* peer primereact 8.7.3 ([cf67d0b](https://github.com/softwaregroup-bg/ut-prime/commit/cf67d0b97ebaf4d6f80f32c468b122e2f2922238))
+
+
+
 ## [2.51.9](https://github.com/softwaregroup-bg/ut-prime/compare/v2.51.8...v2.51.9) (2022-12-12)
 
 
