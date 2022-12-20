@@ -1,3 +1,12 @@
+# [2.52.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.51.10...v2.52.0) (2022-12-20)
+
+
+### Features
+
+* report buttons ([50529a5](https://github.com/softwaregroup-bg/ut-prime/commit/50529a5852a80a235dc8179e18eb24833ff92845))
+
+
+
 ## [2.51.10](https://github.com/softwaregroup-bg/ut-prime/compare/v2.51.9...v2.51.10) (2022-12-16)
 
 
