@@ -109,10 +109,6 @@ export default React.forwardRef<object, any>(function Table({
     const [editingRows, setEditingRows] = React.useState({});
     const [pendingEdit, setPendingEdit] = React.useState(null);
     const keepRows = !!props.selection;
-    const emptyMessageIcon = props.emptyMessageIcon;
-    const emptyMessageHeader = props.emptyMessageHeader;
-    const emptyMessage = props.emptyMessage;
-    const showTable = props.showTable;
 
     const rows = React.useMemo(() => {
         const keys = Object.entries(join || {});
@@ -279,10 +275,6 @@ export default React.forwardRef<object, any>(function Table({
                 onFilter={handleFilter}
                 editingRows={editingRows}
                 onRowEditChange={onRowEditChange}
-                emptyMessageIcon={emptyMessageIcon}
-                emptyMessageHeader={emptyMessageHeader}
-                emptyMessage={emptyMessage}
-                showTable={showTable}
             >
                 {allowSelect && (!props.selectionMode || props.selectionMode === 'checkbox') && <Column selectionMode="multiple"></Column>}
                 {children}
