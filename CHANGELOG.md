@@ -1,3 +1,12 @@
+## [2.52.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.52.0...v2.52.1) (2022-12-20)
+
+
+### Bug Fixes
+
+* **ThumbIndex:** handle submit errors ([68b6c1f](https://github.com/softwaregroup-bg/ut-prime/commit/68b6c1f63acb5a113ebb9b7807f1b9ffd39a157d))
+
+
+
 # [2.52.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.51.10...v2.52.0) (2022-12-20)
 
 
