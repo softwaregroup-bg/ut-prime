@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import {createUseStyles} from 'react-jss';
 
 import { ListBox, PanelMenu, TabMenu, Ripple, Steps, Button } from '../prime';
+import ActionButton from '../ActionButton';
 import ScrollBox from '../ScrollBox';
 import { ComponentProps } from './ThumbIndex.types';
 import testid from '../lib/testid';
@@ -103,7 +104,7 @@ const ThumbIndex: ComponentProps = ({
                     activeIndex={activeIndex}
                     onSelect={handleListChange}
                 />
-                <Button
+                <ActionButton
                     className='p-button-text m-1'
                     {...activeIndex >= items.length - 1 ? {
                         icon: 'pi pi-save',
