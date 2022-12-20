@@ -121,7 +121,7 @@ const Explorer: ComponentProps = ({
     methods,
     fetchValidation
 }) => {
-    const [trigger, setTrigger] = React.useState<() => void>();
+    const [trigger, setTrigger] = React.useState<() => Promise<void>>();
     const [paramValues, submitParams] = React.useState<[Record<string, unknown>] | [Record<string, unknown>, {files: []}]>([params]);
     const [filter, index] = React.useMemo(() => [
         {
@@ -223,15 +223,18 @@ const Explorer: ComponentProps = ({
         ];
     }, [columns, editors, mergedCards, mergedSchema, paramsLayout, properties]);
 
-    const getValues = React.useMemo(() => () => ({
+    const getValues = React.useMemo(() => ({$ = undefined, ...params} = {}) => ({
+        params,
+        pageSize,
+        pageNumber: pageSize && (Math.floor(tableFilter.first / pageSize) + 1),
         id: current && current[keyField],
         current,
         selected,
         filter: externalFilter
-    }), [current, keyField, selected, externalFilter]);
+    }), [current, keyField, selected, externalFilter, pageSize, tableFilter]);
 
-    const submit = React.useCallback(async({method, params}) => {
-        params = prepareSubmit([getValues(), {}, {method, params}]);
+    const submit = React.useCallback(async({method, params}, form?) => {
+        params = prepareSubmit([getValues(form?.params), {}, {method, params}]);
         const system = params?.$;
         delete params?.$;
         setLoading('loading');
@@ -243,8 +246,16 @@ const Explorer: ComponentProps = ({
         if (system?.fetch) setFilters(prev => merge({}, prev, system.fetch));
     }, [methods, getValues]);
 
+    const handleSubmit = React.useCallback(params => {
+        if (params?.[2]?.method) {
+            submit(params[2], params[0]);
+        } else {
+            submitParams(params);
+        }
+    }, [submitParams, submit]);
+
     const buttons = React.useMemo(() => (toolbar || []).map((widget, index) => {
-        const {title, action, method, params, enabled, disabled, permission, menu, confirm, successHint} = (typeof widget === 'string') ? properties[widget].widget : widget;
+        const {title, icon, action, method, params, enabled, disabled, permission, menu, confirm, successHint} = (typeof widget === 'string') ? properties[widget].widget : widget;
         const check = criteria => {
             if (typeof criteria?.validate === 'function') return !criteria.validate({current, selected}).error;
             if (typeof criteria !== 'string') return !!criteria;
@@ -265,7 +276,7 @@ const Explorer: ComponentProps = ({
             key={index}
             permission={permission}
             {...testid(`${permission ? (permission + 'Button') : ('button' + index)}`)}
-            submit={submit}
+            submit={paramsLayout ? trigger : submit}
             action={action}
             method={method}
             params={params}
@@ -275,9 +286,10 @@ const Explorer: ComponentProps = ({
             disabled={!!loading || isDisabled}
             successHint={successHint}
             className="mr-2"
+            icon={icon}
         >{title}</ActionButton>;
     }
-    ), [toolbar, current, selected, getValues, properties, submit, loading]);
+    ), [toolbar, current, selected, getValues, properties, trigger, loading, paramsLayout, submit]);
     const {toast, handleSubmit: load} = useSubmit(
         async function() {
             if (!fetch) {
@@ -440,7 +452,7 @@ const Explorer: ComponentProps = ({
             methods={methods}
             cards={cards}
             layout={paramsLayout}
-            onSubmit={submitParams}
+            onSubmit={handleSubmit}
             value={paramValues[0]}
             dropdowns={dropdowns}
             setTrigger={setTrigger}
@@ -458,6 +470,7 @@ const Explorer: ComponentProps = ({
     </>;
     const right = <>
         <Button icon="pi pi-search" className="mr-2 ml-2" disabled={!!loading} onClick={trigger || load} {...testid(`${resultSet}.refreshButton`)}/>
+        {paramsLayout ? buttons : null}
         {details && <Button {...testid(`${resultSet}.details.toggleButton`)} icon="pi pi-bars" className="mr-2" onClick={detailsToggle}/>}
         {customizationToolbar}
     </>;

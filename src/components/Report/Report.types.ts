@@ -14,6 +14,7 @@ export interface Props {
     design?: ExplorerProps['design'],
     methods?: object;
     table?: ExplorerProps['table'],
+    toolbar?: ExplorerProps['toolbar'],
     onDropdown: ExplorerProps['onDropdown'],
     onCustomization?: ExplorerProps['onCustomization'],
     fetch: ExplorerProps['fetch'];

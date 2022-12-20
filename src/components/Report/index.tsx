@@ -20,6 +20,7 @@ const Report: ComponentProps = ({
     fetch,
     methods,
     table,
+    toolbar,
     onDropdown,
     onCustomization,
     resultSet = 'result'
@@ -58,6 +59,7 @@ const Report: ComponentProps = ({
                 layout='report'
                 resultSet={resultSet}
                 params={init}
+                toolbar={toolbar}
                 hidden={hidden}
                 pageSize={20}
                 table={React.useMemo(() => ({...tableDefaults, ...table}), [table])}

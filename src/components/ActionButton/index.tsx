@@ -26,7 +26,7 @@ const ActionButton: ComponentProps = ({getValues, onClick: click, action, method
         dispatch({
             type: 'front.button.action',
             method: 'handle.action',
-            params: [{action: performAction, params: performParams}, getValues?.()]
+            params: [{event, action: performAction, params: performParams}, getValues?.()]
         });
     }, [dispatch, getValues, history, submit, click], {success});
     const handleClick = React.useMemo(() => event => {
