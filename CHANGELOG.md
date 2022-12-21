@@ -1,3 +1,12 @@
+## [2.53.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.53.0...v2.53.1) (2022-12-21)
+
+
+### Bug Fixes
+
+* improve label/icon logic ([60fb842](https://github.com/softwaregroup-bg/ut-prime/commit/60fb8424d4168313028f81a6f43e6e00ab5b79b1))
+
+
+
 # [2.53.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.52.1...v2.53.0) (2022-12-21)
 
 
