@@ -549,8 +549,8 @@ function input(
                 />
             </div>;
         }
-        case 'label': return (field?.name || title) ? <Field inputClass={widgetClassName}>{field?.value ?? title}</Field> : null;
-        case 'icon': return (field?.name || title) ? <i className={clsx('pi', field?.value ?? title, widgetClassName)}/> : null;
+        case 'label': return (field?.name || title) ? <Field label={label} inputClass={widgetClassName}>{field?.name ? field?.value : title}</Field> : null;
+        case 'icon': return (field?.name || title) ? <i className={clsx('pi', field?.name ? field?.value : title, widgetClassName)}/> : null;
         case 'gps': return <Field {...{label, error, inputClass}}>
             <GMap {...field} {...props} />
         </Field>;
