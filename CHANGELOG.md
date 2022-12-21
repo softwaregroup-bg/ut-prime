@@ -1,3 +1,12 @@
+# [2.53.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.52.1...v2.53.0) (2022-12-21)
+
+
+### Features
+
+* emptyMessage component ([41e710f](https://github.com/softwaregroup-bg/ut-prime/commit/41e710f08b8871542b51319b80287b40363871e3))
+
+
+
 ## [2.52.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.52.0...v2.52.1) (2022-12-20)
 
 
