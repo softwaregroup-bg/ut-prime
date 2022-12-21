@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import template from 'ut-function.template';
 
-import {ProgressSpinner} from '../prime';
+import { ProgressSpinner } from 'primereact/progressspinner';
 
 import type {Selection} from '../types';
 

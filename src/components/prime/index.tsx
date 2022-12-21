@@ -8,6 +8,7 @@ import type { DataViewProps } from 'primereact/dataview';
 import type { FileUploadProps } from 'primereact/fileupload';
 import { DataTable as PrimeDataTable } from 'primereact/datatable';
 import React from 'react';
+import Component from '../Component';
 import Text from '../Text';
 import Permission from '../Permission';
 import {confirmPopup} from 'primereact/confirmpopup';
@@ -96,8 +97,10 @@ export const Button = ({children, permission, confirm, onClick, ...props}: Butto
     const button = <PrimeButton {...props} onClick={handleClick}>{children && <span className='p-button-label p-c'><Text>{children}</Text></span>}</PrimeButton>;
     return (permission == null) ? button : <Permission permission={permission}>{button}</Permission>;
 };
-export const DataTable = ({emptyMessage = 'No results found', ...props}: DataTableProps) =>
-    <PrimeDataTable emptyMessage={emptyMessage && <Text>{emptyMessage}</Text>} {...props}/>;
+export const DataTable = ({emptyMessage = 'No results found', value, ...props}: DataTableProps & {emptyMessage?: string | {page: string}}) =>
+    (typeof emptyMessage === 'object' && emptyMessage?.page && !value?.length)
+        ? <Component {...emptyMessage} />
+        : <PrimeDataTable emptyMessage={emptyMessage && <Text>{emptyMessage}</Text>} value={value} {...props}/>;
 export const AutoComplete = React.forwardRef<PrimeAutoComplete, AutoCompleteProps & {methods: unknown, autocomplete?: string}>(
     function AutoComplete({methods, autocomplete, ...props}, ref) {
         const [suggestions, setSuggestions] = React.useState();
