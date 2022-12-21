@@ -114,9 +114,9 @@ const Template: Story<{
                         },
                         grid: {
                             widgets: [{
-                                name: 'name', type: 'label'
+                                name: 'name', type: 'label', label: ''
                             }, {
-                                name: 'size', type: 'label'
+                                name: 'size', type: 'label', label: ''
                             }]
                         },
                         gridFlex: {
@@ -130,9 +130,9 @@ const Template: Story<{
                             widgets: [{
                                 type: 'icon', title: 'pi-paperclip'
                             }, {
-                                name: 'name', type: 'label'
+                                name: 'name', type: 'label', label: ''
                             }, {
-                                name: 'size', type: 'label'
+                                name: 'size', type: 'label', label: ''
                             }]
                         },
                         toolbar: {
