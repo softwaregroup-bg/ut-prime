@@ -18,7 +18,7 @@ export const schema = {
                 'National id': {
                     type: 'string'
                 },
-                Gender:{
+                Gender: {
                     type: 'string'
                 },
                 'User Classification': {
@@ -35,7 +35,7 @@ export const schema = {
                 }
             }
         },
-        Credentials:  {
+        Credentials: {
             type: 'object',
             title: 'User Credentials',
             properties: {
@@ -47,10 +47,10 @@ export const schema = {
                 },
                 'Override User Access Policy': {
                     type: 'string'
-                },
+                }
             }
         },
-        'External Credentials':  {
+        'External Credentials': {
             type: 'array',
             items: {
                 description: 'External User',
