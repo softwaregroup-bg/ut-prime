@@ -86,6 +86,7 @@ function input(
     schema,
     dropdowns,
     parentValue,
+    filterSchema,
     loading: string,
     getValues: (name: string) => unknown,
     setValue: (name: string, value: unknown) => void,
@@ -155,6 +156,7 @@ function input(
             <Json
                 {...field}
                 value={field.value || ''}
+                schema={filterSchema || ''}
                 {...parentField && {previous: parentValue}}
                 {...props}
             />

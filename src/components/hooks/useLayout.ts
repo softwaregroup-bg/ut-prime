@@ -6,6 +6,7 @@ import type { Cards, Editors, Layout, Properties, PropertyEditors, Schema } from
 
 const flatten = (properties: Properties, editors: Editors, root = '') : PropertyEditors => Object.entries(properties || {}).reduce(
     (map, [name, property]) => {
+        debugger
         return ('properties' in property) ? {
             ...map,
             ...flatten(property.properties, {}, root + name + '.')
