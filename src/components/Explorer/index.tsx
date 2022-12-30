@@ -114,6 +114,7 @@ const Explorer: ComponentProps = ({
     value,
     name,
     hidden,
+    refresh,
     layouts,
     layout: layoutName,
     cards,
@@ -354,6 +355,12 @@ const Explorer: ComponentProps = ({
     React.useEffect(() => {
         loadCustomization();
     }, [loadCustomization]);
+    React.useEffect(() => {
+        if (refresh && totalRecords && !hidden && !loading) {
+            load();
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [refresh, totalRecords, hidden, load]);
 
     const windowSize = useWindowSize();
     const [height, setHeight] = React.useState<{height: number}>();
