@@ -73,6 +73,7 @@ export interface Props {
     methods?: object;
     name?: string;
     hidden?: boolean;
+    refresh?: boolean;
     customization?: Customization,
     paramsCard?: string,
     onFieldChange?: string,
