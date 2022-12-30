@@ -1,3 +1,12 @@
+## [2.53.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.53.2...v2.53.3) (2022-12-30)
+
+
+### Bug Fixes
+
+* **CBI-840:** option to allow refresh ([#29](https://github.com/softwaregroup-bg/ut-prime/issues/29)) ([9b006f3](https://github.com/softwaregroup-bg/ut-prime/commit/9b006f3c41a5b4fd269f7097ec97970e0c72fd1e))
+
+
+
 ## [2.53.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.53.1...v2.53.2) (2022-12-21)
 
 
