@@ -125,7 +125,7 @@ const Editor: ComponentProps = ({
             loadCustomization()
         ]);
         handleArray(result, properties);
-        setValueMode(prev => [prev[0], 'edit', lodashGet(result, typeField), result]);
+        setValueMode(prev => [prev[0], 'edit', typeField ? lodashGet(result, typeField) : prev[2], result]);
         setLoading('');
     }
     async function init() {
@@ -140,7 +140,7 @@ const Editor: ComponentProps = ({
             if (value !== undefined) setValueMode(prev => [getLayoutValue(prev[1], prev[2], value), prev[1], prev[2], prev[3]]);
         }
         edit();
-    }, [getLayoutValue, initValue, mergedSchema, onInit]);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     const {handleSubmit: loadDropDown} = useSubmit(async() => setDropdown(await onDropdown(dropdownNames)), [dropdownNames, onDropdown]);
 
