@@ -1,3 +1,17 @@
+# [2.54.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.53.3...v2.54.0) (2023-01-01)
+
+
+### Bug Fixes
+
+* value/layout issues ([7754fa8](https://github.com/softwaregroup-bg/ut-prime/commit/7754fa804a4dc40bf67ae485cc04c23cd1c0688a))
+
+
+### Features
+
+* allow string array as parent ([825cc29](https://github.com/softwaregroup-bg/ut-prime/commit/825cc29124815661f8f96ecd3926baaf7ceb8937))
+
+
+
 ## [2.53.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.53.2...v2.53.3) (2022-12-30)
 
 
