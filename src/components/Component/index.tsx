@@ -27,7 +27,7 @@ const Page: React.FC<{
             action.params = JSON.parse(template(typeof params === 'string' ? params : JSON.stringify(params ?? {}), form, {}, 'json'));
         }
         action.page && dispatch(action).then(component => setPage(() => component));
-    }, [page, dispatch, params, getValues]);
+    }, [page, dispatch, params, getValues, props.parent]);
     return Page ? <Page {...props} >{children}</Page> : <div className='absolute top-50 left-50' style={center}><ProgressSpinner /></div>;
 };
 

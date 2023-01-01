@@ -542,6 +542,7 @@ function input(
         case 'page': {
             return <div className='w-full'>
                 <Component
+                    parent={parentValue}
                     page={props.page}
                     getValues={getValues as Parameters<typeof Component>[0]['getValues']}
                     {...field}

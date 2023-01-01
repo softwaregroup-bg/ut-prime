@@ -50,7 +50,7 @@ export interface PropertyEditor {
         'text' |
         'time';
     dropdown?: string;
-    parent?: string;
+    parent?: string | string[];
     column?: ColumnProps;
     pivot?: {
         dropdown?: string;
@@ -176,7 +176,7 @@ export type WidgetReference = string | {
     hidden?: string[],
     compare?: string,
     filter?: object,
-    parent?: string,
+    parent?: string | string[],
     disabled?: 'current' | 'selected' | 'single' | boolean | Joi.Schema,
     enabled?: 'current' | 'selected' | 'single' | boolean | Joi.Schema
 }
