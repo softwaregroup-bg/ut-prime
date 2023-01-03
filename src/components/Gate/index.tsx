@@ -32,7 +32,7 @@ const Gate: ComponentProps = ({ children, cookieCheck, corePortalGet, loginPage 
             const languageCode = login?.language?.iso2Code;
             const { result = {} } = await corePortalGet({
                 languageId: language,
-                dictName: ['text', 'actionConfirmation']
+                dictName: ['text', 'actionConfirmation', 'error']
             });
             const { translations, configuration } = result;
             const dictionary = translations?.reduce(

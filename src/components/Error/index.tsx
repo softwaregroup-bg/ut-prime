@@ -36,7 +36,7 @@ const Error: ComponentProps = ({ message: errorMessage, params: errorParams }) =
             onHide={handleClose}
             breakpoints={breakpoints}
             style={width}
-            {...{closable, header}}
+            {...{closable, header: <Text>{header}</Text>}}
         >
             <div className={clsx(classes.errorIconWrap, classes.errorIcon)} />
             <div className={classes.errorMessageWrap}>
@@ -45,9 +45,9 @@ const Error: ComponentProps = ({ message: errorMessage, params: errorParams }) =
             <div className={classes.errorButtonWrap}>
                 {actionButtons}
             </div>
-            {details ? <div>
+            {details ? <Text params={errorParams || params}>
                 {details}
-            </div> : null}
+            </Text> : null}
         </Dialog>
     ) : null;
 };
