@@ -45,7 +45,7 @@ const Error: ComponentProps = ({ message: errorMessage, params: errorParams }) =
             <div className={classes.errorButtonWrap}>
                 {actionButtons}
             </div>
-            {details ? <Text params={errorParams || params}>
+            {details ? <Text>
                 {details}
             </Text> : null}
         </Dialog>
