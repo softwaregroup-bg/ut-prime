@@ -120,7 +120,8 @@ const Explorer: ComponentProps = ({
     cards,
     editors,
     methods,
-    fetchValidation
+    fetchValidation,
+    searchConfirmation
 }) => {
     const [trigger, setTrigger] = React.useState<() => Promise<void>>();
     const [paramValues, submitParams] = React.useState<[Record<string, unknown>] | [Record<string, unknown>, {files: []}]>([params]);
@@ -476,7 +477,7 @@ const Explorer: ComponentProps = ({
         {buttons}
     </>;
     const right = <>
-        <Button icon="pi pi-search" className="mr-2 ml-2" disabled={!!loading} onClick={trigger || load} {...testid(`${resultSet}.refreshButton`)}/>
+        <Button confirm={searchConfirmation} icon="pi pi-search" className="mr-2 ml-2" disabled={!!loading} onClick={trigger || load} {...testid(`${resultSet}.refreshButton`)}/>
         {paramsLayout ? buttons : null}
         {details && <Button {...testid(`${resultSet}.details.toggleButton`)} icon="pi pi-bars" className="mr-2" onClick={detailsToggle}/>}
         {customizationToolbar}
