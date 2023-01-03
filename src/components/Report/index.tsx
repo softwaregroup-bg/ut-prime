@@ -23,7 +23,8 @@ const Report: ComponentProps = ({
     toolbar,
     onDropdown,
     onCustomization,
-    resultSet = 'result'
+    resultSet = 'result',
+    searchConfirmation
 }) => {
     const [cards, layouts] = React.useMemo(() => [{
         params: {
@@ -66,6 +67,7 @@ const Report: ComponentProps = ({
                 methods={methods}
                 onDropdown={onDropdown}
                 onCustomization={onCustomization}
+                searchConfirmation={searchConfirmation}
             />
         </>
     );
