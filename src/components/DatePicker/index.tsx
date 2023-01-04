@@ -21,19 +21,20 @@ const useStyles = createUseStyles({
 
 const DatePicker: ComponentProps = ({
     className,
+    handleSelectedTimeRange,
     ...props
 }) => {
     const classes = useStyles();
     const op = useRef<OverlayPanel>(null);
-    const [selectedTimeRange, setselectedTimeRange] = useState<Date | Date[] | undefined>(undefined);
-    const [dateFrom, setDateFrom] = useState<Date | Date[] | undefined>(undefined);
-    const [dateTo, setDateTo] = useState<Date | Date[] | undefined>(undefined);
+    const [selectedTimeRange, setselectedTimeRange] = useState(null);
+    const [dateFrom, setDateFrom] = useState(null);
+    const [dateTo, setDateTo] = useState(null);
     const calculateRelativeTimeRange = (relativeTimeValue) => {
         const fromKey = relativeTimeValue.split('-')[1].slice(-1);
-        const now = Date.now();
-        const interval = now - Number(relativeTimeValue.split('-')[1].split('').slice(0, -1).join('')) * intervalsInMiliseconds[fromKey];
-        setDateFrom(new Date(now));
-        setDateTo(new Date(interval));
+        const dateTo = Date.now();
+        const dateFrom = dateTo - Number(relativeTimeValue.split('-')[1].split('').slice(0, -1).join('')) * intervalsInMiliseconds[fromKey];
+        setDateFrom(new Date(dateFrom));
+        setDateTo(new Date(dateTo));
     };
     const intervalsInMiliseconds = {
         y: 31536000000,
@@ -129,7 +130,8 @@ const DatePicker: ComponentProps = ({
     const [recentlyUsed, setRecentlyUsed] = useState([]);
 
     const applyTimeRange = () => {
-        setRecentlyUsed(state => [...state, `${dateFrom.toLocaleString()} - ${dateTo.toLocaleString()}`].slice(length - 4));
+        dateFrom && dateTo && setRecentlyUsed(state => [...state, `${dateFrom?.toLocaleString()} - ${dateTo?.toLocaleString()}`].slice(length - 4));
+        handleSelectedTimeRange(dateFrom, dateTo);
     };
 
     const optionItems = (option) => {
@@ -183,12 +185,13 @@ const DatePicker: ComponentProps = ({
                         type="button"
                         label={'Apply Time Range'}
                         onClick={applyTimeRange}
+                        disabled={!dateFrom || !dateTo}
                         aria-haspopup
                         aria-controls="overlay_panel"
                         className="button"
                     />
                     <p><strong>Recently used absolute ranges</strong></p>
-                    {recentlyUsed.map((e, i) => (<p key={i}>{e}</p>))}
+                    {recentlyUsed?.map((e, i) => (<p key={i}>{e}</p>))}
                 </div>
                 <div className='card'>
                     <ListBox value={selectedTimeRange} options={availableTimeRanges} onChange={e => onChangeListBoxHandler(e)} filter optionLabel="display"
