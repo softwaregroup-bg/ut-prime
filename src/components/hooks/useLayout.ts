@@ -33,11 +33,13 @@ const getIndex = (properties: Properties, editors: Editors, fields: string[] = [
     return {
         properties: index,
         children: Object.entries(index).reduce((prev, [name, property]) => {
-            const parent = property?.widget?.parent;
-            if (parent) {
-                const items = prev[parent];
-                if (items) items.push(name);
-                else prev[parent] = [name];
+            const parents = property?.widget?.parent;
+            if (parents) {
+                [].concat(parents).forEach(parent => {
+                    const items = prev[parent];
+                    if (items) items.push(name);
+                    else prev[parent] = [name];
+                });
             }
             return prev;
         }, {}),

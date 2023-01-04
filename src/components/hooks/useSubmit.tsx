@@ -14,7 +14,7 @@ function call(submit, dispatch, toast, success) {
                 result: success
             });
         } catch (error) {
-            if (error.silent) return;
+            if (error.silent || error.message === 'silent') return;
             if (error.statusCode === 401 || !error.print || (!toast?.current && !params[0])) {
                 dispatch({
                     type: 'front.error.open',
