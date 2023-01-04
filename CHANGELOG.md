@@ -1,3 +1,12 @@
+## [2.55.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.55.0...v2.55.1) (2023-01-04)
+
+
+### Bug Fixes
+
+* show time column in local time ([b7800dd](https://github.com/softwaregroup-bg/ut-prime/commit/b7800dd426355565f1c46d070d910112e2176eb3))
+
+
+
 # [2.55.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.54.0...v2.55.0) (2023-01-04)
 
 
