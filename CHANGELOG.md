@@ -1,3 +1,12 @@
+# [2.55.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.54.0...v2.55.0) (2023-01-04)
+
+
+### Features
+
+* improve messages ([984e6aa](https://github.com/softwaregroup-bg/ut-prime/commit/984e6aa2d2f64af4966cba3203d787a5ba65e44f))
+
+
+
 # [2.54.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.53.3...v2.54.0) (2023-01-01)
 
 
