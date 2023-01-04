@@ -3,7 +3,7 @@ import { Calendar } from 'primereact/calendar';
 import { Card as PrimeCard, type CardProps } from 'primereact/card';
 import { AutoComplete as PrimeAutoComplete, type AutoCompleteProps } from 'primereact/autocomplete';
 import type { CalendarProps } from 'primereact/calendar';
-import type { DataTableProps } from 'primereact/datatable';
+import type { DataTableProps as PrimeDataTableProps} from 'primereact/datatable';
 import type { DataViewProps } from 'primereact/dataview';
 import type { FileUploadProps } from 'primereact/fileupload';
 import { DataTable as PrimeDataTable } from 'primereact/datatable';
@@ -52,6 +52,7 @@ export { Tree } from 'primereact/tree';
 export { TreeSelect } from 'primereact/treeselect';
 export { TreeTable } from 'primereact/treetable';
 export { MultiSelect } from 'primereact/multiselect';
+type DataTableProps = PrimeDataTableProps & {emptyMessage?: string | {page: string}}
 export type { DataTableProps };
 export type { DataViewProps };
 export type { FileUploadProps };
@@ -97,7 +98,7 @@ export const Button = ({children, permission, confirm, onClick, ...props}: Butto
     const button = <PrimeButton {...props} onClick={handleClick}>{children && <span className='p-button-label p-c'><Text>{children}</Text></span>}</PrimeButton>;
     return (permission == null) ? button : <Permission permission={permission}>{button}</Permission>;
 };
-export const DataTable = ({emptyMessage = 'No results found', value, ...props}: DataTableProps & {emptyMessage?: string | {page: string}}) =>
+export const DataTable = ({emptyMessage = 'No results found', value, ...props}: DataTableProps) =>
     (typeof emptyMessage === 'object' && emptyMessage?.page && !value?.length)
         ? <Component {...emptyMessage} />
         : <PrimeDataTable emptyMessage={emptyMessage && <Text>{emptyMessage}</Text>} value={value} {...props}/>;

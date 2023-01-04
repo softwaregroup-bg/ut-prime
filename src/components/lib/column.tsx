@@ -80,7 +80,7 @@ export default function columnProps({
     design?: boolean,
     inspected?: unknown,
     onInspect?: unknown,
-    getValues?: (fieldName: string) => unknown,
+    getValues?: (fieldName: string | string[]) => unknown,
     move?: unknown,
     toolbar?: undefined
 }) {
