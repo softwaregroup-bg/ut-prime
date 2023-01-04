@@ -6,7 +6,7 @@ import { cookieCheck } from '../Login/actions';
 import Loader from '../Loader';
 import Context from '../Text/context';
 import AppContext from '../Context';
-import { ConfirmPopup } from '../prime';
+import { ConfirmPopup, ConfirmDialog } from '../prime';
 
 import Permission from './Permission';
 import { ComponentProps } from './Gate.types';
@@ -76,6 +76,7 @@ const Gate: ComponentProps = ({ children, cookieCheck, corePortalGet, loginPage 
             <div className='h-full'>
                 {loaded ? <Context.Provider value={loaded}>
                     <ConfirmPopup />
+                    <ConfirmDialog />
                     <Permission>
                         {children}
                     </Permission>

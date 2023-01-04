@@ -11,7 +11,8 @@ import React from 'react';
 import Component from '../Component';
 import Text from '../Text';
 import Permission from '../Permission';
-import {confirmPopup} from 'primereact/confirmpopup';
+import {confirmPopup as confirmPopupPrime} from 'primereact/confirmpopup';
+import {confirmDialog as confirmDialogPrime} from 'primereact/confirmdialog';
 
 export { Calendar } from 'primereact/calendar';
 export { CascadeSelect } from 'primereact/cascadeselect';
@@ -19,7 +20,8 @@ export { Chart } from 'primereact/chart';
 export { Checkbox } from 'primereact/checkbox';
 export { Chips } from 'primereact/chips';
 export { Column } from 'primereact/column';
-export { ConfirmPopup, confirmPopup } from 'primereact/confirmpopup';
+export { ConfirmPopup } from 'primereact/confirmpopup';
+export { ConfirmDialog } from 'primereact/confirmdialog';
 export { DataView } from 'primereact/dataview';
 export { Dialog } from 'primereact/dialog';
 export { Dropdown } from 'primereact/dropdown';
@@ -63,6 +65,16 @@ function dateRange(timeOnly) {
     return [today, new Date(today.getTime() + timeOnly ? 0 : 86400000)];
 }
 
+export const confirmPopup = ({message, ...params}) => confirmPopupPrime({
+    message: message && <Text>{message}</Text>,
+    ...params
+});
+export const confirmDialog = ({message, header, ...params}) => confirmDialogPrime({
+    message: message && <Text>{message}</Text>,
+    header: header && <Text>{header}</Text>,
+    ...params
+});
+
 export const DateRange = React.forwardRef<HTMLInputElement, CalendarProps>(function DateRange(props, ref) {
     const [visible, setVisible] = React.useState(false);
     const value = React.useMemo(() => (visible && !props.value) ? dateRange(props.timeOnly) : props.value, [visible, props.value, props.timeOnly]);
@@ -90,7 +102,7 @@ export type ButtonProps = PrimeButtonProps & Partial<Pick<Parameters<typeof Perm
 export const Button = ({children, permission, confirm, onClick, ...props}: ButtonProps) => {
     const handleClick = React.useCallback(event => confirm ? confirmPopup({
         target: event.currentTarget,
-        message: <Text>{confirm}</Text>,
+        message: confirm,
         icon: 'pi pi-exclamation-triangle',
         reject: () => {},
         accept: () => onClick(event)
