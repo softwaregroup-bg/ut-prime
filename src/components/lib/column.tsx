@@ -222,7 +222,7 @@ export default function columnProps({
                 name={filterId}
             />;
             body = function body(rowData) {
-                return dateOrNull(rowData[fieldName])?.toISOString().slice(11, 19);
+                return dateOrNull(rowData[fieldName])?.toLocaleTimeString(undefined, {timeStyle: 'short', hourCycle: 'h23'});
             };
             break;
         case 'date-time':
