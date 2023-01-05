@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import DatePicker from 'ut-prime/src/components/DatePicker';
-import decorators from 'ut-prime/src/components/test/decorator';
 
 import type { Meta } from '@storybook/react';
+
+import decorators from '../test/decorator';
+import DatePicker from './';
 
 // import page from './README.mdx';
 

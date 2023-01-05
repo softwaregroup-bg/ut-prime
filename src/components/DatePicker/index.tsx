@@ -5,7 +5,8 @@ import { ListBox } from 'primereact/listbox';
 import { OverlayPanel } from 'primereact/overlaypanel';
 import React, { useRef, useState } from 'react';
 import {createUseStyles} from 'react-jss';
-import { ComponentProps } from 'ut-prime/src/components/DatePicker/DatePicker.types';
+
+import { ComponentProps } from './DatePicker.types';
 
 const useStyles = createUseStyles({
     datePicker: {
