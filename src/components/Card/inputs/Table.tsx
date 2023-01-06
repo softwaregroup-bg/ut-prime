@@ -5,10 +5,11 @@ import clsx from 'clsx';
 
 import {DataTable, Column, Toolbar, Button} from '../../prime';
 import Text from '../../Text';
-import columnProps from '../../lib/column';
+import columnProps, { TableFilter } from '../../lib/column';
 import {CHANGE, INDEX, KEY, NEW} from '../const';
 import type {Properties} from '../../types';
 import testid from '../../lib/testid';
+import { fieldName } from '../../Explorer';
 
 const getDefault = (key, value, rows) => {
     if (!value || !('default' in value)) return;
@@ -38,7 +39,6 @@ const defaults = (properties : Properties, rows: object[]) =>
         Object.entries(properties)
             .map(([key, value]) => getDefault(key, value, rows)).filter(Boolean));
 
-const handleFilter = () => {};
 const backgroundNone = {background: 'none'};
 
 const masterFilter = (master, filter) => master && Object.fromEntries(
@@ -203,6 +203,16 @@ export default React.forwardRef<object, any>(function Table({
     const onRowEditChange = React.useCallback(event => {
         setEditingRows(event.data);
     }, [setEditingRows]);
+    const initialFilters = React.useMemo(() => ({
+        filters: (widgets || []).reduce((prev : object, column) => {
+            let field = fieldName(column);
+            const value = lodashGet({}, field);
+            field = field.split('.').pop();
+            return (value === undefined) ? {...prev, [field]: {matchMode: 'contains'}} : {...prev, [field]: {value, matchMode: 'contains'}};
+        }, {}),
+        first: 0,
+        page: 1
+    }), [widgets]);
 
     const leftToolbarTemplate = React.useCallback(() => {
         const addNewRow = event => {
@@ -215,12 +225,14 @@ export default React.forwardRef<object, any>(function Table({
                 ...prev,
                 [updatedValue.length - 1]: true
             }));
+            setFilters(initialFilters);
         };
         const deleteRow = event => {
             event.preventDefault();
             const remove = [].concat(selected);
             handleSelected({value: null});
             onChange({...event, value: allRows.filter((rowData, index) => !remove.some(item => item[INDEX] === index))});
+            setFilters(initialFilters);
         };
         return (
             <React.Fragment>
@@ -243,7 +255,27 @@ export default React.forwardRef<object, any>(function Table({
                 >Delete</Button>}
             </React.Fragment>
         );
-    }, [allowAdd, allowDelete, selected, identity, master, filter, parent, allRows, onChange, handleSelected, counter, properties, resultSet, disabled]);
+    }, [allowAdd, allowDelete, selected, identity, master, filter, parent, allRows, onChange, handleSelected, counter, properties, resultSet, disabled, initialFilters]);
+
+    const [tableFilter, setFilters] = React.useState<TableFilter>(initialFilters);
+    const handleFilterPageSort = React.useCallback(event => setFilters(prev => ({...prev, ...event})), []);
+
+    const filterBy = (name: string, key: string) => e => {
+        const value = lodashGet(e, key);
+        setFilters(prev => {
+            const next = {
+                ...prev,
+                filters: {
+                    ...prev?.filters,
+                    [name]: {
+                        ...prev?.filters?.[name],
+                        value: value === '' ? undefined : value
+                    }
+                }
+            };
+            return next;
+        });
+    };
 
     if (selected && props.selectionMode === 'single' && !rows.includes(selected)) {
         handleSelected({value: rows[selected[KEY]]});
@@ -267,14 +299,20 @@ export default React.forwardRef<object, any>(function Table({
                 id={resultSet}
                 size='small'
                 {...testid(props.id || resultSet)}
+                filterDisplay='row'
                 {...props}
                 className={clsx(props.className, classes.table)}
                 value={rows}
                 onRowEditComplete={complete}
                 onRowEditCancel={cancel}
-                onFilter={handleFilter}
                 editingRows={editingRows}
                 onRowEditChange={onRowEditChange}
+                first={tableFilter.first}
+                sortField={tableFilter.sortField}
+                sortOrder={tableFilter.sortOrder}
+                filters={tableFilter.filters}
+                onSort={handleFilterPageSort}
+                onFilter={handleFilterPageSort}
             >
                 {allowSelect && (!props.selectionMode || props.selectionMode === 'checkbox') && <Column selectionMode="multiple"></Column>}
                 {children}
@@ -284,6 +322,8 @@ export default React.forwardRef<object, any>(function Table({
                         const {name, ...widget} = isString ? {name: column} : column;
                         return (<Column
                             key={name}
+                            filter={!!properties?.[name]?.filter}
+                            sortable={!!properties?.[name]?.sort}
                             {...columnProps({
                                 getValues,
                                 resultSet,
@@ -292,7 +332,9 @@ export default React.forwardRef<object, any>(function Table({
                                 widget: !isString && widget,
                                 property: properties?.[name],
                                 dropdowns,
-                                editable: true
+                                editable: true,
+                                filterBy,
+                                tableFilter
                             })}
                         />);
                     })

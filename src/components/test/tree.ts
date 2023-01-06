@@ -62,8 +62,13 @@ const tree: {schema: Schema, cards: Cards} = {
                         },
                         items: {
                             properties: {
-                                title: {},
-                                url: {}
+                                title: {
+                                    filter: true
+                                },
+                                url: {
+                                    filter: true,
+                                    sort: true
+                                }
                             }
                         }
                     },

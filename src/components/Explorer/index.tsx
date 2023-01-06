@@ -25,7 +25,7 @@ import useCustomization from '../hooks/useCustomization';
 
 const backgroundNone = {background: 'none'};
 
-const fieldName = column => typeof column === 'string' ? column : column.name;
+export const fieldName = column => typeof column === 'string' ? column : column.name;
 
 const useStyles = createUseStyles({
     current: {
