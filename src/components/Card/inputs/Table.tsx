@@ -9,6 +9,7 @@ import columnProps from '../../lib/column';
 import {CHANGE, INDEX, KEY, NEW} from '../const';
 import type {Properties} from '../../types';
 import testid from '../../lib/testid';
+import ActionButton from '../../ActionButton';
 
 const getDefault = (key, value, rows) => {
     if (!value || !('default' in value)) return;
@@ -81,6 +82,7 @@ export default React.forwardRef<object, any>(function Table({
     identity,
     properties,
     dropdowns,
+    methods,
     parent,
     filter,
     master,
@@ -98,6 +100,7 @@ export default React.forwardRef<object, any>(function Table({
     actions: {
         allowAdd = !pivotRows?.length,
         allowDelete = !pivotRows?.length,
+        allowArchive = !pivotRows?.length,
         allowEdit = true,
         allowSelect = true
     } = {},
@@ -186,6 +189,22 @@ export default React.forwardRef<object, any>(function Table({
         setSelected(event.value);
     }, [allowSelect, onChange]);
 
+    const buttons = React.useMemo(() => (props?.additionalButtons || []).map((widget, index) => {
+        const {title, icon, permission, method, confirm} = (typeof widget === 'string') ? properties[widget].widget : widget;
+        return <ActionButton
+            key={index}
+            icon={icon}
+            permission={permission}
+            confirm={confirm}
+            onClick={methods[method]}
+            disabled={!selected}
+            aria-label='archive'
+            className='p-button mr-2'
+            {...testid(title + 'Button')}
+        >{title}</ActionButton>;
+    }
+    ), [props?.additionalButtons, properties, methods, selected]);
+
     React.useEffect(() => {
         if (pendingEdit) {
             setPendingEdit(null);
@@ -222,6 +241,18 @@ export default React.forwardRef<object, any>(function Table({
             handleSelected({value: null});
             onChange({...event, value: allRows.filter((rowData, index) => !remove.some(item => item[INDEX] === index))});
         };
+        const archiveRow = event => {
+            event.preventDefault();
+            const archive = [].concat(selected);
+            const updatedValue = allRows.map(row => {
+                if (archive.some(item => item.id === row.id)) {
+                    return {...row, id: 'documentTest123'};
+                }
+                return row;
+            });
+            handleSelected({value: updatedValue});
+            onChange({...event, value: updatedValue});
+        };
         return (
             <React.Fragment>
                 {allowAdd && !disabled && <Button
@@ -236,14 +267,24 @@ export default React.forwardRef<object, any>(function Table({
                     label=' '
                     aria-label='Delete'
                     icon="pi pi-trash"
-                    className="p-button"
+                    className="p-button mr-2"
                     onClick={deleteRow}
                     disabled={!selected}
                     {...testid(`${resultSet}.deleteButton`)}
                 >Delete</Button>}
+                {buttons}
+                {allowArchive && !disabled && <Button
+                    label=' '
+                    aria-label='Test'
+                    icon="pi pi-inbox"
+                    className="p-button"
+                    onClick={archiveRow}
+                    disabled={!selected}
+                    {...testid(`${resultSet}.testButton`)}
+                >Test</Button>}
             </React.Fragment>
         );
-    }, [allowAdd, allowDelete, selected, identity, master, filter, parent, allRows, onChange, handleSelected, counter, properties, resultSet, disabled]);
+    }, [allowAdd, disabled, resultSet, allowDelete, selected, allowArchive, buttons, filter, master, parent, properties, allRows, identity, counter, onChange, handleSelected]);
 
     if (selected && props.selectionMode === 'single' && !rows.includes(selected)) {
         handleSelected({value: rows[selected[KEY]]});
@@ -256,9 +297,10 @@ export default React.forwardRef<object, any>(function Table({
         left: leftToolbarTemplate,
         right: null
     };
+
     return (
         <>
-            {(allowAdd || allowDelete) && <Toolbar className="p-0 border-none" left={left} right={right} style={backgroundNone}></Toolbar>}
+            {(allowAdd || allowDelete || buttons) && <Toolbar className="p-0 border-none" left={left} right={right} style={backgroundNone}></Toolbar>}
             <DataTable
                 editMode='row'
                 selection={selected}

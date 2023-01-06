@@ -182,25 +182,28 @@ function input(
             />
             <Clear field={field} showClear={clear}/>
         </Field>;
-        case 'table': return <>
-            {error}
-            {label}
-            <div className={inputClass}>
-                <div className='w-full'>
-                    <Table
-                        {...field}
-                        selectionMode='checkbox'
-                        parent={parentValue}
-                        properties={schema?.items?.properties}
-                        dropdowns={dropdowns}
-                        getValues={getValues}
-                        counter={counter}
-                        {...props.selectionPath && getValues && {selection: getValues(`${props.selectionPath}.${field.name}`) || []}}
-                        {...props}
-                    />
+        case 'table': {
+            return <>
+                {error}
+                {label}
+                <div className={inputClass}>
+                    <div className='w-full'>
+                        <Table
+                            {...field}
+                            selectionMode='checkbox'
+                            parent={parentValue}
+                            properties={schema?.items?.properties}
+                            dropdowns={dropdowns}
+                            getValues={getValues}
+                            methods={methods}
+                            counter={counter}
+                            {...props.selectionPath && getValues && {selection: getValues(`${props.selectionPath}.${field.name}`) || []}}
+                            {...props}
+                        />
+                    </div>
                 </div>
-            </div>
-        </>;
+            </>;
+        }
         case 'autocomplete': {
             const handleSelect = event => field.onChange?.({...event, value: event.value});
             const handleClear = event => field.onChange?.({...event, value: {}});
