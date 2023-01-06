@@ -137,10 +137,10 @@ Table.args = {
 
 Table.play = async({canvasElement}) => {
     const canvas = within(canvasElement);
-    (await within(within(await canvas.findByTestId('table1')).getByRole('table')).findByRole('button')).click();
-    within(canvas.getByTestId('table2')).getByRole('button', {name: ''}).click();
-    within(canvas.getByTestId('table3')).getByRole('button', {name: ''}).click();
-    within(canvas.getByTestId('table4')).getByRole('button', {name: ''}).click();
+    (await within(within(await canvas.findByTestId('table1')).getByRole('table')).findAllByRole('button')).filter((el) => el.getAttribute('name') === 'row-edit').pop().click();
+    within(canvas.getByTestId('table2')).getAllByRole('button', {name: ''}).filter((el) => el.getAttribute('name') === 'row-edit').pop().click();
+    within(canvas.getByTestId('table3')).getAllByRole('button', {name: ''}).filter((el) => el.getAttribute('name') === 'row-edit').pop().click();
+    within(canvas.getByTestId('table4')).getAllByRole('button', {name: ''}).filter((el) => el.getAttribute('name') === 'row-edit').pop().click();
 };
 
 export const TableBG: StoryTemplate = Template.bind({});

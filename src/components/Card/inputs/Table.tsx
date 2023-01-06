@@ -259,6 +259,12 @@ export default React.forwardRef<object, any>(function Table({
 
     const [tableFilter, setFilters] = React.useState<TableFilter>(initialFilters);
     const handleFilterPageSort = React.useCallback(event => setFilters(prev => ({...prev, ...event})), []);
+    const filterDisplay = React.useMemo(() => (widgets || []).some(column => {
+        const isString = typeof column === 'string';
+        const {name, ...widget} = isString ? {name: column} : column;
+        const property = lodashGet(properties, name?.replace(/\./g, '.properties.'));
+        return !!property?.filter || widget?.column?.filter;
+    }), [widgets, properties]) ? 'row' : undefined;
 
     const filterBy = (name: string, key: string) => e => {
         const value = lodashGet(e, key);
@@ -299,7 +305,7 @@ export default React.forwardRef<object, any>(function Table({
                 id={resultSet}
                 size='small'
                 {...testid(props.id || resultSet)}
-                filterDisplay='row'
+                filterDisplay={filterDisplay}
                 {...props}
                 className={clsx(props.className, classes.table)}
                 value={rows}

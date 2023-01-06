@@ -450,18 +450,6 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                                         <span
                                           class="p-column-title"
                                         />
-                                        <div
-                                          class="p-checkbox p-component"
-                                        >
-                                          <div
-                                            class="p-checkbox-box p-component p-disabled"
-                                            role="checkbox"
-                                          >
-                                            <span
-                                              class="p-checkbox-icon"
-                                            />
-                                          </div>
-                                        </div>
                                       </div>
                                     </th>
                                     <th
@@ -483,8 +471,10 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                                       </div>
                                     </th>
                                     <th
-                                      class=""
+                                      aria-sort="none"
+                                      class="p-sortable-column"
                                       role="columnheader"
+                                      tabindex="0"
                                     >
                                       <div
                                         class="p-column-header-content"
@@ -498,6 +488,9 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                                             Url
                                           </span>
                                         </span>
+                                        <span
+                                          class="p-sortable-column-icon pi pi-fw pi-sort-alt"
+                                        />
                                       </div>
                                     </th>
                                     <th
@@ -513,6 +506,83 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                                         />
                                       </div>
                                     </th>
+                                  </tr>
+                                  <tr
+                                    role="row"
+                                  >
+                                    <th
+                                      class="p-filter-column"
+                                    >
+                                      <div
+                                        class="p-checkbox p-component"
+                                      >
+                                        <div
+                                          class="p-checkbox-box p-component p-disabled"
+                                          role="checkbox"
+                                        >
+                                          <span
+                                            class="p-checkbox-icon"
+                                          />
+                                        </div>
+                                      </div>
+                                    </th>
+                                    <th
+                                      class="p-filter-column"
+                                    >
+                                      <div
+                                        class="p-column-filter p-fluid p-column-filter-row"
+                                      >
+                                        <div
+                                          class="p-fluid p-column-filter-element"
+                                        >
+                                          <input
+                                            class="p-inputtext p-component"
+                                            name="tree-links.titleFilter"
+                                            value=""
+                                          />
+                                        </div>
+                                        <button
+                                          aria-label="Clear"
+                                          class="p-column-filter-clear-button p-link p-hidden-space"
+                                          type="button"
+                                        >
+                                          <span
+                                            aria-hidden="true"
+                                            class="pi pi-filter-slash"
+                                          />
+                                        </button>
+                                      </div>
+                                    </th>
+                                    <th
+                                      class="p-filter-column"
+                                    >
+                                      <div
+                                        class="p-column-filter p-fluid p-column-filter-row"
+                                      >
+                                        <div
+                                          class="p-fluid p-column-filter-element"
+                                        >
+                                          <input
+                                            class="p-inputtext p-component"
+                                            name="tree-links.urlFilter"
+                                            value=""
+                                          />
+                                        </div>
+                                        <button
+                                          aria-label="Clear"
+                                          class="p-column-filter-clear-button p-link p-hidden-space"
+                                          type="button"
+                                        >
+                                          <span
+                                            aria-hidden="true"
+                                            class="pi pi-filter-slash"
+                                          />
+                                        </button>
+                                      </div>
+                                    </th>
+                                    <th
+                                      class="p-filter-column"
+                                    />
                                   </tr>
                                 </thead>
                                 <tbody
@@ -3123,18 +3193,6 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                                           <span
                                             class="p-column-title"
                                           />
-                                          <div
-                                            class="p-checkbox p-component"
-                                          >
-                                            <div
-                                              class="p-checkbox-box p-component p-disabled"
-                                              role="checkbox"
-                                            >
-                                              <span
-                                                class="p-checkbox-icon"
-                                              />
-                                            </div>
-                                          </div>
                                         </div>
                                       </th>
                                       <th
@@ -3156,8 +3214,10 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                                         </div>
                                       </th>
                                       <th
-                                        class=""
+                                        aria-sort="none"
+                                        class="p-sortable-column"
                                         role="columnheader"
+                                        tabindex="0"
                                       >
                                         <div
                                           class="p-column-header-content"
@@ -3171,6 +3231,9 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                                               Url
                                             </span>
                                           </span>
+                                          <span
+                                            class="p-sortable-column-icon pi pi-fw pi-sort-alt"
+                                          />
                                         </div>
                                       </th>
                                       <th
@@ -3186,6 +3249,83 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                                           />
                                         </div>
                                       </th>
+                                    </tr>
+                                    <tr
+                                      role="row"
+                                    >
+                                      <th
+                                        class="p-filter-column"
+                                      >
+                                        <div
+                                          class="p-checkbox p-component"
+                                        >
+                                          <div
+                                            class="p-checkbox-box p-component p-disabled"
+                                            role="checkbox"
+                                          >
+                                            <span
+                                              class="p-checkbox-icon"
+                                            />
+                                          </div>
+                                        </div>
+                                      </th>
+                                      <th
+                                        class="p-filter-column"
+                                      >
+                                        <div
+                                          class="p-column-filter p-fluid p-column-filter-row"
+                                        >
+                                          <div
+                                            class="p-fluid p-column-filter-element"
+                                          >
+                                            <input
+                                              class="p-inputtext p-component"
+                                              name="tree-links.titleFilter"
+                                              value=""
+                                            />
+                                          </div>
+                                          <button
+                                            aria-label="Clear"
+                                            class="p-column-filter-clear-button p-link p-hidden-space"
+                                            type="button"
+                                          >
+                                            <span
+                                              aria-hidden="true"
+                                              class="pi pi-filter-slash"
+                                            />
+                                          </button>
+                                        </div>
+                                      </th>
+                                      <th
+                                        class="p-filter-column"
+                                      >
+                                        <div
+                                          class="p-column-filter p-fluid p-column-filter-row"
+                                        >
+                                          <div
+                                            class="p-fluid p-column-filter-element"
+                                          >
+                                            <input
+                                              class="p-inputtext p-component"
+                                              name="tree-links.urlFilter"
+                                              value=""
+                                            />
+                                          </div>
+                                          <button
+                                            aria-label="Clear"
+                                            class="p-column-filter-clear-button p-link p-hidden-space"
+                                            type="button"
+                                          >
+                                            <span
+                                              aria-hidden="true"
+                                              class="pi pi-filter-slash"
+                                            />
+                                          </button>
+                                        </div>
+                                      </th>
+                                      <th
+                                        class="p-filter-column"
+                                      />
                                     </tr>
                                   </thead>
                                   <tbody
@@ -8735,18 +8875,6 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
                                         <span
                                           class="p-column-title"
                                         />
-                                        <div
-                                          class="p-checkbox p-component"
-                                        >
-                                          <div
-                                            class="p-checkbox-box p-component p-disabled"
-                                            role="checkbox"
-                                          >
-                                            <span
-                                              class="p-checkbox-icon"
-                                            />
-                                          </div>
-                                        </div>
                                       </div>
                                     </th>
                                     <th
@@ -8768,8 +8896,10 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
                                       </div>
                                     </th>
                                     <th
-                                      class=""
+                                      aria-sort="none"
+                                      class="p-sortable-column"
                                       role="columnheader"
+                                      tabindex="0"
                                     >
                                       <div
                                         class="p-column-header-content"
@@ -8783,6 +8913,9 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
                                             Url
                                           </span>
                                         </span>
+                                        <span
+                                          class="p-sortable-column-icon pi pi-fw pi-sort-alt"
+                                        />
                                       </div>
                                     </th>
                                     <th
@@ -8798,6 +8931,83 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
                                         />
                                       </div>
                                     </th>
+                                  </tr>
+                                  <tr
+                                    role="row"
+                                  >
+                                    <th
+                                      class="p-filter-column"
+                                    >
+                                      <div
+                                        class="p-checkbox p-component"
+                                      >
+                                        <div
+                                          class="p-checkbox-box p-component p-disabled"
+                                          role="checkbox"
+                                        >
+                                          <span
+                                            class="p-checkbox-icon"
+                                          />
+                                        </div>
+                                      </div>
+                                    </th>
+                                    <th
+                                      class="p-filter-column"
+                                    >
+                                      <div
+                                        class="p-column-filter p-fluid p-column-filter-row"
+                                      >
+                                        <div
+                                          class="p-fluid p-column-filter-element"
+                                        >
+                                          <input
+                                            class="p-inputtext p-component"
+                                            name="tree-links.titleFilter"
+                                            value=""
+                                          />
+                                        </div>
+                                        <button
+                                          aria-label="Clear"
+                                          class="p-column-filter-clear-button p-link p-hidden-space"
+                                          type="button"
+                                        >
+                                          <span
+                                            aria-hidden="true"
+                                            class="pi pi-filter-slash"
+                                          />
+                                        </button>
+                                      </div>
+                                    </th>
+                                    <th
+                                      class="p-filter-column"
+                                    >
+                                      <div
+                                        class="p-column-filter p-fluid p-column-filter-row"
+                                      >
+                                        <div
+                                          class="p-fluid p-column-filter-element"
+                                        >
+                                          <input
+                                            class="p-inputtext p-component"
+                                            name="tree-links.urlFilter"
+                                            value=""
+                                          />
+                                        </div>
+                                        <button
+                                          aria-label="Clear"
+                                          class="p-column-filter-clear-button p-link p-hidden-space"
+                                          type="button"
+                                        >
+                                          <span
+                                            aria-hidden="true"
+                                            class="pi pi-filter-slash"
+                                          />
+                                        </button>
+                                      </div>
+                                    </th>
+                                    <th
+                                      class="p-filter-column"
+                                    />
                                   </tr>
                                 </thead>
                                 <tbody
@@ -9552,18 +9762,6 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                                         <span
                                           class="p-column-title"
                                         />
-                                        <div
-                                          class="p-checkbox p-component"
-                                        >
-                                          <div
-                                            class="p-checkbox-box p-component p-disabled"
-                                            role="checkbox"
-                                          >
-                                            <span
-                                              class="p-checkbox-icon"
-                                            />
-                                          </div>
-                                        </div>
                                       </div>
                                     </th>
                                     <th
@@ -9585,8 +9783,10 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                                       </div>
                                     </th>
                                     <th
-                                      class=""
+                                      aria-sort="none"
+                                      class="p-sortable-column"
                                       role="columnheader"
+                                      tabindex="0"
                                     >
                                       <div
                                         class="p-column-header-content"
@@ -9600,6 +9800,9 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                                             Url
                                           </span>
                                         </span>
+                                        <span
+                                          class="p-sortable-column-icon pi pi-fw pi-sort-alt"
+                                        />
                                       </div>
                                     </th>
                                     <th
@@ -9615,6 +9818,83 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                                         />
                                       </div>
                                     </th>
+                                  </tr>
+                                  <tr
+                                    role="row"
+                                  >
+                                    <th
+                                      class="p-filter-column"
+                                    >
+                                      <div
+                                        class="p-checkbox p-component"
+                                      >
+                                        <div
+                                          class="p-checkbox-box p-component p-disabled"
+                                          role="checkbox"
+                                        >
+                                          <span
+                                            class="p-checkbox-icon"
+                                          />
+                                        </div>
+                                      </div>
+                                    </th>
+                                    <th
+                                      class="p-filter-column"
+                                    >
+                                      <div
+                                        class="p-column-filter p-fluid p-column-filter-row"
+                                      >
+                                        <div
+                                          class="p-fluid p-column-filter-element"
+                                        >
+                                          <input
+                                            class="p-inputtext p-component"
+                                            name="tree-links.titleFilter"
+                                            value=""
+                                          />
+                                        </div>
+                                        <button
+                                          aria-label="Clear"
+                                          class="p-column-filter-clear-button p-link p-hidden-space"
+                                          type="button"
+                                        >
+                                          <span
+                                            aria-hidden="true"
+                                            class="pi pi-filter-slash"
+                                          />
+                                        </button>
+                                      </div>
+                                    </th>
+                                    <th
+                                      class="p-filter-column"
+                                    >
+                                      <div
+                                        class="p-column-filter p-fluid p-column-filter-row"
+                                      >
+                                        <div
+                                          class="p-fluid p-column-filter-element"
+                                        >
+                                          <input
+                                            class="p-inputtext p-component"
+                                            name="tree-links.urlFilter"
+                                            value=""
+                                          />
+                                        </div>
+                                        <button
+                                          aria-label="Clear"
+                                          class="p-column-filter-clear-button p-link p-hidden-space"
+                                          type="button"
+                                        >
+                                          <span
+                                            aria-hidden="true"
+                                            class="pi pi-filter-slash"
+                                          />
+                                        </button>
+                                      </div>
+                                    </th>
+                                    <th
+                                      class="p-filter-column"
+                                    />
                                   </tr>
                                 </thead>
                                 <tbody
@@ -11687,18 +11967,6 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
                                         <span
                                           class="p-column-title"
                                         />
-                                        <div
-                                          class="p-checkbox p-component"
-                                        >
-                                          <div
-                                            class="p-checkbox-box p-component p-disabled"
-                                            role="checkbox"
-                                          >
-                                            <span
-                                              class="p-checkbox-icon"
-                                            />
-                                          </div>
-                                        </div>
                                       </div>
                                     </th>
                                     <th
@@ -11720,8 +11988,10 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
                                       </div>
                                     </th>
                                     <th
-                                      class=""
+                                      aria-sort="none"
+                                      class="p-sortable-column"
                                       role="columnheader"
+                                      tabindex="0"
                                     >
                                       <div
                                         class="p-column-header-content"
@@ -11735,6 +12005,9 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
                                             Url
                                           </span>
                                         </span>
+                                        <span
+                                          class="p-sortable-column-icon pi pi-fw pi-sort-alt"
+                                        />
                                       </div>
                                     </th>
                                     <th
@@ -11750,6 +12023,83 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
                                         />
                                       </div>
                                     </th>
+                                  </tr>
+                                  <tr
+                                    role="row"
+                                  >
+                                    <th
+                                      class="p-filter-column"
+                                    >
+                                      <div
+                                        class="p-checkbox p-component"
+                                      >
+                                        <div
+                                          class="p-checkbox-box p-component p-disabled"
+                                          role="checkbox"
+                                        >
+                                          <span
+                                            class="p-checkbox-icon"
+                                          />
+                                        </div>
+                                      </div>
+                                    </th>
+                                    <th
+                                      class="p-filter-column"
+                                    >
+                                      <div
+                                        class="p-column-filter p-fluid p-column-filter-row"
+                                      >
+                                        <div
+                                          class="p-fluid p-column-filter-element"
+                                        >
+                                          <input
+                                            class="p-inputtext p-component"
+                                            name="tree-links.titleFilter"
+                                            value=""
+                                          />
+                                        </div>
+                                        <button
+                                          aria-label="Clear"
+                                          class="p-column-filter-clear-button p-link p-hidden-space"
+                                          type="button"
+                                        >
+                                          <span
+                                            aria-hidden="true"
+                                            class="pi pi-filter-slash"
+                                          />
+                                        </button>
+                                      </div>
+                                    </th>
+                                    <th
+                                      class="p-filter-column"
+                                    >
+                                      <div
+                                        class="p-column-filter p-fluid p-column-filter-row"
+                                      >
+                                        <div
+                                          class="p-fluid p-column-filter-element"
+                                        >
+                                          <input
+                                            class="p-inputtext p-component"
+                                            name="tree-links.urlFilter"
+                                            value=""
+                                          />
+                                        </div>
+                                        <button
+                                          aria-label="Clear"
+                                          class="p-column-filter-clear-button p-link p-hidden-space"
+                                          type="button"
+                                        >
+                                          <span
+                                            aria-hidden="true"
+                                            class="pi pi-filter-slash"
+                                          />
+                                        </button>
+                                      </div>
+                                    </th>
+                                    <th
+                                      class="p-filter-column"
+                                    />
                                   </tr>
                                 </thead>
                                 <tbody
@@ -12462,18 +12812,6 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                                         <span
                                           class="p-column-title"
                                         />
-                                        <div
-                                          class="p-checkbox p-component"
-                                        >
-                                          <div
-                                            class="p-checkbox-box p-component p-disabled"
-                                            role="checkbox"
-                                          >
-                                            <span
-                                              class="p-checkbox-icon"
-                                            />
-                                          </div>
-                                        </div>
                                       </div>
                                     </th>
                                     <th
@@ -12495,8 +12833,10 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                                       </div>
                                     </th>
                                     <th
-                                      class=""
+                                      aria-sort="none"
+                                      class="p-sortable-column"
                                       role="columnheader"
+                                      tabindex="0"
                                     >
                                       <div
                                         class="p-column-header-content"
@@ -12510,6 +12850,9 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                                             Url
                                           </span>
                                         </span>
+                                        <span
+                                          class="p-sortable-column-icon pi pi-fw pi-sort-alt"
+                                        />
                                       </div>
                                     </th>
                                     <th
@@ -12525,6 +12868,83 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                                         />
                                       </div>
                                     </th>
+                                  </tr>
+                                  <tr
+                                    role="row"
+                                  >
+                                    <th
+                                      class="p-filter-column"
+                                    >
+                                      <div
+                                        class="p-checkbox p-component"
+                                      >
+                                        <div
+                                          class="p-checkbox-box p-component p-disabled"
+                                          role="checkbox"
+                                        >
+                                          <span
+                                            class="p-checkbox-icon"
+                                          />
+                                        </div>
+                                      </div>
+                                    </th>
+                                    <th
+                                      class="p-filter-column"
+                                    >
+                                      <div
+                                        class="p-column-filter p-fluid p-column-filter-row"
+                                      >
+                                        <div
+                                          class="p-fluid p-column-filter-element"
+                                        >
+                                          <input
+                                            class="p-inputtext p-component"
+                                            name="tree-links.titleFilter"
+                                            value=""
+                                          />
+                                        </div>
+                                        <button
+                                          aria-label="Clear"
+                                          class="p-column-filter-clear-button p-link p-hidden-space"
+                                          type="button"
+                                        >
+                                          <span
+                                            aria-hidden="true"
+                                            class="pi pi-filter-slash"
+                                          />
+                                        </button>
+                                      </div>
+                                    </th>
+                                    <th
+                                      class="p-filter-column"
+                                    >
+                                      <div
+                                        class="p-column-filter p-fluid p-column-filter-row"
+                                      >
+                                        <div
+                                          class="p-fluid p-column-filter-element"
+                                        >
+                                          <input
+                                            class="p-inputtext p-component"
+                                            name="tree-links.urlFilter"
+                                            value=""
+                                          />
+                                        </div>
+                                        <button
+                                          aria-label="Clear"
+                                          class="p-column-filter-clear-button p-link p-hidden-space"
+                                          type="button"
+                                        >
+                                          <span
+                                            aria-hidden="true"
+                                            class="pi pi-filter-slash"
+                                          />
+                                        </button>
+                                      </div>
+                                    </th>
+                                    <th
+                                      class="p-filter-column"
+                                    />
                                   </tr>
                                 </thead>
                                 <tbody
