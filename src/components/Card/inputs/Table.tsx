@@ -284,7 +284,7 @@ export default React.forwardRef<object, any>(function Table({
                 >Test</Button>}
             </React.Fragment>
         );
-    }, [allowAdd, disabled, resultSet, allowDelete, selected, allowArchive, buttons, filter, master, parent, properties, allRows, identity, counter, onChange, handleSelected]);
+    }, [allowAdd, allowDelete, selected, identity, master, filter, parent, allRows, onChange, handleSelected, counter, properties, resultSet, disabled, allowArchive, buttons]);
 
     if (selected && props.selectionMode === 'single' && !rows.includes(selected)) {
         handleSelected({value: rows[selected[KEY]]});
