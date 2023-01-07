@@ -1,3 +1,12 @@
+## [2.55.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.55.1...v2.55.2) (2023-01-07)
+
+
+### Bug Fixes
+
+* **CBI-545:** date range proper hours ([#31](https://github.com/softwaregroup-bg/ut-prime/issues/31)) ([f8184bd](https://github.com/softwaregroup-bg/ut-prime/commit/f8184bdc49396cd65a6b020495c254e637187884))
+
+
+
 ## [2.55.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.55.0...v2.55.1) (2023-01-04)
 
 
