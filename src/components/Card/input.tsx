@@ -422,6 +422,12 @@ function input(
                         ? field.value.map(v => typeof v === 'string' ? new Date(v) : v)
                         : field.value}
                     {...props}
+                    onChange={event => {
+                        if (event?.value?.[1]) {
+                            event.value[1].setHours(23, 59, 59, 999);
+                        }
+                        field.onChange(event);
+                    }}
                 />
             </Field>;
         case 'number': return <Field {...{label, error, inputClass}}>
