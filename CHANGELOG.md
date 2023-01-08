@@ -1,3 +1,17 @@
+# [2.56.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.55.2...v2.56.0) (2023-01-08)
+
+
+### Bug Fixes
+
+* Explorer details render ([16c2537](https://github.com/softwaregroup-bg/ut-prime/commit/16c2537417e626c190d348e4e8d71314e1c29579))
+
+
+### Features
+
+* explorer validation handling ([eaf0ef3](https://github.com/softwaregroup-bg/ut-prime/commit/eaf0ef3e391820c82f880e5e92df3587a7a24536))
+
+
+
 ## [2.55.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.55.1...v2.55.2) (2023-01-07)
 
 
