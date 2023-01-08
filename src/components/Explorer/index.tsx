@@ -179,7 +179,7 @@ const Explorer: ComponentProps = ({
     const layout = ('layout' in layoutProps) ? layoutProps.layout : empty;
     const columns = ('layout' in layoutProps) ? empty : mergedCards[columnsCard]?.widgets ?? empty;
     const paramsLayout = ('params' in layoutProps) && layoutProps.params;
-    const fetch = React.useMemo(() => (!paramsLayout || paramValues.length > 1) && fetchParams, [fetchParams, paramValues, paramsLayout]);
+    const fetch = React.useMemo(() => (!paramsLayout?.length || paramValues.length > 1) && fetchParams, [fetchParams, paramValues, paramsLayout]);
     if (toolbar !== false) toolbar = ('layout' in layoutProps) ? ('toolbar' in layoutProps ? mergedCards[layoutProps.toolbar]?.widgets : toolbar) : mergedCards[toolbarCard]?.widgets ?? toolbar;
     const classes = useStyles();
     const {properties} = mergedSchema;
@@ -247,7 +247,11 @@ const Explorer: ComponentProps = ({
         id: current && current[keyField],
         current,
         selected,
-        filter: externalFilter
+        filter: merge(
+            {},
+            externalFilter,
+            Object.entries(tableFilter.filters).reduce((prev, [name, {value}]) => ({...prev, [name]: value}), {})
+        )
     }), [current, keyField, selected, externalFilter, pageSize, tableFilter]);
 
     const submit = React.useCallback(async({method, params}, form?) => {

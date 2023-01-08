@@ -18,6 +18,7 @@ const Report: ComponentProps = ({
     init = {},
     hidden,
     fetch,
+    validation,
     methods,
     table,
     toolbar,
@@ -42,7 +43,7 @@ const Report: ComponentProps = ({
     }, {
         report: {
             columns: 'columns',
-            params: ['params']
+            params: params?.length ? ['params'] : []
         },
         view: ['params']
     }], [params, columns]);
@@ -64,6 +65,7 @@ const Report: ComponentProps = ({
                 pageSize={20}
                 table={React.useMemo(() => ({...tableDefaults, ...table}), [table])}
                 methods={methods}
+                fetchValidation={validation}
                 onDropdown={onDropdown}
                 onCustomization={onCustomization}
             />
