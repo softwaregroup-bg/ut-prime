@@ -1,3 +1,12 @@
+# [2.57.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.56.2...v2.57.0) (2023-01-08)
+
+
+### Features
+
+* report only with filter ([3ab1d9d](https://github.com/softwaregroup-bg/ut-prime/commit/3ab1d9d1e34ea2bd21270ed7df9f5dadb68a85f2))
+
+
+
 ## [2.56.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.56.1...v2.56.2) (2023-01-08)
 
 
