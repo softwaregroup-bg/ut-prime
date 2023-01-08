@@ -1,3 +1,12 @@
+## [2.56.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.56.0...v2.56.1) (2023-01-08)
+
+
+### Bug Fixes
+
+* ignore time offset for date widgets ([4611b76](https://github.com/softwaregroup-bg/ut-prime/commit/4611b765d6efb7ae0e656b127ed1b5dda9af4ab9))
+
+
+
 # [2.56.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.55.2...v2.56.0) (2023-01-08)
 
 
