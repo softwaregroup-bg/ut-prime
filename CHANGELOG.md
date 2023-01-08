@@ -1,3 +1,12 @@
+## [2.56.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.56.1...v2.56.2) (2023-01-08)
+
+
+### Bug Fixes
+
+* set label when truthy ([6a67354](https://github.com/softwaregroup-bg/ut-prime/commit/6a673549cbc3135a2c0899722886ff7c11d8274e))
+
+
+
 ## [2.56.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.56.0...v2.56.1) (2023-01-08)
 
 
