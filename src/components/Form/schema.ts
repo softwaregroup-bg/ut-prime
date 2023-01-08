@@ -89,7 +89,7 @@ function validation(name, field) {
         if (field.enum) result = result.valid(...field.enum);
         if (field.const) result = result.valid(field.const);
     }
-    return result.label(field.title || name);
+    return (field.title || name) ? result.label(field.title || name) : result;
 }
 
 export default function getValidation(schema: Schema | Property, filter?: string[], path = '', propertyName = '') : [Joi.Schema, string[]] {
