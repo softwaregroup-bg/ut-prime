@@ -50,6 +50,7 @@ export { TabMenu } from 'primereact/tabmenu';
 export { TabPanel, TabView } from 'primereact/tabview';
 export { Toast } from 'primereact/toast';
 export { Toolbar } from 'primereact/toolbar';
+export { Tooltip } from 'primereact/tooltip';
 export { Tree } from 'primereact/tree';
 export { TreeSelect } from 'primereact/treeselect';
 export { TreeTable } from 'primereact/treetable';

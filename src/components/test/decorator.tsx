@@ -3,7 +3,7 @@ import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 
 import Wrap from './wrap';
-import { ConfirmPopup } from '../prime';
+import { ConfirmPopup, ConfirmDialog } from '../prime';
 
 export default [
     (Story, {args, globals}) => args?.state ? (
@@ -12,6 +12,7 @@ export default [
         </Wrap>
     ) : <DndProvider backend={HTML5Backend}>
         <ConfirmPopup />
+        <ConfirmDialog />
         <Story />
     </DndProvider>
 ];

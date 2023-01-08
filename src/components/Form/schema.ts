@@ -111,7 +111,7 @@ export default function getValidation(schema: Schema | Property, filter?: string
                 object(
                     schema,
                     path
-                        ? {}
+                        ? undefined
                         : {
                             $: Joi.any().strip(),
                             $key: Joi.any().strip(),
