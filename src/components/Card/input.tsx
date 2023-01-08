@@ -389,6 +389,7 @@ function input(
                 {...field}
                 showTime
                 showIcon
+                showSeconds
                 value={field.value != null ? new Date(field.value) : field.value}
                 inputId={props.id}
                 {...props}
@@ -408,7 +409,17 @@ function input(
             <Calendar
                 {...field}
                 showIcon
-                value={field.value != null ? new Date(field.value) : field.value}
+                value={
+                    field.value != null
+                        ? new Date(new Date(field.value).getTime() + new Date(field.value).getTimezoneOffset() * 60 * 1000)
+                        : field.value
+                }
+                onChange={
+                    event => {
+                        if (event.value instanceof Date) event.value = new Date(event.value.getTime() - event.value.getTimezoneOffset() * 60 * 1000);
+                        field.onChange(event);
+                    }
+                }
                 inputId={props.id}
                 {...props}
             />

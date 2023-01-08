@@ -227,7 +227,10 @@ export default function columnProps({
                 name={filterId}
             />;
             body = function body(rowData) {
-                return dateOrNull(rowData[fieldName])?.toLocaleDateString();
+                let value = rowData[fieldName];
+                if (value == null) return null;
+                value = new Date(value);
+                return new Date(value.getTime() + value.getTimezoneOffset() * 60 * 1000).toLocaleDateString();
             };
             break;
         case 'time':
