@@ -76,7 +76,7 @@ export default function columnProps({
     property: Property,
     widget?: PropertyEditor,
     dropdowns: object,
-    tableFilter?: TableFilter,
+    tableFilter?: Omit<TableFilter, 'page'>,
     filterBy?: (name: string, value: string) => (e: object) => void,
     editable?: boolean,
     index: number,

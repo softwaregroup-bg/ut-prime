@@ -3,12 +3,15 @@ import lodashGet from 'lodash.get';
 import {createUseStyles} from 'react-jss';
 import clsx from 'clsx';
 
-import {DataTable, Column, Toolbar, Button} from '../../prime';
+import {DataTable, Column, Toolbar, Button, type DataTableProps} from '../../prime';
 import Text from '../../Text';
 import columnProps from '../../lib/column';
+import useFilter from '../../hooks/useFilter';
 import {CHANGE, INDEX, KEY, NEW} from '../const';
-import type {Properties} from '../../types';
+import type {Properties, WidgetReference, PropertyEditor} from '../../types';
 import testid from '../../lib/testid';
+
+const fieldName = column => typeof column === 'string' ? column : column.name;
 
 const getDefault = (key, value, rows) => {
     if (!value || !('default' in value)) return;
@@ -33,12 +36,11 @@ const editStyle = { width: '7rem' };
 const editBodyStyle: React.CSSProperties = { textAlign: 'center' };
 const sameString = (a, b) => a === b || (a != null && b != null && String(a) === String(b));
 
-const defaults = (properties : Properties, rows: object[]) =>
+const defaults = (properties : Properties, rows: readonly object[]) =>
     Object.fromEntries(
         Object.entries(properties)
             .map(([key, value]) => getDefault(key, value, rows)).filter(Boolean));
 
-const handleFilter = () => {};
 const backgroundNone = {background: 'none'};
 
 const masterFilter = (master, filter) => master && Object.fromEntries(
@@ -69,7 +71,39 @@ const useStyles = createUseStyles({
     }
 });
 
-export default React.forwardRef<object, any>(function Table({
+interface TableProps extends Omit<DataTableProps, 'onChange'> {
+    name: string;
+    id?: string;
+    onChange: (event: {value: []}, flags?: {select: boolean, field: boolean, children: boolean}) => void;
+    getValues?: (field: string) => unknown;
+    counter?: {current: number};
+    widgets?: WidgetReference[];
+    value: object[];
+    identity?: string;
+    properties: Properties;
+    dropdowns?: object;
+    parent?: unknown;
+    filter?: object;
+    master?: unknown;
+    children?: unknown;
+    autoSelect?: unknown;
+    selectionPath?: unknown;
+    label?: unknown;
+    pivot?: {
+        dropdown?: string;
+        master?: object;
+        examples?: object[];
+        join?: object;
+    };
+    actions?: {
+        allowAdd?: boolean;
+        allowDelete?: boolean;
+        allowEdit?: boolean;
+        allowSelect?: boolean;
+    };
+}
+
+export default React.forwardRef<object, TableProps>(function Table({
     name,
     id: resultSet = name,
     onChange,
@@ -105,7 +139,7 @@ export default React.forwardRef<object, any>(function Table({
 }, ref) {
     if (typeof ref === 'function') ref({});
     const classes = useStyles();
-    const [selected, setSelected] = React.useState(getValues ? getValues(`${selectionPath}.${props.name}`) : null);
+    const [selected, setSelected] = React.useState(getValues ? getValues(`${selectionPath}.${name}`) : null);
     const [editingRows, setEditingRows] = React.useState({});
     const [pendingEdit, setPendingEdit] = React.useState(null);
     const keepRows = !!props.selection;
@@ -203,6 +237,23 @@ export default React.forwardRef<object, any>(function Table({
     const onRowEditChange = React.useCallback(event => {
         setEditingRows(event.data);
     }, [setEditingRows]);
+    const initialFilters = React.useMemo(() => ({
+        filters: (widgets || []).reduce((prev : object, column) => {
+            let field = fieldName(column);
+            const value = lodashGet({}, field);
+            field = field.split('.').pop();
+            return (value === undefined) ? {...prev, [field]: {matchMode: 'contains'}} : {...prev, [field]: {value, matchMode: 'contains'}};
+        }, {}),
+        first: 0,
+        page: 1
+    }), [widgets]);
+
+    const [tableFilter, setFilters, filterBy, filterProps] = useFilter(
+        initialFilters,
+        widgets,
+        properties,
+        rows?.filter(item => !item?.[NEW]).length > 1
+    );
 
     const leftToolbarTemplate = React.useCallback(() => {
         const addNewRow = event => {
@@ -215,12 +266,14 @@ export default React.forwardRef<object, any>(function Table({
                 ...prev,
                 [updatedValue.length - 1]: true
             }));
+            setFilters(initialFilters);
         };
         const deleteRow = event => {
             event.preventDefault();
             const remove = [].concat(selected);
             handleSelected({value: null});
             onChange({...event, value: allRows.filter((rowData, index) => !remove.some(item => item[INDEX] === index))});
+            setFilters(initialFilters);
         };
         return (
             <React.Fragment>
@@ -243,7 +296,7 @@ export default React.forwardRef<object, any>(function Table({
                 >Delete</Button>}
             </React.Fragment>
         );
-    }, [allowAdd, allowDelete, selected, identity, master, filter, parent, allRows, onChange, handleSelected, counter, properties, resultSet, disabled]);
+    }, [allowAdd, allowDelete, selected, identity, master, filter, parent, allRows, onChange, handleSelected, counter, properties, resultSet, disabled, initialFilters, setFilters]);
 
     if (selected && props.selectionMode === 'single' && !rows.includes(selected)) {
         handleSelected({value: rows[selected[KEY]]});
@@ -266,13 +319,13 @@ export default React.forwardRef<object, any>(function Table({
                 dataKey={KEY}
                 id={resultSet}
                 size='small'
-                {...testid(props.id || resultSet)}
+                {...testid(resultSet)}
+                {...filterProps}
                 {...props}
                 className={clsx(props.className, classes.table)}
                 value={rows}
                 onRowEditComplete={complete}
                 onRowEditCancel={cancel}
-                onFilter={handleFilter}
                 editingRows={editingRows}
                 onRowEditChange={onRowEditChange}
             >
@@ -284,15 +337,19 @@ export default React.forwardRef<object, any>(function Table({
                         const {name, ...widget} = isString ? {name: column} : column;
                         return (<Column
                             key={name}
+                            filter={!!properties?.[name]?.filter}
+                            sortable={!!properties?.[name]?.sort}
                             {...columnProps({
                                 getValues,
                                 resultSet,
                                 index,
                                 name,
-                                widget: !isString && widget,
+                                widget: !isString && widget as PropertyEditor,
                                 property: properties?.[name],
                                 dropdowns,
-                                editable: true
+                                editable: true,
+                                filterBy,
+                                tableFilter
                             })}
                         />);
                     })
