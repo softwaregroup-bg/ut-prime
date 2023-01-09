@@ -1,3 +1,12 @@
+## [2.58.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.58.0...v2.58.1) (2023-01-09)
+
+
+### Bug Fixes
+
+* Explorer action column ([a722f45](https://github.com/softwaregroup-bg/ut-prime/commit/a722f45ef37e3830ca5d4d35b10d0f467b4cf6da))
+
+
+
 # [2.58.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.57.0...v2.58.0) (2023-01-09)
 
 
