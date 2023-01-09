@@ -454,25 +454,6 @@ const Explorer: ComponentProps = ({
             return (
                 <Column
                     key={name}
-                    body={action && (row => <ActionButton
-                        {...testid(`${resultSet || 'filterBy'}.${field}Item/${row && row[keyField]}`)}
-                        label={row[field]}
-                        className='p-button-link p-0'
-                        action={action}
-                        submit={submit}
-                        params={widget.params ?? property?.params}
-                        getValues={() => ({
-                            filter: externalFilter,
-                            id: row && row[keyField],
-                            current: row,
-                            selected: [row]
-                        })}
-                        // onClick={() => property.action({
-                        //     id: row && row[keyField],
-                        //     current: row,
-                        //     selected: [row]
-                        // })}
-                    />)}
                     filter={showFilter && !!property?.filter}
                     sortable={!!property?.sort}
                     {...columnProps({
@@ -488,6 +469,22 @@ const Explorer: ComponentProps = ({
                         errorsWithoutColumn,
                         ...formProps
                     })}
+                    {...action && {
+                        body: row => <ActionButton
+                            {...testid(`${resultSet || 'filterBy'}.${field}Item/${row && row[keyField]}`)}
+                            label={row[field]}
+                            className='p-button-link p-0'
+                            action={action}
+                            submit={submit}
+                            params={widget.params ?? property?.params}
+                            getValues={() => ({
+                                filter: externalFilter,
+                                id: row && row[keyField],
+                                current: row,
+                                selected: [row]
+                            })}
+                        />
+                    }}
                 />
             );
         }), errorsWithoutColumn.filter(Boolean)];
