@@ -91,7 +91,7 @@ export default function columnProps({
     toolbar?: undefined
 }) {
     const resultSetDot = resultSet ? resultSet + '.' : '';
-    const { type, dropdown, parent, column, lookup, compare, download, basePath, optionsFilter, ...props } = widget || property?.widget || { name };
+    const { type, dropdown, parent, column, lookup, compare, download, basePath, optionsFilter, translation, ...props } = widget || property?.widget || { name };
     const fieldName = name.split('.').pop();
     let filterElement, body, editor, bodyClassName, alignHeader;
     const filterId = `${resultSetDot}${name}Filter`;
@@ -113,6 +113,10 @@ export default function columnProps({
         onChange={filterBy(fieldName, 'target.value')}
         name={filterId}
     />;
+    body = function body(rowData) {
+        const value = rowData[property?.body || fieldName];
+        return (value == null) ? value : <span className='value'>{translation ? <Text>{value}</Text> : value}</span>;
+    };
     switch (widgetType) {
         case 'currency':
         case 'integer':
@@ -192,11 +196,11 @@ export default function columnProps({
             break;
         case 'json':
             body = function body(rowData) {
-                return <Json
+                return <span className='value'><Json
                     value={rowData[fieldName]}
                     {...testid(props.id)}
                     {...props}
-                />;
+                /></span>;
             };
             break;
         case 'select-table-radio':

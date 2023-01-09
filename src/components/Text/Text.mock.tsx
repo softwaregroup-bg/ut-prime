@@ -85,12 +85,25 @@ const translations = {
 
         Edit=Редактирай
         Create=Създай
+        View=Преглед
         Size=Размер
         Do you confirm the deletion of the selected rows ?=Потвърждавате ли изтриването ?
         Review=Преглед
         Reject=Откажи
         Approve=Приеми
         Granded=Осигурен достъп
+
+        Monday=Понеделник
+        Tuesday=Вторник
+        Wednesday=Сряда
+        Thursday=Четвъртък
+        Friday=Петък
+        Saturday=Събота
+        Sunday=Неделя
+        Weekday Name=Ден от седмицата
+        Start Time=Начален час
+        End Time=Краен час
+        Entity Name=Обект
 
         Current=Текущ
         Previous=Предишен

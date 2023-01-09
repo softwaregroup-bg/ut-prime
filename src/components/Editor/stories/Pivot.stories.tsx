@@ -1,9 +1,13 @@
 import React from 'react';
 import Editor from '..';
+import type { Story } from '@storybook/react';
+
+import type { Props } from '../Editor.types';
+
 export {default} from '../Editor.stories';
 
-export const Pivot = () =>
-    <Editor
+const Template: Story<Props> = args => {
+    return <Editor
         id={1}
         onGet={() => Promise.resolve({
             schedule: [
@@ -33,7 +37,7 @@ export const Pivot = () =>
                     items: {
                         type: 'object',
                         properties: {
-                            weekdayName: {readOnly: true},
+                            weekdayName: {readOnly: true, widget: {translation: true}},
                             startTime: {},
                             endTime: {}
                         }
@@ -113,3 +117,17 @@ export const Pivot = () =>
             edit: ['schedule', 'permission']
         }}
     />;
+};
+
+declare type StoryTemplate = Story<Partial<Props> & {lang?: string}> & {
+    play: (context: {canvasElement: HTMLElement}) => Promise<void>
+}
+
+export const Pivot: StoryTemplate = Template.bind({});
+Pivot.args = {};
+
+export const PivotBG: StoryTemplate = Template.bind({});
+PivotBG.args = {
+    ...Pivot.args,
+    lang: 'bg'
+};

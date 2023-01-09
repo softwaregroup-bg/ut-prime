@@ -7,7 +7,7 @@ import {CascadedTables} from './stories/CascadedTables.stories';
 import {CustomEditors} from './stories/CustomEditors.stories';
 import {MasterDetail} from './stories/MasterDetail.stories';
 import {MasterDetailPolymorphic} from './stories/MasterDetailPolymorphic.stories';
-import {Pivot} from './stories/Pivot.stories';
+import {Pivot, PivotBG} from './stories/Pivot.stories';
 import {PolymorphicLayout} from './stories/PolymorphicLayout.stories';
 import {ResponsiveLayout} from './stories/ResponsiveLayout.stories';
 import {TabbedLayout} from './stories/TabbedLayout.stories';
@@ -60,6 +60,10 @@ describe('<Editor />', () => {
     });
     it('Pivot render equals snapshot', async() => {
         const { findByTestId } = render(<Pivot />);
+        expect(await findByTestId('ut-front-test')).toMatchSnapshot();
+    });
+    it('Pivot BG render equals snapshot', async() => {
+        const { findByTestId } = render(<PivotBG />);
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
     it('PolymorphicLayout render equals snapshot', async() => {
