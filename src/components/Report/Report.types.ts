@@ -18,6 +18,7 @@ export interface Props {
     onDropdown: ExplorerProps['onDropdown'],
     onCustomization?: ExplorerProps['onCustomization'],
     fetch: ExplorerProps['fetch'];
+    validation: ExplorerProps['fetchValidation'];
 }
 
 export type ComponentProps = React.FC<Props>

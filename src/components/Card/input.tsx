@@ -392,6 +392,7 @@ function input(
                 {...field}
                 showTime
                 showIcon
+                showSeconds
                 value={field.value != null ? new Date(field.value) : field.value}
                 inputId={props.id}
                 {...props}
@@ -411,7 +412,17 @@ function input(
             <Calendar
                 {...field}
                 showIcon
-                value={field.value != null ? new Date(field.value) : field.value}
+                value={
+                    field.value != null
+                        ? new Date(new Date(field.value).getTime() + new Date(field.value).getTimezoneOffset() * 60 * 1000)
+                        : field.value
+                }
+                onChange={
+                    event => {
+                        if (event.value instanceof Date) event.value = new Date(event.value.getTime() - event.value.getTimezoneOffset() * 60 * 1000);
+                        field.onChange(event);
+                    }
+                }
                 inputId={props.id}
                 {...props}
             />
@@ -425,6 +436,12 @@ function input(
                         ? field.value.map(v => typeof v === 'string' ? new Date(v) : v)
                         : field.value}
                     {...props}
+                    onChange={event => {
+                        if (event?.value?.[1]) {
+                            event.value[1].setHours(23, 59, 59, 999);
+                        }
+                        field.onChange(event);
+                    }}
                 />
             </Field>;
         case 'number': return <Field {...{label, error, inputClass}}>

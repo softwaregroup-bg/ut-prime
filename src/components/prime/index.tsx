@@ -1,5 +1,5 @@
 import { Button as PrimeButton, type ButtonProps as PrimeButtonProps } from 'primereact/button';
-import { Calendar } from 'primereact/calendar';
+import { Calendar as PrimeCalendar } from 'primereact/calendar';
 import { Card as PrimeCard, type CardProps } from 'primereact/card';
 import { AutoComplete as PrimeAutoComplete, type AutoCompleteProps } from 'primereact/autocomplete';
 import type { CalendarProps } from 'primereact/calendar';
@@ -14,7 +14,6 @@ import Permission from '../Permission';
 import {confirmPopup as confirmPopupPrime} from 'primereact/confirmpopup';
 import {confirmDialog as confirmDialogPrime} from 'primereact/confirmdialog';
 
-export { Calendar } from 'primereact/calendar';
 export { CascadeSelect } from 'primereact/cascadeselect';
 export { Chart } from 'primereact/chart';
 export { Checkbox } from 'primereact/checkbox';
@@ -50,6 +49,7 @@ export { TabMenu } from 'primereact/tabmenu';
 export { TabPanel, TabView } from 'primereact/tabview';
 export { Toast } from 'primereact/toast';
 export { Toolbar } from 'primereact/toolbar';
+export { Tooltip } from 'primereact/tooltip';
 export { Tree } from 'primereact/tree';
 export { TreeSelect } from 'primereact/treeselect';
 export { TreeTable } from 'primereact/treetable';
@@ -63,6 +63,12 @@ function dateRange(timeOnly) {
     const today = timeOnly ? new Date(0) : new Date();
     if (!timeOnly) today.setHours(0, 0, 0, 0);
     return [today, new Date(today.getTime() + timeOnly ? 0 : 86400000)];
+}
+
+function date() {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return today;
 }
 
 export const confirmPopup = ({message, ...params}) => confirmPopupPrime({
@@ -81,12 +87,27 @@ export const DateRange = React.forwardRef<HTMLInputElement, CalendarProps>(funct
     const onVisibleChange = React.useCallback(event => {
         setVisible(event.visible);
     }, [setVisible]);
-    return <Calendar
+    return <PrimeCalendar
         showButtonBar
         selectionMode='range'
         showOnFocus={false}
         showIcon
         todayButtonClassName='hidden'
+        {...props}
+        visible={visible}
+        value={value}
+        onVisibleChange={onVisibleChange}
+        inputRef={ref}
+    />;
+});
+
+export const Calendar = React.forwardRef<HTMLInputElement, CalendarProps>(function Calendar(props, ref) {
+    const [visible, setVisible] = React.useState(false);
+    const value = React.useMemo(() => (visible && !props.value) ? date() : props.value, [visible, props.value]);
+    const onVisibleChange = React.useCallback(event => {
+        setVisible(event.visible);
+    }, [setVisible]);
+    return <PrimeCalendar
         {...props}
         visible={visible}
         value={value}

@@ -82,6 +82,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
               style="flex-basis: calc(90% - 4px); height: 768px;"
             >
               <div
+                class="relative"
                 style="height: 768px;"
               >
                 <div

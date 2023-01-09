@@ -3,6 +3,7 @@ import lodashGet from 'lodash.get';
 import merge from 'ut-function.merge';
 import clsx from 'clsx';
 import {createUseStyles} from 'react-jss';
+import Joi from 'joi';
 
 import Card from '../Card';
 import { Button, DataTable, DataView, Column, Toolbar, Splitter, SplitterPanel } from '../prime';
@@ -15,6 +16,8 @@ import useLoad from '../hooks/useLoad';
 import useWindowSize from '../hooks/useWindowSize';
 import Editor from '../Editor';
 import Form from '../Form';
+import getValidation from '../Form/schema';
+import skip from '../lib/skip';
 import fieldNames from '../lib/fields';
 import columnProps, {TableFilter} from '../lib/column';
 import prepareSubmit from '../lib/prepareSubmit';
@@ -89,10 +92,21 @@ const useStyles = createUseStyles({
 
 const empty = [];
 
+const FilterErrors = ({errors}: {errors: Joi.ValidationError['details']}) => {
+    return <Button
+        className='absolute m-2 top-0 right-0 z-2 pre p-button-rounded p-button-danger'
+        icon='pi pi-exclamation-triangle'
+        onClick={() => {}}
+        tooltip={errors.map(error => error.message).join('\n')}
+        tooltipOptions={{position: 'top'}}
+    />;
+};
+
 const Explorer: ComponentProps = ({
     className,
     keyField,
     fetch: fetchParams,
+    fetchTransform,
     subscribe,
     schema,
     resultSet,
@@ -165,7 +179,7 @@ const Explorer: ComponentProps = ({
     const layout = ('layout' in layoutProps) ? layoutProps.layout : empty;
     const columns = ('layout' in layoutProps) ? empty : mergedCards[columnsCard]?.widgets ?? empty;
     const paramsLayout = ('params' in layoutProps) && layoutProps.params;
-    const fetch = React.useMemo(() => (!paramsLayout || paramValues.length > 1) && fetchParams, [fetchParams, paramValues, paramsLayout]);
+    const fetch = React.useMemo(() => (!paramsLayout?.length || paramValues.length > 1) && fetchParams, [fetchParams, paramValues, paramsLayout]);
     if (toolbar !== false) toolbar = ('layout' in layoutProps) ? ('toolbar' in layoutProps ? mergedCards[layoutProps.toolbar]?.widgets : toolbar) : mergedCards[toolbarCard]?.widgets ?? toolbar;
     const classes = useStyles();
     const {properties} = mergedSchema;
@@ -224,6 +238,8 @@ const Explorer: ComponentProps = ({
         ];
     }, [columns, editors, mergedCards, mergedSchema, paramsLayout, properties]);
 
+    const validation = React.useMemo(() => fetchValidation || (mergedSchema.properties?.fetch && getValidation(mergedSchema.properties?.fetch)[0]), [fetchValidation, mergedSchema.properties?.fetch]);
+
     const getValues = React.useMemo(() => ({$ = undefined, ...params} = {}) => ({
         params,
         pageSize,
@@ -231,7 +247,11 @@ const Explorer: ComponentProps = ({
         id: current && current[keyField],
         current,
         selected,
-        filter: externalFilter
+        filter: merge(
+            {},
+            externalFilter,
+            Object.entries(tableFilter.filters).reduce((prev, [name, {value}]) => ({...prev, [name]: value}), {})
+        )
     }), [current, keyField, selected, externalFilter, pageSize, tableFilter]);
 
     const submit = React.useCallback(async({method, params}, form?) => {
@@ -291,6 +311,7 @@ const Explorer: ComponentProps = ({
         >{title}</ActionButton>;
     }
     ), [toolbar, current, selected, getValues, properties, trigger, loading, paramsLayout, submit]);
+    const [filterErrors, setFilterErrors] = React.useState<Joi.ValidationError>();
     const {toast, handleSubmit: load} = useSubmit(
         async function() {
             if (!fetch) {
@@ -320,8 +341,11 @@ const Explorer: ComponentProps = ({
                             }
                         }
                     ), index]);
-                    if (typeof fetchValidation?.validate === 'function' && fetchValidation.validate(fetchParams)?.error) return;
-                    const items = await fetch(fetchParams);
+                    const transformed = fetchTransform ? fetchTransform(fetchParams) : fetchParams;
+                    const errors = validation?.validate?.(skip(transformed), {abortEarly: false})?.error;
+                    setFilterErrors(errors);
+                    if (errors) return;
+                    const items = await fetch(transformed);
                     const records = (resultSet ? items[resultSet] : items) as unknown[];
                     let total = items.pagination?.recordsTotal || items.pagination?.[0]?.recordsTotal;
                     if (total == null) {
@@ -336,7 +360,7 @@ const Explorer: ComponentProps = ({
                 }
             }
         },
-        [fetch, filter, index, pageSize, resultSet, tableFilter, externalFilter, fetchValidation]
+        [fetch, filter, index, pageSize, resultSet, tableFilter, externalFilter, validation, fetchTransform]
     );
     useLoad(async() => {
         if (onDropdown) setDropdown(await onDropdown(dropdownNames.split(',').filter(Boolean)));
@@ -415,40 +439,68 @@ const Explorer: ComponentProps = ({
         return !!property?.filter || widget?.column?.filter;
     }), [columns, properties, showFilter]) ? 'row' : undefined;
 
-    const Columns = React.useMemo(() => columns.map((column, index) => {
-        const isString = typeof column === 'string';
-        const {name, ...widget} = isString ? {name: column} : column;
-        const property = lodashGet(properties, name?.replace(/\./g, '.properties.'));
-        const action = widget.action ?? property?.action;
-        const field = name.split('.').pop();
-        return (
-            <Column
-                key={name}
-                body={action && (row => <ActionButton
-                    {...testid(`${resultSet || 'filterBy'}.${field}Item/${row && row[keyField]}`)}
-                    label={row[field]}
-                    className='p-button-link p-0'
-                    action={action}
-                    submit={submit}
-                    params={widget.params ?? property?.params}
-                    getValues={() => ({
-                        filter: externalFilter,
-                        id: row && row[keyField],
-                        current: row,
-                        selected: [row]
+    const [Columns, errorsWithoutColumn] = React.useMemo(() => {
+        const errorsWithoutColumn = filterErrors ? [...filterErrors.details] : [];
+        return [columns.map((column, index) => {
+            const isString = typeof column === 'string';
+            const {name, ...widget} = isString ? {name: column} : column;
+            const property = lodashGet(properties, name?.replace(/\./g, '.properties.'));
+            const action = widget.action ?? property?.action;
+            const field = name.split('.').pop();
+            return (
+                <Column
+                    key={name}
+                    body={action && (row => <ActionButton
+                        {...testid(`${resultSet || 'filterBy'}.${field}Item/${row && row[keyField]}`)}
+                        label={row[field]}
+                        className='p-button-link p-0'
+                        action={action}
+                        submit={submit}
+                        params={widget.params ?? property?.params}
+                        getValues={() => ({
+                            filter: externalFilter,
+                            id: row && row[keyField],
+                            current: row,
+                            selected: [row]
+                        })}
+                        // onClick={() => property.action({
+                        //     id: row && row[keyField],
+                        //     current: row,
+                        //     selected: [row]
+                        // })}
+                    />)}
+                    filter={showFilter && !!property?.filter}
+                    sortable={!!property?.sort}
+                    {...columnProps({
+                        index,
+                        card: columnsCard,
+                        name,
+                        widget: !isString && widget,
+                        property,
+                        dropdowns,
+                        tableFilter,
+                        filterBy,
+                        filterErrors,
+                        errorsWithoutColumn,
+                        ...formProps
                     })}
-                    // onClick={() => property.action({
-                    //     id: row && row[keyField],
-                    //     current: row,
-                    //     selected: [row]
-                    // })}
-                />)}
-                filter={showFilter && !!property?.filter}
-                sortable={!!property?.sort}
-                {...columnProps({index, card: columnsCard, name, widget: !isString && widget, property, dropdowns, tableFilter, filterBy, ...formProps})}
-            />
-        );
-    }), [columns, columnsCard, properties, showFilter, dropdowns, tableFilter, keyField, resultSet, formProps, externalFilter, submit]);
+                />
+            );
+        }), errorsWithoutColumn.filter(Boolean)];
+    }, [
+        columns,
+        columnsCard,
+        properties,
+        showFilter,
+        dropdowns,
+        tableFilter,
+        keyField,
+        resultSet,
+        formProps,
+        externalFilter,
+        submit,
+        filterErrors
+    ]);
     const hasChildren = !!children;
 
     const left = paramsLayout ? <div className='flex align-items-center w-full'>
@@ -508,7 +560,7 @@ const Explorer: ComponentProps = ({
         return renderItem();
     }, [mergedCards, layoutState, dropdowns, methods, keyField, resultSet, cardName, onFieldChange]);
     const table = (
-        <div ref={tableWrapRef} style={height}>
+        <div ref={tableWrapRef} style={height} className='relative'>
             {layout?.length ? <DataView
                 layout='grid'
                 style={maxHeight}
@@ -553,6 +605,7 @@ const Explorer: ComponentProps = ({
                 {multiSelect && <Column selectionMode="multiple" className='flex-grow-0'/>}
                 {Columns}
             </DataTable>}
+            {errorsWithoutColumn.length ? <FilterErrors errors={errorsWithoutColumn}/> : null}
         </div>
     );
     const nav = children && navigationOpened && <SplitterPanel style={height} key='nav' size={15}>
