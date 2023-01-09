@@ -47,6 +47,10 @@ const useStyles = createUseStyles({
             overflow: 'hidden',
             textOverflow: 'ellipsis'
         },
+        '& .p-datatable-tbody td .value': {
+            overflow: 'hidden',
+            textOverflow: 'ellipsis'
+        },
         '& .p-datatable-wrapper': {
             overflowX: 'auto',
             '& .p-button': {
