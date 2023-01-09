@@ -1,3 +1,12 @@
+# [2.59.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.58.1...v2.59.0) (2023-01-09)
+
+
+### Features
+
+* table widger filter and sort ([#32](https://github.com/softwaregroup-bg/ut-prime/issues/32)) ([057958f](https://github.com/softwaregroup-bg/ut-prime/commit/057958ff42512a19f6e6a2f9570f1d9d1c5f0239))
+
+
+
 ## [2.58.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.58.0...v2.58.1) (2023-01-09)
 
 
