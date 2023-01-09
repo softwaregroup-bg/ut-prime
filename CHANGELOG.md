@@ -1,3 +1,13 @@
+# [2.58.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.57.0...v2.58.0) (2023-01-09)
+
+
+### Features
+
+* column data translation ([aab2fc4](https://github.com/softwaregroup-bg/ut-prime/commit/aab2fc460a11256e193e3cce44d4c973e7170898))
+* report details ([826ddd4](https://github.com/softwaregroup-bg/ut-prime/commit/826ddd41535f3450872943a7dbcaf9b8a9bc0b15))
+
+
+
 # [2.57.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.56.2...v2.57.0) (2023-01-08)
 
 
