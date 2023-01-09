@@ -70,6 +70,7 @@ export interface PropertyEditor {
     className?: string,
     fieldClass?: string,
     labelClass?: string,
+    translation?: boolean,
     [editorProperties: string]: unknown
 }
 

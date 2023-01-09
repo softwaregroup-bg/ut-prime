@@ -1327,7 +1327,11 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                           Full Name
                                         </span>
                                       </span>
-                                      John Doe
+                                      <span
+                                        class="value"
+                                      >
+                                        John Doe
+                                      </span>
                                     </td>
                                     <td
                                       class="p-editable-column"
@@ -1342,7 +1346,11 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                           National ID
                                         </span>
                                       </span>
-                                      777777777
+                                      <span
+                                        class="value"
+                                      >
+                                        777777777
+                                      </span>
                                     </td>
                                     <td
                                       class="p-editable-column"
@@ -1397,7 +1405,11 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                           Full Name
                                         </span>
                                       </span>
-                                      Jane Doe
+                                      <span
+                                        class="value"
+                                      >
+                                        Jane Doe
+                                      </span>
                                     </td>
                                     <td
                                       class="p-editable-column"
@@ -1412,7 +1424,11 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                           National ID
                                         </span>
                                       </span>
-                                      888888888
+                                      <span
+                                        class="value"
+                                      >
+                                        888888888
+                                      </span>
                                     </td>
                                     <td
                                       class="p-editable-column"
@@ -2057,7 +2073,11 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                           Page Number
                                         </span>
                                       </span>
-                                      1
+                                      <span
+                                        class="value"
+                                      >
+                                        1
+                                      </span>
                                     </td>
                                     <td
                                       class="p-editable-column"
@@ -2072,7 +2092,11 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                           Content Type
                                         </span>
                                       </span>
-                                      image/png
+                                      <span
+                                        class="value"
+                                      >
+                                        image/png
+                                      </span>
                                     </td>
                                     <td
                                       class="text-right p-editable-column"
@@ -2087,7 +2111,11 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                           Size (bytes)
                                         </span>
                                       </span>
-                                      33333
+                                      <span
+                                        class="value"
+                                      >
+                                        33333
+                                      </span>
                                     </td>
                                     <td
                                       class=""
@@ -2127,7 +2155,11 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                           Page Number
                                         </span>
                                       </span>
-                                      2
+                                      <span
+                                        class="value"
+                                      >
+                                        2
+                                      </span>
                                     </td>
                                     <td
                                       class="p-editable-column"
@@ -2142,7 +2174,11 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                           Content Type
                                         </span>
                                       </span>
-                                      image/png
+                                      <span
+                                        class="value"
+                                      >
+                                        image/png
+                                      </span>
                                     </td>
                                     <td
                                       class="text-right p-editable-column"
@@ -2157,7 +2193,11 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                           Size (bytes)
                                         </span>
                                       </span>
-                                      22222
+                                      <span
+                                        class="value"
+                                      >
+                                        22222
+                                      </span>
                                     </td>
                                     <td
                                       class=""
@@ -4000,7 +4040,7 @@ exports[`<Editor /> Files render equals snapshot 1`] = `
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="tree-documents"
                             id="tree-documents"
-                            pr_id_21=""
+                            pr_id_23=""
                           >
                             <div
                               class="p-datatable-wrapper"
@@ -5105,7 +5145,11 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
                                           Full Name
                                         </span>
                                       </span>
-                                      John Doe
+                                      <span
+                                        class="value"
+                                      >
+                                        John Doe
+                                      </span>
                                     </td>
                                   </tr>
                                   <tr
@@ -5126,7 +5170,11 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
                                           Full Name
                                         </span>
                                       </span>
-                                      Jane Doe
+                                      <span
+                                        class="value"
+                                      >
+                                        Jane Doe
+                                      </span>
                                     </td>
                                   </tr>
                                 </tbody>
@@ -5477,7 +5525,11 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
                                           Name
                                         </span>
                                       </span>
-                                      Big circle
+                                      <span
+                                        class="value"
+                                      >
+                                        Big circle
+                                      </span>
                                     </td>
                                   </tr>
                                   <tr
@@ -5499,7 +5551,11 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
                                           Name
                                         </span>
                                       </span>
-                                      Small ellipse
+                                      <span
+                                        class="value"
+                                      >
+                                        Small ellipse
+                                      </span>
                                     </td>
                                   </tr>
                                   <tr
@@ -5520,7 +5576,11 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
                                           Name
                                         </span>
                                       </span>
-                                      Big square
+                                      <span
+                                        class="value"
+                                      >
+                                        Big square
+                                      </span>
                                     </td>
                                   </tr>
                                   <tr
@@ -5541,7 +5601,11 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
                                           Name
                                         </span>
                                       </span>
-                                      Medium triangle
+                                      <span
+                                        class="value"
+                                      >
+                                        Medium triangle
+                                      </span>
                                     </td>
                                   </tr>
                                   <tr
@@ -5562,7 +5626,11 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
                                           Name
                                         </span>
                                       </span>
-                                      Small rectangle
+                                      <span
+                                        class="value"
+                                      >
+                                        Small rectangle
+                                      </span>
                                     </td>
                                   </tr>
                                 </tbody>
@@ -5658,6 +5726,1442 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
                             value="4"
                           />
                         </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Editor /> Pivot BG render equals snapshot 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  <div
+    class="p-toolbar p-component border-none border-bottom-1 border-50 p-2"
+    role="toolbar"
+    style="background: none;"
+  >
+    <div
+      class="p-toolbar-group-left"
+    >
+      <button
+        aria-label="save"
+        class="p-button p-component mr-2 p-button-icon-only p-disabled"
+        data-testid="saveButton"
+        disabled=""
+      >
+        <span
+          class="p-button-icon p-c pi pi-save"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
+      <button
+        aria-label="reset"
+        class="p-button p-component mr-2 p-button-icon-only p-disabled"
+        data-testid="resetButton"
+        disabled=""
+      >
+        <span
+          class="p-button-icon p-c pi pi-replay"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
+      <div />
+    </div>
+    <div
+      class="p-toolbar-group-right"
+    >
+      <button
+        aria-label="design"
+        class="p-button p-component p-button-icon-only"
+        data-testid="customization"
+      >
+        <span
+          class="p-button-icon p-c pi pi-cog"
+        />
+        <span
+          class="p-button-label p-c"
+        >
+           
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="flex overflow-x-hidden w-full"
+  >
+    <div
+      class="flex flex-grow-1"
+      style="max-height: 768px;"
+    >
+      <div
+        class="grid col align-self-start form-0-2-1"
+      >
+        <div
+          class="col-12 xl:col-6"
+        >
+          <div
+            class="w-full"
+          >
+            <div
+              class="p-card p-component card card-0-2-2"
+              id="schedule"
+            >
+              <div
+                class="p-card-body"
+              >
+                <div
+                  class="p-card-title"
+                >
+                  Schedule (static pivot)
+                </div>
+                <div
+                  class="p-card-content"
+                >
+                  <div
+                    class=""
+                  >
+                    <div
+                      class="field grid mb-0"
+                    >
+                      <div
+                        class="flex align-items-center relative col-12"
+                      >
+                        <div
+                          class="w-full"
+                        >
+                          <div
+                            class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
+                            data-scrollselectors=".p-datatable-wrapper"
+                            data-testid="schedule"
+                            id="schedule"
+                            pr_id_16=""
+                          >
+                            <div
+                              class="p-datatable-wrapper"
+                            >
+                              <table
+                                class="p-datatable-table"
+                                role="table"
+                              >
+                                <thead
+                                  class="p-datatable-thead"
+                                >
+                                  <tr
+                                    role="row"
+                                  >
+                                    <th
+                                      class=""
+                                      role="columnheader"
+                                    >
+                                      <div
+                                        class="p-column-header-content"
+                                      >
+                                        <span
+                                          class="p-column-title"
+                                        >
+                                          <span
+                                            data-testid="schedule-weekdayNameTitle"
+                                          >
+                                            Weekday Name
+                                          </span>
+                                        </span>
+                                      </div>
+                                    </th>
+                                    <th
+                                      class=""
+                                      role="columnheader"
+                                    >
+                                      <div
+                                        class="p-column-header-content"
+                                      >
+                                        <span
+                                          class="p-column-title"
+                                        >
+                                          <span
+                                            data-testid="schedule-startTimeTitle"
+                                          >
+                                            Start Time
+                                          </span>
+                                        </span>
+                                      </div>
+                                    </th>
+                                    <th
+                                      class=""
+                                      role="columnheader"
+                                    >
+                                      <div
+                                        class="p-column-header-content"
+                                      >
+                                        <span
+                                          class="p-column-title"
+                                        >
+                                          <span
+                                            data-testid="schedule-endTimeTitle"
+                                          >
+                                            End Time
+                                          </span>
+                                        </span>
+                                      </div>
+                                    </th>
+                                    <th
+                                      class=""
+                                      role="columnheader"
+                                      style="width: 7rem;"
+                                    >
+                                      <div
+                                        class="p-column-header-content"
+                                      >
+                                        <span
+                                          class="p-column-title"
+                                        />
+                                      </div>
+                                    </th>
+                                  </tr>
+                                </thead>
+                                <tbody
+                                  class="p-datatable-tbody"
+                                >
+                                  <tr
+                                    class="p-selectable-row"
+                                    role="row"
+                                    tabindex="0"
+                                  >
+                                    <td
+                                      class=""
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule-weekdayNameTitle"
+                                        >
+                                          Weekday Name
+                                        </span>
+                                      </span>
+                                      <span
+                                        class="value"
+                                      >
+                                        Monday
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule-startTimeTitle"
+                                        >
+                                          Start Time
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule-endTimeTitle"
+                                        >
+                                          End Time
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class=""
+                                      role="cell"
+                                      style="text-align: center;"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                      <button
+                                        class="p-row-editor-init p-link"
+                                        name="row-edit"
+                                        tabindex="0"
+                                        type="button"
+                                      >
+                                        <span
+                                          class="p-row-editor-init-icon pi pi-fw pi-pencil"
+                                        />
+                                      </button>
+                                    </td>
+                                  </tr>
+                                  <tr
+                                    class="p-selectable-row p-row-odd"
+                                    role="row"
+                                    tabindex="-1"
+                                  >
+                                    <td
+                                      class=""
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule-weekdayNameTitle"
+                                        >
+                                          Weekday Name
+                                        </span>
+                                      </span>
+                                      <span
+                                        class="value"
+                                      >
+                                        Tuesday
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule-startTimeTitle"
+                                        >
+                                          Start Time
+                                        </span>
+                                      </span>
+                                      <span
+                                        class="value"
+                                      >
+                                        16:00
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule-endTimeTitle"
+                                        >
+                                          End Time
+                                        </span>
+                                      </span>
+                                      <span
+                                        class="value"
+                                      >
+                                        17:00
+                                      </span>
+                                    </td>
+                                    <td
+                                      class=""
+                                      role="cell"
+                                      style="text-align: center;"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                      <button
+                                        class="p-row-editor-init p-link"
+                                        name="row-edit"
+                                        tabindex="0"
+                                        type="button"
+                                      >
+                                        <span
+                                          class="p-row-editor-init-icon pi pi-fw pi-pencil"
+                                        />
+                                      </button>
+                                    </td>
+                                  </tr>
+                                  <tr
+                                    class="p-selectable-row"
+                                    role="row"
+                                    tabindex="-1"
+                                  >
+                                    <td
+                                      class=""
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule-weekdayNameTitle"
+                                        >
+                                          Weekday Name
+                                        </span>
+                                      </span>
+                                      <span
+                                        class="value"
+                                      >
+                                        Wednesday
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule-startTimeTitle"
+                                        >
+                                          Start Time
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule-endTimeTitle"
+                                        >
+                                          End Time
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class=""
+                                      role="cell"
+                                      style="text-align: center;"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                      <button
+                                        class="p-row-editor-init p-link"
+                                        name="row-edit"
+                                        tabindex="0"
+                                        type="button"
+                                      >
+                                        <span
+                                          class="p-row-editor-init-icon pi pi-fw pi-pencil"
+                                        />
+                                      </button>
+                                    </td>
+                                  </tr>
+                                  <tr
+                                    class="p-selectable-row p-row-odd"
+                                    role="row"
+                                    tabindex="-1"
+                                  >
+                                    <td
+                                      class=""
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule-weekdayNameTitle"
+                                        >
+                                          Weekday Name
+                                        </span>
+                                      </span>
+                                      <span
+                                        class="value"
+                                      >
+                                        Thursday
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule-startTimeTitle"
+                                        >
+                                          Start Time
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule-endTimeTitle"
+                                        >
+                                          End Time
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class=""
+                                      role="cell"
+                                      style="text-align: center;"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                      <button
+                                        class="p-row-editor-init p-link"
+                                        name="row-edit"
+                                        tabindex="0"
+                                        type="button"
+                                      >
+                                        <span
+                                          class="p-row-editor-init-icon pi pi-fw pi-pencil"
+                                        />
+                                      </button>
+                                    </td>
+                                  </tr>
+                                  <tr
+                                    class="p-selectable-row"
+                                    role="row"
+                                    tabindex="-1"
+                                  >
+                                    <td
+                                      class=""
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule-weekdayNameTitle"
+                                        >
+                                          Weekday Name
+                                        </span>
+                                      </span>
+                                      <span
+                                        class="value"
+                                      >
+                                        Friday
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule-startTimeTitle"
+                                        >
+                                          Start Time
+                                        </span>
+                                      </span>
+                                      <span
+                                        class="value"
+                                      >
+                                        09:00
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule-endTimeTitle"
+                                        >
+                                          End Time
+                                        </span>
+                                      </span>
+                                      <span
+                                        class="value"
+                                      >
+                                        10:00
+                                      </span>
+                                    </td>
+                                    <td
+                                      class=""
+                                      role="cell"
+                                      style="text-align: center;"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                      <button
+                                        class="p-row-editor-init p-link"
+                                        name="row-edit"
+                                        tabindex="0"
+                                        type="button"
+                                      >
+                                        <span
+                                          class="p-row-editor-init-icon pi pi-fw pi-pencil"
+                                        />
+                                      </button>
+                                    </td>
+                                  </tr>
+                                  <tr
+                                    class="p-selectable-row p-row-odd"
+                                    role="row"
+                                    tabindex="-1"
+                                  >
+                                    <td
+                                      class=""
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule-weekdayNameTitle"
+                                        >
+                                          Weekday Name
+                                        </span>
+                                      </span>
+                                      <span
+                                        class="value"
+                                      >
+                                        Saturday
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule-startTimeTitle"
+                                        >
+                                          Start Time
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule-endTimeTitle"
+                                        >
+                                          End Time
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class=""
+                                      role="cell"
+                                      style="text-align: center;"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                      <button
+                                        class="p-row-editor-init p-link"
+                                        name="row-edit"
+                                        tabindex="0"
+                                        type="button"
+                                      >
+                                        <span
+                                          class="p-row-editor-init-icon pi pi-fw pi-pencil"
+                                        />
+                                      </button>
+                                    </td>
+                                  </tr>
+                                  <tr
+                                    class="p-selectable-row"
+                                    role="row"
+                                    tabindex="-1"
+                                  >
+                                    <td
+                                      class=""
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule-weekdayNameTitle"
+                                        >
+                                          Weekday Name
+                                        </span>
+                                      </span>
+                                      <span
+                                        class="value"
+                                      >
+                                        Sunday
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule-startTimeTitle"
+                                        >
+                                          Start Time
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="schedule-endTimeTitle"
+                                        >
+                                          End Time
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class=""
+                                      role="cell"
+                                      style="text-align: center;"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                      <button
+                                        class="p-row-editor-init p-link"
+                                        name="row-edit"
+                                        tabindex="0"
+                                        type="button"
+                                      >
+                                        <span
+                                          class="p-row-editor-init-icon pi pi-fw pi-pencil"
+                                        />
+                                      </button>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-12 xl:col-6"
+        >
+          <div
+            class="w-full"
+          >
+            <div
+              class="p-card p-component card card-0-2-2"
+              id="permission"
+            >
+              <div
+                class="p-card-body"
+              >
+                <div
+                  class="p-card-title"
+                >
+                  Permission (dynamic pivot)
+                </div>
+                <div
+                  class="p-card-content"
+                >
+                  <div
+                    class=""
+                  >
+                    <div
+                      class="field grid mb-0"
+                    >
+                      <div
+                        class="flex align-items-center relative col-12"
+                      >
+                        <div
+                          class="w-full"
+                        >
+                          <div
+                            class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
+                            data-scrollselectors=".p-datatable-wrapper"
+                            data-testid="permission"
+                            id="permission"
+                            pr_id_17=""
+                          >
+                            <div
+                              class="p-datatable-wrapper"
+                            >
+                              <table
+                                class="p-datatable-table"
+                                role="table"
+                              >
+                                <thead
+                                  class="p-datatable-thead"
+                                >
+                                  <tr
+                                    role="row"
+                                  >
+                                    <th
+                                      class=""
+                                      role="columnheader"
+                                    >
+                                      <div
+                                        class="p-column-header-content"
+                                      >
+                                        <span
+                                          class="p-column-title"
+                                        >
+                                          <span
+                                            data-testid="permission-entityNameTitle"
+                                          >
+                                            Entity Name
+                                          </span>
+                                        </span>
+                                      </div>
+                                    </th>
+                                    <th
+                                      class=""
+                                      role="columnheader"
+                                    >
+                                      <div
+                                        class="p-column-header-content"
+                                      >
+                                        <span
+                                          class="p-column-title"
+                                        >
+                                          <span
+                                            data-testid="permission-viewTitle"
+                                          >
+                                            View
+                                          </span>
+                                        </span>
+                                      </div>
+                                    </th>
+                                    <th
+                                      class=""
+                                      role="columnheader"
+                                    >
+                                      <div
+                                        class="p-column-header-content"
+                                      >
+                                        <span
+                                          class="p-column-title"
+                                        >
+                                          <span
+                                            data-testid="permission-createTitle"
+                                          >
+                                            Create
+                                          </span>
+                                        </span>
+                                      </div>
+                                    </th>
+                                    <th
+                                      class=""
+                                      role="columnheader"
+                                    >
+                                      <div
+                                        class="p-column-header-content"
+                                      >
+                                        <span
+                                          class="p-column-title"
+                                        >
+                                          <span
+                                            data-testid="permission-editTitle"
+                                          >
+                                            Edit
+                                          </span>
+                                        </span>
+                                      </div>
+                                    </th>
+                                    <th
+                                      class=""
+                                      role="columnheader"
+                                    >
+                                      <div
+                                        class="p-column-header-content"
+                                      >
+                                        <span
+                                          class="p-column-title"
+                                        >
+                                          <span
+                                            data-testid="permission-deleteTitle"
+                                          >
+                                            Delete
+                                          </span>
+                                        </span>
+                                      </div>
+                                    </th>
+                                    <th
+                                      class=""
+                                      role="columnheader"
+                                      style="width: 7rem;"
+                                    >
+                                      <div
+                                        class="p-column-header-content"
+                                      >
+                                        <span
+                                          class="p-column-title"
+                                        />
+                                      </div>
+                                    </th>
+                                  </tr>
+                                </thead>
+                                <tbody
+                                  class="p-datatable-tbody"
+                                >
+                                  <tr
+                                    class="p-selectable-row"
+                                    role="row"
+                                    tabindex="0"
+                                  >
+                                    <td
+                                      class=""
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission-entityNameTitle"
+                                        >
+                                          Entity Name
+                                        </span>
+                                      </span>
+                                      <span
+                                        class="value"
+                                      >
+                                        Organization
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission-viewTitle"
+                                        >
+                                          View
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission-createTitle"
+                                        >
+                                          Create
+                                        </span>
+                                      </span>
+                                      <i
+                                        class="pi pi-check"
+                                      />
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission-editTitle"
+                                        >
+                                          Edit
+                                        </span>
+                                      </span>
+                                      <i
+                                        class="pi pi-check"
+                                      />
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission-deleteTitle"
+                                        >
+                                          Delete
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class=""
+                                      role="cell"
+                                      style="text-align: center;"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                      <button
+                                        class="p-row-editor-init p-link"
+                                        name="row-edit"
+                                        tabindex="0"
+                                        type="button"
+                                      >
+                                        <span
+                                          class="p-row-editor-init-icon pi pi-fw pi-pencil"
+                                        />
+                                      </button>
+                                    </td>
+                                  </tr>
+                                  <tr
+                                    class="p-selectable-row p-row-odd"
+                                    role="row"
+                                    tabindex="-1"
+                                  >
+                                    <td
+                                      class=""
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission-entityNameTitle"
+                                        >
+                                          Entity Name
+                                        </span>
+                                      </span>
+                                      <span
+                                        class="value"
+                                      >
+                                        Role
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission-viewTitle"
+                                        >
+                                          View
+                                        </span>
+                                      </span>
+                                      <i
+                                        class="pi pi-check"
+                                      />
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission-createTitle"
+                                        >
+                                          Create
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission-editTitle"
+                                        >
+                                          Edit
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission-deleteTitle"
+                                        >
+                                          Delete
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class=""
+                                      role="cell"
+                                      style="text-align: center;"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                      <button
+                                        class="p-row-editor-init p-link"
+                                        name="row-edit"
+                                        tabindex="0"
+                                        type="button"
+                                      >
+                                        <span
+                                          class="p-row-editor-init-icon pi pi-fw pi-pencil"
+                                        />
+                                      </button>
+                                    </td>
+                                  </tr>
+                                  <tr
+                                    class="p-selectable-row"
+                                    role="row"
+                                    tabindex="-1"
+                                  >
+                                    <td
+                                      class=""
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission-entityNameTitle"
+                                        >
+                                          Entity Name
+                                        </span>
+                                      </span>
+                                      <span
+                                        class="value"
+                                      >
+                                        User
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission-viewTitle"
+                                        >
+                                          View
+                                        </span>
+                                      </span>
+                                      <i
+                                        class="pi pi-check"
+                                      />
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission-createTitle"
+                                        >
+                                          Create
+                                        </span>
+                                      </span>
+                                      <i
+                                        class="pi pi-check"
+                                      />
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission-editTitle"
+                                        >
+                                          Edit
+                                        </span>
+                                      </span>
+                                      <i
+                                        class="pi pi-check"
+                                      />
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission-deleteTitle"
+                                        >
+                                          Delete
+                                        </span>
+                                      </span>
+                                      <i
+                                        class="pi pi-check"
+                                      />
+                                    </td>
+                                    <td
+                                      class=""
+                                      role="cell"
+                                      style="text-align: center;"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                      <button
+                                        class="p-row-editor-init p-link"
+                                        name="row-edit"
+                                        tabindex="0"
+                                        type="button"
+                                      >
+                                        <span
+                                          class="p-row-editor-init-icon pi pi-fw pi-pencil"
+                                        />
+                                      </button>
+                                    </td>
+                                  </tr>
+                                  <tr
+                                    class="p-selectable-row p-row-odd"
+                                    role="row"
+                                    tabindex="-1"
+                                  >
+                                    <td
+                                      class=""
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission-entityNameTitle"
+                                        >
+                                          Entity Name
+                                        </span>
+                                      </span>
+                                      <span
+                                        class="value"
+                                      >
+                                        Product
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission-viewTitle"
+                                        >
+                                          View
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission-createTitle"
+                                        >
+                                          Create
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission-editTitle"
+                                        >
+                                          Edit
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission-deleteTitle"
+                                        >
+                                          Delete
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class=""
+                                      role="cell"
+                                      style="text-align: center;"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                      <button
+                                        class="p-row-editor-init p-link"
+                                        name="row-edit"
+                                        tabindex="0"
+                                        type="button"
+                                      >
+                                        <span
+                                          class="p-row-editor-init-icon pi pi-fw pi-pencil"
+                                        />
+                                      </button>
+                                    </td>
+                                  </tr>
+                                  <tr
+                                    class="p-selectable-row"
+                                    role="row"
+                                    tabindex="-1"
+                                  >
+                                    <td
+                                      class=""
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission-entityNameTitle"
+                                        >
+                                          Entity Name
+                                        </span>
+                                      </span>
+                                      <span
+                                        class="value"
+                                      >
+                                        Account
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission-viewTitle"
+                                        >
+                                          View
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission-createTitle"
+                                        >
+                                          Create
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission-editTitle"
+                                        >
+                                          Edit
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class="p-editable-column"
+                                      role="cell"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      >
+                                        <span
+                                          data-testid="permission-deleteTitle"
+                                        >
+                                          Delete
+                                        </span>
+                                      </span>
+                                    </td>
+                                    <td
+                                      class=""
+                                      role="cell"
+                                      style="text-align: center;"
+                                    >
+                                      <span
+                                        class="p-column-title"
+                                      />
+                                      <button
+                                        class="p-row-editor-init p-link"
+                                        name="row-edit"
+                                        tabindex="0"
+                                        type="button"
+                                      >
+                                        <span
+                                          class="p-row-editor-init-icon pi pi-fw pi-pencil"
+                                        />
+                                      </button>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -5888,7 +7392,11 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                           Weekday Name
                                         </span>
                                       </span>
-                                      Monday
+                                      <span
+                                        class="value"
+                                      >
+                                        Monday
+                                      </span>
                                     </td>
                                     <td
                                       class="p-editable-column"
@@ -5956,7 +7464,11 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                           Weekday Name
                                         </span>
                                       </span>
-                                      Tuesday
+                                      <span
+                                        class="value"
+                                      >
+                                        Tuesday
+                                      </span>
                                     </td>
                                     <td
                                       class="p-editable-column"
@@ -5971,7 +7483,11 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                           Start Time
                                         </span>
                                       </span>
-                                      16:00
+                                      <span
+                                        class="value"
+                                      >
+                                        16:00
+                                      </span>
                                     </td>
                                     <td
                                       class="p-editable-column"
@@ -5986,7 +7502,11 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                           End Time
                                         </span>
                                       </span>
-                                      17:00
+                                      <span
+                                        class="value"
+                                      >
+                                        17:00
+                                      </span>
                                     </td>
                                     <td
                                       class=""
@@ -6026,7 +7546,11 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                           Weekday Name
                                         </span>
                                       </span>
-                                      Wednesday
+                                      <span
+                                        class="value"
+                                      >
+                                        Wednesday
+                                      </span>
                                     </td>
                                     <td
                                       class="p-editable-column"
@@ -6094,7 +7618,11 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                           Weekday Name
                                         </span>
                                       </span>
-                                      Thursday
+                                      <span
+                                        class="value"
+                                      >
+                                        Thursday
+                                      </span>
                                     </td>
                                     <td
                                       class="p-editable-column"
@@ -6162,7 +7690,11 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                           Weekday Name
                                         </span>
                                       </span>
-                                      Friday
+                                      <span
+                                        class="value"
+                                      >
+                                        Friday
+                                      </span>
                                     </td>
                                     <td
                                       class="p-editable-column"
@@ -6177,7 +7709,11 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                           Start Time
                                         </span>
                                       </span>
-                                      09:00
+                                      <span
+                                        class="value"
+                                      >
+                                        09:00
+                                      </span>
                                     </td>
                                     <td
                                       class="p-editable-column"
@@ -6192,7 +7728,11 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                           End Time
                                         </span>
                                       </span>
-                                      10:00
+                                      <span
+                                        class="value"
+                                      >
+                                        10:00
+                                      </span>
                                     </td>
                                     <td
                                       class=""
@@ -6232,7 +7772,11 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                           Weekday Name
                                         </span>
                                       </span>
-                                      Saturday
+                                      <span
+                                        class="value"
+                                      >
+                                        Saturday
+                                      </span>
                                     </td>
                                     <td
                                       class="p-editable-column"
@@ -6300,7 +7844,11 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                           Weekday Name
                                         </span>
                                       </span>
-                                      Sunday
+                                      <span
+                                        class="value"
+                                      >
+                                        Sunday
+                                      </span>
                                     </td>
                                     <td
                                       class="p-editable-column"
@@ -6542,7 +8090,11 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                           Entity Name
                                         </span>
                                       </span>
-                                      Organization
+                                      <span
+                                        class="value"
+                                      >
+                                        Organization
+                                      </span>
                                     </td>
                                     <td
                                       class="p-editable-column"
@@ -6644,7 +8196,11 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                           Entity Name
                                         </span>
                                       </span>
-                                      Role
+                                      <span
+                                        class="value"
+                                      >
+                                        Role
+                                      </span>
                                     </td>
                                     <td
                                       class="p-editable-column"
@@ -6743,7 +8299,11 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                           Entity Name
                                         </span>
                                       </span>
-                                      User
+                                      <span
+                                        class="value"
+                                      >
+                                        User
+                                      </span>
                                     </td>
                                     <td
                                       class="p-editable-column"
@@ -6851,7 +8411,11 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                           Entity Name
                                         </span>
                                       </span>
-                                      Product
+                                      <span
+                                        class="value"
+                                      >
+                                        Product
+                                      </span>
                                     </td>
                                     <td
                                       class="p-editable-column"
@@ -6947,7 +8511,11 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                           Entity Name
                                         </span>
                                       </span>
-                                      Account
+                                      <span
+                                        class="value"
+                                      >
+                                        Account
+                                      </span>
                                     </td>
                                     <td
                                       class="p-editable-column"
@@ -8732,7 +10300,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="tree-links"
                             id="tree-links"
-                            pr_id_19=""
+                            pr_id_21=""
                           >
                             <div
                               class="p-datatable-wrapper"
@@ -9560,7 +11128,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="tree-links"
                             id="tree-links"
-                            pr_id_17=""
+                            pr_id_19=""
                           >
                             <div
                               class="p-datatable-wrapper"
@@ -10973,11 +12541,11 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
               class="p-component p-panelmenu-header p-highlight"
             >
               <a
-                aria-controls="pr_id_16_content"
+                aria-controls="pr_id_18_content"
                 aria-expanded="true"
                 class="p-panelmenu-header-link"
                 href="#"
-                id="pr_id_16_header"
+                id="pr_id_18_header"
               >
                 <span
                   class="p-panelmenu-icon pi  pi-chevron-down"
@@ -10990,9 +12558,9 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
               </a>
             </div>
             <div
-              aria-labelledby="pr_id_16_header"
+              aria-labelledby="pr_id_18_header"
               class="p-toggleable-content p-toggleable-content-enter-done"
-              id="pr_id_16_content"
+              id="pr_id_18_content"
               role="region"
             >
               <div
@@ -11047,11 +12615,11 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
               class="p-component p-panelmenu-header"
             >
               <a
-                aria-controls="pr_id_16_content"
+                aria-controls="pr_id_18_content"
                 aria-expanded="false"
                 class="p-panelmenu-header-link"
                 href="#"
-                id="pr_id_16_header"
+                id="pr_id_18_header"
               >
                 <span
                   class="p-panelmenu-icon pi pi-chevron-right"
@@ -11706,7 +13274,7 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="tree-links"
                             id="tree-links"
-                            pr_id_20=""
+                            pr_id_22=""
                           >
                             <div
                               class="p-datatable-wrapper"
@@ -12492,7 +14060,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="tree-links"
                             id="tree-links"
-                            pr_id_18=""
+                            pr_id_20=""
                           >
                             <div
                               class="p-datatable-wrapper"

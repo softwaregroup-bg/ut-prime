@@ -140,7 +140,7 @@ const Editor: ComponentProps = ({
             if (value !== undefined) setValueMode(prev => [getLayoutValue(prev[1], prev[2], value), prev[1], prev[2], prev[3]]);
         }
         edit();
-    }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    }, [initValue]); // eslint-disable-line react-hooks/exhaustive-deps
 
     const {handleSubmit: loadDropDown} = useSubmit(async() => setDropdown(await onDropdown(dropdownNames)), [dropdownNames, onDropdown]);
 

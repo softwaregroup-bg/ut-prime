@@ -1,3 +1,63 @@
+# [2.58.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.57.0...v2.58.0) (2023-01-09)
+
+
+### Features
+
+* column data translation ([aab2fc4](https://github.com/softwaregroup-bg/ut-prime/commit/aab2fc460a11256e193e3cce44d4c973e7170898))
+* report details ([826ddd4](https://github.com/softwaregroup-bg/ut-prime/commit/826ddd41535f3450872943a7dbcaf9b8a9bc0b15))
+
+
+
+# [2.57.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.56.2...v2.57.0) (2023-01-08)
+
+
+### Features
+
+* report only with filter ([3ab1d9d](https://github.com/softwaregroup-bg/ut-prime/commit/3ab1d9d1e34ea2bd21270ed7df9f5dadb68a85f2))
+
+
+
+## [2.56.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.56.1...v2.56.2) (2023-01-08)
+
+
+### Bug Fixes
+
+* set label when truthy ([6a67354](https://github.com/softwaregroup-bg/ut-prime/commit/6a673549cbc3135a2c0899722886ff7c11d8274e))
+
+
+
+## [2.56.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.56.0...v2.56.1) (2023-01-08)
+
+
+### Bug Fixes
+
+* ignore time offset for date widgets ([4611b76](https://github.com/softwaregroup-bg/ut-prime/commit/4611b765d6efb7ae0e656b127ed1b5dda9af4ab9))
+
+
+
+# [2.56.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.55.2...v2.56.0) (2023-01-08)
+
+
+### Bug Fixes
+
+* Explorer details render ([16c2537](https://github.com/softwaregroup-bg/ut-prime/commit/16c2537417e626c190d348e4e8d71314e1c29579))
+
+
+### Features
+
+* explorer validation handling ([eaf0ef3](https://github.com/softwaregroup-bg/ut-prime/commit/eaf0ef3e391820c82f880e5e92df3587a7a24536))
+
+
+
+## [2.55.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.55.1...v2.55.2) (2023-01-07)
+
+
+### Bug Fixes
+
+* **CBI-545:** date range proper hours ([#31](https://github.com/softwaregroup-bg/ut-prime/issues/31)) ([f8184bd](https://github.com/softwaregroup-bg/ut-prime/commit/f8184bdc49396cd65a6b020495c254e637187884))
+
+
+
 ## [2.55.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.55.0...v2.55.1) (2023-01-04)
 
 
