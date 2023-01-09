@@ -16,7 +16,8 @@ import useWindowSize from '../hooks/useWindowSize';
 import Editor from '../Editor';
 import Form from '../Form';
 import fieldNames from '../lib/fields';
-import columnProps, {TableFilter} from '../lib/column';
+import columnProps from '../lib/column';
+import useFilter from '../hooks/useFilter';
 import prepareSubmit from '../lib/prepareSubmit';
 
 import { ComponentProps } from './Explorer.types';
@@ -25,7 +26,7 @@ import useCustomization from '../hooks/useCustomization';
 
 const backgroundNone = {background: 'none'};
 
-export const fieldName = column => typeof column === 'string' ? column : column.name;
+const fieldName = column => typeof column === 'string' ? column : column.name;
 
 const useStyles = createUseStyles({
     current: {
@@ -169,7 +170,7 @@ const Explorer: ComponentProps = ({
     if (toolbar !== false) toolbar = ('layout' in layoutProps) ? ('toolbar' in layoutProps ? mergedCards[layoutProps.toolbar]?.widgets : toolbar) : mergedCards[toolbarCard]?.widgets ?? toolbar;
     const classes = useStyles();
     const {properties} = mergedSchema;
-    const [tableFilter, setFilters] = React.useState<TableFilter>({
+    const [tableFilter, setFilters, filterBy, filterProps] = useFilter({
         filters: columns?.reduce((prev : object, column) => {
             let field = fieldName(column);
             const value = lodashGet(externalFilter, field);
@@ -178,9 +179,8 @@ const Explorer: ComponentProps = ({
         }, {}),
         first: 0,
         page: 1
-    });
+    }, columns, properties, showFilter);
     const multiSelect = keyField && (!tableProps?.selectionMode || tableProps?.selectionMode === 'checkbox');
-    const handleFilterPageSort = React.useCallback(event => setFilters(prev => ({...prev, ...event})), []);
 
     const [{current: currentState, selected: selectedState}, setCurrentSelected] = React.useState({current: null, selected: null});
     const handleCurrentSelect = React.useCallback((value, event) => {
@@ -245,7 +245,7 @@ const Explorer: ComponentProps = ({
             setLoading('');
         }
         if (system?.fetch) setFilters(prev => merge({}, prev, system.fetch));
-    }, [methods, getValues]);
+    }, [methods, getValues, setFilters]);
 
     const handleSubmit = React.useCallback(params => {
         if (params?.[2]?.method) {
@@ -391,30 +391,6 @@ const Explorer: ComponentProps = ({
             }</div>
         </SplitterPanel>, [getValues, result, details, detailsOpened, height]);
 
-    const filterBy = (name: string, key: string) => e => {
-        const value = lodashGet(e, key);
-        setFilters(prev => {
-            const next = {
-                ...prev,
-                filters: {
-                    ...prev?.filters,
-                    [name]: {
-                        ...prev?.filters?.[name],
-                        value: value === '' ? undefined : value
-                    }
-                }
-            };
-            return next;
-        });
-    };
-
-    const filterDisplay = React.useMemo(() => showFilter && columns.some(column => {
-        const isString = typeof column === 'string';
-        const {name, ...widget} = isString ? {name: column} : column;
-        const property = lodashGet(properties, name?.replace(/\./g, '.properties.'));
-        return !!property?.filter || widget?.column?.filter;
-    }), [columns, properties, showFilter]) ? 'row' : undefined;
-
     const Columns = React.useMemo(() => columns.map((column, index) => {
         const isString = typeof column === 'string';
         const {name, ...widget} = isString ? {name: column} : column;
@@ -448,7 +424,7 @@ const Explorer: ComponentProps = ({
                 {...columnProps({index, card: columnsCard, name, widget: !isString && widget, property, dropdowns, tableFilter, filterBy, ...formProps})}
             />
         );
-    }), [columns, columnsCard, properties, showFilter, dropdowns, tableFilter, keyField, resultSet, formProps, externalFilter, submit]);
+    }), [columns, columnsCard, properties, showFilter, dropdowns, tableFilter, keyField, resultSet, formProps, externalFilter, submit, filterBy]);
     const hasChildren = !!children;
 
     const left = paramsLayout ? <div className='flex align-items-center w-full'>
@@ -521,7 +497,7 @@ const Explorer: ComponentProps = ({
                 sortField={tableFilter.sortField}
                 sortOrder={tableFilter.sortOrder}
                 value={items}
-                onPage={handleFilterPageSort}
+                onPage={filterProps.onPage as () => void}
                 itemTemplate={itemTemplate}
                 {...viewProps}
             /> : <DataTable
@@ -532,19 +508,12 @@ const Explorer: ComponentProps = ({
                 rows={pageSize}
                 totalRecords={totalRecords}
                 paginator
-                first={tableFilter.first}
-                sortField={tableFilter.sortField}
-                sortOrder={tableFilter.sortOrder}
-                filters={tableFilter.filters}
-                onPage={handleFilterPageSort}
-                onSort={handleFilterPageSort}
-                onFilter={handleFilterPageSort}
+                {...filterProps}
                 loading={!!loading}
                 dataKey={keyField}
                 value={items}
                 rowClassName={rowClass}
                 selection={selected}
-                filterDisplay={filterDisplay}
                 onSelectionChange={handleSelectionChange}
                 onRowSelect={handleRowSelect}
                 onRowUnselect={handleRowUnselect}

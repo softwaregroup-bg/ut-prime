@@ -172,6 +172,7 @@ export type WidgetReference = string | {
     propertyName?: string,
     actions?: object,
     menu?: ActionItem[],
+    column?: ColumnProps;
     widgets?: string[],
     hidden?: string[],
     compare?: string,

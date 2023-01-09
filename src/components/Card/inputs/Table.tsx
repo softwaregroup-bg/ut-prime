@@ -3,13 +3,15 @@ import lodashGet from 'lodash.get';
 import {createUseStyles} from 'react-jss';
 import clsx from 'clsx';
 
-import {DataTable, Column, Toolbar, Button} from '../../prime';
+import {DataTable, Column, Toolbar, Button, type DataTableProps} from '../../prime';
 import Text from '../../Text';
-import columnProps, { TableFilter } from '../../lib/column';
+import columnProps from '../../lib/column';
+import useFilter from '../../hooks/useFilter';
 import {CHANGE, INDEX, KEY, NEW} from '../const';
-import type {Properties} from '../../types';
+import type {Properties, WidgetReference, PropertyEditor} from '../../types';
 import testid from '../../lib/testid';
-import { fieldName } from '../../Explorer';
+
+const fieldName = column => typeof column === 'string' ? column : column.name;
 
 const getDefault = (key, value, rows) => {
     if (!value || !('default' in value)) return;
@@ -34,7 +36,7 @@ const editStyle = { width: '7rem' };
 const editBodyStyle: React.CSSProperties = { textAlign: 'center' };
 const sameString = (a, b) => a === b || (a != null && b != null && String(a) === String(b));
 
-const defaults = (properties : Properties, rows: object[]) =>
+const defaults = (properties : Properties, rows: readonly object[]) =>
     Object.fromEntries(
         Object.entries(properties)
             .map(([key, value]) => getDefault(key, value, rows)).filter(Boolean));
@@ -69,7 +71,39 @@ const useStyles = createUseStyles({
     }
 });
 
-export default React.forwardRef<object, any>(function Table({
+interface TableProps extends Omit<DataTableProps, 'onChange'> {
+    name: string;
+    id?: string;
+    onChange: (event: {value: []}, flags?: {select: boolean, field: boolean, children: boolean}) => void;
+    getValues?: (field: string) => unknown;
+    counter?: {current: number};
+    widgets?: WidgetReference[];
+    value: object[];
+    identity?: string;
+    properties: Properties;
+    dropdowns?: object;
+    parent?: unknown;
+    filter?: object;
+    master?: unknown;
+    children?: unknown;
+    autoSelect?: unknown;
+    selectionPath?: unknown;
+    label?: unknown;
+    pivot?: {
+        dropdown?: string;
+        master?: object;
+        examples?: object[];
+        join?: object;
+    };
+    actions?: {
+        allowAdd?: boolean;
+        allowDelete?: boolean;
+        allowEdit?: boolean;
+        allowSelect?: boolean;
+    };
+}
+
+export default React.forwardRef<object, TableProps>(function Table({
     name,
     id: resultSet = name,
     onChange,
@@ -105,7 +139,7 @@ export default React.forwardRef<object, any>(function Table({
 }, ref) {
     if (typeof ref === 'function') ref({});
     const classes = useStyles();
-    const [selected, setSelected] = React.useState(getValues ? getValues(`${selectionPath}.${props.name}`) : null);
+    const [selected, setSelected] = React.useState(getValues ? getValues(`${selectionPath}.${name}`) : null);
     const [editingRows, setEditingRows] = React.useState({});
     const [pendingEdit, setPendingEdit] = React.useState(null);
     const keepRows = !!props.selection;
@@ -214,6 +248,13 @@ export default React.forwardRef<object, any>(function Table({
         page: 1
     }), [widgets]);
 
+    const [tableFilter, setFilters, filterBy, filterProps] = useFilter(
+        initialFilters,
+        widgets,
+        properties,
+        rows?.filter(item => !item?.[NEW]).length > 1
+    );
+
     const leftToolbarTemplate = React.useCallback(() => {
         const addNewRow = event => {
             event.preventDefault();
@@ -255,33 +296,7 @@ export default React.forwardRef<object, any>(function Table({
                 >Delete</Button>}
             </React.Fragment>
         );
-    }, [allowAdd, allowDelete, selected, identity, master, filter, parent, allRows, onChange, handleSelected, counter, properties, resultSet, disabled, initialFilters]);
-
-    const [tableFilter, setFilters] = React.useState<TableFilter>(initialFilters);
-    const handleFilterPageSort = React.useCallback(event => setFilters(prev => ({...prev, ...event})), []);
-    const filterDisplay = React.useMemo(() => (widgets || []).some(column => {
-        const isString = typeof column === 'string';
-        const {name, ...widget} = isString ? {name: column} : column;
-        const property = lodashGet(properties, name?.replace(/\./g, '.properties.'));
-        return !!property?.filter || widget?.column?.filter;
-    }), [widgets, properties]) ? 'row' : undefined;
-
-    const filterBy = (name: string, key: string) => e => {
-        const value = lodashGet(e, key);
-        setFilters(prev => {
-            const next = {
-                ...prev,
-                filters: {
-                    ...prev?.filters,
-                    [name]: {
-                        ...prev?.filters?.[name],
-                        value: value === '' ? undefined : value
-                    }
-                }
-            };
-            return next;
-        });
-    };
+    }, [allowAdd, allowDelete, selected, identity, master, filter, parent, allRows, onChange, handleSelected, counter, properties, resultSet, disabled, initialFilters, setFilters]);
 
     if (selected && props.selectionMode === 'single' && !rows.includes(selected)) {
         handleSelected({value: rows[selected[KEY]]});
@@ -304,8 +319,8 @@ export default React.forwardRef<object, any>(function Table({
                 dataKey={KEY}
                 id={resultSet}
                 size='small'
-                {...testid(props.id || resultSet)}
-                filterDisplay={filterDisplay}
+                {...testid(resultSet)}
+                {...filterProps}
                 {...props}
                 className={clsx(props.className, classes.table)}
                 value={rows}
@@ -313,12 +328,6 @@ export default React.forwardRef<object, any>(function Table({
                 onRowEditCancel={cancel}
                 editingRows={editingRows}
                 onRowEditChange={onRowEditChange}
-                first={tableFilter.first}
-                sortField={tableFilter.sortField}
-                sortOrder={tableFilter.sortOrder}
-                filters={tableFilter.filters}
-                onSort={handleFilterPageSort}
-                onFilter={handleFilterPageSort}
             >
                 {allowSelect && (!props.selectionMode || props.selectionMode === 'checkbox') && <Column selectionMode="multiple"></Column>}
                 {children}
@@ -335,7 +344,7 @@ export default React.forwardRef<object, any>(function Table({
                                 resultSet,
                                 index,
                                 name,
-                                widget: !isString && widget,
+                                widget: !isString && widget as PropertyEditor,
                                 property: properties?.[name],
                                 dropdowns,
                                 editable: true,
