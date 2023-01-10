@@ -25,19 +25,19 @@ const Template: Story<Props> = ({methods, ...args}) => {
                     // throw new Error('test error');
                     // return false;
                 },
-                async handleArchive({event, ...props}) {
-                    console.log(event, props);
+                async handleArchive(props) {
+                    console.log('handleArchiveEvent', props);
+                    console.log('array', props?.input?.table);
+                    console.log('array', props?.selected);
 
-                    // event.preventDefault();
-                    // const archive = [].concat(selected);
-                    // const updatedValue = allRows.map(row => {
+                    const archive = [].concat(props?.input?.table);
+                    // const updatedValue = props?.input.map(row => {
                     //     if (archive.some(item => item.id === row.id)) {
                     //         return {...row, id: 'documentTest123'};
                     //     }
                     //     return row;
                     // });
-                    // handleSelected({value: updatedValue});
-                    // onChange({...event, value: updatedValue});
+                    // props.input = updatedValue;
                 },
                 async 'portal.customization.get'() {
                     return {};

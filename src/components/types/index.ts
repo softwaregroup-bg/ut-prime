@@ -70,6 +70,7 @@ export interface PropertyEditor {
     className?: string,
     fieldClass?: string,
     labelClass?: string,
+    translation?: boolean,
     [editorProperties: string]: unknown
 }
 
@@ -172,6 +173,7 @@ export type WidgetReference = string | {
     propertyName?: string,
     actions?: object,
     menu?: ActionItem[],
+    column?: ColumnProps;
     widgets?: string[],
     hidden?: string[],
     compare?: string,

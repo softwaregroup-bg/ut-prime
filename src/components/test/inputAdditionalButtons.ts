@@ -23,10 +23,13 @@ const properties: Properties = {
         widget: {
             type: 'table',
             additionalButtons: [{
+                type: 'submit',
                 title: 'Archive',
                 method: 'handleArchive',
-                action: 'handleArchive',
-                icon: 'p-c p-button-icon-left pi pi-inbox'
+                icon: 'p-c p-button-icon-left pi pi-inbox',
+                params: {
+                    selected: '$.selected'
+                }
             }],
             widgets: ['id', 'name', 'value', 'statusId']
         }

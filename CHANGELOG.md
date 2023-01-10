@@ -1,3 +1,31 @@
+# [2.59.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.58.1...v2.59.0) (2023-01-09)
+
+
+### Features
+
+* table widger filter and sort ([#32](https://github.com/softwaregroup-bg/ut-prime/issues/32)) ([057958f](https://github.com/softwaregroup-bg/ut-prime/commit/057958ff42512a19f6e6a2f9570f1d9d1c5f0239))
+
+
+
+## [2.58.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.58.0...v2.58.1) (2023-01-09)
+
+
+### Bug Fixes
+
+* Explorer action column ([a722f45](https://github.com/softwaregroup-bg/ut-prime/commit/a722f45ef37e3830ca5d4d35b10d0f467b4cf6da))
+
+
+
+# [2.58.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.57.0...v2.58.0) (2023-01-09)
+
+
+### Features
+
+* column data translation ([aab2fc4](https://github.com/softwaregroup-bg/ut-prime/commit/aab2fc460a11256e193e3cce44d4c973e7170898))
+* report details ([826ddd4](https://github.com/softwaregroup-bg/ut-prime/commit/826ddd41535f3450872943a7dbcaf9b8a9bc0b15))
+
+
+
 # [2.57.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.56.2...v2.57.0) (2023-01-08)
 
 

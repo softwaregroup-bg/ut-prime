@@ -152,6 +152,9 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                           Input
                                         </span>
                                       </span>
+                                      <div
+                                        class="p-column-filter p-fluid p-column-filter-menu"
+                                      />
                                     </div>
                                   </th>
                                   <th
@@ -224,6 +227,9 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                           Boolean
                                         </span>
                                       </span>
+                                      <div
+                                        class="p-column-filter p-fluid p-column-filter-menu"
+                                      />
                                     </div>
                                   </th>
                                   <th
@@ -1292,6 +1298,9 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                           Dropdown
                                         </span>
                                       </span>
+                                      <div
+                                        class="p-column-filter p-fluid p-column-filter-menu"
+                                      />
                                     </div>
                                   </th>
                                   <th
@@ -2053,6 +2062,9 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                                           إدخال
                                         </span>
                                       </span>
+                                      <div
+                                        class="p-column-filter p-fluid p-column-filter-menu"
+                                      />
                                     </div>
                                   </th>
                                   <th
@@ -2125,6 +2137,9 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                                           قيمة منطقية
                                         </span>
                                       </span>
+                                      <div
+                                        class="p-column-filter p-fluid p-column-filter-menu"
+                                      />
                                     </div>
                                   </th>
                                   <th
@@ -3193,6 +3208,9 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                                           اسقاط
                                         </span>
                                       </span>
+                                      <div
+                                        class="p-column-filter p-fluid p-column-filter-menu"
+                                      />
                                     </div>
                                   </th>
                                   <th
@@ -3953,6 +3971,9 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                                           Поле
                                         </span>
                                       </span>
+                                      <div
+                                        class="p-column-filter p-fluid p-column-filter-menu"
+                                      />
                                     </div>
                                   </th>
                                   <th
@@ -4025,6 +4046,9 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                                           Флаг
                                         </span>
                                       </span>
+                                      <div
+                                        class="p-column-filter p-fluid p-column-filter-menu"
+                                      />
                                     </div>
                                   </th>
                                   <th
@@ -5093,6 +5117,9 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                                           Списък
                                         </span>
                                       </span>
+                                      <div
+                                        class="p-column-filter p-fluid p-column-filter-menu"
+                                      />
                                     </div>
                                   </th>
                                   <th

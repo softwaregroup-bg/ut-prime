@@ -394,11 +394,16 @@ exports[`<Form /> Basic equals snapshot 1`] = `
                                           Title
                                         </span>
                                       </span>
+                                      <div
+                                        class="p-column-filter p-fluid p-column-filter-menu"
+                                      />
                                     </div>
                                   </th>
                                   <th
-                                    class=""
+                                    aria-sort="none"
+                                    class="p-sortable-column"
                                     role="columnheader"
+                                    tabindex="0"
                                   >
                                     <div
                                       class="p-column-header-content"
@@ -412,6 +417,12 @@ exports[`<Form /> Basic equals snapshot 1`] = `
                                           Url
                                         </span>
                                       </span>
+                                      <span
+                                        class="p-sortable-column-icon pi pi-fw pi-sort-alt"
+                                      />
+                                      <div
+                                        class="p-column-filter p-fluid p-column-filter-menu"
+                                      />
                                     </div>
                                   </th>
                                   <th
@@ -879,11 +890,16 @@ exports[`<Form /> BasicAR equals snapshot 1`] = `
                                           عنوان
                                         </span>
                                       </span>
+                                      <div
+                                        class="p-column-filter p-fluid p-column-filter-menu"
+                                      />
                                     </div>
                                   </th>
                                   <th
-                                    class=""
+                                    aria-sort="none"
+                                    class="p-sortable-column"
                                     role="columnheader"
+                                    tabindex="0"
                                   >
                                     <div
                                       class="p-column-header-content"
@@ -897,6 +913,12 @@ exports[`<Form /> BasicAR equals snapshot 1`] = `
                                           رابط موقع
                                         </span>
                                       </span>
+                                      <span
+                                        class="p-sortable-column-icon pi pi-fw pi-sort-alt"
+                                      />
+                                      <div
+                                        class="p-column-filter p-fluid p-column-filter-menu"
+                                      />
                                     </div>
                                   </th>
                                   <th
@@ -1363,11 +1385,16 @@ exports[`<Form /> BasicBG equals snapshot 1`] = `
                                           Заглавие
                                         </span>
                                       </span>
+                                      <div
+                                        class="p-column-filter p-fluid p-column-filter-menu"
+                                      />
                                     </div>
                                   </th>
                                   <th
-                                    class=""
+                                    aria-sort="none"
+                                    class="p-sortable-column"
                                     role="columnheader"
+                                    tabindex="0"
                                   >
                                     <div
                                       class="p-column-header-content"
@@ -1381,6 +1408,12 @@ exports[`<Form /> BasicBG equals snapshot 1`] = `
                                           Връзка
                                         </span>
                                       </span>
+                                      <span
+                                        class="p-sortable-column-icon pi pi-fw pi-sort-alt"
+                                      />
+                                      <div
+                                        class="p-column-filter p-fluid p-column-filter-menu"
+                                      />
                                     </div>
                                   </th>
                                   <th
