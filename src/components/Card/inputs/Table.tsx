@@ -236,11 +236,6 @@ export default React.forwardRef<object, TableProps>(function Table({
         setSelected(event.value);
     }, [allowSelect, onChange]);
 
-    // const getValues = React.useMemo(() => ({$ = undefined, ...params} = {}) => ({
-    //     params,
-    //     selected
-    // }), [selected]);
-
     const buttons = React.useMemo(() => (props?.additionalButtons || []).map((widget, index) => {
         const {title, icon, permission, method, confirm} = (typeof widget === 'string') ? properties[widget].widget : widget;
         return <ActionButton
@@ -358,7 +353,7 @@ export default React.forwardRef<object, TableProps>(function Table({
                 >Test</Button>}
             </React.Fragment>
         );
-    }, [allowAdd, allowDelete, selected, identity, master, filter, parent, allRows, onChange, handleSelected, counter, properties, resultSet, disabled, allowArchive, buttons, props?.additionalButtons]);
+    }, [allowAdd, allowDelete, selected, identity, master, filter, parent, allRows, onChange, handleSelected, counter, properties, resultSet, disabled, allowArchive, props?.additionalButtons, buttons, setFilters, initialFilters]);
 
     if (selected && props.selectionMode === 'single' && !rows.includes(selected)) {
         handleSelected({value: rows[selected[KEY]]});

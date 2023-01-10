@@ -3,6 +3,7 @@ import type {
     Cards,
     Properties
 } from '../types';
+import tree from './tree';
 
 const properties: Properties = {
     table: {
@@ -11,13 +12,20 @@ const properties: Properties = {
             properties: {
                 id: {
                     readOnly: true,
+                    filter: true,
                     default: {
                         function: 'max'
                     }
                 },
-                name: {},
-                value: {},
-                statusId: {}
+                name: {
+                    filter: true
+                },
+                value: {
+                    filter: true
+                },
+                statusId: {
+                    filter: true
+                }
             }
         },
         widget: {
