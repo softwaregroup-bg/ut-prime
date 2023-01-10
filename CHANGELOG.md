@@ -1,3 +1,12 @@
+## [2.59.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.59.0...v2.59.1) (2023-01-10)
+
+
+### Bug Fixes
+
+* date range time ([6d24bb9](https://github.com/softwaregroup-bg/ut-prime/commit/6d24bb9d159e626b871f51e3a5155e7e44fe79b6))
+
+
+
 # [2.59.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.58.1...v2.59.0) (2023-01-09)
 
 
