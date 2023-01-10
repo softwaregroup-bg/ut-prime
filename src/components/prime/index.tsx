@@ -62,7 +62,7 @@ export type { FileUploadProps };
 function dateRange(timeOnly) {
     const today = timeOnly ? new Date(0) : new Date();
     if (!timeOnly) today.setHours(0, 0, 0, 0);
-    return [today, new Date(today.getTime() + timeOnly ? 0 : 86400000)];
+    return [today, new Date(today.getTime() + (timeOnly ? 0 : 86400000))];
 }
 
 function date() {
