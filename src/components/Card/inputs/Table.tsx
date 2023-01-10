@@ -287,7 +287,8 @@ export default React.forwardRef<object, TableProps>(function Table({
         initialFilters,
         widgets,
         properties,
-        rows?.filter(item => !item?.[NEW]).length > 1
+        // rows?.filter(item => !item?.[NEW]).length > 1
+        rows.length > 1
     );
 
     const leftToolbarTemplate = React.useCallback(() => {
