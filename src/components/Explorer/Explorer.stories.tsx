@@ -105,6 +105,13 @@ const Template: Story<{
                         dateTime: {
                             widgets: ['date', 'time', 'dateTime']
                         },
+                        dateTimeInline: {
+                            widgets: [
+                                {name: 'date', inline: true},
+                                {name: 'time', inline: true},
+                                {name: 'dateTime', inline: true}
+                            ]
+                        },
                         dropdown: {
                             widgets: ['name', {
                                 name: 'size',
@@ -195,6 +202,10 @@ const Template: Story<{
                         },
                         dateTime: {
                             columns: 'dateTime',
+                            toolbar: 'toolbar'
+                        },
+                        dateTimeInline: {
+                            columns: 'dateTimeInline',
                             toolbar: 'toolbar'
                         },
                         grid: {
@@ -335,6 +346,12 @@ export const DateTimeFilter = Template.bind({});
 DateTimeFilter.args = {
     ...Basic.args,
     layout: 'dateTime'
+};
+
+export const DateTimeFilterInline = Template.bind({});
+DateTimeFilterInline.args = {
+    ...Basic.args,
+    layout: 'dateTimeInline'
 };
 
 export const Grid = Template.bind({});

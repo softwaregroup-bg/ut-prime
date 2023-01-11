@@ -1,4 +1,10 @@
-const startDate = new Date(2022, 5, 22).getTime();
+const startDate = new Date(2022, 5, 22);
+
+if (window?.navigator?.userAgent?.match?.(/Chromatic/)) {
+    startDate.setTime(Date.now());
+    startDate.setHours(-36, 0, 0, 0);
+}
+
 const filteredItems = (filterBy) => {
     return Object.entries(filterBy).reduce((items, [key, value]) => {
         return items.filter(i => {
@@ -10,8 +16,8 @@ const filteredItems = (filterBy) => {
     }, [...Array(55).keys()].map(number => ({
         id: number,
         name: `Item ${number}`,
-        date: new Date(startDate + 1000 * 60 * 60 * 24 * number),
-        dateTime: new Date(startDate + 1000 * 60 * 60 * number),
+        date: new Date(startDate.getTime() + 1000 * 60 * 60 * 24 * number),
+        dateTime: new Date(startDate.getTime() + 1000 * 60 * 60 * number),
         time: new Date(1000 * 60 * 10 * number),
         size: number * 10
     })));

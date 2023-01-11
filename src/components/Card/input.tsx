@@ -9,7 +9,6 @@ import {
     Checkbox,
     Chips,
     Column,
-    DateRange,
     Dropdown,
     FileUpload,
     GMap,
@@ -32,6 +31,7 @@ import testid from '../lib/testid';
 import Table from './inputs/Table';
 import Ocr from './inputs/Ocr';
 import ActionButton from '../ActionButton';
+import DateRange from '../DateRange';
 import Json from '../Json';
 import Component from '../Component';
 import {CHANGE} from './const';
@@ -416,7 +416,6 @@ function input(
         case 'dateRange':
             return <Field {...{label, error, inputClass}}>
                 <DateRange
-                    inputId={props.id}
                     {...field}
                     value={field.value
                         ? field.value.map(v => typeof v === 'string' ? new Date(v) : v)

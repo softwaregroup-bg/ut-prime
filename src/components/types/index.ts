@@ -169,6 +169,7 @@ export type WidgetReference = string | {
     params?: object | string,
     selectionPath?: string,
     propertyName?: string,
+    inline?: boolean,
     actions?: object,
     menu?: ActionItem[],
     widgets?: string[],
