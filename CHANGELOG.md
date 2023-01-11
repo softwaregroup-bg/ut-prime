@@ -1,3 +1,12 @@
+# [2.60.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.59.1...v2.60.0) (2023-01-11)
+
+
+### Features
+
+* DateRange widget ([017c5cb](https://github.com/softwaregroup-bg/ut-prime/commit/017c5cbb6966aa3b1661f61edcf70636c23c2982))
+
+
+
 ## [2.59.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.59.0...v2.59.1) (2023-01-10)
 
 
