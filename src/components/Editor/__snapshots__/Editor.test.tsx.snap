@@ -3363,7 +3363,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                           class="flex align-items-center relative col-12"
                         >
                           <div
-                            class="p-multiselect p-component p-inputwrapper p-inputwrapper-focus w-full"
+                            class="p-multiselect p-component p-inputwrapper w-full"
                             data-testid="tree-habitat"
                             id="tree-habitat"
                           >
@@ -3371,7 +3371,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                               class="p-hidden-accessible"
                             >
                               <input
-                                aria-expanded="true"
+                                aria-expanded="false"
                                 name="tree.habitat"
                                 readonly=""
                                 role="listbox"
@@ -12208,7 +12208,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                         class="flex align-items-center relative col-12"
                       >
                         <div
-                          class="p-multiselect p-component p-inputwrapper p-inputwrapper-focus w-full"
+                          class="p-multiselect p-component p-inputwrapper w-full"
                           data-testid="tree-habitat"
                           id="tree-habitat"
                         >
@@ -12216,7 +12216,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                             class="p-hidden-accessible"
                           >
                             <input
-                              aria-expanded="true"
+                              aria-expanded="false"
                               name="tree.habitat"
                               readonly=""
                               role="listbox"
@@ -13433,7 +13433,7 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
                         class="flex align-items-center relative col-12"
                       >
                         <div
-                          class="p-multiselect p-component p-inputwrapper p-inputwrapper-focus w-full"
+                          class="p-multiselect p-component p-inputwrapper w-full"
                           data-testid="tree-habitat"
                           id="tree-habitat"
                         >
@@ -13441,7 +13441,7 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
                             class="p-hidden-accessible"
                           >
                             <input
-                              aria-expanded="true"
+                              aria-expanded="false"
                               name="tree.habitat"
                               readonly=""
                               role="listbox"

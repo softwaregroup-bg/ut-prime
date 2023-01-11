@@ -1,9 +1,15 @@
 import React, { useRef, useState } from 'react';
 
-import { Button, Calendar, ListBox, OverlayPanel } from '../prime';
+import { Button, Calendar, ListBox, OverlayPanel, type ButtonProps } from '../prime';
 import Text from '../Text';
 
-import { ComponentProps } from './DateRange.types';
+export interface Props extends Omit<ButtonProps, 'value' | 'onChange'> {
+    value: [Date, Date];
+    exclusive?: boolean;
+    timeOnly?: boolean;
+    inline?: boolean;
+    onChange?: (event: {value: [Date, Date]}) => void;
+}
 
 const intervals = {
     d: 24 * 60 * 60 * 1000,
@@ -12,7 +18,7 @@ const intervals = {
     s: 1000
 };
 
-const defaultTooltip: Parameters<ComponentProps>[0]['tooltipOptions'] = {
+const defaultTooltip: Props['tooltipOptions'] = {
     className: 'text-center',
     event: 'both',
     position: 'top'
@@ -36,7 +42,7 @@ const options = [
     {from: 'now-5y', display: 'Last 5 years'}
 ];
 
-const DatePicker: ComponentProps = ({
+const DateRange = React.forwardRef<object, Props>(function DateRange({
     value,
     exclusive,
     tooltipOptions = defaultTooltip,
@@ -44,7 +50,8 @@ const DatePicker: ComponentProps = ({
     inline,
     onChange,
     ...props
-}) => {
+}, ref) {
+    if (typeof ref === 'function') ref({});
     const panel = useRef<OverlayPanel>();
     const [calendarVisible, setCalendarVisible] = useState(false);
     const [option, setOption] = useState();
@@ -176,6 +183,6 @@ const DatePicker: ComponentProps = ({
             </div>
         </OverlayPanel>
     </>;
-};
+});
 
-export default DatePicker;
+export default DateRange;
