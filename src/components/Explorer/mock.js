@@ -1,6 +1,6 @@
 const startDate = new Date(2022, 5, 22);
 
-if (window?.navigator?.userAgent?.match?.(/Chromatic/)) {
+if (!window?.navigator?.userAgent?.match?.(/Chromatic/)) {
     startDate.setTime(Date.now());
     startDate.setHours(-36, 0, 0, 0);
 }
