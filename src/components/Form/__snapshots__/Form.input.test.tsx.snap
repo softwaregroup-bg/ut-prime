@@ -1060,26 +1060,6 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                                 Delete
                               </span>
                             </button>
-                            <button
-                              aria-label="Test"
-                              class="p-button p-component p-button p-disabled"
-                              data-testid="input-table-testButton"
-                              disabled=""
-                            >
-                              <span
-                                class="p-button-icon p-c p-button-icon-left pi pi-inbox"
-                              />
-                              <span
-                                class="p-button-label p-c"
-                              >
-                                 
-                              </span>
-                              <span
-                                class="p-button-label p-c"
-                              >
-                                Test
-                              </span>
-                            </button>
                           </div>
                           <div
                             class="p-toolbar-group-right"
@@ -1337,28 +1317,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       >
                         <div
                           class="p-toolbar-group-left"
-                        >
-                          <button
-                            aria-label="Test"
-                            class="p-button p-component p-button p-disabled"
-                            data-testid="input-selectTable-testButton"
-                            disabled=""
-                          >
-                            <span
-                              class="p-button-icon p-c p-button-icon-left pi pi-inbox"
-                            />
-                            <span
-                              class="p-button-label p-c"
-                            >
-                               
-                            </span>
-                            <span
-                              class="p-button-label p-c"
-                            >
-                              Test
-                            </span>
-                          </button>
-                        </div>
+                        />
                         <div
                           class="p-toolbar-group-right"
                         />
@@ -1759,28 +1718,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       >
                         <div
                           class="p-toolbar-group-left"
-                        >
-                          <button
-                            aria-label="Test"
-                            class="p-button p-component p-button p-disabled"
-                            data-testid="input-selectTableWithFlags-testButton"
-                            disabled=""
-                          >
-                            <span
-                              class="p-button-icon p-c p-button-icon-left pi pi-inbox"
-                            />
-                            <span
-                              class="p-button-label p-c"
-                            >
-                               
-                            </span>
-                            <span
-                              class="p-button-label p-c"
-                            >
-                              Test
-                            </span>
-                          </button>
-                        </div>
+                        />
                         <div
                           class="p-toolbar-group-right"
                         />

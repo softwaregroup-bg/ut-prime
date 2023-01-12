@@ -332,26 +332,6 @@ exports[`<Form /> Basic equals snapshot 1`] = `
                                 Delete
                               </span>
                             </button>
-                            <button
-                              aria-label="Test"
-                              class="p-button p-component p-button p-disabled"
-                              data-testid="tree-links-testButton"
-                              disabled=""
-                            >
-                              <span
-                                class="p-button-icon p-c p-button-icon-left pi pi-inbox"
-                              />
-                              <span
-                                class="p-button-label p-c"
-                              >
-                                 
-                              </span>
-                              <span
-                                class="p-button-label p-c"
-                              >
-                                Test
-                              </span>
-                            </button>
                           </div>
                         </div>
                         <div
@@ -848,26 +828,6 @@ exports[`<Form /> BasicAR equals snapshot 1`] = `
                                 حذف
                               </span>
                             </button>
-                            <button
-                              aria-label="Test"
-                              class="p-button p-component p-button p-disabled"
-                              data-testid="tree-links-testButton"
-                              disabled=""
-                            >
-                              <span
-                                class="p-button-icon p-c p-button-icon-left pi pi-inbox"
-                              />
-                              <span
-                                class="p-button-label p-c"
-                              >
-                                 
-                              </span>
-                              <span
-                                class="p-button-label p-c"
-                              >
-                                Test
-                              </span>
-                            </button>
                           </div>
                         </div>
                         <div
@@ -1361,26 +1321,6 @@ exports[`<Form /> BasicBG equals snapshot 1`] = `
                                 class="p-button-label p-c"
                               >
                                 Изтриване
-                              </span>
-                            </button>
-                            <button
-                              aria-label="Test"
-                              class="p-button p-component p-button p-disabled"
-                              data-testid="tree-links-testButton"
-                              disabled=""
-                            >
-                              <span
-                                class="p-button-icon p-c p-button-icon-left pi pi-inbox"
-                              />
-                              <span
-                                class="p-button-label p-c"
-                              >
-                                 
-                              </span>
-                              <span
-                                class="p-button-label p-c"
-                              >
-                                Test
                               </span>
                             </button>
                           </div>

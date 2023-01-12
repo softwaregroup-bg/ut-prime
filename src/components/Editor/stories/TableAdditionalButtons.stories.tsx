@@ -25,15 +25,28 @@ const Template: Story<Props> = ({methods, ...args}) => {
                     // throw new Error('test error');
                     // return false;
                 },
-                async handleArchive({event, selected, onChange, current, params, ...props}: {selected, onChange, current, params, event: Event}) {
-                    const editedRows = current?.map(row => {
-                        if (selected.some(item => item.id === row.id)) {
-                            return {...row, name: 'fffffffffffff'};
+                async handleArchive({event, onChange, current, ...props}: {onChange, current, event: Event}) {
+                    const updatedValue = current?.map(row => {
+                        if (row?.statusId && !['deleted', 'pending'].includes(row.statusId)) {
+                            return {...row, statusId: 'archived'};
                         } else {
                             return row;
                         }
                     });
-                    onChange({...event, value: editedRows});
+                    onChange({...event, value: updatedValue});
+                },
+                async handleNameChange({event, selected, onChange, current, ...props}: {selected, onChange, current, event: Event}) {
+                    const newCellValue = 'Updated Cell Value';
+                    const cellForComparison = 'id';
+                    const cellToBeUpdated = 'name';
+                    const updatedValue = current?.map(row => {
+                        if (selected.some(item => item[cellForComparison] === row[cellForComparison])) {
+                            return {...row, [cellToBeUpdated]: newCellValue};
+                        } else {
+                            return row;
+                        }
+                    });
+                    onChange({...event, value: updatedValue});
                 },
                 async 'portal.customization.get'() {
                     return {};

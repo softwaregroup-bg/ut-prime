@@ -139,7 +139,6 @@ export default React.forwardRef<object, TableProps>(function Table({
     actions: {
         allowAdd = !pivotRows?.length,
         allowDelete = !pivotRows?.length,
-        allowArchive = !pivotRows?.length,
         allowEdit = true,
         allowSelect = true
     } = {},
@@ -336,18 +335,6 @@ export default React.forwardRef<object, TableProps>(function Table({
             onChange({...event, value: allRows.filter((rowData, index) => !remove.some(item => item[INDEX] === index))});
             setFilters(initialFilters);
         };
-        const archiveRow = event => {
-            event.preventDefault();
-            const archive = [].concat(selected);
-            const updatedValue = allRows.map(row => {
-                if (archive.some(item => item.id === row.id)) {
-                    return {...row, name: 'documentTest123'};
-                }
-                return row;
-            });
-            onChange({...event, value: updatedValue});
-            setFilters(initialFilters);
-        };
         return (
             <React.Fragment>
                 {allowAdd && !disabled && <Button
@@ -368,18 +355,9 @@ export default React.forwardRef<object, TableProps>(function Table({
                     {...testid(`${resultSet}.deleteButton`)}
                 >Delete</Button>}
                 {props?.additionalButtons && buttons}
-                {allowArchive && !disabled && <Button
-                    label=' '
-                    aria-label='Test'
-                    icon="pi pi-inbox"
-                    className="p-button"
-                    onClick={archiveRow}
-                    disabled={!selected}
-                    {...testid(`${resultSet}.testButton`)}
-                >Test</Button>}
             </React.Fragment>
         );
-    }, [allowAdd, allowDelete, selected, identity, master, filter, parent, allRows, onChange, handleSelected, counter, properties, resultSet, disabled, allowArchive, props?.additionalButtons, buttons, setFilters, initialFilters]);
+    }, [allowAdd, allowDelete, selected, identity, master, filter, parent, allRows, onChange, handleSelected, counter, properties, resultSet, disabled, props?.additionalButtons, buttons, setFilters, initialFilters]);
 
     if (selected && props.selectionMode === 'single' && !rows.includes(selected)) {
         handleSelected({value: rows[selected[KEY]]});

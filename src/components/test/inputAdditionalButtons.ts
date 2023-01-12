@@ -32,12 +32,14 @@ const properties: Properties = {
             additionalButtons: [{
                 type: 'button',
                 title: 'Archive',
+                confirm: 'Current document will be archived. Do you confirm this action?',
                 action: 'handleArchive',
-                icon: 'p-c p-button-icon-left pi pi-inbox',
-                params: {
-                    columnName: 'name',
-                    newValue: 'documentTest123'
-                }
+                icon: 'p-c p-button-icon-left pi pi-inbox'
+            }, {
+                type: 'button',
+                title: 'Something',
+                action: 'handleNameChange',
+                icon: 'p-c p-button-icon-left pi pi-file'
             }],
             widgets: ['id', 'name', 'value', 'statusId']
         }

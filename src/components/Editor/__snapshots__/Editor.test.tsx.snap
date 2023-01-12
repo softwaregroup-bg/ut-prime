@@ -418,26 +418,6 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                                   Delete
                                 </span>
                               </button>
-                              <button
-                                aria-label="Test"
-                                class="p-button p-component p-button p-disabled"
-                                data-testid="tree-links-testButton"
-                                disabled=""
-                              >
-                                <span
-                                  class="p-button-icon p-c p-button-icon-left pi pi-inbox"
-                                />
-                                <span
-                                  class="p-button-label p-c"
-                                >
-                                   
-                                </span>
-                                <span
-                                  class="p-button-label p-c"
-                                >
-                                  Test
-                                </span>
-                              </button>
                             </div>
                           </div>
                           <div
@@ -1231,25 +1211,6 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                   Delete
                                 </span>
                               </button>
-                              <button
-                                aria-label="Test"
-                                class="p-button p-component p-button"
-                                data-testid="person-testButton"
-                              >
-                                <span
-                                  class="p-button-icon p-c p-button-icon-left pi pi-inbox"
-                                />
-                                <span
-                                  class="p-button-label p-c"
-                                >
-                                   
-                                </span>
-                                <span
-                                  class="p-button-label p-c"
-                                >
-                                  Test
-                                </span>
-                              </button>
                             </div>
                             <div
                               class="p-toolbar-group-right"
@@ -1594,25 +1555,6 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                   class="p-button-label p-c"
                                 >
                                   Delete
-                                </span>
-                              </button>
-                              <button
-                                aria-label="Test"
-                                class="p-button p-component p-button"
-                                data-testid="document-testButton"
-                              >
-                                <span
-                                  class="p-button-icon p-c p-button-icon-left pi pi-inbox"
-                                />
-                                <span
-                                  class="p-button-label p-c"
-                                >
-                                   
-                                </span>
-                                <span
-                                  class="p-button-label p-c"
-                                >
-                                  Test
                                 </span>
                               </button>
                             </div>
@@ -2014,26 +1956,6 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                   class="p-button-label p-c"
                                 >
                                   Delete
-                                </span>
-                              </button>
-                              <button
-                                aria-label="Test"
-                                class="p-button p-component p-button p-disabled"
-                                data-testid="attachment-testButton"
-                                disabled=""
-                              >
-                                <span
-                                  class="p-button-icon p-c p-button-icon-left pi pi-inbox"
-                                />
-                                <span
-                                  class="p-button-label p-c"
-                                >
-                                   
-                                </span>
-                                <span
-                                  class="p-button-label p-c"
-                                >
-                                  Test
                                 </span>
                               </button>
                             </div>
@@ -3220,26 +3142,6 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                                     Delete
                                   </span>
                                 </button>
-                                <button
-                                  aria-label="Test"
-                                  class="p-button p-component p-button p-disabled"
-                                  data-testid="tree-links-testButton"
-                                  disabled=""
-                                >
-                                  <span
-                                    class="p-button-icon p-c p-button-icon-left pi pi-inbox"
-                                  />
-                                  <span
-                                    class="p-button-label p-c"
-                                  >
-                                     
-                                  </span>
-                                  <span
-                                    class="p-button-label p-c"
-                                  >
-                                    Test
-                                  </span>
-                                </button>
                               </div>
                             </div>
                             <div
@@ -4126,26 +4028,6 @@ exports[`<Editor /> Files render equals snapshot 1`] = `
                                   class="p-button-label p-c"
                                 >
                                   Delete
-                                </span>
-                              </button>
-                              <button
-                                aria-label="Test"
-                                class="p-button p-component p-button p-disabled"
-                                data-testid="tree-documents-testButton"
-                                disabled=""
-                              >
-                                <span
-                                  class="p-button-icon p-c p-button-icon-left pi pi-inbox"
-                                />
-                                <span
-                                  class="p-button-label p-c"
-                                >
-                                   
-                                </span>
-                                <span
-                                  class="p-button-label p-c"
-                                >
-                                  Test
                                 </span>
                               </button>
                             </div>
@@ -5196,25 +5078,6 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
                                   Delete
                                 </span>
                               </button>
-                              <button
-                                aria-label="Test"
-                                class="p-button p-component p-button"
-                                data-testid="person-testButton"
-                              >
-                                <span
-                                  class="p-button-icon p-c p-button-icon-left pi pi-inbox"
-                                />
-                                <span
-                                  class="p-button-label p-c"
-                                >
-                                   
-                                </span>
-                                <span
-                                  class="p-button-label p-c"
-                                >
-                                  Test
-                                </span>
-                              </button>
                             </div>
                             <div
                               class="p-toolbar-group-right"
@@ -5594,25 +5457,6 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
                                   class="p-button-label p-c"
                                 >
                                   Delete
-                                </span>
-                              </button>
-                              <button
-                                aria-label="Test"
-                                class="p-button p-component p-button"
-                                data-testid="shape-testButton"
-                              >
-                                <span
-                                  class="p-button-icon p-c p-button-icon-left pi pi-inbox"
-                                />
-                                <span
-                                  class="p-button-label p-c"
-                                >
-                                   
-                                </span>
-                                <span
-                                  class="p-button-label p-c"
-                                >
-                                  Test
                                 </span>
                               </button>
                             </div>
@@ -10497,26 +10341,6 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
                                   Delete
                                 </span>
                               </button>
-                              <button
-                                aria-label="Test"
-                                class="p-button p-component p-button p-disabled"
-                                data-testid="tree-links-testButton"
-                                disabled=""
-                              >
-                                <span
-                                  class="p-button-icon p-c p-button-icon-left pi pi-inbox"
-                                />
-                                <span
-                                  class="p-button-label p-c"
-                                >
-                                   
-                                </span>
-                                <span
-                                  class="p-button-label p-c"
-                                >
-                                  Test
-                                </span>
-                              </button>
                             </div>
                           </div>
                           <div
@@ -11343,26 +11167,6 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                                   class="p-button-label p-c"
                                 >
                                   Delete
-                                </span>
-                              </button>
-                              <button
-                                aria-label="Test"
-                                class="p-button p-component p-button p-disabled"
-                                data-testid="tree-links-testButton"
-                                disabled=""
-                              >
-                                <span
-                                  class="p-button-icon p-c p-button-icon-left pi pi-inbox"
-                                />
-                                <span
-                                  class="p-button-label p-c"
-                                >
-                                   
-                                </span>
-                                <span
-                                  class="p-button-label p-c"
-                                >
-                                  Test
                                 </span>
                               </button>
                             </div>
@@ -13511,26 +13315,6 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
                                   Delete
                                 </span>
                               </button>
-                              <button
-                                aria-label="Test"
-                                class="p-button p-component p-button p-disabled"
-                                data-testid="tree-links-testButton"
-                                disabled=""
-                              >
-                                <span
-                                  class="p-button-icon p-c p-button-icon-left pi pi-inbox"
-                                />
-                                <span
-                                  class="p-button-label p-c"
-                                >
-                                   
-                                </span>
-                                <span
-                                  class="p-button-label p-c"
-                                >
-                                  Test
-                                </span>
-                              </button>
                             </div>
                           </div>
                           <div
@@ -14315,26 +14099,6 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                                   class="p-button-label p-c"
                                 >
                                   Delete
-                                </span>
-                              </button>
-                              <button
-                                aria-label="Test"
-                                class="p-button p-component p-button p-disabled"
-                                data-testid="tree-links-testButton"
-                                disabled=""
-                              >
-                                <span
-                                  class="p-button-icon p-c p-button-icon-left pi pi-inbox"
-                                />
-                                <span
-                                  class="p-button-label p-c"
-                                >
-                                   
-                                </span>
-                                <span
-                                  class="p-button-label p-c"
-                                >
-                                  Test
                                 </span>
                               </button>
                             </div>
