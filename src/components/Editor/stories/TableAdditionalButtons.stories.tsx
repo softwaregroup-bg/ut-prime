@@ -25,7 +25,7 @@ const Template: Story<Props> = ({methods, ...args}) => {
                     // throw new Error('test error');
                     // return false;
                 },
-                async handleArchive({event, selected, onChange, current, ...props}: {selected, onChange, current, event: Event}) {
+                async handleArchive({event, selected, onChange, current, params, ...props}: {selected, onChange, current, params, event: Event}) {
                     const editedRows = current?.map(row => {
                         if (selected.some(item => item.id === row.id)) {
                             return {...row, name: 'fffffffffffff'};

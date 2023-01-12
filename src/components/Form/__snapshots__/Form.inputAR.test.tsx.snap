@@ -1044,7 +1044,7 @@ exports[`<Form /> InputAR render equals snapshot 1`] = `
                             </button>
                             <button
                               aria-label="Delete"
-                              class="p-button p-component p-button p-disabled"
+                              class="p-button p-component p-button mr-2 p-disabled"
                               data-testid="input-table-deleteButton"
                               disabled=""
                             >
@@ -1060,6 +1060,26 @@ exports[`<Form /> InputAR render equals snapshot 1`] = `
                                 class="p-button-label p-c"
                               >
                                 حذف
+                              </span>
+                            </button>
+                            <button
+                              aria-label="Test"
+                              class="p-button p-component p-button p-disabled"
+                              data-testid="input-table-testButton"
+                              disabled=""
+                            >
+                              <span
+                                class="p-button-icon p-c p-button-icon-left pi pi-inbox"
+                              />
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                 
+                              </span>
+                              <span
+                                class="p-button-label p-c"
+                              >
+                                Test
                               </span>
                             </button>
                           </div>
@@ -1312,6 +1332,39 @@ exports[`<Form /> InputAR render equals snapshot 1`] = `
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
                     >
+                      <div
+                        class="p-toolbar p-component p-0 border-none"
+                        role="toolbar"
+                        style="background: none;"
+                      >
+                        <div
+                          class="p-toolbar-group-left"
+                        >
+                          <button
+                            aria-label="Test"
+                            class="p-button p-component p-button p-disabled"
+                            data-testid="input-selectTable-testButton"
+                            disabled=""
+                          >
+                            <span
+                              class="p-button-icon p-c p-button-icon-left pi pi-inbox"
+                            />
+                            <span
+                              class="p-button-label p-c"
+                            >
+                               
+                            </span>
+                            <span
+                              class="p-button-label p-c"
+                            >
+                              Test
+                            </span>
+                          </button>
+                        </div>
+                        <div
+                          class="p-toolbar-group-right"
+                        />
+                      </div>
                       <div
                         class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                         data-scrollselectors=".p-datatable-wrapper"
@@ -1701,6 +1754,39 @@ exports[`<Form /> InputAR render equals snapshot 1`] = `
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
                     >
+                      <div
+                        class="p-toolbar p-component p-0 border-none"
+                        role="toolbar"
+                        style="background: none;"
+                      >
+                        <div
+                          class="p-toolbar-group-left"
+                        >
+                          <button
+                            aria-label="Test"
+                            class="p-button p-component p-button p-disabled"
+                            data-testid="input-selectTableWithFlags-testButton"
+                            disabled=""
+                          >
+                            <span
+                              class="p-button-icon p-c p-button-icon-left pi pi-inbox"
+                            />
+                            <span
+                              class="p-button-label p-c"
+                            >
+                               
+                            </span>
+                            <span
+                              class="p-button-label p-c"
+                            >
+                              Test
+                            </span>
+                          </button>
+                        </div>
+                        <div
+                          class="p-toolbar-group-right"
+                        />
+                      </div>
                       <div
                         class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                         data-scrollselectors=".p-datatable-wrapper"

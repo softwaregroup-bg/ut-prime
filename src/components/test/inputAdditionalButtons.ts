@@ -41,7 +41,7 @@ const properties: Properties = {
             }],
             widgets: ['id', 'name', 'value', 'statusId']
         }
-    },
+    }
 };
 
 export const input: {
