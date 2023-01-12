@@ -1,3 +1,12 @@
+# [2.61.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.60.1...v2.61.0) (2023-01-12)
+
+
+### Features
+
+* schema mandatory flag ([4f2a5c9](https://github.com/softwaregroup-bg/ut-prime/commit/4f2a5c9cfdd59ca4047ec1ed0c6937f0b6a4c848))
+
+
+
 ## [2.60.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.60.0...v2.60.1) (2023-01-11)
 
 
