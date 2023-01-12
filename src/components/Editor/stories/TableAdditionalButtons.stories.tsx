@@ -25,19 +25,15 @@ const Template: Story<Props> = ({methods, ...args}) => {
                     // throw new Error('test error');
                     // return false;
                 },
-                async handleArchive(props) {
-                    console.log('handleArchiveEvent', props);
-                    console.log('array', props?.input?.table);
-                    console.log('array', props?.selected);
-
-                    const archive = [].concat(props?.input?.table);
-                    // const updatedValue = props?.input.map(row => {
-                    //     if (archive.some(item => item.id === row.id)) {
-                    //         return {...row, id: 'documentTest123'};
-                    //     }
-                    //     return row;
-                    // });
-                    // props.input = updatedValue;
+                async handleArchive({event, selected, onChange, current, ...props}: {selected, onChange, current, event: Event}) {
+                    const editedRows = current?.map(row => {
+                        if (selected.some(item => item.id === row.id)) {
+                            return {...row, name: 'fffffffffffff'};
+                        } else {
+                            return row;
+                        }
+                    });
+                    onChange({...event, value: editedRows});
                 },
                 async 'portal.customization.get'() {
                     return {};
@@ -58,18 +54,4 @@ export const TableAdditionalButtons: StoryTemplate = Template.bind({});
 TableAdditionalButtons.args = {
     ...input,
     layouts: {edit: ['center']}
-    // methods: {
-    //     async handleArchive({value, form, event}) {
-    //         event.preventDefault();
-    //         // const archive = [].concat(selected);
-    //         // const updatedValue = allRows.map(row => {
-    //         //     if (archive.some(item => item.id === row.id)) {
-    //         //         return {...row, id: 'documentTest123'};
-    //         //     }
-    //         //     return row;
-    //         // });
-    //         // handleSelected({value: updatedValue});
-    //         // onChange({...event, value: updatedValue});
-    //     }
-    // }
 };

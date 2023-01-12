@@ -3,7 +3,6 @@ import type {
     Cards,
     Properties
 } from '../types';
-import tree from './tree';
 
 const properties: Properties = {
     table: {
@@ -31,12 +30,13 @@ const properties: Properties = {
         widget: {
             type: 'table',
             additionalButtons: [{
-                type: 'submit',
+                type: 'button',
                 title: 'Archive',
-                method: 'handleArchive',
+                action: 'handleArchive',
                 icon: 'p-c p-button-icon-left pi pi-inbox',
                 params: {
-                    selected: '$.selected'
+                    columnName: 'name',
+                    newValue: 'documentTest123'
                 }
             }],
             widgets: ['id', 'name', 'value', 'statusId']
@@ -70,56 +70,4 @@ export const dropdowns = {
         {value: 1, label: 'EUR'},
         {value: 2, label: 'USD'},
         {value: 3, label: 'BGN'}
-    ],
-    dropdownTree: [{
-        key: 1,
-        label: 'Europe',
-        children: [{
-            key: 2,
-            label: 'France',
-            parent: 1,
-            children: [{
-                key: 3,
-                label: 'Paris',
-                parent: 2
-            }]
-        }]
-    }
-    ],
-    multiSelect: [
-        {value: 1, label: 'Rome'},
-        {value: 2, label: 'Cairo'},
-        {value: 3, label: 'Athens'}
-    ],
-    select: [
-        {value: 1, label: 'One'},
-        {value: 2, label: 'Two'},
-        {value: 3, label: 'Three'}
-    ],
-    multiSelectTreeTable: [{
-        key: 1,
-        data: {label: 'One'},
-        children: [{
-            key: 2,
-            data: {label: 'Two'},
-            children: [{
-                key: 3,
-                data: {label: 'Three'}
-            }]
-        }]
-    }
-    ],
-    multiSelectTree: [{
-        key: 1,
-        label: 'Solar system',
-        children: [{
-            key: 2,
-            label: 'Earth',
-            children: [{
-                key: 3,
-                label: 'Australia'
-            }]
-        }]
-    }
-    ]
-};
+    ]};

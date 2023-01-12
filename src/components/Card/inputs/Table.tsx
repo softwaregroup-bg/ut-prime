@@ -1,5 +1,6 @@
 import React from 'react';
 import lodashGet from 'lodash.get';
+import merge from 'ut-function.merge';
 import {createUseStyles} from 'react-jss';
 import clsx from 'clsx';
 
@@ -85,6 +86,8 @@ interface TableProps extends Omit<DataTableProps, 'onChange'> {
     properties: Properties;
     dropdowns?: object;
     parent?: unknown;
+    pageSize?: number;
+    methods: object;
     filter?: object;
     master?: unknown;
     children?: unknown;
@@ -117,6 +120,7 @@ export default React.forwardRef<object, TableProps>(function Table({
     identity,
     properties,
     dropdowns,
+    pageSize = 10,
     methods,
     parent,
     filter,
@@ -193,18 +197,6 @@ export default React.forwardRef<object, TableProps>(function Table({
         }
     }, [allRows, onChange, editingRows]);
 
-    const [loading, setLoading] = React.useState('');
-    const submit = React.useCallback(async({method, params}, form?) => {
-        params = prepareSubmit([getValues(form?.params), {}, {method, params}]);
-        delete params?.$;
-        setLoading('loading');
-        try {
-            await methods[method](params);
-        } finally {
-            setLoading('');
-        }
-    }, [methods, getValues]);
-
     const complete = React.useCallback(event => {
         const changed = [...allRows];
         const originalIndex = event.data[INDEX];
@@ -235,25 +227,6 @@ export default React.forwardRef<object, TableProps>(function Table({
         onChange(event, {select: true, field: false, children: false});
         setSelected(event.value);
     }, [allowSelect, onChange]);
-
-    const buttons = React.useMemo(() => (props?.additionalButtons || []).map((widget, index) => {
-        const {title, icon, permission, method, confirm} = (typeof widget === 'string') ? properties[widget].widget : widget;
-        return <ActionButton
-            key={index}
-            icon={icon}
-            permission={permission}
-            {...testid(`${permission ? (permission + 'Button') : ('button' + index)}`)}
-            submit={submit}
-            method={method}
-            confirm={confirm}
-            getValues={getValues}
-            disabled={!selected || !!loading}
-            aria-label='archive'
-            className='p-button mr-2'
-            {...testid(title + 'Button')}
-        >{title}</ActionButton>;
-    }
-    ), [props?.additionalButtons, properties, submit, getValues, selected, loading]);
 
     React.useEffect(() => {
         if (pendingEdit) {
@@ -291,6 +264,58 @@ export default React.forwardRef<object, TableProps>(function Table({
         rows.length > 1
     );
 
+    const current = allRows;
+    const keyField = undefined;
+    const getValuesButton = React.useMemo(() => ({$ = undefined, ...params} = {}) => ({
+        params,
+        pageSize,
+        pageNumber: pageSize && (Math.floor(tableFilter.first / pageSize) + 1),
+        id: (current) && current[keyField],
+        current,
+        selected,
+        onChange,
+        filter: merge(
+            {},
+            Object.entries(tableFilter.filters).reduce((prev, [name, {value}]) => ({...prev, [name]: value}), {})
+        )
+    }), [pageSize, tableFilter.first, tableFilter.filters, current, keyField, selected, onChange]);
+
+    const [loading, setLoading] = React.useState('');
+    const submitB = React.useCallback(async({method, params}, form?) => {
+        params = prepareSubmit([getValues(form?.params), {}, {method, params}]);
+        const system = params?.$;
+        delete params?.$;
+        setLoading('loading');
+        try {
+            await methods[method](params);
+        } finally {
+            setLoading('');
+        }
+        if (system?.fetch) setFilters(prev => merge({}, prev, system.fetch));
+    }, [methods, getValues, setFilters]);
+
+    const buttons = React.useMemo(() => (props?.additionalButtons || []).map((widget, index) => {
+        const {title, icon, permission, method, action, confirm, params} = (typeof widget === 'string') ? properties[widget].widget : widget;
+
+        return <ActionButton
+            key={index}
+            icon={icon}
+            permission={permission}
+            {...testid(`${permission ? (permission + 'Button') : ('button' + index)}`)}
+            submit={submitB}
+            action={methods[action]}
+            method={method}
+            params={params}
+            confirm={confirm}
+            getValues={getValuesButton}
+            disabled={!selected || !!loading}
+            aria-label='archive'
+            className='p-button mr-2'
+            {...testid(title + 'Button')}
+        >{title}</ActionButton>;
+    }
+    ), [props?.additionalButtons, properties, submitB, methods, getValuesButton, selected, loading]);
+
     const leftToolbarTemplate = React.useCallback(() => {
         const addNewRow = event => {
             event.preventDefault();
@@ -315,13 +340,13 @@ export default React.forwardRef<object, TableProps>(function Table({
             event.preventDefault();
             const archive = [].concat(selected);
             const updatedValue = allRows.map(row => {
-                if (archive.some(item => item.name === row.name)) {
+                if (archive.some(item => item.id === row.id)) {
                     return {...row, name: 'documentTest123'};
                 }
                 return row;
             });
-            handleSelected({value: updatedValue});
             onChange({...event, value: updatedValue});
+            setFilters(initialFilters);
         };
         return (
             <React.Fragment>
