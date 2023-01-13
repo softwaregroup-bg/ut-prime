@@ -37,7 +37,7 @@ const properties: Properties = {
                 icon: 'p-c p-button-icon-left pi pi-inbox'
             }, {
                 type: 'button',
-                title: 'Something',
+                title: 'Change name',
                 action: 'handleNameChange',
                 icon: 'p-c p-button-icon-left pi pi-file'
             }],
