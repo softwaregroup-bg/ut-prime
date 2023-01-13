@@ -35,11 +35,6 @@ const properties: Properties = {
                 confirm: 'Current document will be archived. Do you confirm this action?',
                 action: 'handleArchive',
                 icon: 'p-c p-button-icon-left pi pi-inbox'
-            }, {
-                type: 'button',
-                title: 'Change name',
-                action: 'handleNameChange',
-                icon: 'p-c p-button-icon-left pi pi-file'
             }],
             widgets: ['id', 'name', 'value', 'statusId']
         }

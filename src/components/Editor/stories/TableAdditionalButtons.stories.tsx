@@ -39,19 +39,6 @@ const Template: Story<Props> = ({methods, ...args}) => {
                     });
                     onChange({...event, value: updatedValue});
                 },
-                async handleNameChange({event, selected, onChange, current, ...props}: {selected, onChange, current, event: Event}) {
-                    const newCellValue = 'Updated Cell Value';
-                    const cellForComparison = 'id';
-                    const cellToBeUpdated = 'name';
-                    const updatedValue = current?.map(row => {
-                        if (selected.some(item => item[cellForComparison] === row[cellForComparison])) {
-                            return {...row, [cellToBeUpdated]: newCellValue};
-                        } else {
-                            return row;
-                        }
-                    });
-                    onChange({...event, value: updatedValue});
-                },
                 async 'portal.customization.get'() {
                     return {};
                 },

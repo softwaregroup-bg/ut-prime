@@ -84,7 +84,6 @@ interface TableProps extends Omit<DataTableProps, 'onChange'> {
     properties: Properties;
     dropdowns?: object;
     parent?: unknown;
-    pageSize?: number;
     methods: object;
     filter?: object;
     master?: unknown;
@@ -118,7 +117,6 @@ export default React.forwardRef<object, TableProps>(function Table({
     identity,
     properties,
     dropdowns,
-    pageSize = 10,
     methods,
     parent,
     filter,
@@ -261,14 +259,11 @@ export default React.forwardRef<object, TableProps>(function Table({
         rows.length > 1
     );
 
-    const current = allRows;
-    const keyField = undefined;
     const getValuesTable = React.useMemo(() => () => ({
-        id: (current) && current[keyField],
-        current,
+        current: allRows,
         selected,
         onChange
-    }), [current, keyField, selected, onChange]);
+    }), [allRows, selected, onChange]);
 
     const buttons = React.useMemo(() => (props?.additionalButtons || []).map((widget, index) => {
         const {title, icon, permission, method, action, confirm, params} = (typeof widget === 'string') ? properties[widget].widget : widget;
@@ -333,7 +328,7 @@ export default React.forwardRef<object, TableProps>(function Table({
                 {props?.additionalButtons && buttons}
             </React.Fragment>
         );
-    }, [allowAdd, allowDelete, selected, identity, master, filter, parent, allRows, onChange, handleSelected, counter, properties, resultSet, disabled, props?.additionalButtons, buttons, setFilters, initialFilters]);
+    }, [allowAdd, allowDelete, selected, identity, master, filter, parent, allRows, onChange, handleSelected, counter, properties, resultSet, disabled, initialFilters, setFilters, props?.additionalButtons, buttons]);
 
     if (selected && props.selectionMode === 'single' && !rows.includes(selected)) {
         handleSelected({value: rows[selected[KEY]]});
