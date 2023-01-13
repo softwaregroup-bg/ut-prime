@@ -5,6 +5,7 @@ import {createUseStyles} from 'react-jss';
 import { ListBox, PanelMenu, TabMenu, Ripple, Steps, Button } from '../prime';
 import ActionButton from '../ActionButton';
 import ScrollBox from '../ScrollBox';
+import Text from '../Text';
 import { ComponentProps } from './ThumbIndex.types';
 import testid from '../lib/testid';
 
@@ -64,7 +65,7 @@ const ThumbIndex: ComponentProps = ({
             >
                 {type === 'steps' && <span className={numberClassName}>{item.index + 1}</span>}
                 {item.icon && <span className={iconClassName}></span>}
-                {item.label && <span className={labelClassName} {...testid((name || '') + item.id + 'Tab')}>{item.label}</span>}
+                {item.label && <span className={labelClassName} {...testid((name || '') + item.id + 'Tab')}><Text>{item.label}</Text></span>}
                 <Ripple />
             </a>
         );

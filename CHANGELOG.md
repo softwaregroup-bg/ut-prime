@@ -1,3 +1,12 @@
+## [2.61.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.61.0...v2.61.1) (2023-01-13)
+
+
+### Bug Fixes
+
+* translate thumbs label ([#33](https://github.com/softwaregroup-bg/ut-prime/issues/33)) ([bbf7aaa](https://github.com/softwaregroup-bg/ut-prime/commit/bbf7aaa650ee5574e04d1f721bc8378761a50931))
+
+
+
 # [2.61.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.60.1...v2.61.0) (2023-01-12)
 
 
