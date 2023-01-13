@@ -59,7 +59,6 @@ export const input: {
     },
     cards: {
         center: {
-            className: 'xl:col-4',
             widgets: [
                 'input.table'
             ]

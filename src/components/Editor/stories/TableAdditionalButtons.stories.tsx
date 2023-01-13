@@ -25,10 +25,14 @@ const Template: Story<Props> = ({methods, ...args}) => {
                     // throw new Error('test error');
                     // return false;
                 },
-                async handleArchive({event, onChange, current, ...props}: {onChange, current, event: Event}) {
+                async handleArchive({event, onChange, selected, current, ...props}: {onChange, selected, current, event: Event}) {
                     const updatedValue = current?.map(row => {
-                        if (row?.statusId && !['deleted', 'pending'].includes(row.statusId)) {
-                            return {...row, statusId: 'archived'};
+                        if (selected?.some(item => item.id === row.id)) {
+                            if (row?.statusId && !['deleted', 'pending'].includes(row.statusId)) {
+                                return {...row, statusId: 'archived'};
+                            } else {
+                                return row;
+                            }
                         } else {
                             return row;
                         }

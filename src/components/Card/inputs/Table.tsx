@@ -1,6 +1,5 @@
 import React from 'react';
 import lodashGet from 'lodash.get';
-import merge from 'ut-function.merge';
 import {createUseStyles} from 'react-jss';
 import clsx from 'clsx';
 
@@ -12,7 +11,6 @@ import {CHANGE, INDEX, KEY, NEW} from '../const';
 import type {Properties, WidgetReference, PropertyEditor} from '../../types';
 import testid from '../../lib/testid';
 import ActionButton from '../../ActionButton';
-import prepareSubmit from '../../lib/prepareSubmit';
 
 const fieldName = column => typeof column === 'string' ? column : column.name;
 
@@ -265,33 +263,12 @@ export default React.forwardRef<object, TableProps>(function Table({
 
     const current = allRows;
     const keyField = undefined;
-    const getValuesButton = React.useMemo(() => ({$ = undefined, ...params} = {}) => ({
-        params,
-        pageSize,
-        pageNumber: pageSize && (Math.floor(tableFilter.first / pageSize) + 1),
+    const getValuesTable = React.useMemo(() => () => ({
         id: (current) && current[keyField],
         current,
         selected,
-        onChange,
-        filter: merge(
-            {},
-            Object.entries(tableFilter.filters).reduce((prev, [name, {value}]) => ({...prev, [name]: value}), {})
-        )
-    }), [pageSize, tableFilter.first, tableFilter.filters, current, keyField, selected, onChange]);
-
-    const [loading, setLoading] = React.useState('');
-    const submitB = React.useCallback(async({method, params}, form?) => {
-        params = prepareSubmit([getValues(form?.params), {}, {method, params}]);
-        const system = params?.$;
-        delete params?.$;
-        setLoading('loading');
-        try {
-            await methods[method](params);
-        } finally {
-            setLoading('');
-        }
-        if (system?.fetch) setFilters(prev => merge({}, prev, system.fetch));
-    }, [methods, getValues, setFilters]);
+        onChange
+    }), [current, keyField, selected, onChange]);
 
     const buttons = React.useMemo(() => (props?.additionalButtons || []).map((widget, index) => {
         const {title, icon, permission, method, action, confirm, params} = (typeof widget === 'string') ? properties[widget].widget : widget;
@@ -301,19 +278,18 @@ export default React.forwardRef<object, TableProps>(function Table({
             icon={icon}
             permission={permission}
             {...testid(`${permission ? (permission + 'Button') : ('button' + index)}`)}
-            submit={submitB}
             action={methods[action]}
             method={method}
             params={params}
             confirm={confirm}
-            getValues={getValuesButton}
-            disabled={!selected || !!loading}
+            getValues={getValuesTable}
+            disabled={!selected}
             aria-label='archive'
             className='p-button mr-2'
             {...testid(title + 'Button')}
         >{title}</ActionButton>;
     }
-    ), [props?.additionalButtons, properties, submitB, methods, getValuesButton, selected, loading]);
+    ), [props?.additionalButtons, properties, methods, getValuesTable, selected]);
 
     const leftToolbarTemplate = React.useCallback(() => {
         const addNewRow = event => {
@@ -373,7 +349,7 @@ export default React.forwardRef<object, TableProps>(function Table({
 
     return (
         <>
-            {(allowAdd || allowDelete || buttons) && <Toolbar className="p-0 border-none" left={left} right={right} style={backgroundNone}></Toolbar>}
+            {(allowAdd || allowDelete || buttons) && <Toolbar className="px-0 border-none" left={left} right={right} style={backgroundNone}></Toolbar>}
             <DataTable
                 editMode='row'
                 selection={selected}
