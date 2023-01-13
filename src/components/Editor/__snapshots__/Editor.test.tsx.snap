@@ -363,7 +363,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                           class="w-full"
                         >
                           <div
-                            class="p-toolbar p-component p-0 border-none"
+                            class="p-toolbar p-component px-0 border-none"
                             role="toolbar"
                             style="background: none;"
                           >
@@ -1166,7 +1166,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                           class="w-full"
                         >
                           <div
-                            class="p-toolbar p-component p-0 border-none"
+                            class="p-toolbar p-component px-0 border-none"
                             role="toolbar"
                             style="background: none;"
                           >
@@ -1512,7 +1512,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                           class="w-full"
                         >
                           <div
-                            class="p-toolbar p-component p-0 border-none"
+                            class="p-toolbar p-component px-0 border-none"
                             role="toolbar"
                             style="background: none;"
                           >
@@ -1912,7 +1912,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                           class="w-full"
                         >
                           <div
-                            class="p-toolbar p-component p-0 border-none"
+                            class="p-toolbar p-component px-0 border-none"
                             role="toolbar"
                             style="background: none;"
                           >
@@ -3087,7 +3087,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                             class="w-full"
                           >
                             <div
-                              class="p-toolbar p-component p-0 border-none"
+                              class="p-toolbar p-component px-0 border-none"
                               role="toolbar"
                               style="background: none;"
                             >
@@ -3984,7 +3984,7 @@ exports[`<Editor /> Files render equals snapshot 1`] = `
                           class="w-full"
                         >
                           <div
-                            class="p-toolbar p-component p-0 border-none"
+                            class="p-toolbar p-component px-0 border-none"
                             role="toolbar"
                             style="background: none;"
                           >
@@ -5033,7 +5033,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
                           class="w-full"
                         >
                           <div
-                            class="p-toolbar p-component p-0 border-none"
+                            class="p-toolbar p-component px-0 border-none"
                             role="toolbar"
                             style="background: none;"
                           >
@@ -5414,7 +5414,7 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
                           class="w-full"
                         >
                           <div
-                            class="p-toolbar p-component p-0 border-none"
+                            class="p-toolbar p-component px-0 border-none"
                             role="toolbar"
                             style="background: none;"
                           >
@@ -5847,7 +5847,7 @@ exports[`<Editor /> Pivot BG render equals snapshot 1`] = `
                           class="w-full"
                         >
                           <div
-                            class="p-toolbar p-component p-0 border-none"
+                            class="p-toolbar p-component px-0 border-none"
                             role="toolbar"
                             style="background: none;"
                           >
@@ -6521,7 +6521,7 @@ exports[`<Editor /> Pivot BG render equals snapshot 1`] = `
                           class="w-full"
                         >
                           <div
-                            class="p-toolbar p-component p-0 border-none"
+                            class="p-toolbar p-component px-0 border-none"
                             role="toolbar"
                             style="background: none;"
                           >
@@ -7307,7 +7307,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                           class="w-full"
                         >
                           <div
-                            class="p-toolbar p-component p-0 border-none"
+                            class="p-toolbar p-component px-0 border-none"
                             role="toolbar"
                             style="background: none;"
                           >
@@ -7981,7 +7981,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                           class="w-full"
                         >
                           <div
-                            class="p-toolbar p-component p-0 border-none"
+                            class="p-toolbar p-component px-0 border-none"
                             role="toolbar"
                             style="background: none;"
                           >
@@ -10286,7 +10286,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
                           class="w-full"
                         >
                           <div
-                            class="p-toolbar p-component p-0 border-none"
+                            class="p-toolbar p-component px-0 border-none"
                             role="toolbar"
                             style="background: none;"
                           >
@@ -11114,7 +11114,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                           class="w-full"
                         >
                           <div
-                            class="p-toolbar p-component p-0 border-none"
+                            class="p-toolbar p-component px-0 border-none"
                             role="toolbar"
                             style="background: none;"
                           >
@@ -13260,7 +13260,7 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
                           class="w-full"
                         >
                           <div
-                            class="p-toolbar p-component p-0 border-none"
+                            class="p-toolbar p-component px-0 border-none"
                             role="toolbar"
                             style="background: none;"
                           >
@@ -14046,7 +14046,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                           class="w-full"
                         >
                           <div
-                            class="p-toolbar p-component p-0 border-none"
+                            class="p-toolbar p-component px-0 border-none"
                             role="toolbar"
                             style="background: none;"
                           >

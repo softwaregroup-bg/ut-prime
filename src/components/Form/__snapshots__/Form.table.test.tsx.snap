@@ -40,7 +40,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                         class="w-full"
                       >
                         <div
-                          class="p-toolbar p-component p-0 border-none"
+                          class="p-toolbar p-component px-0 border-none"
                           role="toolbar"
                           style="background: none;"
                         >
@@ -625,7 +625,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                         class="w-full"
                       >
                         <div
-                          class="p-toolbar p-component p-0 border-none"
+                          class="p-toolbar p-component px-0 border-none"
                           role="toolbar"
                           style="background: none;"
                         >
@@ -1186,7 +1186,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                         class="w-full"
                       >
                         <div
-                          class="p-toolbar p-component p-0 border-none"
+                          class="p-toolbar p-component px-0 border-none"
                           role="toolbar"
                           style="background: none;"
                         >
@@ -1599,7 +1599,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                         class="w-full"
                       >
                         <div
-                          class="p-toolbar p-component p-0 border-none"
+                          class="p-toolbar p-component px-0 border-none"
                           role="toolbar"
                           style="background: none;"
                         >
@@ -1950,7 +1950,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                         class="w-full"
                       >
                         <div
-                          class="p-toolbar p-component p-0 border-none"
+                          class="p-toolbar p-component px-0 border-none"
                           role="toolbar"
                           style="background: none;"
                         >
@@ -2535,7 +2535,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                         class="w-full"
                       >
                         <div
-                          class="p-toolbar p-component p-0 border-none"
+                          class="p-toolbar p-component px-0 border-none"
                           role="toolbar"
                           style="background: none;"
                         >
@@ -3096,7 +3096,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                         class="w-full"
                       >
                         <div
-                          class="p-toolbar p-component p-0 border-none"
+                          class="p-toolbar p-component px-0 border-none"
                           role="toolbar"
                           style="background: none;"
                         >
@@ -3509,7 +3509,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                         class="w-full"
                       >
                         <div
-                          class="p-toolbar p-component p-0 border-none"
+                          class="p-toolbar p-component px-0 border-none"
                           role="toolbar"
                           style="background: none;"
                         >
@@ -3859,7 +3859,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                         class="w-full"
                       >
                         <div
-                          class="p-toolbar p-component p-0 border-none"
+                          class="p-toolbar p-component px-0 border-none"
                           role="toolbar"
                           style="background: none;"
                         >
@@ -4444,7 +4444,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                         class="w-full"
                       >
                         <div
-                          class="p-toolbar p-component p-0 border-none"
+                          class="p-toolbar p-component px-0 border-none"
                           role="toolbar"
                           style="background: none;"
                         >
@@ -5005,7 +5005,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                         class="w-full"
                       >
                         <div
-                          class="p-toolbar p-component p-0 border-none"
+                          class="p-toolbar p-component px-0 border-none"
                           role="toolbar"
                           style="background: none;"
                         >
@@ -5418,7 +5418,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                         class="w-full"
                       >
                         <div
-                          class="p-toolbar p-component p-0 border-none"
+                          class="p-toolbar p-component px-0 border-none"
                           role="toolbar"
                           style="background: none;"
                         >

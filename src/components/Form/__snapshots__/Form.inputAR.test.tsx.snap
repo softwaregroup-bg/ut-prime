@@ -1001,7 +1001,7 @@ exports[`<Form /> InputAR render equals snapshot 1`] = `
                         class="w-full"
                       >
                         <div
-                          class="p-toolbar p-component p-0 border-none"
+                          class="p-toolbar p-component px-0 border-none"
                           role="toolbar"
                           style="background: none;"
                         >
@@ -1298,7 +1298,7 @@ exports[`<Form /> InputAR render equals snapshot 1`] = `
                       class="flex align-items-center relative col-12 md:col-8"
                     >
                       <div
-                        class="p-toolbar p-component p-0 border-none"
+                        class="p-toolbar p-component px-0 border-none"
                         role="toolbar"
                         style="background: none;"
                       >
@@ -1699,7 +1699,7 @@ exports[`<Form /> InputAR render equals snapshot 1`] = `
                       class="flex align-items-center relative col-12 md:col-8"
                     >
                       <div
-                        class="p-toolbar p-component p-0 border-none"
+                        class="p-toolbar p-component px-0 border-none"
                         role="toolbar"
                         style="background: none;"
                       >
