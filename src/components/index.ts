@@ -9,6 +9,7 @@ export { default as Async } from './Async';
 export { default as Button } from './Button';
 export { default as Controller } from './Controller';
 export { default as Component } from './Component';
+export { default as DateRange } from './DateRange';
 export { default as Editor } from './Editor';
 export { default as Error } from './Error';
 export { default as Explorer } from './Explorer';

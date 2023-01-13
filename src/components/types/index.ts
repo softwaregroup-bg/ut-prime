@@ -106,6 +106,7 @@ export interface Editors {
 export interface Property extends JSONSchema7 {
     filter?: boolean;
     sort?: boolean;
+    mandatory?: boolean;
     udf?: boolean;
     action?: string | ((action: {
         id: unknown,
@@ -171,6 +172,7 @@ export type WidgetReference = string | {
     page?: string,
     selectionPath?: string,
     propertyName?: string,
+    inline?: boolean,
     actions?: object,
     menu?: ActionItem[],
     column?: ColumnProps;

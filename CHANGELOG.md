@@ -1,3 +1,34 @@
+# [2.61.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.60.1...v2.61.0) (2023-01-12)
+
+
+### Features
+
+* schema mandatory flag ([4f2a5c9](https://github.com/softwaregroup-bg/ut-prime/commit/4f2a5c9cfdd59ca4047ec1ed0c6937f0b6a4c848))
+
+
+
+## [2.60.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.60.0...v2.60.1) (2023-01-11)
+
+
+
+# [2.60.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.59.1...v2.60.0) (2023-01-11)
+
+
+### Features
+
+* DateRange widget ([017c5cb](https://github.com/softwaregroup-bg/ut-prime/commit/017c5cbb6966aa3b1661f61edcf70636c23c2982))
+
+
+
+## [2.59.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.59.0...v2.59.1) (2023-01-10)
+
+
+### Bug Fixes
+
+* date range time ([6d24bb9](https://github.com/softwaregroup-bg/ut-prime/commit/6d24bb9d159e626b871f51e3a5155e7e44fe79b6))
+
+
+
 # [2.59.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.58.1...v2.59.0) (2023-01-09)
 
 

@@ -2,7 +2,6 @@ import React from 'react';
 import {
     Calendar,
     Checkbox,
-    DateRange,
     Dropdown,
     FileUpload,
     InputMask,
@@ -14,6 +13,7 @@ import {
     RadioButton,
     SelectButton
 } from '../prime';
+import DateRange from '../DateRange';
 import Json from '../Json';
 import type { Property, PropertyEditor } from '../types';
 import titleCase from './titleCase';
@@ -241,8 +241,6 @@ export default function columnProps({
             filterElement = filterBy && <DateRange
                 value={tableFilter?.filters?.[fieldName]?.value}
                 onChange={filterBy(fieldName, 'value')}
-                showTime
-                showSeconds
                 timeOnly
                 {...testid(filterId)}
                 {...props}
@@ -258,8 +256,6 @@ export default function columnProps({
             filterElement = filterBy && <DateRange
                 value={tableFilter?.filters?.[fieldName]?.value}
                 onChange={filterBy(fieldName, 'value')}
-                showTime
-                showSeconds
                 {...testid(filterId)}
                 {...props}
                 {...invalidProps}

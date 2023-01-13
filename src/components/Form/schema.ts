@@ -100,7 +100,7 @@ export default function getValidation(schema: Schema | Property, filter?: string
                 if (!nextSchema) return [prevSchema, prevRequired];
                 return [
                     prevSchema.append({
-                        [name]: schema?.required?.includes(name)
+                        [name]: (field?.mandatory || schema?.required?.includes(name))
                             ? nextSchema.empty([null, '']).required()
                             : nextSchema.allow(null)
                     }),
@@ -118,7 +118,15 @@ export default function getValidation(schema: Schema | Property, filter?: string
                             ...(filter?.includes('$original') && { $original: Joi.any() })
                         }
                 ),
-                [].concat(schema?.required?.map?.((r) => [path, r].filter(Boolean).join('.'))).filter(Boolean)
+                []
+                    .concat(
+                        schema?.required?.map?.((r) => [path, r].filter(Boolean).join('.'))
+                    )
+                    .concat(
+                        Object.entries(schema?.properties || {})
+                            .map(([name, settings]) => settings?.mandatory && [path, name].filter(Boolean).join('.'))
+                    )
+                    .filter(Boolean)
             ]
         );
     }
