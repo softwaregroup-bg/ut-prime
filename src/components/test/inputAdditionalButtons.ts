@@ -66,7 +66,8 @@ export const dropdowns = {
         {value: 1, label: 'EUR'},
         {value: 2, label: 'USD'},
         {value: 3, label: 'BGN'}
-    ]};
+    ]
+};
 
 const documentArchive = ({current, selected, onChange}) => {
     let updatedValue = [];
