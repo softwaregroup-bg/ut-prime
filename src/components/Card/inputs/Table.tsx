@@ -1,5 +1,6 @@
 import React from 'react';
 import lodashGet from 'lodash.get';
+import merge from 'ut-function.merge';
 import {createUseStyles} from 'react-jss';
 import clsx from 'clsx';
 
@@ -10,7 +11,8 @@ import useFilter from '../../hooks/useFilter';
 import {CHANGE, INDEX, KEY, NEW} from '../const';
 import type {Properties, WidgetReference, PropertyEditor} from '../../types';
 import testid from '../../lib/testid';
-import ActionButton from '../../ActionButton';
+import prepareSubmit from '../../lib/prepareSubmit';
+import useButtons from '../../hooks/useButtons';
 
 const fieldName = column => typeof column === 'string' ? column : column.name;
 
@@ -259,32 +261,27 @@ export default React.forwardRef<object, TableProps>(function Table({
         rows.length > 1
     );
 
-    const getValuesTable = React.useMemo(() => () => ({
+    const getTableValues = React.useMemo(() => () => ({
         current: allRows,
         selected,
         onChange
     }), [allRows, selected, onChange]);
 
-    const buttons = React.useMemo(() => (props?.additionalButtons || []).map((widget, index) => {
-        const {title, icon, permission, method, action, confirm, params} = (typeof widget === 'string') ? properties[widget].widget : widget;
+    const [loading, setLoading] = React.useState('');
+    const submit = React.useCallback(async({method, params}, form?) => {
+        params = prepareSubmit([getValues(form?.params), {}, {method, params}]);
+        const system = params?.$;
+        delete params?.$;
+        setLoading('loading');
+        try {
+            await methods[method](params);
+        } finally {
+            setLoading('');
+        }
+        if (system?.fetch) setFilters(prev => merge({}, prev, system.fetch));
+    }, [methods, getValues, setFilters]);
 
-        return <ActionButton
-            key={index}
-            icon={icon}
-            permission={permission}
-            {...testid(`${permission ? (permission + 'Button') : ('button' + index)}`)}
-            action={methods[action]}
-            method={method}
-            params={params}
-            confirm={confirm}
-            getValues={getValuesTable}
-            disabled={!selected}
-            aria-label='archive'
-            className='p-button mr-2'
-            {...testid(title + 'Button')}
-        >{title}</ActionButton>;
-    }
-    ), [props?.additionalButtons, properties, methods, getValuesTable, selected]);
+    const buttons = useButtons({ selected, buttonsProps: props?.additionalButtons, properties, methods, setFilters, getValues: getTableValues, paramsLayout: null, trigger: null, current: null, loading, setLoading, submit });
 
     const leftToolbarTemplate = React.useCallback(() => {
         const addNewRow = event => {

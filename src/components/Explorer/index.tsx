@@ -26,6 +26,7 @@ import prepareSubmit from '../lib/prepareSubmit';
 import { ComponentProps } from './Explorer.types';
 import testid from '../lib/testid';
 import useCustomization from '../hooks/useCustomization';
+import useButtons from '../hooks/useButtons';
 
 const backgroundNone = {background: 'none'};
 
@@ -279,42 +280,7 @@ const Explorer: ComponentProps = ({
         }
     }, [submitParams, submit]);
 
-    const buttons = React.useMemo(() => (toolbar || []).map((widget, index) => {
-        const {title, icon, action, method, params, enabled, disabled, permission, menu, confirm, successHint} = (typeof widget === 'string') ? properties[widget].widget : widget;
-        const check = criteria => {
-            if (typeof criteria?.validate === 'function') return !criteria.validate({current, selected}).error;
-            if (typeof criteria !== 'string') return !!criteria;
-            switch (criteria) {
-                case 'current': return !!current;
-                case 'selected': return selected && selected.length > 0;
-                case 'single': return selected && selected.length === 1;
-                default: return !!lodashGet(current, criteria);
-            }
-        };
-        const isDisabled =
-            enabled != null
-                ? !check(enabled)
-                : disabled != null
-                    ? check(disabled)
-                    : undefined;
-        return <ActionButton
-            key={index}
-            permission={permission}
-            {...testid(`${permission ? (permission + 'Button') : ('button' + index)}`)}
-            submit={paramsLayout ? trigger : submit}
-            action={action}
-            method={method}
-            params={params}
-            menu={menu}
-            confirm={confirm}
-            getValues={getValues}
-            disabled={!!loading || isDisabled}
-            successHint={successHint}
-            className="mr-2"
-            icon={icon}
-        >{title}</ActionButton>;
-    }
-    ), [toolbar, current, selected, getValues, properties, trigger, loading, paramsLayout, submit]);
+    const buttons = useButtons({ selected, buttonsProps: toolbar, properties, methods, setFilters, getValues, paramsLayout, trigger, current, loading, setLoading, submit });
     const [filterErrors, setFilterErrors] = React.useState<Joi.ValidationError>();
     const {toast, handleSubmit: load} = useSubmit(
         async function() {
