@@ -1,3 +1,12 @@
+## [2.61.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.61.1...v2.61.2) (2023-01-17)
+
+
+### Bug Fixes
+
+* improve visibility check ([c16940f](https://github.com/softwaregroup-bg/ut-prime/commit/c16940f365c99ad646ad004da48a3b2a4f531598))
+
+
+
 ## [2.61.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.61.0...v2.61.1) (2023-01-13)
 
 
