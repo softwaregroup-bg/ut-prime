@@ -1,6 +1,5 @@
 import React from 'react';
 import lodashGet from 'lodash.get';
-import merge from 'ut-function.merge';
 import {createUseStyles} from 'react-jss';
 import clsx from 'clsx';
 
@@ -11,7 +10,6 @@ import useFilter from '../../hooks/useFilter';
 import {CHANGE, INDEX, KEY, NEW} from '../const';
 import type {Properties, WidgetReference, PropertyEditor} from '../../types';
 import testid from '../../lib/testid';
-import prepareSubmit from '../../lib/prepareSubmit';
 import useButtons from '../../hooks/useButtons';
 
 const fieldName = column => typeof column === 'string' ? column : column.name;
@@ -86,7 +84,7 @@ interface TableProps extends Omit<DataTableProps, 'onChange'> {
     properties: Properties;
     dropdowns?: object;
     parent?: unknown;
-    methods: object;
+    methods?: object;
     filter?: object;
     master?: unknown;
     children?: unknown;
@@ -258,7 +256,7 @@ export default React.forwardRef<object, TableProps>(function Table({
         widgets,
         properties,
         // rows?.filter(item => !item?.[NEW]).length > 1
-        rows.length > 1
+        rows.length > 0
     );
 
     const getTableValues = React.useMemo(() => () => ({
@@ -268,20 +266,8 @@ export default React.forwardRef<object, TableProps>(function Table({
     }), [allRows, selected, onChange]);
 
     const [loading, setLoading] = React.useState('');
-    const submit = React.useCallback(async({method, params}, form?) => {
-        params = prepareSubmit([getValues(form?.params), {}, {method, params}]);
-        const system = params?.$;
-        delete params?.$;
-        setLoading('loading');
-        try {
-            await methods[method](params);
-        } finally {
-            setLoading('');
-        }
-        if (system?.fetch) setFilters(prev => merge({}, prev, system.fetch));
-    }, [methods, getValues, setFilters]);
 
-    const buttons = useButtons({ selected, buttonsProps: props?.additionalButtons, properties, methods, setFilters, getValues: getTableValues, paramsLayout: null, trigger: null, current: null, loading, setLoading, submit });
+    const buttons = useButtons({ selected, buttonsProps: props?.additionalButtons, properties, methods, setFilters, getValues: getTableValues, paramsLayout: null, trigger: null, current: null, loading, setLoading, name });
 
     const leftToolbarTemplate = React.useCallback(() => {
         const addNewRow = event => {

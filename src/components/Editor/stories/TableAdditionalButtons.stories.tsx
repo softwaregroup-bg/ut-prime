@@ -25,6 +25,9 @@ const Template: Story<Props> = ({methods, ...args}) => {
                     // throw new Error('test error');
                     // return false;
                 },
+                async 'document.customer.notify'() {
+                    submit('Notification sent');
+                },
                 async 'portal.customization.get'() {
                     return {};
                 },

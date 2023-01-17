@@ -32,9 +32,17 @@ const properties: Properties = {
             additionalButtons: [{
                 type: 'button',
                 title: 'Archive',
+                enabled: 'selected',
                 confirm: 'Current document will be archived. Do you confirm this action?',
                 action: (props) => documentArchive(props),
                 icon: 'p-c p-button-icon-left pi pi-inbox'
+            }, {
+                type: 'submit',
+                title: 'Notify',
+                confirm: 'This document will be sent as in a message?',
+                enabled: 'selected',
+                method: 'document.customer.notify',
+                icon: 'p-c p-button-icon-left pi pi-send'
             }],
             widgets: ['id', 'name', 'value', 'statusId']
         }

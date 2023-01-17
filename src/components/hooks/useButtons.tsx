@@ -1,9 +1,24 @@
 import React from 'react';
 import lodashGet from 'lodash.get';
+import merge from 'ut-function.merge';
 import ActionButton from '../ActionButton';
 import testid from '../lib/testid';
+import prepareSubmit from '../lib/prepareSubmit';
 
-export default function useButtons({ selected, buttonsProps, properties, methods, setFilters, getValues, paramsLayout, trigger, current, loading, setLoading, submit }) {
+export default function useButtons({ selected, buttonsProps, properties, methods, setFilters, getValues, paramsLayout, trigger, current, loading, setLoading, ...props }) {
+    const submit = React.useCallback(async({method, params}, form?) => {
+        params = prepareSubmit([props?.name ? getValues(props.name) : form?.params, {}, {method, params}]);
+        const system = params?.$;
+        delete params?.$;
+        setLoading('loading');
+        try {
+            await methods[method](params);
+        } finally {
+            setLoading('');
+        }
+        if (system?.fetch) setFilters(prev => merge({}, prev, system.fetch));
+    }, [props?.name, getValues, setLoading, setFilters, methods]);
+
     const buttons = React.useMemo(
         () =>
             (buttonsProps || []).map((widget, index) => {
@@ -49,7 +64,7 @@ export default function useButtons({ selected, buttonsProps, properties, methods
                         key={index}
                         permission={permission}
                         {...testid(`${permission ? permission + 'Button' : 'button' + index}`)}
-                        submit={paramsLayout ? trigger : submit}
+                        submit={paramsLayout ? trigger : (props.submit || submit)}
                         action={action}
                         method={method}
                         params={params}
@@ -65,7 +80,7 @@ export default function useButtons({ selected, buttonsProps, properties, methods
                     </ActionButton>
                 );
             }),
-        [buttonsProps, properties, paramsLayout, trigger, submit, getValues, loading, current, selected]
+        [buttonsProps, properties, current, paramsLayout, trigger, props.submit, submit, getValues, loading, selected]
     );
 
     return buttons;
