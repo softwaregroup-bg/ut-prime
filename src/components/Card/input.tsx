@@ -102,6 +102,12 @@ function input(
     props.disabled ??= schema?.readOnly || (parentField && !parentValue);
     if (loading) props.disabled = true;
     const filterBy = item => (!parentField && !optionsFilter) || Object.entries({...optionsFilter, parent: parentValue}).every(([name, value]) => String(item[name]) === String(value));
+    if (props?.additionalButtons) {
+        props.additionalButtons = props?.additionalButtons?.map(
+            button => ({...button, ...button.onClick && {onClick: () => methods[button.onClick]({getValues, setValue, name: field.name})}})
+        );
+    }
+
     switch (widgetType) {
         case 'button': return <ActionButton
             className={inputClass ?? 'mr-2'}

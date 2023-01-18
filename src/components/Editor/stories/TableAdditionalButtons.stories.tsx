@@ -25,6 +25,35 @@ const Template: Story<Props> = ({methods, ...args}) => {
                     // throw new Error('test error');
                     // return false;
                 },
+                async handleDocumentArchive({ getValues, setValue, name }) {
+                    const selected = getValues()?.$?.selected.input.table;
+                    const current = getValues(name);
+                    let updatedValue = [];
+                    if (selected.length > 0) {
+                        updatedValue = current?.map((row) => {
+                            if (selected?.some((item) => item.id === row.id)) {
+                                if (row?.statusId && !['deleted', 'pending'].includes(row.statusId)) {
+                                    return { ...row, statusId: 'archived' };
+                                } else {
+                                    return row;
+                                }
+                            } else {
+                                return row;
+                            }
+                        });
+                    } else {
+                        if (selected?.statusId && !['deleted', 'pending'].includes(selected.statusId)) {
+                            updatedValue = current?.map((row) => {
+                                if (selected.id === row.id) {
+                                    return { ...row, statusId: 'archived' };
+                                } else {
+                                    return row;
+                                }
+                            });
+                        }
+                    }
+                    setValue(name, updatedValue);
+                },
                 async 'document.customer.notify'() {
                     submit('Notification sent');
                 },

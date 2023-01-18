@@ -1,5 +1,6 @@
 import React from 'react';
 import lodashGet from 'lodash.get';
+import merge from 'ut-function.merge';
 import {createUseStyles} from 'react-jss';
 import clsx from 'clsx';
 
@@ -9,6 +10,7 @@ import columnProps from '../../lib/column';
 import useFilter from '../../hooks/useFilter';
 import {CHANGE, INDEX, KEY, NEW} from '../const';
 import type {Properties, WidgetReference, PropertyEditor} from '../../types';
+import prepareSubmit from '../../lib/prepareSubmit';
 import testid from '../../lib/testid';
 import useButtons from '../../hooks/useButtons';
 
@@ -103,11 +105,13 @@ interface TableProps extends Omit<DataTableProps, 'onChange'> {
         allowEdit?: boolean;
         allowSelect?: boolean;
     };
+    additionalButtons?: unknown;
 }
 
 export default React.forwardRef<object, TableProps>(function Table({
     name,
     id: resultSet = name,
+
     onChange,
     getValues,
     counter,
@@ -138,6 +142,7 @@ export default React.forwardRef<object, TableProps>(function Table({
         allowEdit = true,
         allowSelect = true
     } = {},
+    additionalButtons,
     ...props
 }, ref) {
     if (typeof ref === 'function') ref({});
@@ -256,18 +261,24 @@ export default React.forwardRef<object, TableProps>(function Table({
         widgets,
         properties,
         // rows?.filter(item => !item?.[NEW]).length > 1
-        rows.length > 0
+        rows.length > 1
     );
 
-    const getTableValues = React.useMemo(() => () => ({
-        current: allRows,
-        selected,
-        onChange
-    }), [allRows, selected, onChange]);
-
     const [loading, setLoading] = React.useState('');
+    const submit = React.useCallback(async({method, params}, form?) => {
+        params = prepareSubmit([getValues(form?.params), {}, {method, params}]);
+        const system = params?.$;
+        delete params?.$;
+        setLoading('loading');
+        try {
+            await methods[method](params);
+        } finally {
+            setLoading('');
+        }
+        if (system?.fetch) setFilters(prev => merge({}, prev, system.fetch));
+    }, [getValues, setFilters, methods]);
 
-    const buttons = useButtons({ selected, buttonsProps: props?.additionalButtons, properties, methods, setFilters, getValues: getTableValues, paramsLayout: null, trigger: null, current: null, loading, setLoading, name });
+    const buttons = useButtons({ selected, buttonsProps: additionalButtons, properties, getValues, paramsLayout: null, trigger: null, current: null, loading, submit });
 
     const leftToolbarTemplate = React.useCallback(() => {
         const addNewRow = event => {
@@ -308,10 +319,10 @@ export default React.forwardRef<object, TableProps>(function Table({
                     disabled={!selected}
                     {...testid(`${resultSet}.deleteButton`)}
                 >Delete</Button>}
-                {props?.additionalButtons && buttons}
+                {additionalButtons && buttons}
             </React.Fragment>
         );
-    }, [allowAdd, allowDelete, selected, identity, master, filter, parent, allRows, onChange, handleSelected, counter, properties, resultSet, disabled, initialFilters, setFilters, props?.additionalButtons, buttons]);
+    }, [allowAdd, allowDelete, selected, identity, master, filter, parent, allRows, onChange, handleSelected, counter, properties, resultSet, disabled, initialFilters, setFilters, additionalButtons, buttons]);
 
     if (selected && props.selectionMode === 'single' && !rows.includes(selected)) {
         handleSelected({value: rows[selected[KEY]]});

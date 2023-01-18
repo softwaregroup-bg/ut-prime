@@ -121,6 +121,19 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                       <span
                                         class="p-column-title"
                                       />
+                                      <div
+                                        class="p-checkbox p-component"
+                                      >
+                                        <div
+                                          class="p-checkbox-box p-component"
+                                          role="checkbox"
+                                          tabindex="0"
+                                        >
+                                          <span
+                                            class="p-checkbox-icon"
+                                          />
+                                        </div>
+                                      </div>
                                     </div>
                                   </th>
                                   <th
@@ -139,6 +152,9 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                           Input
                                         </span>
                                       </span>
+                                      <div
+                                        class="p-column-filter p-fluid p-column-filter-menu"
+                                      />
                                     </div>
                                   </th>
                                   <th
@@ -211,6 +227,9 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                           Boolean
                                         </span>
                                       </span>
+                                      <div
+                                        class="p-column-filter p-fluid p-column-filter-menu"
+                                      />
                                     </div>
                                   </th>
                                   <th
@@ -280,118 +299,6 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                       />
                                     </div>
                                   </th>
-                                </tr>
-                                <tr
-                                  role="row"
-                                >
-                                  <th
-                                    class="p-filter-column"
-                                  >
-                                    <div
-                                      class="p-checkbox p-component"
-                                    >
-                                      <div
-                                        class="p-checkbox-box p-component"
-                                        role="checkbox"
-                                        tabindex="0"
-                                      >
-                                        <span
-                                          class="p-checkbox-icon"
-                                        />
-                                      </div>
-                                    </div>
-                                  </th>
-                                  <th
-                                    class="p-filter-column"
-                                  >
-                                    <div
-                                      class="p-column-filter p-fluid p-column-filter-row"
-                                    >
-                                      <div
-                                        class="p-fluid p-column-filter-element"
-                                      >
-                                        <input
-                                          class="p-inputtext p-component"
-                                          name="table1.inputFilter"
-                                          value=""
-                                        />
-                                      </div>
-                                      <button
-                                        aria-label="Clear"
-                                        class="p-column-filter-clear-button p-link p-hidden-space"
-                                        type="button"
-                                      >
-                                        <span
-                                          aria-hidden="true"
-                                          class="pi pi-filter-slash"
-                                        />
-                                      </button>
-                                    </div>
-                                  </th>
-                                  <th
-                                    class="p-filter-column"
-                                  />
-                                  <th
-                                    class="p-filter-column"
-                                  />
-                                  <th
-                                    class="p-filter-column"
-                                  />
-                                  <th
-                                    class="p-filter-column"
-                                  >
-                                    <div
-                                      class="p-column-filter p-fluid p-column-filter-row"
-                                    >
-                                      <div
-                                        class="p-fluid p-column-filter-element"
-                                      >
-                                        <div
-                                          class="p-checkbox p-component"
-                                          data-testid="table1-booleanFilter"
-                                          id="table1.booleanFilter"
-                                        >
-                                          <div
-                                            class="p-hidden-accessible"
-                                          >
-                                            <input
-                                              name="table1.booleanFilter"
-                                              type="checkbox"
-                                            />
-                                          </div>
-                                          <div
-                                            class="p-checkbox-box"
-                                          >
-                                            <span
-                                              class="p-checkbox-icon p-c"
-                                            />
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <button
-                                        aria-label="Clear"
-                                        class="p-column-filter-clear-button p-link p-hidden-space"
-                                        type="button"
-                                      >
-                                        <span
-                                          aria-hidden="true"
-                                          class="pi pi-filter-slash"
-                                        />
-                                      </button>
-                                    </div>
-                                  </th>
-                                  <th
-                                    class="p-filter-column"
-                                  />
-                                  <th
-                                    class="p-filter-column"
-                                  />
-                                  <th
-                                    class="p-filter-column"
-                                  />
-                                  <th
-                                    class="p-filter-column"
-                                  />
                                 </tr>
                               </thead>
                               <tbody
@@ -1360,6 +1267,19 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                       <span
                                         class="p-column-title"
                                       />
+                                      <div
+                                        class="p-checkbox p-component"
+                                      >
+                                        <div
+                                          class="p-checkbox-box p-component"
+                                          role="checkbox"
+                                          tabindex="0"
+                                        >
+                                          <span
+                                            class="p-checkbox-icon"
+                                          />
+                                        </div>
+                                      </div>
                                     </div>
                                   </th>
                                   <th
@@ -1378,6 +1298,9 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                           Dropdown
                                         </span>
                                       </span>
+                                      <div
+                                        class="p-column-filter p-fluid p-column-filter-menu"
+                                      />
                                     </div>
                                   </th>
                                   <th
@@ -1447,104 +1370,6 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                       />
                                     </div>
                                   </th>
-                                </tr>
-                                <tr
-                                  role="row"
-                                >
-                                  <th
-                                    class="p-filter-column"
-                                  >
-                                    <div
-                                      class="p-checkbox p-component"
-                                    >
-                                      <div
-                                        class="p-checkbox-box p-component"
-                                        role="checkbox"
-                                        tabindex="0"
-                                      >
-                                        <span
-                                          class="p-checkbox-icon"
-                                        />
-                                      </div>
-                                    </div>
-                                  </th>
-                                  <th
-                                    class="p-filter-column"
-                                  >
-                                    <div
-                                      class="p-column-filter p-fluid p-column-filter-row"
-                                    >
-                                      <div
-                                        class="p-fluid p-column-filter-element"
-                                      >
-                                        <div
-                                          class="p-dropdown p-component p-inputwrapper p-dropdown-clearable w-full"
-                                          data-testid="table3-dropdownFilter"
-                                        >
-                                          <div
-                                            class="p-hidden-accessible"
-                                          >
-                                            <input
-                                              aria-haspopup="listbox"
-                                              readonly=""
-                                              type="text"
-                                            />
-                                          </div>
-                                          <div
-                                            class="p-hidden-accessible p-dropdown-hidden-select"
-                                          >
-                                            <select
-                                              aria-hidden="true"
-                                              name="table3.dropdownFilter"
-                                              tabindex="-1"
-                                            >
-                                              <option
-                                                selected=""
-                                                value=""
-                                              />
-                                            </select>
-                                          </div>
-                                          <span
-                                            class="p-dropdown-label p-inputtext p-dropdown-label-empty"
-                                          >
-                                            empty
-                                          </span>
-                                          <div
-                                            aria-expanded="false"
-                                            aria-haspopup="listbox"
-                                            class="p-dropdown-trigger"
-                                            role="button"
-                                          >
-                                            <span
-                                              class="p-dropdown-trigger-icon p-clickable pi pi-chevron-down"
-                                            />
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <button
-                                        aria-label="Clear"
-                                        class="p-column-filter-clear-button p-link p-hidden-space"
-                                        type="button"
-                                      >
-                                        <span
-                                          aria-hidden="true"
-                                          class="pi pi-filter-slash"
-                                        />
-                                      </button>
-                                    </div>
-                                  </th>
-                                  <th
-                                    class="p-filter-column"
-                                  />
-                                  <th
-                                    class="p-filter-column"
-                                  />
-                                  <th
-                                    class="p-filter-column"
-                                  />
-                                  <th
-                                    class="p-filter-column"
-                                  />
                                 </tr>
                               </thead>
                               <tbody
@@ -2206,6 +2031,19 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                                       <span
                                         class="p-column-title"
                                       />
+                                      <div
+                                        class="p-checkbox p-component"
+                                      >
+                                        <div
+                                          class="p-checkbox-box p-component"
+                                          role="checkbox"
+                                          tabindex="0"
+                                        >
+                                          <span
+                                            class="p-checkbox-icon"
+                                          />
+                                        </div>
+                                      </div>
                                     </div>
                                   </th>
                                   <th
@@ -2224,6 +2062,9 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                                           إدخال
                                         </span>
                                       </span>
+                                      <div
+                                        class="p-column-filter p-fluid p-column-filter-menu"
+                                      />
                                     </div>
                                   </th>
                                   <th
@@ -2296,6 +2137,9 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                                           قيمة منطقية
                                         </span>
                                       </span>
+                                      <div
+                                        class="p-column-filter p-fluid p-column-filter-menu"
+                                      />
                                     </div>
                                   </th>
                                   <th
@@ -2365,118 +2209,6 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                                       />
                                     </div>
                                   </th>
-                                </tr>
-                                <tr
-                                  role="row"
-                                >
-                                  <th
-                                    class="p-filter-column"
-                                  >
-                                    <div
-                                      class="p-checkbox p-component"
-                                    >
-                                      <div
-                                        class="p-checkbox-box p-component"
-                                        role="checkbox"
-                                        tabindex="0"
-                                      >
-                                        <span
-                                          class="p-checkbox-icon"
-                                        />
-                                      </div>
-                                    </div>
-                                  </th>
-                                  <th
-                                    class="p-filter-column"
-                                  >
-                                    <div
-                                      class="p-column-filter p-fluid p-column-filter-row"
-                                    >
-                                      <div
-                                        class="p-fluid p-column-filter-element"
-                                      >
-                                        <input
-                                          class="p-inputtext p-component"
-                                          name="table1.inputFilter"
-                                          value=""
-                                        />
-                                      </div>
-                                      <button
-                                        aria-label="Clear"
-                                        class="p-column-filter-clear-button p-link p-hidden-space"
-                                        type="button"
-                                      >
-                                        <span
-                                          aria-hidden="true"
-                                          class="pi pi-filter-slash"
-                                        />
-                                      </button>
-                                    </div>
-                                  </th>
-                                  <th
-                                    class="p-filter-column"
-                                  />
-                                  <th
-                                    class="p-filter-column"
-                                  />
-                                  <th
-                                    class="p-filter-column"
-                                  />
-                                  <th
-                                    class="p-filter-column"
-                                  >
-                                    <div
-                                      class="p-column-filter p-fluid p-column-filter-row"
-                                    >
-                                      <div
-                                        class="p-fluid p-column-filter-element"
-                                      >
-                                        <div
-                                          class="p-checkbox p-component"
-                                          data-testid="table1-booleanFilter"
-                                          id="table1.booleanFilter"
-                                        >
-                                          <div
-                                            class="p-hidden-accessible"
-                                          >
-                                            <input
-                                              name="table1.booleanFilter"
-                                              type="checkbox"
-                                            />
-                                          </div>
-                                          <div
-                                            class="p-checkbox-box"
-                                          >
-                                            <span
-                                              class="p-checkbox-icon p-c"
-                                            />
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <button
-                                        aria-label="Clear"
-                                        class="p-column-filter-clear-button p-link p-hidden-space"
-                                        type="button"
-                                      >
-                                        <span
-                                          aria-hidden="true"
-                                          class="pi pi-filter-slash"
-                                        />
-                                      </button>
-                                    </div>
-                                  </th>
-                                  <th
-                                    class="p-filter-column"
-                                  />
-                                  <th
-                                    class="p-filter-column"
-                                  />
-                                  <th
-                                    class="p-filter-column"
-                                  />
-                                  <th
-                                    class="p-filter-column"
-                                  />
                                 </tr>
                               </thead>
                               <tbody
@@ -3445,6 +3177,19 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                                       <span
                                         class="p-column-title"
                                       />
+                                      <div
+                                        class="p-checkbox p-component"
+                                      >
+                                        <div
+                                          class="p-checkbox-box p-component"
+                                          role="checkbox"
+                                          tabindex="0"
+                                        >
+                                          <span
+                                            class="p-checkbox-icon"
+                                          />
+                                        </div>
+                                      </div>
                                     </div>
                                   </th>
                                   <th
@@ -3463,6 +3208,9 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                                           اسقاط
                                         </span>
                                       </span>
+                                      <div
+                                        class="p-column-filter p-fluid p-column-filter-menu"
+                                      />
                                     </div>
                                   </th>
                                   <th
@@ -3532,104 +3280,6 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                                       />
                                     </div>
                                   </th>
-                                </tr>
-                                <tr
-                                  role="row"
-                                >
-                                  <th
-                                    class="p-filter-column"
-                                  >
-                                    <div
-                                      class="p-checkbox p-component"
-                                    >
-                                      <div
-                                        class="p-checkbox-box p-component"
-                                        role="checkbox"
-                                        tabindex="0"
-                                      >
-                                        <span
-                                          class="p-checkbox-icon"
-                                        />
-                                      </div>
-                                    </div>
-                                  </th>
-                                  <th
-                                    class="p-filter-column"
-                                  >
-                                    <div
-                                      class="p-column-filter p-fluid p-column-filter-row"
-                                    >
-                                      <div
-                                        class="p-fluid p-column-filter-element"
-                                      >
-                                        <div
-                                          class="p-dropdown p-component p-inputwrapper p-dropdown-clearable w-full"
-                                          data-testid="table3-dropdownFilter"
-                                        >
-                                          <div
-                                            class="p-hidden-accessible"
-                                          >
-                                            <input
-                                              aria-haspopup="listbox"
-                                              readonly=""
-                                              type="text"
-                                            />
-                                          </div>
-                                          <div
-                                            class="p-hidden-accessible p-dropdown-hidden-select"
-                                          >
-                                            <select
-                                              aria-hidden="true"
-                                              name="table3.dropdownFilter"
-                                              tabindex="-1"
-                                            >
-                                              <option
-                                                selected=""
-                                                value=""
-                                              />
-                                            </select>
-                                          </div>
-                                          <span
-                                            class="p-dropdown-label p-inputtext p-dropdown-label-empty"
-                                          >
-                                            empty
-                                          </span>
-                                          <div
-                                            aria-expanded="false"
-                                            aria-haspopup="listbox"
-                                            class="p-dropdown-trigger"
-                                            role="button"
-                                          >
-                                            <span
-                                              class="p-dropdown-trigger-icon p-clickable pi pi-chevron-down"
-                                            />
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <button
-                                        aria-label="Clear"
-                                        class="p-column-filter-clear-button p-link p-hidden-space"
-                                        type="button"
-                                      >
-                                        <span
-                                          aria-hidden="true"
-                                          class="pi pi-filter-slash"
-                                        />
-                                      </button>
-                                    </div>
-                                  </th>
-                                  <th
-                                    class="p-filter-column"
-                                  />
-                                  <th
-                                    class="p-filter-column"
-                                  />
-                                  <th
-                                    class="p-filter-column"
-                                  />
-                                  <th
-                                    class="p-filter-column"
-                                  />
                                 </tr>
                               </thead>
                               <tbody
@@ -4290,6 +3940,19 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                                       <span
                                         class="p-column-title"
                                       />
+                                      <div
+                                        class="p-checkbox p-component"
+                                      >
+                                        <div
+                                          class="p-checkbox-box p-component"
+                                          role="checkbox"
+                                          tabindex="0"
+                                        >
+                                          <span
+                                            class="p-checkbox-icon"
+                                          />
+                                        </div>
+                                      </div>
                                     </div>
                                   </th>
                                   <th
@@ -4308,6 +3971,9 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                                           Поле
                                         </span>
                                       </span>
+                                      <div
+                                        class="p-column-filter p-fluid p-column-filter-menu"
+                                      />
                                     </div>
                                   </th>
                                   <th
@@ -4380,6 +4046,9 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                                           Флаг
                                         </span>
                                       </span>
+                                      <div
+                                        class="p-column-filter p-fluid p-column-filter-menu"
+                                      />
                                     </div>
                                   </th>
                                   <th
@@ -4449,118 +4118,6 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                                       />
                                     </div>
                                   </th>
-                                </tr>
-                                <tr
-                                  role="row"
-                                >
-                                  <th
-                                    class="p-filter-column"
-                                  >
-                                    <div
-                                      class="p-checkbox p-component"
-                                    >
-                                      <div
-                                        class="p-checkbox-box p-component"
-                                        role="checkbox"
-                                        tabindex="0"
-                                      >
-                                        <span
-                                          class="p-checkbox-icon"
-                                        />
-                                      </div>
-                                    </div>
-                                  </th>
-                                  <th
-                                    class="p-filter-column"
-                                  >
-                                    <div
-                                      class="p-column-filter p-fluid p-column-filter-row"
-                                    >
-                                      <div
-                                        class="p-fluid p-column-filter-element"
-                                      >
-                                        <input
-                                          class="p-inputtext p-component"
-                                          name="table1.inputFilter"
-                                          value=""
-                                        />
-                                      </div>
-                                      <button
-                                        aria-label="Clear"
-                                        class="p-column-filter-clear-button p-link p-hidden-space"
-                                        type="button"
-                                      >
-                                        <span
-                                          aria-hidden="true"
-                                          class="pi pi-filter-slash"
-                                        />
-                                      </button>
-                                    </div>
-                                  </th>
-                                  <th
-                                    class="p-filter-column"
-                                  />
-                                  <th
-                                    class="p-filter-column"
-                                  />
-                                  <th
-                                    class="p-filter-column"
-                                  />
-                                  <th
-                                    class="p-filter-column"
-                                  >
-                                    <div
-                                      class="p-column-filter p-fluid p-column-filter-row"
-                                    >
-                                      <div
-                                        class="p-fluid p-column-filter-element"
-                                      >
-                                        <div
-                                          class="p-checkbox p-component"
-                                          data-testid="table1-booleanFilter"
-                                          id="table1.booleanFilter"
-                                        >
-                                          <div
-                                            class="p-hidden-accessible"
-                                          >
-                                            <input
-                                              name="table1.booleanFilter"
-                                              type="checkbox"
-                                            />
-                                          </div>
-                                          <div
-                                            class="p-checkbox-box"
-                                          >
-                                            <span
-                                              class="p-checkbox-icon p-c"
-                                            />
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <button
-                                        aria-label="Clear"
-                                        class="p-column-filter-clear-button p-link p-hidden-space"
-                                        type="button"
-                                      >
-                                        <span
-                                          aria-hidden="true"
-                                          class="pi pi-filter-slash"
-                                        />
-                                      </button>
-                                    </div>
-                                  </th>
-                                  <th
-                                    class="p-filter-column"
-                                  />
-                                  <th
-                                    class="p-filter-column"
-                                  />
-                                  <th
-                                    class="p-filter-column"
-                                  />
-                                  <th
-                                    class="p-filter-column"
-                                  />
                                 </tr>
                               </thead>
                               <tbody
@@ -5529,6 +5086,19 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                                       <span
                                         class="p-column-title"
                                       />
+                                      <div
+                                        class="p-checkbox p-component"
+                                      >
+                                        <div
+                                          class="p-checkbox-box p-component"
+                                          role="checkbox"
+                                          tabindex="0"
+                                        >
+                                          <span
+                                            class="p-checkbox-icon"
+                                          />
+                                        </div>
+                                      </div>
                                     </div>
                                   </th>
                                   <th
@@ -5547,6 +5117,9 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                                           Списък
                                         </span>
                                       </span>
+                                      <div
+                                        class="p-column-filter p-fluid p-column-filter-menu"
+                                      />
                                     </div>
                                   </th>
                                   <th
@@ -5616,104 +5189,6 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                                       />
                                     </div>
                                   </th>
-                                </tr>
-                                <tr
-                                  role="row"
-                                >
-                                  <th
-                                    class="p-filter-column"
-                                  >
-                                    <div
-                                      class="p-checkbox p-component"
-                                    >
-                                      <div
-                                        class="p-checkbox-box p-component"
-                                        role="checkbox"
-                                        tabindex="0"
-                                      >
-                                        <span
-                                          class="p-checkbox-icon"
-                                        />
-                                      </div>
-                                    </div>
-                                  </th>
-                                  <th
-                                    class="p-filter-column"
-                                  >
-                                    <div
-                                      class="p-column-filter p-fluid p-column-filter-row"
-                                    >
-                                      <div
-                                        class="p-fluid p-column-filter-element"
-                                      >
-                                        <div
-                                          class="p-dropdown p-component p-inputwrapper p-dropdown-clearable w-full"
-                                          data-testid="table3-dropdownFilter"
-                                        >
-                                          <div
-                                            class="p-hidden-accessible"
-                                          >
-                                            <input
-                                              aria-haspopup="listbox"
-                                              readonly=""
-                                              type="text"
-                                            />
-                                          </div>
-                                          <div
-                                            class="p-hidden-accessible p-dropdown-hidden-select"
-                                          >
-                                            <select
-                                              aria-hidden="true"
-                                              name="table3.dropdownFilter"
-                                              tabindex="-1"
-                                            >
-                                              <option
-                                                selected=""
-                                                value=""
-                                              />
-                                            </select>
-                                          </div>
-                                          <span
-                                            class="p-dropdown-label p-inputtext p-dropdown-label-empty"
-                                          >
-                                            empty
-                                          </span>
-                                          <div
-                                            aria-expanded="false"
-                                            aria-haspopup="listbox"
-                                            class="p-dropdown-trigger"
-                                            role="button"
-                                          >
-                                            <span
-                                              class="p-dropdown-trigger-icon p-clickable pi pi-chevron-down"
-                                            />
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <button
-                                        aria-label="Clear"
-                                        class="p-column-filter-clear-button p-link p-hidden-space"
-                                        type="button"
-                                      >
-                                        <span
-                                          aria-hidden="true"
-                                          class="pi pi-filter-slash"
-                                        />
-                                      </button>
-                                    </div>
-                                  </th>
-                                  <th
-                                    class="p-filter-column"
-                                  />
-                                  <th
-                                    class="p-filter-column"
-                                  />
-                                  <th
-                                    class="p-filter-column"
-                                  />
-                                  <th
-                                    class="p-filter-column"
-                                  />
                                 </tr>
                               </thead>
                               <tbody
