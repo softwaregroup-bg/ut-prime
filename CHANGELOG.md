@@ -1,3 +1,12 @@
+## [2.61.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.61.2...v2.61.3) (2023-01-18)
+
+
+### Bug Fixes
+
+* improve validation ([255c9c0](https://github.com/softwaregroup-bg/ut-prime/commit/255c9c0ef1bdb1d76733e5c798440a5361a67531))
+
+
+
 ## [2.61.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.61.1...v2.61.2) (2023-01-17)
 
 
