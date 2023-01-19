@@ -40,7 +40,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                         class="w-full"
                       >
                         <div
-                          class="p-toolbar p-component px-0 border-none"
+                          class="p-toolbar p-component p-0 border-none"
                           role="toolbar"
                           style="background: none;"
                         >
@@ -49,7 +49,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                           >
                             <button
                               aria-label="Add"
-                              class="p-button p-component p-button mr-2"
+                              class="p-button p-component p-button"
                               data-testid="table1-addButton"
                             >
                               <span
@@ -68,7 +68,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                             </button>
                             <button
                               aria-label="Delete"
-                              class="p-button p-component p-button mr-2 p-disabled"
+                              class="p-button p-component p-button p-disabled"
                               data-testid="table1-deleteButton"
                               disabled=""
                             >
@@ -305,7 +305,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                 class="p-datatable-tbody"
                               >
                                 <tr
-                                  class=""
+                                  class="p-selectable-row"
                                   role="row"
                                 >
                                   <td
@@ -625,7 +625,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                         class="w-full"
                       >
                         <div
-                          class="p-toolbar p-component px-0 border-none"
+                          class="p-toolbar p-component p-0 border-none"
                           role="toolbar"
                           style="background: none;"
                         >
@@ -634,7 +634,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                           >
                             <button
                               aria-label="Add"
-                              class="p-button p-component p-button mr-2"
+                              class="p-button p-component p-button"
                               data-testid="table2-addButton"
                             >
                               <span
@@ -653,7 +653,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                             </button>
                             <button
                               aria-label="Delete"
-                              class="p-button p-component p-button mr-2 p-disabled"
+                              class="p-button p-component p-button p-disabled"
                               data-testid="table2-deleteButton"
                               disabled=""
                             >
@@ -866,7 +866,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                 class="p-datatable-tbody"
                               >
                                 <tr
-                                  class=""
+                                  class="p-selectable-row"
                                   role="row"
                                 >
                                   <td
@@ -1186,7 +1186,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                         class="w-full"
                       >
                         <div
-                          class="p-toolbar p-component px-0 border-none"
+                          class="p-toolbar p-component p-0 border-none"
                           role="toolbar"
                           style="background: none;"
                         >
@@ -1195,7 +1195,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                           >
                             <button
                               aria-label="Add"
-                              class="p-button p-component p-button mr-2"
+                              class="p-button p-component p-button"
                               data-testid="table3-addButton"
                             >
                               <span
@@ -1214,7 +1214,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                             </button>
                             <button
                               aria-label="Delete"
-                              class="p-button p-component p-button mr-2 p-disabled"
+                              class="p-button p-component p-button p-disabled"
                               data-testid="table3-deleteButton"
                               disabled=""
                             >
@@ -1376,7 +1376,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                 class="p-datatable-tbody"
                               >
                                 <tr
-                                  class=""
+                                  class="p-selectable-row"
                                   role="row"
                                 >
                                   <td
@@ -1599,7 +1599,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                         class="w-full"
                       >
                         <div
-                          class="p-toolbar p-component px-0 border-none"
+                          class="p-toolbar p-component p-0 border-none"
                           role="toolbar"
                           style="background: none;"
                         >
@@ -1608,7 +1608,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                           >
                             <button
                               aria-label="Add"
-                              class="p-button p-component p-button mr-2"
+                              class="p-button p-component p-button"
                               data-testid="table4-addButton"
                             >
                               <span
@@ -1627,7 +1627,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                             </button>
                             <button
                               aria-label="Delete"
-                              class="p-button p-component p-button mr-2 p-disabled"
+                              class="p-button p-component p-button p-disabled"
                               data-testid="table4-deleteButton"
                               disabled=""
                             >
@@ -1768,7 +1768,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                 class="p-datatable-tbody"
                               >
                                 <tr
-                                  class=""
+                                  class="p-selectable-row"
                                   role="row"
                                 >
                                   <td
@@ -1950,7 +1950,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                         class="w-full"
                       >
                         <div
-                          class="p-toolbar p-component px-0 border-none"
+                          class="p-toolbar p-component p-0 border-none"
                           role="toolbar"
                           style="background: none;"
                         >
@@ -1959,7 +1959,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                           >
                             <button
                               aria-label="Add"
-                              class="p-button p-component p-button mr-2"
+                              class="p-button p-component p-button"
                               data-testid="table1-addButton"
                             >
                               <span
@@ -1978,7 +1978,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                             </button>
                             <button
                               aria-label="Delete"
-                              class="p-button p-component p-button mr-2 p-disabled"
+                              class="p-button p-component p-button p-disabled"
                               data-testid="table1-deleteButton"
                               disabled=""
                             >
@@ -2215,7 +2215,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                                 class="p-datatable-tbody"
                               >
                                 <tr
-                                  class=""
+                                  class="p-selectable-row"
                                   role="row"
                                 >
                                   <td
@@ -2535,7 +2535,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                         class="w-full"
                       >
                         <div
-                          class="p-toolbar p-component px-0 border-none"
+                          class="p-toolbar p-component p-0 border-none"
                           role="toolbar"
                           style="background: none;"
                         >
@@ -2544,7 +2544,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                           >
                             <button
                               aria-label="Add"
-                              class="p-button p-component p-button mr-2"
+                              class="p-button p-component p-button"
                               data-testid="table2-addButton"
                             >
                               <span
@@ -2563,7 +2563,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                             </button>
                             <button
                               aria-label="Delete"
-                              class="p-button p-component p-button mr-2 p-disabled"
+                              class="p-button p-component p-button p-disabled"
                               data-testid="table2-deleteButton"
                               disabled=""
                             >
@@ -2776,7 +2776,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                                 class="p-datatable-tbody"
                               >
                                 <tr
-                                  class=""
+                                  class="p-selectable-row"
                                   role="row"
                                 >
                                   <td
@@ -3096,7 +3096,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                         class="w-full"
                       >
                         <div
-                          class="p-toolbar p-component px-0 border-none"
+                          class="p-toolbar p-component p-0 border-none"
                           role="toolbar"
                           style="background: none;"
                         >
@@ -3105,7 +3105,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                           >
                             <button
                               aria-label="Add"
-                              class="p-button p-component p-button mr-2"
+                              class="p-button p-component p-button"
                               data-testid="table3-addButton"
                             >
                               <span
@@ -3124,7 +3124,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                             </button>
                             <button
                               aria-label="Delete"
-                              class="p-button p-component p-button mr-2 p-disabled"
+                              class="p-button p-component p-button p-disabled"
                               data-testid="table3-deleteButton"
                               disabled=""
                             >
@@ -3286,7 +3286,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                                 class="p-datatable-tbody"
                               >
                                 <tr
-                                  class=""
+                                  class="p-selectable-row"
                                   role="row"
                                 >
                                   <td
@@ -3509,7 +3509,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                         class="w-full"
                       >
                         <div
-                          class="p-toolbar p-component px-0 border-none"
+                          class="p-toolbar p-component p-0 border-none"
                           role="toolbar"
                           style="background: none;"
                         >
@@ -3518,7 +3518,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                           >
                             <button
                               aria-label="Add"
-                              class="p-button p-component p-button mr-2"
+                              class="p-button p-component p-button"
                               data-testid="table4-addButton"
                             >
                               <span
@@ -3537,7 +3537,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                             </button>
                             <button
                               aria-label="Delete"
-                              class="p-button p-component p-button mr-2 p-disabled"
+                              class="p-button p-component p-button p-disabled"
                               data-testid="table4-deleteButton"
                               disabled=""
                             >
@@ -3678,7 +3678,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                                 class="p-datatable-tbody"
                               >
                                 <tr
-                                  class=""
+                                  class="p-selectable-row"
                                   role="row"
                                 >
                                   <td
@@ -3859,7 +3859,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                         class="w-full"
                       >
                         <div
-                          class="p-toolbar p-component px-0 border-none"
+                          class="p-toolbar p-component p-0 border-none"
                           role="toolbar"
                           style="background: none;"
                         >
@@ -3868,7 +3868,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                           >
                             <button
                               aria-label="Add"
-                              class="p-button p-component p-button mr-2"
+                              class="p-button p-component p-button"
                               data-testid="table1-addButton"
                             >
                               <span
@@ -3887,7 +3887,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                             </button>
                             <button
                               aria-label="Delete"
-                              class="p-button p-component p-button mr-2 p-disabled"
+                              class="p-button p-component p-button p-disabled"
                               data-testid="table1-deleteButton"
                               disabled=""
                             >
@@ -4124,7 +4124,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                                 class="p-datatable-tbody"
                               >
                                 <tr
-                                  class=""
+                                  class="p-selectable-row"
                                   role="row"
                                 >
                                   <td
@@ -4444,7 +4444,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                         class="w-full"
                       >
                         <div
-                          class="p-toolbar p-component px-0 border-none"
+                          class="p-toolbar p-component p-0 border-none"
                           role="toolbar"
                           style="background: none;"
                         >
@@ -4453,7 +4453,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                           >
                             <button
                               aria-label="Add"
-                              class="p-button p-component p-button mr-2"
+                              class="p-button p-component p-button"
                               data-testid="table2-addButton"
                             >
                               <span
@@ -4472,7 +4472,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                             </button>
                             <button
                               aria-label="Delete"
-                              class="p-button p-component p-button mr-2 p-disabled"
+                              class="p-button p-component p-button p-disabled"
                               data-testid="table2-deleteButton"
                               disabled=""
                             >
@@ -4685,7 +4685,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                                 class="p-datatable-tbody"
                               >
                                 <tr
-                                  class=""
+                                  class="p-selectable-row"
                                   role="row"
                                 >
                                   <td
@@ -5005,7 +5005,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                         class="w-full"
                       >
                         <div
-                          class="p-toolbar p-component px-0 border-none"
+                          class="p-toolbar p-component p-0 border-none"
                           role="toolbar"
                           style="background: none;"
                         >
@@ -5014,7 +5014,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                           >
                             <button
                               aria-label="Add"
-                              class="p-button p-component p-button mr-2"
+                              class="p-button p-component p-button"
                               data-testid="table3-addButton"
                             >
                               <span
@@ -5033,7 +5033,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                             </button>
                             <button
                               aria-label="Delete"
-                              class="p-button p-component p-button mr-2 p-disabled"
+                              class="p-button p-component p-button p-disabled"
                               data-testid="table3-deleteButton"
                               disabled=""
                             >
@@ -5195,7 +5195,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                                 class="p-datatable-tbody"
                               >
                                 <tr
-                                  class=""
+                                  class="p-selectable-row"
                                   role="row"
                                 >
                                   <td
@@ -5418,7 +5418,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                         class="w-full"
                       >
                         <div
-                          class="p-toolbar p-component px-0 border-none"
+                          class="p-toolbar p-component p-0 border-none"
                           role="toolbar"
                           style="background: none;"
                         >
@@ -5427,7 +5427,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                           >
                             <button
                               aria-label="Add"
-                              class="p-button p-component p-button mr-2"
+                              class="p-button p-component p-button"
                               data-testid="table4-addButton"
                             >
                               <span
@@ -5446,7 +5446,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                             </button>
                             <button
                               aria-label="Delete"
-                              class="p-button p-component p-button mr-2 p-disabled"
+                              class="p-button p-component p-button p-disabled"
                               data-testid="table4-deleteButton"
                               disabled=""
                             >
@@ -5587,7 +5587,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                                 class="p-datatable-tbody"
                               >
                                 <tr
-                                  class=""
+                                  class="p-selectable-row"
                                   role="row"
                                 >
                                   <td

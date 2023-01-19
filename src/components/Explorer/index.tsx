@@ -280,7 +280,7 @@ const Explorer: ComponentProps = ({
         }
     }, [submitParams, submit]);
 
-    const buttons = useButtons({ selected, buttonsProps: toolbar, properties, getValues, paramsLayout, trigger, current, loading, submit });
+    const buttons = useButtons({ selected, toolbar, properties, getValues, paramsLayout, trigger, current, loading, submit });
     const [filterErrors, setFilterErrors] = React.useState<Joi.ValidationError>();
     const {toast, handleSubmit: load} = useSubmit(
         async function() {

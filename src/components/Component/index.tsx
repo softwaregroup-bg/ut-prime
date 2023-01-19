@@ -4,8 +4,6 @@ import template from 'ut-function.template';
 
 import { ProgressSpinner } from 'primereact/progressspinner';
 
-import type {Selection} from '../types';
-
 const center : React.HTMLAttributes<Element>['style'] = {
     transform: 'translate(-50%, -50%)'
 };
@@ -14,7 +12,7 @@ const Page: React.FC<{
     page: string,
     params?: unknown,
     language?: string,
-    getValues?: () => Selection,
+    getValues?: () => unknown,
     [props: string]: unknown}
 > = ({page, params, getValues, children, ...props}) => {
     const [Page, setPage] = React.useState<React.FC>();

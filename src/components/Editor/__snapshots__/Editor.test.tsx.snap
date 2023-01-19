@@ -363,7 +363,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                           class="w-full"
                         >
                           <div
-                            class="p-toolbar p-component px-0 border-none"
+                            class="p-toolbar p-component p-0 border-none"
                             role="toolbar"
                             style="background: none;"
                           >
@@ -381,7 +381,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                             >
                               <button
                                 aria-label="Add"
-                                class="p-button p-component p-button mr-2"
+                                class="p-button p-component p-button"
                                 data-testid="tree-links-addButton"
                               >
                                 <span
@@ -400,7 +400,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                               </button>
                               <button
                                 aria-label="Delete"
-                                class="p-button p-component p-button mr-2 p-disabled"
+                                class="p-button p-component p-button p-disabled"
                                 data-testid="tree-links-deleteButton"
                                 disabled=""
                               >
@@ -1166,7 +1166,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                           class="w-full"
                         >
                           <div
-                            class="p-toolbar p-component px-0 border-none"
+                            class="p-toolbar p-component p-0 border-none"
                             role="toolbar"
                             style="background: none;"
                           >
@@ -1175,7 +1175,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                             >
                               <button
                                 aria-label="Add"
-                                class="p-button p-component p-button mr-2"
+                                class="p-button p-component p-button"
                                 data-testid="person-addButton"
                               >
                                 <span
@@ -1194,7 +1194,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                               </button>
                               <button
                                 aria-label="Delete"
-                                class="p-button p-component p-button mr-2"
+                                class="p-button p-component p-button"
                                 data-testid="person-deleteButton"
                               >
                                 <span
@@ -1309,7 +1309,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                   class="p-datatable-tbody"
                                 >
                                   <tr
-                                    class="p-highlight p-selectable-row"
+                                    class="current-0-2-4 p-highlight p-selectable-row"
                                     draggable="false"
                                     role="row"
                                     tabindex="0"
@@ -1512,7 +1512,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                           class="w-full"
                         >
                           <div
-                            class="p-toolbar p-component px-0 border-none"
+                            class="p-toolbar p-component p-0 border-none"
                             role="toolbar"
                             style="background: none;"
                           >
@@ -1521,7 +1521,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                             >
                               <button
                                 aria-label="Add"
-                                class="p-button p-component p-button mr-2"
+                                class="p-button p-component p-button"
                                 data-testid="document-addButton"
                               >
                                 <span
@@ -1540,7 +1540,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                               </button>
                               <button
                                 aria-label="Delete"
-                                class="p-button p-component p-button mr-2"
+                                class="p-button p-component p-button"
                                 data-testid="document-deleteButton"
                               >
                                 <span
@@ -1725,7 +1725,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                     </td>
                                   </tr>
                                   <tr
-                                    class="p-highlight p-selectable-row p-row-odd"
+                                    class="current-0-2-4 p-highlight p-selectable-row p-row-odd"
                                     draggable="false"
                                     role="row"
                                     tabindex="0"
@@ -1912,7 +1912,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                           class="w-full"
                         >
                           <div
-                            class="p-toolbar p-component px-0 border-none"
+                            class="p-toolbar p-component p-0 border-none"
                             role="toolbar"
                             style="background: none;"
                           >
@@ -1921,7 +1921,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                             >
                               <button
                                 aria-label="Add"
-                                class="p-button p-component p-button mr-2"
+                                class="p-button p-component p-button"
                                 data-testid="attachment-addButton"
                               >
                                 <span
@@ -1940,7 +1940,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                               </button>
                               <button
                                 aria-label="Delete"
-                                class="p-button p-component p-button mr-2 p-disabled"
+                                class="p-button p-component p-button p-disabled"
                                 data-testid="attachment-deleteButton"
                                 disabled=""
                               >
@@ -3087,7 +3087,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                             class="w-full"
                           >
                             <div
-                              class="p-toolbar p-component px-0 border-none"
+                              class="p-toolbar p-component p-0 border-none"
                               role="toolbar"
                               style="background: none;"
                             >
@@ -3105,7 +3105,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                               >
                                 <button
                                   aria-label="Add"
-                                  class="p-button p-component p-button mr-2"
+                                  class="p-button p-component p-button"
                                   data-testid="tree-links-addButton"
                                 >
                                   <span
@@ -3124,7 +3124,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                                 </button>
                                 <button
                                   aria-label="Delete"
-                                  class="p-button p-component p-button mr-2 p-disabled"
+                                  class="p-button p-component p-button p-disabled"
                                   data-testid="tree-links-deleteButton"
                                   disabled=""
                                 >
@@ -3984,7 +3984,7 @@ exports[`<Editor /> Files render equals snapshot 1`] = `
                           class="w-full"
                         >
                           <div
-                            class="p-toolbar p-component px-0 border-none"
+                            class="p-toolbar p-component p-0 border-none"
                             role="toolbar"
                             style="background: none;"
                           >
@@ -3993,7 +3993,7 @@ exports[`<Editor /> Files render equals snapshot 1`] = `
                             >
                               <button
                                 aria-label="Add"
-                                class="p-button p-component p-button mr-2"
+                                class="p-button p-component p-button"
                                 data-testid="tree-documents-addButton"
                               >
                                 <span
@@ -4012,7 +4012,7 @@ exports[`<Editor /> Files render equals snapshot 1`] = `
                               </button>
                               <button
                                 aria-label="Delete"
-                                class="p-button p-component p-button mr-2 p-disabled"
+                                class="p-button p-component p-button p-disabled"
                                 data-testid="tree-documents-deleteButton"
                                 disabled=""
                               >
@@ -4286,7 +4286,7 @@ exports[`<Editor /> FilesInTab render equals snapshot 1`] = `
     class="flex overflow-x-hidden w-full flex-column"
   >
     <div
-      class="flex flex-row pb-0 sticky top-0 z-1 surface-0 thumbs-0-2-5"
+      class="flex flex-row pb-0 sticky top-0 z-1 surface-0 thumbs-0-2-6"
     >
       <div
         class="p-tabmenu p-component"
@@ -5033,7 +5033,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
                           class="w-full"
                         >
                           <div
-                            class="p-toolbar p-component px-0 border-none"
+                            class="p-toolbar p-component p-0 border-none"
                             role="toolbar"
                             style="background: none;"
                           >
@@ -5042,7 +5042,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
                             >
                               <button
                                 aria-label="Add"
-                                class="p-button p-component p-button mr-2"
+                                class="p-button p-component p-button"
                                 data-testid="person-addButton"
                               >
                                 <span
@@ -5061,7 +5061,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
                               </button>
                               <button
                                 aria-label="Delete"
-                                class="p-button p-component p-button mr-2"
+                                class="p-button p-component p-button"
                                 data-testid="person-deleteButton"
                               >
                                 <span
@@ -5127,7 +5127,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
                                   class="p-datatable-tbody"
                                 >
                                   <tr
-                                    class="p-highlight p-selectable-row"
+                                    class="current-0-2-4 p-highlight p-selectable-row"
                                     draggable="false"
                                     role="row"
                                     tabindex="0"
@@ -5414,7 +5414,7 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
                           class="w-full"
                         >
                           <div
-                            class="p-toolbar p-component px-0 border-none"
+                            class="p-toolbar p-component p-0 border-none"
                             role="toolbar"
                             style="background: none;"
                           >
@@ -5423,7 +5423,7 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
                             >
                               <button
                                 aria-label="Add"
-                                class="p-button p-component p-button mr-2"
+                                class="p-button p-component p-button"
                                 data-testid="shape-addButton"
                               >
                                 <span
@@ -5442,7 +5442,7 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
                               </button>
                               <button
                                 aria-label="Delete"
-                                class="p-button p-component p-button mr-2"
+                                class="p-button p-component p-button"
                                 data-testid="shape-deleteButton"
                               >
                                 <span
@@ -5533,7 +5533,7 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
                                     </td>
                                   </tr>
                                   <tr
-                                    class="p-highlight p-selectable-row p-row-odd"
+                                    class="current-0-2-4 p-highlight p-selectable-row p-row-odd"
                                     draggable="false"
                                     role="row"
                                     tabindex="0"
@@ -5846,18 +5846,6 @@ exports[`<Editor /> Pivot BG render equals snapshot 1`] = `
                         <div
                           class="w-full"
                         >
-                          <div
-                            class="p-toolbar p-component px-0 border-none"
-                            role="toolbar"
-                            style="background: none;"
-                          >
-                            <div
-                              class="p-toolbar-group-left"
-                            />
-                            <div
-                              class="p-toolbar-group-right"
-                            />
-                          </div>
                           <div
                             class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                             data-scrollselectors=".p-datatable-wrapper"
@@ -6520,18 +6508,6 @@ exports[`<Editor /> Pivot BG render equals snapshot 1`] = `
                         <div
                           class="w-full"
                         >
-                          <div
-                            class="p-toolbar p-component px-0 border-none"
-                            role="toolbar"
-                            style="background: none;"
-                          >
-                            <div
-                              class="p-toolbar-group-left"
-                            />
-                            <div
-                              class="p-toolbar-group-right"
-                            />
-                          </div>
                           <div
                             class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                             data-scrollselectors=".p-datatable-wrapper"
@@ -7307,18 +7283,6 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                           class="w-full"
                         >
                           <div
-                            class="p-toolbar p-component px-0 border-none"
-                            role="toolbar"
-                            style="background: none;"
-                          >
-                            <div
-                              class="p-toolbar-group-left"
-                            />
-                            <div
-                              class="p-toolbar-group-right"
-                            />
-                          </div>
-                          <div
                             class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="schedule"
@@ -7980,18 +7944,6 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                         <div
                           class="w-full"
                         >
-                          <div
-                            class="p-toolbar p-component px-0 border-none"
-                            role="toolbar"
-                            style="background: none;"
-                          >
-                            <div
-                              class="p-toolbar-group-left"
-                            />
-                            <div
-                              class="p-toolbar-group-right"
-                            />
-                          </div>
                           <div
                             class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                             data-scrollselectors=".p-datatable-wrapper"
@@ -10286,7 +10238,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
                           class="w-full"
                         >
                           <div
-                            class="p-toolbar p-component px-0 border-none"
+                            class="p-toolbar p-component p-0 border-none"
                             role="toolbar"
                             style="background: none;"
                           >
@@ -10304,7 +10256,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
                             >
                               <button
                                 aria-label="Add"
-                                class="p-button p-component p-button mr-2"
+                                class="p-button p-component p-button"
                                 data-testid="tree-links-addButton"
                               >
                                 <span
@@ -10323,7 +10275,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
                               </button>
                               <button
                                 aria-label="Delete"
-                                class="p-button p-component p-button mr-2 p-disabled"
+                                class="p-button p-component p-button p-disabled"
                                 data-testid="tree-links-deleteButton"
                                 disabled=""
                               >
@@ -11114,7 +11066,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                           class="w-full"
                         >
                           <div
-                            class="p-toolbar p-component px-0 border-none"
+                            class="p-toolbar p-component p-0 border-none"
                             role="toolbar"
                             style="background: none;"
                           >
@@ -11132,7 +11084,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                             >
                               <button
                                 aria-label="Add"
-                                class="p-button p-component p-button mr-2"
+                                class="p-button p-component p-button"
                                 data-testid="tree-links-addButton"
                               >
                                 <span
@@ -11151,7 +11103,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                               </button>
                               <button
                                 aria-label="Delete"
-                                class="p-button p-component p-button mr-2 p-disabled"
+                                class="p-button p-component p-button p-disabled"
                                 data-testid="tree-links-deleteButton"
                                 disabled=""
                               >
@@ -11596,7 +11548,7 @@ exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
     class="flex overflow-x-hidden w-full flex-column"
   >
     <div
-      class="flex flex-row pb-0 sticky top-0 z-1 surface-0 thumbs-0-2-5"
+      class="flex flex-row pb-0 sticky top-0 z-1 surface-0 thumbs-0-2-6"
     >
       <div
         class="p-tabmenu p-component"
@@ -12013,7 +11965,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
     class="flex overflow-x-hidden w-full flex-column"
   >
     <div
-      class="flex flex-row pb-0 sticky top-0 z-1 surface-0 thumbs-0-2-5"
+      class="flex flex-row pb-0 sticky top-0 z-1 surface-0 thumbs-0-2-6"
     >
       <div
         class="p-tabmenu p-component"
@@ -12517,7 +12469,7 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
     class="flex overflow-x-hidden w-full"
   >
     <div
-      class="flex flex-row pb-0 lg:col-2 thumbs-0-2-5"
+      class="flex flex-row pb-0 lg:col-2 thumbs-0-2-6"
     >
       <div
         class="p-listbox p-component border-none"
@@ -13260,7 +13212,7 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
                           class="w-full"
                         >
                           <div
-                            class="p-toolbar p-component px-0 border-none"
+                            class="p-toolbar p-component p-0 border-none"
                             role="toolbar"
                             style="background: none;"
                           >
@@ -13278,7 +13230,7 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
                             >
                               <button
                                 aria-label="Add"
-                                class="p-button p-component p-button mr-2"
+                                class="p-button p-component p-button"
                                 data-testid="tree-links-addButton"
                               >
                                 <span
@@ -13297,7 +13249,7 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
                               </button>
                               <button
                                 aria-label="Delete"
-                                class="p-button p-component p-button mr-2 p-disabled"
+                                class="p-button p-component p-button p-disabled"
                                 data-testid="tree-links-deleteButton"
                                 disabled=""
                               >
@@ -14046,7 +13998,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                           class="w-full"
                         >
                           <div
-                            class="p-toolbar p-component px-0 border-none"
+                            class="p-toolbar p-component p-0 border-none"
                             role="toolbar"
                             style="background: none;"
                           >
@@ -14064,7 +14016,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                             >
                               <button
                                 aria-label="Add"
-                                class="p-button p-component p-button mr-2"
+                                class="p-button p-component p-button"
                                 data-testid="tree-links-addButton"
                               >
                                 <span
@@ -14083,7 +14035,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                               </button>
                               <button
                                 aria-label="Delete"
-                                class="p-button p-component p-button mr-2 p-disabled"
+                                class="p-button p-component p-button p-disabled"
                                 data-testid="tree-links-deleteButton"
                                 disabled=""
                               >

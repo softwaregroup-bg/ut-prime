@@ -1000,7 +1000,7 @@ exports[`<Form /> InputBG render equals snapshot 1`] = `
                         class="w-full"
                       >
                         <div
-                          class="p-toolbar p-component px-0 border-none"
+                          class="p-toolbar p-component p-0 border-none"
                           role="toolbar"
                           style="background: none;"
                         >
@@ -1009,7 +1009,7 @@ exports[`<Form /> InputBG render equals snapshot 1`] = `
                           >
                             <button
                               aria-label="Add"
-                              class="p-button p-component p-button mr-2"
+                              class="p-button p-component p-button"
                               data-testid="input-table-addButton"
                             >
                               <span
@@ -1028,7 +1028,7 @@ exports[`<Form /> InputBG render equals snapshot 1`] = `
                             </button>
                             <button
                               aria-label="Delete"
-                              class="p-button p-component p-button mr-2 p-disabled"
+                              class="p-button p-component p-button p-disabled"
                               data-testid="input-table-deleteButton"
                               disabled=""
                             >
@@ -1151,7 +1151,7 @@ exports[`<Form /> InputBG render equals snapshot 1`] = `
                                 class="p-datatable-tbody"
                               >
                                 <tr
-                                  class=""
+                                  class="p-selectable-row"
                                   draggable="false"
                                   role="row"
                                 >
@@ -1297,18 +1297,6 @@ exports[`<Form /> InputBG render equals snapshot 1`] = `
                       class="flex align-items-center relative col-12 md:col-8"
                     >
                       <div
-                        class="p-toolbar p-component px-0 border-none"
-                        role="toolbar"
-                        style="background: none;"
-                      >
-                        <div
-                          class="p-toolbar-group-left"
-                        />
-                        <div
-                          class="p-toolbar-group-right"
-                        />
-                      </div>
-                      <div
                         class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                         data-scrollselectors=".p-datatable-wrapper"
                         data-testid="input-selectTable"
@@ -1372,7 +1360,7 @@ exports[`<Form /> InputBG render equals snapshot 1`] = `
                               class="p-datatable-tbody"
                             >
                               <tr
-                                class="p-highlight p-selectable-row"
+                                class="current-0-2-4 p-highlight p-selectable-row"
                                 role="row"
                               >
                                 <td
@@ -1409,7 +1397,7 @@ exports[`<Form /> InputBG render equals snapshot 1`] = `
                                 </td>
                               </tr>
                               <tr
-                                class="p-selectable-row p-row-odd"
+                                class="current-0-2-4 p-selectable-row p-row-odd"
                                 role="row"
                               >
                                 <td
@@ -1446,7 +1434,7 @@ exports[`<Form /> InputBG render equals snapshot 1`] = `
                                 </td>
                               </tr>
                               <tr
-                                class="p-selectable-row"
+                                class="current-0-2-4 p-selectable-row"
                                 role="row"
                               >
                                 <td
@@ -1697,18 +1685,6 @@ exports[`<Form /> InputBG render equals snapshot 1`] = `
                     <div
                       class="flex align-items-center relative col-12 md:col-8"
                     >
-                      <div
-                        class="p-toolbar p-component px-0 border-none"
-                        role="toolbar"
-                        style="background: none;"
-                      >
-                        <div
-                          class="p-toolbar-group-left"
-                        />
-                        <div
-                          class="p-toolbar-group-right"
-                        />
-                      </div>
                       <div
                         class="p-datatable p-component p-datatable-selectable p-datatable-responsive-stack p-datatable-sm w-full table-0-2-3"
                         data-scrollselectors=".p-datatable-wrapper"

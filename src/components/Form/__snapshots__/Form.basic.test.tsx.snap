@@ -277,7 +277,7 @@ exports[`<Form /> Basic equals snapshot 1`] = `
                         class="w-full"
                       >
                         <div
-                          class="p-toolbar p-component px-0 border-none"
+                          class="p-toolbar p-component p-0 border-none"
                           role="toolbar"
                           style="background: none;"
                         >
@@ -295,7 +295,7 @@ exports[`<Form /> Basic equals snapshot 1`] = `
                           >
                             <button
                               aria-label="Add"
-                              class="p-button p-component p-button mr-2"
+                              class="p-button p-component p-button"
                               data-testid="tree-links-addButton"
                             >
                               <span
@@ -314,7 +314,7 @@ exports[`<Form /> Basic equals snapshot 1`] = `
                             </button>
                             <button
                               aria-label="Delete"
-                              class="p-button p-component p-button mr-2 p-disabled"
+                              class="p-button p-component p-button p-disabled"
                               data-testid="tree-links-deleteButton"
                               disabled=""
                             >
@@ -773,7 +773,7 @@ exports[`<Form /> BasicAR equals snapshot 1`] = `
                         class="w-full"
                       >
                         <div
-                          class="p-toolbar p-component px-0 border-none"
+                          class="p-toolbar p-component p-0 border-none"
                           role="toolbar"
                           style="background: none;"
                         >
@@ -791,7 +791,7 @@ exports[`<Form /> BasicAR equals snapshot 1`] = `
                           >
                             <button
                               aria-label="Add"
-                              class="p-button p-component p-button mr-2"
+                              class="p-button p-component p-button"
                               data-testid="tree-links-addButton"
                             >
                               <span
@@ -810,7 +810,7 @@ exports[`<Form /> BasicAR equals snapshot 1`] = `
                             </button>
                             <button
                               aria-label="Delete"
-                              class="p-button p-component p-button mr-2 p-disabled"
+                              class="p-button p-component p-button p-disabled"
                               data-testid="tree-links-deleteButton"
                               disabled=""
                             >
@@ -1268,7 +1268,7 @@ exports[`<Form /> BasicBG equals snapshot 1`] = `
                         class="w-full"
                       >
                         <div
-                          class="p-toolbar p-component px-0 border-none"
+                          class="p-toolbar p-component p-0 border-none"
                           role="toolbar"
                           style="background: none;"
                         >
@@ -1286,7 +1286,7 @@ exports[`<Form /> BasicBG equals snapshot 1`] = `
                           >
                             <button
                               aria-label="Add"
-                              class="p-button p-component p-button mr-2"
+                              class="p-button p-component p-button"
                               data-testid="tree-links-addButton"
                             >
                               <span
@@ -1305,7 +1305,7 @@ exports[`<Form /> BasicBG equals snapshot 1`] = `
                             </button>
                             <button
                               aria-label="Delete"
-                              class="p-button p-component p-button mr-2 p-disabled"
+                              class="p-button p-component p-button p-disabled"
                               data-testid="tree-links-deleteButton"
                               disabled=""
                             >

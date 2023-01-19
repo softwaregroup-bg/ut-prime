@@ -1,6 +1,5 @@
 import React from 'react';
 import lodashGet from 'lodash.get';
-import merge from 'ut-function.merge';
 import {createUseStyles} from 'react-jss';
 import clsx from 'clsx';
 
@@ -9,7 +8,7 @@ import Text from '../../Text';
 import columnProps from '../../lib/column';
 import useFilter from '../../hooks/useFilter';
 import {CHANGE, INDEX, KEY, NEW} from '../const';
-import type {Properties, WidgetReference, PropertyEditor} from '../../types';
+import type {Properties, WidgetReference, PropertyEditor, FormApi} from '../../types';
 import prepareSubmit from '../../lib/prepareSubmit';
 import testid from '../../lib/testid';
 import useButtons from '../../hooks/useButtons';
@@ -71,6 +70,10 @@ const useStyles = createUseStyles({
                 minWidth: '3rem'
             }
         }
+    },
+    current: {
+        outline: '0.15rem solid var(--primary-color)',
+        outlineOffset: '-0.15rem'
     }
 });
 
@@ -93,6 +96,7 @@ interface TableProps extends Omit<DataTableProps, 'onChange'> {
     autoSelect?: unknown;
     selectionPath?: unknown;
     label?: unknown;
+    formApi?: FormApi,
     pivot?: {
         dropdown?: string;
         master?: object;
@@ -105,13 +109,12 @@ interface TableProps extends Omit<DataTableProps, 'onChange'> {
         allowEdit?: boolean;
         allowSelect?: boolean;
     };
-    additionalButtons?: unknown;
+    toolbar?: false | WidgetReference[];
 }
 
 export default React.forwardRef<object, TableProps>(function Table({
     name,
     id: resultSet = name,
-
     onChange,
     getValues,
     counter,
@@ -142,7 +145,8 @@ export default React.forwardRef<object, TableProps>(function Table({
         allowEdit = true,
         allowSelect = true
     } = {},
-    additionalButtons,
+    toolbar,
+    formApi,
     ...props
 }, ref) {
     if (typeof ref === 'function') ref({});
@@ -260,25 +264,46 @@ export default React.forwardRef<object, TableProps>(function Table({
         initialFilters,
         widgets,
         properties,
-        // rows?.filter(item => !item?.[NEW]).length > 1
-        rows.length > 1
+        rows?.filter(item => !item?.[NEW]).length > 1
     );
 
     const [loading, setLoading] = React.useState('');
-    const submit = React.useCallback(async({method, params}, form?) => {
-        params = prepareSubmit([getValues(form?.params), {}, {method, params}]);
-        const system = params?.$;
-        delete params?.$;
+    const currentRef = React.useRef(null);
+    const handleRowSelect = React.useCallback(e => { currentRef.current = e.data; }, []);
+    const handleRowUnselect = React.useCallback(e => { currentRef.current = null; }, []);
+    const submit = React.useCallback(async({method, params}) => {
+        const row = {...currentRef.current};
+        delete row[KEY];
+        delete row[CHANGE];
+        delete row[INDEX];
+        delete row[NEW];
+        params = prepareSubmit([row, {}, {method, params}]);
         setLoading('loading');
         try {
             await methods[method](params);
         } finally {
             setLoading('');
         }
-        if (system?.fetch) setFilters(prev => merge({}, prev, system.fetch));
-    }, [getValues, setFilters, methods]);
+    }, [methods]);
 
-    const buttons = useButtons({ selected, buttonsProps: additionalButtons, properties, getValues, paramsLayout: null, trigger: null, current: null, loading, submit });
+    const get = React.useMemo(() => ({$ = undefined, ...params} = {}) => ({
+        params,
+        id: currentRef.current && currentRef.current[KEY],
+        current: currentRef.current,
+        form: formApi,
+        selected: [].concat(selected),
+        filter: Object.entries(tableFilter.filters).reduce((prev, [name, {value}]) => ({...prev, [name]: value}), {})
+    }), [selected, tableFilter.filters, formApi]);
+
+    const buttons = useButtons({
+        selected: [].concat(selected),
+        current: currentRef.current,
+        toolbar,
+        properties,
+        getValues: get,
+        loading,
+        submit
+    });
 
     const leftToolbarTemplate = React.useCallback(() => {
         const addNewRow = event => {
@@ -306,7 +331,7 @@ export default React.forwardRef<object, TableProps>(function Table({
                     label=' '
                     aria-label='Add'
                     icon="pi pi-plus"
-                    className="p-button mr-2"
+                    className="p-button"
                     onClick={addNewRow}
                     {...testid(`${resultSet}.addButton`)}
                 >Add</Button>}
@@ -314,19 +339,25 @@ export default React.forwardRef<object, TableProps>(function Table({
                     label=' '
                     aria-label='Delete'
                     icon="pi pi-trash"
-                    className="p-button mr-2"
+                    className={clsx('p-button', toolbar && buttons && 'mr-2')}
                     onClick={deleteRow}
                     disabled={!selected}
                     {...testid(`${resultSet}.deleteButton`)}
                 >Delete</Button>}
-                {additionalButtons && buttons}
+                {toolbar && buttons}
             </React.Fragment>
         );
-    }, [allowAdd, allowDelete, selected, identity, master, filter, parent, allRows, onChange, handleSelected, counter, properties, resultSet, disabled, initialFilters, setFilters, additionalButtons, buttons]);
+    }, [allowAdd, allowDelete, selected, identity, master, filter, parent, allRows, onChange, handleSelected, counter, properties, resultSet, disabled, initialFilters, setFilters, toolbar, buttons]);
 
     if (selected && props.selectionMode === 'single' && !rows.includes(selected)) {
         handleSelected({value: rows[selected[KEY]]});
     }
+
+    const rowClass = React.useCallback(
+        (data: object) => currentRef.current && (data?.[KEY] === currentRef.current?.[KEY]) ? classes.current : undefined,
+        [classes]
+    );
+
     if (master && !parent) return null;
     const {left, right} = label ? {
         left: <span className='p-card-title'><Text>{label}</Text></span>,
@@ -338,11 +369,14 @@ export default React.forwardRef<object, TableProps>(function Table({
 
     return (
         <>
-            {(allowAdd || allowDelete || buttons) && <Toolbar className="px-0 border-none" left={left} right={right} style={backgroundNone}></Toolbar>}
+            {(allowAdd || allowDelete || buttons) && <Toolbar className="p-0 border-none" left={left} right={right} style={backgroundNone}></Toolbar>}
             <DataTable
                 editMode='row'
                 selection={selected}
                 onSelectionChange={handleSelected}
+                onRowSelect={handleRowSelect}
+                onRowUnselect={handleRowUnselect}
+                rowClassName={rowClass}
                 dataKey={KEY}
                 id={resultSet}
                 size='small'

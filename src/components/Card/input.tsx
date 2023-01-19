@@ -24,7 +24,7 @@ import {
     TreeSelect,
     TreeTable
 } from '../prime';
-import {PropertyEditor} from '../types';
+import {PropertyEditor, FormApi} from '../types';
 
 import getType from '../lib/getType';
 import testid from '../lib/testid';
@@ -87,8 +87,7 @@ function input(
     dropdowns,
     parentValue,
     loading: string,
-    getValues: (name: string) => unknown,
-    setValue: (name: string, value: unknown) => void,
+    formApi: FormApi,
     counter,
     methods,
     submit,
@@ -102,18 +101,13 @@ function input(
     props.disabled ??= schema?.readOnly || (parentField && !parentValue);
     if (loading) props.disabled = true;
     const filterBy = item => (!parentField && !optionsFilter) || Object.entries({...optionsFilter, parent: parentValue}).every(([name, value]) => String(item[name]) === String(value));
-    if (props?.additionalButtons) {
-        props.additionalButtons = props?.additionalButtons?.map(
-            button => ({...button, ...button.onClick && {onClick: () => methods[button.onClick]({getValues, setValue, name: field.name})}})
-        );
-    }
 
     switch (widgetType) {
         case 'button': return <ActionButton
             className={inputClass ?? 'mr-2'}
             label={label}
             {...props}
-            getValues={getValues as Parameters<typeof ActionButton>[0]['getValues']}
+            getValues={formApi.getValues}
         />;
         case 'submit': return <ActionButton
             className={inputClass ?? 'mr-2'}
@@ -195,14 +189,14 @@ function input(
                 <div className='w-full'>
                     <Table
                         {...field}
-                        selectionMode='checkbox'
                         parent={parentValue}
                         properties={schema?.items?.properties}
                         dropdowns={dropdowns}
-                        getValues={getValues}
+                        getValues={formApi.getValues}
                         methods={methods}
                         counter={counter}
-                        {...props.selectionPath && getValues && {selection: getValues(`${props.selectionPath}.${field.name}`) || []}}
+                        formApi={formApi}
+                        {...props.selectionPath && formApi.getValues && {selection: formApi.getValues(`${props.selectionPath}.${field.name}`) || []}}
                         {...props}
                     />
                 </div>
@@ -554,7 +548,7 @@ function input(
             return <Field {...{label, error, inputClass}}>
                 <Ocr
                     {...field}
-                    setValue={setValue}
+                    setValue={formApi.setValue}
                     onSelect={e => {
                         onChange?.({...e, value: {file: e.files?.[0], text: e.text}});
                     }}
@@ -567,7 +561,7 @@ function input(
                 <Component
                     parent={parentValue}
                     page={props.page}
-                    getValues={getValues as Parameters<typeof Component>[0]['getValues']}
+                    getValues={formApi.getValues}
                     {...field}
                     {...props}
                 />
@@ -705,8 +699,7 @@ export default function Input({
             dropdowns,
             parentWatch,
             loading,
-            formApi?.getValues,
-            formApi?.setValue,
+            formApi,
             counter,
             methods,
             submit,
