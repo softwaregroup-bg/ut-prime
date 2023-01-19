@@ -49,7 +49,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                           >
                             <button
                               aria-label="Add"
-                              class="p-button p-component p-button"
+                              class="p-button p-component p-button mr-2"
                               data-testid="table1-addButton"
                             >
                               <span
@@ -634,7 +634,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                           >
                             <button
                               aria-label="Add"
-                              class="p-button p-component p-button"
+                              class="p-button p-component p-button mr-2"
                               data-testid="table2-addButton"
                             >
                               <span
@@ -1195,7 +1195,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                           >
                             <button
                               aria-label="Add"
-                              class="p-button p-component p-button"
+                              class="p-button p-component p-button mr-2"
                               data-testid="table3-addButton"
                             >
                               <span
@@ -1608,7 +1608,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                           >
                             <button
                               aria-label="Add"
-                              class="p-button p-component p-button"
+                              class="p-button p-component p-button mr-2"
                               data-testid="table4-addButton"
                             >
                               <span
@@ -1959,7 +1959,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                           >
                             <button
                               aria-label="Add"
-                              class="p-button p-component p-button"
+                              class="p-button p-component p-button mr-2"
                               data-testid="table1-addButton"
                             >
                               <span
@@ -2544,7 +2544,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                           >
                             <button
                               aria-label="Add"
-                              class="p-button p-component p-button"
+                              class="p-button p-component p-button mr-2"
                               data-testid="table2-addButton"
                             >
                               <span
@@ -3105,7 +3105,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                           >
                             <button
                               aria-label="Add"
-                              class="p-button p-component p-button"
+                              class="p-button p-component p-button mr-2"
                               data-testid="table3-addButton"
                             >
                               <span
@@ -3518,7 +3518,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                           >
                             <button
                               aria-label="Add"
-                              class="p-button p-component p-button"
+                              class="p-button p-component p-button mr-2"
                               data-testid="table4-addButton"
                             >
                               <span
@@ -3868,7 +3868,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                           >
                             <button
                               aria-label="Add"
-                              class="p-button p-component p-button"
+                              class="p-button p-component p-button mr-2"
                               data-testid="table1-addButton"
                             >
                               <span
@@ -4453,7 +4453,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                           >
                             <button
                               aria-label="Add"
-                              class="p-button p-component p-button"
+                              class="p-button p-component p-button mr-2"
                               data-testid="table2-addButton"
                             >
                               <span
@@ -5014,7 +5014,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                           >
                             <button
                               aria-label="Add"
-                              class="p-button p-component p-button"
+                              class="p-button p-component p-button mr-2"
                               data-testid="table3-addButton"
                             >
                               <span
@@ -5427,7 +5427,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                           >
                             <button
                               aria-label="Add"
-                              class="p-button p-component p-button"
+                              class="p-button p-component p-button mr-2"
                               data-testid="table4-addButton"
                             >
                               <span

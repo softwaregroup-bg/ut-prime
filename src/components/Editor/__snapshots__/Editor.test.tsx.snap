@@ -381,7 +381,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
                             >
                               <button
                                 aria-label="Add"
-                                class="p-button p-component p-button"
+                                class="p-button p-component p-button mr-2"
                                 data-testid="tree-links-addButton"
                               >
                                 <span
@@ -1175,7 +1175,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                             >
                               <button
                                 aria-label="Add"
-                                class="p-button p-component p-button"
+                                class="p-button p-component p-button mr-2"
                                 data-testid="person-addButton"
                               >
                                 <span
@@ -1521,7 +1521,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                             >
                               <button
                                 aria-label="Add"
-                                class="p-button p-component p-button"
+                                class="p-button p-component p-button mr-2"
                                 data-testid="document-addButton"
                               >
                                 <span
@@ -1921,7 +1921,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                             >
                               <button
                                 aria-label="Add"
-                                class="p-button p-component p-button"
+                                class="p-button p-component p-button mr-2"
                                 data-testid="attachment-addButton"
                               >
                                 <span
@@ -3105,7 +3105,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
                               >
                                 <button
                                   aria-label="Add"
-                                  class="p-button p-component p-button"
+                                  class="p-button p-component p-button mr-2"
                                   data-testid="tree-links-addButton"
                                 >
                                   <span
@@ -3993,7 +3993,7 @@ exports[`<Editor /> Files render equals snapshot 1`] = `
                             >
                               <button
                                 aria-label="Add"
-                                class="p-button p-component p-button"
+                                class="p-button p-component p-button mr-2"
                                 data-testid="tree-documents-addButton"
                               >
                                 <span
@@ -5042,7 +5042,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
                             >
                               <button
                                 aria-label="Add"
-                                class="p-button p-component p-button"
+                                class="p-button p-component p-button mr-2"
                                 data-testid="person-addButton"
                               >
                                 <span
@@ -5423,7 +5423,7 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
                             >
                               <button
                                 aria-label="Add"
-                                class="p-button p-component p-button"
+                                class="p-button p-component p-button mr-2"
                                 data-testid="shape-addButton"
                               >
                                 <span
@@ -10256,7 +10256,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
                             >
                               <button
                                 aria-label="Add"
-                                class="p-button p-component p-button"
+                                class="p-button p-component p-button mr-2"
                                 data-testid="tree-links-addButton"
                               >
                                 <span
@@ -11084,7 +11084,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                             >
                               <button
                                 aria-label="Add"
-                                class="p-button p-component p-button"
+                                class="p-button p-component p-button mr-2"
                                 data-testid="tree-links-addButton"
                               >
                                 <span
@@ -13230,7 +13230,7 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
                             >
                               <button
                                 aria-label="Add"
-                                class="p-button p-component p-button"
+                                class="p-button p-component p-button mr-2"
                                 data-testid="tree-links-addButton"
                               >
                                 <span
@@ -14016,7 +14016,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                             >
                               <button
                                 aria-label="Add"
-                                class="p-button p-component p-button"
+                                class="p-button p-component p-button mr-2"
                                 data-testid="tree-links-addButton"
                               >
                                 <span

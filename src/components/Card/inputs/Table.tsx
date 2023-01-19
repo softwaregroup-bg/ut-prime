@@ -331,7 +331,7 @@ export default React.forwardRef<object, TableProps>(function Table({
                     label=' '
                     aria-label='Add'
                     icon="pi pi-plus"
-                    className="p-button"
+                    className="p-button mr-2"
                     onClick={addNewRow}
                     {...testid(`${resultSet}.addButton`)}
                 >Add</Button>}

@@ -1008,7 +1008,7 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                           >
                             <button
                               aria-label="Add"
-                              class="p-button p-component p-button"
+                              class="p-button p-component p-button mr-2"
                               data-testid="input-table-addButton"
                             >
                               <span

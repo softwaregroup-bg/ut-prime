@@ -295,7 +295,7 @@ exports[`<Form /> Basic equals snapshot 1`] = `
                           >
                             <button
                               aria-label="Add"
-                              class="p-button p-component p-button"
+                              class="p-button p-component p-button mr-2"
                               data-testid="tree-links-addButton"
                             >
                               <span
@@ -791,7 +791,7 @@ exports[`<Form /> BasicAR equals snapshot 1`] = `
                           >
                             <button
                               aria-label="Add"
-                              class="p-button p-component p-button"
+                              class="p-button p-component p-button mr-2"
                               data-testid="tree-links-addButton"
                             >
                               <span
@@ -1286,7 +1286,7 @@ exports[`<Form /> BasicBG equals snapshot 1`] = `
                           >
                             <button
                               aria-label="Add"
-                              class="p-button p-component p-button"
+                              class="p-button p-component p-button mr-2"
                               data-testid="tree-links-addButton"
                             >
                               <span
