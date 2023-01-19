@@ -305,7 +305,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                 class="p-datatable-tbody"
                               >
                                 <tr
-                                  class=""
+                                  class="p-selectable-row"
                                   role="row"
                                 >
                                   <td
@@ -866,7 +866,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                 class="p-datatable-tbody"
                               >
                                 <tr
-                                  class=""
+                                  class="p-selectable-row"
                                   role="row"
                                 >
                                   <td
@@ -1376,7 +1376,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                 class="p-datatable-tbody"
                               >
                                 <tr
-                                  class=""
+                                  class="p-selectable-row"
                                   role="row"
                                 >
                                   <td
@@ -1768,7 +1768,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
                                 class="p-datatable-tbody"
                               >
                                 <tr
-                                  class=""
+                                  class="p-selectable-row"
                                   role="row"
                                 >
                                   <td
@@ -2215,7 +2215,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                                 class="p-datatable-tbody"
                               >
                                 <tr
-                                  class=""
+                                  class="p-selectable-row"
                                   role="row"
                                 >
                                   <td
@@ -2776,7 +2776,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                                 class="p-datatable-tbody"
                               >
                                 <tr
-                                  class=""
+                                  class="p-selectable-row"
                                   role="row"
                                 >
                                   <td
@@ -3286,7 +3286,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                                 class="p-datatable-tbody"
                               >
                                 <tr
-                                  class=""
+                                  class="p-selectable-row"
                                   role="row"
                                 >
                                   <td
@@ -3678,7 +3678,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
                                 class="p-datatable-tbody"
                               >
                                 <tr
-                                  class=""
+                                  class="p-selectable-row"
                                   role="row"
                                 >
                                   <td
@@ -4124,7 +4124,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                                 class="p-datatable-tbody"
                               >
                                 <tr
-                                  class=""
+                                  class="p-selectable-row"
                                   role="row"
                                 >
                                   <td
@@ -4685,7 +4685,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                                 class="p-datatable-tbody"
                               >
                                 <tr
-                                  class=""
+                                  class="p-selectable-row"
                                   role="row"
                                 >
                                   <td
@@ -5195,7 +5195,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                                 class="p-datatable-tbody"
                               >
                                 <tr
-                                  class=""
+                                  class="p-selectable-row"
                                   role="row"
                                 >
                                   <td
@@ -5587,7 +5587,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
                                 class="p-datatable-tbody"
                               >
                                 <tr
-                                  class=""
+                                  class="p-selectable-row"
                                   role="row"
                                 >
                                   <td

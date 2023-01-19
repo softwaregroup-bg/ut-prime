@@ -6,6 +6,7 @@ import type { DataTableProps } from 'primereact/datatable';
 import type { DataViewProps } from 'primereact/dataview';
 import type { ColumnProps } from 'primereact/column';
 import Joi from 'joi';
+import useForm from '../hooks/useForm';
 
 export type DataTable = Omit<DataTableProps, 'children'>;
 export type DataView = Omit<DataViewProps, 'children'>;
@@ -138,6 +139,10 @@ export interface PropertyEditors {
 }
 
 export type Selection = {
+    params?: object,
+    filter?: object,
+    pageSize?: number,
+    pageNumber?: number,
     id: string | number,
     current: object,
     selected: object[]
@@ -258,3 +263,5 @@ export interface UtError extends Error {
 }
 
 export type LayoutMode = 'create' | 'edit' | 'view';
+
+export type FormApi = ReturnType<typeof useForm>;

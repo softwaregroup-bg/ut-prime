@@ -1309,7 +1309,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                   class="p-datatable-tbody"
                                 >
                                   <tr
-                                    class="p-highlight p-selectable-row"
+                                    class="current-0-2-4 p-highlight p-selectable-row"
                                     draggable="false"
                                     role="row"
                                     tabindex="0"
@@ -1725,7 +1725,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                     </td>
                                   </tr>
                                   <tr
-                                    class="p-highlight p-selectable-row p-row-odd"
+                                    class="current-0-2-4 p-highlight p-selectable-row p-row-odd"
                                     draggable="false"
                                     role="row"
                                     tabindex="0"
@@ -4286,7 +4286,7 @@ exports[`<Editor /> FilesInTab render equals snapshot 1`] = `
     class="flex overflow-x-hidden w-full flex-column"
   >
     <div
-      class="flex flex-row pb-0 sticky top-0 z-1 surface-0 thumbs-0-2-5"
+      class="flex flex-row pb-0 sticky top-0 z-1 surface-0 thumbs-0-2-6"
     >
       <div
         class="p-tabmenu p-component"
@@ -5127,7 +5127,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
                                   class="p-datatable-tbody"
                                 >
                                   <tr
-                                    class="p-highlight p-selectable-row"
+                                    class="current-0-2-4 p-highlight p-selectable-row"
                                     draggable="false"
                                     role="row"
                                     tabindex="0"
@@ -5533,7 +5533,7 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
                                     </td>
                                   </tr>
                                   <tr
-                                    class="p-highlight p-selectable-row p-row-odd"
+                                    class="current-0-2-4 p-highlight p-selectable-row p-row-odd"
                                     draggable="false"
                                     role="row"
                                     tabindex="0"
@@ -11548,7 +11548,7 @@ exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
     class="flex overflow-x-hidden w-full flex-column"
   >
     <div
-      class="flex flex-row pb-0 sticky top-0 z-1 surface-0 thumbs-0-2-5"
+      class="flex flex-row pb-0 sticky top-0 z-1 surface-0 thumbs-0-2-6"
     >
       <div
         class="p-tabmenu p-component"
@@ -11965,7 +11965,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
     class="flex overflow-x-hidden w-full flex-column"
   >
     <div
-      class="flex flex-row pb-0 sticky top-0 z-1 surface-0 thumbs-0-2-5"
+      class="flex flex-row pb-0 sticky top-0 z-1 surface-0 thumbs-0-2-6"
     >
       <div
         class="p-tabmenu p-component"
@@ -12469,7 +12469,7 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
     class="flex overflow-x-hidden w-full"
   >
     <div
-      class="flex flex-row pb-0 lg:col-2 thumbs-0-2-5"
+      class="flex flex-row pb-0 lg:col-2 thumbs-0-2-6"
     >
       <div
         class="p-listbox p-component border-none"

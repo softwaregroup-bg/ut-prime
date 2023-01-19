@@ -213,7 +213,7 @@ const Editor: ComponentProps = ({
                     {reset === false ? null : <ActionButton
                         icon='pi pi-replay'
                         onClick={handleReset}
-                        confirm={trigger ? 'Changed data will not be saved. Are you sure you want to proceed ?' : ''}
+                        confirm={trigger ? 'Changed data will not be saved. Are you sure you want to proceed?' : ''}
                         disabled={(!trigger && (!didSubmit || !!loadedValue)) || !!loading}
                         aria-label='reset'
                         className='mr-2'

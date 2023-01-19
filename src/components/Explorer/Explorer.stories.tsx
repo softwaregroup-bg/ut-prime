@@ -154,7 +154,7 @@ const Template: Story<{
                                 action: show('edit')
                             }, {
                                 title: 'Delete',
-                                confirm: 'Do you confirm the deletion of the selected rows ?',
+                                confirm: 'Do you confirm the deletion of the selected rows?',
                                 permission: deletePermission,
                                 enabled: 'selected',
                                 action: show('delete')
