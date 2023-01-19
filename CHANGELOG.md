@@ -1,3 +1,12 @@
+# [2.62.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.61.3...v2.62.0) (2023-01-19)
+
+
+### Features
+
+* table widget toolbar ([ad45691](https://github.com/softwaregroup-bg/ut-prime/commit/ad45691cf22a902c97c6ec3f057427f9e1e4b12a))
+
+
+
 ## [2.61.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.61.2...v2.61.3) (2023-01-18)
 
 
