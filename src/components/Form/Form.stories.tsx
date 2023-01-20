@@ -76,7 +76,10 @@ Input.play = async({canvasElement}) => {
         id && await click(id);
         return (await body.findByRole(role, {name})).click();
     };
-    const clickWithin = (id, name, role = 'option') => within(canvas.getByTestId(id)).getByRole(role, {name}).click();
+    const clickWithin = (id, name, role = 'option') =>
+        typeof name === 'number'
+            ? within(canvas.getByTestId(id)).getAllByRole(role)[name].click()
+            : within(canvas.getByTestId(id)).getByRole(role, {name}).click();
 
     // left
     await clear('textbox', 'input-input');

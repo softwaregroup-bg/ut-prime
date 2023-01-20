@@ -27,15 +27,10 @@ const Template: Story<Props> = ({methods, ...args}) => {
             onDropdown={() => Promise.resolve(dropdowns)}
             onAdd={submit}
             onEdit={submit}
-            onFieldChange='handleFieldChange'
             methods={{
-                async handleFieldChange({field, value, event}: {field: unknown, value, event: Event}) {
-                    submit({field, value});
-                    // throw new Error('test error');
-                    // return false;
-                },
-                async 'table.row.process'(params) {
+                async 'table.row.process'(params: {value: number}) {
                     submit(params);
+                    return {value: (params.value || 0) + 1};
                 },
                 async 'portal.customization.get'() {
                     return {};
