@@ -1,3 +1,12 @@
+## [2.62.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.62.0...v2.62.1) (2023-01-20)
+
+
+### Bug Fixes
+
+* handle submit button result ([f82d957](https://github.com/softwaregroup-bg/ut-prime/commit/f82d957073c8e6f88e66a158c0b4ddf8205efad3))
+
+
+
 # [2.62.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.61.3...v2.62.0) (2023-01-19)
 
 
