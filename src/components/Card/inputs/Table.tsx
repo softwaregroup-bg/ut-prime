@@ -2,6 +2,7 @@ import React from 'react';
 import lodashGet from 'lodash.get';
 import {createUseStyles} from 'react-jss';
 import clsx from 'clsx';
+import merge from 'ut-function.merge';
 
 import {DataTable, Column, Toolbar, Button, type DataTableProps} from '../../prime';
 import Text from '../../Text';
@@ -213,6 +214,7 @@ export default React.forwardRef<object, TableProps>(function Table({
                 else changed[id][key] = event.newData[key];
             }
         }
+        if (currentRef.current?.[KEY] === key) currentRef.current = event.newData;
         if (originalIndex != null) {
             changed[originalIndex] = values;
             onChange({...event, value: changed});
@@ -280,7 +282,10 @@ export default React.forwardRef<object, TableProps>(function Table({
         params = prepareSubmit([row, {}, {method, params}]);
         setLoading('loading');
         try {
-            await methods[method](params);
+            currentRef.current[CHANGE]({
+                data: {...currentRef.current},
+                newData: merge(currentRef.current, await methods[method](params))
+            });
         } finally {
             setLoading('');
         }
