@@ -1,3 +1,12 @@
+## [2.62.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.62.1...v2.62.2) (2023-01-21)
+
+
+### Bug Fixes
+
+* improve selection handling ([57d80c6](https://github.com/softwaregroup-bg/ut-prime/commit/57d80c618980b6ad76f7cead352cc6c013616d2e))
+
+
+
 ## [2.62.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.62.0...v2.62.1) (2023-01-20)
 
 
