@@ -26,7 +26,7 @@ export default function useButtons({
     loading: string
 }) {
     const buttons = React.useMemo(() =>
-        toolbar && toolbar.map((widget, index) => {
+        toolbar && toolbar.length ? toolbar.map((widget, index) => {
             const {
                 title,
                 icon,
@@ -81,7 +81,7 @@ export default function useButtons({
                     {title}
                 </ActionButton>
             );
-        }),
+        }) : null,
     [toolbar, properties, paramsLayout, trigger, submit, getValues, loading, current, selected]);
 
     return buttons;

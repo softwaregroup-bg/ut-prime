@@ -271,7 +271,6 @@ export default React.forwardRef<object, TableProps>(function Table({
 
     const [loading, setLoading] = React.useState('');
     const currentRef = React.useRef(null);
-    const handleRowSelect = React.useCallback(e => { currentRef.current = e.data; }, []);
     const handleRowUnselect = React.useCallback(e => { currentRef.current = null; }, []);
     const submit = React.useCallback(async({method, params}) => {
         const row = {...currentRef.current};
@@ -310,6 +309,10 @@ export default React.forwardRef<object, TableProps>(function Table({
         submit
     });
 
+    const handleRowSelect = React.useCallback(e => {
+        if (buttons) currentRef.current = e.data;
+    }, [buttons]);
+
     const leftToolbarTemplate = React.useCallback(() => {
         const addNewRow = event => {
             event.preventDefault();
@@ -344,15 +347,33 @@ export default React.forwardRef<object, TableProps>(function Table({
                     label=' '
                     aria-label='Delete'
                     icon="pi pi-trash"
-                    className={clsx('p-button', toolbar && buttons && 'mr-2')}
+                    className={clsx('p-button', buttons && 'mr-2')}
                     onClick={deleteRow}
                     disabled={!selected}
                     {...testid(`${resultSet}.deleteButton`)}
                 >Delete</Button>}
-                {toolbar && buttons}
+                {buttons}
             </React.Fragment>
         );
-    }, [allowAdd, allowDelete, selected, identity, master, filter, parent, allRows, onChange, handleSelected, counter, properties, resultSet, disabled, initialFilters, setFilters, toolbar, buttons]);
+    }, [
+        allowAdd,
+        allowDelete,
+        selected,
+        identity,
+        master,
+        filter,
+        parent,
+        allRows,
+        onChange,
+        handleSelected,
+        counter,
+        properties,
+        resultSet,
+        disabled,
+        initialFilters,
+        setFilters,
+        buttons
+    ]);
 
     if (selected && props.selectionMode === 'single' && !rows.includes(selected)) {
         handleSelected({value: rows[selected[KEY]]});

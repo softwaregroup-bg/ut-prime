@@ -1360,7 +1360,7 @@ exports[`<Form /> InputBG render equals snapshot 1`] = `
                               class="p-datatable-tbody"
                             >
                               <tr
-                                class="current-0-2-4 p-highlight p-selectable-row"
+                                class="p-highlight p-selectable-row"
                                 role="row"
                               >
                                 <td
@@ -1397,7 +1397,7 @@ exports[`<Form /> InputBG render equals snapshot 1`] = `
                                 </td>
                               </tr>
                               <tr
-                                class="current-0-2-4 p-selectable-row p-row-odd"
+                                class="p-selectable-row p-row-odd"
                                 role="row"
                               >
                                 <td
@@ -1434,7 +1434,7 @@ exports[`<Form /> InputBG render equals snapshot 1`] = `
                                 </td>
                               </tr>
                               <tr
-                                class="current-0-2-4 p-selectable-row"
+                                class="p-selectable-row"
                                 role="row"
                               >
                                 <td

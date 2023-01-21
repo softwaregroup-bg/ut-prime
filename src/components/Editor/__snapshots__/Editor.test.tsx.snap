@@ -1309,7 +1309,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                   class="p-datatable-tbody"
                                 >
                                   <tr
-                                    class="current-0-2-4 p-highlight p-selectable-row"
+                                    class="p-highlight p-selectable-row"
                                     draggable="false"
                                     role="row"
                                     tabindex="0"
@@ -1725,7 +1725,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
                                     </td>
                                   </tr>
                                   <tr
-                                    class="current-0-2-4 p-highlight p-selectable-row p-row-odd"
+                                    class="p-highlight p-selectable-row p-row-odd"
                                     draggable="false"
                                     role="row"
                                     tabindex="0"
@@ -5127,7 +5127,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
                                   class="p-datatable-tbody"
                                 >
                                   <tr
-                                    class="current-0-2-4 p-highlight p-selectable-row"
+                                    class="p-highlight p-selectable-row"
                                     draggable="false"
                                     role="row"
                                     tabindex="0"
@@ -5533,7 +5533,7 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
                                     </td>
                                   </tr>
                                   <tr
-                                    class="current-0-2-4 p-highlight p-selectable-row p-row-odd"
+                                    class="p-highlight p-selectable-row p-row-odd"
                                     draggable="false"
                                     role="row"
                                     tabindex="0"
