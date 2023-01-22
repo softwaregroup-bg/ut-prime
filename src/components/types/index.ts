@@ -10,6 +10,7 @@ import useForm from '../hooks/useForm';
 
 export type DataTable = Omit<DataTableProps, 'children'>;
 export type DataView = Omit<DataViewProps, 'children'>;
+export type Permission = string | string[] | boolean;
 
 export interface PropertyEditor {
     type?:
@@ -151,7 +152,7 @@ export type ActionHandler = ((item: Selection) => void) | string | {type: string
 
 export interface ActionItem extends MenuItem {
     items?: ActionItem[] | ActionItem[][];
-    permission?: string;
+    permission?: Permission;
     enabled?: string | boolean;
     method?: string;
     action?: ActionHandler;
@@ -168,7 +169,7 @@ export type WidgetReference = string | {
     className?: string,
     fieldClass?: string,
     labelClass?: string,
-    permission?: string,
+    permission?: Permission,
     confirm?: string,
     action?: ActionHandler,
     method?: string,
@@ -195,6 +196,7 @@ export interface Card {
     watch?: string;
     match?: unknown;
     className?: string;
+    permission?: Permission;
     type?: 'toolbar' | 'card';
     classes?: {
         [name: string]: {
@@ -248,7 +250,7 @@ export interface Layouts {
 
 export interface Action {
     title: string;
-    permission?: string;
+    permission?: Permission;
     enabled?: string | boolean;
     action: ActionHandler;
     params?: object;

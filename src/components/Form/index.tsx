@@ -13,6 +13,7 @@ import Card from '../Card';
 import type {UtError} from '../types';
 
 import useLayout from '../hooks/useLayout';
+import { usePermissionCheck } from '../hooks';
 
 const useStyles = createUseStyles({
     form: {
@@ -157,46 +158,48 @@ const Form: ComponentProps = ({
             .map(name => !layoutState.visibleProperties.includes(name) && <><small className="p-error">{get(errors, name)?.message}</small><br /></>)
             .filter(Boolean);
 
+    const permissionCheck = usePermissionCheck();
+
     return (<>
         {devTool ? <DevTool control={control} placement="top-right" /> : null}
         {toolbarElement}
         <div {...rest} className={clsx('grid col align-self-start', classes.form, className)}>
             {!!errorList.length && <div className='col-12'>{errorList}</div>}
             {layoutState.visibleCards.map((id1, level1) => {
-                const nested = [].concat(id1);
-                const firstCardName = widgetName(nested[0]);
-                const firstCard = firstCardName ? cards[firstCardName] : nested[0];
-                const nestedCards = nested.map((widget, level2) => {
+                const nested = [].concat(id1).filter(widget => {
                     const key = widgetName(widget);
                     if (!key) return <></>;
                     const currentCard = cards?.[key];
                     if (currentCard?.hidden && !design) return null;
                     const watched = currentCard?.watch && watch(currentCard.watch);
                     const match = currentCard?.match;
-                    return (!match || (typeof match === 'object' ? Object.entries(match).every(([key, value]) => watched?.[key] === value) : match === watched))
-                        ? <Card
-                                key={`${level1}-${Array.isArray(id1) && level2}`}
-                                cardName={widget}
-                                index1={level1}
-                                last1={layoutState.visibleCards.length - 1}
-                                index2={Array.isArray(id1) && level2}
-                                last2={Array.isArray(id1) && nested.length - 1}
-                                cards={cards}
-                                layoutState={layoutState}
-                                dropdowns={dropdowns}
-                                design={design}
-                                loading={loading}
-                                formApi={formApi}
-                                methods={methods}
-                                submit={submit}
-                                move={move}
-                                inspected={inspected}
-                                onInspect={onInspect}
-                                onFieldChange={onFieldChange}
-                                isPropertyRequired={isPropertyRequired}
-                        />
-                        : null;
-                }).filter(Boolean);
+                    return (design || permissionCheck(currentCard?.permission)) && (!match || (typeof match === 'object' ? Object.entries(match).every(([key, value]) => watched?.[key] === value) : match === watched));
+                });
+                const firstCardName = widgetName(nested[0] || {});
+                const firstCard = firstCardName ? cards[firstCardName] : nested[0];
+                const nestedCards = nested.map((widget, level2) =>
+                    <Card
+                        key={`${level1}-${Array.isArray(id1) && level2}`}
+                        cardName={widget}
+                        index1={level1}
+                        last1={layoutState.visibleCards.length - 1}
+                        index2={Array.isArray(id1) && level2}
+                        last2={Array.isArray(id1) && nested.length - 1}
+                        cards={cards}
+                        layoutState={layoutState}
+                        dropdowns={dropdowns}
+                        design={design}
+                        loading={loading}
+                        formApi={formApi}
+                        methods={methods}
+                        submit={submit}
+                        move={move}
+                        inspected={inspected}
+                        onInspect={onInspect}
+                        onFieldChange={onFieldChange}
+                        isPropertyRequired={isPropertyRequired}
+                    />
+                );
 
                 if (!nestedCards.length) return null;
                 return (

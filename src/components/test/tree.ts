@@ -113,6 +113,12 @@ const tree: {schema: Schema, cards: Cards} = {
         },
         taxonomy: {
             label: 'Taxonomy',
+            permission: 'granted',
+            widgets: []
+        },
+        denied: {
+            label: 'Permission Denied',
+            permission: 'denied',
             widgets: []
         },
         morphology: {

@@ -11,6 +11,7 @@ import React from 'react';
 import Component from '../Component';
 import Text from '../Text';
 import Permission from '../Permission';
+import {Props as PermissionProps} from '../Permission/Permission.types';
 import {confirmPopup as confirmPopupPrime} from 'primereact/confirmpopup';
 import {confirmDialog as confirmDialogPrime} from 'primereact/confirmdialog';
 
@@ -116,8 +117,10 @@ export const Calendar = React.forwardRef<HTMLInputElement, CalendarProps>(functi
     />;
 });
 
-export const Card = ({title, ...props}: CardProps) =>
-    <PrimeCard title={title && <Text>{title}</Text>} {...props}/>;
+export const Card = ({title, permission, ...props}: CardProps & Partial<PermissionProps>) => {
+    const card = <PrimeCard title={title && <Text>{title}</Text>} {...props}/>;
+    return permission == null ? card : <Permission permission={permission}>{card}</Permission>;
+};
 
 export type ButtonProps = PrimeButtonProps & Partial<Pick<Parameters<typeof Permission>[0], 'permission'>> & {confirm?: string}
 export const Button = ({children, permission, confirm, onClick, ...props}: ButtonProps) => {
