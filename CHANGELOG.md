@@ -1,3 +1,12 @@
+# [2.63.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.62.2...v2.63.0) (2023-01-22)
+
+
+### Features
+
+* card permissions ([e78b5b1](https://github.com/softwaregroup-bg/ut-prime/commit/e78b5b18dc2ee7de9677fd9a98fadcbdaafdf3e8))
+
+
+
 ## [2.62.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.62.1...v2.62.2) (2023-01-21)
 
 
