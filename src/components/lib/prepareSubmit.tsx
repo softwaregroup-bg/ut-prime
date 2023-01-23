@@ -12,7 +12,7 @@ const query = (value: unknown, path: string | string[], name?: string | number, 
 };
 
 export default ([form, {tables = [], files = []} = {}, {method, params} = {method: '', params: ''}]) => {
-    if (method) return params && JSON.parse(template(typeof params === 'string' ? params : JSON.stringify(params), form, {}, 'stringify'));
+    if (method) return params ? JSON.parse(template(typeof params === 'string' ? params : JSON.stringify(params), form, {}, 'stringify')) : form;
     const {$, ...value} = form;
     tables?.forEach(name => {
         const table = get(value, name);

@@ -1,24 +1,27 @@
 import { Button as PrimeButton, type ButtonProps as PrimeButtonProps } from 'primereact/button';
-import { Calendar } from 'primereact/calendar';
+import { Calendar as PrimeCalendar } from 'primereact/calendar';
 import { Card as PrimeCard, type CardProps } from 'primereact/card';
 import { AutoComplete as PrimeAutoComplete, type AutoCompleteProps } from 'primereact/autocomplete';
 import type { CalendarProps } from 'primereact/calendar';
-import type { DataTableProps } from 'primereact/datatable';
+import type { DataTableProps as PrimeDataTableProps} from 'primereact/datatable';
 import type { DataViewProps } from 'primereact/dataview';
 import type { FileUploadProps } from 'primereact/fileupload';
 import { DataTable as PrimeDataTable } from 'primereact/datatable';
 import React from 'react';
+import Component from '../Component';
 import Text from '../Text';
 import Permission from '../Permission';
-import {confirmPopup} from 'primereact/confirmpopup';
+import {Props as PermissionProps} from '../Permission/Permission.types';
+import {confirmPopup as confirmPopupPrime} from 'primereact/confirmpopup';
+import {confirmDialog as confirmDialogPrime} from 'primereact/confirmdialog';
 
-export { Calendar } from 'primereact/calendar';
 export { CascadeSelect } from 'primereact/cascadeselect';
 export { Chart } from 'primereact/chart';
 export { Checkbox } from 'primereact/checkbox';
 export { Chips } from 'primereact/chips';
 export { Column } from 'primereact/column';
-export { ConfirmPopup, confirmPopup } from 'primereact/confirmpopup';
+export { ConfirmPopup } from 'primereact/confirmpopup';
+export { ConfirmDialog } from 'primereact/confirmdialog';
 export { DataView } from 'primereact/dataview';
 export { Dialog } from 'primereact/dialog';
 export { Dropdown } from 'primereact/dropdown';
@@ -47,10 +50,12 @@ export { TabMenu } from 'primereact/tabmenu';
 export { TabPanel, TabView } from 'primereact/tabview';
 export { Toast } from 'primereact/toast';
 export { Toolbar } from 'primereact/toolbar';
+export { Tooltip } from 'primereact/tooltip';
 export { Tree } from 'primereact/tree';
 export { TreeSelect } from 'primereact/treeselect';
 export { TreeTable } from 'primereact/treetable';
 export { MultiSelect } from 'primereact/multiselect';
+type DataTableProps = PrimeDataTableProps & {emptyMessage?: string | {page: string}}
 export type { DataTableProps };
 export type { DataViewProps };
 export type { FileUploadProps };
@@ -58,8 +63,24 @@ export type { FileUploadProps };
 function dateRange(timeOnly) {
     const today = timeOnly ? new Date(0) : new Date();
     if (!timeOnly) today.setHours(0, 0, 0, 0);
-    return [today, new Date(today.getTime() + timeOnly ? 0 : 86400000)];
+    return [today, new Date(today.getTime() + (timeOnly ? 0 : 86400000))];
 }
+
+function date() {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return today;
+}
+
+export const confirmPopup = ({message, ...params}) => confirmPopupPrime({
+    message: message && <Text>{message}</Text>,
+    ...params
+});
+export const confirmDialog = ({message, header, ...params}) => confirmDialogPrime({
+    message: message && <Text>{message}</Text>,
+    header: header && <Text>{header}</Text>,
+    ...params
+});
 
 export const DateRange = React.forwardRef<HTMLInputElement, CalendarProps>(function DateRange(props, ref) {
     const [visible, setVisible] = React.useState(false);
@@ -67,7 +88,7 @@ export const DateRange = React.forwardRef<HTMLInputElement, CalendarProps>(funct
     const onVisibleChange = React.useCallback(event => {
         setVisible(event.visible);
     }, [setVisible]);
-    return <Calendar
+    return <PrimeCalendar
         showButtonBar
         selectionMode='range'
         showOnFocus={false}
@@ -81,14 +102,31 @@ export const DateRange = React.forwardRef<HTMLInputElement, CalendarProps>(funct
     />;
 });
 
-export const Card = ({title, ...props}: CardProps) =>
-    <PrimeCard title={title && <Text>{title}</Text>} {...props}/>;
+export const Calendar = React.forwardRef<HTMLInputElement, CalendarProps>(function Calendar(props, ref) {
+    const [visible, setVisible] = React.useState(false);
+    const value = React.useMemo(() => (visible && !props.value) ? date() : props.value, [visible, props.value]);
+    const onVisibleChange = React.useCallback(event => {
+        setVisible(event.visible);
+    }, [setVisible]);
+    return <PrimeCalendar
+        {...props}
+        visible={visible}
+        value={value}
+        onVisibleChange={onVisibleChange}
+        inputRef={ref}
+    />;
+});
+
+export const Card = ({title, permission, ...props}: CardProps & Partial<PermissionProps>) => {
+    const card = <PrimeCard title={title && <Text>{title}</Text>} {...props}/>;
+    return permission == null ? card : <Permission permission={permission}>{card}</Permission>;
+};
 
 export type ButtonProps = PrimeButtonProps & Partial<Pick<Parameters<typeof Permission>[0], 'permission'>> & {confirm?: string}
 export const Button = ({children, permission, confirm, onClick, ...props}: ButtonProps) => {
     const handleClick = React.useCallback(event => confirm ? confirmPopup({
         target: event.currentTarget,
-        message: <Text>{confirm}</Text>,
+        message: confirm,
         icon: 'pi pi-exclamation-triangle',
         reject: () => {},
         accept: () => onClick(event)
@@ -96,8 +134,10 @@ export const Button = ({children, permission, confirm, onClick, ...props}: Butto
     const button = <PrimeButton {...props} onClick={handleClick}>{children && <span className='p-button-label p-c'><Text>{children}</Text></span>}</PrimeButton>;
     return (permission == null) ? button : <Permission permission={permission}>{button}</Permission>;
 };
-export const DataTable = ({emptyMessage = 'No results found', ...props}: DataTableProps) =>
-    <PrimeDataTable emptyMessage={emptyMessage && <Text>{emptyMessage}</Text>} {...props}/>;
+export const DataTable = ({emptyMessage = 'No results found', value, ...props}: DataTableProps) =>
+    (typeof emptyMessage === 'object' && emptyMessage?.page && !value?.length)
+        ? <Component {...emptyMessage} />
+        : <PrimeDataTable emptyMessage={emptyMessage && <Text>{emptyMessage}</Text>} value={value} {...props}/>;
 export const AutoComplete = React.forwardRef<PrimeAutoComplete, AutoCompleteProps & {methods: unknown, autocomplete?: string}>(
     function AutoComplete({methods, autocomplete, ...props}, ref) {
         const [suggestions, setSuggestions] = React.useState();

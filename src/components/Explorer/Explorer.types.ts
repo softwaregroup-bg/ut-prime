@@ -47,6 +47,7 @@ export interface Props {
         },
         [data: string]: unknown
     }>;
+    fetchTransform?: (params: unknown) => unknown,
     subscribe?: (callback: (rows: [] | Record<string, object>) => void) => () => void;
     onDropdown?: (params: string[]) => Promise<Dropdowns>,
     className?: string;
@@ -73,6 +74,7 @@ export interface Props {
     methods?: object;
     name?: string;
     hidden?: boolean;
+    refresh?: boolean;
     customization?: Customization,
     paramsCard?: string,
     onFieldChange?: string,

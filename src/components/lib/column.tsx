@@ -2,7 +2,6 @@ import React from 'react';
 import {
     Calendar,
     Checkbox,
-    DateRange,
     Dropdown,
     FileUpload,
     InputMask,
@@ -14,6 +13,7 @@ import {
     RadioButton,
     SelectButton
 } from '../prime';
+import DateRange from '../DateRange';
 import Json from '../Json';
 import type { Property, PropertyEditor } from '../types';
 import titleCase from './titleCase';
@@ -23,6 +23,8 @@ import testid from '../lib/testid';
 import {ConfigField} from '../Form/DragDrop';
 import Text from '../Text';
 import clsx from 'clsx';
+import type Joi from 'joi';
+import { TooltipProps } from 'primereact/tooltip';
 
 export interface TableFilter {
     filters?: {
@@ -65,6 +67,8 @@ export default function columnProps({
     onInspect,
     move,
     getValues,
+    filterErrors,
+    errorsWithoutColumn,
     toolbar
 }: {
     resultSet?: string,
@@ -72,7 +76,7 @@ export default function columnProps({
     property: Property,
     widget?: PropertyEditor,
     dropdowns: object,
-    tableFilter?: TableFilter,
+    tableFilter?: Omit<TableFilter, 'page'>,
     filterBy?: (name: string, value: string) => (e: object) => void,
     editable?: boolean,
     index: number,
@@ -80,22 +84,40 @@ export default function columnProps({
     design?: boolean,
     inspected?: unknown,
     onInspect?: unknown,
-    getValues?: (fieldName: string) => unknown,
+    getValues?: (fieldName: string | string[]) => unknown,
     move?: unknown,
+    filterErrors?: Joi.ValidationError,
+    errorsWithoutColumn?: Joi.ValidationError['details']
     toolbar?: undefined
 }) {
     const resultSetDot = resultSet ? resultSet + '.' : '';
-    const { type, dropdown, parent, column, lookup, compare, download, basePath, optionsFilter, ...props } = widget || property?.widget || { name };
+    const { type, dropdown, parent, column, lookup, compare, download, basePath, optionsFilter, translation, ...props } = widget || property?.widget || { name };
     const fieldName = name.split('.').pop();
     let filterElement, body, editor, bodyClassName, alignHeader;
     const filterId = `${resultSetDot}${name}Filter`;
+    const isInvalid = filterErrors?.details?.findIndex(({path}) => [fieldName, name].includes(path.join('.')));
+    const widgetType = type || property?.format || getType(property?.type);
+    const invalidProps = isInvalid >= 0 ? {
+        className: clsx(props.className || (widgetType === 'dropdown' && 'w-full'), 'p-invalid'),
+        tooltip: filterErrors.details[isInvalid].message,
+        tooltipOptions: {
+            position: 'top',
+            event: 'both'
+        } as TooltipProps
+    } : {};
+    if (filterBy && isInvalid >= 0) delete errorsWithoutColumn[isInvalid];
     filterElement = filterBy && <InputText
         {...props}
+        {...invalidProps}
         value={tableFilter?.filters?.[fieldName]?.value ?? ''}
         onChange={filterBy(fieldName, 'target.value')}
         name={filterId}
     />;
-    switch (type || property?.format || getType(property?.type)) {
+    body = function body(rowData) {
+        const value = rowData[property?.body || fieldName];
+        return (value == null) ? value : <span className='value'>{translation ? <Text>{value}</Text> : value}</span>;
+    };
+    switch (widgetType) {
         case 'currency':
         case 'integer':
         case 'number':
@@ -108,6 +130,7 @@ export default function columnProps({
                 onChange={filterBy(fieldName, 'checked')}
                 {...testid(filterId)}
                 {...props}
+                {...invalidProps}
                 id={filterId}
                 name={filterId}
             />;
@@ -126,6 +149,7 @@ export default function columnProps({
                 showClear
                 {...testid(filterId)}
                 {...props}
+                {...invalidProps}
                 name={filterId}
             />;
             body = function body(rowData) {
@@ -172,11 +196,11 @@ export default function columnProps({
             break;
         case 'json':
             body = function body(rowData) {
-                return <Json
+                return <span className='value'><Json
                     value={rowData[fieldName]}
                     {...testid(props.id)}
                     {...props}
-                />;
+                /></span>;
             };
             break;
         case 'select-table-radio':
@@ -202,37 +226,39 @@ export default function columnProps({
                 onChange={filterBy(fieldName, 'value')}
                 {...testid(filterId)}
                 {...props}
+                {...invalidProps}
                 id={filterId}
                 name={filterId}
             />;
             body = function body(rowData) {
-                return dateOrNull(rowData[fieldName])?.toLocaleDateString();
+                let value = rowData[fieldName];
+                if (value == null) return null;
+                value = new Date(value);
+                return new Date(value.getTime() + value.getTimezoneOffset() * 60 * 1000).toLocaleDateString();
             };
             break;
         case 'time':
             filterElement = filterBy && <DateRange
                 value={tableFilter?.filters?.[fieldName]?.value}
                 onChange={filterBy(fieldName, 'value')}
-                showTime
-                showSeconds
                 timeOnly
                 {...testid(filterId)}
                 {...props}
+                {...invalidProps}
                 id={filterId}
                 name={filterId}
             />;
             body = function body(rowData) {
-                return dateOrNull(rowData[fieldName])?.toISOString().slice(11, 19);
+                return dateOrNull(rowData[fieldName])?.toLocaleTimeString(undefined, {timeStyle: 'short', hourCycle: 'h23'});
             };
             break;
         case 'date-time':
             filterElement = filterBy && <DateRange
                 value={tableFilter?.filters?.[fieldName]?.value}
                 onChange={filterBy(fieldName, 'value')}
-                showTime
-                showSeconds
                 {...testid(filterId)}
                 {...props}
+                {...invalidProps}
                 id={filterId}
                 name={filterId}
             />;

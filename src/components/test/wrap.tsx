@@ -3,7 +3,7 @@ import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import merge from 'ut-function.merge';
 
-import { ConfirmPopup } from '../prime';
+import { ConfirmPopup, ConfirmDialog } from '../prime';
 import Context from '../Context';
 import Store from '../Store';
 import Error from '../Error';
@@ -51,6 +51,7 @@ function Wrap({
                     <Context.Provider value={{portalName, devTool: true, customization: true}}>
                         <Translate language={language}>
                             <ConfirmPopup />
+                            <ConfirmDialog />
                             {children}
                             <Error />
                             <Hint />

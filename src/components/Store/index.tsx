@@ -32,7 +32,7 @@ const Store: StoreComponent = ({middleware = [], reducers, state, children, onDi
     const history = (typeof window !== 'undefined') ? createHashHistory() : createMemoryHistory();
     const storeRef = React.useRef<ReturnType<typeof createStore>>();
     storeRef.current ||= createStore(
-        combineReducers({
+        combineReducers<unknown>({
             router: connectRouter(history),
             ...front,
             ...reducers

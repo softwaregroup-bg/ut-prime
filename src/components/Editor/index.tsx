@@ -18,6 +18,7 @@ import useSubmit from '../hooks/useSubmit';
 const backgroundNone = {background: 'none'};
 
 function handleArray(result, properties) {
+    if (!result) return result;
     Object.entries(result).forEach(([name, value]) => {
         // back end wrongly returned an array with a single item
         if (Array.isArray(value) && properties[name]?.properties) result[name] = value[0];
@@ -124,7 +125,7 @@ const Editor: ComponentProps = ({
             loadCustomization()
         ]);
         handleArray(result, properties);
-        setValueMode(prev => [prev[0], 'edit', lodashGet(result, typeField), result]);
+        setValueMode(prev => [prev[0], 'edit', typeField ? lodashGet(result, typeField) : prev[2], result]);
         setLoading('');
     }
     async function init() {
@@ -139,7 +140,7 @@ const Editor: ComponentProps = ({
             if (value !== undefined) setValueMode(prev => [getLayoutValue(prev[1], prev[2], value), prev[1], prev[2], prev[3]]);
         }
         edit();
-    }, [getLayoutValue, initValue, mergedSchema, onInit]);
+    }, [initValue]); // eslint-disable-line react-hooks/exhaustive-deps
 
     const {handleSubmit: loadDropDown} = useSubmit(async() => setDropdown(await onDropdown(dropdownNames)), [dropdownNames, onDropdown]);
 
@@ -212,7 +213,7 @@ const Editor: ComponentProps = ({
                     {reset === false ? null : <ActionButton
                         icon='pi pi-replay'
                         onClick={handleReset}
-                        confirm={trigger ? 'Changed data will not be saved. Are you sure you want to proceed ?' : ''}
+                        confirm={trigger ? 'Changed data will not be saved. Are you sure you want to proceed?' : ''}
                         disabled={(!trigger && (!didSubmit || !!loadedValue)) || !!loading}
                         aria-label='reset'
                         className='mr-2'

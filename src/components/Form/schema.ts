@@ -89,18 +89,18 @@ function validation(name, field) {
         if (field.enum) result = result.valid(...field.enum);
         if (field.const) result = result.valid(field.const);
     }
-    return result.label(field.title || name);
+    return (field.title || name) ? result.label(field.title || name) : result;
 }
 
 export default function getValidation(schema: Schema | Property, filter?: string[], path = '', propertyName = '') : [Joi.Schema, string[]] {
-    if (schema?.type === 'object' || schema?.properties) {
+    if (schema?.type === 'object' || (!schema?.type && schema?.properties)) {
         return Object.entries(schema?.properties || {}).reduce(
             ([prevSchema, prevRequired], [name, field]) => {
                 const [nextSchema, required] = getValidation(field, filter, path ? path + '.' + name : name, name);
                 if (!nextSchema) return [prevSchema, prevRequired];
                 return [
                     prevSchema.append({
-                        [name]: schema?.required?.includes(name)
+                        [name]: (field?.mandatory || schema?.required?.includes(name))
                             ? nextSchema.empty([null, '']).required()
                             : nextSchema.allow(null)
                     }),
@@ -111,20 +111,28 @@ export default function getValidation(schema: Schema | Property, filter?: string
                 object(
                     schema,
                     path
-                        ? {}
+                        ? undefined
                         : {
                             $: Joi.any().strip(),
                             $key: Joi.any().strip(),
                             ...(filter?.includes('$original') && { $original: Joi.any() })
                         }
                 ),
-                [].concat(schema?.required?.map?.((r) => [path, r].filter(Boolean).join('.'))).filter(Boolean)
+                []
+                    .concat(
+                        schema?.required?.map?.((r) => [path, r].filter(Boolean).join('.'))
+                    )
+                    .concat(
+                        Object.entries(schema?.properties || {})
+                            .map(([name, settings]) => settings?.mandatory && [path, name].filter(Boolean).join('.'))
+                    )
+                    .filter(Boolean)
             ]
         );
     }
     if (filter && !filter?.includes(path)) return [null, []];
-    if (schema?.type === 'array' || schema?.items) {
-        const [validation, required] = schema?.items && getValidation(schema.items as Schema, filter, path, propertyName);
+    if (schema?.type === 'array' || (!schema?.type && schema?.items)) {
+        const [validation, required] = schema?.items ? getValidation(schema.items as Schema, filter, path, propertyName) : [null, []];
         return [schema?.items ? array(schema, filter, path, propertyName).sparse().items(validation) : array(schema, filter, path, propertyName), required];
     } else if (schema?.oneOf) {
         return [Joi.alternatives().try(...schema.oneOf.map(item => getValidation(item as Schema, filter, path, propertyName)[0]).filter(Boolean)).match('one'), []];

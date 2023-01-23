@@ -18,6 +18,7 @@ export interface MenuItem extends PrimeMenuItem {
 }
 interface ErrorPrint extends Error {
     print?: string;
+    params?: object;
 }
 
 export interface State {

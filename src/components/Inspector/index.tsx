@@ -33,6 +33,11 @@ const fieldSchema : (field: boolean) => Schema = field => ({
             type: 'string',
             widget: {type: 'dropdown', dropdown: 'type', showClear: 'pi-replay'}
         },
+        mandatory: {
+            type: 'boolean',
+            title: 'Required',
+            widget: {clear: 'pi-replay'}
+        },
         widget: {
             type: 'object',
             properties: {
@@ -125,6 +130,7 @@ const props : Record<string, EditorProps> = {
                 widgets: [
                     'title',
                     'type',
+                    'mandatory',
                     'widget.type',
                     'widget.parent',
                     'widget.labelClass',

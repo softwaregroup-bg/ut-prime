@@ -62,8 +62,13 @@ const tree: {schema: Schema, cards: Cards} = {
                         },
                         items: {
                             properties: {
-                                title: {},
-                                url: {}
+                                title: {
+                                    filter: true
+                                },
+                                url: {
+                                    filter: true,
+                                    sort: true
+                                }
                             }
                         }
                     },
@@ -108,6 +113,12 @@ const tree: {schema: Schema, cards: Cards} = {
         },
         taxonomy: {
             label: 'Taxonomy',
+            permission: 'granted',
+            widgets: []
+        },
+        denied: {
+            label: 'Permission Denied',
+            permission: 'denied',
             widgets: []
         },
         morphology: {

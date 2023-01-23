@@ -3,6 +3,7 @@ const defaultErrors = {
     401: 'Session closed or expired',
     403: 'Insufficient permissions for the operation',
     404: 'Resource cannot be found',
+    413: 'The uploaded data is bigger than the allowed',
     500: 'Error was received from server. Please try again later'
 };
 

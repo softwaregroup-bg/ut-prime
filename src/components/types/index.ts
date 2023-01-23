@@ -6,9 +6,11 @@ import type { DataTableProps } from 'primereact/datatable';
 import type { DataViewProps } from 'primereact/dataview';
 import type { ColumnProps } from 'primereact/column';
 import Joi from 'joi';
+import useForm from '../hooks/useForm';
 
 export type DataTable = Omit<DataTableProps, 'children'>;
 export type DataView = Omit<DataViewProps, 'children'>;
+export type Permission = string | string[] | boolean;
 
 export interface PropertyEditor {
     type?:
@@ -50,7 +52,7 @@ export interface PropertyEditor {
         'text' |
         'time';
     dropdown?: string;
-    parent?: string;
+    parent?: string | string[];
     column?: ColumnProps;
     pivot?: {
         dropdown?: string;
@@ -70,6 +72,7 @@ export interface PropertyEditor {
     className?: string,
     fieldClass?: string,
     labelClass?: string,
+    translation?: boolean,
     [editorProperties: string]: unknown
 }
 
@@ -105,6 +108,7 @@ export interface Editors {
 export interface Property extends JSONSchema7 {
     filter?: boolean;
     sort?: boolean;
+    mandatory?: boolean;
     udf?: boolean;
     action?: string | ((action: {
         id: unknown,
@@ -136,6 +140,10 @@ export interface PropertyEditors {
 }
 
 export type Selection = {
+    params?: object,
+    filter?: object,
+    pageSize?: number,
+    pageNumber?: number,
     id: string | number,
     current: object,
     selected: object[]
@@ -144,7 +152,7 @@ export type ActionHandler = ((item: Selection) => void) | string | {type: string
 
 export interface ActionItem extends MenuItem {
     items?: ActionItem[] | ActionItem[][];
-    permission?: string;
+    permission?: Permission;
     enabled?: string | boolean;
     method?: string;
     action?: ActionHandler;
@@ -161,21 +169,24 @@ export type WidgetReference = string | {
     className?: string,
     fieldClass?: string,
     labelClass?: string,
-    permission?: string,
+    permission?: Permission,
     confirm?: string,
     action?: ActionHandler,
     method?: string,
     successHint?: React.ReactNode,
     params?: object | string,
+    page?: string,
     selectionPath?: string,
     propertyName?: string,
+    inline?: boolean,
     actions?: object,
     menu?: ActionItem[],
+    column?: ColumnProps;
     widgets?: string[],
     hidden?: string[],
     compare?: string,
     filter?: object,
-    parent?: string,
+    parent?: string | string[],
     disabled?: 'current' | 'selected' | 'single' | boolean | Joi.Schema,
     enabled?: 'current' | 'selected' | 'single' | boolean | Joi.Schema
 }
@@ -185,6 +196,7 @@ export interface Card {
     watch?: string;
     match?: unknown;
     className?: string;
+    permission?: Permission;
     type?: 'toolbar' | 'card';
     classes?: {
         [name: string]: {
@@ -238,7 +250,7 @@ export interface Layouts {
 
 export interface Action {
     title: string;
-    permission?: string;
+    permission?: Permission;
     enabled?: string | boolean;
     action: ActionHandler;
     params?: object;
@@ -253,3 +265,5 @@ export interface UtError extends Error {
 }
 
 export type LayoutMode = 'create' | 'edit' | 'view';
+
+export type FormApi = ReturnType<typeof useForm>;

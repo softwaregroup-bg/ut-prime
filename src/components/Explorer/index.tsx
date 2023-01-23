@@ -3,6 +3,7 @@ import lodashGet from 'lodash.get';
 import merge from 'ut-function.merge';
 import clsx from 'clsx';
 import {createUseStyles} from 'react-jss';
+import Joi from 'joi';
 
 import Card from '../Card';
 import { Button, DataTable, DataView, Column, Toolbar, Splitter, SplitterPanel } from '../prime';
@@ -15,13 +16,17 @@ import useLoad from '../hooks/useLoad';
 import useWindowSize from '../hooks/useWindowSize';
 import Editor from '../Editor';
 import Form from '../Form';
+import getValidation from '../Form/schema';
+import skip from '../lib/skip';
 import fieldNames from '../lib/fields';
-import columnProps, {TableFilter} from '../lib/column';
+import columnProps from '../lib/column';
+import useFilter from '../hooks/useFilter';
 import prepareSubmit from '../lib/prepareSubmit';
 
 import { ComponentProps } from './Explorer.types';
 import testid from '../lib/testid';
 import useCustomization from '../hooks/useCustomization';
+import useButtons from '../hooks/useButtons';
 
 const backgroundNone = {background: 'none'};
 
@@ -41,6 +46,10 @@ const useStyles = createUseStyles({
             width: 'fit-content'
         },
         '& .p-datatable-tbody .p-button .p-button-label': {
+            overflow: 'hidden',
+            textOverflow: 'ellipsis'
+        },
+        '& .p-datatable-tbody td .value': {
             overflow: 'hidden',
             textOverflow: 'ellipsis'
         },
@@ -89,10 +98,21 @@ const useStyles = createUseStyles({
 
 const empty = [];
 
+const FilterErrors = ({errors}: {errors: Joi.ValidationError['details']}) => {
+    return <Button
+        className='absolute m-2 top-0 right-0 z-2 pre p-button-rounded p-button-danger'
+        icon='pi pi-exclamation-triangle'
+        onClick={() => {}}
+        tooltip={errors.map(error => error.message).join('\n')}
+        tooltipOptions={{position: 'top'}}
+    />;
+};
+
 const Explorer: ComponentProps = ({
     className,
     keyField,
     fetch: fetchParams,
+    fetchTransform,
     subscribe,
     schema,
     resultSet,
@@ -114,6 +134,7 @@ const Explorer: ComponentProps = ({
     value,
     name,
     hidden,
+    refresh,
     layouts,
     layout: layoutName,
     cards,
@@ -121,7 +142,7 @@ const Explorer: ComponentProps = ({
     methods,
     fetchValidation
 }) => {
-    const [trigger, setTrigger] = React.useState<() => void>();
+    const [trigger, setTrigger] = React.useState<() => Promise<void>>();
     const [paramValues, submitParams] = React.useState<[Record<string, unknown>] | [Record<string, unknown>, {files: []}]>([params]);
     const [filter, index] = React.useMemo(() => [
         {
@@ -164,11 +185,11 @@ const Explorer: ComponentProps = ({
     const layout = ('layout' in layoutProps) ? layoutProps.layout : empty;
     const columns = ('layout' in layoutProps) ? empty : mergedCards[columnsCard]?.widgets ?? empty;
     const paramsLayout = ('params' in layoutProps) && layoutProps.params;
-    const fetch = React.useMemo(() => (!paramsLayout || paramValues.length > 1) && fetchParams, [fetchParams, paramValues, paramsLayout]);
+    const fetch = React.useMemo(() => (!paramsLayout?.length || paramValues.length > 1) && fetchParams, [fetchParams, paramValues, paramsLayout]);
     if (toolbar !== false) toolbar = ('layout' in layoutProps) ? ('toolbar' in layoutProps ? mergedCards[layoutProps.toolbar]?.widgets : toolbar) : mergedCards[toolbarCard]?.widgets ?? toolbar;
     const classes = useStyles();
     const {properties} = mergedSchema;
-    const [tableFilter, setFilters] = React.useState<TableFilter>({
+    const [tableFilter, setFilters, filterBy, filterProps] = useFilter({
         filters: columns?.reduce((prev : object, column) => {
             let field = fieldName(column);
             const value = lodashGet(externalFilter, field);
@@ -177,9 +198,8 @@ const Explorer: ComponentProps = ({
         }, {}),
         first: 0,
         page: 1
-    });
+    }, columns, properties, showFilter);
     const multiSelect = keyField && (!tableProps?.selectionMode || tableProps?.selectionMode === 'checkbox');
-    const handleFilterPageSort = React.useCallback(event => setFilters(prev => ({...prev, ...event})), []);
 
     const [{current: currentState, selected: selectedState}, setCurrentSelected] = React.useState({current: null, selected: null});
     const handleCurrentSelect = React.useCallback((value, event) => {
@@ -223,15 +243,24 @@ const Explorer: ComponentProps = ({
         ];
     }, [columns, editors, mergedCards, mergedSchema, paramsLayout, properties]);
 
-    const getValues = React.useMemo(() => () => ({
+    const validation = React.useMemo(() => fetchValidation || (mergedSchema.properties?.fetch && getValidation(mergedSchema.properties?.fetch)[0]), [fetchValidation, mergedSchema.properties?.fetch]);
+
+    const getValues = React.useMemo(() => ({$ = undefined, ...params} = {}) => ({
+        params,
+        pageSize,
+        pageNumber: pageSize && (Math.floor(tableFilter.first / pageSize) + 1),
         id: current && current[keyField],
         current,
         selected,
-        filter: externalFilter
-    }), [current, keyField, selected, externalFilter]);
+        filter: merge(
+            {},
+            externalFilter,
+            Object.entries(tableFilter.filters).reduce((prev, [name, {value}]) => ({...prev, [name]: value}), {})
+        )
+    }), [current, keyField, selected, externalFilter, pageSize, tableFilter]);
 
-    const submit = React.useCallback(async({method, params}) => {
-        params = prepareSubmit([getValues(), {}, {method, params}]);
+    const submit = React.useCallback(async({method, params}, form?) => {
+        params = prepareSubmit([getValues(form?.params), {}, {method, params}]);
         const system = params?.$;
         delete params?.$;
         setLoading('loading');
@@ -241,43 +270,18 @@ const Explorer: ComponentProps = ({
             setLoading('');
         }
         if (system?.fetch) setFilters(prev => merge({}, prev, system.fetch));
-    }, [methods, getValues]);
+    }, [methods, getValues, setFilters]);
 
-    const buttons = React.useMemo(() => (toolbar || []).map((widget, index) => {
-        const {title, action, method, params, enabled, disabled, permission, menu, confirm, successHint} = (typeof widget === 'string') ? properties[widget].widget : widget;
-        const check = criteria => {
-            if (typeof criteria?.validate === 'function') return !criteria.validate({current, selected}).error;
-            if (typeof criteria !== 'string') return !!criteria;
-            switch (criteria) {
-                case 'current': return !!current;
-                case 'selected': return selected && selected.length > 0;
-                case 'single': return selected && selected.length === 1;
-                default: return !!lodashGet(current, criteria);
-            }
-        };
-        const isDisabled =
-            enabled != null
-                ? !check(enabled)
-                : disabled != null
-                    ? check(disabled)
-                    : undefined;
-        return <ActionButton
-            key={index}
-            permission={permission}
-            {...testid(`${permission ? (permission + 'Button') : ('button' + index)}`)}
-            submit={submit}
-            action={action}
-            method={method}
-            params={params}
-            menu={menu}
-            confirm={confirm}
-            getValues={getValues}
-            disabled={!!loading || isDisabled}
-            successHint={successHint}
-            className="mr-2"
-        >{title}</ActionButton>;
-    }
-    ), [toolbar, current, selected, getValues, properties, submit, loading]);
+    const handleSubmit = React.useCallback(params => {
+        if (params?.[2]?.method) {
+            submit(params[2], params[0]);
+        } else {
+            submitParams(params);
+        }
+    }, [submitParams, submit]);
+
+    const buttons = useButtons({ selected, toolbar, properties, getValues, paramsLayout, trigger, current, loading, submit });
+    const [filterErrors, setFilterErrors] = React.useState<Joi.ValidationError>();
     const {toast, handleSubmit: load} = useSubmit(
         async function() {
             if (!fetch) {
@@ -307,8 +311,11 @@ const Explorer: ComponentProps = ({
                             }
                         }
                     ), index]);
-                    if (typeof fetchValidation?.validate === 'function' && fetchValidation.validate(fetchParams)?.error) return;
-                    const items = await fetch(fetchParams);
+                    const transformed = fetchTransform ? fetchTransform(fetchParams) : fetchParams;
+                    const errors = validation?.validate?.(skip(transformed), {abortEarly: false})?.error;
+                    setFilterErrors(errors);
+                    if (errors) return;
+                    const items = await fetch(transformed);
                     const records = (resultSet ? items[resultSet] : items) as unknown[];
                     let total = items.pagination?.recordsTotal || items.pagination?.[0]?.recordsTotal;
                     if (total == null) {
@@ -323,7 +330,7 @@ const Explorer: ComponentProps = ({
                 }
             }
         },
-        [fetch, filter, index, pageSize, resultSet, tableFilter, externalFilter, fetchValidation]
+        [fetch, filter, index, pageSize, resultSet, tableFilter, externalFilter, validation, fetchTransform]
     );
     useLoad(async() => {
         if (onDropdown) setDropdown(await onDropdown(dropdownNames.split(',').filter(Boolean)));
@@ -342,6 +349,12 @@ const Explorer: ComponentProps = ({
     React.useEffect(() => {
         loadCustomization();
     }, [loadCustomization]);
+    React.useEffect(() => {
+        if (refresh && totalRecords && !hidden && !loading) {
+            load();
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [refresh, totalRecords, hidden, load]);
 
     const windowSize = useWindowSize();
     const [height, setHeight] = React.useState<{height: number}>();
@@ -372,97 +385,95 @@ const Explorer: ComponentProps = ({
             }</div>
         </SplitterPanel>, [getValues, result, details, detailsOpened, height]);
 
-    const filterBy = (name: string, key: string) => e => {
-        const value = lodashGet(e, key);
-        setFilters(prev => {
-            const next = {
-                ...prev,
-                filters: {
-                    ...prev?.filters,
-                    [name]: {
-                        ...prev?.filters?.[name],
-                        value: value === '' ? undefined : value
-                    }
-                }
-            };
-            return next;
-        });
-    };
-
-    const filterDisplay = React.useMemo(() => showFilter && columns.some(column => {
-        const isString = typeof column === 'string';
-        const {name, ...widget} = isString ? {name: column} : column;
-        const property = lodashGet(properties, name?.replace(/\./g, '.properties.'));
-        return !!property?.filter || widget?.column?.filter;
-    }), [columns, properties, showFilter]) ? 'row' : undefined;
-
-    const Columns = React.useMemo(() => columns.map((column, index) => {
-        const isString = typeof column === 'string';
-        const {name, ...widget} = isString ? {name: column} : column;
-        const property = lodashGet(properties, name?.replace(/\./g, '.properties.'));
-        const action = widget.action ?? property?.action;
-        const field = name.split('.').pop();
-        return (
-            <Column
-                key={name}
-                body={action && (row => <ActionButton
-                    {...testid(`${resultSet || 'filterBy'}.${field}Item/${row && row[keyField]}`)}
-                    label={row[field]}
-                    className='p-button-link p-0'
-                    action={action}
-                    submit={submit}
-                    params={widget.params ?? property?.params}
-                    getValues={() => ({
-                        filter: externalFilter,
-                        id: row && row[keyField],
-                        current: row,
-                        selected: [row]
+    const [Columns, errorsWithoutColumn] = React.useMemo(() => {
+        const errorsWithoutColumn = filterErrors ? [...filterErrors.details] : [];
+        return [columns.map((column, index) => {
+            const isString = typeof column === 'string';
+            const {name, ...widget} = isString ? {name: column} : column;
+            const property = lodashGet(properties, name?.replace(/\./g, '.properties.'));
+            const action = widget.action ?? property?.action;
+            const field = name.split('.').pop();
+            return (
+                <Column
+                    key={name}
+                    filter={showFilter && !!property?.filter}
+                    sortable={!!property?.sort}
+                    {...columnProps({
+                        index,
+                        card: columnsCard,
+                        name,
+                        widget: !isString && widget,
+                        property,
+                        dropdowns,
+                        tableFilter,
+                        filterBy,
+                        filterErrors,
+                        errorsWithoutColumn,
+                        ...formProps
                     })}
-                    // onClick={() => property.action({
-                    //     id: row && row[keyField],
-                    //     current: row,
-                    //     selected: [row]
-                    // })}
-                />)}
-                filter={showFilter && !!property?.filter}
-                sortable={!!property?.sort}
-                {...columnProps({index, card: columnsCard, name, widget: !isString && widget, property, dropdowns, tableFilter, filterBy, ...formProps})}
-            />
-        );
-    }), [columns, columnsCard, properties, showFilter, dropdowns, tableFilter, keyField, resultSet, formProps, externalFilter, submit]);
+                    {...action && {
+                        body: row => <ActionButton
+                            {...testid(`${resultSet || 'filterBy'}.${field}Item/${row && row[keyField]}`)}
+                            label={row[field]}
+                            className='p-button-link p-0'
+                            action={action}
+                            submit={submit}
+                            params={widget.params ?? property?.params}
+                            getValues={() => ({
+                                filter: externalFilter,
+                                id: row && row[keyField],
+                                current: row,
+                                selected: [row]
+                            })}
+                        />
+                    }}
+                />
+            );
+        }), errorsWithoutColumn.filter(Boolean)];
+    }, [
+        columns,
+        columnsCard,
+        properties,
+        showFilter,
+        dropdowns,
+        tableFilter,
+        keyField,
+        resultSet,
+        formProps,
+        externalFilter,
+        submit,
+        filterBy,
+        filterErrors
+    ]);
     const hasChildren = !!children;
 
-    const paramsElement = React.useMemo(() => {
-        if (!paramsLayout) return null;
-        return <div className='flex align-items-center w-full'>
-            <Form
-                className='p-0 m-0 flex-grow-1'
-                schema={mergedSchema}
-                editors={editors}
-                methods={methods}
-                cards={cards}
-                layout={paramsLayout}
-                onSubmit={submitParams}
-                value={paramValues[0]}
-                dropdowns={dropdowns}
-                setTrigger={setTrigger}
-                layoutFields={layoutFields}
-                formApi={formApi}
-                isPropertyRequired={isPropertyRequired}
-                triggerNotDirty
-                autoSubmit
-                {...formProps}
-                designCards={false}
-            />
-        </div>;
-    }, [paramsLayout, mergedSchema, editors, methods, cards, paramValues, dropdowns, formProps, layoutFields, formApi, isPropertyRequired]);
-
-    const left = React.useMemo(() => paramsElement ?? <>
+    const left = paramsLayout ? <div className='flex align-items-center w-full'>
+        <Form
+            className='p-0 m-0 flex-grow-1'
+            schema={mergedSchema}
+            editors={editors}
+            methods={methods}
+            cards={cards}
+            layout={paramsLayout}
+            onSubmit={handleSubmit}
+            value={paramValues[0]}
+            dropdowns={dropdowns}
+            setTrigger={setTrigger}
+            layoutFields={layoutFields}
+            formApi={formApi}
+            isPropertyRequired={isPropertyRequired}
+            triggerNotDirty
+            autoSubmit
+            {...formProps}
+            designCards={false}
+        />
+    </div> : <>
         {hasChildren && <Button {...testid(`${resultSet}.navigator.toggleButton`)} icon="pi pi-bars" className="mr-2" onClick={navigationToggle}/>}
         {buttons}
-    </>, [navigationToggle, buttons, hasChildren, resultSet, paramsElement]);
+    </>;
     const right = <>
         <Button icon="pi pi-search" className="mr-2 ml-2" disabled={!!loading} onClick={trigger || load} {...testid(`${resultSet}.refreshButton`)}/>
+        {paramsLayout ? buttons : null}
         {details && <Button {...testid(`${resultSet}.details.toggleButton`)} icon="pi pi-bars" className="mr-2" onClick={detailsToggle}/>}
         {customizationToolbar}
     </>;
@@ -493,7 +504,7 @@ const Explorer: ComponentProps = ({
         return renderItem();
     }, [mergedCards, layoutState, dropdowns, methods, keyField, resultSet, cardName, onFieldChange]);
     const table = (
-        <div ref={tableWrapRef} style={height}>
+        <div ref={tableWrapRef} style={height} className='relative'>
             {layout?.length ? <DataView
                 layout='grid'
                 style={maxHeight}
@@ -506,7 +517,7 @@ const Explorer: ComponentProps = ({
                 sortField={tableFilter.sortField}
                 sortOrder={tableFilter.sortOrder}
                 value={items}
-                onPage={handleFilterPageSort}
+                onPage={filterProps.onPage as () => void}
                 itemTemplate={itemTemplate}
                 {...viewProps}
             /> : <DataTable
@@ -517,19 +528,12 @@ const Explorer: ComponentProps = ({
                 rows={pageSize}
                 totalRecords={totalRecords}
                 paginator
-                first={tableFilter.first}
-                sortField={tableFilter.sortField}
-                sortOrder={tableFilter.sortOrder}
-                filters={tableFilter.filters}
-                onPage={handleFilterPageSort}
-                onSort={handleFilterPageSort}
-                onFilter={handleFilterPageSort}
+                {...filterProps}
                 loading={!!loading}
                 dataKey={keyField}
                 value={items}
                 rowClassName={rowClass}
                 selection={selected}
-                filterDisplay={filterDisplay}
                 onSelectionChange={handleSelectionChange}
                 onRowSelect={handleRowSelect}
                 onRowUnselect={handleRowUnselect}
@@ -538,6 +542,7 @@ const Explorer: ComponentProps = ({
                 {multiSelect && <Column selectionMode="multiple" className='flex-grow-0'/>}
                 {Columns}
             </DataTable>}
+            {errorsWithoutColumn.length ? <FilterErrors errors={errorsWithoutColumn}/> : null}
         </div>
     );
     const nav = children && navigationOpened && <SplitterPanel style={height} key='nav' size={15}>

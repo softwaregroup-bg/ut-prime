@@ -9,7 +9,6 @@ import {
     Checkbox,
     Chips,
     Column,
-    DateRange,
     Dropdown,
     FileUpload,
     GMap,
@@ -25,13 +24,14 @@ import {
     TreeSelect,
     TreeTable
 } from '../prime';
-import {PropertyEditor} from '../types';
+import {PropertyEditor, FormApi} from '../types';
 
 import getType from '../lib/getType';
 import testid from '../lib/testid';
 import Table from './inputs/Table';
 import Ocr from './inputs/Ocr';
 import ActionButton from '../ActionButton';
+import DateRange from '../DateRange';
 import Json from '../Json';
 import Component from '../Component';
 import {CHANGE} from './const';
@@ -87,8 +87,7 @@ function input(
     dropdowns,
     parentValue,
     loading: string,
-    getValues: (name: string) => unknown,
-    setValue: (name: string, value: unknown) => void,
+    formApi: FormApi,
     counter,
     methods,
     submit,
@@ -114,7 +113,7 @@ function input(
             className={inputClass ?? 'mr-2'}
             label={label}
             {...props}
-            getValues={getValues as Parameters<typeof ActionButton>[0]['getValues']}
+            getValues={formApi.getValues}
         />;
         case 'submit': return <ActionButton
             className={inputClass ?? 'mr-2'}
@@ -196,13 +195,14 @@ function input(
                 <div className='w-full'>
                     <Table
                         {...field}
-                        selectionMode='checkbox'
                         parent={parentValue}
                         properties={schema?.items?.properties}
                         dropdowns={dropdowns}
-                        getValues={getValues}
+                        getValues={formApi.getValues}
+                        methods={methods}
                         counter={counter}
-                        {...props.selectionPath && getValues && {selection: getValues(`${props.selectionPath}.${field.name}`) || []}}
+                        formApi={formApi}
+                        {...props.selectionPath && formApi.getValues && {selection: formApi.getValues(`${props.selectionPath}.${field.name}`) || []}}
                         {...props}
                     />
                 </div>
@@ -396,6 +396,7 @@ function input(
                 {...field}
                 showTime
                 showIcon
+                showSeconds
                 value={field.value != null ? new Date(field.value) : field.value}
                 inputId={props.id}
                 {...props}
@@ -415,7 +416,17 @@ function input(
             <Calendar
                 {...field}
                 showIcon
-                value={field.value != null ? new Date(field.value) : field.value}
+                value={
+                    field.value != null
+                        ? new Date(new Date(field.value).getTime() + new Date(field.value).getTimezoneOffset() * 60 * 1000)
+                        : field.value
+                }
+                onChange={
+                    event => {
+                        if (event.value instanceof Date) event.value = new Date(event.value.getTime() - event.value.getTimezoneOffset() * 60 * 1000);
+                        field.onChange(event);
+                    }
+                }
                 inputId={props.id}
                 {...props}
             />
@@ -423,12 +434,17 @@ function input(
         case 'dateRange':
             return <Field {...{label, error, inputClass}}>
                 <DateRange
-                    inputId={props.id}
                     {...field}
                     value={field.value
                         ? field.value.map(v => typeof v === 'string' ? new Date(v) : v)
                         : field.value}
                     {...props}
+                    onChange={event => {
+                        if (event?.value?.[1]) {
+                            event.value[1].setHours(23, 59, 59, 999);
+                        }
+                        field.onChange(event);
+                    }}
                 />
             </Field>;
         case 'number': return <Field {...{label, error, inputClass}}>
@@ -538,7 +554,7 @@ function input(
             return <Field {...{label, error, inputClass}}>
                 <Ocr
                     {...field}
-                    setValue={setValue}
+                    setValue={formApi.setValue}
                     onSelect={e => {
                         onChange?.({...e, value: {file: e.files?.[0], text: e.text}});
                     }}
@@ -549,15 +565,16 @@ function input(
         case 'page': {
             return <div className='w-full'>
                 <Component
+                    parent={parentValue}
                     page={props.page}
-                    getValues={getValues as Parameters<typeof Component>[0]['getValues']}
+                    getValues={formApi.getValues}
                     {...field}
                     {...props}
                 />
             </div>;
         }
-        case 'label': return (field?.name || title) ? <Field inputClass={widgetClassName}>{field?.value ?? title}</Field> : null;
-        case 'icon': return (field?.name || title) ? <i className={clsx('pi', field?.value ?? title, widgetClassName)}/> : null;
+        case 'label': return (field?.name || title) ? <Field label={label} inputClass={widgetClassName}>{field?.name ? field?.value : title}</Field> : null;
+        case 'icon': return (field?.name || title) ? <i className={clsx('pi', field?.name ? field?.value : title, widgetClassName)}/> : null;
         case 'gps': return <Field {...{label, error, inputClass}}>
             <GMap {...field} {...props} />
         </Field>;
@@ -688,8 +705,7 @@ export default function Input({
             dropdowns,
             parentWatch,
             loading,
-            formApi?.getValues,
-            formApi?.setValue,
+            formApi,
             counter,
             methods,
             submit,

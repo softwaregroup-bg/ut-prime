@@ -10,19 +10,12 @@ const tableDefaults: DataTableProps = {paginatorPosition: 'top', size: 'small'};
 const rename = prefix => param => typeof param === 'string' ? `${prefix}.${param}` : param.name ? {...param, name: `${prefix}.${param.name}`} : param;
 
 const Report: ComponentProps = ({
-    name,
-    schema,
     params = [],
     columns = [],
-    design,
     init = {},
-    hidden,
-    fetch,
-    methods,
+    validation,
     table,
-    onDropdown,
-    onCustomization,
-    resultSet = 'result'
+    ...explorerProps
 }) => {
     const [cards, layouts] = React.useMemo(() => [{
         params: {
@@ -41,28 +34,23 @@ const Report: ComponentProps = ({
     }, {
         report: {
             columns: 'columns',
-            params: ['params']
-        }
+            params: params?.length ? ['params'] : []
+        },
+        view: ['params']
     }], [params, columns]);
 
     return (
         <>
             <Explorer
-                name={name}
-                fetch={fetch}
-                schema={schema}
+                pageSize={20}
+                resultSet='result'
+                {...explorerProps}
                 cards={cards}
-                design={design}
                 layouts={layouts}
                 layout='report'
-                resultSet={resultSet}
                 params={init}
-                hidden={hidden}
-                pageSize={20}
                 table={React.useMemo(() => ({...tableDefaults, ...table}), [table])}
-                methods={methods}
-                onDropdown={onDropdown}
-                onCustomization={onCustomization}
+                fetchValidation={validation}
             />
         </>
     );

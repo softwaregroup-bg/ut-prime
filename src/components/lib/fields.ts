@@ -9,6 +9,7 @@ const columns = (propertyName, property) => []
     .concat(property?.widgets)
     .filter(Boolean)
     .map(name => propertyName + '.' + name)
+    .concat([].concat(property?.parent).filter(name => name && !name.startsWith('$.')))
     .concat(propertyName);
 
 export default function fieldNames(

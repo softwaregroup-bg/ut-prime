@@ -33,11 +33,13 @@ const getIndex = (properties: Properties, editors: Editors, fields: string[] = [
     return {
         properties: index,
         children: Object.entries(index).reduce((prev, [name, property]) => {
-            const parent = property?.widget?.parent;
-            if (parent) {
-                const items = prev[parent];
-                if (items) items.push(name);
-                else prev[parent] = [name];
+            const parents = property?.widget?.parent;
+            if (parents) {
+                [].concat(parents).forEach(parent => {
+                    const items = prev[parent];
+                    if (items) items.push(name);
+                    else prev[parent] = [name];
+                });
             }
             return prev;
         }, {}),
@@ -65,6 +67,11 @@ export default (
         return widget.startsWith('$.edit.') ? editor.properties.map(name => '$.edit.' + name) : editor.properties;
     };
     const keyFieldAction = lodashGet(schema.properties, keyField?.replace(/\./g, '.properties.'))?.action;
+    const index = getIndex(
+        schema.properties,
+        editors,
+        layoutFields
+    );
     const visibleProperties = Array.from(new Set(
         visibleCards.map(id => {
             const nested = [].concat(id);
@@ -74,14 +81,10 @@ export default (
                     return card && !card.hidden && card?.widgets?.map(widgetNames);
                 }
             );
-        }).flat(10).filter(Boolean)
+        }).flat(10).filter(item => item && (index.properties[item]?.widget?.visible !== false))
     ));
     return {
-        index: getIndex(
-            schema.properties,
-            editors,
-            layoutFields
-        ),
+        index,
         visibleCards,
         visibleProperties,
         open: keyFieldAction ? row => () => keyFieldAction({

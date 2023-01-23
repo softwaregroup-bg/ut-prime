@@ -12,7 +12,7 @@ const Hint = props => {
     const overlay = React.useRef(null);
     const {event, result, error} = useSelector(selectHint);
     React.useEffect(() => event && overlay.current?.show(event), [event]);
-    return <OverlayPanel ref={overlay} className={error ? 'text-red-500 ' : 'text-green-500'} {...props}><Text>{error ? error.print || error.message : result}</Text></OverlayPanel>;
+    return <OverlayPanel ref={overlay} className={error ? 'text-red-500 ' : 'text-green-500'} {...props}><Text params={error?.params}>{error ? error.print || error.message : result}</Text></OverlayPanel>;
 };
 
 export default Hint;

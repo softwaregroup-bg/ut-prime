@@ -665,7 +665,7 @@ exports[`<App /> BasicAR equals snapshot 1`] = `
           >
             <div
               class="p-tabview-nav-content"
-              id="pr_id_5"
+              id="pr_id_7"
             >
               <ul
                 class="p-tabview-nav"
@@ -676,10 +676,10 @@ exports[`<App /> BasicAR equals snapshot 1`] = `
                   role="presentation"
                 >
                   <a
-                    aria-controls="pr_id_5_content_0"
+                    aria-controls="pr_id_7_content_0"
                     aria-selected="true"
                     class="p-tabview-nav-link"
-                    id="pr_id_5_header_0"
+                    id="pr_id_7_header_0"
                     role="tab"
                     tabindex="0"
                   >
@@ -711,9 +711,9 @@ exports[`<App /> BasicAR equals snapshot 1`] = `
           >
             <div
               aria-hidden="false"
-              aria-labelledby="pr_id_5_header_0"
+              aria-labelledby="pr_id_7_header_0"
               class="p-tabview-panel"
-              id="pr_id_5_content_0"
+              id="pr_id_7_content_0"
               role="tabpanel"
             >
               <div>
@@ -1029,7 +1029,7 @@ exports[`<App /> BasicBG equals snapshot 1`] = `
           >
             <div
               class="p-tabview-nav-content"
-              id="pr_id_3"
+              id="pr_id_4"
             >
               <ul
                 class="p-tabview-nav"
@@ -1040,10 +1040,10 @@ exports[`<App /> BasicBG equals snapshot 1`] = `
                   role="presentation"
                 >
                   <a
-                    aria-controls="pr_id_3_content_0"
+                    aria-controls="pr_id_4_content_0"
                     aria-selected="true"
                     class="p-tabview-nav-link"
-                    id="pr_id_3_header_0"
+                    id="pr_id_4_header_0"
                     role="tab"
                     tabindex="0"
                   >
@@ -1075,9 +1075,9 @@ exports[`<App /> BasicBG equals snapshot 1`] = `
           >
             <div
               aria-hidden="false"
-              aria-labelledby="pr_id_3_header_0"
+              aria-labelledby="pr_id_4_header_0"
               class="p-tabview-panel"
-              id="pr_id_3_content_0"
+              id="pr_id_4_content_0"
               role="tabpanel"
             >
               <div>

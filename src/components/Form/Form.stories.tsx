@@ -76,7 +76,10 @@ Input.play = async({canvasElement}) => {
         id && await click(id);
         return (await body.findByRole(role, {name})).click();
     };
-    const clickWithin = (id, name, role = 'option') => within(canvas.getByTestId(id)).getByRole(role, {name}).click();
+    const clickWithin = (id, name, role = 'option') =>
+        typeof name === 'number'
+            ? within(canvas.getByTestId(id)).getAllByRole(role)[name].click()
+            : within(canvas.getByTestId(id)).getByRole(role, {name}).click();
 
     // left
     await clear('textbox', 'input-input');
@@ -86,7 +89,7 @@ Input.play = async({canvasElement}) => {
     await type('textbox', 'input-date', '01/31/2022');
     await type('textbox', 'input-time', '20:00');
     await click('input-boolean');
-    await type('textbox', 'input-datetime', '01/31/2022 20:00');
+    await type('textbox', 'input-datetime', '01/31/2022 20:00:00');
     await type('spinbutton', 'input-currency', '1234567.89');
     await type('spinbutton', 'input-number', '12345.67890');
     await type('spinbutton', 'input-integer', '1234567890');
@@ -137,10 +140,10 @@ Table.args = {
 
 Table.play = async({canvasElement}) => {
     const canvas = within(canvasElement);
-    (await within(within(await canvas.findByTestId('table1')).getByRole('table')).findByRole('button')).click();
-    within(canvas.getByTestId('table2')).getByRole('button', {name: ''}).click();
-    within(canvas.getByTestId('table3')).getByRole('button', {name: ''}).click();
-    within(canvas.getByTestId('table4')).getByRole('button', {name: ''}).click();
+    (await within(within(await canvas.findByTestId('table1')).getByRole('table')).findAllByRole('button')).filter((el) => el.getAttribute('name') === 'row-edit').pop().click();
+    within(canvas.getByTestId('table2')).getAllByRole('button', {name: ''}).filter((el) => el.getAttribute('name') === 'row-edit').pop().click();
+    within(canvas.getByTestId('table3')).getAllByRole('button', {name: ''}).filter((el) => el.getAttribute('name') === 'row-edit').pop().click();
+    within(canvas.getByTestId('table4')).getAllByRole('button', {name: ''}).filter((el) => el.getAttribute('name') === 'row-edit').pop().click();
 };
 
 export const TableBG: StoryTemplate = Template.bind({});

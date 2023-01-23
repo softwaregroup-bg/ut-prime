@@ -105,6 +105,13 @@ const Template: Story<{
                         dateTime: {
                             widgets: ['date', 'time', 'dateTime']
                         },
+                        dateTimeInline: {
+                            widgets: [
+                                {name: 'date', inline: true},
+                                {name: 'time', inline: true},
+                                {name: 'dateTime', inline: true}
+                            ]
+                        },
                         dropdown: {
                             widgets: ['name', {
                                 name: 'size',
@@ -114,9 +121,9 @@ const Template: Story<{
                         },
                         grid: {
                             widgets: [{
-                                name: 'name', type: 'label'
+                                name: 'name', type: 'label', label: ''
                             }, {
-                                name: 'size', type: 'label'
+                                name: 'size', type: 'label', label: ''
                             }]
                         },
                         gridFlex: {
@@ -130,9 +137,9 @@ const Template: Story<{
                             widgets: [{
                                 type: 'icon', title: 'pi-paperclip'
                             }, {
-                                name: 'name', type: 'label'
+                                name: 'name', type: 'label', label: ''
                             }, {
-                                name: 'size', type: 'label'
+                                name: 'size', type: 'label', label: ''
                             }]
                         },
                         toolbar: {
@@ -147,7 +154,7 @@ const Template: Story<{
                                 action: show('edit')
                             }, {
                                 title: 'Delete',
-                                confirm: 'Do you confirm the deletion of the selected rows ?',
+                                confirm: 'Do you confirm the deletion of the selected rows?',
                                 permission: deletePermission,
                                 enabled: 'selected',
                                 action: show('delete')
@@ -195,6 +202,10 @@ const Template: Story<{
                         },
                         dateTime: {
                             columns: 'dateTime',
+                            toolbar: 'toolbar'
+                        },
+                        dateTimeInline: {
+                            columns: 'dateTimeInline',
                             toolbar: 'toolbar'
                         },
                         grid: {
@@ -335,6 +346,12 @@ export const DateTimeFilter = Template.bind({});
 DateTimeFilter.args = {
     ...Basic.args,
     layout: 'dateTime'
+};
+
+export const DateTimeFilterInline = Template.bind({});
+DateTimeFilterInline.args = {
+    ...Basic.args,
+    layout: 'dateTimeInline'
 };
 
 export const Grid = Template.bind({});

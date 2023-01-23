@@ -1,3 +1,292 @@
+# [2.63.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.62.2...v2.63.0) (2023-01-22)
+
+
+### Features
+
+* card permissions ([e78b5b1](https://github.com/softwaregroup-bg/ut-prime/commit/e78b5b18dc2ee7de9677fd9a98fadcbdaafdf3e8))
+
+
+
+## [2.62.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.62.1...v2.62.2) (2023-01-21)
+
+
+### Bug Fixes
+
+* improve selection handling ([57d80c6](https://github.com/softwaregroup-bg/ut-prime/commit/57d80c618980b6ad76f7cead352cc6c013616d2e))
+
+
+
+## [2.62.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.62.0...v2.62.1) (2023-01-20)
+
+
+### Bug Fixes
+
+* handle submit button result ([f82d957](https://github.com/softwaregroup-bg/ut-prime/commit/f82d957073c8e6f88e66a158c0b4ddf8205efad3))
+
+
+
+# [2.62.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.61.3...v2.62.0) (2023-01-19)
+
+
+### Features
+
+* table widget toolbar ([ad45691](https://github.com/softwaregroup-bg/ut-prime/commit/ad45691cf22a902c97c6ec3f057427f9e1e4b12a))
+
+
+
+## [2.61.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.61.2...v2.61.3) (2023-01-18)
+
+
+### Bug Fixes
+
+* improve validation ([255c9c0](https://github.com/softwaregroup-bg/ut-prime/commit/255c9c0ef1bdb1d76733e5c798440a5361a67531))
+
+
+
+## [2.61.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.61.1...v2.61.2) (2023-01-17)
+
+
+### Bug Fixes
+
+* improve visibility check ([c16940f](https://github.com/softwaregroup-bg/ut-prime/commit/c16940f365c99ad646ad004da48a3b2a4f531598))
+
+
+
+## [2.61.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.61.0...v2.61.1) (2023-01-13)
+
+
+### Bug Fixes
+
+* translate thumbs label ([#33](https://github.com/softwaregroup-bg/ut-prime/issues/33)) ([bbf7aaa](https://github.com/softwaregroup-bg/ut-prime/commit/bbf7aaa650ee5574e04d1f721bc8378761a50931))
+
+
+
+# [2.61.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.60.1...v2.61.0) (2023-01-12)
+
+
+### Features
+
+* schema mandatory flag ([4f2a5c9](https://github.com/softwaregroup-bg/ut-prime/commit/4f2a5c9cfdd59ca4047ec1ed0c6937f0b6a4c848))
+
+
+
+## [2.60.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.60.0...v2.60.1) (2023-01-11)
+
+
+
+# [2.60.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.59.1...v2.60.0) (2023-01-11)
+
+
+### Features
+
+* DateRange widget ([017c5cb](https://github.com/softwaregroup-bg/ut-prime/commit/017c5cbb6966aa3b1661f61edcf70636c23c2982))
+
+
+
+## [2.59.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.59.0...v2.59.1) (2023-01-10)
+
+
+### Bug Fixes
+
+* date range time ([6d24bb9](https://github.com/softwaregroup-bg/ut-prime/commit/6d24bb9d159e626b871f51e3a5155e7e44fe79b6))
+
+
+
+# [2.59.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.58.1...v2.59.0) (2023-01-09)
+
+
+### Features
+
+* table widger filter and sort ([#32](https://github.com/softwaregroup-bg/ut-prime/issues/32)) ([057958f](https://github.com/softwaregroup-bg/ut-prime/commit/057958ff42512a19f6e6a2f9570f1d9d1c5f0239))
+
+
+
+## [2.58.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.58.0...v2.58.1) (2023-01-09)
+
+
+### Bug Fixes
+
+* Explorer action column ([a722f45](https://github.com/softwaregroup-bg/ut-prime/commit/a722f45ef37e3830ca5d4d35b10d0f467b4cf6da))
+
+
+
+# [2.58.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.57.0...v2.58.0) (2023-01-09)
+
+
+### Features
+
+* column data translation ([aab2fc4](https://github.com/softwaregroup-bg/ut-prime/commit/aab2fc460a11256e193e3cce44d4c973e7170898))
+* report details ([826ddd4](https://github.com/softwaregroup-bg/ut-prime/commit/826ddd41535f3450872943a7dbcaf9b8a9bc0b15))
+
+
+
+# [2.57.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.56.2...v2.57.0) (2023-01-08)
+
+
+### Features
+
+* report only with filter ([3ab1d9d](https://github.com/softwaregroup-bg/ut-prime/commit/3ab1d9d1e34ea2bd21270ed7df9f5dadb68a85f2))
+
+
+
+## [2.56.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.56.1...v2.56.2) (2023-01-08)
+
+
+### Bug Fixes
+
+* set label when truthy ([6a67354](https://github.com/softwaregroup-bg/ut-prime/commit/6a673549cbc3135a2c0899722886ff7c11d8274e))
+
+
+
+## [2.56.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.56.0...v2.56.1) (2023-01-08)
+
+
+### Bug Fixes
+
+* ignore time offset for date widgets ([4611b76](https://github.com/softwaregroup-bg/ut-prime/commit/4611b765d6efb7ae0e656b127ed1b5dda9af4ab9))
+
+
+
+# [2.56.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.55.2...v2.56.0) (2023-01-08)
+
+
+### Bug Fixes
+
+* Explorer details render ([16c2537](https://github.com/softwaregroup-bg/ut-prime/commit/16c2537417e626c190d348e4e8d71314e1c29579))
+
+
+### Features
+
+* explorer validation handling ([eaf0ef3](https://github.com/softwaregroup-bg/ut-prime/commit/eaf0ef3e391820c82f880e5e92df3587a7a24536))
+
+
+
+## [2.55.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.55.1...v2.55.2) (2023-01-07)
+
+
+### Bug Fixes
+
+* **CBI-545:** date range proper hours ([#31](https://github.com/softwaregroup-bg/ut-prime/issues/31)) ([f8184bd](https://github.com/softwaregroup-bg/ut-prime/commit/f8184bdc49396cd65a6b020495c254e637187884))
+
+
+
+## [2.55.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.55.0...v2.55.1) (2023-01-04)
+
+
+### Bug Fixes
+
+* show time column in local time ([b7800dd](https://github.com/softwaregroup-bg/ut-prime/commit/b7800dd426355565f1c46d070d910112e2176eb3))
+
+
+
+# [2.55.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.54.0...v2.55.0) (2023-01-04)
+
+
+### Features
+
+* improve messages ([984e6aa](https://github.com/softwaregroup-bg/ut-prime/commit/984e6aa2d2f64af4966cba3203d787a5ba65e44f))
+
+
+
+# [2.54.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.53.3...v2.54.0) (2023-01-01)
+
+
+### Bug Fixes
+
+* value/layout issues ([7754fa8](https://github.com/softwaregroup-bg/ut-prime/commit/7754fa804a4dc40bf67ae485cc04c23cd1c0688a))
+
+
+### Features
+
+* allow string array as parent ([825cc29](https://github.com/softwaregroup-bg/ut-prime/commit/825cc29124815661f8f96ecd3926baaf7ceb8937))
+
+
+
+## [2.53.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.53.2...v2.53.3) (2022-12-30)
+
+
+### Bug Fixes
+
+* **CBI-840:** option to allow refresh ([#29](https://github.com/softwaregroup-bg/ut-prime/issues/29)) ([9b006f3](https://github.com/softwaregroup-bg/ut-prime/commit/9b006f3c41a5b4fd269f7097ec97970e0c72fd1e))
+
+
+
+## [2.53.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.53.1...v2.53.2) (2022-12-21)
+
+
+
+## [2.53.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.53.0...v2.53.1) (2022-12-21)
+
+
+### Bug Fixes
+
+* improve label/icon logic ([60fb842](https://github.com/softwaregroup-bg/ut-prime/commit/60fb8424d4168313028f81a6f43e6e00ab5b79b1))
+
+
+
+# [2.53.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.52.1...v2.53.0) (2022-12-21)
+
+
+### Features
+
+* emptyMessage component ([41e710f](https://github.com/softwaregroup-bg/ut-prime/commit/41e710f08b8871542b51319b80287b40363871e3))
+
+
+
+## [2.52.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.52.0...v2.52.1) (2022-12-20)
+
+
+### Bug Fixes
+
+* **ThumbIndex:** handle submit errors ([68b6c1f](https://github.com/softwaregroup-bg/ut-prime/commit/68b6c1f63acb5a113ebb9b7807f1b9ffd39a157d))
+
+
+
+# [2.52.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.51.10...v2.52.0) (2022-12-20)
+
+
+### Features
+
+* report buttons ([50529a5](https://github.com/softwaregroup-bg/ut-prime/commit/50529a5852a80a235dc8179e18eb24833ff92845))
+
+
+
+## [2.51.10](https://github.com/softwaregroup-bg/ut-prime/compare/v2.51.9...v2.51.10) (2022-12-16)
+
+
+### Bug Fixes
+
+* peer primereact 8.7.3 ([cf67d0b](https://github.com/softwaregroup-bg/ut-prime/commit/cf67d0b97ebaf4d6f80f32c468b122e2f2922238))
+
+
+
+## [2.51.9](https://github.com/softwaregroup-bg/ut-prime/compare/v2.51.8...v2.51.9) (2022-12-12)
+
+
+### Bug Fixes
+
+* report params ([f7a3c34](https://github.com/softwaregroup-bg/ut-prime/commit/f7a3c343c612b4195020e15dd7764ec393f57505))
+
+
+
+## [2.51.8](https://github.com/softwaregroup-bg/ut-prime/compare/v2.51.7...v2.51.8) (2022-12-10)
+
+
+### Bug Fixes
+
+* null handling ([6eedff5](https://github.com/softwaregroup-bg/ut-prime/commit/6eedff522191e3684497704286f7063b3fbd8faa))
+
+
+
+## [2.51.7](https://github.com/softwaregroup-bg/ut-prime/compare/v2.51.6...v2.51.7) (2022-12-10)
+
+
+### Bug Fixes
+
+* handle missing schema.items ([8d83a28](https://github.com/softwaregroup-bg/ut-prime/commit/8d83a284c6c87bf0866fcce051d39fb4fa0e9715))
+
+
+
 ## [2.51.6](https://github.com/softwaregroup-bg/ut-prime/compare/v2.51.5...v2.51.6) (2022-12-09)
 
 

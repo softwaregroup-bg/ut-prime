@@ -176,7 +176,7 @@ const Card: ComponentProps = ({
         </ConfigField> : <div className="field grid" key={name}>❌ {name}</div>;
     };
 
-    const {label, widgets = [], flex, hidden, classes: cardClasses, type} = (cards[cardName] || {label: '❌ ' + cardName});
+    const {label, widgets = [], flex, hidden, classes: cardClasses, type, permission} = (cards[cardName] || {label: '❌ ' + cardName});
     if (type === 'toolbar') {
         return <div className='flex'>
             {widgets.length > 0 && widgets.map(field(widgets.length, flex, cardName, cardClasses, {widget: '', label: ''}))}
@@ -197,6 +197,7 @@ const Card: ComponentProps = ({
             hidden={hidden}
             inspected={inspected}
             onInspect={onInspect}
+            permission={design || permission}
         >
             {widgets.length > 0 && <div className={clsx(flex && 'flex flex-wrap', cardClasses?.default?.root)}>
                 {widgets.map(field(widgets.length, flex, cardName, cardClasses, classNames))}
