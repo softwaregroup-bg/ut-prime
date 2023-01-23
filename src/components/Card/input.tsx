@@ -159,17 +159,23 @@ function input(
                 {...props}
             />
         </Field>;
-        case 'currency': return <Field {...{label, error, inputClass}}>
-            <InputNumber
-                {...field}
-                inputClassName='text-right'
-                inputRef={field.ref}
-                minFractionDigits={2}
-                maxFractionDigits={4}
-                inputId={props.id}
-                {...props}
-            />
-        </Field>;
+        case 'currency': {
+            const { parentDropdown = 'core.currency', ...rest } = props;
+            const currency = parentValue && dropdowns?.[parentDropdown as string]?.find(c => Number(c.value) === Number(parentValue));
+            const [minFractionDigits = 2, maxFractionDigits = 4] = [currency?.scale, currency?.scale];
+
+            return <Field {...{label, error, inputClass}}>
+                <InputNumber
+                    {...field}
+                    inputClassName='text-right'
+                    inputRef={field.ref}
+                    minFractionDigits={minFractionDigits}
+                    maxFractionDigits={maxFractionDigits}
+                    inputId={props.id}
+                    {...rest}
+                />
+            </Field>;
+        }
         case 'boolean': return <Field {...{label, error, inputClass}}>
             <Checkbox
                 {...field}

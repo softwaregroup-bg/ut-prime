@@ -53,6 +53,13 @@ const properties: Properties = {
             currency: 'USD'
         }
     },
+    currencyScale: {
+        widget: {
+            type: 'currency',
+            parent: 'input.dropdown',
+            parentDropdown: 'dropdown'
+        }
+    },
     boolean: {
         filter: true,
         widget: {
@@ -335,15 +342,22 @@ export const input: {
                 'input.multiSelectTreeTable',
                 'input.selectTableWithFlags'
             ]
+        },
+        currencyScale: {
+            widgets: [
+                'input.dropdown',
+                'input.currencyScale'
+            ]
         }
     }
 };
 
 export const dropdowns = {
     dropdown: [
-        {value: 1, label: 'EUR'},
-        {value: 2, label: 'USD'},
-        {value: 3, label: 'BGN'}
+        {value: 1, label: 'EUR', scale: 2},
+        {value: 2, label: 'USD', scale: 2},
+        {value: 3, label: 'BGN', scale: 2},
+        {value: 4, label: 'IQD', scale: 3}
     ],
     dropdownTree: [{
         key: 1,

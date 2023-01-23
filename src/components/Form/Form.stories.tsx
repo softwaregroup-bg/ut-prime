@@ -90,8 +90,8 @@ Input.play = async({canvasElement}) => {
     await type('textbox', 'input-time', '20:00');
     await click('input-boolean');
     await type('textbox', 'input-datetime', '01/31/2022 20:00:00');
-    await type('spinbutton', 'input-currency', '1234567.89');
     await type('spinbutton', 'input-number', '12345.67890');
+    await type('spinbutton', 'input-currency', '1234567.89');
     await type('spinbutton', 'input-integer', '1234567890');
     await type('textbox', 'input-password', '123');
 
@@ -160,3 +160,12 @@ TableAR.args = {
     dir: 'rtl'
 };
 TableAR.play = Table.play;
+
+export const CurrencyScale: StoryTemplate = Template.bind({});
+CurrencyScale.args = {
+    ...input,
+    layout: ['currencyScale'],
+    dropdowns,
+    value: {input: {}},
+    onSubmit: () => {}
+};
