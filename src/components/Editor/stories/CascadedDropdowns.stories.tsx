@@ -10,13 +10,21 @@ export const CascadedDropdowns = () =>
             properties: {
                 continent: {widget: {type: 'dropdown', dropdown: 'continent'}},
                 country: {widget: { type: 'dropdown', dropdown: 'country', parent: 'continent'}},
-                city: {widget: { type: 'dropdown', dropdown: 'city', parent: 'country'}}
+                city: {widget: { type: 'dropdown', dropdown: 'city', parent: 'country'}},
+                continentSecond: {widget: { title: 'Continent', type: 'dropdown', dropdown: 'continentSecond'}},
+                countrySecond: {widget: { title: 'Country', type: 'dropdown', dropdown: 'countrySecond', parent: 'continentSecond'}},
+                currency: {widget: { type: 'dropdown', dropdown: 'currency'}},
+                citySecond: {widget: { title: 'City', type: 'dropdown', dropdown: 'city', parent: ['countrySecond', 'currency']}}
             }
         }}
         cards={{
             edit: {
                 className: 'xl:col-3',
                 widgets: ['continent', 'country', 'city']
+            },
+            editSecond: {
+                className: 'xl:col-3',
+                widgets: ['continentSecond', 'countrySecond', 'currency', 'citySecond']
             }
         }}
         onDropdown={() => Promise.resolve({
@@ -51,9 +59,51 @@ export const CascadedDropdowns = () =>
                 {value: 8, label: 'Paris', parent: 12},
                 {value: 9, label: 'Berlin', parent: 13},
                 {value: 10, label: 'Rome', parent: 14}
+            ],
+            currency: [
+                {value: 10, label: 'EUR'},
+                {value: 11, label: 'USD'},
+                {value: 12, label: 'KES'},
+                {value: 13, label: 'UGX'},
+                {value: 14, label: 'TZS'},
+                {value: 15, label: 'MXN'},
+                {value: 16, label: 'AUD'},
+                {value: 17, label: 'NZD'}
+            ],
+            citySecond: [
+                {value: 1, label: 'Nairobi', parent: [1, 12]},
+                {value: 2, label: 'Kampala', parent: [2, 13]},
+                {value: 3, label: 'Dar es Salaam', parent: [3, 14]},
+                {value: 4, label: 'New York', parent: [7, 11]},
+                {value: 6, label: 'Mexico City', parent: [9, 15]},
+                {value: 7, label: 'Canberra', parent: [10, 16]},
+                {value: 8, label: 'Paris', parent: [12, 10]},
+                {value: 9, label: 'Berlin', parent: [13, 10]},
+                {value: 10, label: 'Rome', parent: [14, 10]}
+            ],
+            continentSecond: [
+                {value: 1, label: 'Africa'},
+                {value: 2, label: 'Asia'},
+                {value: 3, label: 'Europe'},
+                {value: 4, label: 'North America'},
+                {value: 5, label: 'Oceania'},
+                {value: 6, label: 'South America'}
+            ],
+            countrySecond: [
+                {value: 1, label: 'Kenya', parent: 1},
+                {value: 2, label: 'Uganda', parent: 1},
+                {value: 3, label: 'Tanzania', parent: 1},
+                {value: 7, label: 'United States', parent: 4},
+                {value: 9, label: 'Mexico', parent: 4},
+                {value: 10, label: 'Australia', parent: 5},
+                {value: 11, label: 'New Zealand', parent: 5},
+                {value: 12, label: 'France', parent: 3},
+                {value: 13, label: 'Germany', parent: 3},
+                {value: 14, label: 'Italy', parent: 3},
+                {value: 15, label: 'Spain', parent: 3}
             ]
         })}
-        layouts={{edit: ['edit']}}
+        layouts={{edit: ['edit', 'editSecond']}}
         toolbar
     />;
 
