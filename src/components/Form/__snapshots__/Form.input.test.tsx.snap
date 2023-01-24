@@ -355,7 +355,6 @@ exports[`<Form /> Input render equals snapshot 1`] = `
                       class="flex align-items-center relative col-12 md:col-8"
                     >
                       <button
-                        aria-label="Select period"
                         class="p-button p-component w-full"
                         id="input-daterange"
                         name="input.daterange"

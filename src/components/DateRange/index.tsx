@@ -116,7 +116,6 @@ const DateRange = React.forwardRef<object, Props>(function DateRange({
                 tooltip: (value?.[0] || value?.[1]) ? `${displayDate(value?.[0])}\n÷\n${displayDate(value?.[1])}` : undefined,
                 tooltipOptions
             }}
-            label={display}
             {...props}
             onClick={React.useCallback(event => {
                 panel.current?.toggle(event);
@@ -124,12 +123,14 @@ const DateRange = React.forwardRef<object, Props>(function DateRange({
                 setDateTo(value?.[1]);
                 if (!(displayFrom && displayFrom === value?.[0] && displayTo && displayTo === value?.[1])) setOption(null);
             }, [value, displayFrom, displayTo])}
-        />
+        >
+            <Text>{display}</Text>
+        </Button>
         <OverlayPanel ref={panel} showCloseIcon>
             <div className='flex gap-3'>
                 <div className='card'>
                     <div className="field">
-                        <label htmlFor="fromDate">From</label><br />
+                        <label htmlFor="fromDate"><Text>From</Text></label><br />
                         <Calendar
                             id="fromDate"
                             value={dateFrom}
@@ -146,7 +147,7 @@ const DateRange = React.forwardRef<object, Props>(function DateRange({
                         />
                     </div>
                     <div className="field">
-                        <label htmlFor="toDate">To</label><br />
+                        <label htmlFor="toDate"><Text>To</Text></label><br />
                         <Calendar
                             id="toDate"
                             value={dateTo}
