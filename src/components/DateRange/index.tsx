@@ -124,7 +124,7 @@ const DateRange = React.forwardRef<object, Props>(function DateRange({
                 if (!(displayFrom && displayFrom === value?.[0] && displayTo && displayTo === value?.[1])) setOption(null);
             }, [value, displayFrom, displayTo])}
         >
-            <Text>{display}</Text>
+            {display}
         </Button>
         <OverlayPanel ref={panel} showCloseIcon>
             <div className='flex gap-3'>
@@ -169,7 +169,7 @@ const DateRange = React.forwardRef<object, Props>(function DateRange({
                         type="button"
                         onClick={applyTimeRange}
                     >
-                        <Text>Apply Time Range</Text>
+                        Apply Time Range
                     </Button>
                 </div>
                 {(timeOnly) ? null : <div>
