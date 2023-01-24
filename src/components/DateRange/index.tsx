@@ -167,9 +167,10 @@ const DateRange = React.forwardRef<object, Props>(function DateRange({
                     </div>
                     <Button
                         type="button"
-                        label={'Apply Time Range'}
                         onClick={applyTimeRange}
-                    />
+                    >
+                        <Text>Apply Time Range</Text>
+                    </Button>
                 </div>
                 {(timeOnly) ? null : <div>
                     <ListBox
