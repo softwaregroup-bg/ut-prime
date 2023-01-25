@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import clsx from 'clsx';
 import { RefCallBack } from 'react-hook-form';
 import get from 'lodash.get';
@@ -25,6 +25,7 @@ import {
     TreeTable
 } from '../prime';
 import {PropertyEditor, FormApi} from '../types';
+import Context from '../Text/context';
 
 import getType from '../lib/getType';
 import testid from '../lib/testid';
@@ -91,7 +92,8 @@ function input(
     counter,
     methods,
     submit,
-    defaultWidgetType
+    defaultWidgetType,
+    context
 ) {
     const widgetType = type || defaultWidgetType || schema?.format || getType(schema?.type);
     if (loading) {
@@ -160,9 +162,9 @@ function input(
             />
         </Field>;
         case 'currency': {
-            const { parentDropdown = 'core.currency', ...rest } = props;
-            const currency = parentValue && dropdowns?.[parentDropdown as string]?.find(c => Number(c.value) === Number(parentValue));
-            const [minFractionDigits = 2, maxFractionDigits = 4] = [currency?.scale, currency?.scale];
+            const currencyValue = parentValue || props?.currency;
+            const scale = currencyValue && context?.getScale?.(currencyValue);
+            const [minFractionDigits = 2, maxFractionDigits = 4] = [scale, scale];
 
             return <Field {...{label, error, inputClass}}>
                 <InputNumber
@@ -172,7 +174,7 @@ function input(
                     minFractionDigits={minFractionDigits}
                     maxFractionDigits={maxFractionDigits}
                     inputId={props.id}
-                    {...rest}
+                    {...props}
                 />
             </Field>;
         }
@@ -612,6 +614,7 @@ export default function Input({
     },
     ...widget
 }) {
+    const ctx = useContext(Context);
     widget.parent = widget.parent || name.match(/^\$\.edit\.[^.]+/)?.[0].replace('.edit.', '.selected.') || widget?.selectionPath;
     const parent = widget.parent || index.properties[propertyName]?.widget?.parent;
     const {
@@ -709,7 +712,8 @@ export default function Input({
             counter,
             methods,
             submit,
-            !formApi?.getValues && 'label'
+            !formApi?.getValues && 'label',
+            ctx
         );
     };
     return (name && formApi?.control) ? <Controller

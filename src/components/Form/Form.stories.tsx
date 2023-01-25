@@ -10,6 +10,7 @@ import {input, dropdowns} from '../test/input';
 import decorators from '../test/decorator';
 import {middleware} from '../Text/Text.mock';
 import useForm from '../hooks/useForm';
+import Gate from '../Gate';
 
 const meta: Meta = {
     title: 'Form',
@@ -161,7 +162,14 @@ TableAR.args = {
 };
 TableAR.play = Table.play;
 
-export const CurrencyScale: StoryTemplate = Template.bind({});
+const TemplateCurrency: Story<Props> = args => {
+    const formApi = useForm();
+    return <Gate>
+        <Form formApi={formApi} {...args} />
+    </Gate>;
+};
+
+export const CurrencyScale: StoryTemplate = TemplateCurrency.bind({});
 CurrencyScale.args = {
     ...input,
     layout: ['currencyScale'],

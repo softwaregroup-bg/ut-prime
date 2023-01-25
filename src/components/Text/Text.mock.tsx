@@ -14,6 +14,13 @@ const configuration = {
     }
 };
 
+const currencies = [
+    {currencyId: 1, code: 'EUR', scale: 2},
+    {currencyId: 2, code: 'USD', scale: 2},
+    {currencyId: 3, code: 'BGN', scale: 2},
+    {currencyId: 4, code: 'IQD', scale: 3}
+];
+
 /* spell-checker: disable */
 const translations = {
     bg: parse(`
@@ -247,7 +254,8 @@ export const middleware = _store => next => action => {
         return {
             result: {
                 translations: translations[action.params.languageId],
-                configuration
+                configuration,
+                currencies
             }
         };
     } else return next(action);

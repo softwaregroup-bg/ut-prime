@@ -10,6 +10,7 @@ interface contextType {
     languageCode?: string;
     translate?: (id: string, text: string, language: string) => string;
     configuration?: PortalConfiguration;
+    getScale?: (currency?: number|string) => number;
 }
 const defaultContext: contextType = {};
 export default React.createContext(defaultContext);

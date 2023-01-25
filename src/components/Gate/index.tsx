@@ -34,17 +34,24 @@ const Gate: ComponentProps = ({ children, cookieCheck, corePortalGet, loginPage 
                 languageId: language,
                 dictName: ['text', 'actionConfirmation', 'error']
             });
-            const { translations, configuration } = result;
+            const { translations, configuration, currencies } = result;
             const dictionary = translations?.reduce(
                 (prev, {dictionaryKey, translatedValue}) => dictionaryKey === translatedValue ? prev : {...prev, [dictionaryKey]: translatedValue},
                 {}
             );
 
+            const formattedCurrencies = currencies?.reduce((prev, {currencyId, code, scale}) => {
+                prev[currencyId] = scale;
+                prev[code] = scale;
+                return prev;
+            }, {});
+
             setLoaded({
                 language,
                 languageCode,
                 configuration,
-                translate: (id, text, language) => (id && dictionary?.[id]) || dictionary?.[text] || text
+                translate: (id, text, language) => (id && dictionary?.[id]) || dictionary?.[text] || text,
+                getScale: (currency) => formattedCurrencies?.[currency]
             });
         }
 
