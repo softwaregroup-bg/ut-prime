@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { render, act } from '../test';
-import { Input } from './Form.stories';
+import { Input, CurrencyScale } from './Form.stories';
 import { config } from 'react-transition-group';
 
 config.disabled = true;
@@ -12,6 +12,10 @@ describe('<Form />', () => {
     it('Input render equals snapshot', async() => {
         const { getByTestId, container } = render(<Input {...Input.args} />);
         await act(() => Input.play({canvasElement: container}));
+        expect(getByTestId('ut-front-test')).toMatchSnapshot();
+    });
+    it('CurrencyScale render equals snapshot', async() => {
+        const { getByTestId } = render(<CurrencyScale {...CurrencyScale.args} />);
         expect(getByTestId('ut-front-test')).toMatchSnapshot();
     });
 });

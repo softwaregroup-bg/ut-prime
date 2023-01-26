@@ -27,7 +27,7 @@ declare type StoryTemplate = Story<Partial<Props>> & {
     play: (context: {canvasElement: HTMLElement}) => Promise<void>
 }
 
-const Template: Story<Props> = args => {
+const Template: Story<Props & {state: unknown, middleware: unknown}> = ({state, middleware, ...args}) => {
     const formApi = useForm();
     return <div className='flex' style={{overflowX: 'hidden', width: '100%'}}>
         <Form formApi={formApi} {...args} />
@@ -160,3 +160,20 @@ TableAR.args = {
     dir: 'rtl'
 };
 TableAR.play = Table.play;
+
+export const CurrencyScale: StoryTemplate = Template.bind({});
+CurrencyScale.args = {
+    ...input,
+    layout: ['currencyScale'],
+    dropdowns,
+    value: {
+        input: {
+            currencyScaleDollar: 1234567.89,
+            currencyScaleEuro: 1234567.89,
+            currencyScaleIraqiDinar: 1234567.89,
+            dropdown: 4,
+            currencyScaleParent: 1234567.89
+        }
+    },
+    onSubmit: () => {}
+};

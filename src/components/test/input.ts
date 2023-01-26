@@ -53,6 +53,30 @@ const properties: Properties = {
             currency: 'USD'
         }
     },
+    currencyScaleParent: {
+        widget: {
+            type: 'currency',
+            parent: 'input.dropdown'
+        }
+    },
+    currencyScaleDollar: {
+        widget: {
+            type: 'currency',
+            currency: 'USD'
+        }
+    },
+    currencyScaleEuro: {
+        widget: {
+            type: 'currency',
+            currency: 'EUR'
+        }
+    },
+    currencyScaleIraqiDinar: {
+        widget: {
+            type: 'currency',
+            currency: 'IQD'
+        }
+    },
     boolean: {
         filter: true,
         widget: {
@@ -335,6 +359,16 @@ export const input: {
                 'input.multiSelectTreeTable',
                 'input.selectTableWithFlags'
             ]
+        },
+        currencyScale: {
+            className: 'xl:col-4',
+            widgets: [
+                'input.currencyScaleDollar',
+                'input.currencyScaleEuro',
+                'input.currencyScaleIraqiDinar',
+                'input.dropdown',
+                'input.currencyScaleParent'
+            ]
         }
     }
 };
@@ -343,7 +377,8 @@ export const dropdowns = {
     dropdown: [
         {value: 1, label: 'EUR'},
         {value: 2, label: 'USD'},
-        {value: 3, label: 'BGN'}
+        {value: 3, label: 'BGN'},
+        {value: 4, label: 'IQD'}
     ],
     dropdownTree: [{
         key: 1,
