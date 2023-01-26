@@ -267,6 +267,7 @@ export const Translate = ({language, children}) => {
     return <Context.Provider
         value={{
             translate: translate(language),
+            getScale: what => currencies.find(currency => [currency.code, currency.currencyId].includes(what))?.scale,
             configuration
         }}
     >{children}</Context.Provider>;

@@ -361,6 +361,7 @@ export const input: {
             ]
         },
         currencyScale: {
+            className: 'xl:col-4',
             widgets: [
                 'input.currencyScaleDollar',
                 'input.currencyScaleEuro',

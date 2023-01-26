@@ -1,5 +1,222 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<Form /> CurrencyScale render equals snapshot 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  <div
+    class="flex"
+    style="overflow-x: hidden; width: 100%;"
+  >
+    <div
+      class="grid col align-self-start form-0-2-1"
+    >
+      <div
+        class="col-12 xl:col-4"
+      >
+        <div
+          class="w-full"
+        >
+          <div
+            class="p-card p-component card card-0-2-2"
+            id="currencyScale"
+          >
+            <div
+              class="p-card-body"
+            >
+              <div
+                class="p-card-content"
+              >
+                <div
+                  class=""
+                >
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="input-currencyScaleDollar"
+                    >
+                      Currency Scale Dollar
+                    </label>
+                    <div
+                      class="flex align-items-center relative col-12 md:col-8"
+                    >
+                      <span
+                        class="p-inputnumber p-component p-inputwrapper p-inputwrapper-filled w-full"
+                        id="input-currencyScaleDollar"
+                      >
+                        <input
+                          aria-valuenow="1234567.89"
+                          class="p-inputtext p-component p-filled p-inputnumber-input text-right"
+                          id="input-currencyScaleDollar"
+                          inputmode="decimal"
+                          name="input.currencyScaleDollar"
+                          role="spinbutton"
+                          type="text"
+                          value="1,234,567.89"
+                        />
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="input-currencyScaleEuro"
+                    >
+                      Currency Scale Euro
+                    </label>
+                    <div
+                      class="flex align-items-center relative col-12 md:col-8"
+                    >
+                      <span
+                        class="p-inputnumber p-component p-inputwrapper p-inputwrapper-filled w-full"
+                        id="input-currencyScaleEuro"
+                      >
+                        <input
+                          aria-valuenow="1234567.89"
+                          class="p-inputtext p-component p-filled p-inputnumber-input text-right"
+                          id="input-currencyScaleEuro"
+                          inputmode="decimal"
+                          name="input.currencyScaleEuro"
+                          role="spinbutton"
+                          type="text"
+                          value="1,234,567.89"
+                        />
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="input-currencyScaleIraqiDinar"
+                    >
+                      Currency Scale Iraqi Dinar
+                    </label>
+                    <div
+                      class="flex align-items-center relative col-12 md:col-8"
+                    >
+                      <span
+                        class="p-inputnumber p-component p-inputwrapper p-inputwrapper-filled w-full"
+                        id="input-currencyScaleIraqiDinar"
+                      >
+                        <input
+                          aria-valuenow="1234567.89"
+                          class="p-inputtext p-component p-filled p-inputnumber-input text-right"
+                          id="input-currencyScaleIraqiDinar"
+                          inputmode="decimal"
+                          name="input.currencyScaleIraqiDinar"
+                          role="spinbutton"
+                          type="text"
+                          value="1,234,567.89"
+                        />
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="input-dropdown"
+                    >
+                      Dropdown
+                    </label>
+                    <div
+                      class="flex align-items-center relative col-12 md:col-8"
+                    >
+                      <div
+                        class="p-dropdown p-component p-inputwrapper p-inputwrapper-filled w-full"
+                        data-testid="input-dropdown"
+                        id="input-dropdown"
+                      >
+                        <div
+                          class="p-hidden-accessible"
+                        >
+                          <input
+                            aria-haspopup="listbox"
+                            readonly=""
+                            type="text"
+                          />
+                        </div>
+                        <div
+                          class="p-hidden-accessible p-dropdown-hidden-select"
+                        >
+                          <select
+                            aria-hidden="true"
+                            name="input.dropdown"
+                            tabindex="-1"
+                          >
+                            <option
+                              selected=""
+                              value="4"
+                            >
+                              IQD
+                            </option>
+                          </select>
+                        </div>
+                        <span
+                          class="p-dropdown-label p-inputtext"
+                        >
+                          IQD
+                        </span>
+                        <div
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          class="p-dropdown-trigger"
+                          role="button"
+                        >
+                          <span
+                            class="p-dropdown-trigger-icon p-clickable pi pi-chevron-down"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="field grid mb-0"
+                  >
+                    <label
+                      class="col-12 md:col-4"
+                      for="input-currencyScaleParent"
+                    >
+                      Currency Scale Parent
+                    </label>
+                    <div
+                      class="flex align-items-center relative col-12 md:col-8"
+                    >
+                      <span
+                        class="p-inputnumber p-component p-inputwrapper p-inputwrapper-filled w-full"
+                        id="input-currencyScaleParent"
+                      >
+                        <input
+                          aria-valuenow="1234567.89"
+                          class="p-inputtext p-component p-filled p-inputnumber-input text-right"
+                          id="input-currencyScaleParent"
+                          inputmode="decimal"
+                          name="input.currencyScaleParent"
+                          role="spinbutton"
+                          type="text"
+                          value="1,234,567.89"
+                        />
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`<Form /> Input render equals snapshot 1`] = `
 <div
   data-testid="ut-front-test"

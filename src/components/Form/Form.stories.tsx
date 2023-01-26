@@ -10,7 +10,6 @@ import {input, dropdowns} from '../test/input';
 import decorators from '../test/decorator';
 import {middleware} from '../Text/Text.mock';
 import useForm from '../hooks/useForm';
-import Gate from '../Gate';
 
 const meta: Meta = {
     title: 'Form',
@@ -28,7 +27,7 @@ declare type StoryTemplate = Story<Partial<Props>> & {
     play: (context: {canvasElement: HTMLElement}) => Promise<void>
 }
 
-const Template: Story<Props> = args => {
+const Template: Story<Props & {state: unknown, middleware: unknown}> = ({state, middleware, ...args}) => {
     const formApi = useForm();
     return <div className='flex' style={{overflowX: 'hidden', width: '100%'}}>
         <Form formApi={formApi} {...args} />
@@ -162,18 +161,19 @@ TableAR.args = {
 };
 TableAR.play = Table.play;
 
-const TemplateCurrency: Story<Props> = args => {
-    const formApi = useForm();
-    return <Gate>
-        <Form formApi={formApi} {...args} />
-    </Gate>;
-};
-
-export const CurrencyScale: StoryTemplate = TemplateCurrency.bind({});
+export const CurrencyScale: StoryTemplate = Template.bind({});
 CurrencyScale.args = {
     ...input,
     layout: ['currencyScale'],
     dropdowns,
-    value: {input: {}},
+    value: {
+        input: {
+            currencyScaleDollar: 1234567.89,
+            currencyScaleEuro: 1234567.89,
+            currencyScaleIraqiDinar: 1234567.89,
+            dropdown: 4,
+            currencyScaleParent: 1234567.89
+        }
+    },
     onSubmit: () => {}
 };
