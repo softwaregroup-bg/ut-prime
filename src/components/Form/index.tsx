@@ -47,6 +47,8 @@ const Form: ComponentProps = ({
     layout,
     layoutFields,
     loading,
+    disabled,
+    enabled,
     methods,
     onSubmit,
     inspected,
@@ -141,6 +143,8 @@ const Form: ComponentProps = ({
             dropdowns={dropdowns}
             design={design}
             loading={loading}
+            disabled={disabled}
+            enabled={enabled}
             formApi={formApi}
             methods={methods}
             move={move}
@@ -190,6 +194,8 @@ const Form: ComponentProps = ({
                         dropdowns={dropdowns}
                         design={design}
                         loading={loading}
+                        disabled={disabled}
+                        enabled={enabled}
                         formApi={formApi}
                         methods={methods}
                         submit={submit}

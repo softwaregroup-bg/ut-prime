@@ -11,6 +11,7 @@ import useForm from '../hooks/useForm';
 export type DataTable = Omit<DataTableProps, 'children'>;
 export type DataView = Omit<DataViewProps, 'children'>;
 export type Permission = string | string[] | boolean;
+export type Allow = boolean | Joi.Schema | string;
 
 export interface PropertyEditor {
     type?:
@@ -182,7 +183,7 @@ export type WidgetReference = string | {
     actions?: object,
     menu?: ActionItem[],
     column?: ColumnProps;
-    widgets?: string[],
+    widgets?: WidgetReference[],
     hidden?: string[],
     compare?: string,
     filter?: object,
@@ -209,7 +210,8 @@ export interface Card {
     },
     flex?: string;
     hidden?: boolean;
-    disabled?: boolean | Joi.Schema;
+    disabled?: Allow;
+    enabled?: Allow;
 }
 
 export interface Cards {

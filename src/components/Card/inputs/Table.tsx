@@ -441,7 +441,7 @@ export default React.forwardRef<object, TableProps>(function Table({
                         />);
                     })
                 }
-                {allowEdit && <Column rowEditor headerStyle={editStyle} bodyStyle={editBodyStyle}></Column>}
+                {allowEdit && !disabled && <Column rowEditor headerStyle={editStyle} bodyStyle={editBodyStyle}></Column>}
             </DataTable>
         </>
     );

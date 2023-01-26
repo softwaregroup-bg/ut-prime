@@ -2,7 +2,7 @@ import React from 'react';
 import type { Schema as Validation } from 'joi';
 import type { UseFormReturn } from 'react-hook-form';
 
-import {Schema, Editors, Cards, Dropdowns} from '../types';
+import {Schema, Editors, Cards, Dropdowns, Allow} from '../types';
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     className?: string;
     schema?: Schema;
@@ -15,6 +15,8 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     layout?: (string | string[])[];
     layoutFields?: string[];
     loading?: string;
+    disabled?: Allow;
+    enabled?: Allow;
     validation?: Validation;
     design?: boolean;
     designCards?: boolean;

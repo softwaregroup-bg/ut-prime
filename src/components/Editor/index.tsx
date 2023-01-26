@@ -93,6 +93,8 @@ const Editor: ComponentProps = ({
         orientation,
         thumbIndex,
         layout,
+        disabled,
+        enabled,
         formProps,
         dropdownNames,
         getLayoutValue,
@@ -240,6 +242,8 @@ const Editor: ComponentProps = ({
                         value={value}
                         dropdowns={dropdowns}
                         loading={loading}
+                        disabled={disabled}
+                        enabled={enabled}
                         setTrigger={setTrigger}
                         toolbarRef={toolbarRef}
                         layoutFields={layoutFields}

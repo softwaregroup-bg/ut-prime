@@ -10,6 +10,8 @@ import type { Card as CardType } from '../types';
 import Text from '../Text';
 import titleCase from '../lib/titleCase';
 import { ConfigField, ConfigCard} from '../Form/DragDrop';
+import { useAllow } from '../hooks';
+
 import Input from './input';
 
 const useStyles = createUseStyles({
@@ -44,6 +46,8 @@ const Card: ComponentProps = ({
     dropdowns,
     methods,
     loading,
+    disabled,
+    enabled,
     design,
     formApi,
     value,
@@ -83,9 +87,12 @@ const Card: ComponentProps = ({
         value,
         isPropertyRequired
     ]);
+    if (typeof cardName === 'object') cardName = cardName.name;
+    const allow = useAllow(cards[cardName], formApi, {disabled, enabled});
+
     const InputWrap = React.useCallback(function InputWrap(props) {
-        return <Input {...props} api={api} />;
-    }, [api]);
+        return <Input {...props} {...allow(props)} api={api} />;
+    }, [api, allow]);
 
     const InputWrapEdit = React.useCallback(
         function InputEdit({name, ...props}) {
@@ -110,20 +117,8 @@ const Card: ComponentProps = ({
             : null;
     }, [formErrors]);
 
-    let formValues;
-    const values = () => {
-        formValues = formValues || formApi.getValues();
-        return formValues;
-    };
-
-    if (typeof cardName === 'object') cardName = cardName.name;
-    let cardDisabled = cards[cardName]?.disabled;
-    if (typeof cardDisabled === 'object' && 'validate' in cardDisabled) cardDisabled = !cardDisabled.validate(values()).error;
-
     const field = (length: number, flex: string, cardName: string, classes: CardType['classes'], init = {}) => function field(widget, ind: number) {
         if (typeof widget === 'string') widget = {name: widget};
-        let disabled = widget.disabled || cardDisabled;
-        if (disabled?.validate) disabled = !disabled.validate(values()).error;
         const {
             name = '',
             id,
@@ -154,7 +149,7 @@ const Card: ComponentProps = ({
                     classes={classes}
                     labelClass={labelClass}
                     {...widget as object}
-                    {...disabled != null && {disabled}}
+                    {...allow(widget)}
                     api={api}
                 />
             );

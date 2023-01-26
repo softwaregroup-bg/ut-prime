@@ -1,6 +1,6 @@
 import React from 'react';
 
-import type {Cards, Dropdowns, WidgetReference} from '../types';
+import type {Cards, Dropdowns, WidgetReference, Allow} from '../types';
 import useForm from '../hooks/useForm';
 import useLayout from '../hooks/useLayout';
 
@@ -14,6 +14,8 @@ export interface Props {
     dropdowns?: Dropdowns,
     methods: object,
     loading?: string,
+    disabled?: Allow;
+    enabled?: Allow;
     design?: boolean,
     layoutState: ReturnType<typeof useLayout>,
     formApi?: ReturnType<typeof useForm>,

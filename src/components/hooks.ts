@@ -1,3 +1,4 @@
+export {default as useAllow} from './hooks/useAllow';
 export {default as useAsync} from './hooks/useAsync';
 export {default as useForm} from './hooks/useForm';
 export {default as useLoad} from './hooks/useLoad';

@@ -34,6 +34,8 @@ function getLayout(cards: Cards, layouts: Layouts, mode: LayoutMode, name = '') 
     const orientation = items?.orientation;
     const type = items?.type;
     const disableBack = items?.disableBack;
+    const disabled = items?.disabled;
+    const enabled = items?.enabled;
     if (orientation) items = items.items;
     if (typeof (items?.[0]?.[0] || items?.[0]) === 'string') {
         layout = items;
@@ -43,7 +45,17 @@ function getLayout(cards: Cards, layouts: Layouts, mode: LayoutMode, name = '') 
     if (!cards[toolbar]) toolbar = `toolbar${capital(name)}`;
     if (!cards[toolbar]) toolbar = `toolbar${capital(mode)}`;
     if (!cards[toolbar]) toolbar = 'toolbar';
-    return [items, layout, type, orientation || 'left', toolbar, layoutName, disableBack || false];
+    return [
+        items,
+        layout,
+        type,
+        orientation || 'left',
+        toolbar,
+        layoutName,
+        disableBack || false,
+        disabled,
+        enabled
+    ];
 }
 
 const indexCards = items => items && items.map(item => [item.widgets, item?.items?.map(item => item.widgets)]).flat(2).filter(Boolean);
@@ -83,7 +95,7 @@ export default function useCustomization({
     const mergedLayouts = React.useMemo(() => merge({}, layouts, mergedCustomization.layout), [layouts, mergedCustomization.layout]);
     const [addField, setAddField] = React.useState(null);
     const [addCard, setAddCard] = React.useState(null);
-    const [items, layout, indexType, orientation, toolbar, currentLayoutName, disableBack] = React.useMemo(
+    const [items, layout, indexType, orientation, toolbar, currentLayoutName, disableBack, disabled, enabled] = React.useMemo(
         () => getLayout(mergedCards, mergedLayouts, mode, layoutState),
         [mergedCards, mergedLayouts, mode, layoutState]
     );
@@ -429,6 +441,8 @@ export default function useCustomization({
         orientation,
         thumbIndex,
         layout: layout || filter?.widgets,
+        disabled,
+        enabled,
         formProps: React.useMemo(() => ({move, inspected, onInspect, toolbar, design, designCards: design}), [move, inspected, onInspect, toolbar, design]),
         dropdownNames,
         getLayoutValue,
