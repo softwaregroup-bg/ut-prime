@@ -59,7 +59,7 @@ const Gate: ComponentProps = ({ children, cookieCheck, corePortalGet, loginPage 
                 configuration,
                 translate: (id, text, language) => (id && dictionary?.[id]) || dictionary?.[text] || text,
                 getScale: (currency) => formattedCurrencies?.[currency],
-                formatValue: (value, {fn, ...options}) => fnMap[fn]?.(value, options)
+                formatValue: (value, {fn, ...options}) => value && fnMap[fn]?.(value, options)
             });
         }
 

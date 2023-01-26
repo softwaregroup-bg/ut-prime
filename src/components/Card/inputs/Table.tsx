@@ -7,7 +7,8 @@ import merge from 'ut-function.merge';
 import {DataTable, Column, Toolbar, Button, type DataTableProps} from '../../prime';
 import Text from '../../Text';
 import Context from '../../Text/context';
-import columnProps from '../../lib/column';
+import columnProps, { defaultFormatOptions } from '../../lib/column';
+import type { FormatOptions } from '../../lib/column';
 import useFilter from '../../hooks/useFilter';
 import {CHANGE, INDEX, KEY, NEW} from '../const';
 import type {Properties, WidgetReference, PropertyEditor, FormApi} from '../../types';
@@ -112,11 +113,7 @@ interface TableProps extends Omit<DataTableProps, 'onChange'> {
         allowSelect?: boolean;
     };
     toolbar?: false | WidgetReference[];
-    formatOptions?: {
-        date?: object;
-        dateTime?: object;
-        time?: object;
-    }
+    formatOptions?: FormatOptions;
 }
 
 export default React.forwardRef<object, TableProps>(function Table({
@@ -154,7 +151,7 @@ export default React.forwardRef<object, TableProps>(function Table({
     } = {},
     toolbar,
     formApi,
-    formatOptions = {time: { fn: 'datefns', format: 'HH:mm:ss' }, date: { fn: 'datefns', format: 'dd-MM-yyyy' }, dateTime: {fn: 'datefns', format: 'dd-MM-yyyy HH:mm:ss' }},
+    formatOptions = defaultFormatOptions,
     ...props
 }, ref) {
     if (typeof ref === 'function') ref({});
