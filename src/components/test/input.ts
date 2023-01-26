@@ -56,8 +56,7 @@ const properties: Properties = {
     currencyScaleParent: {
         widget: {
             type: 'currency',
-            parent: 'input.dropdown',
-            parentDropdown: 'dropdown'
+            parent: 'input.dropdown'
         }
     },
     currencyScaleDollar: {
