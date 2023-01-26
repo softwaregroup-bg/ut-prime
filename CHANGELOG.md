@@ -1,3 +1,12 @@
+# [2.64.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.63.2...v2.64.0) (2023-01-26)
+
+
+### Features
+
+* currency widget fraction digits based on dropdown ([#35](https://github.com/softwaregroup-bg/ut-prime/issues/35)) ([8a6b922](https://github.com/softwaregroup-bg/ut-prime/commit/8a6b922ed4edbd97a3f679aa7bee32f3fe23a7ba))
+
+
+
 ## [2.63.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.63.1...v2.63.2) (2023-01-26)
 
 
