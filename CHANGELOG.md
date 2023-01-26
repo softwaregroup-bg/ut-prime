@@ -1,3 +1,12 @@
+## [2.63.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.63.1...v2.63.2) (2023-01-26)
+
+
+### Bug Fixes
+
+* improve disabled handling ([5139d67](https://github.com/softwaregroup-bg/ut-prime/commit/5139d671edc9ac1e5984fecd562cf3a51954d4d6))
+
+
+
 ## [2.63.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.63.0...v2.63.1) (2023-01-24)
 
 
