@@ -11,6 +11,13 @@ import { ConfirmPopup, ConfirmDialog } from '../prime';
 import Permission from './Permission';
 import { ComponentProps } from './Gate.types';
 import { State } from '../Store/Store.types';
+import { format } from 'date-fns';
+
+const fnMap = {
+    datefns: (value, {format: f}) => format(value, f),
+    'intl.date': Intl.DateTimeFormat,
+    'intl.number': Intl.NumberFormat
+};
 
 const corePortalGet: ((params: unknown) => unknown) = params => ({
     type: 'core.portal.get',
@@ -51,7 +58,8 @@ const Gate: ComponentProps = ({ children, cookieCheck, corePortalGet, loginPage 
                 languageCode,
                 configuration,
                 translate: (id, text, language) => (id && dictionary?.[id]) || dictionary?.[text] || text,
-                getScale: (currency) => formattedCurrencies?.[currency]
+                getScale: (currency) => formattedCurrencies?.[currency],
+                formatValue: (value, {fn, ...options}) => fnMap[fn]?.(value, options)
             });
         }
 

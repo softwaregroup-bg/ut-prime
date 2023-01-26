@@ -8,6 +8,7 @@ import {fetchItems, updateItems} from './mock';
 import decorators from '../test/decorator';
 import useToast from '../hooks/useToast';
 import unauthenticated from '../test/unauthenticated';
+import Gate from '../Gate';
 
 const meta: Meta = {
     title: 'Explorer',
@@ -43,7 +44,7 @@ const Template: Story<{
 }) => {
     const {toast, show, delay, error} = useToast();
     return (
-        <>
+        <Gate>
             <div style={{height: 'fit-content', display: 'flex', flexDirection: 'column'}}>
                 <Explorer
                     fetch={fetchItems}
@@ -224,7 +225,7 @@ const Template: Story<{
                 </Explorer>
             </div>
             {toast}
-        </>
+        </Gate>
     );
 };
 

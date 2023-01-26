@@ -22,6 +22,7 @@ import fieldNames from '../lib/fields';
 import columnProps from '../lib/column';
 import useFilter from '../hooks/useFilter';
 import prepareSubmit from '../lib/prepareSubmit';
+import Context from '../Text/context';
 
 import { ComponentProps } from './Explorer.types';
 import testid from '../lib/testid';
@@ -153,6 +154,7 @@ const Explorer: ComponentProps = ({
             files: paramValues?.[1]?.files?.map((name: string) => `${resultSet}.${name.slice(7)}`) // cut the params. prefix
         }
     ], [paramValues, resultSet]);
+    const ctx = React.useContext(Context);
 
     const [loading, setLoading] = React.useState('');
     const [inspectorHeight, setInspectorHeight] = React.useState<{maxHeight: number}>();
@@ -409,6 +411,7 @@ const Explorer: ComponentProps = ({
                         filterBy,
                         filterErrors,
                         errorsWithoutColumn,
+                        ctx,
                         ...formProps
                     })}
                     {...action && {

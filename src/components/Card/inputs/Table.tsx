@@ -6,6 +6,7 @@ import merge from 'ut-function.merge';
 
 import {DataTable, Column, Toolbar, Button, type DataTableProps} from '../../prime';
 import Text from '../../Text';
+import Context from '../../Text/context';
 import columnProps from '../../lib/column';
 import useFilter from '../../hooks/useFilter';
 import {CHANGE, INDEX, KEY, NEW} from '../const';
@@ -16,7 +17,7 @@ import useButtons from '../../hooks/useButtons';
 
 const fieldName = column => typeof column === 'string' ? column : column.name;
 
-const getDefault = (key, value, rows) => {
+const getDefault = (key, value, rows, formatValue, formatOptions) => {
     if (!value || !('default' in value)) return;
     const defaultValue = value.default;
     switch (defaultValue?.function) {
@@ -25,11 +26,11 @@ const getDefault = (key, value, rows) => {
         case 'min':
             return [key, rows.reduce((min, row) => row ? Math.min(min, row[key]) : min, 0) - 1];
         case 'dateNow':
-            return [key, new Date().toLocaleDateString()];
+            return [key, formatValue(new Date(), formatOptions?.date)];
         case 'timeNow':
-            return [key, new Date().toLocaleTimeString()];
+            return [key, formatValue(new Date(), formatOptions?.time)];
         case 'datetimeNow':
-            return [key, new Date().toLocaleString()];
+            return [key, formatValue(new Date(), formatOptions?.dateTime)];
         default:
             return [key, defaultValue];
     }
@@ -39,10 +40,10 @@ const editStyle = { width: '7rem' };
 const editBodyStyle: React.CSSProperties = { textAlign: 'center' };
 const sameString = (a, b) => a === b || (a != null && b != null && String(a) === String(b));
 
-const defaults = (properties : Properties, rows: readonly object[]) =>
+const defaults = (properties : Properties, rows: readonly object[], formatValue: (value: number | Date, options: object) => string, formatOptions: object) =>
     Object.fromEntries(
         Object.entries(properties)
-            .map(([key, value]) => getDefault(key, value, rows)).filter(Boolean));
+            .map(([key, value]) => getDefault(key, value, rows, formatValue, formatOptions)).filter(Boolean));
 
 const backgroundNone = {background: 'none'};
 
@@ -111,6 +112,11 @@ interface TableProps extends Omit<DataTableProps, 'onChange'> {
         allowSelect?: boolean;
     };
     toolbar?: false | WidgetReference[];
+    formatOptions?: {
+        date?: object;
+        dateTime?: object;
+        time?: object;
+    }
 }
 
 export default React.forwardRef<object, TableProps>(function Table({
@@ -148,6 +154,7 @@ export default React.forwardRef<object, TableProps>(function Table({
     } = {},
     toolbar,
     formApi,
+    formatOptions = {time: { fn: 'datefns', format: 'HH:mm:ss' }, date: { fn: 'datefns', format: 'dd-MM-yyyy' }, dateTime: {fn: 'datefns', format: 'dd-MM-yyyy HH:mm:ss' }},
     ...props
 }, ref) {
     if (typeof ref === 'function') ref({});
@@ -155,6 +162,7 @@ export default React.forwardRef<object, TableProps>(function Table({
     const [selected, setSelected] = React.useState(getValues ? getValues(`${selectionPath}.${name}`) : null);
     const [editingRows, setEditingRows] = React.useState({});
     const [pendingEdit, setPendingEdit] = React.useState(null);
+    const ctx = React.useContext(Context);
     const keepRows = !!props.selection;
 
     const rows = React.useMemo(() => {
@@ -316,7 +324,7 @@ export default React.forwardRef<object, TableProps>(function Table({
     const leftToolbarTemplate = React.useCallback(() => {
         const addNewRow = event => {
             event.preventDefault();
-            const newValue = {...filter, ...masterFilter(master, parent), ...defaults(properties, allRows), [NEW]: true};
+            const newValue = {...filter, ...masterFilter(master, parent), ...defaults(properties, allRows, ctx.formatValue, formatOptions), [NEW]: true};
             if (identity) newValue[identity] = -(++counter.current);
             const updatedValue = [...(allRows || []), newValue];
             onChange({...event, value: updatedValue});
@@ -372,7 +380,9 @@ export default React.forwardRef<object, TableProps>(function Table({
         disabled,
         initialFilters,
         setFilters,
-        buttons
+        buttons,
+        ctx.formatValue,
+        formatOptions
     ]);
 
     if (selected && props.selectionMode === 'single' && !rows.includes(selected)) {
@@ -436,7 +446,8 @@ export default React.forwardRef<object, TableProps>(function Table({
                                 dropdowns,
                                 editable: true,
                                 filterBy,
-                                tableFilter
+                                tableFilter,
+                                ctx
                             })}
                         />);
                     })
