@@ -3,6 +3,8 @@ import React, { useRef, useState, useContext } from 'react';
 import { Button, Calendar, ListBox, OverlayPanel, type ButtonProps } from '../prime';
 import Text from '../Text';
 import Context from '../Text/context';
+import type { FormatOptions } from '../lib/column';
+import { defaultFormatOptions } from '../lib/column';
 
 export interface Props extends Omit<ButtonProps, 'value' | 'onChange'> {
     value: [Date, Date];
@@ -10,8 +12,7 @@ export interface Props extends Omit<ButtonProps, 'value' | 'onChange'> {
     timeOnly?: boolean;
     inline?: boolean;
     onChange?: (event: {value: [Date, Date]}) => void;
-    formatOptionsTime?: object;
-    formatOptionsDateTime?: object;
+    formatOptions?: FormatOptions;
 }
 
 const intervals = {
@@ -52,8 +53,7 @@ const DateRange = React.forwardRef<object, Props>(function DateRange({
     timeOnly,
     inline,
     onChange,
-    formatOptionsTime = { fn: 'datefns', format: 'HH:mm:ss' },
-    formatOptionsDateTime = { fn: 'datefns', format: 'dd-MM-yyyy HH:mm:ss' },
+    formatOptions = defaultFormatOptions,
     ...props
 }, ref) {
     if (typeof ref === 'function') ref({});
@@ -65,7 +65,7 @@ const DateRange = React.forwardRef<object, Props>(function DateRange({
     const [[displayText, displayFrom, displayTo], setDisplay] = useState(['', null, null]);
     const ctx = useContext(Context);
 
-    const displayDate = (value: Date) => (timeOnly ? value && ctx.formatValue(value, formatOptionsTime) : value && ctx.formatValue(value, formatOptionsDateTime)) ?? '---';
+    const displayDate = (value: Date) => (timeOnly ? value && ctx.formatValue(value, formatOptions?.time) : value && ctx.formatValue(value, formatOptions?.dateTime)) ?? '---';
 
     const display =
         (inline && `${displayDate(value?.[0])}\n÷\n${displayDate(value?.[1])}`) ||
