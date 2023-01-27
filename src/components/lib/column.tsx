@@ -286,9 +286,7 @@ export default function columnProps({
 
                     const anchors = [].concat(rowData[fieldName]).filter(Boolean)?.map((item, i) => {
                         label = item?.name || item;
-                        url = item?.objectURL
-                            ? item?.objectURL : rowData[pathField as string]
-                                ? (basePath || '') + rowData[pathField as string] : null;
+                        url = item?.objectURL ?? (rowData[pathField as string] ? (basePath || '') + rowData[pathField as string] : null);
 
                         return <span key={i}>{i > 0 && ', '}<a href={url} download={label} style={{ color: 'inherit' }}>{label}</a></span>;
                     });
