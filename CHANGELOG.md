@@ -1,3 +1,12 @@
+## [2.64.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.64.0...v2.64.1) (2023-01-27)
+
+
+### Bug Fixes
+
+* use document hash for download link ([#38](https://github.com/softwaregroup-bg/ut-prime/issues/38)) ([a1fd281](https://github.com/softwaregroup-bg/ut-prime/commit/a1fd281553f3959b00689ed9ffe4544829693be6))
+
+
+
 # [2.64.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.63.2...v2.64.0) (2023-01-26)
 
 
