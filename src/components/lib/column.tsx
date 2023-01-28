@@ -106,7 +106,7 @@ export default function columnProps({
     ctx: ContextType
 }) {
     const resultSetDot = resultSet ? resultSet + '.' : '';
-    const { type, dropdown, parent, column, lookup, compare, download, basePath, optionsFilter, translation, formatOptions = defaultFormatOptions, ...props } = widget || property?.widget || { name };
+    const { type, dropdown, parent, column, lookup, compare, download, basePath, optionsFilter, pathField = 'hash', translation, formatOptions = defaultFormatOptions, ...props } = widget || property?.widget || { name };
     const fieldName = name.split('.').pop();
     let filterElement, body, editor, bodyClassName, alignHeader;
     const filterId = `${resultSetDot}${name}Filter`;
@@ -301,9 +301,7 @@ export default function columnProps({
 
                     const anchors = [].concat(rowData[fieldName]).filter(Boolean)?.map((item, i) => {
                         label = item?.name || item;
-                        url = item?.objectURL
-                            ? item?.objectURL : item
-                                ? (basePath || '') + item : null;
+                        url = item?.objectURL ?? (rowData[pathField as string] ? (basePath || '') + rowData[pathField as string] : null);
 
                         return <span key={i}>{i > 0 && ', '}<a href={url} download={label} style={{ color: 'inherit' }}>{label}</a></span>;
                     });
