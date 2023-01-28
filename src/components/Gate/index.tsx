@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect, useSelector } from 'react-redux';
 import { useParams, Redirect } from 'react-router-dom';
-import { format } from 'date-fns';
 import merge from 'ut-function.merge';
 
 import { cookieCheck } from '../Login/actions';
@@ -13,17 +12,9 @@ import { ConfirmPopup, ConfirmDialog } from '../prime';
 import Permission from './Permission';
 import { ComponentProps } from './Gate.types';
 import { State } from '../Store/Store.types';
+import { fnMap } from './formatValue';
 
-const fnMap = {
-    datefns: (value, {format: f}) => format(value, f),
-    'intl.date': (value: Date, options) => new Intl.DateTimeFormat(navigator.language, options).format(value),
-    'intl.number': (value: number, options) => new Intl.NumberFormat(navigator.language, options).format(value),
-    localeTimeString: (value: Date, options) => value.toLocaleTimeString(navigator.language, options),
-    localeString: (value: Date) => value.toLocaleString(),
-    localeDateString: (value: Date) => value.toLocaleDateString()
-};
-
-const defaultFormatOptions = {
+export const defaultFormatOptions = {
     time: { fn: 'localeTimeString', timeStyle: 'short', hourCycle: 'h23' },
     dateTime: { fn: 'localeString' },
     date: { fn: 'localeDateString' }

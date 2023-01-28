@@ -1,5 +1,8 @@
 import React from 'react';
+import merge from 'ut-function.merge';
 import Context from '../Text/context';
+import { fnMap } from '../Gate/formatValue';
+import { defaultFormatOptions } from '../Gate';
 
 const parse = content => content.trim().split(/\r?\n/).reduce((prev, cur, index) => {
     const [dictionaryKey, translatedValue] = cur.trim().split('=');
@@ -268,7 +271,11 @@ export const Translate = ({language, children}) => {
         value={{
             translate: translate(language),
             getScale: what => currencies.find(currency => [currency.code, currency.currencyId].includes(what))?.scale,
-            configuration
+            configuration,
+            formatValue: (value, {type, ...opts}: any) => {
+                const {fn, ...options} = merge({}, defaultFormatOptions[type], opts);
+                return value && fnMap[fn]?.(value, options);
+            }
         }}
     >{children}</Context.Provider>;
 };
