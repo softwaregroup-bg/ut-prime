@@ -446,7 +446,8 @@ const Explorer: ComponentProps = ({
         externalFilter,
         submit,
         filterBy,
-        filterErrors
+        filterErrors,
+        ctx
     ]);
     const hasChildren = !!children;
 
