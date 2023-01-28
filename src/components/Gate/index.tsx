@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { connect, useSelector } from 'react-redux';
 import { useParams, Redirect } from 'react-router-dom';
+import { format } from 'date-fns';
+import merge from 'ut-function.merge';
 
 import { cookieCheck } from '../Login/actions';
 import Loader from '../Loader';
@@ -11,12 +13,20 @@ import { ConfirmPopup, ConfirmDialog } from '../prime';
 import Permission from './Permission';
 import { ComponentProps } from './Gate.types';
 import { State } from '../Store/Store.types';
-import { format } from 'date-fns';
 
 const fnMap = {
     datefns: (value, {format: f}) => format(value, f),
-    'intl.date': Intl.DateTimeFormat,
-    'intl.number': Intl.NumberFormat
+    'intl.date': (value: Date, options) => new Intl.DateTimeFormat(navigator.language, options).format(value),
+    'intl.number': (value: number, options) => new Intl.NumberFormat(navigator.language, options).format(value),
+    localeTimeString: (value: Date, options) => value.toLocaleTimeString(navigator.language, options),
+    localeString: (value: Date) => value.toLocaleString(),
+    localeDateString: (value: Date) => value.toLocaleDateString()
+};
+
+const defaultFormatOptions = {
+    time: { fn: 'localeTimeString', timeStyle: 'short', hourCycle: 'h23' },
+    dateTime: { fn: 'localeString' },
+    date: { fn: 'localeDateString' }
 };
 
 const corePortalGet: ((params: unknown) => unknown) = params => ({
@@ -37,7 +47,7 @@ const Gate: ComponentProps = ({ children, cookieCheck, corePortalGet, loginPage 
         async function load() {
             const language = login?.language?.languageId;
             const languageCode = login?.language?.iso2Code;
-            const { result = {} } = await corePortalGet({
+            const { result } = await corePortalGet({
                 languageId: language,
                 dictName: ['text', 'actionConfirmation', 'error']
             });
@@ -53,13 +63,19 @@ const Gate: ComponentProps = ({ children, cookieCheck, corePortalGet, loginPage 
                 return prev;
             }, {});
 
+            const fmtOpts = configuration['portal.utPrime.formatOptions'];
+            const customFormatOptions = typeof fmtOpts === 'string' ? JSON.parse(fmtOpts) : fmtOpts;
+
             setLoaded({
                 language,
                 languageCode,
                 configuration,
                 translate: (id, text, language) => (id && dictionary?.[id]) || dictionary?.[text] || text,
                 getScale: (currency) => formattedCurrencies?.[currency],
-                formatValue: (value, {fn, ...options}) => value && fnMap[fn]?.(value, options)
+                formatValue: (value, {type, ...opts}) => {
+                    const {fn, ...options} = merge({}, defaultFormatOptions[type], customFormatOptions?.[type], opts);
+                    return value && fnMap[fn]?.(value, options);
+                }
             });
         }
 

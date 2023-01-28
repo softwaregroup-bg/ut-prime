@@ -26,6 +26,7 @@ import clsx from 'clsx';
 import type Joi from 'joi';
 import { TooltipProps } from 'primereact/tooltip';
 import type { ContextType } from '../Text/context';
+import type { FormatOptions } from '../Gate/Gate.types';
 
 export interface TableFilter {
     filters?: {
@@ -50,18 +51,6 @@ function dateOrNull(value) {
 function timeOrZero(value) {
     if (value == null) return new Date(1970, 0, 1);
     return new Date(value);
-}
-
-export const defaultFormatOptions = {
-    time: { fn: 'datefns', format: 'HH:mm:ss'},
-    dateTime: { fn: 'datefns', format: 'dd-MM-yyyy HH:mm:ss' },
-    date: { fn: 'datefns', format: 'dd-MM-yyyy' }
-};
-
-export type FormatOptions = {
-    time: object;
-    dateTime: object;
-    date: object;
 }
 
 export default function columnProps({
@@ -106,7 +95,7 @@ export default function columnProps({
     ctx: ContextType
 }) {
     const resultSetDot = resultSet ? resultSet + '.' : '';
-    const { type, dropdown, parent, column, lookup, compare, download, basePath, optionsFilter, pathField = 'hash', translation, formatOptions = defaultFormatOptions, ...props } = widget || property?.widget || { name };
+    const { type, dropdown, parent, column, lookup, compare, download, basePath, optionsFilter, pathField = 'hash', translation, formatOptions, ...props } = widget || property?.widget || { name };
     const fieldName = name.split('.').pop();
     let filterElement, body, editor, bodyClassName, alignHeader;
     const filterId = `${resultSetDot}${name}Filter`;
@@ -249,7 +238,7 @@ export default function columnProps({
                 let value = rowData[fieldName];
                 if (value == null) return null;
                 value = new Date(value);
-                return ctx?.formatValue?.(new Date(value.getTime() + value.getTimezoneOffset() * 60 * 1000), (formatOptions as FormatOptions)?.date);
+                return ctx?.formatValue?.(new Date(value.getTime() + value.getTimezoneOffset() * 60 * 1000), { type: 'date', ...(formatOptions as FormatOptions)?.date });
             };
             break;
         case 'time':
@@ -265,7 +254,7 @@ export default function columnProps({
             />;
             body = function body(rowData) {
                 const value = dateOrNull(rowData[fieldName]);
-                return ctx?.formatValue?.(value, (formatOptions as FormatOptions)?.time);
+                return ctx?.formatValue?.(value, { type: 'time', ...(formatOptions as FormatOptions)?.time });
             };
             break;
         case 'date-time':
@@ -280,7 +269,7 @@ export default function columnProps({
             />;
             body = function body(rowData) {
                 const value = dateOrNull(rowData[fieldName]);
-                return ctx?.formatValue?.(value, (formatOptions as FormatOptions)?.dateTime);
+                return ctx?.formatValue?.(value, { type: 'dateTime', ...(formatOptions as FormatOptions)?.dateTime });
             };
             break;
         case 'password': {

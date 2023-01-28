@@ -7,14 +7,14 @@ import merge from 'ut-function.merge';
 import {DataTable, Column, Toolbar, Button, type DataTableProps} from '../../prime';
 import Text from '../../Text';
 import Context from '../../Text/context';
-import columnProps, { defaultFormatOptions } from '../../lib/column';
-import type { FormatOptions } from '../../lib/column';
+import columnProps from '../../lib/column';
 import useFilter from '../../hooks/useFilter';
 import {CHANGE, INDEX, KEY, NEW} from '../const';
 import type {Properties, WidgetReference, PropertyEditor, FormApi} from '../../types';
 import prepareSubmit from '../../lib/prepareSubmit';
 import testid from '../../lib/testid';
 import useButtons from '../../hooks/useButtons';
+import type { FormatOptions } from '../../Gate/Gate.types';
 
 const fieldName = column => typeof column === 'string' ? column : column.name;
 
@@ -27,11 +27,11 @@ const getDefault = (key, value, rows, formatValue, formatOptions) => {
         case 'min':
             return [key, rows.reduce((min, row) => row ? Math.min(min, row[key]) : min, 0) - 1];
         case 'dateNow':
-            return [key, formatValue(new Date(), formatOptions?.date)];
+            return [key, formatValue(new Date(), { type: 'date', ...formatOptions?.date })];
         case 'timeNow':
-            return [key, formatValue(new Date(), formatOptions?.time)];
+            return [key, formatValue(new Date(), { type: 'time', ...formatOptions?.time })];
         case 'datetimeNow':
-            return [key, formatValue(new Date(), formatOptions?.dateTime)];
+            return [key, formatValue(new Date(), { type: 'dateTime', ...formatOptions?.dateTime })];
         default:
             return [key, defaultValue];
     }
@@ -151,7 +151,7 @@ export default React.forwardRef<object, TableProps>(function Table({
     } = {},
     toolbar,
     formApi,
-    formatOptions = defaultFormatOptions,
+    formatOptions,
     ...props
 }, ref) {
     if (typeof ref === 'function') ref({});

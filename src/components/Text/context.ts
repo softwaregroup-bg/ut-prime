@@ -1,8 +1,10 @@
 import React from 'react';
 import type { GMapOptions } from '../prime/googlemap/GMap.types';
+import type { FormatOptions } from '../Gate/Gate.types';
 
 export interface PortalConfiguration {
     'portal.utPrime.GMap'?: string | GMapOptions;
+    'portal.utPrime.formatOptions'?: string | FormatOptions;
 }
 
 export interface ContextType {

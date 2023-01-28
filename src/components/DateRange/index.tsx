@@ -3,8 +3,7 @@ import React, { useRef, useState, useContext } from 'react';
 import { Button, Calendar, ListBox, OverlayPanel, type ButtonProps } from '../prime';
 import Text from '../Text';
 import Context from '../Text/context';
-import type { FormatOptions } from '../lib/column';
-import { defaultFormatOptions } from '../lib/column';
+import type { FormatOptions } from '../Gate/Gate.types';
 
 export interface Props extends Omit<ButtonProps, 'value' | 'onChange'> {
     value: [Date, Date];
@@ -53,7 +52,7 @@ const DateRange = React.forwardRef<object, Props>(function DateRange({
     timeOnly,
     inline,
     onChange,
-    formatOptions = defaultFormatOptions,
+    formatOptions,
     ...props
 }, ref) {
     if (typeof ref === 'function') ref({});
@@ -65,7 +64,7 @@ const DateRange = React.forwardRef<object, Props>(function DateRange({
     const [[displayText, displayFrom, displayTo], setDisplay] = useState(['', null, null]);
     const ctx = useContext(Context);
 
-    const displayDate = (value: Date) => (timeOnly ? value && ctx.formatValue(value, formatOptions?.time) : value && ctx.formatValue(value, formatOptions?.dateTime)) ?? '---';
+    const displayDate = (value: Date) => (timeOnly ? value && ctx.formatValue(value, { type: 'time', ...formatOptions?.time }) : value && ctx.formatValue(value, { type: 'dateTime', ...formatOptions?.dateTime })) ?? '---';
 
     const display =
         (inline && `${displayDate(value?.[0])}\n÷\n${displayDate(value?.[1])}`) ||
