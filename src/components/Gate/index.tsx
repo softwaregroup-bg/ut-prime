@@ -38,7 +38,7 @@ const Gate: ComponentProps = ({ children, cookieCheck, corePortalGet, loginPage 
         async function load() {
             const language = login?.language?.languageId;
             const languageCode = login?.language?.iso2Code;
-            const { result } = await corePortalGet({
+            const { result = {} } = await corePortalGet({
                 languageId: language,
                 dictName: ['text', 'actionConfirmation', 'error']
             });
@@ -54,7 +54,7 @@ const Gate: ComponentProps = ({ children, cookieCheck, corePortalGet, loginPage 
                 return prev;
             }, {});
 
-            const fmtOpts = configuration['portal.utPrime.formatOptions'];
+            const fmtOpts = configuration?.['portal.utPrime.formatOptions'];
             const customFormatOptions = typeof fmtOpts === 'string' ? JSON.parse(fmtOpts) : fmtOpts;
 
             setLoaded({

@@ -13,7 +13,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     corePortalGet?: (params: {
         languageId: string | number;
         dictName: string[];
-    }) => Promise<{ result?: { translations?: []; configuration?: PortalConfiguration, currencies?: [], formatOptions: FormatOptions } }>;
+    }) => Promise<{ result?: { translations?: []; configuration?: PortalConfiguration, currencies?: [], formatOptions?: FormatOptions } }>;
 }
 
 export type ComponentProps = React.FC<Props>;
