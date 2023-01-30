@@ -12896,47 +12896,63 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
           class="flex"
         >
           <button
-            aria-label="Browse"
             class="p-button p-component mr-2"
             id="button1"
           >
             <span
               class="p-button-label p-c"
             >
-              Browse
+              <label
+                class="col-12"
+                for=""
+              >
+                Browse
+              </label>
             </span>
           </button>
           <button
-            aria-label="Open"
             class="p-button p-component mr-2"
             id="button2"
           >
             <span
               class="p-button-label p-c"
             >
-              Open
+              <label
+                class="col-12"
+                for=""
+              >
+                Open
+              </label>
             </span>
           </button>
           <button
-            aria-label="Error"
             class="p-button p-component mr-2"
             id="button3"
           >
             <span
               class="p-button-label p-c"
             >
-              Error
+              <label
+                class="col-12"
+                for=""
+              >
+                Error
+              </label>
             </span>
           </button>
           <button
-            aria-label="Delay"
             class="p-button p-component mr-2"
             id="button4"
           >
             <span
               class="p-button-label p-c"
             >
-              Delay
+              <label
+                class="col-12"
+                for=""
+              >
+                Delay
+              </label>
             </span>
           </button>
         </div>
