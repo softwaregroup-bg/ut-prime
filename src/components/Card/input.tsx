@@ -98,8 +98,7 @@ function input(
     const widgetType = type || defaultWidgetType || schema?.format || getType(schema?.type);
     if (loading) {
         if (loading === 'loading' && ['button', 'submit'].includes(widgetType)) {
-            props?.label && delete props.label;
-            return <ActionButton className={inputClass ?? 'mr-2'} {...props} disabled>{label}</ActionButton>;
+            return <ActionButton className={inputClass ?? 'mr-2'} {...props} disabled>{props.children}</ActionButton>;
         }
         if (loading === 'loading') return <>{label}<div className={inputClass}><Skeleton className='p-inputtext'/></div></>;
     }
@@ -112,17 +111,19 @@ function input(
             props?.label && delete props.label;
             return <ActionButton
                 className={inputClass ?? 'mr-2'}
+                label={label}
                 {...props}
                 getValues={formApi.getValues}
-            >{label}</ActionButton>;
+            >{props.children}</ActionButton>;
         }
         case 'submit': {
             props?.label && delete props.label;
             return <ActionButton
                 className={inputClass ?? 'mr-2'}
+                label={label}
                 {...props}
                 submit={submit}
-            >{label}</ActionButton>;
+            >{props.children}</ActionButton>;
         }
         case 'dropdownTree': return <Field {...{label, error, inputClass}}>
             <TreeSelect
