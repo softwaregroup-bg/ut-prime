@@ -346,7 +346,8 @@ function input(
                                     )
                                 }, {children: false, ...props.change});
                             }
-                            for (const key of props.widgets) {
+                            for (const widget of props.widgets) {
+                                const key = typeof widget === 'string' ? widget : widget.name;
                                 const setWidgetIndex = value.findIndex(e => e[key]);
                                 if (setWidgetIndex > -1 && !event.value.find(e => e[key])) {
                                     delete value[setWidgetIndex][key];
@@ -370,7 +371,9 @@ function input(
                         {...props}
                         className={clsx(field.className || props.className, props.disabled && 'p-disabled')}
                     >
-                        <Column field='label' header={title}/>
+                        {!props.widgets?.some(
+                            widget => typeof widget === 'string' ? widget === 'label' : widget?.name === 'label'
+                        ) ? <Column field='label' header={title}/> : null}
                     </Table>
                 </div>
             </>;
