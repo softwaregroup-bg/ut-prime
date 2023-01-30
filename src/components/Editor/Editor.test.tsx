@@ -44,7 +44,7 @@ describe('<Editor />', () => {
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
     it('CascadedTables render equals snapshot', async() => {
-        const { findByTestId, container } = render(<CascadedTables />);
+        const { findByTestId, container } = render(<CascadedTables />, undefined, 'en');
         await act(() => new Promise(resolve => setTimeout(resolve, 1000)));
         await act(() => CascadedTables.play({canvasElement: container}));
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();

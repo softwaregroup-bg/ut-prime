@@ -1,8 +1,7 @@
 import React from 'react';
 import merge from 'ut-function.merge';
 import Context from '../Text/context';
-import { fnMap } from '../Gate/formatValue';
-import { defaultFormatOptions } from '../Gate';
+import { fnMap, defaultFormatOptions } from '../Gate/formatValue';
 
 const parse = content => content.trim().split(/\r?\n/).reduce((prev, cur, index) => {
     const [dictionaryKey, translatedValue] = cur.trim().split('=');

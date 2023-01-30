@@ -8,3 +8,9 @@ export const fnMap = {
     localeString: (value: Date) => value.toLocaleString(),
     localeDateString: (value: Date) => value.toLocaleDateString()
 };
+
+export const defaultFormatOptions = {
+    time: { fn: 'localeTimeString', timeStyle: 'short', hourCycle: 'h23' },
+    dateTime: { fn: 'localeString' },
+    date: { fn: 'localeDateString' }
+};

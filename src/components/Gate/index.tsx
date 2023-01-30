@@ -12,13 +12,7 @@ import { ConfirmPopup, ConfirmDialog } from '../prime';
 import Permission from './Permission';
 import { ComponentProps } from './Gate.types';
 import { State } from '../Store/Store.types';
-import { fnMap } from './formatValue';
-
-export const defaultFormatOptions = {
-    time: { fn: 'localeTimeString', timeStyle: 'short', hourCycle: 'h23' },
-    dateTime: { fn: 'localeString' },
-    date: { fn: 'localeDateString' }
-};
+import { fnMap, defaultFormatOptions } from './formatValue';
 
 const corePortalGet: ((params: unknown) => unknown) = params => ({
     type: 'core.portal.get',
