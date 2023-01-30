@@ -1,3 +1,12 @@
+## [2.65.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.65.0...v2.65.1) (2023-01-30)
+
+
+### Bug Fixes
+
+* handle selectTable widgets ([8efc675](https://github.com/softwaregroup-bg/ut-prime/commit/8efc6754926758912260dcd2faeac33544687e74))
+
+
+
 # [2.65.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.64.1...v2.65.0) (2023-01-30)
 
 
