@@ -1,3 +1,12 @@
+# [2.65.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.64.1...v2.65.0) (2023-01-30)
+
+
+### Features
+
+* **CBI-852:** configurable formatOptions ([#37](https://github.com/softwaregroup-bg/ut-prime/issues/37)) ([ee0b86c](https://github.com/softwaregroup-bg/ut-prime/commit/ee0b86c74c54bb91cdc30d4eb362ff782c1d0032))
+
+
+
 ## [2.64.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.64.0...v2.64.1) (2023-01-27)
 
 
