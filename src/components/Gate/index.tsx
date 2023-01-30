@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect, useSelector } from 'react-redux';
 import { useParams, Redirect } from 'react-router-dom';
+import merge from 'ut-function.merge';
 
 import { cookieCheck } from '../Login/actions';
 import Loader from '../Loader';
@@ -11,6 +12,7 @@ import { ConfirmPopup, ConfirmDialog } from '../prime';
 import Permission from './Permission';
 import { ComponentProps } from './Gate.types';
 import { State } from '../Store/Store.types';
+import { fnMap, defaultFormatOptions } from './formatValue';
 
 const corePortalGet: ((params: unknown) => unknown) = params => ({
     type: 'core.portal.get',
@@ -46,12 +48,19 @@ const Gate: ComponentProps = ({ children, cookieCheck, corePortalGet, loginPage 
                 return prev;
             }, {});
 
+            const fmtOpts = configuration?.['portal.utPrime.formatOptions'];
+            const customFormatOptions = typeof fmtOpts === 'string' ? JSON.parse(fmtOpts) : fmtOpts;
+
             setLoaded({
                 language,
                 languageCode,
                 configuration,
                 translate: (id, text, language) => (id && dictionary?.[id]) || dictionary?.[text] || text,
-                getScale: (currency) => formattedCurrencies?.[currency]
+                getScale: (currency) => formattedCurrencies?.[currency],
+                formatValue: (value, {type, ...opts}) => {
+                    const {fn, ...options} = merge({}, defaultFormatOptions[type], customFormatOptions?.[type], opts);
+                    return value && fnMap[fn]?.(value, options);
+                }
             });
         }
 

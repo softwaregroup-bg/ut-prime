@@ -25,6 +25,8 @@ import Text from '../Text';
 import clsx from 'clsx';
 import type Joi from 'joi';
 import { TooltipProps } from 'primereact/tooltip';
+import type { ContextType } from '../Text/context';
+import type { FormatOptions } from '../Gate/Gate.types';
 
 export interface TableFilter {
     filters?: {
@@ -69,7 +71,8 @@ export default function columnProps({
     getValues,
     filterErrors,
     errorsWithoutColumn,
-    toolbar
+    toolbar,
+    ctx
 }: {
     resultSet?: string,
     name: string,
@@ -88,10 +91,11 @@ export default function columnProps({
     move?: unknown,
     filterErrors?: Joi.ValidationError,
     errorsWithoutColumn?: Joi.ValidationError['details']
-    toolbar?: undefined
+    toolbar?: undefined,
+    ctx: ContextType
 }) {
     const resultSetDot = resultSet ? resultSet + '.' : '';
-    const { type, dropdown, parent, column, lookup, compare, download, basePath, optionsFilter, pathField = 'hash', translation, ...props } = widget || property?.widget || { name };
+    const { type, dropdown, parent, column, lookup, compare, download, basePath, optionsFilter, pathField = 'hash', translation, formatOptions, ...props } = widget || property?.widget || { name };
     const fieldName = name.split('.').pop();
     let filterElement, body, editor, bodyClassName, alignHeader;
     const filterId = `${resultSetDot}${name}Filter`;
@@ -234,7 +238,7 @@ export default function columnProps({
                 let value = rowData[fieldName];
                 if (value == null) return null;
                 value = new Date(value);
-                return new Date(value.getTime() + value.getTimezoneOffset() * 60 * 1000).toLocaleDateString();
+                return ctx?.formatValue?.(new Date(value.getTime() + value.getTimezoneOffset() * 60 * 1000), { type: 'date', ...(formatOptions as FormatOptions)?.date });
             };
             break;
         case 'time':
@@ -249,7 +253,8 @@ export default function columnProps({
                 name={filterId}
             />;
             body = function body(rowData) {
-                return dateOrNull(rowData[fieldName])?.toLocaleTimeString(undefined, {timeStyle: 'short', hourCycle: 'h23'});
+                const value = dateOrNull(rowData[fieldName]);
+                return ctx?.formatValue?.(value, { type: 'time', ...(formatOptions as FormatOptions)?.time });
             };
             break;
         case 'date-time':
@@ -263,9 +268,8 @@ export default function columnProps({
                 name={filterId}
             />;
             body = function body(rowData) {
-                const value = rowData[fieldName];
-                if (value == null) return null;
-                return new Date(value).toLocaleString();
+                const value = dateOrNull(rowData[fieldName]);
+                return ctx?.formatValue?.(value, { type: 'dateTime', ...(formatOptions as FormatOptions)?.dateTime });
             };
             break;
         case 'password': {
