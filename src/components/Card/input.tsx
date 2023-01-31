@@ -105,16 +105,24 @@ function input(
     const filterBy = item => (!parentField && !optionsFilter) || Object.entries({...optionsFilter, parent: parentValue}).every(([name, value]) => String(item[name]) === String(value));
 
     switch (widgetType) {
-        case 'button': return <ActionButton
-            className={inputClass ?? 'mr-2'}
-            {...props}
-            getValues={formApi.getValues}
-        >{title}</ActionButton>;
-        case 'submit': return <ActionButton
-            className={inputClass ?? 'mr-2'}
-            {...props}
-            submit={submit}
-        >{title}</ActionButton>;
+        case 'button': {
+            props?.label && delete props.label;
+            return <ActionButton
+                className={inputClass ?? 'mr-2'}
+                label={label}
+                {...props}
+                getValues={formApi.getValues}
+            >{props.children}</ActionButton>;
+        }
+        case 'submit': {
+            props?.label && delete props.label;
+            return <ActionButton
+                className={inputClass ?? 'mr-2'}
+                label={label}
+                {...props}
+                submit={submit}
+            >{title}</ActionButton>;
+        }
         case 'dropdownTree': return <Field {...{label, error, inputClass}}>
             <TreeSelect
                 {...field}
