@@ -1,3 +1,12 @@
+## [2.65.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.65.2...v2.65.3) (2023-01-31)
+
+
+### Bug Fixes
+
+* compare overlap ([5dfa1ab](https://github.com/softwaregroup-bg/ut-prime/commit/5dfa1ab3170cec7000db3712540c227746424f09))
+
+
+
 ## [2.65.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.65.1...v2.65.2) (2023-01-30)
 
 
