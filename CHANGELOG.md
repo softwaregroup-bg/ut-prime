@@ -1,3 +1,12 @@
+## [2.65.4](https://github.com/softwaregroup-bg/ut-prime/compare/v2.65.3...v2.65.4) (2023-01-31)
+
+
+### Bug Fixes
+
+* toolbar translation ([d212bda](https://github.com/softwaregroup-bg/ut-prime/commit/d212bdaded4a227e96dd3b58e9c95db908411e68))
+
+
+
 ## [2.65.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.65.2...v2.65.3) (2023-01-31)
 
 

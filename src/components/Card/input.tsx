@@ -97,9 +97,7 @@ function input(
 ) {
     const widgetType = type || defaultWidgetType || schema?.format || getType(schema?.type);
     if (loading) {
-        if (loading === 'loading' && ['button', 'submit'].includes(widgetType)) {
-            return <ActionButton className={inputClass ?? 'mr-2'} {...props} disabled>{props.children}</ActionButton>;
-        }
+        if (loading === 'loading' && ['button', 'submit'].includes(widgetType)) return <ActionButton className={inputClass ?? 'mr-2'} {...props} disabled />;
         if (loading === 'loading') return <>{label}<div className={inputClass}><Skeleton className='p-inputtext'/></div></>;
     }
     props.disabled ??= schema?.readOnly || (parentField && !parentValue);
@@ -107,24 +105,16 @@ function input(
     const filterBy = item => (!parentField && !optionsFilter) || Object.entries({...optionsFilter, parent: parentValue}).every(([name, value]) => String(item[name]) === String(value));
 
     switch (widgetType) {
-        case 'button': {
-            props?.label && delete props.label;
-            return <ActionButton
-                className={inputClass ?? 'mr-2'}
-                label={label}
-                {...props}
-                getValues={formApi.getValues}
-            >{props.children}</ActionButton>;
-        }
-        case 'submit': {
-            props?.label && delete props.label;
-            return <ActionButton
-                className={inputClass ?? 'mr-2'}
-                label={label}
-                {...props}
-                submit={submit}
-            >{props.children}</ActionButton>;
-        }
+        case 'button': return <ActionButton
+            className={inputClass ?? 'mr-2'}
+            {...props}
+            getValues={formApi.getValues}
+        >{title}</ActionButton>;
+        case 'submit': return <ActionButton
+            className={inputClass ?? 'mr-2'}
+            {...props}
+            submit={submit}
+        >{title}</ActionButton>;
         case 'dropdownTree': return <Field {...{label, error, inputClass}}>
             <TreeSelect
                 {...field}
