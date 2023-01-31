@@ -107,16 +107,14 @@ function input(
     switch (widgetType) {
         case 'button': return <ActionButton
             className={inputClass ?? 'mr-2'}
-            label={label}
             {...props}
             getValues={formApi.getValues}
-        />;
+        >{title}</ActionButton>;
         case 'submit': return <ActionButton
             className={inputClass ?? 'mr-2'}
-            label={label}
             {...props}
             submit={submit}
-        />;
+        >{title}</ActionButton>;
         case 'dropdownTree': return <Field {...{label, error, inputClass}}>
             <TreeSelect
                 {...field}

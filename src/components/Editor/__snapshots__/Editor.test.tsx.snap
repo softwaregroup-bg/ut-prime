@@ -12905,6 +12905,7 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
             >
               Browse
             </span>
+            
           </button>
           <button
             aria-label="Open"
@@ -12916,6 +12917,7 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
             >
               Open
             </span>
+            
           </button>
           <button
             aria-label="Error"
@@ -12927,6 +12929,7 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
             >
               Error
             </span>
+            
           </button>
           <button
             aria-label="Delay"
@@ -12938,6 +12941,7 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
             >
               Delay
             </span>
+            
           </button>
         </div>
       </div>
