@@ -1,3 +1,12 @@
+## [2.65.5](https://github.com/softwaregroup-bg/ut-prime/compare/v2.65.4...v2.65.5) (2023-01-31)
+
+
+### Bug Fixes
+
+* default date/time functions ([f5b88f0](https://github.com/softwaregroup-bg/ut-prime/commit/f5b88f0bb981f06e25b0fa2d24ed53d5fbfa71ca))
+
+
+
 ## [2.65.4](https://github.com/softwaregroup-bg/ut-prime/compare/v2.65.3...v2.65.4) (2023-01-31)
 
 
