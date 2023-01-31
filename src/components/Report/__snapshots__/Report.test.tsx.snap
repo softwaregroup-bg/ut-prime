@@ -307,6 +307,25 @@ exports[`<Report /> render equals snapshot 1`] = `
                         </span>
                       </div>
                     </th>
+                    <th
+                      class=""
+                      role="columnheader"
+                      style="width: 200px;"
+                    >
+                      <div
+                        class="p-column-header-content"
+                      >
+                        <span
+                          class="p-column-title"
+                        >
+                          <span
+                            data-testid="result-diffTitle"
+                          >
+                            Diff
+                          </span>
+                        </span>
+                      </div>
+                    </th>
                   </tr>
                 </thead>
                 <tbody
@@ -317,7 +336,7 @@ exports[`<Report /> render equals snapshot 1`] = `
                     role="row"
                   >
                     <td
-                      colspan="2"
+                      colspan="3"
                       role="cell"
                     >
                       No results found
