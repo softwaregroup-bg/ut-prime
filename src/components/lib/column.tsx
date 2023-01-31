@@ -308,8 +308,8 @@ export default function columnProps({
             const value1 = rowData[compare];
             if (value0 !== value1) {
                 return <>
-                    <div style={{color: 'var(--teal-500)'}}>{(oldBody ? oldBody(rowData) : value0) ?? <>&nbsp;</>}</div>
-                    <div style={{color: 'var(--orange-500)'}}>{(oldBody ? oldBody({[fieldName]: value1}) : value1) ?? <>&nbsp;</>}</div>
+                    <div className='value' style={{color: 'var(--teal-500)'}}>{(oldBody ? oldBody(rowData) : value0) ?? <>&nbsp;</>}</div>
+                    <div className='value' style={{color: 'var(--orange-500)'}}>{(oldBody ? oldBody({[fieldName]: value1}) : value1) ?? <>&nbsp;</>}</div>
                 </>;
             } else return oldBody ? oldBody({[fieldName]: value0}) : value0;
         };

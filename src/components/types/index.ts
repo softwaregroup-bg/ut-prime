@@ -67,7 +67,7 @@ export interface PropertyEditor {
     method?: string,
     page?: string,
     columns?: string | string [] | {name: string, className?: string}[],
-    widgets?: string[],
+    widgets?: (string | {name: string})[],
     dataKey?: string,
     change?: Record<string, unknown>,
     className?: string,

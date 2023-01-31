@@ -64,13 +64,17 @@ const Template: Story<Props> = props => {
             }}
             init={{params: {name: 'row 1'}}}
             params={['name', 'startDate', 'endDate']}
-            columns={['name', 'date']}
+            columns={['name', 'date', {
+                column: {style: {width: 200}},
+                name: 'diff',
+                compare: 'prev'
+            }]}
             onDropdown={names => Promise.resolve({})}
             onCustomization={submit}
             fetch={({result: {name}} : {result?: Record<string, unknown>}) => new Promise((resolve, reject) =>
                 setTimeout(() => resolve({
                     result: [
-                        {name: 'row 1', date: new Date('2022-09-18')},
+                        {name: 'row 1', date: new Date('2022-09-18'), diff: 'x'.repeat(250), prev: 'y'.repeat(250)},
                         {name: 'row 2', date: new Date('2022-09-19')}
                     ].filter(item => name == null ? true : item.name.includes(String(name)))
                 }), 300))}

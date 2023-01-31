@@ -1,3 +1,21 @@
+## [2.65.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.65.1...v2.65.2) (2023-01-30)
+
+
+### Bug Fixes
+
+* **CBI-1102:** remove unnecessary formatting ([#40](https://github.com/softwaregroup-bg/ut-prime/issues/40)) ([8c75bd4](https://github.com/softwaregroup-bg/ut-prime/commit/8c75bd4a59e1b6aa80adc0146d0c8f4f8e4467bf))
+
+
+
+## [2.65.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.65.0...v2.65.1) (2023-01-30)
+
+
+### Bug Fixes
+
+* handle selectTable widgets ([8efc675](https://github.com/softwaregroup-bg/ut-prime/commit/8efc6754926758912260dcd2faeac33544687e74))
+
+
+
 # [2.65.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.64.1...v2.65.0) (2023-01-30)
 
 

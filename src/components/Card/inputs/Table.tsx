@@ -14,11 +14,10 @@ import type {Properties, WidgetReference, PropertyEditor, FormApi} from '../../t
 import prepareSubmit from '../../lib/prepareSubmit';
 import testid from '../../lib/testid';
 import useButtons from '../../hooks/useButtons';
-import type { FormatOptions } from '../../Gate/Gate.types';
 
 const fieldName = column => typeof column === 'string' ? column : column.name;
 
-const getDefault = (key, value, rows, formatValue, formatOptions) => {
+const getDefault = (key, value, rows) => {
     if (!value || !('default' in value)) return;
     const defaultValue = value.default;
     switch (defaultValue?.function) {
@@ -27,11 +26,11 @@ const getDefault = (key, value, rows, formatValue, formatOptions) => {
         case 'min':
             return [key, rows.reduce((min, row) => row ? Math.min(min, row[key]) : min, 0) - 1];
         case 'dateNow':
-            return [key, formatValue(new Date(), { type: 'date', ...formatOptions?.date })];
+            return [key, new Date().toLocaleDateString()];
         case 'timeNow':
-            return [key, formatValue(new Date(), { type: 'time', ...formatOptions?.time })];
+            return [key, new Date().toLocaleTimeString()];
         case 'datetimeNow':
-            return [key, formatValue(new Date(), { type: 'dateTime', ...formatOptions?.dateTime })];
+            return [key, new Date().toLocaleString()];
         default:
             return [key, defaultValue];
     }
@@ -41,10 +40,10 @@ const editStyle = { width: '7rem' };
 const editBodyStyle: React.CSSProperties = { textAlign: 'center' };
 const sameString = (a, b) => a === b || (a != null && b != null && String(a) === String(b));
 
-const defaults = (properties : Properties, rows: readonly object[], formatValue: (value: number | Date, options: object) => string, formatOptions: object) =>
+const defaults = (properties : Properties, rows: readonly object[]) =>
     Object.fromEntries(
         Object.entries(properties)
-            .map(([key, value]) => getDefault(key, value, rows, formatValue, formatOptions)).filter(Boolean));
+            .map(([key, value]) => getDefault(key, value, rows)).filter(Boolean));
 
 const backgroundNone = {background: 'none'};
 
@@ -113,7 +112,6 @@ interface TableProps extends Omit<DataTableProps, 'onChange'> {
         allowSelect?: boolean;
     };
     toolbar?: false | WidgetReference[];
-    formatOptions?: FormatOptions;
 }
 
 export default React.forwardRef<object, TableProps>(function Table({
@@ -151,7 +149,6 @@ export default React.forwardRef<object, TableProps>(function Table({
     } = {},
     toolbar,
     formApi,
-    formatOptions,
     ...props
 }, ref) {
     if (typeof ref === 'function') ref({});
@@ -321,7 +318,7 @@ export default React.forwardRef<object, TableProps>(function Table({
     const leftToolbarTemplate = React.useCallback(() => {
         const addNewRow = event => {
             event.preventDefault();
-            const newValue = {...filter, ...masterFilter(master, parent), ...defaults(properties, allRows, ctx.formatValue, formatOptions), [NEW]: true};
+            const newValue = {...filter, ...masterFilter(master, parent), ...defaults(properties, allRows), [NEW]: true};
             if (identity) newValue[identity] = -(++counter.current);
             const updatedValue = [...(allRows || []), newValue];
             onChange({...event, value: updatedValue});
@@ -377,9 +374,7 @@ export default React.forwardRef<object, TableProps>(function Table({
         disabled,
         initialFilters,
         setFilters,
-        buttons,
-        ctx.formatValue,
-        formatOptions
+        buttons
     ]);
 
     if (selected && props.selectionMode === 'single' && !rows.includes(selected)) {
