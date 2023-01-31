@@ -25,12 +25,18 @@ const getDefault = (key, value, rows) => {
             return [key, rows.reduce((max, row) => row ? Math.max(max, row[key]) : max, 0) + 1];
         case 'min':
             return [key, rows.reduce((min, row) => row ? Math.min(min, row[key]) : min, 0) - 1];
-        case 'dateNow':
-            return [key, new Date().toLocaleDateString()];
-        case 'timeNow':
-            return [key, new Date().toLocaleTimeString()];
+        case 'dateNow': {
+            const date = new Date();
+            date.setHours(0, 0, 0, 0);
+            return [key, date];
+        }
+        case 'timeNow': {
+            const date = new Date();
+            date.setFullYear(1970, 0, 1);
+            return [key, date];
+        }
         case 'datetimeNow':
-            return [key, new Date().toLocaleString()];
+            return [key, new Date()];
         default:
             return [key, defaultValue];
     }
