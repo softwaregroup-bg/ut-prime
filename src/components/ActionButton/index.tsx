@@ -9,7 +9,7 @@ import useSubmit from '../hooks/useSubmit';
 
 import {ComponentProps} from './ActionButton.types';
 
-const ActionButton: ComponentProps = ({getValues, onClick: click, action, method, params, menu, submit, successHint: success, ...props}) => {
+const ActionButton: ComponentProps = ({getValues, onClick: click, action, method, params, menu, submit, successHint: success, label, ...props}) => {
     const menuRef = React.useRef(null);
     const dispatch = useDispatch();
     const history = useHistory();
