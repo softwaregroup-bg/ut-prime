@@ -12896,7 +12896,6 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
           class="flex"
         >
           <button
-            aria-label="[object Object]"
             class="p-button p-component mr-2"
             id="button1"
           >
@@ -12910,10 +12909,8 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
                 Browse
               </label>
             </span>
-            
           </button>
           <button
-            aria-label="[object Object]"
             class="p-button p-component mr-2"
             id="button2"
           >
@@ -12927,10 +12924,8 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
                 Open
               </label>
             </span>
-            
           </button>
           <button
-            aria-label="[object Object]"
             class="p-button p-component mr-2"
             id="button3"
           >
@@ -12944,10 +12939,8 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
                 Error
               </label>
             </span>
-            
           </button>
           <button
-            aria-label="[object Object]"
             class="p-button p-component mr-2"
             id="button4"
           >
@@ -12961,7 +12954,6 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
                 Delay
               </label>
             </span>
-            
           </button>
         </div>
       </div>
