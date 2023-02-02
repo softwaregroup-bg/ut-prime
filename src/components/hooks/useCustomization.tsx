@@ -14,6 +14,7 @@ import SelectCard from '../Inspector/SelectCard';
 import Inspector from '../Inspector';
 import ThumbIndex from '../ThumbIndex';
 import Context from '../Context';
+import TextContext from '../Text/context';
 import {ConfigField, ConfigCard, useDragging} from '../Form/DragDrop';
 import {Button} from '../prime';
 import testid from '../lib/testid';
@@ -88,6 +89,7 @@ export default function useCustomization({
 }) {
     const [inspected, onInspect] = React.useState(null);
     const {customization: customizationEnabled} = React.useContext(Context);
+    const {joiMessages, translate} = React.useContext(TextContext);
     const [design, toggleDesign] = useToggle(designDefault);
     const [mergedCustomization, setCustomization] = React.useState({schema: {}, card: {}, layout: {}, ...customizationDefault});
     const mergedSchema = React.useMemo(() => merge({}, schema, mergedCustomization.schema), [schema, mergedCustomization.schema]);
@@ -386,28 +388,28 @@ export default function useCustomization({
         dropdownNames,
         layoutFields
     ] = React.useMemo(() => {
-        const {fields, validation, dropdownNames} = fieldNames(indexCards(items) || layoutItems || [], mergedCards, mergedSchema, editors);
+        const {fields, validation, dropdownNames} = fieldNames(indexCards(items) || layoutItems || [], mergedCards, mergedSchema, editors, translate);
         return [
             validation,
             dropdownNames,
             fields
         ];
-    }, [mergedCards, editors, items, layoutItems, mergedSchema]);
+    }, [mergedCards, editors, items, layoutItems, mergedSchema, translate]);
 
     const getLayoutValue = React.useCallback((mode, layoutState, value) => {
         const [items, layout] = getLayout(mergedCards, mergedLayouts, mode, layoutState);
         const layoutItems = items ? false : layout;
-        const {fields} = fieldNames(indexCards(items) || layoutItems || [], mergedCards, mergedSchema, editors);
+        const {fields} = fieldNames(indexCards(items) || layoutItems || [], mergedCards, mergedSchema, editors, translate);
         return getFieldsValue(fields, value);
-    }, [editors, mergedCards, mergedLayouts, mergedSchema]);
+    }, [editors, mergedCards, mergedLayouts, mergedSchema, translate]);
 
     const [resolver, isPropertyRequired] = React.useMemo(() => {
-        const [validationSchema, requiredProperties] = getValidation(mergedSchema);
+        const [validationSchema, requiredProperties] = getValidation(mergedSchema, translate);
         return [
-            joiResolver(validation || validationSchema, {stripUnknown: true, abortEarly: false}),
+            joiResolver(validation || validationSchema, {stripUnknown: true, abortEarly: false, messages: joiMessages}),
             propertyName => requiredProperties.includes(propertyName)
         ];
-    }, [validation, mergedSchema]);
+    }, [validation, mergedSchema, joiMessages, translate]);
     const formApi = useForm({resolver});
 
     const validate = React.useCallback(selectedList => {

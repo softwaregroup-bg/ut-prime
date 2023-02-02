@@ -39,7 +39,7 @@ const Gate: ComponentProps = ({ children, cookieCheck, corePortalGet, loginPage 
             const { translations, configuration, currencies } = result;
             const dictionary = translations?.reduce(
                 (prev, {dictionaryKey, translatedValue}) => dictionaryKey === translatedValue ? prev : {...prev, [dictionaryKey]: translatedValue},
-                {}
+                {joi: undefined}
             );
 
             const formattedCurrencies = currencies?.reduce((prev, {currencyId, code, scale}) => {
@@ -55,6 +55,7 @@ const Gate: ComponentProps = ({ children, cookieCheck, corePortalGet, loginPage 
                 language,
                 languageCode,
                 configuration,
+                joiMessages: dictionary?.joi !== 'joi' && dictionary?.joi,
                 translate: (id, text, language) => (id && dictionary?.[id]) || dictionary?.[text] || text,
                 getScale: (currency) => formattedCurrencies?.[currency],
                 formatValue: (value, {type, ...opts}) => {
