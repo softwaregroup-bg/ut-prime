@@ -1,3 +1,12 @@
+# [2.66.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.65.5...v2.66.0) (2023-02-02)
+
+
+### Features
+
+* validation translation ([0b2d5e2](https://github.com/softwaregroup-bg/ut-prime/commit/0b2d5e2e2d63578886da95a751a98c2d455a946c))
+
+
+
 ## [2.65.5](https://github.com/softwaregroup-bg/ut-prime/compare/v2.65.4...v2.65.5) (2023-01-31)
 
 
