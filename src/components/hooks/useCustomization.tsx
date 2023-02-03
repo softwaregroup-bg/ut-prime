@@ -35,6 +35,7 @@ function getLayout(cards: Cards, layouts: Layouts, mode: LayoutMode, name = '') 
     const orientation = items?.orientation;
     const type = items?.type;
     const disableBack = items?.disableBack;
+    const hideBack = items?.hideBack;
     const disabled = items?.disabled;
     const enabled = items?.enabled;
     if (orientation) items = items.items;
@@ -54,6 +55,7 @@ function getLayout(cards: Cards, layouts: Layouts, mode: LayoutMode, name = '') 
         toolbar,
         layoutName,
         disableBack || false,
+        hideBack || false,
         disabled,
         enabled
     ];
@@ -97,7 +99,7 @@ export default function useCustomization({
     const mergedLayouts = React.useMemo(() => merge({}, layouts, mergedCustomization.layout), [layouts, mergedCustomization.layout]);
     const [addField, setAddField] = React.useState(null);
     const [addCard, setAddCard] = React.useState(null);
-    const [items, layout, indexType, orientation, toolbar, currentLayoutName, disableBack, disabled, enabled] = React.useMemo(
+    const [items, layout, indexType, orientation, toolbar, currentLayoutName, disableBack, hideBack, disabled, enabled] = React.useMemo(
         () => getLayout(mergedCards, mergedLayouts, mode, layoutState),
         [mergedCards, mergedLayouts, mode, layoutState]
     );
@@ -429,6 +431,7 @@ export default function useCustomization({
             loading={loading}
             validate={validate}
             disableBack={disableBack}
+            hideBack={hideBack}
             methods={methods}
             formApi={formApi}
         />

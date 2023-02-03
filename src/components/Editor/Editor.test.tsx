@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { render, act } from '../test';
-import { Basic, Loading, Design, Tabs, Submit, Files, FilesInTab, ServerValidation, Toolbar } from './Editor.stories';
+import { Basic, Loading, Design, Tabs, Submit, Files, FilesInTab, ServerValidation, Toolbar, Steps, StepsDisabledBack, StepsHiddenBack } from './Editor.stories';
 import {CascadedDropdowns} from './stories/CascadedDropdowns.stories';
 import {CascadedTables} from './stories/CascadedTables.stories';
 import {CustomEditors} from './stories/CustomEditors.stories';
@@ -136,6 +136,21 @@ describe('<Editor />', () => {
         const { findByTestId, container } = render(<FilesInTab {...FilesInTab.args} />);
         await act(() => new Promise(resolve => setTimeout(resolve, 1000)));
         await act(() => FilesInTab.play({canvasElement: container}));
+        expect(await findByTestId('ut-front-test')).toMatchSnapshot();
+    });
+    it('Steps render equals snapshot', async() => {
+        const { findByTestId } = render(<Steps {...Steps.args} />);
+        await act(() => new Promise(resolve => setTimeout(resolve, 1000)));
+        expect(await findByTestId('ut-front-test')).toMatchSnapshot();
+    });
+    it('StepsDisabledBack render equals snapshot', async() => {
+        const { findByTestId } = render(<StepsDisabledBack {...StepsDisabledBack.args} />);
+        await act(() => new Promise(resolve => setTimeout(resolve, 1000)));
+        expect(await findByTestId('ut-front-test')).toMatchSnapshot();
+    });
+    it('StepsHiddenBack render equals snapshot', async() => {
+        const { findByTestId } = render(<StepsHiddenBack {...StepsHiddenBack.args} />);
+        await act(() => new Promise(resolve => setTimeout(resolve, 1000)));
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
 });

@@ -2,6 +2,7 @@ import React from 'react';
 import type { Story, Meta } from '@storybook/react';
 import { userEvent, within } from '@storybook/testing-library';
 import joi from 'joi';
+import merge from 'ut-function.merge';
 
 import page from './README.mdx';
 import Editor from './index';
@@ -162,6 +163,33 @@ Steps.args = {
         }
     }
 };
+
+export const StepsDisabledBack: StoryTemplate = Template.bind({});
+StepsDisabledBack.args = merge({}, Steps.args,
+    {
+        layouts: {
+            edit: {
+                disableBack: true
+            }
+        }
+    }
+);
+StepsDisabledBack.play = async({canvasElement}) => {
+    const canvas = within(canvasElement);
+    await userEvent.click(canvas.getByTestId('thumb-next-btn'));
+};
+
+export const StepsHiddenBack: StoryTemplate = Template.bind({});
+StepsHiddenBack.args = merge({}, Steps.args,
+    {
+        layouts: {
+            edit: {
+                hideBack: true
+            }
+        }
+    }
+);
+StepsHiddenBack.play = StepsDisabledBack.play;
 
 export const Submit: StoryTemplate = Template.bind({});
 Submit.args = Basic.args;
