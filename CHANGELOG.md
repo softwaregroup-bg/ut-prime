@@ -1,3 +1,12 @@
+## [2.66.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.66.0...v2.66.1) (2023-02-03)
+
+
+### Bug Fixes
+
+* handle empty selected array ([8fab9a4](https://github.com/softwaregroup-bg/ut-prime/commit/8fab9a4dd09fec4f750fe4e94a86cfdaa6c7d376))
+
+
+
 # [2.66.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.65.5...v2.66.0) (2023-02-02)
 
 
