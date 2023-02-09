@@ -1,3 +1,12 @@
+## [2.66.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.66.2...v2.66.3) (2023-02-09)
+
+
+### Bug Fixes
+
+* **CBI-909:** ability to hide prev button on thumbindex steps ([#41](https://github.com/softwaregroup-bg/ut-prime/issues/41)) ([66e49b5](https://github.com/softwaregroup-bg/ut-prime/commit/66e49b511f48c6da6aef65c36c4a19a1d4987b00))
+
+
+
 ## [2.66.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.66.1...v2.66.2) (2023-02-09)
 
 
