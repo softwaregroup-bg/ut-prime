@@ -235,6 +235,7 @@ interface Index extends MenuItem {
     type?: 'tabs' | 'thumbs' | 'steps';
     items?: IndexItem[];
     disableBack?: boolean;
+    hideBack?: boolean;
 }
 
 export type Layout = (WidgetReference | WidgetReference[])[];
