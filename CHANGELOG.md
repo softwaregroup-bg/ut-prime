@@ -1,3 +1,12 @@
+## [2.66.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.66.1...v2.66.2) (2023-02-09)
+
+
+### Bug Fixes
+
+* handle anonymous cards ([e4a1ec1](https://github.com/softwaregroup-bg/ut-prime/commit/e4a1ec13c17ee2603af8e22b840c79d79778a03c))
+
+
+
 ## [2.66.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.66.0...v2.66.1) (2023-02-03)
 
 
