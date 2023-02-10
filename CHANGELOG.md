@@ -1,3 +1,12 @@
+## [2.66.4](https://github.com/softwaregroup-bg/ut-prime/compare/v2.66.3...v2.66.4) (2023-02-10)
+
+
+### Bug Fixes
+
+* parse joi translations ([9c967f1](https://github.com/softwaregroup-bg/ut-prime/commit/9c967f1613df390c1f14758b5ffc7b49a1c812bc))
+
+
+
 ## [2.66.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.66.2...v2.66.3) (2023-02-09)
 
 
