@@ -109,7 +109,7 @@ const Form: ComponentProps = ({
 
     const submit = React.useMemo(() => event => {
         if (event.method && event.params) {
-            handleSubmit(event, formApi.getValues());
+            return handleSubmit(event, formApi.getValues());
         }
         return formSubmit(
             (form, event) => handleSubmit(event, form),
