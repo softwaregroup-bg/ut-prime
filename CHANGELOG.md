@@ -1,3 +1,12 @@
+## [2.66.5](https://github.com/softwaregroup-bg/ut-prime/compare/v2.66.4...v2.66.5) (2023-02-15)
+
+
+### Bug Fixes
+
+* **CBI-1197:** btns with method and params to skip form validation ([#42](https://github.com/softwaregroup-bg/ut-prime/issues/42)) ([19aba3b](https://github.com/softwaregroup-bg/ut-prime/commit/19aba3bae1231cdc324570a51b62196049df95f2))
+
+
+
 ## [2.66.4](https://github.com/softwaregroup-bg/ut-prime/compare/v2.66.3...v2.66.4) (2023-02-10)
 
 
