@@ -357,7 +357,7 @@ export default React.forwardRef<object, TableProps>(function Table({
                     icon="pi pi-trash"
                     className={clsx('p-button', buttons && 'mr-2')}
                     onClick={deleteRow}
-                    disabled={!selected}
+                    disabled={!selected || (Array.isArray(selected) && !selected.length)}
                     {...testid(`${resultSet}.deleteButton`)}
                 >Delete</Button>}
                 {buttons}

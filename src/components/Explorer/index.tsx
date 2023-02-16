@@ -232,7 +232,7 @@ const Explorer: ComponentProps = ({
     const [dropdowns, setDropdown] = React.useState({});
 
     const [dropdownNames, layoutFields] = React.useMemo(() => {
-        const {fields, dropdownNames} = paramsLayout ? fieldNames(paramsLayout, mergedCards, mergedSchema, editors) : {fields: [], dropdownNames: []};
+        const {fields, dropdownNames} = paramsLayout ? fieldNames(paramsLayout, mergedCards, mergedSchema, editors, ctx.translate) : {fields: [], dropdownNames: []};
         return [
             (columns || [])
                 .flat()
@@ -243,9 +243,9 @@ const Explorer: ComponentProps = ({
                 .join(','),
             fields
         ];
-    }, [columns, editors, mergedCards, mergedSchema, paramsLayout, properties]);
+    }, [columns, editors, mergedCards, mergedSchema, paramsLayout, properties, ctx.translate]);
 
-    const validation = React.useMemo(() => fetchValidation || (mergedSchema.properties?.fetch && getValidation(mergedSchema.properties?.fetch)[0]), [fetchValidation, mergedSchema.properties?.fetch]);
+    const validation = React.useMemo(() => fetchValidation || (mergedSchema.properties?.fetch && getValidation(mergedSchema.properties?.fetch, ctx.translate)[0]), [fetchValidation, mergedSchema.properties?.fetch, ctx.translate]);
 
     const getValues = React.useMemo(() => ({$ = undefined, ...params} = {}) => ({
         params,

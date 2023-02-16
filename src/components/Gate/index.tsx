@@ -8,6 +8,7 @@ import Loader from '../Loader';
 import Context from '../Text/context';
 import AppContext from '../Context';
 import { ConfirmPopup, ConfirmDialog } from '../prime';
+import parse from '../lib/parseDictionaryMap';
 
 import Permission from './Permission';
 import { ComponentProps } from './Gate.types';
@@ -39,7 +40,7 @@ const Gate: ComponentProps = ({ children, cookieCheck, corePortalGet, loginPage 
             const { translations, configuration, currencies } = result;
             const dictionary = translations?.reduce(
                 (prev, {dictionaryKey, translatedValue}) => dictionaryKey === translatedValue ? prev : {...prev, [dictionaryKey]: translatedValue},
-                {}
+                {joi: undefined}
             );
 
             const formattedCurrencies = currencies?.reduce((prev, {currencyId, code, scale}) => {
@@ -55,6 +56,7 @@ const Gate: ComponentProps = ({ children, cookieCheck, corePortalGet, loginPage 
                 language,
                 languageCode,
                 configuration,
+                joiMessages: dictionary?.joi !== 'joi' && parse(dictionary?.joi),
                 translate: (id, text, language) => (id && dictionary?.[id]) || dictionary?.[text] || text,
                 getScale: (currency) => formattedCurrencies?.[currency],
                 formatValue: (value, {type, ...opts}) => {

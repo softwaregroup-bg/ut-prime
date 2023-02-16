@@ -107,15 +107,20 @@ const Form: ComponentProps = ({
         [onSubmit, setError, clearErrors, layoutState.index]
     );
 
-    const submit = React.useMemo(() => formSubmit(
-        (form, event) => handleSubmit(event, form),
-        (errors, event) => {
-            const error: UtError = new Error('validation error');
-            // todo: decide about error.print
-            error.silent = !error.print;
-            error.errors = errors;
-            throw error;
-        }), [formSubmit, handleSubmit]);
+    const submit = React.useMemo(() => submitEvent => {
+        if (submitEvent.method && submitEvent.params) {
+            return handleSubmit(submitEvent, formApi.getValues());
+        }
+        return formSubmit(
+            (form, event) => handleSubmit(event, form),
+            (errors, event) => {
+                const error: UtError = new Error('validation error');
+                // todo: decide about error.print
+                error.silent = !error.print;
+                error.errors = errors;
+                throw error;
+            })(submitEvent);
+    }, [formSubmit, handleSubmit, formApi]);
 
     const canSetTrigger = ((dirtyFields && Object.keys(dirtyFields).length > 0) || triggerNotDirty) && !isSubmitting;
 
@@ -172,7 +177,7 @@ const Form: ComponentProps = ({
             {layoutState.visibleCards.map((id1, level1) => {
                 const nested = [].concat(id1).filter(widget => {
                     const key = widgetName(widget);
-                    if (!key) return <></>;
+                    if (!key) return true;
                     const currentCard = cards?.[key];
                     if (currentCard?.hidden && !design) return null;
                     const watched = currentCard?.watch && watch(currentCard.watch);
@@ -182,7 +187,7 @@ const Form: ComponentProps = ({
                 const firstCardName = widgetName(nested[0] || {});
                 const firstCard = firstCardName ? cards[firstCardName] : nested[0];
                 const nestedCards = nested.map((widget, level2) =>
-                    <Card
+                    widgetName(widget) && <Card
                         key={`${level1}-${Array.isArray(id1) && level2}`}
                         cardName={widget}
                         index1={level1}

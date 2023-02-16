@@ -3,6 +3,7 @@ import lodashGet from 'lodash.get';
 import getValidation from '../Form/schema';
 import type Joi from 'joi';
 import type {Schema, Editors, Cards} from '../types';
+import type {ContextType} from '../Text/context';
 
 const columns = (propertyName, property) => []
     .concat(property?.hidden)
@@ -16,7 +17,8 @@ export default function fieldNames(
     cardNames: (string | string[])[],
     mergedCards: Cards,
     mergedSchema: Schema,
-    editors: Editors
+    editors: Editors,
+    translate: ContextType['translate']
 ) : {
     fields: string[],
     validation: Joi.Schema,
@@ -47,7 +49,7 @@ export default function fieldNames(
 
     return {
         fields,
-        validation: getValidation(mergedSchema, fields)[0],
+        validation: getValidation(mergedSchema, translate, fields)[0],
         dropdownNames: fields
             .map(name => {
                 const property =

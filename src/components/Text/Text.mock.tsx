@@ -251,6 +251,12 @@ const dictionary = {
     ar: dict(translations.ar)
 };
 
+const joiMessages = {
+    bg: {
+        'any.required': '{{#label}} е задължително'
+    }
+};
+
 export const middleware = _store => next => action => {
     if (action.method === 'core.portal.get') {
         return {
@@ -268,6 +274,7 @@ const translate = globalLanguage => (id, text, language) => dictionary?.[languag
 export const Translate = ({language, children}) => {
     return <Context.Provider
         value={{
+            joiMessages: joiMessages[language],
             translate: translate(language),
             getScale: what => currencies.find(currency => [currency.code, currency.currencyId].includes(what))?.scale,
             configuration,

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { render, act } from '../test';
-import { Basic, Loading, Design, Tabs, Submit, Files, FilesInTab, Validation, ServerValidation, Toolbar } from './Editor.stories';
+import { Basic, Loading, Design, Tabs, Submit, Files, FilesInTab, ServerValidation, Toolbar, Steps, StepsDisabledBack, StepsHiddenBack } from './Editor.stories';
 import {CascadedDropdowns} from './stories/CascadedDropdowns.stories';
 import {CascadedTables} from './stories/CascadedTables.stories';
 import {CustomEditors} from './stories/CustomEditors.stories';
@@ -12,6 +12,7 @@ import {PolymorphicLayout} from './stories/PolymorphicLayout.stories';
 import {ResponsiveLayout} from './stories/ResponsiveLayout.stories';
 import {TabbedLayout} from './stories/TabbedLayout.stories';
 import {ThumbIndexLayout} from './stories/ThumbIndexLayout.stories';
+import {Validation, ValidationBG} from './stories/Validation.stories';
 import { config } from 'react-transition-group';
 
 config.disabled = true;
@@ -72,7 +73,7 @@ describe('<Editor />', () => {
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
     it('Pivot BG render equals snapshot', async() => {
-        const { findByTestId } = render(<PivotBG />);
+        const { findByTestId } = render(<PivotBG />, undefined, 'bg');
         await act(() => new Promise(resolve => setTimeout(resolve, 1000)));
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
@@ -108,6 +109,12 @@ describe('<Editor />', () => {
         await act(() => Validation.play({canvasElement: container}));
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
+    it('ValidationBG render equals snapshot', async() => {
+        const { findByTestId, container } = render(<ValidationBG {...ValidationBG.args} />, undefined, 'bg');
+        await act(() => new Promise(resolve => setTimeout(resolve, 1000)));
+        await act(() => ValidationBG.play({canvasElement: container}));
+        expect(await findByTestId('ut-front-test')).toMatchSnapshot();
+    });
     it('Server validation render equals snapshot', async() => {
         const { findByTestId, container } = render(<ServerValidation {...ServerValidation.args} />);
         await act(() => new Promise(resolve => setTimeout(resolve, 1000)));
@@ -129,6 +136,21 @@ describe('<Editor />', () => {
         const { findByTestId, container } = render(<FilesInTab {...FilesInTab.args} />);
         await act(() => new Promise(resolve => setTimeout(resolve, 1000)));
         await act(() => FilesInTab.play({canvasElement: container}));
+        expect(await findByTestId('ut-front-test')).toMatchSnapshot();
+    });
+    it('Steps render equals snapshot', async() => {
+        const { findByTestId } = render(<Steps {...Steps.args} />);
+        await act(() => new Promise(resolve => setTimeout(resolve, 1000)));
+        expect(await findByTestId('ut-front-test')).toMatchSnapshot();
+    });
+    it('StepsDisabledBack render equals snapshot', async() => {
+        const { findByTestId } = render(<StepsDisabledBack {...StepsDisabledBack.args} />);
+        await act(() => new Promise(resolve => setTimeout(resolve, 1000)));
+        expect(await findByTestId('ut-front-test')).toMatchSnapshot();
+    });
+    it('StepsHiddenBack render equals snapshot', async() => {
+        const { findByTestId } = render(<StepsHiddenBack {...StepsHiddenBack.args} />);
+        await act(() => new Promise(resolve => setTimeout(resolve, 1000)));
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
 });

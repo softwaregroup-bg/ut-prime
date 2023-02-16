@@ -1,6 +1,7 @@
 import Joi from 'joi';
 import { Schema, Property } from '../types';
 import getType from '../lib/getType';
+import type {ContextType} from '../Text/context';
 
 function numeric(field: Schema) {
     let result = Joi.number();
@@ -20,12 +21,12 @@ function string(field: Schema) {
     return result;
 }
 
-function array(field: Schema, filter?: string[], path?: string, propertyName?: string) {
+function array(field: Schema, translate: ContextType['translate'], filter?: string[], path?: string, propertyName?: string) {
     let result = Joi.array();
     if (field.minItems) result = result.min(field.minItems);
     if (field.maxItems) result = result.max(field.maxItems);
     if (field.uniqueItems) result = result.unique();
-    if (field.contains) result.has(getValidation(field.contains as Schema, filter, path, propertyName)[0]);
+    if (field.contains) result.has(getValidation(field.contains as Schema, translate, filter, path, propertyName)[0]);
     return result;
 }
 
@@ -36,7 +37,7 @@ function object(field: Schema, keys: object) {
     return result;
 }
 
-function validation(name, field) {
+function validation(name, field, translate: ContextType['translate']) {
     let result = field.validation;
     if (!result) {
         switch (field?.widget?.type || field.format || getType(field.type) || 'unknown') {
@@ -60,16 +61,16 @@ function validation(name, field) {
                 result = Joi.boolean();
                 break;
             case 'selectTable':
-                result = field?.widget?.selectionMode === 'single' ? Joi.any() : array(field);
+                result = field?.widget?.selectionMode === 'single' ? Joi.any() : array(field, translate);
                 break;
             case 'multiSelect':
             case 'multiSelectPanel':
             case 'multiSelectTree':
-                result = array(field);
+                result = array(field, translate);
                 break;
             case 'table':
             case 'array':
-                result = array(field).sparse();
+                result = array(field, translate).sparse();
                 break;
             case 'date-time':
             case 'time':
@@ -89,14 +90,18 @@ function validation(name, field) {
         if (field.enum) result = result.valid(...field.enum);
         if (field.const) result = result.valid(field.const);
     }
-    return (field.title || name) ? result.label(field.title || name) : result;
+    return (field.title || name) ? result.label(translate?.(field.title || name) ?? (field.title || name)) : result;
 }
 
-export default function getValidation(schema: Schema | Property, filter?: string[], path = '', propertyName = '') : [Joi.Schema, string[]] {
+export default function getValidation(
+    schema: Schema | Property,
+    translate: ContextType['translate'],
+    filter?: string[], path = '', propertyName = ''
+) : [Joi.Schema, string[]] {
     if (schema?.type === 'object' || (!schema?.type && schema?.properties)) {
         return Object.entries(schema?.properties || {}).reduce(
             ([prevSchema, prevRequired], [name, field]) => {
-                const [nextSchema, required] = getValidation(field, filter, path ? path + '.' + name : name, name);
+                const [nextSchema, required] = getValidation(field, translate, filter, path ? path + '.' + name : name, name);
                 if (!nextSchema) return [prevSchema, prevRequired];
                 return [
                     prevSchema.append({
@@ -132,15 +137,15 @@ export default function getValidation(schema: Schema | Property, filter?: string
     }
     if (filter && !filter?.includes(path)) return [null, []];
     if (schema?.type === 'array' || (!schema?.type && schema?.items)) {
-        const [validation, required] = schema?.items ? getValidation(schema.items as Schema, filter, path, propertyName) : [null, []];
-        return [schema?.items ? array(schema, filter, path, propertyName).sparse().items(validation) : array(schema, filter, path, propertyName), required];
+        const [validation, required] = schema?.items ? getValidation(schema.items as Schema, translate, filter, path, propertyName) : [null, []];
+        return [schema?.items ? array(schema, translate, filter, path, propertyName).sparse().items(validation) : array(schema, translate, filter, path, propertyName), required];
     } else if (schema?.oneOf) {
-        return [Joi.alternatives().try(...schema.oneOf.map(item => getValidation(item as Schema, filter, path, propertyName)[0]).filter(Boolean)).match('one'), []];
+        return [Joi.alternatives().try(...schema.oneOf.map(item => getValidation(item as Schema, translate, filter, path, propertyName)[0]).filter(Boolean)).match('one'), []];
     } else if (schema?.anyOf) {
-        return [Joi.alternatives().try(...schema.anyOf.map(item => getValidation(item as Schema, filter, path, propertyName)[0]).filter(Boolean)).match('any'), []];
+        return [Joi.alternatives().try(...schema.anyOf.map(item => getValidation(item as Schema, translate, filter, path, propertyName)[0]).filter(Boolean)).match('any'), []];
     } else if (schema?.allOf) {
-        return [Joi.alternatives().try(...schema.allOf.map(item => getValidation(item as Schema, filter, path, propertyName)[0]).filter(Boolean)).match('all'), []];
+        return [Joi.alternatives().try(...schema.allOf.map(item => getValidation(item as Schema, translate, filter, path, propertyName)[0]).filter(Boolean)).match('all'), []];
     } else {
-        return [validation(propertyName, schema), []];
+        return [validation(propertyName, schema, translate), []];
     }
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import type { Story, Meta } from '@storybook/react';
 import { userEvent, within } from '@storybook/testing-library';
 import joi from 'joi';
+import merge from 'ut-function.merge';
 
 import page from './README.mdx';
 import Editor from './index';
@@ -24,11 +25,11 @@ const meta: Meta = {
 };
 export default meta;
 
-declare type StoryTemplate = Story<Partial<Props>> & {
+export type StoryTemplate = Story<Partial<Props> & {lang?: string}> & {
     play: (context: {canvasElement: HTMLElement}) => Promise<void>
 }
 
-const Template: Story<Props> = args => {
+export const Template: Story<Props> = args => {
     const {toast, submit, delay, error} = useToast();
     return (
         <>
@@ -163,6 +164,33 @@ Steps.args = {
     }
 };
 
+export const StepsDisabledBack: StoryTemplate = Template.bind({});
+StepsDisabledBack.args = merge({}, Steps.args,
+    {
+        layouts: {
+            edit: {
+                disableBack: true
+            }
+        }
+    }
+);
+StepsDisabledBack.play = async({canvasElement}) => {
+    const canvas = within(canvasElement);
+    await userEvent.click(canvas.getByTestId('thumb-next-btn'));
+};
+
+export const StepsHiddenBack: StoryTemplate = Template.bind({});
+StepsHiddenBack.args = merge({}, Steps.args,
+    {
+        layouts: {
+            edit: {
+                hideBack: true
+            }
+        }
+    }
+);
+StepsHiddenBack.play = StepsDisabledBack.play;
+
 export const Submit: StoryTemplate = Template.bind({});
 Submit.args = Basic.args;
 Submit.play = async({canvasElement}) => {
@@ -236,17 +264,6 @@ MRZ.args = {
     ...document,
     onDropdown: names => Promise.resolve({}),
     onGet: params => Promise.resolve({})
-};
-
-export const Validation: StoryTemplate = Template.bind({});
-Validation.args = Basic.args;
-Validation.play = async({canvasElement}) => {
-    const canvas = within(canvasElement);
-    await canvas.findByDisplayValue('Oak'); // wait for the data to be loaded
-    await userEvent.clear(canvas.getByLabelText('Name'));
-    await userEvent.type(canvas.getByLabelText('Description'), 'test');
-    await userEvent.click(canvas.getByLabelText('save'));
-    await new Promise(resolve => setTimeout(resolve, 1000));
 };
 
 const serverError = () => {

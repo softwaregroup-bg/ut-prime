@@ -32,6 +32,7 @@ const ThumbIndex: ComponentProps = ({
     onFilter,
     validate,
     disableBack,
+    hideBack,
     methods,
     formApi,
     ...rest
@@ -94,18 +95,20 @@ const ThumbIndex: ComponentProps = ({
             break;
         case 'steps-top':
             tabs = <>
-                <Button
+                {hideBack ? null : <Button
+                    data-testid='thumb-previous-btn'
                     className='p-button-text m-1'
                     icon='pi pi-caret-left'
-                    disabled={!activeIndex}
+                    disabled={!activeIndex || disableBack}
                     onClick={previous}
-                />
+                />}
                 <Steps
                     model={itemsTemplate}
                     activeIndex={activeIndex}
                     onSelect={handleListChange}
                 />
                 <ActionButton
+                    data-testid='thumb-next-btn'
                     className='p-button-text m-1'
                     {...activeIndex >= items.length - 1 ? {
                         icon: 'pi pi-save',

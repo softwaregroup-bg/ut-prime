@@ -1,3 +1,57 @@
+## [2.66.5](https://github.com/softwaregroup-bg/ut-prime/compare/v2.66.4...v2.66.5) (2023-02-15)
+
+
+### Bug Fixes
+
+* **CBI-1197:** btns with method and params to skip form validation ([#42](https://github.com/softwaregroup-bg/ut-prime/issues/42)) ([19aba3b](https://github.com/softwaregroup-bg/ut-prime/commit/19aba3bae1231cdc324570a51b62196049df95f2))
+
+
+
+## [2.66.4](https://github.com/softwaregroup-bg/ut-prime/compare/v2.66.3...v2.66.4) (2023-02-10)
+
+
+### Bug Fixes
+
+* parse joi translations ([9c967f1](https://github.com/softwaregroup-bg/ut-prime/commit/9c967f1613df390c1f14758b5ffc7b49a1c812bc))
+
+
+
+## [2.66.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.66.2...v2.66.3) (2023-02-09)
+
+
+### Bug Fixes
+
+* **CBI-909:** ability to hide prev button on thumbindex steps ([#41](https://github.com/softwaregroup-bg/ut-prime/issues/41)) ([66e49b5](https://github.com/softwaregroup-bg/ut-prime/commit/66e49b511f48c6da6aef65c36c4a19a1d4987b00))
+
+
+
+## [2.66.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.66.1...v2.66.2) (2023-02-09)
+
+
+### Bug Fixes
+
+* handle anonymous cards ([e4a1ec1](https://github.com/softwaregroup-bg/ut-prime/commit/e4a1ec13c17ee2603af8e22b840c79d79778a03c))
+
+
+
+## [2.66.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.66.0...v2.66.1) (2023-02-03)
+
+
+### Bug Fixes
+
+* handle empty selected array ([8fab9a4](https://github.com/softwaregroup-bg/ut-prime/commit/8fab9a4dd09fec4f750fe4e94a86cfdaa6c7d376))
+
+
+
+# [2.66.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.65.5...v2.66.0) (2023-02-02)
+
+
+### Features
+
+* validation translation ([0b2d5e2](https://github.com/softwaregroup-bg/ut-prime/commit/0b2d5e2e2d63578886da95a751a98c2d455a946c))
+
+
+
 ## [2.65.5](https://github.com/softwaregroup-bg/ut-prime/compare/v2.65.4...v2.65.5) (2023-01-31)
 
 
