@@ -23,7 +23,8 @@ const Template: Story<Props & {dir?: 'rtl' | 'ltr', theme}> = ({dir: storyDir, t
         state={merge({}, state, {login: {language: {languageId: language}}})}
         theme={{
             ut: {
-                classes: {}
+                classes: {},
+                extraTitle: 'secondary title'
             },
             dir: storyDir || dir,
             language,

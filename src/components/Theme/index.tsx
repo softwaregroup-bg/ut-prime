@@ -56,6 +56,7 @@ export interface Theme {
             labelRequired?: string,
         },
         portalName?: string,
+        extraTitle?: string
     },
     fontSize?: number;
     name?: string,

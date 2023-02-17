@@ -168,6 +168,11 @@ exports[`<App /> Basic equals snapshot 1`] = `
                 </li>
               </ul>
             </div>
+            <div
+              class="p-component text-lg mr-2 font-bold"
+            >
+              secondary title
+            </div>
             <button
               class="p-button p-component p-button-icon-only"
             >
@@ -532,6 +537,11 @@ exports[`<App /> BasicAR equals snapshot 1`] = `
                 </li>
               </ul>
             </div>
+            <div
+              class="p-component text-lg mr-2 font-bold"
+            >
+              عنوان ثانوي
+            </div>
             <button
               class="p-button p-component p-button-icon-only"
             >
@@ -895,6 +905,11 @@ exports[`<App /> BasicBG equals snapshot 1`] = `
                   </a>
                 </li>
               </ul>
+            </div>
+            <div
+              class="p-component text-lg mr-2 font-bold"
+            >
+              второ заглавие
             </div>
             <button
               class="p-button p-component p-button-icon-only"

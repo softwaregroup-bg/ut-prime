@@ -28,6 +28,7 @@ const translations = {
     bg: parse(`
         Dashboard=Табло
         test app=тест приложение
+        secondary title=второ заглавие
         Main=Главно
         Page 1=Страница 1
         Page 2=Страница 2
@@ -144,6 +145,7 @@ const translations = {
     ar: parse(`
         Dashboard=لوحة القيادة
         test app=تطبيق الاختبار
+        secondary title=عنوان ثانوي
         Main=رئيسي
         Page 1=صفحة 1
         Page 2=الصفحة 2

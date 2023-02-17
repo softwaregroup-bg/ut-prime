@@ -20,7 +20,7 @@ export function render(children: React.ReactNode, initialStore: State = {}, lang
     const theme = {
         ut: {
             classes: {},
-            portalName: 'Administration'
+            portalName: 'Administration Portal'
         }
     };
     const store = <DndProvider backend={HTML5Backend}>

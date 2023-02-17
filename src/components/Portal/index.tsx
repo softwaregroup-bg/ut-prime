@@ -55,7 +55,11 @@ const Portal: ComponentProps = ({ children }) => {
     const location = useLocation();
     const history = useHistory();
     const size = useWindowSize();
-    const {portalName} = React.useContext(Context);
+    const {portalName: portalNameCtx, extraTitle: extraTitleCtx} = React.useContext(Context);
+    const {portalName, extraTitle} = React.useMemo(() => ({
+        portalName: ut?.portalName || portalNameCtx,
+        extraTitle: ut?.extraTitle || extraTitleCtx
+    }), [ut?.portalName, ut?.extraTitle, portalNameCtx, extraTitleCtx]);
     const command = React.useCallback(({item}) => {
         if (item.component || item.tab) {
             dispatch({type: 'front.tab.show', ...item});
@@ -110,6 +114,7 @@ const Portal: ComponentProps = ({ children }) => {
                         <Text>{portalName}</Text>
                     </div>
                     <Menubar model={menuEnabled} className={classes[menuClass]} style={backgroundNone}/>
+                    {extraTitle ? <div className='p-component text-lg mr-2 font-bold'><Text>{extraTitle}</Text></div> : null}
                     {Switch ? <Switch /> : null}
                     <Menubar model={rightEnabled} className={classes[rightMenuClass]} style={backgroundNone}/>
                 </div>
