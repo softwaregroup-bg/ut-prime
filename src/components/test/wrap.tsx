@@ -39,8 +39,7 @@ function Wrap({
         ut: {
             classes: {
                 labelRequired: classes.labelRequired
-            },
-            portalName: 'Administration'
+            }
         },
         dir
     };
