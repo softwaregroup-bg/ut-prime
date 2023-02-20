@@ -1,3 +1,12 @@
+# [2.67.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.66.5...v2.67.0) (2023-02-20)
+
+
+### Features
+
+* **CBI-1110:** portal secondary title ([#43](https://github.com/softwaregroup-bg/ut-prime/issues/43)) ([b30b96c](https://github.com/softwaregroup-bg/ut-prime/commit/b30b96c8ee48bb399324d136b1b6129ae6e1f1c9))
+
+
+
 ## [2.66.5](https://github.com/softwaregroup-bg/ut-prime/compare/v2.66.4...v2.66.5) (2023-02-15)
 
 
