@@ -54,8 +54,7 @@ export interface Theme {
             loginTop?: string,
             loginBottom?: string,
             labelRequired?: string,
-        },
-        portalName?: string,
+        }
     },
     fontSize?: number;
     name?: string,

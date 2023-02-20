@@ -20,6 +20,7 @@ const Template: Story<Props & {dir?: 'rtl' | 'ltr', theme}> = ({dir: storyDir, t
     history.replaceState({}, '', '#');
     return <App
         portalName='test app'
+        extraTitle='secondary title'
         state={merge({}, state, {login: {language: {languageId: language}}})}
         theme={{
             ut: {
