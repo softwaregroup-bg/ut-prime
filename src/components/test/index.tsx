@@ -19,8 +19,7 @@ window.HTMLElement.prototype.scrollIntoView = function() {};
 export function render(children: React.ReactNode, initialStore: State = {}, language = undefined, middleware = undefined) : RenderResult {
     const theme = {
         ut: {
-            classes: {},
-            portalName: 'Administration Portal'
+            classes: {}
         }
     };
     const store = <DndProvider backend={HTML5Backend}>

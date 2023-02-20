@@ -55,11 +55,7 @@ const Portal: ComponentProps = ({ children }) => {
     const location = useLocation();
     const history = useHistory();
     const size = useWindowSize();
-    const {portalName: portalNameCtx, extraTitle: extraTitleCtx} = React.useContext(Context);
-    const {portalName, extraTitle} = React.useMemo(() => ({
-        portalName: ut?.portalName || portalNameCtx,
-        extraTitle: ut?.extraTitle || extraTitleCtx
-    }), [ut?.portalName, ut?.extraTitle, portalNameCtx, extraTitleCtx]);
+    const {portalName, extraTitle} = React.useContext(Context);
     const command = React.useCallback(({item}) => {
         if (item.component || item.tab) {
             dispatch({type: 'front.tab.show', ...item});
