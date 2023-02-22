@@ -113,7 +113,7 @@ const Card: ComponentProps = ({
     const ErrorLabel = React.useCallback(({name, className = 'md:col-4'}) => {
         const error = formErrors && get(formErrors, name);
         return error
-            ? <><small className={clsx('col-12', className)}/><small className='col p-error mb-2'><Text>{error.message}</Text></small></>
+            ? <><small className={clsx('col-12', className)}/><small className='col p-error'><Text>{error.message}</Text></small></>
             : null;
     }, [formErrors]);
 
