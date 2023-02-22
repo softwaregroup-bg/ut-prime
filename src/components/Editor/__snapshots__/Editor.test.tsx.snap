@@ -10026,7 +10026,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
                         class="col-12 md:col-4"
                       />
                       <small
-                        class="col p-error"
+                        class="col p-error mb-2"
                       >
                         Duplicate name
                       </small>
@@ -10115,7 +10115,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
                         class="col-12 md:col-4"
                       />
                       <small
-                        class="col p-error"
+                        class="col p-error mb-2"
                       >
                         Invalid Type
                       </small>
@@ -15245,7 +15245,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                         class="col-12 md:col-4"
                       />
                       <small
-                        class="col p-error"
+                        class="col p-error mb-2"
                       >
                         "Name" is required
                       </small>
@@ -16031,7 +16031,7 @@ exports[`<Editor /> ValidationBG render equals snapshot 1`] = `
                         class="col-12 md:col-4"
                       />
                       <small
-                        class="col p-error"
+                        class="col p-error mb-2"
                       >
                         "Име" е задължително
                       </small>
