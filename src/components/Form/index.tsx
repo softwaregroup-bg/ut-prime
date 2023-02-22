@@ -10,6 +10,7 @@ import { ComponentProps } from './Form.types';
 import { ConfigCard} from './DragDrop';
 import Context from '../Context';
 import Card from '../Card';
+import Text from '../Text';
 import type {UtError} from '../types';
 
 import useLayout from '../hooks/useLayout';
@@ -164,7 +165,7 @@ const Form: ComponentProps = ({
     const errorList =
         !!Object.keys(errors).length &&
         errorFields
-            .map(name => !layoutState.visibleProperties.includes(name) && <><small className="p-error">{get(errors, name)?.message}</small><br /></>)
+            .map(name => !layoutState.visibleProperties.includes(name) && <><small className="p-error"><Text>{get(errors, name)?.message}</Text></small><br /></>)
             .filter(Boolean);
 
     const permissionCheck = usePermissionCheck();

@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import clsx from 'clsx';
 import { RefCallBack } from 'react-hook-form';
+import Text from '../Text';
 import get from 'lodash.get';
 
 import {
@@ -51,7 +52,7 @@ const noActions = {allowAdd: false, allowEdit: false, allowDelete: false};
 const Field = ({children = undefined, label = undefined, error = undefined, inputClass = undefined}) => <>
     {label}
     <div className={inputClass}>{children}</div>
-    {error}
+    <Text>{error}</Text>
 </>;
 
 const Clear = ({showClear, field}) =>
@@ -189,7 +190,7 @@ function input(
             <Clear field={field} showClear={clear}/>
         </Field>;
         case 'table': return <>
-            {error}
+            <Text>{error}</Text>
             {label}
             <div className={inputClass}>
                 <div className='w-full'>
@@ -315,7 +316,7 @@ function input(
                     ? value.filter(row => field.value?.filter(v => v[dataKey] === row?.[dataKey]).length)
                     : value.filter(row => field.value?.includes(row?.[dataKey]));
             return <>
-                {error}
+                <Text>{error}</Text>
                 {label}
                 <div className={inputClass}>
                     <Table
@@ -377,7 +378,7 @@ function input(
             </>;
         }
         case 'multiSelectTreeTable': return <>
-            {error}
+            <Text>{error}</Text>
             {label}
             <div className={inputClass}>
                 <TreeTable
