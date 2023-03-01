@@ -18,7 +18,7 @@ import Json from '../Json';
 import type { Property, PropertyEditor } from '../types';
 import titleCase from './titleCase';
 import getType from './getType';
-import {KEY, INDEX} from '../Card/const';
+import {KEY, INDEX, CHANGE} from '../Card/const';
 import testid from '../lib/testid';
 import {ConfigField} from '../Form/DragDrop';
 import Text from '../Text';
@@ -317,8 +317,8 @@ export default function columnProps({
     if (!property?.readOnly && editable) {
         editor = function editor(p) {
             const widget = p.rowData?.$pivot?.[fieldName]?.widget || p.rowData?.$pivot?.widget;
-            const inputName = `${resultSet}[${p.rowData[KEY]}].${fieldName}`;
-            const inputId = `${resultSet}-${p.rowData[KEY]}-${fieldName}`;
+            const inputName = `${resultSet}[${p[KEY]}].${fieldName}`;
+            const inputId = `${resultSet}-${p[KEY]}-${fieldName}`;
             const parentValue = parent && getValues?.(parent);
             const filterBy = item => (!parent && !optionsFilter) || !getValues || Object.entries({...optionsFilter, parent: parentValue}).every(([name, value]) => String(item[name]) === String(value));
             switch (widget?.type || type || property?.format || getType(property?.type)) {
@@ -334,8 +334,8 @@ export default function columnProps({
                     />;
                 case 'boolean':
                     return <Checkbox
-                        checked={p.rowData[fieldName]}
-                        onChange={event => p.editorCallback(event.checked)}
+                        checked={p[fieldName]}
+                        onChange={event => p[CHANGE](event)}
                         id={inputId}
                         {...testid(inputId)}
                         {...props}
@@ -514,7 +514,7 @@ export default function columnProps({
                     return <InputText
                         type='text'
                         autoFocus={true}
-                        value={p.rowData[fieldName] ?? ''}
+                        value={p[fieldName] ?? ''}
                         onChange={event => p.editorCallback(event.target.value)}
                         disabled={property?.readOnly}
                         className='w-full'
@@ -549,7 +549,7 @@ export default function columnProps({
             <span {...testid(`${resultSetDot}${name}Title`)}><Text>{label}</Text></span>
         </ConfigField>,
         ...filterElement && {filterElement},
-        ...body && {body},
+        ...body && {body: editor},
         ...(editor != null) && {editor},
         alignHeader,
         bodyClassName: clsx(bodyClassName, widget?.fieldClass),
