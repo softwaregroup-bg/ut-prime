@@ -117,7 +117,9 @@ export const CascadedTablesVariant = () => (
                                 readOnly: true
                             },
                             hasRight: {
-                                type: 'boolean'
+                                widget: {
+                                    type: 'boolean'
+                                }
                             },
                             isOwn: {},
                             objectIds: {}
@@ -126,7 +128,7 @@ export const CascadedTablesVariant = () => (
                     widget: {
                         title: 'Granted Permissions',
                         type: 'table',
-                        selectionMode: 'radiobutton',
+                        selectionMode: 'single',
                         actions: {
                             allowAdd: false,
                             allowDelete: false,
@@ -173,7 +175,7 @@ export const CascadedTablesVariant = () => (
                 }
             }
         }}
-        layouts={{ edit: ['roleCategory', 'permission', 'permissionRole'] }}
+        layouts={{ edit: ['roleCategory', 'permission'] }}
     />
 );
 

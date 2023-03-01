@@ -401,11 +401,29 @@ export default React.forwardRef<object, TableProps>(function Table({
         right: null
     };
 
+    const onCellEditComplete = (e) => {
+        const { rowData, newValue, field, originalEvent: event } = e;
+        const newData = {...rowData};
+        newData[field] = newValue;
+
+        if (newValue !== rowData[field]) {
+            const newEvent = {
+                data: rowData,
+                field,
+                newData,
+                originalEvent: event
+            };
+            complete(newEvent);
+        } else {
+            event.preventDefault();
+        }
+    };
+
     return (
         <>
             {(allowAdd || allowDelete || buttons) && <Toolbar className="p-0 border-none" left={left} right={right} style={backgroundNone}></Toolbar>}
             <DataTable
-                editMode='row'
+                editMode='cell'
                 selection={selected}
                 onSelectionChange={handleSelected}
                 onRowSelect={handleRowSelect}
@@ -434,6 +452,7 @@ export default React.forwardRef<object, TableProps>(function Table({
                             key={name}
                             filter={!!properties?.[name]?.filter}
                             sortable={!!properties?.[name]?.sort}
+                            onCellEditComplete={onCellEditComplete}
                             {...columnProps({
                                 getValues,
                                 resultSet,
