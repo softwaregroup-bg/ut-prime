@@ -1,4 +1,3 @@
-import { userEvent, within } from '@storybook/testing-library';
 import React from 'react';
 import Editor from '..';
 export { default } from '../Editor.stories';
@@ -9,25 +8,28 @@ export const CascadedTablesVariant = () => (
         onGet={() =>
             Promise.resolve({
                 roleCategory: [
-                    {actionCategoryId: 269, label: 'Manage Content Items and Translations'},
-                    {actionCategoryId: 885, label: 'Manage Users'},
-                    {actionCategoryId: 1886, label: 'Manage History'}
+                    {actionCategoryId: 269, label: 'Manage Content Items and Translations', hasSettings: false},
+                    {actionCategoryId: 885, label: 'Manage Users', hasSettings: true},
+                    {actionCategoryId: 1886, label: 'Manage History', hasSettings: true}
                 ],
                 permission: [
                     { actionId: 1006, actionName: 'Add Item', actionCategoryId: 269, hasRight: true, isOwn: false, objectIds: null },
                     { actionId: 1008, actionName: 'Add User', actionCategoryId: 885, hasRight: true, isOwn: false, objectIds: null },
                     { actionId: 1106, actionName: 'List Users', actionCategoryId: 885, hasRight: false, isOwn: false, objectIds: null },
                     { actionId: 1069, actionName: 'User History Log', actionCategoryId: 1886, hasRight: true, isOwn: false, objectIds: null },
-                    { actionId: 1121, actionName: 'Access Policy History Log', actionCategoryId: 1886, hasRight: true, isOwn: false, objectIds: null }
+                    { actionId: 1121, actionName: 'Access Policy History Log', actionCategoryId: 1886, hasRight: true, isOwn: false, objectIds: '1170,1171' }
                 ],
                 permissionRole: [
-                    { objectId: 1173, actionId: 1121 },
-                    { objectId: 1174, actionId: 1122 },
-                    { objectId: 1177, actionId: 1121 },
-                    { objectId: 1164, actionId: 1008 },
-                    { objectId: 1165, actionId: 1008 },
-                    { objectId: 1166, actionId: 1008 },
-                    { objectId: 1167, actionId: 1121 }
+                    { actionId: 1121, value: 1164 },
+                    { actionId: 1121, value: 1165 },
+                    { actionId: 1121, value: 1166 },
+                    { actionId: 1008, value: 1167 },
+                    { actionId: 1008, value: 1168 },
+                    { actionId: 1008, value: 1169 },
+                    { actionId: 1008, value: 1170 },
+                    { actionId: 1069, value: 1171 },
+                    { actionId: 1069, value: 1172 },
+                    { actionId: 1069, value: 1173 }
                 ]
             })
         }
@@ -73,7 +75,8 @@ export const CascadedTablesVariant = () => (
             },
             permissionRole: {
                 className: 'md:col-8 lg:col-4 xl:col-3',
-                widgets: ['permissionRole']
+                widgets: ['permissionRole'],
+                enabled: '$.selected.roleCategory.hasSettings'
                 // widgets: [{
                 //     name: 'permissionRole',
                 //     hidden: ['actionId'],
@@ -92,7 +95,10 @@ export const CascadedTablesVariant = () => (
                         readOnly: true,
                         properties: {
                             actionCategoryId: {},
-                            label: { title: 'Category'}
+                            label: {
+                                title: 'Category',
+                                readOnly: true
+                            }
                         }
                     },
                     widget: {
@@ -159,6 +165,11 @@ export const CascadedTablesVariant = () => (
                     // },
                     // widget: {
                     //     type: 'table',
+                    //     actions: {
+                    //         allowAdd: false,
+                    //         allowDelete: false,
+                    //         allowEdit: false
+                    //     },
                     //     hidden: ['actionId', 'objectId'],
                     //     widgets: ['objectId'],
                     //     parent: '$.selected.permission',
@@ -170,7 +181,7 @@ export const CascadedTablesVariant = () => (
                         title: 'Roles for Permission',
                         type: 'selectTable',
                         dropdown: 'permissionRole',
-                        parent: '$.selected.permission'
+                        parent: '$.selected.permission.actionId'
                     }
                 }
             }
@@ -178,9 +189,3 @@ export const CascadedTablesVariant = () => (
         layouts={{ edit: ['roleCategory', 'permission'] }}
     />
 );
-
-CascadedTablesVariant.play = async({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    userEvent.click(await canvas.findByText('John Doe'));
-    userEvent.click(canvas.getByText('Driving License'));
-};
