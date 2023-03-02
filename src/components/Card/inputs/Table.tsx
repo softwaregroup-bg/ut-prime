@@ -232,6 +232,26 @@ export default React.forwardRef<object, TableProps>(function Table({
         }
     }, [allRows, counter, identity, onChange, properties]);
 
+    // DataTable -> editMode='cell'
+    // Column -> onCellEditComplete
+    const onCellEditComplete = React.useCallback(e => {
+        const { rowData, newValue, field, originalEvent: event } = e;
+        const newData = {...rowData};
+        newData[field] = newValue;
+
+        if (newValue !== rowData[field]) {
+            const newEvent = {
+                data: rowData,
+                field,
+                newData,
+                originalEvent: event
+            };
+            complete(newEvent);
+        } else {
+            event.preventDefault();
+        }
+    }, [complete]);
+
     !keepRows && rows.forEach(row => {
         row[CHANGE] = complete;
     });
@@ -401,31 +421,11 @@ export default React.forwardRef<object, TableProps>(function Table({
         right: null
     };
 
-    // DataTable -> editMode='cell'
-    // Column -> onCellEditComplete
-    const onCellEditComplete = (e) => {
-        const { rowData, newValue, field, originalEvent: event } = e;
-        const newData = {...rowData};
-        newData[field] = newValue;
-
-        if (newValue !== rowData[field]) {
-            const newEvent = {
-                data: rowData,
-                field,
-                newData,
-                originalEvent: event
-            };
-            complete(newEvent);
-        } else {
-            event.preventDefault();
-        }
-    };
-
     return (
         <>
             {(allowAdd || allowDelete || buttons) && <Toolbar className="p-0 border-none" left={left} right={right} style={backgroundNone}></Toolbar>}
             <DataTable
-                editMode='cell'
+                editMode='row'
                 selection={selected}
                 onSelectionChange={handleSelected}
                 onRowSelect={handleRowSelect}
@@ -471,7 +471,7 @@ export default React.forwardRef<object, TableProps>(function Table({
                         />);
                     })
                 }
-                {allowEdit && !disabled && <Column rowEditor headerStyle={editStyle} bodyStyle={editBodyStyle}></Column>}
+                {allowEdit && !disabled && <Column rowEditor onCellEditComplete={onCellEditComplete} headerStyle={editStyle} bodyStyle={editBodyStyle}></Column>}
             </DataTable>
         </>
     );
