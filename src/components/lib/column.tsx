@@ -95,7 +95,7 @@ export default function columnProps({
     ctx: ContextType
 }) {
     const resultSetDot = resultSet ? resultSet + '.' : '';
-    const { type, dropdown, parent, column, lookup, compare, download, basePath, optionsFilter, pathField = 'hash', translation, formatOptions, ...props } = widget || property?.widget || { name };
+    const { type, dropdown, parent, column, lookup, compare, download, basePath, optionsFilter, pathField = 'hash', translation, formatOptions, inlineEdit, ...props } = widget || property?.widget || { name };
     const fieldName = name.split('.').pop();
     let filterElement, body, editor, bodyClassName, alignHeader;
     const filterId = `${resultSetDot}${name}Filter`;
@@ -317,8 +317,8 @@ export default function columnProps({
     if (!property?.readOnly && editable) {
         editor = function editor(p) {
             const widget = p.rowData?.$pivot?.[fieldName]?.widget || p.rowData?.$pivot?.widget;
-            const inputName = `${resultSet}[${p[KEY]}].${fieldName}`;
-            const inputId = `${resultSet}-${p[KEY]}-${fieldName}`;
+            const inputName = inlineEdit ? `${resultSet}[${p[KEY]}].${fieldName}` : `${resultSet}[${p.rowData[KEY]}].${fieldName}`;
+            const inputId = inlineEdit ? `${resultSet}-${p[KEY]}-${fieldName}` : `${resultSet}-${p.rowData[KEY]}-${fieldName}`;
             const parentValue = parent && getValues?.(parent);
             const filterBy = item => (!parent && !optionsFilter) || !getValues || Object.entries({...optionsFilter, parent: parentValue}).every(([name, value]) => String(item[name]) === String(value));
             switch (widget?.type || type || property?.format || getType(property?.type)) {
@@ -334,15 +334,17 @@ export default function columnProps({
                     />;
                 case 'boolean':
                     return <Checkbox
-                        checked={p[fieldName]}
-                        // onChange={event => p[CHANGE](event)}
+                        checked={inlineEdit ? p[fieldName] : p.rowData[fieldName]}
                         onChange={event => {
-                            if (event.checked !== p[fieldName]) {
-                                event.data = p;
-                                event.field = fieldName;
-                                event.newData = {...p, [fieldName]: event.checked};
+                            if (!inlineEdit) {
+                                p.editorCallback(event.checked);
+                            } else {
+                                if (event.checked !== p[fieldName]) {
+                                    event.data = p;
+                                    event.newData = {...p, [fieldName]: event.checked};
+                                }
+                                p[CHANGE](event);
                             }
-                            p[CHANGE](event);
                         }}
                         id={inputId}
                         {...testid(inputId)}
@@ -522,16 +524,8 @@ export default function columnProps({
                     return <InputText
                         type='text'
                         autoFocus={true}
-                        value={p[fieldName] ?? ''}
-                        // onChange={event => p[CHANGE](event)}
-                        onChange={event => {
-                            if (event.target.value !== p[fieldName]) {
-                                event.data = p;
-                                event.field = fieldName;
-                                event.newData = {...p, [fieldName]: event.target.value};
-                            }
-                            p[CHANGE](event);
-                        }}
+                        value={p.rowData[fieldName] ?? ''}
+                        onChange={event => p.editorCallback(event.target.value)}
                         disabled={property?.readOnly}
                         className='w-full'
                         id={inputId}
@@ -565,7 +559,7 @@ export default function columnProps({
             <span {...testid(`${resultSetDot}${name}Title`)}><Text>{label}</Text></span>
         </ConfigField>,
         ...filterElement && {filterElement},
-        ...body && {body: editor},
+        ...body && (inlineEdit ? {body: editor} : {body}),
         ...(editor != null) && {editor},
         alignHeader,
         bodyClassName: clsx(bodyClassName, widget?.fieldClass),

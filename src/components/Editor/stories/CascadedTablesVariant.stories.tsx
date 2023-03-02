@@ -116,7 +116,8 @@ CascadedTablesVariant.args = {
                         },
                         hasRight: {
                             widget: {
-                                type: 'boolean'
+                                type: 'boolean',
+                                inlineEdit: true
                             }
                         },
                         isOwn: {
