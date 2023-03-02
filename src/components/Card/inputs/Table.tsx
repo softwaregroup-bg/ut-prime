@@ -232,26 +232,6 @@ export default React.forwardRef<object, TableProps>(function Table({
         }
     }, [allRows, counter, identity, onChange, properties]);
 
-    // DataTable -> editMode='cell'
-    // Column -> onCellEditComplete
-    const onCellEditComplete = React.useCallback(e => {
-        const { rowData, newValue, field, originalEvent: event } = e;
-        const newData = {...rowData};
-        newData[field] = newValue;
-
-        if (newValue !== rowData[field]) {
-            const newEvent = {
-                data: rowData,
-                field,
-                newData,
-                originalEvent: event
-            };
-            complete(newEvent);
-        } else {
-            event.preventDefault();
-        }
-    }, [complete]);
-
     !keepRows && rows.forEach(row => {
         row[CHANGE] = complete;
     });
@@ -454,7 +434,6 @@ export default React.forwardRef<object, TableProps>(function Table({
                             key={name}
                             filter={!!properties?.[name]?.filter}
                             sortable={!!properties?.[name]?.sort}
-                            onCellEditComplete={onCellEditComplete}
                             {...columnProps({
                                 getValues,
                                 resultSet,
@@ -471,7 +450,7 @@ export default React.forwardRef<object, TableProps>(function Table({
                         />);
                     })
                 }
-                {allowEdit && !disabled && <Column rowEditor onCellEditComplete={onCellEditComplete} headerStyle={editStyle} bodyStyle={editBodyStyle}></Column>}
+                {allowEdit && !disabled && <Column rowEditor headerStyle={editStyle} bodyStyle={editBodyStyle}></Column>}
             </DataTable>
         </>
     );
