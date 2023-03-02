@@ -401,6 +401,8 @@ export default React.forwardRef<object, TableProps>(function Table({
         right: null
     };
 
+    // DataTable -> editMode='cell'
+    // Column -> onCellEditComplete
     const onCellEditComplete = (e) => {
         const { rowData, newValue, field, originalEvent: event } = e;
         const newData = {...rowData};

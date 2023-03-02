@@ -335,17 +335,14 @@ export default function columnProps({
                 case 'boolean':
                     return <Checkbox
                         checked={p[fieldName]}
-                        onChange={e => {
-                            let newEvent;
-                            if (e.checked !== p[fieldName]) {
-                                newEvent = {
-                                    data: p,
-                                    field: fieldName,
-                                    newData: {...p, [fieldName]: e.checked},
-                                    originalEvent: e
-                                };
+                        // onChange={event => p[CHANGE](event)}
+                        onChange={event => {
+                            if (event.checked !== p[fieldName]) {
+                                event.data = p;
+                                event.field = fieldName;
+                                event.newData = {...p, [fieldName]: event.checked};
                             }
-                            p[CHANGE](newEvent);
+                            p[CHANGE](event);
                         }}
                         id={inputId}
                         {...testid(inputId)}
@@ -526,7 +523,15 @@ export default function columnProps({
                         type='text'
                         autoFocus={true}
                         value={p[fieldName] ?? ''}
-                        onChange={event => p.editorCallback(event.target.value)}
+                        // onChange={event => p[CHANGE](event)}
+                        onChange={event => {
+                            if (event.target.value !== p[fieldName]) {
+                                event.data = p;
+                                event.field = fieldName;
+                                event.newData = {...p, [fieldName]: event.target.value};
+                            }
+                            p[CHANGE](event);
+                        }}
                         disabled={property?.readOnly}
                         className='w-full'
                         id={inputId}
