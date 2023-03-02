@@ -119,7 +119,11 @@ CascadedTablesVariant.args = {
                                 type: 'boolean'
                             }
                         },
-                        isOwn: {},
+                        isOwn: {
+                            widget: {
+                                type: 'boolean'
+                            }
+                        },
                         objectIds: {}
                     }
                 },
@@ -191,7 +195,7 @@ CascadedTablesVariant.args = {
             className: 'md:col-8 lg:col-4 xl:col-3',
             widgets: [{
                 name: 'permission',
-                hidden: ['actionId'],
+                hidden: ['actionCategoryId', 'actionId', 'actionName', 'hasRight', 'isOwn', 'objectIds'],
                 widgets: ['actionName', 'hasRight']
             }]
         },
