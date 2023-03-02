@@ -335,7 +335,18 @@ export default function columnProps({
                 case 'boolean':
                     return <Checkbox
                         checked={p[fieldName]}
-                        onChange={event => p[CHANGE](event)}
+                        onChange={e => {
+                            let newEvent;
+                            if (e.checked !== p[fieldName]) {
+                                newEvent = {
+                                    data: p,
+                                    field: fieldName,
+                                    newData: {...p, [fieldName]: e.checked},
+                                    originalEvent: e
+                                };
+                            }
+                            p[CHANGE](newEvent);
+                        }}
                         id={inputId}
                         {...testid(inputId)}
                         {...props}
