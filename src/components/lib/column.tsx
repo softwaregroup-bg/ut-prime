@@ -321,6 +321,23 @@ export default function columnProps({
             const inputId = inlineEdit ? `${resultSet}-${p[KEY]}-${fieldName}` : `${resultSet}-${p.rowData[KEY]}-${fieldName}`;
             const parentValue = parent && getValues?.(parent);
             const filterBy = item => (!parent && !optionsFilter) || !getValues || Object.entries({...optionsFilter, parent: parentValue}).every(([name, value]) => String(item[name]) === String(value));
+
+            function dataValue(inlineEdit, fieldName) {
+                return inlineEdit ? p[fieldName] : p.rowData[fieldName];
+            }
+
+            function onEdit(inlineEdit, event, usedProp) {
+                if (!inlineEdit) {
+                    p.editorCallback(usedProp);
+                } else {
+                    if (usedProp !== p[fieldName]) {
+                        event.data = p;
+                        event.newData = {...p, [fieldName]: usedProp};
+                    }
+                    p[CHANGE](event);
+                }
+            }
+
             switch (widget?.type || type || property?.format || getType(property?.type)) {
                 case 'file':
                     return <FileUpload
@@ -334,18 +351,8 @@ export default function columnProps({
                     />;
                 case 'boolean':
                     return <Checkbox
-                        checked={inlineEdit ? p[fieldName] : p.rowData[fieldName]}
-                        onChange={event => {
-                            if (!inlineEdit) {
-                                p.editorCallback(event.checked);
-                            } else {
-                                if (event.checked !== p[fieldName]) {
-                                    event.data = p;
-                                    event.newData = {...p, [fieldName]: event.checked};
-                                }
-                                p[CHANGE](event);
-                            }
-                        }}
+                        checked={dataValue(inlineEdit, fieldName)}
+                        onChange={event => onEdit(inlineEdit, event, event.checked)}
                         id={inputId}
                         {...testid(inputId)}
                         {...props}
@@ -353,8 +360,8 @@ export default function columnProps({
                     />;
                 case 'integer':
                     return <InputNumber
-                        value={p.rowData[fieldName]}
-                        onChange={event => p.editorCallback(event.value)}
+                        value={dataValue(inlineEdit, fieldName)}
+                        onChange={event => onEdit(inlineEdit, event, event.value)}
                         disabled={property?.readOnly}
                         className='w-full'
                         inputClassName='w-full text-right'
@@ -366,8 +373,8 @@ export default function columnProps({
                     />;
                 case 'number':
                     return <InputNumber
-                        value={p.rowData[fieldName]}
-                        onChange={event => p.editorCallback(event.value)}
+                        value={dataValue(inlineEdit, fieldName)}
+                        onChange={event => onEdit(inlineEdit, event, event.value)}
                         disabled={property?.readOnly}
                         className='w-full'
                         inputClassName='w-full text-right'
@@ -378,8 +385,8 @@ export default function columnProps({
                     />;
                 case 'currency':
                     return <InputNumber
-                        value={p.rowData[fieldName]}
-                        onChange={event => p.editorCallback(event.value)}
+                        value={(dataValue(inlineEdit, fieldName))}
+                        onChange={event => onEdit(inlineEdit, event, event.value)}
                         disabled={property?.readOnly}
                         className='w-full'
                         inputClassName='w-full text-right'
@@ -394,18 +401,28 @@ export default function columnProps({
                     return <Dropdown
                         className='w-full'
                         options={dropdowns?.[dropdown]?.filter(filterBy) || []}
-                        value={p.rowData[fieldName]}
+                        value={(dataValue(inlineEdit, fieldName))}
                         onChange={event => {
                             if (lookup) {
                                 const item = dropdowns?.[dropdown]?.find(({value}) => value === event.value);
                                 item && Object.entries(lookup).forEach(([key, value]) => {
-                                    if (typeof value === 'string') p.rowData[value] = item[key];
+                                    if (typeof value === 'string') {
+                                        if (inlineEdit) {
+                                            p[value] = item[key];
+                                        } else {
+                                            p.rowData[value] = item[key];
+                                        }
+                                    }
                                 });
                             } else if (property?.body) {
                                 const item = dropdowns?.[dropdown]?.find(({value}) => value === event.value);
-                                p.rowData[property?.body] = item?.label;
+                                if (inlineEdit) {
+                                    p[property?.body] = item?.label;
+                                } else {
+                                    p.rowData[property?.body] = item?.label;
+                                }
                             }
-                            p.editorCallback(event.value);
+                            onEdit(inlineEdit, event, event.value);
                         }}
                         showClear
                         inputId={inputId}
@@ -445,8 +462,8 @@ export default function columnProps({
                     />;
                 case 'radio':
                     return <RadioButton
-                        checked={p.rowData[fieldName]}
-                        onChange={event => p.editorCallback(event.checked)}
+                        checked={(dataValue(inlineEdit, fieldName))}
+                        onChange={event => onEdit(inlineEdit, event, event.checked)}
                         inputId={inputId}
                         {...testid(inputId)}
                         {...props}
@@ -455,8 +472,8 @@ export default function columnProps({
                 case 'date':
                     return <Calendar
                         showOnFocus={false}
-                        value={dateOrNull(p.rowData[fieldName])}
-                        onChange={event => p.editorCallback(event.value)}
+                        value={dateOrNull(dataValue(inlineEdit, fieldName))}
+                        onChange={event => onEdit(inlineEdit, event, event.value)}
                         showIcon
                         inputId={inputId}
                         {...testid(inputId)}
@@ -466,8 +483,8 @@ export default function columnProps({
                 case 'time':
                     return <Calendar
                         showOnFocus={false}
-                        value={timeOrZero(p.rowData[fieldName])}
-                        onChange={event => p.editorCallback(event.value)}
+                        value={timeOrZero(dataValue(inlineEdit, fieldName))}
+                        onChange={event => onEdit(inlineEdit, event, event.value)}
                         timeOnly
                         showIcon
                         inputId={inputId}
@@ -478,8 +495,8 @@ export default function columnProps({
                 case 'date-time':
                     return <Calendar
                         showOnFocus={false}
-                        value={dateOrNull(p.rowData[fieldName])}
-                        onChange={event => p.editorCallback(event.value)}
+                        value={dateOrNull(dataValue(inlineEdit, fieldName))}
+                        onChange={event => onEdit(inlineEdit, event, event.value)}
                         showTime
                         showIcon
                         inputId={inputId}
@@ -513,8 +530,8 @@ export default function columnProps({
                     return <InputTextarea
                         className='w-full'
                         autoFocus={true}
-                        value={p.rowData[fieldName] ?? ''}
-                        onChange={event => p.editorCallback(event.target.value)}
+                        value={(dataValue(inlineEdit, fieldName)) ?? ''}
+                        onChange={event => onEdit(inlineEdit, event, event.target.value)}
                         id={inputId}
                         {...testid(inputId)}
                         {...props}
@@ -524,8 +541,8 @@ export default function columnProps({
                     return <InputText
                         type='text'
                         autoFocus={true}
-                        value={p.rowData[fieldName] ?? ''}
-                        onChange={event => p.editorCallback(event.target.value)}
+                        value={(dataValue(inlineEdit, fieldName)) ?? ''}
+                        onChange={event => onEdit(inlineEdit, event, event.target.value)}
                         disabled={property?.readOnly}
                         className='w-full'
                         id={inputId}
