@@ -6,7 +6,6 @@ import useToast from '../../hooks/useToast';
 
 export { default } from '../Editor.stories';
 
-// export const CascadedTablesVariant = () => {
 const Template: Story<Props> = ({...args}) => {
     const {toast, submit} = useToast();
     return <>
@@ -15,29 +14,53 @@ const Template: Story<Props> = ({...args}) => {
             onGet={() =>
                 Promise.resolve({
                     roleCategory: [
-                        {actionCategoryId: 269, label: 'Manage Content Items and Translations', hasSettings: false},
-                        {actionCategoryId: 885, label: 'Manage Users', hasSettings: true},
-                        {actionCategoryId: 1886, label: 'Manage History', hasSettings: true}
+                        {actionCategoryId: 478, label: 'Manage Users', hasSettings: true},
+                        {actionCategoryId: 681, label: 'Manage History', hasSettings: false},
+                        {actionCategoryId: 259, label: 'Manage Content Items and Translations', hasSettings: false}
                     ],
                     permission: [
-                        { actionId: 1006, actionName: 'Add Item', actionCategoryId: 269, hasRight: true, isOwn: false, objectIds: null },
-                        { actionId: 1008, actionName: 'Add User', actionCategoryId: 885, hasRight: true, isOwn: false, objectIds: null },
-                        { actionId: 1106, actionName: 'List Users', actionCategoryId: 885, hasRight: false, isOwn: false, objectIds: null },
-                        { actionId: 1069, actionName: 'User History Log', actionCategoryId: 1886, hasRight: true, isOwn: false, objectIds: null },
-                        { actionId: 1121, actionName: 'Access Policy History Log', actionCategoryId: 1886, hasRight: true, isOwn: false, objectIds: '1170,1171' }
+                        {actionCategoryId: 259, actionId: 1006, actionName: 'Add Item', hasRight: true, isOwn: false, objectIds: null },
+                        {actionCategoryId: 259, actionId: 1025, actionName: 'Edit Item', hasRight: false, isOwn: false, objectIds: null},
+                        {actionCategoryId: 259, actionId: 1029, actionName: 'Enable / Disable Item', hasRight: false, isOwn: false, objectIds: null},
+                        {actionCategoryId: 259, actionId: 1032, actionName: 'List Items', hasRight: false, isOwn: false, objectIds: null},
+                        {actionCategoryId: 259, actionId: 1047, actionName: 'Upload Items', hasRight: false, isOwn: false, objectIds: null},
+                        {actionCategoryId: 259, actionId: 1052, actionName: 'View Item', hasRight: false, isOwn: false, objectIds: null},
+                        {actionCategoryId: 478, actionId: 1008, actionName: 'Add User', hasRight: true, isOwn: true, objectIds: [1167, 1168, 1169]},
+                        {actionCategoryId: 478, actionId: 1011, actionName: 'Authorize Changes (Approve/Reject)', hasRight: false, isOwn: false, objectIds: null},
+                        {actionCategoryId: 478, actionId: 1014, actionName: 'Clear Unsuccessful Login Attempts', hasRight: false, isOwn: false, objectIds: null},
+                        {actionCategoryId: 478, actionId: 1020, actionName: 'Delete User', hasRight: false, isOwn: false, objectIds: null},
+                        {actionCategoryId: 478, actionId: 1028, actionName: 'Edit User', hasRight: false, isOwn: false, objectIds: null},
+                        {actionCategoryId: 478, actionId: 1101, actionName: 'List Users', hasRight: false, isOwn: false, objectIds: null},
+                        {actionCategoryId: 478, actionId: 1035, actionName: 'Lock / Unlock User', hasRight: false, isOwn: false, objectIds: null},
+                        {actionCategoryId: 478, actionId: 1055, actionName: 'View User', hasRight: false, isOwn: false, objectIds: null},
+                        {actionCategoryId: 681, actionId: 1109, actionName: 'Access Policy History Log', hasRight: true, isOwn: false, objectIds: [1173, 1171]},
+                        {actionCategoryId: 681, actionId: 1074, actionName: 'Agents and Merchants Network History Log', hasRight: false, isOwn: false, objectIds: null},
+                        {actionCategoryId: 681, actionId: 1144, actionName: 'Business Unit History Log', hasRight: false, isOwn: false, objectIds: null},
+                        {actionCategoryId: 681, actionId: 1150, actionName: 'Export History', hasRight: false, isOwn: false, objectIds: null},
+                        {actionCategoryId: 681, actionId: 1092, actionName: 'KYC History Log', hasRight: false, isOwn: false, objectIds: null},
+                        {actionCategoryId: 681, actionId: 1065, actionName: 'Role History Log', hasRight: false, isOwn: false, objectIds: null},
+                        {actionCategoryId: 681, actionId: 1136, actionName: 'Rule History Log', hasRight: false, isOwn: false, objectIds: null},
+                        {actionCategoryId: 681, actionId: 1066, actionName: 'User History Log', hasRight: true, isOwn: false, objectIds: null}
                     ],
                     permissionRole: [
-                        { actionId: 1121, value: 1164 },
-                        { actionId: 1121, value: 1165 },
-                        { actionId: 1121, value: 1166 },
-                        { actionId: 1008, value: 1167 },
-                        { actionId: 1008, value: 1168 },
-                        { actionId: 1008, value: 1169 },
-                        { actionId: 1008, value: 1170 },
-                        { actionId: 1069, value: 1171 },
-                        { actionId: 1069, value: 1172 },
-                        { actionId: 1069, value: 1173 }
-                    ]
+                        { actionId: 1008, value: 1167, selected: true, label: 'Banks Branch User', description: 'Banks Branch User' },
+                        { actionId: 1008, value: 1168, selected: true, label: 'CBI Admin', description: 'CBI Admin' },
+                        { actionId: 1008, value: 1169, selected: true, label: 'CBI Auditor', description: 'CBI Auditor' },
+                        { actionId: 1008, value: 1170, selected: false, label: 'CBI Compliance Office User', description: 'CBI Compliance Office User' },
+                        { actionId: 1066, value: 1171, selected: true, label: 'CBI Directorate Admin Checker', description: 'CBI Directorate Admin Checker' },
+                        { actionId: 1066, value: 1172, selected: false, label: 'CBI Directorate Admin Maker', description: 'CBI Directorate Admin Maker' },
+                        { actionId: 1066, value: 1173, selected: true, label: 'CBI IT Admin Checker', description: 'CBI IT Admin Checker' },
+                        { actionId: 1009, value: 1164, selected: false, label: 'Bank Admin Checker', description: 'Bank Admin Checker' },
+                        { actionId: 1109, value: 1165, selected: false, label: 'Bank Admin Maker', description: 'Bank Admin Maker' },
+                        { actionId: 1109, value: 1166, selected: false, label: 'Bank User', description: 'Bank User' }
+                    ],
+                    document: [
+                        {documentId: 1, documentTypeId: 1, documentType: 'Passport', check: true},
+                        {documentId: 2, documentTypeId: 2, documentType: 'Driving License', check: false},
+                        {documentId: 3, documentTypeId: 3, documentType: 'Marriage Certificate', check: true},
+                        {documentId: 4, documentTypeId: 1, documentType: 'Passport', check: false},
+                        {documentId: 5, personId: 2, documentTypeId: 2, documentType: 'Driving License', check: true}
+                    ].map(item => ({...item, issueDate: '2020-01-0' + item.documentId, expiryDate: '2025-01-0' + item.documentId}))
                 })
             }
             onDropdown={() =>
@@ -60,6 +83,11 @@ const Template: Story<Props> = ({...args}) => {
                         { value: 1178, label: 'EXC Admin Maker', description: 'EXC Admin Maker' },
                         { value: 1179, label: 'EXC Branch User', description: 'EXC Branch User' },
                         { value: 1180, label: 'EXC User', description: 'EXC User' }
+                    ],
+                    documentType: [
+                        {value: 1, label: 'Passport'},
+                        {value: 2, label: 'Driving License'},
+                        {value: 3, label: 'Marriage Certificate'}
                     ]
                 })
             }
@@ -115,7 +143,11 @@ CascadedTablesVariant.args = {
                             readOnly: true
                         },
                         hasRight: {
+                            title: ' ',
                             widget: {
+                                column: {
+                                    className: 'w-1'
+                                },
                                 type: 'boolean',
                                 inlineEdit: true
                             }
@@ -137,7 +169,7 @@ CascadedTablesVariant.args = {
                         allowDelete: false,
                         allowEdit: false
                     },
-                    hidden: ['actionCategoryId', 'actionId', 'actionName', 'hasRight', 'isOwn', 'objectIds'],
+                    hidden: ['actionCategoryId', 'actionId', 'isOwn', 'objectIds'],
                     widgets: ['actionName', 'hasRight'],
                     parent: '$.selected.roleCategory',
                     master: {
@@ -147,38 +179,82 @@ CascadedTablesVariant.args = {
             },
             permissionRole: {
                 title: '',
-                // items: {
-                //     type: 'object',
-                //     properties: {
-                //         actionId: {},
-                //         objectId: {
-                //             title: 'Permissions for Role',
-                //             widget: {
-                //                 type: 'dropdown',
-                //                 dropdown: 'permissionRole'
-                //             }
-                //         }
-                //     }
-                // },
-                // widget: {
-                //     type: 'table',
-                //     actions: {
-                //         allowAdd: false,
-                //         allowDelete: false,
-                //         allowEdit: false
-                //     },
-                //     hidden: ['actionId', 'objectId'],
-                //     widgets: ['objectId'],
-                //     parent: '$.selected.permission',
-                //     master: {
-                //         actionId: 'actionId'
-                //     }
-                // }
+                items: {
+                    type: 'object',
+                    properties: {
+                        actionId: {},
+                        selected: {
+                            title: ' ',
+                            widget: {
+                                column: {
+                                    className: 'w-1'
+                                },
+                                type: 'boolean',
+                                inlineEdit: true
+                            }
+                        },
+                        value: {},
+                        label: {
+                            title: 'Permissions for Role'
+                        }
+                    }
+                },
                 widget: {
-                    title: 'Roles for Permission',
-                    type: 'selectTable',
-                    dropdown: 'permissionRole',
-                    parent: '$.selected.permission.actionId'
+                    type: 'table',
+                    selectionMode: 'single',
+                    actions: {
+                        allowAdd: false,
+                        allowDelete: false,
+                        allowEdit: false
+                    },
+                    hidden: ['actionId', 'value'],
+                    widgets: ['selected', 'label'],
+                    parent: '$.selected.permission',
+                    master: {
+                        actionId: 'actionId'
+                    }
+                }
+            },
+            document: {
+                type: 'array',
+                items: {
+                    properties: {
+                        documentTypeId: {
+                            body: 'documentType',
+                            widget: {
+                                type: 'dropdown',
+                                dropdown: 'documentType',
+                                inlineEdit: true,
+                                showClear: false
+                            }
+                        },
+                        check: {
+                            widget: {
+                                column: {
+                                    className: 'w-1'
+                                },
+                                type: 'boolean',
+                                inlineEdit: true
+                            }
+                        },
+                        issueDate: {format: 'date'},
+                        expiryDate: {
+                            format: 'date',
+                            widget: {
+                                inlineEdit: true,
+                                showClear: false
+                            }
+                        }
+                    }
+                },
+                title: '',
+                widget: {
+                    actions: {
+                        allowEdit: false
+                    },
+                    type: 'table',
+                    autoSelect: true,
+                    selectionMode: 'single'
                 }
             }
         }
@@ -196,20 +272,32 @@ CascadedTablesVariant.args = {
             className: 'md:col-8 lg:col-4 xl:col-3',
             widgets: [{
                 name: 'permission',
-                hidden: ['actionCategoryId', 'actionId', 'actionName', 'hasRight', 'isOwn', 'objectIds'],
-                widgets: ['actionName', 'hasRight']
+                hidden: ['actionCategoryId', 'actionId', 'actionName', 'hasRight', 'isOwn'],
+                widgets: ['hasRight', 'actionName']
             }]
         },
         permissionRole: {
             className: 'md:col-8 lg:col-4 xl:col-3',
-            widgets: ['permissionRole'],
-            enabled: '$.selected.roleCategory.hasSettings'
-            // widgets: [{
-            //     name: 'permissionRole',
-            //     hidden: ['actionId'],
-            //     widgets: ['objectId']
-            // }]
+            enabled: '$.selected.roleCategory.hasSettings',
+            widgets: [{
+                name: 'permissionRole',
+                hidden: ['actionId', 'value'],
+                widgets: ['selected', 'label']
+            }]
+        },
+        document: {
+            label: 'Document',
+            widgets: [{
+                name: 'document',
+                hidden: ['documentId'],
+                widgets: ['documentTypeId', 'issueDate', 'expiryDate', 'check']
+            }]
         }
     },
-    layouts: { edit: ['roleCategory', 'permission'] }
+    layouts: {
+        edit: [
+            { id: 'permission', label: 'Permission settings', widgets: ['roleCategory', 'permission', 'permissionRole'] },
+            { id: 'document', label: 'Documents', widgets: ['document'] }
+        ]
+    }
 };
