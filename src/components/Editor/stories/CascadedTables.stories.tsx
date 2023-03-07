@@ -85,7 +85,7 @@ export const CascadedTables = () =>
                     type: 'array',
                     items: {
                         properties: {
-                            documentTypeId: {body: 'documentType', widget: {type: 'dropdown', dropdown: 'documentType', inlineEdit: true, showClear: false}},
+                            documentTypeId: {body: 'documentType', widget: {type: 'dropdown', dropdown: 'documentType'}},
                             issueDate: {format: 'date'},
                             expiryDate: {format: 'date'}
                         }
