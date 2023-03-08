@@ -1,3 +1,12 @@
+# [2.69.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.68.0...v2.69.0) (2023-03-08)
+
+
+### Features
+
+* Table fields inline edit  ([#45](https://github.com/softwaregroup-bg/ut-prime/issues/45)) ([9ca164a](https://github.com/softwaregroup-bg/ut-prime/commit/9ca164ae57c6acf956c430f77a65c61162d1d048))
+
+
+
 # [2.68.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.67.0...v2.68.0) (2023-03-08)
 
 
