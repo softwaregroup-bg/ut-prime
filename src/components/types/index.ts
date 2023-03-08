@@ -55,6 +55,7 @@ export interface PropertyEditor {
     dropdown?: string;
     parent?: string | string[];
     column?: ColumnProps;
+    inlineEdit?: boolean;
     pivot?: {
         dropdown?: string;
         examples?: object[];
