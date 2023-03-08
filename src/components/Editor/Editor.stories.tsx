@@ -19,6 +19,7 @@ const meta: Meta = {
     component: Editor,
     parameters: {docs: {page}},
     decorators,
+    excludeStories: ['Template'],
     args: {
         state: {}
     }
@@ -81,7 +82,7 @@ Basic.args = {
         ]
     }),
     onGet: params => Promise.resolve({
-        tree: {treeName: 'Oak', treeId: 1, treeType: 1}
+        tree: {treeName: 'Oak', treeId: 1, treeType: 1, createdOn: new Date('2023-03-08')}
     })
 };
 
@@ -192,7 +193,12 @@ StepsHiddenBack.args = merge({}, Steps.args,
 StepsHiddenBack.play = StepsDisabledBack.play;
 
 export const Submit: StoryTemplate = Template.bind({});
-Submit.args = Basic.args;
+Submit.args = {
+    ...Basic.args,
+    layouts: {
+        edit: [['edit', 'denied'], ['taxonomy', 'reproduction'], ['morphology', 'links'], ['habitat', 'system']]
+    }
+};
 Submit.play = async({canvasElement}) => {
     const canvas = within(canvasElement);
     await canvas.findByDisplayValue('Oak'); // wait for the data to be loaded

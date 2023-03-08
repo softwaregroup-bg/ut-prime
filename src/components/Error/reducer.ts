@@ -17,6 +17,7 @@ export default (state = {open: false, title: '', message: '', details: '', type:
         };
     }
     if (action.error) {
+        console.error(action.error); // eslint-disable-line no-console
         if (action.suppressErrorWindow) return state;
         const msg = (errorMessage(action.error) || errorMessage(state.message));
         const params = action.error.params || {};

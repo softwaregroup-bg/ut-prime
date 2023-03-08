@@ -173,7 +173,7 @@ const Editor: ComponentProps = ({
                 }
                 setDidSubmit(true);
                 setValueMode(prev => {
-                    const merged = merge({}, data[0], response);
+                    const merged = merge({...prev[0]}, data[0], response);
                     const newLayout = typeField ? lodashGet(merged, typeField) : prev[2];
                     const value = getLayoutValue('edit', newLayout, merged);
                     return [value, 'edit', newLayout, key == null ? prev[3] : value];

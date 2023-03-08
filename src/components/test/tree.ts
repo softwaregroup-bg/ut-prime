@@ -81,6 +81,11 @@ const tree: {schema: Schema, cards: Cards} = {
                     icon: {
                         widget: {type: 'file'}
                     },
+                    createdOn: {
+                        format: 'date',
+                        readOnly: true,
+                        strip: true
+                    },
                     documents: {
                         widget: {
                             type: 'table',
@@ -134,6 +139,10 @@ const tree: {schema: Schema, cards: Cards} = {
         habitat: {
             label: 'Habitat',
             widgets: ['tree.habitat']
+        },
+        system: {
+            label: 'System',
+            widgets: ['tree.createdOn']
         }
     }
 };

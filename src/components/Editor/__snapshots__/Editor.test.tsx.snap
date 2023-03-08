@@ -4083,7 +4083,7 @@ exports[`<Editor /> Files render equals snapshot 1`] = `
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="tree-documents"
                             id="tree-documents"
-                            pr_id_24=""
+                            pr_id_48=""
                           >
                             <div
                               class="p-datatable-wrapper"
@@ -10343,7 +10343,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="tree-links"
                             id="tree-links"
-                            pr_id_22=""
+                            pr_id_46=""
                           >
                             <div
                               class="p-datatable-wrapper"
@@ -12618,7 +12618,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="tree-links"
                             id="tree-links"
-                            pr_id_19=""
+                            pr_id_20=""
                           >
                             <div
                               class="p-datatable-wrapper"
@@ -12753,7 +12753,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
             class="w-full"
           >
             <div
-              class="p-card p-component card card-0-2-2"
+              class="p-card p-component card mb-3 card-0-2-2"
               id="habitat"
             >
               <div
@@ -12956,6 +12956,75 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
                             </div>
                           </div>
                         </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="w-full"
+          >
+            <div
+              class="p-card p-component card card-0-2-2"
+              id="system"
+            >
+              <div
+                class="p-card-body"
+              >
+                <div
+                  class="p-card-title"
+                >
+                  System
+                </div>
+                <div
+                  class="p-card-content"
+                >
+                  <div
+                    class=""
+                  >
+                    <div
+                      class="field grid mb-0"
+                    >
+                      <label
+                        class="col-12 md:col-4"
+                        for="tree-createdOn"
+                      >
+                        Created On
+                      </label>
+                      <div
+                        class="flex align-items-center relative col-12 md:col-8"
+                      >
+                        <span
+                          class="p-calendar p-component p-inputwrapper w-full p-calendar-w-btn p-calendar-w-btn-right p-calendar-disabled p-inputwrapper-filled"
+                          id="tree-createdOn"
+                        >
+                          <input
+                            autocomplete="off"
+                            class="p-inputtext p-component p-disabled p-filled"
+                            disabled=""
+                            id="tree-createdOn"
+                            inputmode="none"
+                            name="tree.createdOn"
+                            type="text"
+                          />
+                          <button
+                            class="p-button p-component p-datepicker-trigger p-button-icon-only p-disabled"
+                            disabled=""
+                            tabindex="-1"
+                            type="button"
+                          >
+                            <span
+                              class="p-button-icon p-c pi pi-calendar"
+                            />
+                            <span
+                              class="p-button-label p-c"
+                            >
+                               
+                            </span>
+                          </button>
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -14768,7 +14837,7 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="tree-links"
                             id="tree-links"
-                            pr_id_23=""
+                            pr_id_47=""
                           >
                             <div
                               class="p-datatable-wrapper"
@@ -15554,7 +15623,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="tree-links"
                             id="tree-links"
-                            pr_id_20=""
+                            pr_id_44=""
                           >
                             <div
                               class="p-datatable-wrapper"
@@ -16340,7 +16409,7 @@ exports[`<Editor /> ValidationBG render equals snapshot 1`] = `
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="tree-links"
                             id="tree-links"
-                            pr_id_21=""
+                            pr_id_45=""
                           >
                             <div
                               class="p-datatable-wrapper"
