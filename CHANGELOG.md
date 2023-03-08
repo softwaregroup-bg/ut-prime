@@ -1,3 +1,12 @@
+# [2.68.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.67.0...v2.68.0) (2023-03-08)
+
+
+### Features
+
+* skippable properties during submit ([c00edf9](https://github.com/softwaregroup-bg/ut-prime/commit/c00edf919f4f75cdf38e25e2f6efc56744155ddd))
+
+
+
 # [2.67.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.66.5...v2.67.0) (2023-02-20)
 
 
