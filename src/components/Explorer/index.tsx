@@ -407,6 +407,7 @@ const Explorer: ComponentProps = ({
                         widget: !isString && widget,
                         property,
                         dropdowns,
+                        cardDisabled: false,
                         tableFilter,
                         filterBy,
                         filterErrors,
