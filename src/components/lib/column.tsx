@@ -62,6 +62,7 @@ export default function columnProps({
     tableFilter,
     filterBy,
     editable,
+    cardDisabled = false,
     index,
     card,
     design,
@@ -82,6 +83,7 @@ export default function columnProps({
     tableFilter?: Omit<TableFilter, 'page'>,
     filterBy?: (name: string, value: string) => (e: object) => void,
     editable?: boolean,
+    cardDisabled: boolean,
     index: number,
     card?: string,
     design?: boolean,
@@ -353,6 +355,7 @@ export default function columnProps({
                     return <Checkbox
                         checked={dataValue(inlineEdit, fieldName)}
                         onChange={event => onEdit(inlineEdit, event, event.checked)}
+                        disabled={cardDisabled}
                         id={inputId}
                         {...testid(inputId)}
                         {...props}

@@ -444,6 +444,7 @@ export default React.forwardRef<object, TableProps>(function Table({
                                 dropdowns,
                                 editable: true,
                                 filterBy,
+                                cardDisabled: disabled,
                                 tableFilter,
                                 ctx
                             })}

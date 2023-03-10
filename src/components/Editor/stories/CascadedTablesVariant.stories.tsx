@@ -278,12 +278,12 @@ CascadedTablesVariant.args = {
         },
         permissionRole: {
             className: 'md:col-8 lg:col-4 xl:col-3',
-            enabled: '$.selected.roleCategory.hasSettings',
             widgets: [{
                 name: 'permissionRole',
                 hidden: ['actionId', 'value'],
                 widgets: ['selected', 'label']
-            }]
+            }],
+            enabled: '$.selected.permission.hasRight'
         },
         document: {
             label: 'Document',
