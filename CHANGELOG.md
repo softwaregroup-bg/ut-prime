@@ -1,3 +1,13 @@
+# [2.70.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.69.0...v2.70.0) (2023-03-15)
+
+
+### Features
+
+* **Explorer:** pass current as a separate property to details ([a814268](https://github.com/softwaregroup-bg/ut-prime/commit/a814268d14f58897eff133211ccfe9210f7c7d06))
+* **Explorer:** pass current as a separate property to details ([b2e6a5b](https://github.com/softwaregroup-bg/ut-prime/commit/b2e6a5baf7897870c935b37334c31fd52294f0c9))
+
+
+
 # [2.69.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.68.0...v2.69.0) (2023-03-08)
 
 
