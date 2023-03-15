@@ -113,8 +113,10 @@ const detailsProps = (result, getValues, {current, ...props}: Props['details']) 
     const values = getValues();
     return {
         ...props,
-        preview: {...result, ...values},
-        ...current && {[current]: values.current}
+        value: {
+            preview: {...result, ...values},
+            ...current && {[current]: values.current}
+        }
     };
 };
 
