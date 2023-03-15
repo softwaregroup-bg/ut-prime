@@ -56,9 +56,11 @@ export interface Props {
      */
     details?: {
         page: string,
+        current?: string,
         params?: unknown
     };
     toolbar?: false | WidgetReference[];
+    resize?: boolean;
     filter?: Record<string, unknown>;
     params?: Record<string, unknown>;
     index?: object;

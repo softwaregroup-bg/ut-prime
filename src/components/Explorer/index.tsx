@@ -24,7 +24,7 @@ import useFilter from '../hooks/useFilter';
 import prepareSubmit from '../lib/prepareSubmit';
 import Context from '../Text/context';
 
-import { ComponentProps } from './Explorer.types';
+import { ComponentProps, Props } from './Explorer.types';
 import testid from '../lib/testid';
 import useCustomization from '../hooks/useCustomization';
 import useButtons from '../hooks/useButtons';
@@ -109,6 +109,15 @@ const FilterErrors = ({errors}: {errors: Joi.ValidationError['details']}) => {
     />;
 };
 
+const detailsProps = (result, getValues, {current, ...props}: Props['details']) => {
+    const values = getValues();
+    return {
+        ...props,
+        preview: {...result, ...values},
+        ...current && {[current]: values.current}
+    };
+};
+
 const Explorer: ComponentProps = ({
     className,
     keyField,
@@ -135,6 +144,7 @@ const Explorer: ComponentProps = ({
     value,
     name,
     hidden,
+    resize,
     refresh,
     layouts,
     layout: layoutName,
@@ -366,24 +376,24 @@ const Explorer: ComponentProps = ({
     const max = maxHeight => (!isNaN(maxHeight) && maxHeight > 0) ? Math.floor(maxHeight) : 0;
 
     const tableWrapRef = React.useCallback(node => {
-        if (node === null || hidden) return;
+        if (node === null || hidden || resize === false) return;
         const nodeRect = node.getBoundingClientRect();
         const paginatorHeight = node.querySelector('.p-paginator')?.getBoundingClientRect?.()?.height;
         setHeight({height: max(windowSize.height - nodeRect.top)});
         setMaxHeight({maxHeight: max(windowSize.height - nodeRect.top - paginatorHeight)});
         setInspectorHeight({maxHeight: max(windowSize.height - nodeRect.top)});
-    }, [windowSize, formProps.design, hidden]); // eslint-disable-line react-hooks/exhaustive-deps
+    }, [windowSize, formProps.design, hidden, resize]); // eslint-disable-line react-hooks/exhaustive-deps
 
     const splitterWrapRef = React.useCallback(node => {
-        if (node === null || hidden) return;
+        if (node === null || hidden || resize === false) return;
         const nodeRect = node.getBoundingClientRect();
         setSplitterHeight({flexGrow: 1, height: max(windowSize.height - nodeRect.top)});
-    }, [windowSize, hidden]);
+    }, [windowSize, hidden, resize]);
 
     const detailsPanel = React.useMemo(() => detailsOpened && details &&
         <SplitterPanel style={height} key='details' size={10}>
             <div className='w-full'>{
-                <Component {...details} value={{preview: {...result, ...getValues()}}} />
+                <Component {...detailsProps(result, getValues, details)} />
             }</div>
         </SplitterPanel>, [getValues, result, details, detailsOpened, height]);
 
