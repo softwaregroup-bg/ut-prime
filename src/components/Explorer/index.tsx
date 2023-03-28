@@ -56,6 +56,7 @@ const useStyles = createUseStyles({
         },
         '& .p-datatable-wrapper': {
             overflowX: 'auto',
+            maxWidth: '100vw',
             '& .p-button': {
                 textAlign: 'inherit'
             }
