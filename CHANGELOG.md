@@ -1,3 +1,12 @@
+# [2.71.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.70.0...v2.71.0) (2023-04-05)
+
+
+### Features
+
+* Editor onLoaded handler ([09c8959](https://github.com/softwaregroup-bg/ut-prime/commit/09c89597e63d73c58d09ea2302a0c47f69396b13))
+
+
+
 # [2.70.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.69.0...v2.70.0) (2023-03-15)
 
 
