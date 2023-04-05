@@ -7,12 +7,13 @@ import errorMessage from '../Error/errorMessage';
 function call(submit, dispatch, toast, success) {
     return async(...params) => {
         try {
-            await submit(...params);
+            const result = await submit(...params);
             success && params[0] && dispatch({
                 type: 'front.hint.open',
                 event: params[0],
                 result: success
             });
+            return result;
         } catch (error) {
             if (error.silent || error.message === 'silent') return;
             if (error.statusCode === 401 || !error.print || (!toast?.current && !params[0])) {

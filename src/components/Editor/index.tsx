@@ -70,6 +70,7 @@ const Editor: ComponentProps = ({
     onEdit,
     onChange,
     onFieldChange,
+    onLoaded,
     buttons: {
         save,
         reset
@@ -81,8 +82,8 @@ const Editor: ComponentProps = ({
 
     const [trigger, setTrigger] = React.useState();
     const [didSubmit, setDidSubmit] = React.useState(false);
-    const [dropdowns, setDropdown] = React.useState({});
-    const [[value, mode, layoutState, loadedValue], setValueMode] = React.useState([{}, id == null ? 'create' : 'edit' as 'create' | 'edit', layoutName, undefined]);
+    const [dropdowns, setDropdown] = React.useState<Parameters<typeof Form>[0]['dropdowns']>();
+    const [[value, mode, layoutState, loadedValue], setValueMode] = React.useState([null, id == null ? 'create' : 'edit' as 'create' | 'edit', layoutName, undefined]);
     const [loading, setLoading] = React.useState(loadingValue);
     const {
         customizationToolbar,
@@ -141,7 +142,7 @@ const Editor: ComponentProps = ({
             const value = merge(getDefault(mergedSchema), initValue, onInit && await onInit(initValue));
             if (value !== undefined) setValueMode(prev => [getLayoutValue(prev[1], prev[2], value), prev[1], prev[2], prev[3]]);
         }
-        edit();
+        if (initValue) edit();
     }, [initValue]); // eslint-disable-line react-hooks/exhaustive-deps
 
     const {handleSubmit: loadDropDown} = useSubmit(async() => setDropdown(await onDropdown(dropdownNames)), [dropdownNames, onDropdown]);
@@ -155,6 +156,11 @@ const Editor: ComponentProps = ({
     React.useEffect(() => {
         if (loadedValue !== undefined) setValueMode(prev => [getLayoutValue(prev[1], prev[2], loadedValue), prev[1], prev[2], prev[3]]);
     }, [loadedValue, getLayoutValue, setValueMode]);
+
+    const {handleSubmit: handleLoaded} = useSubmit(value => onLoaded && methods?.[onLoaded]({
+        value,
+        dropdowns
+    }), [dropdowns, methods, onLoaded]);
 
     const handleSubmit = React.useCallback(
         async function handleSubmit(data) {
@@ -237,6 +243,7 @@ const Editor: ComponentProps = ({
                         layout={layout || []}
                         onSubmit={handleSubmit}
                         onChange={onChange}
+                        onLoaded={handleLoaded}
                         onFieldChange={onFieldChange}
                         methods={methods}
                         value={value}

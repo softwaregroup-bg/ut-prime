@@ -54,6 +54,7 @@ const Form: ComponentProps = ({
     inspected,
     onInspect,
     onChange,
+    onLoaded,
     onFieldChange,
     setTrigger,
     triggerNotDirty,
@@ -130,12 +131,15 @@ const Form: ComponentProps = ({
 
     React.useEffect(() => {
         const {$original, ...formValue} = value || {};
-        reset({...formValue, $original: clonedeep(formValue)});
+        const newValue = {...formValue, $original: clonedeep(formValue)};
+        if (onLoaded && value) {
+            onLoaded(newValue).then(loaded => reset(loaded ?? newValue)).catch(() => reset({}));
+        } else reset(newValue);
         if (watch && onChange) {
             const watcher = watch(value => onChange(JSON.parse(JSON.stringify(value))));
             return () => watcher.unsubscribe();
         }
-    }, [value, reset, watch, onChange]);
+    }, [value, reset, watch, onChange, onLoaded]);
 
     const {devTool} = React.useContext(Context);
     let toolbarElement = null;

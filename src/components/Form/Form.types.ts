@@ -22,6 +22,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     designCards?: boolean;
     debug?: boolean;
     onSubmit?: (data: object) => void | Promise<void>;
+    onLoaded?: (data: object) => Promise<object>;
     inspected?: string;
     onInspect?: (data: object) => void;
     onFieldChange?: string;

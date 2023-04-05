@@ -402,6 +402,17 @@ exports[`<Inspector /> Basic render equals snapshot 1`] = `
     "test": {
       "sort": true
     }
+  },
+  "schema": {
+    "properties": {
+      "test": {
+        "widget": {
+          "labelClass": "md:col-4",
+          "fieldClass": "md:col-8",
+          "className": "w-full"
+        }
+      }
+    }
   }
 }
   </pre>

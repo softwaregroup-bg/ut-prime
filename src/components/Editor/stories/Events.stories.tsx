@@ -19,11 +19,22 @@ const Template: Story<Props> = ({methods, ...args}) => {
             onAdd={submit}
             onEdit={submit}
             onFieldChange='handleFieldChange'
+            onLoaded='handleLoaded'
             methods={{
                 async handleFieldChange({field, value, event}: {field: unknown, value, event: Event}) {
                     submit({field, value});
                     // throw new Error('test error');
                     // return false;
+                },
+                async handleLoaded({value: {input = {}, ...value}, dropdowns}) {
+                    if (dropdowns) {
+                        dropdowns.select = [
+                            {value: 3, label: 'Three'},
+                            {value: 2, label: 'Two'},
+                            {value: 1, label: 'One'}
+                        ];
+                    }
+                    return {...value, input: {...input, text: 'loaded'}};
                 },
                 async handleAutocomplete() {
                     return {

@@ -24,11 +24,6 @@ export interface Props {
      */
     schema: Schema;
     /**
-     * Array of property names to show as columns.
-     * @deprecated use cards.xxx.widgets instead
-     */
-    columns?: WidgetReference[];
-    /**
      * Data fetching async function.
      */
     fetch: (params: {

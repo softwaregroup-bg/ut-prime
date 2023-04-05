@@ -652,6 +652,7 @@ export default function Input({
                                 field,
                                 value: event.value,
                                 event: event.originalEvent,
+                                dropdowns,
                                 form: formApi
                             }) === false) return;
                         } catch (error) {
