@@ -153,7 +153,8 @@ const Explorer: ComponentProps = ({
     cards,
     editors,
     methods,
-    fetchValidation
+    fetchValidation,
+    clearSelectedOnFilterClear
 }) => {
     const [trigger, setTrigger] = React.useState<() => Promise<void>>();
     const [paramValues, submitParams] = React.useState<[Record<string, unknown>] | [Record<string, unknown>, {files: []}]>([params]);
@@ -399,6 +400,8 @@ const Explorer: ComponentProps = ({
             }</div>
         </SplitterPanel>, [getValues, result, details, detailsOpened, height]);
 
+    const handleFilterClear = React.useCallback(() => clearSelectedOnFilterClear && handleRowUnselect({}), [clearSelectedOnFilterClear, handleRowUnselect]);
+
     const [Columns, errorsWithoutColumn] = React.useMemo(() => {
         const errorsWithoutColumn = filterErrors ? [...filterErrors.details] : [];
         return [columns.map((column, index) => {
@@ -442,6 +445,7 @@ const Explorer: ComponentProps = ({
                             })}
                         />
                     }}
+                    onFilterClear={handleFilterClear}
                 />
             );
         }), errorsWithoutColumn.filter(Boolean)];
@@ -459,7 +463,8 @@ const Explorer: ComponentProps = ({
         submit,
         filterBy,
         filterErrors,
-        ctx
+        ctx,
+        handleFilterClear
     ]);
     const hasChildren = !!children;
 

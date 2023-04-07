@@ -78,7 +78,8 @@ export interface Props {
     value?: {selected?: unknown[]},
     onChange?: (params: object) => void,
     onCustomization?: (customization: {component: {componentId: string, componentConfig: Customization}}) => Promise<object>;
-    fetchValidation?: Joi.Schema
+    fetchValidation?: Joi.Schema;
+    clearSelectedOnFilterClear?: boolean;
 }
 
 export type ComponentProps = React.FC<Props>
