@@ -694,6 +694,7 @@ export default function Input({
                     } finally {
                         if (changeField) {
                             field.onChange(event.value);
+                            formApi.trigger(propertyName);
                             if (parentWatch?.[CHANGE] && name.startsWith('$.edit.')) {
                                 const old = {...parentWatch};
                                 parentWatch[name.split('.').pop()] = event?.value;

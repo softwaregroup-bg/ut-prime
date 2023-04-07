@@ -40,7 +40,10 @@ const ThumbIndex: ComponentProps = ({
     const classes = useStyles();
     const [[selectedList, activeIndex], setList] = React.useState([items[0], 0]);
     const handleListChange = React.useCallback(async({item, value = item, index = value.index}) => {
-        if (validate && validate(selectedList)?.error) return;
+        if (validate && validate(selectedList)?.error) {
+            formApi.trigger();
+            return;
+        }
         if (value.onMount && !(await methods[value.onMount]({form: formApi}))) return;
         setList([value, index]);
         onFilter([value?.items?.[0] || value, index]);

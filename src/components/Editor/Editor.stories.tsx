@@ -148,6 +148,7 @@ Steps.args = {
                 label: 'General',
                 validation: joi.object({
                     tree: joi.object({
+                        treeName: joi.string().required(),
                         habitat: joi.array().min(1)
                     }).unknown()
                 }).unknown(),
