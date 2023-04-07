@@ -1,3 +1,12 @@
+## [2.71.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.71.0...v2.71.1) (2023-04-07)
+
+
+### Bug Fixes
+
+* calendar month/year change ([629afa9](https://github.com/softwaregroup-bg/ut-prime/commit/629afa9c7941669af892124679f7b69bb49b8b90))
+
+
+
 # [2.71.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.70.0...v2.71.0) (2023-04-05)
 
 
