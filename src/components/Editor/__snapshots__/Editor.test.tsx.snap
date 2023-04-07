@@ -4083,7 +4083,7 @@ exports[`<Editor /> Files render equals snapshot 1`] = `
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="tree-documents"
                             id="tree-documents"
-                            pr_id_61=""
+                            pr_id_69=""
                           >
                             <div
                               class="p-datatable-wrapper"
@@ -10343,7 +10343,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="tree-links"
                             id="tree-links"
-                            pr_id_59=""
+                            pr_id_67=""
                           >
                             <div
                               class="p-datatable-wrapper"
@@ -14837,7 +14837,7 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="tree-links"
                             id="tree-links"
-                            pr_id_60=""
+                            pr_id_68=""
                           >
                             <div
                               class="p-datatable-wrapper"
@@ -15623,7 +15623,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="tree-links"
                             id="tree-links"
-                            pr_id_57=""
+                            pr_id_65=""
                           >
                             <div
                               class="p-datatable-wrapper"
@@ -16409,7 +16409,7 @@ exports[`<Editor /> ValidationBG render equals snapshot 1`] = `
                             data-scrollselectors=".p-datatable-wrapper"
                             data-testid="tree-links"
                             id="tree-links"
-                            pr_id_58=""
+                            pr_id_66=""
                           >
                             <div
                               class="p-datatable-wrapper"
