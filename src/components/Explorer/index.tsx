@@ -154,7 +154,7 @@ const Explorer: ComponentProps = ({
     editors,
     methods,
     fetchValidation,
-    clearSelectedOnFilterClear
+    clearCurrentAndSelected
 }) => {
     const [trigger, setTrigger] = React.useState<() => Promise<void>>();
     const [paramValues, submitParams] = React.useState<[Record<string, unknown>] | [Record<string, unknown>, {files: []}]>([params]);
@@ -217,14 +217,14 @@ const Explorer: ComponentProps = ({
     const multiSelect = keyField && (!tableProps?.selectionMode || tableProps?.selectionMode === 'checkbox');
 
     const [{current: currentState, selected: selectedState}, setCurrentSelected] = React.useState({current: null, selected: null});
-    const handleCurrentSelect = React.useCallback((value, event) => {
+    const handleCurrentSelect = React.useCallback((value, event = undefined) => {
         setCurrentSelected(({...prev}) => {
             if ('current' in value) prev.current = value.current;
             if ('selected' in value) prev.selected = value.selected;
-            if (event) onChange?.({...event, value: multiSelect ? prev : prev.current});
+            if (event || clearCurrentAndSelected) onChange?.({...event, value: multiSelect ? prev : prev.current});
             return prev;
         });
-    }, [setCurrentSelected, multiSelect, onChange]);
+    }, [setCurrentSelected, multiSelect, onChange, clearCurrentAndSelected]);
 
     const handleSelectionChange = React.useCallback(e => handleCurrentSelect({selected: e.value}, e), [handleCurrentSelect]);
     const handleRowSelect = React.useCallback(e => handleCurrentSelect({current: e.data}, e), [handleCurrentSelect]);
@@ -301,7 +301,7 @@ const Explorer: ComponentProps = ({
         async function() {
             if (!fetch) {
                 setItems([[], 0, {}]);
-                setCurrentSelected({current: null, selected: null});
+                handleCurrentSelect({current: null, selected: null});
                 setDropdown({});
             } else {
                 setLoading('loading');
@@ -339,12 +339,13 @@ const Explorer: ComponentProps = ({
                         total = tableFilter.first + total;
                     }
                     setItems([records, total, items]);
-                    setCurrentSelected({current: null, selected: null});
+                    handleCurrentSelect({current: null, selected: null});
                 } finally {
                     setLoading('');
                 }
             }
         },
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         [fetch, filter, index, pageSize, resultSet, tableFilter, externalFilter, validation, fetchTransform]
     );
     useLoad(async() => {
@@ -400,8 +401,6 @@ const Explorer: ComponentProps = ({
             }</div>
         </SplitterPanel>, [getValues, result, details, detailsOpened, height]);
 
-    const handleFilterClear = React.useCallback(() => clearSelectedOnFilterClear && handleRowUnselect({}), [clearSelectedOnFilterClear, handleRowUnselect]);
-
     const [Columns, errorsWithoutColumn] = React.useMemo(() => {
         const errorsWithoutColumn = filterErrors ? [...filterErrors.details] : [];
         return [columns.map((column, index) => {
@@ -445,7 +444,6 @@ const Explorer: ComponentProps = ({
                             })}
                         />
                     }}
-                    onFilterClear={handleFilterClear}
                 />
             );
         }), errorsWithoutColumn.filter(Boolean)];
@@ -463,8 +461,7 @@ const Explorer: ComponentProps = ({
         submit,
         filterBy,
         filterErrors,
-        ctx,
-        handleFilterClear
+        ctx
     ]);
     const hasChildren = !!children;
 

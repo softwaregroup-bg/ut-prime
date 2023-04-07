@@ -74,7 +74,7 @@ PortalComponent.args = {
                     table: {
                         selectionMode: 'single'
                     },
-                    clearSelectedOnFilterClear: true
+                    clearCurrentAndSelected: true
                 }
             },
             multiselect: {
