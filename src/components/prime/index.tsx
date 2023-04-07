@@ -105,14 +105,13 @@ export const DateRange = React.forwardRef<HTMLInputElement, CalendarProps>(funct
 export const Calendar = React.forwardRef<HTMLInputElement, CalendarProps>(function Calendar(props, ref) {
     const [visible, setVisible] = React.useState(false);
     const value = React.useMemo(() => (visible && !props.value) ? date() : props.value, [visible, props.value]);
-    const onVisibleChange = React.useCallback(event => {
-        setVisible(event.visible);
-    }, [setVisible]);
+    const handleShow = React.useCallback(() => setVisible(true), [setVisible]);
+    const handleHide = React.useCallback(() => setVisible(false), [setVisible]);
     return <PrimeCalendar
         {...props}
-        visible={visible}
         value={value}
-        onVisibleChange={onVisibleChange}
+        onShow={handleShow}
+        onHide={handleHide}
         inputRef={ref}
     />;
 });
