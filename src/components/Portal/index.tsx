@@ -12,6 +12,7 @@ import Context from '../Context';
 import Text from '../Text';
 import {logout} from '../Login/actions';
 import {State} from '../Store/Store.types';
+import Component from '../Component';
 
 import { useStyles, ComponentProps } from './Portal.types';
 import { useWindowSize } from '../hooks';
@@ -55,7 +56,7 @@ const Portal: ComponentProps = ({ children }) => {
     const location = useLocation();
     const history = useHistory();
     const size = useWindowSize();
-    const {portalName, extraTitle} = React.useContext(Context);
+    const {portalName, extraTitleComponent} = React.useContext(Context);
     const command = React.useCallback(({item}) => {
         if (item.component || item.tab) {
             dispatch({type: 'front.tab.show', ...item});
@@ -110,7 +111,7 @@ const Portal: ComponentProps = ({ children }) => {
                         <Text>{portalName}</Text>
                     </div>
                     <Menubar model={menuEnabled} className={classes[menuClass]} style={backgroundNone}/>
-                    {extraTitle ? <div className='p-component text-lg mr-2 font-bold'><Text>{extraTitle}</Text></div> : null}
+                    {extraTitleComponent ? <Component page={extraTitleComponent} /> : null}
                     {Switch ? <Switch /> : null}
                     <Menubar model={rightEnabled} className={classes[rightMenuClass]} style={backgroundNone}/>
                 </div>

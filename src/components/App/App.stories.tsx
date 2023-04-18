@@ -9,6 +9,23 @@ import type {Props} from './App.types';
 import state from '../test/state';
 import {middleware} from '../Text/Text.mock';
 
+function ExtraTitleComponent() {
+    return <div>
+        <div><Text>Line 1</Text></div>
+        <div><Text>Line 2</Text></div>
+    </div>;
+}
+
+function RegisterComponent(action) {
+    return function RegisterComponent({language}) {
+        return <div className='p-component'><Text lang={language}>Registration page</Text>: {action.page}</div>;
+    };
+}
+
+const componentMiddleware = _store => next => action => (action.type === 'portal.component.get')
+    ? Promise.resolve(action.page === 'some.provided.component' ? ExtraTitleComponent : RegisterComponent(action))
+    : next(action);
+
 const meta: Meta = {
     title: 'App',
     component: App,
@@ -20,7 +37,6 @@ const Template: Story<Props & {dir?: 'rtl' | 'ltr', theme}> = ({dir: storyDir, t
     history.replaceState({}, '', '#');
     return <App
         portalName='test app'
-        extraTitle='secondary title'
         state={merge({}, state, {login: {language: {languageId: language}}})}
         theme={{
             ut: {
@@ -36,7 +52,9 @@ const Template: Story<Props & {dir?: 'rtl' | 'ltr', theme}> = ({dir: storyDir, t
                     Register: 'يسجل',
                     'Registration page': 'صفحة التسجيل',
                     Username: 'اسم المستخدم',
-                    Password: 'كلمة المرور'
+                    Password: 'كلمة المرور',
+                    'Line 1': 'خط 1',
+                    'Line 2': 'خط 2'
                 },
                 bg: {
                     passwordPrompt: 'Въведете парола',
@@ -45,14 +63,16 @@ const Template: Story<Props & {dir?: 'rtl' | 'ltr', theme}> = ({dir: storyDir, t
                     Register: 'Регистрация',
                     'Registration page': 'Страница за регистрация',
                     Username: 'Потребител',
-                    Password: 'Парола'
+                    Password: 'Парола',
+                    'Line 1': 'Линия 1',
+                    'Line 2': 'Линия 2'
                 }
             },
             palette: {
                 type: theme
             }
         }}
-        middleware={[middleware]}
+        middleware={[middleware, componentMiddleware]}
         {...props}
     />;
 };
@@ -68,17 +88,23 @@ BasicAR.args = {
     lang: 'ar'
 };
 
+export const BasicWithExtraTitleComponentBG = Template.bind({});
+BasicWithExtraTitleComponentBG.args = {
+    extraTitleComponent: 'some.provided.component',
+    lang: 'bg'
+};
+
+export const BasicWithExtraTitleComponentAR = Template.bind({});
+BasicWithExtraTitleComponentAR.args = {
+    extraTitleComponent: 'some.provided.component',
+    lang: 'ar',
+    dir: 'rtl'
+};
+
 export const Register = Template.bind({});
 Register.args = {
     state: {...state, login: null},
-    registrationPage: 'user.self.add',
-    middleware: [
-        _store => next => action => (action.type === 'portal.component.get')
-            ? Promise.resolve(function Register({language}) {
-                return <div className='p-component'><Text lang={language}>Registration page</Text>: {action.page}</div>;
-            })
-            : next(action)
-    ]
+    registrationPage: 'user.self.add'
 };
 
 export const RegisterBG = Template.bind({});
@@ -90,6 +116,25 @@ RegisterBG.args = {
 export const RegisterAR = Template.bind({});
 RegisterAR.args = {
     ...Register.args,
+    lang: 'ar',
+    dir: 'rtl'
+};
+
+export const RegisterWithTitle = Template.bind({});
+RegisterWithTitle.args = {
+    ...Register.args,
+    loginTitleComponent: 'some.provided.component'
+};
+
+export const RegisterWithTitleBG = Template.bind({});
+RegisterWithTitleBG.args = {
+    ...RegisterWithTitle.args,
+    lang: 'bg'
+};
+
+export const RegisterWithTitleAR = Template.bind({});
+RegisterWithTitleAR.args = {
+    ...RegisterWithTitle.args,
     lang: 'ar',
     dir: 'rtl'
 };

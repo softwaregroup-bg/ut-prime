@@ -9,7 +9,8 @@ export interface Props extends StoreProps, React.HTMLAttributes<HTMLDivElement> 
     theme: Theme,
     customization?: boolean,
     portalName: string,
-    extraTitle?: string,
+    extraTitleComponent?: string,
+    loginTitleComponent?: string,
     devTool?: boolean,
     loginPage?: string,
     registrationPage?: string

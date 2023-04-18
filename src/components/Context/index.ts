@@ -12,7 +12,8 @@ interface contextType {
     portalName: string,
     devTool?: boolean,
     setLanguage?: (language: string) => void,
-    extraTitle?: string
+    extraTitleComponent?: string;
+    loginTitleComponent?: string
 }
 
 const defaultContext: contextType = {
