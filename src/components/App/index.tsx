@@ -14,14 +14,14 @@ import Component from '../Component';
 import { ComponentProps } from './App.types';
 import PageNotFound from './PageNotFound';
 
-const App: ComponentProps = ({middleware, reducers, theme: defaultTheme, devTool, portalName, extraTitle, customization, state, onDispatcher, loginPage, registrationPage}) => {
+const App: ComponentProps = ({middleware, reducers, theme: defaultTheme, devTool, portalName, extraTitleComponent, loginTitleComponent, customization, state, onDispatcher, loginPage, registrationPage}) => {
     const [theme, setTheme] = React.useState(defaultTheme);
     const setLanguage = React.useCallback(language => setTheme(prev => ({
         ...prev,
         language,
         dir: ['ar', 'arc', 'dv', 'fa', 'ha', 'he', 'khw', 'ks', 'ku', 'ps', 'ur', 'yi'].includes(language) ? 'rtl' : 'ltr'
     })), []);
-    const context = React.useMemo(() => ({portalName, devTool, customization, setLanguage, extraTitle}), [portalName, devTool, customization, setLanguage, extraTitle]);
+    const context = React.useMemo(() => ({portalName, devTool, customization, setLanguage, extraTitleComponent, loginTitleComponent}), [portalName, devTool, customization, setLanguage, extraTitleComponent, loginTitleComponent]);
     React.useEffect(() => {
         locale(theme?.language || 'en');
         theme?.languages && Object.entries(theme.languages).forEach(([language, options]) => addLocale(language, options));

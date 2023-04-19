@@ -10,6 +10,7 @@ import { Password, InputText, Button } from '../prime';
 import Text from '../Text';
 import { Validator } from '../lib/validator';
 import { State } from '../Store/Store.types';
+import Component from '../Component';
 
 import { useStyles, ComponentProps } from './Login.types';
 import { identityCheck } from './actions';
@@ -222,7 +223,7 @@ const Login: ComponentProps = ({
     const {ut, Switch} = useTheme<Theme>();
     const history = useHistory();
     const authenticated = useSelector((state: State) => state.login);
-    const {setLanguage} = React.useContext(Context);
+    const {setLanguage, loginTitleComponent} = React.useContext(Context);
 
     const [{ title, error, invalidField, inputs, buttonLabel }, dispatch] = React.useReducer(reducer, initialState);
     if (authenticated) return <Redirect to='/' />;
@@ -246,6 +247,7 @@ const Login: ComponentProps = ({
     return (
         <>
             <div className={clsx('p-component', loginContainer)}>
+                {loginTitleComponent ? <Component page={loginTitleComponent} /> : null}
                 <div className={clsx(loginLogo, loginPageHeader, ut?.classes?.loginTop)} />
                 <div className={clsx(loginForm, 'shadow-3')}>
                     {title && <div className={loginTitle}><Text>{title}</Text></div>}

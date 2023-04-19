@@ -1,7 +1,19 @@
 import React from 'react';
 import { render } from '../test';
 
-import { Basic, BasicBG, BasicAR, Register, RegisterBG, RegisterAR } from './App.stories';
+import {
+    Basic,
+    BasicBG,
+    BasicAR,
+    BasicWithExtraTitleComponentBG,
+    BasicWithExtraTitleComponentAR,
+    Register,
+    RegisterBG,
+    RegisterAR,
+    RegisterWithTitle,
+    RegisterWithTitleBG,
+    RegisterWithTitleAR
+} from './App.stories';
 
 describe('<App />', () => {
     it('Basic equals snapshot', async() => {
@@ -26,6 +38,26 @@ describe('<App />', () => {
     });
     it('RegisterAR equals snapshot', async() => {
         const { findByTestId } = render(<RegisterAR {...RegisterAR.args} />);
+        expect(await findByTestId('ut-front-test')).toMatchSnapshot();
+    });
+    it('BasicWithExtraTitleComponentBG equals snapshot', async() => {
+        const { findByTestId } = render(<BasicWithExtraTitleComponentBG {...BasicWithExtraTitleComponentBG.args} />);
+        expect(await findByTestId('ut-front-test')).toMatchSnapshot();
+    });
+    it('BasicWithExtraTitleComponentAR equals snapshot', async() => {
+        const { findByTestId } = render(<BasicWithExtraTitleComponentAR {...BasicWithExtraTitleComponentAR.args} />);
+        expect(await findByTestId('ut-front-test')).toMatchSnapshot();
+    });
+    it('RegisterWithTitle equals snapshot', async() => {
+        const { findByTestId } = render(<RegisterWithTitle {...RegisterWithTitle.args} />);
+        expect(await findByTestId('ut-front-test')).toMatchSnapshot();
+    });
+    it('RegisterWithTitleBG equals snapshot', async() => {
+        const { findByTestId } = render(<RegisterWithTitleBG {...RegisterWithTitleBG.args} />);
+        expect(await findByTestId('ut-front-test')).toMatchSnapshot();
+    });
+    it('RegisterWithTitleAR equals snapshot', async() => {
+        const { findByTestId } = render(<RegisterWithTitleAR {...RegisterWithTitleAR.args} />);
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
 });
