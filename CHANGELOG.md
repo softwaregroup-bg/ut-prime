@@ -1,3 +1,12 @@
+# [2.72.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.71.1...v2.72.0) (2023-04-19)
+
+
+### Features
+
+* **CBI-1813:** login and secondary app title through provided components ([#50](https://github.com/softwaregroup-bg/ut-prime/issues/50)) ([3c99fcf](https://github.com/softwaregroup-bg/ut-prime/commit/3c99fcfc75684f9e5b17cc09cf3261f045e4d4cc))
+
+
+
 ## [2.71.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.71.0...v2.71.1) (2023-04-07)
 
 
