@@ -153,8 +153,7 @@ const Explorer: ComponentProps = ({
     cards,
     editors,
     methods,
-    fetchValidation,
-    clearCurrentAndSelected
+    fetchValidation
 }) => {
     const [trigger, setTrigger] = React.useState<() => Promise<void>>();
     const [paramValues, submitParams] = React.useState<[Record<string, unknown>] | [Record<string, unknown>, {files: []}]>([params]);
@@ -221,10 +220,10 @@ const Explorer: ComponentProps = ({
         setCurrentSelected(({...prev}) => {
             if ('current' in value) prev.current = value.current;
             if ('selected' in value) prev.selected = value.selected;
-            if (event || clearCurrentAndSelected) onChange?.({...event, value: multiSelect ? prev : prev.current});
+            onChange?.({...event, value: multiSelect ? prev : prev.current});
             return prev;
         });
-    }, [setCurrentSelected, multiSelect, onChange, clearCurrentAndSelected]);
+    }, [setCurrentSelected, multiSelect, onChange]);
 
     const handleSelectionChange = React.useCallback(e => handleCurrentSelect({selected: e.value}, e), [handleCurrentSelect]);
     const handleRowSelect = React.useCallback(e => handleCurrentSelect({current: e.data}, e), [handleCurrentSelect]);
@@ -339,14 +338,16 @@ const Explorer: ComponentProps = ({
                         total = tableFilter.first + total;
                     }
                     setItems([records, total, items]);
-                    handleCurrentSelect({current: null, selected: null});
+                    const selected = records.filter(r => selectedState?.some(ss => r[keyField] === ss?.[keyField])) || null;
+                    const current = records.find(r => r[keyField] === currentState?.[keyField]) || selected?.[0] || null;
+                    handleCurrentSelect({current, selected});
                 } finally {
                     setLoading('');
                 }
             }
         },
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        [fetch, filter, index, pageSize, resultSet, tableFilter, externalFilter, validation, fetchTransform]
+        [fetch, filter, index, pageSize, resultSet, tableFilter, externalFilter, validation, fetchTransform, handleCurrentSelect, keyField] // 'currentState' and 'selectedState'
     );
     useLoad(async() => {
         if (onDropdown) setDropdown(await onDropdown(dropdownNames.split(',').filter(Boolean)));

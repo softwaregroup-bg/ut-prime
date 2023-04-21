@@ -73,8 +73,7 @@ PortalComponent.args = {
                     page: 'portal.explorer',
                     table: {
                         selectionMode: 'single'
-                    },
-                    clearCurrentAndSelected: true
+                    }
                 }
             },
             multiselect: {
