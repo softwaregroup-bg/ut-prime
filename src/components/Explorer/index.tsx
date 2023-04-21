@@ -216,11 +216,11 @@ const Explorer: ComponentProps = ({
     const multiSelect = keyField && (!tableProps?.selectionMode || tableProps?.selectionMode === 'checkbox');
 
     const [{current: currentState, selected: selectedState}, setCurrentSelected] = React.useState({current: null, selected: null});
-    const handleCurrentSelect = React.useCallback((value, event = undefined) => {
+    const handleCurrentSelect = React.useCallback((value, event) => {
         setCurrentSelected(({...prev}) => {
             if ('current' in value) prev.current = value.current;
             if ('selected' in value) prev.selected = value.selected;
-            onChange?.({...event, value: multiSelect ? prev : prev.current});
+            if (event) onChange?.({...event, value: multiSelect ? prev : prev.current});
             return prev;
         });
     }, [setCurrentSelected, multiSelect, onChange]);
@@ -300,7 +300,7 @@ const Explorer: ComponentProps = ({
         async function() {
             if (!fetch) {
                 setItems([[], 0, {}]);
-                handleCurrentSelect({current: null, selected: null});
+                setCurrentSelected({current: null, selected: null});
                 setDropdown({});
             } else {
                 setLoading('loading');
@@ -338,16 +338,18 @@ const Explorer: ComponentProps = ({
                         total = tableFilter.first + total;
                     }
                     setItems([records, total, items]);
-                    const selected = records.filter(r => selectedState?.some(ss => r[keyField] === ss?.[keyField])) || null;
-                    const current = records.find(r => r[keyField] === currentState?.[keyField]) || selected?.[0] || null;
-                    handleCurrentSelect({current, selected});
+                    setCurrentSelected(({...prev}) => {
+                        prev.selected = records.filter(r => prev.selected?.some(ss => r[keyField] === ss?.[keyField])) || null;
+                        prev.current = records.find(r => r[keyField] === prev.current?.[keyField]) || prev.selected?.[0] || null;
+                        onChange?.({value: multiSelect ? prev : prev.current});
+                        return prev;
+                    });
                 } finally {
                     setLoading('');
                 }
             }
         },
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        [fetch, filter, index, pageSize, resultSet, tableFilter, externalFilter, validation, fetchTransform, handleCurrentSelect, keyField] // 'currentState' and 'selectedState'
+        [fetch, filter, index, pageSize, resultSet, tableFilter, externalFilter, validation, fetchTransform, keyField, onChange, multiSelect]
     );
     useLoad(async() => {
         if (onDropdown) setDropdown(await onDropdown(dropdownNames.split(',').filter(Boolean)));
