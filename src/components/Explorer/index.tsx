@@ -338,13 +338,18 @@ const Explorer: ComponentProps = ({
                         total = tableFilter.first + total;
                     }
                     setItems([records, total, items]);
-                    setCurrentSelected({current: null, selected: null});
+                    setCurrentSelected(({...prev}) => {
+                        prev.selected = records.filter(r => prev.selected?.some(ss => r[keyField] === ss?.[keyField])) || null;
+                        prev.current = records.find(r => r[keyField] === prev.current?.[keyField]) || prev.selected?.[0] || null;
+                        onChange?.({value: multiSelect ? prev : prev.current});
+                        return prev;
+                    });
                 } finally {
                     setLoading('');
                 }
             }
         },
-        [fetch, filter, index, pageSize, resultSet, tableFilter, externalFilter, validation, fetchTransform]
+        [fetch, filter, index, pageSize, resultSet, tableFilter, externalFilter, validation, fetchTransform, keyField, onChange, multiSelect]
     );
     useLoad(async() => {
         if (onDropdown) setDropdown(await onDropdown(dropdownNames.split(',').filter(Boolean)));

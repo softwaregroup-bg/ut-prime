@@ -173,6 +173,7 @@ exports[`<Explorer /> render equals snapshot 1`] = `
                               class="p-checkbox p-component"
                             >
                               <div
+                                aria-checked="false"
                                 class="p-checkbox-box p-component"
                                 role="checkbox"
                                 tabindex="0"
