@@ -340,7 +340,8 @@ const Explorer: ComponentProps = ({
                     }
                     setItems([records, total, items]);
                     setCurrentSelected(({...prev}) => {
-                        prev.selected = records.filter(r => prev.selected?.some(ss => r[keyField] === ss?.[keyField])) || null;
+                        const currentSelected = records.filter(r => prev.selected?.some?.(ss => r[keyField] === ss?.[keyField]));
+                        prev.selected = currentSelected.length ? currentSelected : null;
                         prev.current = records.find(r => r[keyField] === prev.current?.[keyField]) || prev.selected?.[0] || null;
                         onChange?.({value: multiSelect ? prev : prev.current});
                         return prev;
