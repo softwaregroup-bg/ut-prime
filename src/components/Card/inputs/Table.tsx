@@ -66,6 +66,7 @@ const useStyles = createUseStyles({
     table: {
         '& .p-datatable-wrapper': {
             overflowX: 'auto',
+            maxWidth: '100vw',
             '& th': {
                 minWidth: '3rem',
                 position: 'relative',
