@@ -1,3 +1,15 @@
+## [2.72.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.72.0...v2.72.1) (2023-04-22)
+
+
+### Bug Fixes
+
+* **CBI-1651:** selected null in case of empty array ([#51](https://github.com/softwaregroup-bg/ut-prime/issues/51)) ([47eb856](https://github.com/softwaregroup-bg/ut-prime/commit/47eb856df3a3eae1b0881d5bec0189fc86df7049))
+* Explorer endless loop ([0130042](https://github.com/softwaregroup-bg/ut-prime/commit/01300420efe3a0a2bfa43bde4a75a8e5d24813b5))
+* row stays selected when filters are changed ([#48](https://github.com/softwaregroup-bg/ut-prime/issues/48)) ([e329d9e](https://github.com/softwaregroup-bg/ut-prime/commit/e329d9e3bb55e5783f4e507eab567003799449c9))
+* table scrollbar when when we have many columns UTCORE-398 ([#47](https://github.com/softwaregroup-bg/ut-prime/issues/47)) ([41c1b45](https://github.com/softwaregroup-bg/ut-prime/commit/41c1b45df781141b1ad07b254d6bf40fe1e1b8a8))
+
+
+
 # [2.72.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.71.1...v2.72.0) (2023-04-19)
 
 
