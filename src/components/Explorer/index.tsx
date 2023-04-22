@@ -343,7 +343,6 @@ const Explorer: ComponentProps = ({
                         const currentSelected = records.filter(r => prev.selected?.some?.(ss => r[keyField] === ss?.[keyField]));
                         prev.selected = currentSelected.length ? currentSelected : null;
                         prev.current = records.find(r => r[keyField] === prev.current?.[keyField]) || prev.selected?.[0] || null;
-                        onChange?.({value: multiSelect ? prev : prev.current});
                         return prev;
                     });
                 } finally {
@@ -351,7 +350,7 @@ const Explorer: ComponentProps = ({
                 }
             }
         },
-        [fetch, filter, index, pageSize, resultSet, tableFilter, externalFilter, validation, fetchTransform, keyField, onChange, multiSelect]
+        [fetch, filter, index, pageSize, resultSet, tableFilter, externalFilter, validation, fetchTransform, keyField]
     );
     useLoad(async() => {
         if (onDropdown) setDropdown(await onDropdown(dropdownNames.split(',').filter(Boolean)));
