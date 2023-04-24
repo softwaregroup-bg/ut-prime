@@ -340,9 +340,21 @@ const Explorer: ComponentProps = ({
                     }
                     setItems([records, total, items]);
                     setCurrentSelected(({...prev}) => {
+                        let update = false;
                         const currentSelected = records.filter(r => prev.selected?.some?.(ss => r[keyField] === ss?.[keyField]));
+                        const currentCurrent = records.find(r => r[keyField] === prev.current?.[keyField]);
+                        if (
+                            prev.current?.[keyField] !== currentCurrent?.[keyField] ||
+                            (currentSelected?.length && prev.selected?.length !== currentSelected.length) ||
+                            (!currentSelected?.length && prev.selected?.length)
+                        ) {
+                            update = true;
+                        }
                         prev.selected = currentSelected.length ? currentSelected : null;
-                        prev.current = records.find(r => r[keyField] === prev.current?.[keyField]) || prev.selected?.[0] || null;
+                        prev.current = currentCurrent || prev.selected?.[0] || null;
+                        if (update) {
+                            onChange?.({value: multiSelect ? prev : prev.current});
+                        }
                         return prev;
                     });
                 } finally {
@@ -350,7 +362,7 @@ const Explorer: ComponentProps = ({
                 }
             }
         },
-        [fetch, filter, index, pageSize, resultSet, tableFilter, externalFilter, validation, fetchTransform, keyField]
+        [fetch, filter, index, pageSize, resultSet, tableFilter, externalFilter, validation, fetchTransform, keyField, onChange, multiSelect]
     );
     useLoad(async() => {
         if (onDropdown) setDropdown(await onDropdown(dropdownNames.split(',').filter(Boolean)));
