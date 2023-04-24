@@ -19,6 +19,7 @@ import {ConfigField, ConfigCard, useDragging} from '../Form/DragDrop';
 import {Button} from '../prime';
 import testid from '../lib/testid';
 import useForm from '../hooks/useForm';
+import useLayout from '../hooks/useLayout';
 import type {Cards, Layouts, LayoutMode} from '../types';
 
 const capital = (string: string) => string.charAt(0).toUpperCase() + string.slice(1);
@@ -72,6 +73,8 @@ const getFieldsValue = (fields, value) => {
     return editValue;
 };
 
+const empty = [];
+
 export default function useCustomization({
     designDefault,
     schema,
@@ -79,7 +82,8 @@ export default function useCustomization({
     layouts,
     customization: customizationDefault,
     mode = 'view' as LayoutMode,
-    layoutState = '',
+    layoutName = '',
+    layout = undefined,
     Editor,
     maxHeight = undefined,
     onCustomization,
@@ -99,10 +103,11 @@ export default function useCustomization({
     const mergedLayouts = React.useMemo(() => merge({}, layouts, mergedCustomization.layout), [layouts, mergedCustomization.layout]);
     const [addField, setAddField] = React.useState(null);
     const [addCard, setAddCard] = React.useState(null);
-    const [items, layout, indexType, orientation, toolbar, currentLayoutName, disableBack, hideBack, disabled, enabled] = React.useMemo(
-        () => getLayout(mergedCards, mergedLayouts, mode, layoutState),
-        [mergedCards, mergedLayouts, mode, layoutState]
+    const [items, currentLayout, indexType, orientation, toolbar, currentLayoutName, disableBack, hideBack, disabled, enabled] = React.useMemo(
+        () => getLayout(mergedCards, mergedLayouts, mode, layoutName),
+        [mergedCards, mergedLayouts, mode, layoutName]
     );
+    const usedLayout = layout || currentLayout;
     const [[filter, filterIndex], setFilter] = React.useState([items?.[0]?.items?.[0] || items?.[0], 0]);
     const first = React.useRef(true);
     React.useEffect(() => {
@@ -110,7 +115,7 @@ export default function useCustomization({
             first.current = false;
         } else setFilter([items?.[0]?.items?.[0] || items?.[0], 0]);
     }, [items]);
-    const moveLayout = layout || filter?.widgets;
+    const moveLayout = usedLayout || filter?.widgets;
 
     const move = React.useMemo(() => design && ((type: 'card' | 'field', source, destination) => {
         if (type === 'field') {
@@ -176,14 +181,14 @@ export default function useCustomization({
                 const removed = sourceList.splice(sourceIndex, 1)[0];
                 if (sourceList.length === 1 && sourceNested && sourceList !== destinationList) newLayout[source.index[0]] = sourceList[0];
                 destinationList.splice(destinationIndex, 0, removed);
-                const updateLayout = layout ? newLayout : {
+                const updateLayout = usedLayout ? newLayout : {
                     ...mergedLayouts[currentLayoutName],
                     items: mergedLayouts[currentLayoutName]?.items.map((item, index) => index === filterIndex ? {
                         ...item,
                         widgets: newLayout
                     } : item)
                 };
-                if (!layout) setFilter([updateLayout.items?.[filterIndex], filterIndex]);
+                if (!usedLayout) setFilter([updateLayout.items?.[filterIndex], filterIndex]);
                 setCustomization(prev => {
                     return {
                         ...prev,
@@ -195,7 +200,7 @@ export default function useCustomization({
                 });
             }
         }
-    }), [design, cards, layout, moveLayout, currentLayoutName, mergedLayouts, filterIndex]);
+    }), [design, cards, usedLayout, moveLayout, currentLayoutName, mergedLayouts, filterIndex]);
 
     const remove = React.useMemo(() => design && ((type, source) => {
         if (type === 'card') {
@@ -217,14 +222,14 @@ export default function useCustomization({
                 setCustomization(prev => {
                     sourceList.splice(sourceIndex, 1);
                     if (sourceList.length === 1 && sourceNested) newLayout[source.index[0]] = sourceList[0];
-                    const updateLayout = layout ? newLayout : {
+                    const updateLayout = usedLayout ? newLayout : {
                         ...mergedLayouts[currentLayoutName],
                         items: mergedLayouts[currentLayoutName]?.items.map((item, index) => index === filterIndex ? {
                             ...item,
                             widgets: newLayout
                         } : item)
                     };
-                    if (!layout) setFilter([updateLayout.items?.[filterIndex], filterIndex]);
+                    if (!usedLayout) setFilter([updateLayout.items?.[filterIndex], filterIndex]);
                     return {
                         ...prev,
                         layout: {
@@ -252,7 +257,7 @@ export default function useCustomization({
                 });
             }
         }
-    }), [design, moveLayout, layout, mergedLayouts, currentLayoutName, filterIndex, mergedCards]);
+    }), [design, moveLayout, usedLayout, mergedLayouts, currentLayoutName, filterIndex, mergedCards]);
 
     const selectField = design ? <SelectField
         schema={mergedSchema}
@@ -284,14 +289,14 @@ export default function useCustomization({
         onSelect={item => {
             const {destinationList, destinationIndex, newLayout, currentLayoutName} = addCard;
             destinationList.splice(destinationIndex, 0, item);
-            const updateLayout = layout ? newLayout : {
+            const updateLayout = usedLayout ? newLayout : {
                 ...mergedLayouts[currentLayoutName],
                 items: mergedLayouts[currentLayoutName]?.items.map((item, index) => index === filterIndex ? {
                     ...item,
                     widgets: newLayout
                 } : item)
             };
-            if (!layout) setFilter([updateLayout.items?.[filterIndex], filterIndex]);
+            if (!usedLayout) setFilter([updateLayout.items?.[filterIndex], filterIndex]);
             setCustomization(prev => {
                 return {
                     ...prev,
@@ -384,7 +389,7 @@ export default function useCustomization({
         customizationResult?.component && setCustomization({schema: {}, card: {}, layout: {}, ...(customizationResult.component as {componentConfig?:object}).componentConfig});
     }, [customizationDefault, customizationEnabled, methods, name]);
 
-    const layoutItems = items ? false : layout; // preserve memoization
+    const layoutItems = items ? false : usedLayout; // preserve memoization
     const [
         validation,
         dropdownNames,
@@ -420,6 +425,8 @@ export default function useCustomization({
         }
     }, [formApi]);
 
+    const layoutState = useLayout(mergedSchema, mergedCards, usedLayout || filter?.widgets || empty, editors, undefined, layoutFields);
+
     const thumbIndex = items && (
         <ThumbIndex
             name={name}
@@ -434,6 +441,7 @@ export default function useCustomization({
             hideBack={hideBack}
             methods={methods}
             formApi={formApi}
+            layoutState={layoutState}
         />
     );
 
@@ -445,10 +453,18 @@ export default function useCustomization({
         loadCustomization,
         orientation,
         thumbIndex,
-        layout: layout || filter?.widgets,
+        layout: usedLayout || filter?.widgets,
         disabled,
         enabled,
-        formProps: React.useMemo(() => ({move, inspected, onInspect, toolbar, design, designCards: design}), [move, inspected, onInspect, toolbar, design]),
+        formProps: React.useMemo(() => ({
+            move,
+            inspected,
+            onInspect,
+            toolbar,
+            design,
+            designCards: design
+        }), [move, inspected, onInspect, toolbar, design]),
+        layoutState,
         dropdownNames,
         getLayoutValue,
         layoutFields,

@@ -10,6 +10,7 @@ import {input, dropdowns} from '../test/input';
 import decorators from '../test/decorator';
 import {middleware} from '../Text/Text.mock';
 import useForm from '../hooks/useForm';
+import useLayout from '../hooks/useLayout';
 
 const meta: Meta = {
     title: 'Form',
@@ -30,7 +31,7 @@ declare type StoryTemplate = Story<Partial<Props>> & {
 const Template: Story<Props & {state: unknown, middleware: unknown}> = ({state, middleware, ...args}) => {
     const formApi = useForm();
     return <div className='flex' style={{overflowX: 'hidden', width: '100%'}}>
-        <Form formApi={formApi} {...args} />
+        <Form formApi={formApi} layoutState={useLayout(args.schema, args.cards, args.layout, args.editors, undefined, args.layoutFields)} {...args} />
     </div>;
 };
 
