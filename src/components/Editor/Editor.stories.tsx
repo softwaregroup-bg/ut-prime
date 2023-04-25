@@ -43,6 +43,13 @@ export const Template: Story<Props> = args => {
                     async 'portal.customization.get'() {
                         return {};
                     },
+                    async handleCheck({ value, form: { formState, ...form }}) {
+                        if (formState) {
+                            form.setError('tree.treeName', {type: 'custom', message: 'Error'});
+                        }
+                        console.log('errors', formState.errors);
+                        return { value, form: { formState, ...form } };
+                    },
                     'editor.submit': submit,
                     'editor.submitError': error('submit error'),
                     'editor.submitDelay': delay
@@ -240,7 +247,8 @@ FilesInTab.args = {
                 id: 'general',
                 icon: 'pi pi-user',
                 label: 'General',
-                widgets: ['edit', 'habitat']
+                widgets: ['edit', 'habitat'],
+                onMount: 'handleCheck'
             }, {
                 id: 'details',
                 label: 'Details',

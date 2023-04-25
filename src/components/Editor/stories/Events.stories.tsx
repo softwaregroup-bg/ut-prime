@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Story } from '@storybook/react';
+import { userEvent, within } from '@storybook/testing-library';
 import type { Props } from '../Editor.types';
 import Editor from '..';
 import useToast from '../../hooks/useToast';
@@ -20,8 +21,9 @@ const Template: Story<Props> = ({methods, ...args}) => {
             onEdit={submit}
             onFieldChange='handleFieldChange'
             onLoaded='handleLoaded'
+            onMount='handleCheck'
             methods={{
-                async handleFieldChange({field, value, event}: {field: unknown, value, event: Event}) {
+                async handleFieldChange({field, value}: {field: unknown, value, event: Event}) {
                     submit({field, value});
                     // throw new Error('test error');
                     // return false;
@@ -35,6 +37,21 @@ const Template: Story<Props> = ({methods, ...args}) => {
                         ];
                     }
                     return {...value, input: {...input, text: 'loaded'}};
+                },
+                async handleCheck({ value, form: { formState, ...form }}) {
+                    formState = {
+                        errors: {
+                            input: {
+                                input: {
+                                    type: 'custom',
+                                    message: 'Error'
+                                }
+                            }
+                        },
+                        ...formState
+                    };
+                    console.log('errors', formState);
+                    return { value, form: { formState, ...form } };
                 },
                 async handleAutocomplete() {
                     return {

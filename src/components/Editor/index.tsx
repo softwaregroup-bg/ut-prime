@@ -71,6 +71,7 @@ const Editor: ComponentProps = ({
     onChange,
     onFieldChange,
     onLoaded,
+    onMount,
     buttons: {
         save,
         reset
@@ -162,6 +163,11 @@ const Editor: ComponentProps = ({
         dropdowns
     }), [dropdowns, methods, onLoaded]);
 
+    const {handleSubmit: handleMount} = useSubmit(value => onMount && methods?.[onMount]({
+        value,
+        form: formApi
+    }), [formApi, methods, onMount]);
+
     const handleSubmit = React.useCallback(
         async function handleSubmit(data) {
             let response;
@@ -244,6 +250,7 @@ const Editor: ComponentProps = ({
                         onSubmit={handleSubmit}
                         onChange={onChange}
                         onLoaded={handleLoaded}
+                        onMount={handleMount}
                         onFieldChange={onFieldChange}
                         methods={methods}
                         value={value}

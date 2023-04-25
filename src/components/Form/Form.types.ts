@@ -23,6 +23,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     debug?: boolean;
     onSubmit?: (data: object) => void | Promise<void>;
     onLoaded?: (data: object) => Promise<object>;
+    onMount?: (data: object) => void | Promise<void>;
     inspected?: string;
     onInspect?: (data: object) => void;
     onFieldChange?: string;
