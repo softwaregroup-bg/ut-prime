@@ -339,30 +339,30 @@ const Explorer: ComponentProps = ({
                         total = tableFilter.first + total;
                     }
                     setItems([records, total, items]);
-                    setCurrentSelected(({...prev}) => {
-                        let update = false;
-                        const currentSelected = records.filter(r => prev.selected?.some?.(ss => r[keyField] === ss?.[keyField]));
-                        const currentCurrent = records.find(r => r[keyField] === prev.current?.[keyField]);
-                        if (
-                            prev.current?.[keyField] !== currentCurrent?.[keyField] ||
-                            (currentSelected?.length && prev.selected?.length !== currentSelected.length) ||
-                            (!currentSelected?.length && prev.selected?.length)
-                        ) {
-                            update = true;
+                    setCurrentSelected(({selected, current}) => {
+                        selected = value?.selected || selected;
+                        current = value?.current || current;
+                        const currentSelected = records.filter(record => selected?.some?.(item => record[keyField] === item?.[keyField]));
+                        const result = {
+                            selected: currentSelected.length ? currentSelected : null,
+                            current: records.find(record => record[keyField] === current?.[keyField]) || selected?.[0] || null
+                        };
+                        if (keyField && onChange) {
+                            const prevKeys = selected?.map(item => item[keyField]) || [];
+                            const keys = result.selected?.map(item => item[keyField]) || [];
+                            if (result.current?.[keyField] !== current?.[keyField] ||
+                                selected?.length !== result.selected?.length ||
+                                keys.some(key => !prevKeys.includes(key))
+                            ) onChange?.({value: multiSelect ? result : result.current});
                         }
-                        prev.selected = currentSelected.length ? currentSelected : null;
-                        prev.current = currentCurrent || prev.selected?.[0] || null;
-                        if (update) {
-                            onChange?.({value: multiSelect ? prev : prev.current});
-                        }
-                        return prev;
+                        return result;
                     });
                 } finally {
                     setLoading('');
                 }
             }
         },
-        [fetch, filter, index, pageSize, resultSet, tableFilter, externalFilter, validation, fetchTransform, keyField, onChange, multiSelect]
+        [fetch, filter, index, pageSize, resultSet, tableFilter, externalFilter, validation, fetchTransform, keyField, onChange, multiSelect, value]
     );
     useLoad(async() => {
         if (onDropdown) setDropdown(await onDropdown(dropdownNames.split(',').filter(Boolean)));
