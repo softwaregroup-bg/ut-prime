@@ -75,7 +75,7 @@ export interface Props {
     customization?: Customization,
     paramsCard?: string,
     onFieldChange?: string,
-    value?: {selected?: unknown[]},
+    value?: {selected?: unknown[], current?: unknown},
     onChange?: (params: object) => void,
     onCustomization?: (customization: {component: {componentId: string, componentConfig: Customization}}) => Promise<object>;
     fetchValidation?: Joi.Schema

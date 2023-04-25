@@ -339,18 +339,30 @@ const Explorer: ComponentProps = ({
                         total = tableFilter.first + total;
                     }
                     setItems([records, total, items]);
-                    setCurrentSelected(({...prev}) => {
-                        const currentSelected = records.filter(r => prev.selected?.some?.(ss => r[keyField] === ss?.[keyField]));
-                        prev.selected = currentSelected.length ? currentSelected : null;
-                        prev.current = records.find(r => r[keyField] === prev.current?.[keyField]) || prev.selected?.[0] || null;
-                        return prev;
+                    setCurrentSelected(({selected, current}) => {
+                        selected = value?.selected || selected;
+                        current = value?.current || current;
+                        const currentSelected = records.filter(record => selected?.some?.(item => record[keyField] === item?.[keyField]));
+                        const result = {
+                            selected: currentSelected.length ? currentSelected : null,
+                            current: records.find(record => record[keyField] === current?.[keyField]) || selected?.[0] || null
+                        };
+                        if (keyField && onChange) {
+                            const prevKeys = selected?.map(item => item[keyField]) || [];
+                            const keys = result.selected?.map(item => item[keyField]) || [];
+                            if (result.current?.[keyField] !== current?.[keyField] ||
+                                selected?.length !== result.selected?.length ||
+                                keys.some(key => !prevKeys.includes(key))
+                            ) onChange?.({value: multiSelect ? result : result.current});
+                        }
+                        return result;
                     });
                 } finally {
                     setLoading('');
                 }
             }
         },
-        [fetch, filter, index, pageSize, resultSet, tableFilter, externalFilter, validation, fetchTransform, keyField]
+        [fetch, filter, index, pageSize, resultSet, tableFilter, externalFilter, validation, fetchTransform, keyField, onChange, multiSelect, value]
     );
     useLoad(async() => {
         if (onDropdown) setDropdown(await onDropdown(dropdownNames.split(',').filter(Boolean)));
