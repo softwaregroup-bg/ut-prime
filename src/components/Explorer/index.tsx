@@ -348,8 +348,8 @@ const Explorer: ComponentProps = ({
                             current: records.find(record => record[keyField] === current?.[keyField]) || selected?.[0] || null
                         };
                         if (keyField && onChange) {
-                            const prevKeys = selected?.map(item => item[keyField]) || [];
-                            const keys = result.selected?.map(item => item[keyField]) || [];
+                            const prevKeys = Array.isArray(selected) ? selected.map(item => item[keyField]) : [];
+                            const keys = Array.isArray(result.selected) ? result.selected.map(item => item[keyField]) : [];
                             if (result.current?.[keyField] !== current?.[keyField] ||
                                 selected?.length !== result.selected?.length ||
                                 keys.some(key => !prevKeys.includes(key))
