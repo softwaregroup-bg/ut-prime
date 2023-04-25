@@ -1,3 +1,12 @@
+## [2.72.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.72.1...v2.72.2) (2023-04-25)
+
+
+### Bug Fixes
+
+* **currentSelected:** onChange for form data ([#52](https://github.com/softwaregroup-bg/ut-prime/issues/52)) ([3f44302](https://github.com/softwaregroup-bg/ut-prime/commit/3f4430253366033e9d53da5a87ccba219b1cb24f))
+
+
+
 ## [2.72.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.72.0...v2.72.1) (2023-04-22)
 
 
