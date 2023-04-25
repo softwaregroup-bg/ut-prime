@@ -30,7 +30,6 @@ const ThumbIndex: ComponentProps = ({
     trigger,
     loading,
     onFilter,
-    validate,
     disableBack,
     hideBack,
     methods,
@@ -41,12 +40,11 @@ const ThumbIndex: ComponentProps = ({
     const classes = useStyles();
     const [[selectedList, activeIndex], setList] = React.useState([items[0], 0]);
     const handleListChange = React.useCallback(async({item, value = item, index = value.index}) => {
-        if (validate && validate(selectedList)?.error) return;
         if (layoutState && !await formApi.trigger(layoutState.visibleProperties)) return;
         if (value.onMount && !(await methods[value.onMount]({form: formApi}))) return;
         setList([value, index]);
         onFilter([value?.items?.[0] || value, index]);
-    }, [onFilter, validate, selectedList, methods, formApi, layoutState]);
+    }, [onFilter, methods, formApi, layoutState]);
     const model = React.useMemo(() => {
         const command = index => ({item}) => onFilter && onFilter([item, index]);
         const result = (selectedList?.items || []).map((item, index) => ({

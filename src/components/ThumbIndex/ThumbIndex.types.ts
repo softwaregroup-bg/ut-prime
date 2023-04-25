@@ -18,7 +18,6 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     loading?: boolean;
     trigger?: React.MouseEventHandler;
     onFilter: (filter: unknown) => void;
-    validate?: (selectedList: object) => {error?: object, values: object};
     disableBack?: boolean;
     hideBack?: boolean;
     methods?: object;
