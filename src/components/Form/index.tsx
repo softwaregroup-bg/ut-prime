@@ -12,7 +12,6 @@ import Context from '../Context';
 import Card from '../Card';
 import type {UtError} from '../types';
 
-import useLayout from '../hooks/useLayout';
 import { usePermissionCheck } from '../hooks';
 
 const useStyles = createUseStyles({
@@ -46,6 +45,7 @@ const Form: ComponentProps = ({
     cards,
     layout,
     layoutFields,
+    layoutState,
     loading,
     disabled,
     enabled,
@@ -84,7 +84,6 @@ const Form: ComponentProps = ({
         clearErrors
     } = formApi;
     const errorFields = flat(errors);
-    const layoutState = useLayout(schema, cards, layout, editors, undefined, layoutFields);
 
     const handleSubmit = React.useCallback(
         async(event, form) => {

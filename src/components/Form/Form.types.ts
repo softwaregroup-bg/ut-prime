@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Schema as Validation } from 'joi';
 import type { UseFormReturn } from 'react-hook-form';
+import useLayout from '../hooks/useLayout';
 
 import {Schema, Editors, Cards, Dropdowns, Allow} from '../types';
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
@@ -14,6 +15,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     dropdowns?: Dropdowns,
     layout?: (string | string[])[];
     layoutFields?: string[];
+    layoutState: ReturnType<typeof useLayout>,
     loading?: string;
     disabled?: Allow;
     enabled?: Allow;

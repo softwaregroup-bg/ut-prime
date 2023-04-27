@@ -11,6 +11,7 @@ import useToast from '../hooks/useToast';
 import useForm from '../hooks/useForm';
 import decorators from '../test/decorator';
 import ScrollBox from '../ScrollBox';
+import useLayout from '../hooks/useLayout';
 
 const meta: Meta = {
     title: 'ThumbIndex',
@@ -170,6 +171,7 @@ export const Basic: React.FC = () => {
                         schema={schema}
                         cards={cards}
                         layout={filter?.widgets || []}
+                        layoutState={useLayout(schema, cards, filter?.widgets || [], undefined, undefined, undefined)}
                         onSubmit={submit}
                         setTrigger={setTrigger}
                         value={data}

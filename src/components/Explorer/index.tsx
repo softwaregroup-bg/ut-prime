@@ -171,6 +171,8 @@ const Explorer: ComponentProps = ({
 
     const [loading, setLoading] = React.useState('');
     const [inspectorHeight, setInspectorHeight] = React.useState<{maxHeight: number}>();
+    const layoutProps = layouts?.[layoutName] || {toolbar: undefined};
+    const paramsLayout = ('params' in layoutProps) && layoutProps.params;
     const {
         customizationToolbar,
         mergedSchema,
@@ -179,12 +181,14 @@ const Explorer: ComponentProps = ({
         loadCustomization,
         formProps,
         formApi,
+        layoutState: paramsLayoutState,
         isPropertyRequired
     } = useCustomization({
         designDefault,
         schema,
         cards,
         layouts,
+        layout: paramsLayout,
         customization,
         Editor,
         maxHeight: inspectorHeight,
@@ -194,12 +198,10 @@ const Explorer: ComponentProps = ({
         loading,
         editors
     });
-    const layoutProps = layouts?.[layoutName] || {toolbar: undefined};
     const columnsCard = ('columns' in layoutProps) ? layoutProps.columns : 'browse';
     const toolbarCard = ('toolbar' in layoutProps) ? layoutProps.toolbar : 'toolbarBrowse';
     const layout = ('layout' in layoutProps) ? layoutProps.layout : empty;
     const columns = ('layout' in layoutProps) ? empty : mergedCards[columnsCard]?.widgets ?? empty;
-    const paramsLayout = ('params' in layoutProps) && layoutProps.params;
     const fetch = React.useMemo(() => (!paramsLayout?.length || paramValues.length > 1) && fetchParams, [fetchParams, paramValues, paramsLayout]);
     if (toolbar !== false) toolbar = ('layout' in layoutProps) ? ('toolbar' in layoutProps ? mergedCards[layoutProps.toolbar]?.widgets : toolbar) : mergedCards[toolbarCard]?.widgets ?? toolbar;
     const classes = useStyles();
@@ -489,6 +491,7 @@ const Explorer: ComponentProps = ({
             methods={methods}
             cards={cards}
             layout={paramsLayout}
+            layoutState={paramsLayoutState}
             onSubmit={handleSubmit}
             value={paramValues[0]}
             dropdowns={dropdowns}
