@@ -54,7 +54,7 @@ const Editor: ComponentProps = ({
     typeField,
     cards,
     layouts,
-    layoutName,
+    layoutName: editorLayoutName,
     name,
     customization,
     onCustomization,
@@ -84,7 +84,7 @@ const Editor: ComponentProps = ({
     const [trigger, setTrigger] = React.useState();
     const [didSubmit, setDidSubmit] = React.useState(false);
     const [dropdowns, setDropdown] = React.useState<Parameters<typeof Form>[0]['dropdowns']>();
-    const [[value, mode, layoutState, loadedValue], setValueMode] = React.useState([null, id == null ? 'create' : 'edit' as 'create' | 'edit', layoutName, undefined]);
+    const [[value, mode, layoutName, loadedValue], setValueMode] = React.useState([null, id == null ? 'create' : 'edit' as 'create' | 'edit', editorLayoutName, undefined]);
     const [loading, setLoading] = React.useState(loadingValue);
     const {
         customizationToolbar,
@@ -95,6 +95,7 @@ const Editor: ComponentProps = ({
         orientation,
         thumbIndex,
         layout,
+        layoutState,
         disabled,
         enabled,
         formProps,
@@ -110,7 +111,7 @@ const Editor: ComponentProps = ({
         layouts,
         customization,
         mode,
-        layoutState,
+        layoutName,
         Editor,
         onCustomization,
         methods,
@@ -247,6 +248,7 @@ const Editor: ComponentProps = ({
                         editors={editors}
                         cards={mergedCards}
                         layout={layout || []}
+                        layoutState={layoutState}
                         onSubmit={handleSubmit}
                         onChange={onChange}
                         onLoaded={handleLoaded}
