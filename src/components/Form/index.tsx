@@ -135,12 +135,13 @@ const Form: ComponentProps = ({
         if (onLoad && value) {
             onLoad(newValue).then(load => {
                 reset(load ?? newValue);
-                if (onLoaded) onLoaded(newValue);
-                return true;
+                if (onLoaded) onLoaded(load ?? newValue);
+                return load ?? newValue;
             }).catch(() => {
-                reset({});
-                if (onLoaded) onLoaded(newValue);
-                return true;
+                const empty = {};
+                reset(empty);
+                if (onLoaded) onLoaded(empty);
+                return empty;
             });
         } else {
             reset(newValue);
