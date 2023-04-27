@@ -41,8 +41,8 @@ export interface Props {
     onGet?: (params: object) => Promise<object>,
     onEdit?: (params: object) => Promise<object>,
     onFieldChange?: string,
+    onLoad?: string,
     onLoaded?: string,
-    onMount?: string,
     buttons?: {
         save?: ActionButtonProps | false,
         reset?: ActionButtonProps | false

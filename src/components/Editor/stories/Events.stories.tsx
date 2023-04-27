@@ -1,6 +1,5 @@
 import React from 'react';
 import type { Story } from '@storybook/react';
-import { userEvent, within } from '@storybook/testing-library';
 import type { Props } from '../Editor.types';
 import Editor from '..';
 import useToast from '../../hooks/useToast';
@@ -20,15 +19,14 @@ const Template: Story<Props> = ({methods, ...args}) => {
             onAdd={submit}
             onEdit={submit}
             onFieldChange='handleFieldChange'
-            onLoaded='handleLoaded'
-            onMount='handleCheck'
+            onLoad='handleLoad'
             methods={{
-                async handleFieldChange({field, value}: {field: unknown, value, event: Event}) {
+                async handleFieldChange({field, value, event}: {field: unknown, value, event: Event}) {
                     submit({field, value});
                     // throw new Error('test error');
                     // return false;
                 },
-                async handleLoaded({value: {input = {}, ...value}, dropdowns}) {
+                async handleLoad({value: {input = {}, ...value}, dropdowns}) {
                     if (dropdowns) {
                         dropdowns.select = [
                             {value: 3, label: 'Three'},
@@ -37,21 +35,6 @@ const Template: Story<Props> = ({methods, ...args}) => {
                         ];
                     }
                     return {...value, input: {...input, text: 'loaded'}};
-                },
-                async handleCheck({ value, form: { formState, ...form }}) {
-                    formState = {
-                        errors: {
-                            input: {
-                                input: {
-                                    type: 'custom',
-                                    message: 'Error'
-                                }
-                            }
-                        },
-                        ...formState
-                    };
-                    console.log('errors', formState);
-                    return { value, form: { formState, ...form } };
                 },
                 async handleAutocomplete() {
                     return {

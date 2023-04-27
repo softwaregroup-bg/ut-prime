@@ -419,12 +419,6 @@ export default function useCustomization({
     }, [validation, mergedSchema, joiMessages, translate]);
     const formApi = useForm({resolver});
 
-    const validate = React.useCallback(selectedList => {
-        if (formApi && typeof selectedList?.validation?.validate === 'function') {
-            return selectedList.validation.validate(formApi.getValues());
-        }
-    }, [formApi]);
-
     const layoutState = useLayout(mergedSchema, mergedCards, usedLayout || filter?.widgets || empty, editors, undefined, layoutFields);
 
     const thumbIndex = items && (
@@ -436,7 +430,6 @@ export default function useCustomization({
             onFilter={setFilter}
             trigger={trigger}
             loading={loading}
-            validate={validate}
             disableBack={disableBack}
             hideBack={hideBack}
             methods={methods}
