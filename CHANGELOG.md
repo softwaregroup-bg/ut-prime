@@ -1,3 +1,12 @@
+# [2.73.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.72.3...v2.73.0) (2023-04-27)
+
+
+### Features
+
+* validate thumb index steps ([5db4136](https://github.com/softwaregroup-bg/ut-prime/commit/5db4136e467f249cbc2352a01e3f08536206c7f2))
+
+
+
 ## [2.72.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.72.2...v2.72.3) (2023-04-25)
 
 
