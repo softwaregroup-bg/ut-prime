@@ -70,6 +70,7 @@ const Editor: ComponentProps = ({
     onEdit,
     onChange,
     onFieldChange,
+    onLoad,
     onLoaded,
     buttons: {
         save,
@@ -158,10 +159,15 @@ const Editor: ComponentProps = ({
         if (loadedValue !== undefined) setValueMode(prev => [getLayoutValue(prev[1], prev[2], loadedValue), prev[1], prev[2], prev[3]]);
     }, [loadedValue, getLayoutValue, setValueMode]);
 
-    const {handleSubmit: handleLoaded} = useSubmit(value => onLoaded && methods?.[onLoaded]({
+    const {handleSubmit: handleLoad} = useSubmit(value => onLoad && methods?.[onLoad]({
         value,
         dropdowns
-    }), [dropdowns, methods, onLoaded]);
+    }), [dropdowns, methods, onLoad]);
+
+    const {handleSubmit: handleLoaded} = useSubmit(value => onLoaded && methods?.[onLoaded]({
+        value,
+        form: formApi
+    }), [formApi, methods, onLoaded]);
 
     const handleSubmit = React.useCallback(
         async function handleSubmit(data) {
@@ -245,6 +251,7 @@ const Editor: ComponentProps = ({
                         layoutState={layoutState}
                         onSubmit={handleSubmit}
                         onChange={onChange}
+                        onLoad={handleLoad}
                         onLoaded={handleLoaded}
                         onFieldChange={onFieldChange}
                         methods={methods}
