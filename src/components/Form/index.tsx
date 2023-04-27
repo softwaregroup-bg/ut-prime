@@ -152,7 +152,7 @@ const Form: ComponentProps = ({
             const watcher = watch(value => onChange(JSON.parse(JSON.stringify(value))));
             return () => watcher.unsubscribe();
         }
-    }, [value, reset, watch, onChange, onLoad, onLoaded, formApi]);
+    }, [value, reset, watch, onChange, onLoad, onLoaded]);
 
     const {devTool} = React.useContext(Context);
     let toolbarElement = null;
