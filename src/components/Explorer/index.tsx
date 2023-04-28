@@ -221,10 +221,28 @@ const Explorer: ComponentProps = ({
     const [{current: currentState, selected: selectedState}, setCurrentSelected] = React.useState({current: null, selected: null});
 
     React.useEffect(() => {
-        if (value && !currentState) {
-            setCurrentSelected({current: (value?.current || value?.selected?.[0]) || [value], selected: value?.selected || [value]});
+        if (value && (!currentState || (!currentState && selectedState))) {
+            // in order to initially sync the internal state
+            // bcs if value is provided from outside, the state is null
+            // and later on when records are filtered
+            // the update/clearance of the value doesnt happen properly.
+            const current = multiSelect ? value?.current : value;
+            const selected = multiSelect ? value?.selected : [value];
+            if (
+                current?.[keyField] !== currentState?.[keyField] ||
+                selected?.length !== selectedState?.length ||
+                !selected?.every?.((s) => selectedState?.some?.((ss) => s?.[keyField] === ss?.[keyField]))
+            ) {
+                setCurrentSelected({ current, selected });
+            }
+            // however bcs of this state update
+            // being called before form value is updated
+            // and after currentState has been updated to nulls
+        } else if ((value === null || (value?.current === null && value?.selected === null)) && currentState) {
+            // I ended up with this.
+            setCurrentSelected({ current: null, selected: null });
         }
-    }, [value, currentState]);
+    }, [value, currentState, selectedState, multiSelect, keyField]);
 
     const handleCurrentSelect = React.useCallback((value, event) => {
         setCurrentSelected(({...prev}) => {
@@ -371,7 +389,7 @@ const Explorer: ComponentProps = ({
                 }
             }
         },
-        [fetch, filter, index, pageSize, resultSet, tableFilter, validation, fetchTransform, keyField, multiSelect]
+        [fetch, filter, index, pageSize, resultSet, tableFilter, validation, fetchTransform, keyField, multiSelect] // externalFilter, onChange, value omitted.
         // [fetch, filter, index, pageSize, resultSet, tableFilter, externalFilter, validation, fetchTransform, keyField, onChange, multiSelect, value]
     );
     useLoad(async() => {
