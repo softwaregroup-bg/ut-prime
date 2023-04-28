@@ -219,6 +219,13 @@ const Explorer: ComponentProps = ({
     const multiSelect = keyField && (!tableProps?.selectionMode || tableProps?.selectionMode === 'checkbox');
 
     const [{current: currentState, selected: selectedState}, setCurrentSelected] = React.useState({current: null, selected: null});
+
+    React.useEffect(() => {
+        if (value && !currentState) {
+            setCurrentSelected({current: (value?.current || value?.selected?.[0]) || [value], selected: value?.selected || [value]});
+        }
+    }, [value, currentState]);
+
     const handleCurrentSelect = React.useCallback((value, event) => {
         setCurrentSelected(({...prev}) => {
             if ('current' in value) prev.current = value.current;
@@ -347,7 +354,7 @@ const Explorer: ComponentProps = ({
                         const currentSelected = records.filter(record => selected?.some?.(item => record[keyField] === item?.[keyField]));
                         const result = {
                             selected: currentSelected.length ? currentSelected : null,
-                            current: records.find(record => record[keyField] === current?.[keyField]) || selected?.[0] || null
+                            current: records.find(record => record[keyField] === current?.[keyField]) || currentSelected?.[0] || null
                         };
                         if (keyField && onChange) {
                             const prevKeys = Array.isArray(selected) ? selected.map(item => item[keyField]) : [];
@@ -364,7 +371,8 @@ const Explorer: ComponentProps = ({
                 }
             }
         },
-        [fetch, filter, index, pageSize, resultSet, tableFilter, externalFilter, validation, fetchTransform, keyField, onChange, multiSelect, value]
+        [fetch, filter, index, pageSize, resultSet, tableFilter, validation, fetchTransform, keyField, multiSelect]
+        // [fetch, filter, index, pageSize, resultSet, tableFilter, externalFilter, validation, fetchTransform, keyField, onChange, multiSelect, value]
     );
     useLoad(async() => {
         if (onDropdown) setDropdown(await onDropdown(dropdownNames.split(',').filter(Boolean)));

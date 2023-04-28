@@ -29,7 +29,10 @@ const compare = ({field, dir, smaller = {ASC: -1, DESC: 1}[dir]}) => function co
     return 0;
 };
 
-export const fetchItems = filters => {
+export const fetchItems = async filters => {
+    await new Promise((resolve) => {
+        setTimeout(resolve, 500);
+    });
     const items = filteredItems(filters.items);
     if (Array.isArray(filters.orderBy) && filters.orderBy.length) items.sort(compare(filters.orderBy[0]));
     return Promise.resolve({
