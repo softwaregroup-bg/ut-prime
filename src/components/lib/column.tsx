@@ -121,6 +121,9 @@ export default function columnProps({
         const value = rowData[property?.body || fieldName];
         return (value == null) ? value : <span className='value'>{translation ? <Text>{value}</Text> : value}</span>;
     };
+    const parentValue = parent && getValues?.(parent);
+    const filterByDdlOpts = item => (!parent && !optionsFilter) || !getValues || Object.entries({...optionsFilter, parent: parentValue}).every(([name, value]) => String(item[name]) === String(value));
+
     switch (widgetType) {
         case 'currency':
         case 'integer':
@@ -147,7 +150,7 @@ export default function columnProps({
         case 'dropdown':
             filterElement = filterBy && <Dropdown
                 className='w-full'
-                options={dropdowns?.[dropdown]?.filter(filterBy) || []}
+                options={[].concat(dropdowns?.[dropdown]).filter(Boolean).filter(filterByDdlOpts)}
                 value={tableFilter?.filters?.[fieldName]?.value}
                 onChange={filterBy(fieldName, 'value')}
                 showClear
@@ -319,8 +322,6 @@ export default function columnProps({
             const widget = p.rowData?.$pivot?.[fieldName]?.widget || p.rowData?.$pivot?.widget;
             const inputName = inlineEdit ? `${resultSet}[${p[KEY]}].${fieldName}` : `${resultSet}[${p.rowData[KEY]}].${fieldName}`;
             const inputId = inlineEdit ? `${resultSet}-${p[KEY]}-${fieldName}` : `${resultSet}-${p.rowData[KEY]}-${fieldName}`;
-            const parentValue = parent && getValues?.(parent);
-            const filterBy = item => (!parent && !optionsFilter) || !getValues || Object.entries({...optionsFilter, parent: parentValue}).every(([name, value]) => String(item[name]) === String(value));
 
             function dataValue(inlineEdit, fieldName) {
                 return inlineEdit ? p[fieldName] : p.rowData[fieldName];
@@ -400,7 +401,7 @@ export default function columnProps({
                 case 'dropdown':
                     return <Dropdown
                         className='w-full'
-                        options={dropdowns?.[dropdown]?.filter(filterBy) || []}
+                        options={[].concat(dropdowns?.[dropdown]).filter(Boolean).filter(filterByDdlOpts)}
                         value={(dataValue(inlineEdit, fieldName))}
                         onChange={event => {
                             if (lookup) {
@@ -433,7 +434,7 @@ export default function columnProps({
                 case 'multiSelect':
                     return <MultiSelect
                         className='w-full'
-                        options={dropdowns?.[dropdown]?.filter(filterBy) || []}
+                        options={[].concat(dropdowns?.[dropdown]).filter(Boolean).filter(filterByDdlOpts)}
                         value={p.rowData[fieldName]}
                         onChange={event => {
                             if (property?.body) {
@@ -452,7 +453,7 @@ export default function columnProps({
                 case 'select':
                     return <SelectButton
                         className='w-full white-space-nowrap'
-                        options={dropdowns?.[dropdown]?.filter(filterBy) || []}
+                        options={[].concat(dropdowns?.[dropdown]).filter(Boolean).filter(filterByDdlOpts)}
                         value={props?.split ? p.rowData[fieldName]?.split(props.split).filter(Boolean) : p.rowData[fieldName]}
                         onChange={event => p.editorCallback(props?.split ? event.value.join(props.split) || null : event.value)}
                         id={inputId}
