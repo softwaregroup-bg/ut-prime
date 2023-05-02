@@ -341,31 +341,33 @@ const Explorer: ComponentProps = ({
                         total = tableFilter.first + total;
                     }
                     setItems([records, total, items]);
-                    setCurrentSelected(({selected, current}) => {
-                        selected = value?.selected || selected;
-                        current = value?.current || current;
-                        const currentSelected = records.filter(record => selected?.some?.(item => record[keyField] === item?.[keyField]));
-                        const result = {
-                            selected: currentSelected.length ? currentSelected : null,
-                            current: records.find(record => record[keyField] === current?.[keyField]) || selected?.[0] || null
-                        };
-                        if (keyField && onChange) {
-                            const prevKeys = Array.isArray(selected) ? selected.map(item => item[keyField]) : [];
-                            const keys = Array.isArray(result.selected) ? result.selected.map(item => item[keyField]) : [];
-                            if (result.current?.[keyField] !== current?.[keyField] ||
-                                selected?.length !== result.selected?.length ||
-                                keys.some(key => !prevKeys.includes(key))
-                            ) onChange?.({value: multiSelect ? result : result.current});
-                        }
-                        return result;
-                    });
                 } finally {
                     setLoading('');
                 }
             }
         },
-        [fetch, filter, index, pageSize, resultSet, tableFilter, externalFilter, validation, fetchTransform, keyField, onChange, multiSelect, value]
+        [fetch, filter, index, pageSize, resultSet, tableFilter, externalFilter, validation, fetchTransform]
     );
+    React.useEffect(() => {
+        setCurrentSelected(({selected, current}) => {
+            selected = value?.selected || selected;
+            current = (multiSelect ? value?.current : value) || current;
+            const currentSelected = items.filter(record => selected?.some?.(item => record[keyField] === item?.[keyField]));
+            const result = {
+                selected: currentSelected.length ? currentSelected : null,
+                current: items.find(record => record[keyField] === current?.[keyField]) || currentSelected?.[0] || null
+            };
+            if (keyField && onChange) {
+                const prevKeys = Array.isArray(selected) ? selected.map(item => item[keyField]) : [];
+                const keys = Array.isArray(result.selected) ? result.selected.map(item => item[keyField]) : [];
+                if (result.current?.[keyField] !== current?.[keyField] ||
+                    selected?.length !== result.selected?.length ||
+                    keys.some(key => !prevKeys.includes(key))
+                ) onChange?.({value: multiSelect ? result : result.current});
+            }
+            return result;
+        });
+    }, [keyField, multiSelect, onChange, value, items]);
     useLoad(async() => {
         if (onDropdown) setDropdown(await onDropdown(dropdownNames.split(',').filter(Boolean)));
     }, [onDropdown, dropdownNames]);
