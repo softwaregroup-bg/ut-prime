@@ -473,8 +473,16 @@ export default function columnProps({
                 case 'date':
                     return <Calendar
                         showOnFocus={false}
-                        value={dateOrNull(dataValue(inlineEdit, fieldName))}
-                        onChange={event => onEdit(inlineEdit, event, event.value)}
+                        value={(() => {
+                            const value = dataValue(inlineEdit, fieldName);
+                            return value != null
+                                ? new Date(new Date(value).getTime() + new Date(value).getTimezoneOffset() * 60 * 1000)
+                                : value;
+                        })()}
+                        onChange={event => {
+                            if (event.value instanceof Date) event.value = new Date(event.value.getTime() - event.value.getTimezoneOffset() * 60 * 1000);
+                            onEdit(inlineEdit, event, event.value);
+                        }}
                         showIcon
                         inputId={inputId}
                         {...testid(inputId)}
