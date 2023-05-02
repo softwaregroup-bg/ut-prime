@@ -1,3 +1,12 @@
+## [2.73.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.73.1...v2.73.2) (2023-05-02)
+
+
+### Bug Fixes
+
+* **CBI-1982:** table filter options to respect parent value ([cb9a79e](https://github.com/softwaregroup-bg/ut-prime/commit/cb9a79e71335a35d1014945b651a4d46c12c958e))
+
+
+
 ## [2.73.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.73.0...v2.73.1) (2023-04-27)
 
 
