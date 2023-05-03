@@ -637,26 +637,27 @@ export default function Input({
         const inputClassName = classes?.default?.input || classes?.[name]?.input;
         if (inputClassName) inputWidget.className = inputClassName;
     }
-    const render = ({field, fieldState}) => {
+    const Render = ({field, fieldState}) => {
         const parentWatch = parent && formApi?.watch?.(parent);
+        const fieldName = field.name;
+        const fieldChange = field.onChange;
         return input(
             Label && <Label name={propertyName} className={labelClass} label={widget.label} isRequired={isPropertyRequired(propertyName)}/>,
             ErrorLabel && <ErrorLabel name={propertyName} className={labelClass} />,
             {
                 className: clsx({'w-full': !['boolean'].includes(inputWidget.type)}, { 'p-invalid': fieldState.error }),
                 ...field,
-                onChange: async(event: {value: unknown, originalEvent: unknown}, {select = false, field: changeField = true, children = true} = {}) => {
+                onChange: React.useCallback(async(event: {value: unknown, originalEvent: unknown}, {select = false, field: changeField = true, children = true} = {}) => {
                     if (onChange && methods) {
                         try {
                             if (await methods[onChange]({
-                                field,
                                 value: event.value,
                                 event: event.originalEvent,
                                 dropdowns,
                                 form: formApi
                             }) === false) return;
                         } catch (error) {
-                            formApi.setError(field.name, {message: error.message});
+                            formApi.setError(fieldName, {message: error.message});
                             return;
                         }
                     }
@@ -693,7 +694,7 @@ export default function Input({
                         }
                     } finally {
                         if (changeField) {
-                            field.onChange(event.value);
+                            fieldChange(event.value);
                             if (parentWatch?.[CHANGE] && name.startsWith('$.edit.')) {
                                 const old = {...parentWatch};
                                 parentWatch[name.split('.').pop()] = event?.value;
@@ -701,7 +702,7 @@ export default function Input({
                             }
                         }
                     }
-                }
+                }, [fieldName, fieldChange, parentWatch])
             },
             getFieldClass(index, classes, propertyName, fieldClass),
             inputWidget.className,
@@ -721,6 +722,6 @@ export default function Input({
     return (name && formApi?.control) ? <Controller
         control={formApi.control}
         name={name}
-        render={render}
-    /> : render({field: value ? {value: get(value, name.split('.').pop()), name} : {}, fieldState: {}});
+        render={Render}
+    /> : Render({field: value ? {value: get(value, name.split('.').pop()), name} : {}, fieldState: {}});
 }

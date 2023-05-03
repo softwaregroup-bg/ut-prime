@@ -35,7 +35,6 @@ PortalComponent.args = {
                             }
                         }
                     }}
-                    filter={{}}
                     cards={{
                         basic: {
                             widgets: ['name', 'size']
