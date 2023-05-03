@@ -108,7 +108,7 @@ export default function getValidation(
                     prevSchema.append({
                         [name]: (field?.mandatory || schema?.required?.includes(name))
                             ? nextSchema.empty([null, '']).required()
-                            : nextSchema.allow(null)
+                            : field.validation ? nextSchema : nextSchema.allow(null)
                     }),
                     [...prevRequired, ...required]
                 ];
