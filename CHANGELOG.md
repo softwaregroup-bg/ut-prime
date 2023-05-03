@@ -1,3 +1,14 @@
+## [2.73.4](https://github.com/softwaregroup-bg/ut-prime/compare/v2.73.3...v2.73.4) (2023-05-03)
+
+
+### Bug Fixes
+
+* avoid rerendering ([0ae23a2](https://github.com/softwaregroup-bg/ut-prime/commit/0ae23a263e51d7acfca405ddf7f11a506d2f42f9))
+* preserve validation ([021eb1f](https://github.com/softwaregroup-bg/ut-prime/commit/021eb1faed8e3abfe12b9575f660231496800aea))
+* selection handling ([436446d](https://github.com/softwaregroup-bg/ut-prime/commit/436446d83f17dec7eeb31face4d3d574d519bbd6))
+
+
+
 ## [2.73.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.73.2...v2.73.3) (2023-05-02)
 
 
