@@ -350,8 +350,10 @@ const Explorer: ComponentProps = ({
     );
     React.useEffect(() => {
         setCurrentSelected(({selected, current}) => {
-            selected = value?.selected || selected;
-            current = (multiSelect ? value?.current : value) || current;
+            if (value !== undefined) {
+                selected = value?.selected;
+                current = multiSelect ? value?.current : value;
+            }
             const currentSelected = items.filter(record => selected?.some?.(item => record[keyField] === item?.[keyField]));
             const result = {
                 selected: currentSelected.length ? currentSelected : null,
