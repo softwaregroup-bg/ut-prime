@@ -651,7 +651,7 @@ export default function Input({
                     if (onChange && methods) {
                         try {
                             if (await methods[onChange]({
-                                fieldName,
+                                field: {name: fieldName},
                                 value: event.value,
                                 event: event.originalEvent,
                                 dropdowns,
