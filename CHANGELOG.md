@@ -1,3 +1,12 @@
+## [2.73.5](https://github.com/softwaregroup-bg/ut-prime/compare/v2.73.4...v2.73.5) (2023-05-04)
+
+
+### Bug Fixes
+
+* **CBI-999:** pass fieldName to onChange callback ([33fee12](https://github.com/softwaregroup-bg/ut-prime/commit/33fee123fd2cce2c4f0099dde61bdaee6c8d9eb7))
+
+
+
 ## [2.73.4](https://github.com/softwaregroup-bg/ut-prime/compare/v2.73.3...v2.73.4) (2023-05-03)
 
 
