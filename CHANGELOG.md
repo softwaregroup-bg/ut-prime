@@ -1,3 +1,12 @@
+## [2.73.6](https://github.com/softwaregroup-bg/ut-prime/compare/v2.73.5...v2.73.6) (2023-05-04)
+
+
+### Bug Fixes
+
+* pass field.name to onChange ([6acc58d](https://github.com/softwaregroup-bg/ut-prime/commit/6acc58de7eaa53e16ee306a607f420aaee6a6773))
+
+
+
 ## [2.73.5](https://github.com/softwaregroup-bg/ut-prime/compare/v2.73.4...v2.73.5) (2023-05-04)
 
 
