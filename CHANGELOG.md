@@ -1,3 +1,12 @@
+# [2.74.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.73.6...v2.74.0) (2023-05-15)
+
+
+### Features
+
+* **CBI-1986:** error message translations on login screen ([b3107b5](https://github.com/softwaregroup-bg/ut-prime/commit/b3107b5acda6dec87d573ae0f16b0dd1f11805b6))
+
+
+
 ## [2.73.6](https://github.com/softwaregroup-bg/ut-prime/compare/v2.73.5...v2.73.6) (2023-05-04)
 
 
