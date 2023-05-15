@@ -253,7 +253,7 @@ const Login: ComponentProps = ({
                     {title && <div className={loginTitle}><Text>{title}</Text></div>}
                     {error && <div className={formError}>
                         <div className={errorIcon} />
-                        <div className={errorMessage}>{error}</div>
+                        <div className={errorMessage}><Text lang={language}>{error}</Text></div>
                     </div>}
                     <form className={clsx('card', formContainer)} onSubmit={handleSubmit} autoComplete='off'>
                         {inputs.map(({ name, type, label, disabled }) =>
