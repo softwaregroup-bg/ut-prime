@@ -127,6 +127,11 @@ Tabs.args = {
                 icon: 'pi pi-book',
                 widgets: ['taxonomy', 'morphology']
             }, {
+                id: 'accounts',
+                label: 'Accounts',
+                icon: 'pi pi-desktop',
+                widgets: ['account']
+            }, {
                 id: 'history',
                 icon: 'pi pi-clock',
                 widgets: ['history']

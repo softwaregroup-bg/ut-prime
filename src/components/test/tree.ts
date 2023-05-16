@@ -99,6 +99,13 @@ const tree: {schema: Schema, cards: Cards} = {
                                 }
                             }
                         }
+                    },
+                    account: {
+                        widget: {
+                            type: 'page',
+                            page: 'account.account.browse',
+                            toolbar: false
+                        }
                     }
                 }
             }
@@ -143,6 +150,10 @@ const tree: {schema: Schema, cards: Cards} = {
         system: {
             label: 'System',
             widgets: ['tree.createdOn']
+        },
+        account: {
+            widgets: ['tree.account'],
+            className: 'col-12'
         }
     }
 };

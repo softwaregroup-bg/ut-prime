@@ -13589,6 +13589,28 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
               role="presentation"
             >
               <span
+                class="p-menuitem-icon pi pi-desktop"
+              />
+              <span
+                class="p-menuitem-text"
+                data-testid="accountsTab"
+              >
+                Accounts
+              </span>
+            </a>
+          </li>
+          <li
+            aria-expanded="false"
+            aria-selected="false"
+            class="p-tabmenuitem"
+            role="tab"
+          >
+            <a
+              class="p-menuitem-link"
+              href="#"
+              role="presentation"
+            >
+              <span
                 class="p-menuitem-icon pi pi-clock"
               />
             </a>

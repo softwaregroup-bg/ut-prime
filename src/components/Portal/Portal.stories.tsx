@@ -89,6 +89,40 @@ Basic.args = {
 
 export const Editor: Story<Props> = Template.bind({});
 Editor.args = {
+    middleware: [
+        _store => next => action => (action.type === 'portal.component.get')
+            ? Promise.resolve(function ExplorerComponent(props) {
+                return <Explorer
+                    fetch={() => Promise.resolve({
+                        items: Array.from(Array(50).keys()).map(number => ({
+                            id: number,
+                            name: `Item ${number} long long long name name long faker fake foo bar long name`,
+                            size: number * 10
+                        }))
+                    })}
+                    pageSize={22}
+                    keyField='id'
+                    resultSet='items'
+                    schema={{
+                        properties: {
+                            name: {
+                                title: 'Name'
+                            },
+                            size: {
+                                title: 'Size'
+                            }
+                        }
+                    }}
+                    cards = {{
+                        browse: {
+                            widgets: ['name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size']
+                        }
+                    }}
+                    {...props}
+                />;
+            })
+            : next(action)
+    ],
     state: {
         portal: {
             tabs: [{

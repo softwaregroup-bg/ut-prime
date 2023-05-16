@@ -94,6 +94,9 @@ const useStyles = createUseStyles({
         },
         '& .p-toolbar-group-left': {
             flexGrow: 1
+        },
+        '&.embedded .p-datatable-wrapper': {
+            maxWidth: '98vw'
         }
     }
 });
@@ -395,6 +398,7 @@ const Explorer: ComponentProps = ({
     }, [refresh, totalRecords, hidden, load]);
 
     const windowSize = useWindowSize();
+    const [isEmbedded, setEmbedded] = React.useState(false);
     const [height, setHeight] = React.useState<{height: number}>();
     const [maxHeight, setMaxHeight] = React.useState<{maxHeight: number}>();
     const [splitterHeight, setSplitterHeight] = React.useState({});
@@ -404,10 +408,15 @@ const Explorer: ComponentProps = ({
     const tableWrapRef = React.useCallback(node => {
         if (node === null || hidden || resize === false) return;
         const nodeRect = node.getBoundingClientRect();
+        // todo: maybe determine it smarter? put a class on card or form?
+        const isEmbedded = document.querySelectorAll('.flex.flex-grow-1')?.[0]?.contains?.(node);
+        // todo: come up with 28 in smarter way; currently it was trial/error approach
+        const extraPaddings = isEmbedded ? 28 : 0;
         const paginatorHeight = node.querySelector('.p-paginator')?.getBoundingClientRect?.()?.height;
-        setHeight({height: max(windowSize.height - nodeRect.top)});
-        setMaxHeight({maxHeight: max(windowSize.height - nodeRect.top - paginatorHeight)});
-        setInspectorHeight({maxHeight: max(windowSize.height - nodeRect.top)});
+        setHeight({height: max(windowSize.height - (nodeRect.top + extraPaddings))});
+        setMaxHeight({maxHeight: max(windowSize.height - (nodeRect.top + extraPaddings) - paginatorHeight)});
+        setInspectorHeight({maxHeight: max(windowSize.height - (nodeRect.top + extraPaddings))});
+        setEmbedded(isEmbedded);
     }, [windowSize, formProps.design, hidden, resize]); // eslint-disable-line react-hooks/exhaustive-deps
 
     const splitterWrapRef = React.useCallback(node => {
@@ -590,7 +599,7 @@ const Explorer: ComponentProps = ({
         {children}
     </SplitterPanel>;
     return (
-        <div className={clsx('flex', 'flex-column', classes.explorer, className)}>
+        <div className={clsx('flex', 'flex-column', classes.explorer, className, { embedded: isEmbedded })}>
             {toast}
             {
                 toolbar !== false
