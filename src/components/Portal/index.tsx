@@ -15,7 +15,6 @@ import {State} from '../Store/Store.types';
 import Component from '../Component';
 
 import { useStyles, ComponentProps } from './Portal.types';
-import { useWindowSize } from '../hooks';
 import testid from '../lib/testid';
 
 const backgroundNone = {background: 'none'};
