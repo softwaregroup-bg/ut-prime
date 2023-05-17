@@ -33,6 +33,10 @@ const backgroundNone = {background: 'none'};
 
 const fieldName = column => typeof column === 'string' ? column : column.name;
 
+const convertRemToPixels = rem => {
+    return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
+};
+
 const useStyles = createUseStyles({
     current: {
         outline: '0.15rem solid var(--primary-color)',
@@ -96,7 +100,7 @@ const useStyles = createUseStyles({
             flexGrow: 1
         },
         '&.embedded .p-datatable-wrapper': {
-            maxWidth: '98vw'
+            maxWidth: `calc(100vw - ${convertRemToPixels(2)}px)`
         }
     }
 });
@@ -408,10 +412,8 @@ const Explorer: ComponentProps = ({
     const tableWrapRef = React.useCallback(node => {
         if (node === null || hidden || resize === false) return;
         const nodeRect = node.getBoundingClientRect();
-        // todo: maybe determine it smarter? put a class on card or form?
-        const isEmbedded = document.querySelectorAll('.flex.flex-grow-1')?.[0]?.contains?.(node);
-        // todo: come up with 28 in smarter way; currently it was trial/error approach
-        const extraPaddings = isEmbedded ? 28 : 0;
+        const isEmbedded = Array.from(document.querySelectorAll('.ut-editor')).some(editor => editor.contains(node));
+        const extraPaddings = isEmbedded ? convertRemToPixels(2) : 0;
         const paginatorHeight = node.querySelector('.p-paginator')?.getBoundingClientRect?.()?.height;
         setHeight({height: max(windowSize.height - (nodeRect.top + extraPaddings))});
         setMaxHeight({maxHeight: max(windowSize.height - (nodeRect.top + extraPaddings) - paginatorHeight)});

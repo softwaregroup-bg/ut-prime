@@ -70,7 +70,7 @@ exports[`<Editor /> Basic render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="flex overflow-x-hidden w-full"
+    class="ut-editor flex overflow-x-hidden w-full"
   >
     <div
       class="flex flex-grow-1"
@@ -839,7 +839,7 @@ exports[`<Editor /> CascadedDropdowns render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="flex overflow-x-hidden w-full"
+    class="ut-editor flex overflow-x-hidden w-full"
   >
     <div
       class="flex flex-grow-1"
@@ -1123,7 +1123,7 @@ exports[`<Editor /> CascadedTables render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="flex overflow-x-hidden w-full"
+    class="ut-editor flex overflow-x-hidden w-full"
   >
     <div
       class="flex flex-grow-1"
@@ -2302,7 +2302,7 @@ exports[`<Editor /> CustomEditors render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="flex overflow-x-hidden w-full"
+    class="ut-editor flex overflow-x-hidden w-full"
   >
     <div
       class="flex flex-grow-1"
@@ -2593,7 +2593,7 @@ exports[`<Editor /> Design render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="flex overflow-x-hidden w-full"
+    class="ut-editor flex overflow-x-hidden w-full"
   >
     <div
       class="flex flex-grow-1"
@@ -3798,7 +3798,7 @@ exports[`<Editor /> Files render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="flex overflow-x-hidden w-full"
+    class="ut-editor flex overflow-x-hidden w-full"
   >
     <div
       class="flex flex-grow-1"
@@ -4326,7 +4326,7 @@ exports[`<Editor /> FilesInTab render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="flex overflow-x-hidden w-full flex-column"
+    class="ut-editor flex overflow-x-hidden w-full flex-column"
   >
     <div
       class="flex flex-row pb-0 sticky top-0 z-1 surface-0 thumbs-0-2-6"
@@ -4671,7 +4671,7 @@ exports[`<Editor /> Loading render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="flex overflow-x-hidden w-full"
+    class="ut-editor flex overflow-x-hidden w-full"
   >
     <div
       class="flex flex-grow-1"
@@ -5033,7 +5033,7 @@ exports[`<Editor /> MasterDetail render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="flex overflow-x-hidden w-full"
+    class="ut-editor flex overflow-x-hidden w-full"
   >
     <div
       class="flex flex-grow-1"
@@ -5414,7 +5414,7 @@ exports[`<Editor /> MasterDetailPolymorphic render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="flex overflow-x-hidden w-full"
+    class="ut-editor flex overflow-x-hidden w-full"
   >
     <div
       class="flex flex-grow-1"
@@ -5847,7 +5847,7 @@ exports[`<Editor /> Pivot BG render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="flex overflow-x-hidden w-full"
+    class="ut-editor flex overflow-x-hidden w-full"
   >
     <div
       class="flex flex-grow-1"
@@ -7283,7 +7283,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="flex overflow-x-hidden w-full"
+    class="ut-editor flex overflow-x-hidden w-full"
   >
     <div
       class="flex flex-grow-1"
@@ -8725,7 +8725,7 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
         </div>
       </div>
       <div
-        class="flex overflow-x-hidden w-full"
+        class="ut-editor flex overflow-x-hidden w-full"
       >
         <div
           class="flex flex-grow-1"
@@ -8871,7 +8871,7 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
         </div>
       </div>
       <div
-        class="flex overflow-x-hidden w-full"
+        class="ut-editor flex overflow-x-hidden w-full"
       >
         <div
           class="flex flex-grow-1"
@@ -9018,7 +9018,7 @@ exports[`<Editor /> PolymorphicLayout render equals snapshot 1`] = `
         </div>
       </div>
       <div
-        class="flex overflow-x-hidden w-full"
+        class="ut-editor flex overflow-x-hidden w-full"
       >
         <div
           class="flex flex-grow-1"
@@ -9170,7 +9170,7 @@ exports[`<Editor /> ResponsiveLayout render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="flex overflow-x-hidden w-full"
+    class="ut-editor flex overflow-x-hidden w-full"
   >
     <div
       class="flex flex-grow-1"
@@ -9970,7 +9970,7 @@ exports[`<Editor /> Server validation render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="flex overflow-x-hidden w-full"
+    class="ut-editor flex overflow-x-hidden w-full"
   >
     <div
       class="flex flex-grow-1"
@@ -10706,7 +10706,7 @@ exports[`<Editor /> Steps render equals snapshot 1`] = `
     <div />
   </div>
   <div
-    class="flex overflow-x-hidden w-full flex-column"
+    class="ut-editor flex overflow-x-hidden w-full flex-column"
   >
     <div
       class="flex flex-row pb-0 sticky top-0 z-1 surface-0 steps-0-2-5"
@@ -11193,7 +11193,7 @@ exports[`<Editor /> StepsDisabledBack render equals snapshot 1`] = `
     <div />
   </div>
   <div
-    class="flex overflow-x-hidden w-full flex-column"
+    class="ut-editor flex overflow-x-hidden w-full flex-column"
   >
     <div
       class="flex flex-row pb-0 sticky top-0 z-1 surface-0 steps-0-2-5"
@@ -11680,7 +11680,7 @@ exports[`<Editor /> StepsHiddenBack render equals snapshot 1`] = `
     <div />
   </div>
   <div
-    class="flex overflow-x-hidden w-full flex-column"
+    class="ut-editor flex overflow-x-hidden w-full flex-column"
   >
     <div
       class="flex flex-row pb-0 sticky top-0 z-1 surface-0 steps-0-2-5"
@@ -12261,7 +12261,7 @@ exports[`<Editor /> Submit render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="flex overflow-x-hidden w-full"
+    class="ut-editor flex overflow-x-hidden w-full"
   >
     <div
       class="flex flex-grow-1"
@@ -13104,7 +13104,7 @@ exports[`<Editor /> TabbedLayout render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="flex overflow-x-hidden w-full flex-column"
+    class="ut-editor flex overflow-x-hidden w-full flex-column"
   >
     <div
       class="flex flex-row pb-0 sticky top-0 z-1 surface-0 thumbs-0-2-6"
@@ -13521,7 +13521,7 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="flex overflow-x-hidden w-full flex-column"
+    class="ut-editor flex overflow-x-hidden w-full flex-column"
   >
     <div
       class="flex flex-row pb-0 sticky top-0 z-1 surface-0 thumbs-0-2-6"
@@ -13574,28 +13574,6 @@ exports[`<Editor /> Tabs render equals snapshot 1`] = `
                 data-testid="detailsTab"
               >
                 Details
-              </span>
-            </a>
-          </li>
-          <li
-            aria-expanded="false"
-            aria-selected="false"
-            class="p-tabmenuitem"
-            role="tab"
-          >
-            <a
-              class="p-menuitem-link"
-              href="#"
-              role="presentation"
-            >
-              <span
-                class="p-menuitem-icon pi pi-desktop"
-              />
-              <span
-                class="p-menuitem-text"
-                data-testid="accountsTab"
-              >
-                Accounts
               </span>
             </a>
           </li>
@@ -14047,7 +14025,7 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="flex overflow-x-hidden w-full"
+    class="ut-editor flex overflow-x-hidden w-full"
   >
     <div
       class="flex flex-row pb-0 lg:col-2 thumbs-0-2-6"
@@ -14504,7 +14482,7 @@ exports[`<Editor /> Toolbar render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="flex overflow-x-hidden w-full"
+    class="ut-editor flex overflow-x-hidden w-full"
   >
     <div
       class="flex flex-grow-1"
@@ -15279,7 +15257,7 @@ exports[`<Editor /> Validation render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="flex overflow-x-hidden w-full"
+    class="ut-editor flex overflow-x-hidden w-full"
   >
     <div
       class="flex flex-grow-1"
@@ -16065,7 +16043,7 @@ exports[`<Editor /> ValidationBG render equals snapshot 1`] = `
     </div>
   </div>
   <div
-    class="flex overflow-x-hidden w-full"
+    class="ut-editor flex overflow-x-hidden w-full"
   >
     <div
       class="flex flex-grow-1"

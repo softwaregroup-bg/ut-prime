@@ -3,6 +3,7 @@ import type { Story, Meta } from '@storybook/react';
 import { userEvent, within } from '@storybook/testing-library';
 import joi from 'joi';
 import merge from 'ut-function.merge';
+import type { Middleware } from 'redux';
 
 import page from './README.mdx';
 import Editor from './index';
@@ -13,6 +14,7 @@ import decorators from '../test/decorator';
 import useToast from '../hooks/useToast';
 import unauthenticated from '../test/unauthenticated';
 import type {UtError} from '../types';
+import Explorer from '../Explorer';
 
 const meta: Meta = {
     title: 'Editor',
@@ -26,7 +28,7 @@ const meta: Meta = {
 };
 export default meta;
 
-export type StoryTemplate = Story<Partial<Props> & {lang?: string}> & {
+export type StoryTemplate = Story<Partial<Props> & {lang?: string, middleware?: Middleware[]}> & {
     play: (context: {canvasElement: HTMLElement}) => Promise<void>
 }
 
@@ -127,6 +129,31 @@ Tabs.args = {
                 icon: 'pi pi-book',
                 widgets: ['taxonomy', 'morphology']
             }, {
+                id: 'history',
+                icon: 'pi pi-clock',
+                widgets: ['history']
+            }]
+        }
+    }
+};
+
+export const EditorExplorer: StoryTemplate = Template.bind({});
+EditorExplorer.args = {
+    ...Basic.args,
+    layouts: {
+        edit: {
+            orientation: 'top',
+            items: [{
+                id: 'general',
+                icon: 'pi pi-user',
+                label: 'General',
+                widgets: ['edit', 'habitat']
+            }, {
+                id: 'details',
+                label: 'Details',
+                icon: 'pi pi-book',
+                widgets: ['taxonomy', 'morphology']
+            }, {
                 id: 'accounts',
                 label: 'Accounts',
                 icon: 'pi pi-desktop',
@@ -137,7 +164,46 @@ Tabs.args = {
                 widgets: ['history']
             }]
         }
-    }
+    },
+    middleware: [
+        _store => next => action => (action.type === 'portal.component.get')
+            ? Promise.resolve(function ExplorerComponent(props) {
+                return <Explorer
+                    fetch={() => Promise.resolve({
+                        items: Array.from(Array(50).keys()).map(number => ({
+                            id: number,
+                            name: `Item ${number} longlonglongname namelong fakefakefoobar long name`,
+                            size: number * 10
+                        }))
+                    })}
+                    pageSize={22}
+                    keyField='id'
+                    resultSet='items'
+                    schema={{
+                        properties: {
+                            name: {
+                                title: 'Name'
+                            },
+                            size: {
+                                title: 'Size'
+                            }
+                        }
+                    }}
+                    cards = {{
+                        browse: {
+                            widgets: ['name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size']
+                        }
+                    }}
+                    {...props}
+                />;
+            })
+            : next(action)
+    ]
+};
+EditorExplorer.play = async({canvasElement}) => {
+    const canvas = within(canvasElement);
+    await new Promise(resolve => setTimeout(resolve, 50));
+    userEvent.click(canvas.getByText('Accounts'));
 };
 
 export const Steps: StoryTemplate = Template.bind({});
