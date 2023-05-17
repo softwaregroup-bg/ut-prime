@@ -153,7 +153,7 @@ const tree: {schema: Schema, cards: Cards} = {
         },
         account: {
             widgets: ['tree.account'],
-            className: 'col-12'
+            className: 'xl:col-9'
         }
     }
 };

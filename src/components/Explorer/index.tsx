@@ -608,7 +608,7 @@ const Explorer: ComponentProps = ({
                     ? <Toolbar left={left} right={right} style={backgroundNone} className='border-none p-2 flex-nowrap' />
                     : null
             }
-            <div className='flex'>
+            <div className='flex-grow-1'>
                 <div className={formProps.design ? 'col-10' : 'flex-grow-1'} style={inspectorHeight}>
                     {
                         (nav || detailsPanel)
