@@ -1,3 +1,12 @@
+## [2.74.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.74.0...v2.74.1) (2023-05-22)
+
+
+### Bug Fixes
+
+* **CBI-2438:** simplify vertical scrolls ([#61](https://github.com/softwaregroup-bg/ut-prime/issues/61)) ([8e43d02](https://github.com/softwaregroup-bg/ut-prime/commit/8e43d0293dbb1d924c905b8c46ddffff887f1926))
+
+
+
 # [2.74.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.73.6...v2.74.0) (2023-05-15)
 
 
