@@ -1,7 +1,21 @@
 import React from 'react';
 
 import { render, act } from '../test';
-import { Basic, Loading, Design, Tabs, Submit, Files, FilesInTab, ServerValidation, Toolbar, Steps, StepsDisabledBack, StepsHiddenBack } from './Editor.stories';
+import {
+    Basic,
+    Loading,
+    Design,
+    Tabs,
+    Submit,
+    Files,
+    FilesInTab,
+    ServerValidation,
+    Toolbar,
+    Steps,
+    StepsDisabledBack,
+    StepsHiddenBack,
+    EditorWithExplorer
+} from './Editor.stories';
 import {CascadedDropdowns} from './stories/CascadedDropdowns.stories';
 import {CascadedTables} from './stories/CascadedTables.stories';
 import {CustomEditors} from './stories/CustomEditors.stories';
@@ -151,6 +165,12 @@ describe('<Editor />', () => {
     it('StepsHiddenBack render equals snapshot', async() => {
         const { findByTestId } = render(<StepsHiddenBack {...StepsHiddenBack.args} />);
         await act(() => new Promise(resolve => setTimeout(resolve, 1000)));
+        expect(await findByTestId('ut-front-test')).toMatchSnapshot();
+    });
+    it('EditorTabsExplorer render equals snapshot', async() => {
+        const { findByTestId, container } = render(<EditorWithExplorer {...EditorWithExplorer.args} />, undefined, undefined, EditorWithExplorer.args.middleware);
+        await act(() => new Promise(resolve => setTimeout(resolve, 1000)));
+        await act(() => EditorWithExplorer.play({canvasElement: container}));
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
 });

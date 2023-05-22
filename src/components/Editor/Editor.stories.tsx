@@ -3,6 +3,7 @@ import type { Story, Meta } from '@storybook/react';
 import { userEvent, within } from '@storybook/testing-library';
 import joi from 'joi';
 import merge from 'ut-function.merge';
+import type { Middleware } from 'redux';
 
 import page from './README.mdx';
 import Editor from './index';
@@ -13,6 +14,7 @@ import decorators from '../test/decorator';
 import useToast from '../hooks/useToast';
 import unauthenticated from '../test/unauthenticated';
 import type {UtError} from '../types';
+import Explorer from '../Explorer';
 
 const meta: Meta = {
     title: 'Editor',
@@ -26,7 +28,7 @@ const meta: Meta = {
 };
 export default meta;
 
-export type StoryTemplate = Story<Partial<Props> & {lang?: string}> & {
+export type StoryTemplate = Story<Partial<Props> & {lang?: string, middleware?: Middleware[]}> & {
     play: (context: {canvasElement: HTMLElement}) => Promise<void>
 }
 
@@ -133,6 +135,140 @@ Tabs.args = {
             }]
         }
     }
+};
+
+export const EditorWithExplorer: StoryTemplate = Template.bind({});
+EditorWithExplorer.args = {
+    ...Basic.args,
+    layouts: {
+        edit: {
+            orientation: 'top',
+            items: [{
+                id: 'general',
+                icon: 'pi pi-user',
+                label: 'General',
+                widgets: ['edit', 'habitat']
+            }, {
+                id: 'details',
+                label: 'Details',
+                icon: 'pi pi-book',
+                widgets: ['taxonomy', 'morphology']
+            }, {
+                id: 'accounts',
+                label: 'Accounts',
+                icon: 'pi pi-desktop',
+                widgets: ['account']
+            }, {
+                id: 'history',
+                icon: 'pi pi-clock',
+                widgets: ['history']
+            }]
+        }
+    },
+    middleware: [
+        _store => next => action => (action.type === 'portal.component.get')
+            ? Promise.resolve(function ExplorerComponent(props) {
+                return <Explorer
+                    fetch={() => Promise.resolve({
+                        items: Array.from(Array(50).keys()).map(number => ({id: number, typeTransaction: 'Withdraw / cash out', branchCode: null, transferId: String(1051 + number), channelType: 'atm', transferDateTime: '2021-10-17 10:00:00', retrievalReferenceNumber: null, datetimeTransmission: null, channelId: '1', transferCurrency: 'USD', transferAmount: 100 + number, amountBilling: 7.5, amountSettlement: 107.5 + number, transferIdIssuer: null, transferIdAcquirer: null, transferIdLedger: null, transferIdMerchant: null, issuerTxState: 2, acquirerTxState: 2, ledgerTxState: null, merchantTxState: null, description: null, sourceAccount: `111-${String(111 + number)}`, destinationAccount: `222-${String(222 + number)}`, isError: null, alerts: null}))
+                    })}
+                    pageSize={22}
+                    keyField='id'
+                    resultSet='items'
+                    schema={{
+                        properties: {
+                            typeTransaction: {
+                                title: 'Transaction type'
+                            },
+                            branchCode: {
+                                title: 'Branch Code'
+                            },
+                            transferId: {
+                                title: 'Transfer ID'
+                            },
+                            channelType: {
+                                title: 'Channel Type'
+                            },
+                            transferDateTime: {
+                                title: 'Transfer Date Time'
+                            },
+                            retrievalReferenceNumber: {
+                                title: 'Retrieval Reference Number'
+                            },
+                            datetimeTransmission: {
+                                title: 'DateTime Transimission'
+                            },
+                            channelId: {
+                                title: 'Channel ID'
+                            },
+                            transferCurrency: {
+                                title: 'Transfer Currency'
+                            },
+                            transferAmount: {
+                                title: 'Transfer Amount'
+                            },
+                            amountBilling: {
+                                title: 'Amount Billing'
+                            },
+                            amountSettlement: {
+                                title: 'Amount Settlement'
+                            },
+                            transferIdIssuer: {
+                                title: 'Transfer ID Issuer'
+                            },
+                            transferIdAcquirer: {
+                                title: 'Transfer ID Acquirer'
+                            },
+                            transferIdLedger: {
+                                title: 'Transfer ID Ledger'
+                            },
+                            transferIdMerchant: {
+                                title: 'Transfer ID Merchant'
+                            },
+                            issuerTxState: {
+                                title: 'Issuer Transaction State'
+                            },
+                            acquirerTxState: {
+                                title: 'Acquirer Transaction State'
+                            },
+                            ledgerTxState: {
+                                title: 'Ledger Transaction State'
+                            },
+                            merchantTxState: {
+                                title: 'Merchant Transaction State'
+                            },
+                            description: {
+                                title: 'Description'
+                            },
+                            sourceAccount: {
+                                title: 'Source Account'
+                            },
+                            destinationAccount: {
+                                title: 'Destination Account'
+                            },
+                            isError: {
+                                title: 'Is Error'
+                            },
+                            alerts: {
+                                title: 'Alerts'
+                            }
+                        }
+                    }}
+                    cards = {{
+                        browse: {
+                            widgets: ['typeTransaction', 'branchCode', 'transferId', 'channelType', 'transferDateTime', 'retrievalReferenceNumber', 'datetimeTransmission', 'channelId', 'transferCurrency', 'transferAmount', 'amountBilling', 'amountSettlement', 'transferIdIssuer', 'transferIdAcquirer', 'transferIdLedger', 'transferIdMerchant', 'issuerTxState', 'acquirerTxState', 'ledgerTxState', 'merchantTxState', 'description', 'sourceAccount', 'destinationAccount', 'isError', 'alerts']
+                        }
+                    }}
+                    {...props}
+                />;
+            })
+            : next(action)
+    ]
+};
+EditorWithExplorer.play = async({canvasElement}) => {
+    const canvas = within(canvasElement);
+    await new Promise(resolve => setTimeout(resolve, 50));
+    userEvent.click(canvas.getByText('Accounts'));
 };
 
 export const Steps: StoryTemplate = Template.bind({});

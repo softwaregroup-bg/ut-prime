@@ -239,7 +239,7 @@ const Editor: ComponentProps = ({
                 </>}
                 right={customizationToolbar}
             /> : null}
-            <div className={clsx('flex', 'overflow-x-hidden', 'w-full', orientation === 'top' && 'flex-column')}>
+            <div className={clsx('ut-editor', 'flex', 'overflow-x-hidden', 'w-full', orientation === 'top' && 'flex-column')}>
                 {thumbIndex}
                 <ScrollBox className='flex flex-grow-1' noScroll={noScroll || hidden}>
                     <Form

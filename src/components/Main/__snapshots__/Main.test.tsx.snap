@@ -11,8 +11,7 @@ exports[`<Main /> render equals snapshot 1`] = `
       class="border-noround surface-0 h-full"
     >
       <div
-        class="flex flex-column"
-        style="height: 768px;"
+        class="flex flex-column h-screen"
       >
         <div
           class="headerContainer-0-2-6"

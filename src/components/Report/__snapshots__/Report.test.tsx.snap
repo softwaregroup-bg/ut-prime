@@ -195,7 +195,7 @@ exports[`<Report /> render equals snapshot 1`] = `
       </div>
     </div>
     <div
-      class="flex"
+      class="flex-grow-1"
     >
       <div
         class="flex-grow-1"

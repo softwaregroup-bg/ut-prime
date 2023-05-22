@@ -15,7 +15,6 @@ import {State} from '../Store/Store.types';
 import Component from '../Component';
 
 import { useStyles, ComponentProps } from './Portal.types';
-import { useWindowSize } from '../hooks';
 import testid from '../lib/testid';
 
 const backgroundNone = {background: 'none'};
@@ -55,7 +54,6 @@ const Portal: ComponentProps = ({ children }) => {
     const dispatch = useDispatch();
     const location = useLocation();
     const history = useHistory();
-    const size = useWindowSize();
     const {portalName, extraTitleComponent} = React.useContext(Context);
     const command = React.useCallback(({item}) => {
         if (item.component || item.tab) {
@@ -92,9 +90,6 @@ const Portal: ComponentProps = ({ children }) => {
             }
         ]
     }]), [permissions, command, rightMenu, initials, rightMenuItems]);
-    const style = React.useMemo(() => ({
-        height: size.height
-    }), [size.height]);
 
     if (location.pathname !== '/' && !tabs.find(tab => tab.path === location.pathname + location.search)) {
         dispatch({
@@ -103,7 +98,7 @@ const Portal: ComponentProps = ({ children }) => {
         });
     }
     return (
-        <div className='flex flex-column' style={style}>
+        <div className='flex flex-column h-screen'>
             <div className={classes.headerContainer}>
                 <div className='flex align-items-center justify-content-center'>
                     <div className={clsx('hidden p-component lg:block', classes.headerLogo, ut?.classes?.headerLogo)}></div>

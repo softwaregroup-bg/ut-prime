@@ -5,8 +5,7 @@ exports[`<Portal /> render equals snapshot 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="flex flex-column"
-    style="height: 768px;"
+    class="flex flex-column h-screen"
   >
     <div
       class="headerContainer-0-2-1"

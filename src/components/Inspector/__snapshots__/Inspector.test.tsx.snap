@@ -8,7 +8,7 @@ exports[`<Inspector /> Basic render equals snapshot 1`] = `
     class="col-3 inspector-0-2-1"
   >
     <div
-      class="flex overflow-x-hidden w-full"
+      class="ut-editor flex overflow-x-hidden w-full"
     >
       <div
         class="flex flex-grow-1"

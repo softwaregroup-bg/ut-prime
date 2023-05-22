@@ -33,6 +33,10 @@ const backgroundNone = {background: 'none'};
 
 const fieldName = column => typeof column === 'string' ? column : column.name;
 
+const convertRemToPixels = rem => {
+    return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
+};
+
 const useStyles = createUseStyles({
     current: {
         outline: '0.15rem solid var(--primary-color)',
@@ -94,6 +98,9 @@ const useStyles = createUseStyles({
         },
         '& .p-toolbar-group-left': {
             flexGrow: 1
+        },
+        '&.embedded .p-datatable-wrapper': {
+            maxWidth: `calc(100vw - ${convertRemToPixels(2)}px)`
         }
     }
 });
@@ -395,6 +402,7 @@ const Explorer: ComponentProps = ({
     }, [refresh, totalRecords, hidden, load]);
 
     const windowSize = useWindowSize();
+    const [isEmbedded, setEmbedded] = React.useState(false);
     const [height, setHeight] = React.useState<{height: number}>();
     const [maxHeight, setMaxHeight] = React.useState<{maxHeight: number}>();
     const [splitterHeight, setSplitterHeight] = React.useState({});
@@ -404,10 +412,13 @@ const Explorer: ComponentProps = ({
     const tableWrapRef = React.useCallback(node => {
         if (node === null || hidden || resize === false) return;
         const nodeRect = node.getBoundingClientRect();
+        const isEmbedded = Array.from(document.querySelectorAll('.ut-editor')).some(editor => editor.contains(node));
+        const extraPaddings = isEmbedded ? convertRemToPixels(2) : 0;
         const paginatorHeight = node.querySelector('.p-paginator')?.getBoundingClientRect?.()?.height;
-        setHeight({height: max(windowSize.height - nodeRect.top)});
-        setMaxHeight({maxHeight: max(windowSize.height - nodeRect.top - paginatorHeight)});
-        setInspectorHeight({maxHeight: max(windowSize.height - nodeRect.top)});
+        setHeight({height: max(windowSize.height - (nodeRect.top + extraPaddings))});
+        setMaxHeight({maxHeight: max(windowSize.height - (nodeRect.top + extraPaddings) - paginatorHeight)});
+        setInspectorHeight({maxHeight: max(windowSize.height - (nodeRect.top + extraPaddings))});
+        setEmbedded(isEmbedded);
     }, [windowSize, formProps.design, hidden, resize]); // eslint-disable-line react-hooks/exhaustive-deps
 
     const splitterWrapRef = React.useCallback(node => {
@@ -590,14 +601,14 @@ const Explorer: ComponentProps = ({
         {children}
     </SplitterPanel>;
     return (
-        <div className={clsx('flex', 'flex-column', classes.explorer, className)}>
+        <div className={clsx('flex', 'flex-column', classes.explorer, className, { embedded: isEmbedded })}>
             {toast}
             {
                 toolbar !== false
                     ? <Toolbar left={left} right={right} style={backgroundNone} className='border-none p-2 flex-nowrap' />
                     : null
             }
-            <div className='flex'>
+            <div className='flex-grow-1'>
                 <div className={formProps.design ? 'col-10' : 'flex-grow-1'} style={inspectorHeight}>
                     {
                         (nav || detailsPanel)
