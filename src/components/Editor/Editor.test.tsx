@@ -14,7 +14,7 @@ import {
     Steps,
     StepsDisabledBack,
     StepsHiddenBack,
-    EditorExplorer
+    EditorWithExplorer
 } from './Editor.stories';
 import {CascadedDropdowns} from './stories/CascadedDropdowns.stories';
 import {CascadedTables} from './stories/CascadedTables.stories';
@@ -168,9 +168,9 @@ describe('<Editor />', () => {
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
     it('EditorTabsExplorer render equals snapshot', async() => {
-        const { findByTestId, container } = render(<EditorExplorer {...EditorExplorer.args} />);
+        const { findByTestId, container } = render(<EditorWithExplorer {...EditorWithExplorer.args} />, undefined, undefined, EditorWithExplorer.args.middleware);
         await act(() => new Promise(resolve => setTimeout(resolve, 1000)));
-        await act(() => EditorExplorer.play({canvasElement: container}));
+        await act(() => EditorWithExplorer.play({canvasElement: container}));
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
 });

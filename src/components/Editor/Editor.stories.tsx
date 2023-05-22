@@ -137,8 +137,8 @@ Tabs.args = {
     }
 };
 
-export const EditorExplorer: StoryTemplate = Template.bind({});
-EditorExplorer.args = {
+export const EditorWithExplorer: StoryTemplate = Template.bind({});
+EditorWithExplorer.args = {
     ...Basic.args,
     layouts: {
         edit: {
@@ -170,28 +170,93 @@ EditorExplorer.args = {
             ? Promise.resolve(function ExplorerComponent(props) {
                 return <Explorer
                     fetch={() => Promise.resolve({
-                        items: Array.from(Array(50).keys()).map(number => ({
-                            id: number,
-                            name: `Item ${number} longlonglongname namelong fakefakefoobar long name`,
-                            size: number * 10
-                        }))
+                        items: Array.from(Array(50).keys()).map(number => ({id: number, typeTransaction: 'Withdraw / cash out', branchCode: null, transferId: String(1051 + number), channelType: 'atm', transferDateTime: '2021-10-17 10:00:00', retrievalReferenceNumber: null, datetimeTransmission: null, channelId: '1', transferCurrency: 'USD', transferAmount: 100 + number, amountBilling: 7.5, amountSettlement: 107.5 + number, transferIdIssuer: null, transferIdAcquirer: null, transferIdLedger: null, transferIdMerchant: null, issuerTxState: 2, acquirerTxState: 2, ledgerTxState: null, merchantTxState: null, description: null, sourceAccount: `111-${String(111 + number)}`, destinationAccount: `222-${String(222 + number)}`, isError: null, alerts: null}))
                     })}
                     pageSize={22}
                     keyField='id'
                     resultSet='items'
                     schema={{
                         properties: {
-                            name: {
-                                title: 'Name'
+                            typeTransaction: {
+                                title: 'Transaction type'
                             },
-                            size: {
-                                title: 'Size'
+                            branchCode: {
+                                title: 'Branch Code'
+                            },
+                            transferId: {
+                                title: 'Transfer ID'
+                            },
+                            channelType: {
+                                title: 'Channel Type'
+                            },
+                            transferDateTime: {
+                                title: 'Transfer Date Time'
+                            },
+                            retrievalReferenceNumber: {
+                                title: 'Retrieval Reference Number'
+                            },
+                            datetimeTransmission: {
+                                title: 'DateTime Transimission'
+                            },
+                            channelId: {
+                                title: 'Channel ID'
+                            },
+                            transferCurrency: {
+                                title: 'Transfer Currency'
+                            },
+                            transferAmount: {
+                                title: 'Transfer Amount'
+                            },
+                            amountBilling: {
+                                title: 'Amount Billing'
+                            },
+                            amountSettlement: {
+                                title: 'Amount Settlement'
+                            },
+                            transferIdIssuer: {
+                                title: 'Transfer ID Issuer'
+                            },
+                            transferIdAcquirer: {
+                                title: 'Transfer ID Acquirer'
+                            },
+                            transferIdLedger: {
+                                title: 'Transfer ID Ledger'
+                            },
+                            transferIdMerchant: {
+                                title: 'Transfer ID Merchant'
+                            },
+                            issuerTxState: {
+                                title: 'Issuer Transaction State'
+                            },
+                            acquirerTxState: {
+                                title: 'Acquirer Transaction State'
+                            },
+                            ledgerTxState: {
+                                title: 'Ledger Transaction State'
+                            },
+                            merchantTxState: {
+                                title: 'Merchant Transaction State'
+                            },
+                            description: {
+                                title: 'Description'
+                            },
+                            sourceAccount: {
+                                title: 'Source Account'
+                            },
+                            destinationAccount: {
+                                title: 'Destination Account'
+                            },
+                            isError: {
+                                title: 'Is Error'
+                            },
+                            alerts: {
+                                title: 'Alerts'
                             }
                         }
                     }}
                     cards = {{
                         browse: {
-                            widgets: ['name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size', 'name', 'size']
+                            widgets: ['typeTransaction', 'branchCode', 'transferId', 'channelType', 'transferDateTime', 'retrievalReferenceNumber', 'datetimeTransmission', 'channelId', 'transferCurrency', 'transferAmount', 'amountBilling', 'amountSettlement', 'transferIdIssuer', 'transferIdAcquirer', 'transferIdLedger', 'transferIdMerchant', 'issuerTxState', 'acquirerTxState', 'ledgerTxState', 'merchantTxState', 'description', 'sourceAccount', 'destinationAccount', 'isError', 'alerts']
                         }
                     }}
                     {...props}
@@ -200,7 +265,7 @@ EditorExplorer.args = {
             : next(action)
     ]
 };
-EditorExplorer.play = async({canvasElement}) => {
+EditorWithExplorer.play = async({canvasElement}) => {
     const canvas = within(canvasElement);
     await new Promise(resolve => setTimeout(resolve, 50));
     userEvent.click(canvas.getByText('Accounts'));
