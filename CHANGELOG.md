@@ -1,3 +1,12 @@
+## [2.74.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.74.1...v2.74.2) (2023-05-27)
+
+
+### Bug Fixes
+
+* skip thumbIdx form validation when layout is disabled ([#62](https://github.com/softwaregroup-bg/ut-prime/issues/62)) ([05c4ca7](https://github.com/softwaregroup-bg/ut-prime/commit/05c4ca72665ddaa9c7e1193e3241f1ff67876e75))
+
+
+
 ## [2.74.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.74.0...v2.74.1) (2023-05-22)
 
 
