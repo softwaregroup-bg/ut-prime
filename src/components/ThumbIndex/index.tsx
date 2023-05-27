@@ -35,16 +35,17 @@ const ThumbIndex: ComponentProps = ({
     methods,
     formApi,
     layoutState,
+    layoutDisabled,
     ...rest
 }) => {
     const classes = useStyles();
     const [[selectedList, activeIndex], setList] = React.useState([items[0], 0]);
     const handleListChange = React.useCallback(async({item, value = item, index = value.index}) => {
-        if (layoutState && !await formApi.trigger(layoutState.visibleProperties)) return;
+        if (layoutState && !layoutDisabled && !await formApi.trigger(layoutState.visibleProperties)) return;
         if (value.onMount && !(await methods[value.onMount]({form: formApi}))) return;
         setList([value, index]);
         onFilter([value?.items?.[0] || value, index]);
-    }, [onFilter, methods, formApi, layoutState]);
+    }, [onFilter, methods, formApi, layoutState, layoutDisabled]);
     const model = React.useMemo(() => {
         const command = index => ({item}) => onFilter && onFilter([item, index]);
         const result = (selectedList?.items || []).map((item, index) => ({

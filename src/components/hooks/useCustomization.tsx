@@ -435,6 +435,7 @@ export default function useCustomization({
             methods={methods}
             formApi={formApi}
             layoutState={layoutState}
+            layoutDisabled={disabled}
         />
     );
 
