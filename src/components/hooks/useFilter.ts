@@ -31,6 +31,7 @@ const useFilter: (
         setFilters(prev => {
             const next = {
                 ...prev,
+                first: 1,
                 filters: {
                     ...prev?.filters,
                     [name]: {
