@@ -1,3 +1,12 @@
+# [2.75.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.74.3...v2.75.0) (2023-05-29)
+
+
+### Features
+
+* pass getValues to Component ([6d04da5](https://github.com/softwaregroup-bg/ut-prime/commit/6d04da5e9d5231d130774d5848c743534bb6dfbf))
+
+
+
 ## [2.74.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.74.2...v2.74.3) (2023-05-29)
 
 
