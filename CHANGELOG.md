@@ -1,3 +1,12 @@
+## [2.75.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.75.0...v2.75.1) (2023-05-30)
+
+
+### Bug Fixes
+
+* report row styling ([f8c6fb3](https://github.com/softwaregroup-bg/ut-prime/commit/f8c6fb3657d852fe1d26fa5e918884078f6d1efe))
+
+
+
 # [2.75.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.74.3...v2.75.0) (2023-05-29)
 
 
