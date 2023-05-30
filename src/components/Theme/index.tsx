@@ -225,6 +225,9 @@ export const useStyles = createUseStyles(({fontSize = 14}: Theme) => ({
         },
         '.pre-wrap': {
             whiteSpace: 'pre-wrap !important'
+        },
+        '.text-invalid': {
+            color: 'var(--red-500)'
         }
     }
 }));

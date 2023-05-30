@@ -190,8 +190,8 @@ export type WidgetReference = string | {
     compare?: string,
     filter?: object,
     parent?: string | string[],
-    disabled?: 'current' | 'selected' | 'single' | boolean | Joi.Schema,
-    enabled?: 'current' | 'selected' | 'single' | boolean | Joi.Schema
+    disabled?: string | boolean | Joi.Schema,
+    enabled?: string | boolean | Joi.Schema
 }
 export interface Card {
     label?: string;

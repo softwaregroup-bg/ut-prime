@@ -22,7 +22,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     hideBack?: boolean;
     methods?: object;
     formApi?: UseFormReturn;
-    layoutDisabled: boolean;
+    layoutDisabled?: boolean;
 }
 
 export type ComponentProps = React.FC<Props>

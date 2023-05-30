@@ -239,7 +239,7 @@ const Explorer: ComponentProps = ({
     const handleRowSelect = React.useCallback(e => handleCurrentSelect({current: e.data}, e), [handleCurrentSelect]);
     const handleRowUnselect = React.useCallback(e => handleCurrentSelect({current: null}, e), [handleCurrentSelect]);
     const rowClass = React.useCallback(
-        (data: object) => currentState && (data?.[keyField] === currentState?.[keyField]) ? classes.current : undefined,
+        (data: object) => keyField && currentState && (data?.[keyField] === currentState?.[keyField]) ? classes.current : undefined,
         [currentState, classes, keyField]
     );
 
