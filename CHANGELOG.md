@@ -1,3 +1,12 @@
+## [2.75.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.75.1...v2.75.2) (2023-06-02)
+
+
+### Bug Fixes
+
+* goto page one on filter change ([2264924](https://github.com/softwaregroup-bg/ut-prime/commit/2264924faca56c2dc3b7642334ad94ae3c89dc0e))
+
+
+
 ## [2.75.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.75.0...v2.75.1) (2023-05-30)
 
 
