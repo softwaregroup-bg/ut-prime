@@ -1,3 +1,12 @@
+# [2.76.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.75.2...v2.76.0) (2023-06-05)
+
+
+### Features
+
+* submit debounce ([1cf53c7](https://github.com/softwaregroup-bg/ut-prime/commit/1cf53c70ad2dbc86db3b5fa49c3657be90e7d10b))
+
+
+
 ## [2.75.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.75.1...v2.75.2) (2023-06-02)
 
 
