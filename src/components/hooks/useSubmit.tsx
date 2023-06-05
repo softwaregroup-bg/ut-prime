@@ -59,6 +59,7 @@ export function useDebounce(submit, dependencies, {success = null} = {}) {
     return {
         // eslint-disable-next-line react-hooks/exhaustive-deps
         handleSubmit: React.useCallback((...params) => debounced(...params), dependencies),
+        flush: debounced.flush,
         toast: <Toast ref={toast} />
     };
 }

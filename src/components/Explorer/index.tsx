@@ -306,7 +306,7 @@ const Explorer: ComponentProps = ({
 
     const buttons = useButtons({ selected, toolbar, properties, getValues, paramsLayout, trigger, current, loading, submit });
     const [filterErrors, setFilterErrors] = React.useState<Joi.ValidationError>();
-    const {toast, handleSubmit: load} = useSubmit(
+    const {toast, handleSubmit: load, flush} = useSubmit(
         async function() {
             if (!fetch) {
                 setItems([[], 0, {}]);
@@ -391,6 +391,7 @@ const Explorer: ComponentProps = ({
             });
         }
     }, [keyField, load, subscribe, formProps.design]);
+    React.useEffect(flush, [flush]); // call the initial load without delay
     React.useEffect(() => {
         loadCustomization();
     }, [loadCustomization]);
