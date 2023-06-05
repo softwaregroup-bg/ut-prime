@@ -5,7 +5,7 @@ import {useHistory} from 'react-router-dom';
 import {Button, Menu} from '../prime';
 import filterMenu from '../lib/filterMenu';
 import {State} from '../Store/Store.types';
-import useSubmit from '../hooks/useSubmit';
+import {useDebounce as useSubmit} from '../hooks/useSubmit';
 
 import {ComponentProps} from './ActionButton.types';
 

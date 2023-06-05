@@ -56,12 +56,14 @@ describe('<Editor />', () => {
         const { findByTestId, container } = render(<CascadedDropdowns />);
         await act(() => new Promise(resolve => setTimeout(resolve, 1000)));
         await act(() => CascadedDropdowns.play({canvasElement: container}));
+        await act(() => new Promise(resolve => setTimeout(resolve, 500)));
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
     it('CascadedTables render equals snapshot', async() => {
         const { findByTestId, container } = render(<CascadedTables />, undefined, 'en');
         await act(() => new Promise(resolve => setTimeout(resolve, 1000)));
         await act(() => CascadedTables.play({canvasElement: container}));
+        await act(() => new Promise(resolve => setTimeout(resolve, 500)));
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
     it('CustomEditors render equals snapshot', async() => {
@@ -73,12 +75,14 @@ describe('<Editor />', () => {
         const { findByTestId, container } = render(<MasterDetail />);
         await act(() => new Promise(resolve => setTimeout(resolve, 1000)));
         await act(() => MasterDetail.play({canvasElement: container}));
+        await act(() => new Promise(resolve => setTimeout(resolve, 500)));
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
     it('MasterDetailPolymorphic render equals snapshot', async() => {
         const { findByTestId, container } = render(<MasterDetailPolymorphic />);
         await act(() => new Promise(resolve => setTimeout(resolve, 1000)));
         await act(() => MasterDetailPolymorphic.play({canvasElement: container}));
+        await act(() => new Promise(resolve => setTimeout(resolve, 500)));
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
     it('Pivot render equals snapshot', async() => {
@@ -115,24 +119,28 @@ describe('<Editor />', () => {
         const { findByTestId, container } = render(<Submit {...Submit.args} />);
         await act(() => new Promise(resolve => setTimeout(resolve, 1000)));
         await act(() => Submit.play({canvasElement: container}));
+        await act(() => new Promise(resolve => setTimeout(resolve, 500)));
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
     it('Validation render equals snapshot', async() => {
         const { findByTestId, container } = render(<Validation {...Validation.args} />);
         await act(() => new Promise(resolve => setTimeout(resolve, 1000)));
         await act(() => Validation.play({canvasElement: container}));
+        await act(() => new Promise(resolve => setTimeout(resolve, 500)));
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
     it('ValidationBG render equals snapshot', async() => {
         const { findByTestId, container } = render(<ValidationBG {...ValidationBG.args} />, undefined, 'bg');
         await act(() => new Promise(resolve => setTimeout(resolve, 1000)));
         await act(() => ValidationBG.play({canvasElement: container}));
+        await act(() => new Promise(resolve => setTimeout(resolve, 500)));
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
     it('Server validation render equals snapshot', async() => {
         const { findByTestId, container } = render(<ServerValidation {...ServerValidation.args} />);
         await act(() => new Promise(resolve => setTimeout(resolve, 1000)));
         await act(() => ServerValidation.play({canvasElement: container}));
+        await act(() => new Promise(resolve => setTimeout(resolve, 500)));
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
     it('Toolbar render equals snapshot', async() => {
@@ -144,12 +152,14 @@ describe('<Editor />', () => {
         const { findByTestId, container } = render(<Files {...Files.args} />);
         await act(() => new Promise(resolve => setTimeout(resolve, 1000)));
         await act(() => Files.play({canvasElement: container}));
+        await act(() => new Promise(resolve => setTimeout(resolve, 500)));
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
     it('FilesInTab render equals snapshot', async() => {
         const { findByTestId, container } = render(<FilesInTab {...FilesInTab.args} />);
         await act(() => new Promise(resolve => setTimeout(resolve, 1000)));
         await act(() => FilesInTab.play({canvasElement: container}));
+        await act(() => new Promise(resolve => setTimeout(resolve, 500)));
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
     it('Steps render equals snapshot', async() => {
@@ -171,6 +181,7 @@ describe('<Editor />', () => {
         const { findByTestId, container } = render(<EditorWithExplorer {...EditorWithExplorer.args} />, undefined, undefined, EditorWithExplorer.args.middleware);
         await act(() => new Promise(resolve => setTimeout(resolve, 1000)));
         await act(() => EditorWithExplorer.play({canvasElement: container}));
+        await act(() => new Promise(resolve => setTimeout(resolve, 500)));
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
 });

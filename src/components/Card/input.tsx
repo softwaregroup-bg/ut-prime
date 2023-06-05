@@ -572,6 +572,7 @@ function input(
                     page={props.page}
                     getValues={formApi.getValues}
                     {...field}
+                    ref={undefined}
                     {...props}
                 />
             </div>;

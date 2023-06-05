@@ -10,7 +10,7 @@ import { Button, DataTable, DataView, Column, Toolbar, Splitter, SplitterPanel }
 import ActionButton from '../ActionButton';
 import Component from '../Component';
 import useToggle from '../hooks/useToggle';
-import useSubmit from '../hooks/useSubmit';
+import {useDebounce as useSubmit} from '../hooks/useSubmit';
 import useLayout from '../hooks/useLayout';
 import useLoad from '../hooks/useLoad';
 import useWindowSize from '../hooks/useWindowSize';

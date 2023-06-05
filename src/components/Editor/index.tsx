@@ -13,7 +13,7 @@ import { Toolbar } from '../prime';
 import ActionButton from '../ActionButton';
 import type {Schema} from '../types';
 import { ComponentProps } from './Editor.types';
-import useSubmit from '../hooks/useSubmit';
+import {useSubmit} from '../hooks/useSubmit';
 
 const backgroundNone = {background: 'none'};
 
