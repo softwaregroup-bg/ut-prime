@@ -246,7 +246,7 @@ const Explorer: ComponentProps = ({
     const [navigationOpened, navigationToggle] = useToggle(true);
     const [detailsOpened, detailsToggle] = useToggle(true);
 
-    const [[items, totalRecords, result], setItems] = React.useState([[], 0, {}]);
+    const [[items, totalRecords, result], setItems] = React.useState([empty, 0, {}]);
     const keys = onChange && keyField && (multiSelect ? value?.selected?.map(item => item[keyField]) : [value?.[keyField]]);
     const found = keys && items?.filter(item => keys.includes(item[keyField]));
     const [current, selected] = found ? [found[0], found] : [currentState, selectedState];
@@ -366,7 +366,7 @@ const Explorer: ComponentProps = ({
                 selected: currentSelected.length ? currentSelected : null,
                 current: items.find(record => record[keyField] === current?.[keyField]) || currentSelected?.[0] || null
             };
-            if (keyField && onChange) {
+            if (keyField && onChange && items !== empty) {
                 const prevKeys = Array.isArray(selected) ? selected.map(item => item[keyField]) : [];
                 const keys = Array.isArray(result.selected) ? result.selected.map(item => item[keyField]) : [];
                 if (result.current?.[keyField] !== current?.[keyField] ||
