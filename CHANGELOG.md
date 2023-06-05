@@ -1,3 +1,12 @@
+## [2.76.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.76.1...v2.76.2) (2023-06-05)
+
+
+### Bug Fixes
+
+* initial load ([a282627](https://github.com/softwaregroup-bg/ut-prime/commit/a282627d01b73b95b54f70de2e97f9bbc9f5dcfe))
+
+
+
 ## [2.76.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.76.0...v2.76.1) (2023-06-05)
 
 
