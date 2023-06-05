@@ -1,3 +1,12 @@
+## [2.76.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.76.0...v2.76.1) (2023-06-05)
+
+
+### Bug Fixes
+
+* preserve selection ([e041522](https://github.com/softwaregroup-bg/ut-prime/commit/e041522eaa79c5b2dd18768399debf846f6620fd))
+
+
+
 # [2.76.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.75.2...v2.76.0) (2023-06-05)
 
 
