@@ -39,7 +39,9 @@ export default function useButtons({
                 permission,
                 menu,
                 confirm,
-                successHint
+                successHint,
+                tooltip,
+                tooltipOptions
             } = typeof widget === 'string' ? properties[widget].widget : widget;
 
             const check = (criteria) => {
@@ -77,6 +79,8 @@ export default function useButtons({
                     successHint={successHint}
                     className="mr-2"
                     icon={icon}
+                    tooltip={tooltip}
+                    tooltipOptions={tooltipOptions}
                 >
                     {title}
                 </ActionButton>

@@ -4,23 +4,29 @@ import { localeOptions } from 'primereact/api';
 
 import Context from './context';
 
-import { ComponentProps } from './Text.types';
+import { ComponentProps, HookParams } from './Text.types';
 
-const Text: ComponentProps = ({ id, lang, params, prefix, children }) => {
+export const useText = ({ id, lang, params, prefix, text: textInput }: HookParams) => {
     const {translate, language} = useContext(Context);
-    if (typeof children !== 'string') return <>{children}</>;
-    let template = children;
+    if (typeof textInput !== 'string') return;
+    let template = textInput;
     if (typeof translate === 'function') {
-        const text = (prefix ? [prefix, children] : [children]).join('>');
+        const text = (prefix ? [prefix, textInput] : [textInput]).join('>');
         // Translate the template
         template = translate(id, text, lang || language);
         if (template === text) {
-            template = children;
+            template = textInput;
         }
     } else {
         template = localeOptions(lang || language)?.[template] || template;
     }
     return interpolate(template, params);
+};
+
+const Text: ComponentProps = ({ id, lang, params, prefix, children }) => {
+    const text = useText({id, lang, params, prefix, text: children});
+    if (typeof children !== 'string') return <>{children}</>;
+    return text;
 };
 
 export default Text;

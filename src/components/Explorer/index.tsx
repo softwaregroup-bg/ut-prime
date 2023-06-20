@@ -525,9 +525,9 @@ const Explorer: ComponentProps = ({
         {buttons}
     </>;
     const right = <>
-        <Button icon="pi pi-search" className="mr-2 ml-2" disabled={!!loading} onClick={trigger || load} {...testid(`${resultSet}.refreshButton`)}/>
+        <Button icon="pi pi-search" className="mr-2 ml-2" disabled={!!loading} onClick={trigger || load} {...testid(`${resultSet}.refreshButton`)} tooltip="Search" />
         {paramsLayout ? buttons : null}
-        {details && <Button {...testid(`${resultSet}.details.toggleButton`)} icon="pi pi-bars" className="mr-2" onClick={detailsToggle}/>}
+        {details && <Button {...testid(`${resultSet}.details.toggleButton`)} icon="pi pi-bars" className="mr-2" onClick={detailsToggle} tooltip="Details" />}
         {customizationToolbar}
     </>;
     const layoutState = useLayout(mergedSchema, mergedCards, layout, editors, keyField, layoutFields);

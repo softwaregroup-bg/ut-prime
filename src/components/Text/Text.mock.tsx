@@ -103,6 +103,8 @@ const translations = {
         Reject=Откажи
         Approve=Приеми
         Granded=Осигурен достъп
+        Search=Потърси
+        Details=Детайли
 
         Monday=Понеделник
         Tuesday=Вторник
@@ -161,6 +163,8 @@ const translations = {
         Help=مساعدة
         Profile=ملف تعريفي للمستخدم
         Logout=تسجيل خروج
+        Search=يبحث
+        Details=مرفوض
 
         Reproduction=تكاثر
         Tree=شجرة
