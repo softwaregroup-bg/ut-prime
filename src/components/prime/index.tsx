@@ -55,6 +55,7 @@ export { Tooltip } from 'primereact/tooltip';
 export { Tree } from 'primereact/tree';
 export { TreeSelect } from 'primereact/treeselect';
 export { TreeTable } from 'primereact/treetable';
+export { TriStateCheckbox } from 'primereact/tristatecheckbox';
 export { MultiSelect } from 'primereact/multiselect';
 type DataTableProps = PrimeDataTableProps & {emptyMessage?: string | {page: string}}
 export type { DataTableProps };

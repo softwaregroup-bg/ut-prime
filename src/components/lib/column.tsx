@@ -11,7 +11,8 @@ import {
     MultiSelect,
     Password,
     RadioButton,
-    SelectButton
+    SelectButton,
+    TriStateCheckbox
 } from '../prime';
 import DateRange from '../DateRange';
 import Json from '../Json';
@@ -132,9 +133,9 @@ export default function columnProps({
             bodyClassName = 'text-right';
             break;
         case 'boolean':
-            filterElement = filterBy && <Checkbox
-                checked={tableFilter?.filters?.[fieldName]?.value}
-                onChange={filterBy(fieldName, 'checked')}
+            filterElement = filterBy && <TriStateCheckbox
+                value={tableFilter?.filters?.[fieldName]?.value}
+                onChange={filterBy(fieldName, 'value')}
                 {...testid(filterId)}
                 {...props}
                 {...invalidProps}
