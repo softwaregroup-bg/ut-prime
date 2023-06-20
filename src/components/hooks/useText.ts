@@ -5,7 +5,7 @@ import { localeOptions } from 'primereact/api';
 import Context from '../Text/context';
 import { Props } from '../Text/Text.types';
 
-export interface HookParams {
+interface HookParams {
     prefix?: Props['prefix'],
     params?: Props['params'],
     lang?: Props['lang'],
