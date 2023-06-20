@@ -1,3 +1,12 @@
+# [2.77.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.76.2...v2.77.0) (2023-06-20)
+
+
+### Features
+
+* **CBI-855:** explorer icons tooltips, allow widget tooltips ([#63](https://github.com/softwaregroup-bg/ut-prime/issues/63)) ([c20f5fa](https://github.com/softwaregroup-bg/ut-prime/commit/c20f5fa3966dd58d80fbdd8510e4b08e9c19c111))
+
+
+
 ## [2.76.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.76.1...v2.76.2) (2023-06-05)
 
 
