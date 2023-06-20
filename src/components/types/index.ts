@@ -7,6 +7,7 @@ import type { DataViewProps } from 'primereact/dataview';
 import type { ColumnProps } from 'primereact/column';
 import Joi from 'joi';
 import useForm from '../hooks/useForm';
+import ActionButton from '../ActionButton';
 
 export type DataTable = Omit<DataTableProps, 'children'>;
 export type DataView = Omit<DataViewProps, 'children'>;
@@ -177,6 +178,8 @@ export type WidgetReference = string | {
     action?: ActionHandler,
     method?: string,
     successHint?: React.ReactNode,
+    tooltip?: Parameters<typeof ActionButton>[0]['tooltip'],
+    tooltipOptions?: Parameters<typeof ActionButton>[0]['tooltipOptions'],
     params?: object | string,
     page?: string,
     selectionPath?: string,
