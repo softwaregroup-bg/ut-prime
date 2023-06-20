@@ -1,3 +1,12 @@
+## [2.77.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.77.0...v2.77.1) (2023-06-20)
+
+
+### Bug Fixes
+
+* boolean filter ([b919f4e](https://github.com/softwaregroup-bg/ut-prime/commit/b919f4e8b0bfddbeac48172c4af5c6b19d0c134e))
+
+
+
 # [2.77.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.76.2...v2.77.0) (2023-06-20)
 
 
