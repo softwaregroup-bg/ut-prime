@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentProps } from './Text.types';
 
-import { useText } from '../hooks';
+import useText from '../hooks/useText';
 
 const Text: ComponentProps = ({ id, lang, params, prefix, children }) => {
     const text = useText({id, lang, params, prefix, text: children});
