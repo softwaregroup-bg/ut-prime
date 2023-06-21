@@ -1,3 +1,12 @@
+## [2.77.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.77.1...v2.77.2) (2023-06-21)
+
+
+### Bug Fixes
+
+* **CBI-855:** proper hook import ([#64](https://github.com/softwaregroup-bg/ut-prime/issues/64)) ([02845b2](https://github.com/softwaregroup-bg/ut-prime/commit/02845b26a1a18e6b95de58607fd7444152cb28a4))
+
+
+
 ## [2.77.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.77.0...v2.77.1) (2023-06-20)
 
 
