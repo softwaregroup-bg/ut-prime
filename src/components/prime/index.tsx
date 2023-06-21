@@ -10,7 +10,7 @@ import { DataTable as PrimeDataTable } from 'primereact/datatable';
 import React from 'react';
 import Component from '../Component';
 import Text from '../Text';
-import { useText } from '../hooks';
+import useText from '../hooks/useText';
 import Permission from '../Permission';
 import {Props as PermissionProps} from '../Permission/Permission.types';
 import {confirmPopup as confirmPopupPrime} from 'primereact/confirmpopup';
