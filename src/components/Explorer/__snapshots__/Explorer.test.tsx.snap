@@ -25,6 +25,19 @@ exports[`<Explorer /> render equals snapshot 1`] = `
       >
         <button
           class="p-button p-component mr-2 ml-2 p-button-icon-only"
+          data-testid="items-widthButton"
+        >
+          <span
+            class="p-button-icon p-c pi pi-arrows-h"
+          />
+          <span
+            class="p-button-label p-c"
+          >
+             
+          </span>
+        </button>
+        <button
+          class="p-button p-component mr-2 p-button-icon-only"
           data-testid="items-refreshButton"
         >
           <span

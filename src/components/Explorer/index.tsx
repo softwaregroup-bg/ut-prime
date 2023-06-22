@@ -244,6 +244,7 @@ const Explorer: ComponentProps = ({
     );
 
     const [navigationOpened, navigationToggle] = useToggle(true);
+    const [fit, fitToggle] = useToggle(true);
     const [detailsOpened, detailsToggle] = useToggle(true);
 
     const [[items, totalRecords, result], setItems] = React.useState([empty, 0, {}]);
@@ -525,7 +526,8 @@ const Explorer: ComponentProps = ({
         {buttons}
     </>;
     const right = <>
-        <Button icon="pi pi-search" className="mr-2 ml-2" disabled={!!loading} onClick={trigger || load} {...testid(`${resultSet}.refreshButton`)} tooltip="Search" />
+        {layout?.length ? null : <Button icon="pi pi-arrows-h" className="mr-2 ml-2" onClick={fitToggle} {...testid(`${resultSet}.widthButton`)} tooltip="Fit width" />}
+        <Button icon="pi pi-search" className="mr-2" disabled={!!loading} onClick={trigger || load} {...testid(`${resultSet}.refreshButton`)} tooltip="Search" />
         {paramsLayout ? buttons : null}
         {details && <Button {...testid(`${resultSet}.details.toggleButton`)} icon="pi pi-bars" className="mr-2" onClick={detailsToggle} tooltip="Details" />}
         {customizationToolbar}
@@ -574,7 +576,7 @@ const Explorer: ComponentProps = ({
                 itemTemplate={itemTemplate}
                 {...viewProps}
             /> : <DataTable
-                scrollable
+                scrollable={fit}
                 scrollHeight='flex'
                 autoLayout
                 lazy
@@ -592,7 +594,7 @@ const Explorer: ComponentProps = ({
                 onRowUnselect={handleRowUnselect}
                 {...tableProps}
             >
-                {multiSelect && <Column selectionMode="multiple" className='flex-grow-0'/>}
+                {multiSelect && <Column selectionMode="multiple" {...fit ? {className: 'flex-grow-0'} : {headerStyle: {width: '3rem' }}}/>}
                 {Columns}
             </DataTable>}
             {errorsWithoutColumn.length ? <FilterErrors errors={errorsWithoutColumn}/> : null}
