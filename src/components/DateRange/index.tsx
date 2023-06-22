@@ -6,7 +6,7 @@ import Context from '../Text/context';
 import type { FormatOptions } from '../Gate/Gate.types';
 
 export interface Props extends Omit<ButtonProps, 'value' | 'onChange'> {
-    value: [Date, Date];
+    value: string;
     exclusive?: boolean;
     timeOnly?: boolean;
     inline?: boolean;
@@ -31,19 +31,25 @@ const optionItems = ({display}) => <Text>{display}</Text>;
 
 const options = [
     {from: 'now-30m', display: 'Last 30 minutes'},
-    {from: 'now-1h', display: 'Last 1 hour'},
+    {from: 'now-1h', display: 'Last hour'},
     {from: 'now-12h', display: 'Last 12 hours'},
     {from: 'now-24h', display: 'Last 24 hours'},
     {from: 'now-1d', display: 'Today'},
     {from: 'now-2d', display: 'Since yesterday'},
     {from: 'now-7d', display: 'Last 7 days'},
-    {from: 'now-1M', display: 'Last 1 month'},
+    {from: 'now-1M', display: 'Last month'},
     {from: 'now-3M', display: 'Last 3 months'},
     {from: 'now-6M', display: 'Last 6 months'},
-    {from: 'now-1y', display: 'Last 1 year'},
+    {from: 'now-1y', display: 'Last 12 months'},
     {from: 'now-2y', display: 'Last 2 years'},
     {from: 'now-5y', display: 'Last 5 years'}
 ];
+
+const relativeRE = /^now-(\d+)(m|h|d|M|y)$/;
+
+function range(value) {
+    return (typeof value === 'string' && value.startsWith('[')) ? JSON.parse(value).map(v => typeof v === 'string' ? new Date(v) : v) : [];
+}
 
 const DateRange = React.forwardRef<object, Props>(function DateRange({
     value,
@@ -56,24 +62,27 @@ const DateRange = React.forwardRef<object, Props>(function DateRange({
     ...props
 }, ref) {
     if (typeof ref === 'function') ref({});
+    const [startValue, endValue] = range(value);
+    const startValueTime = startValue?.getTime();
+    const endValueTime = endValue?.getTime();
     const panel = useRef<OverlayPanel>();
     const [calendarVisible, setCalendarVisible] = useState(false);
-    const [option, setOption] = useState();
-    const [dateFrom, setDateFrom] = useState(value?.[0]);
-    const [dateTo, setDateTo] = useState(value?.[1]);
+    const [option, setOption] = useState<{from: string, display?: string}>();
+    const [dateFrom, setDateFrom] = useState(startValue);
+    const [dateTo, setDateTo] = useState(endValue);
     const [[displayText, displayFrom, displayTo], setDisplay] = useState(['', null, null]);
     const ctx = useContext(Context);
 
     const displayDate = (value: Date) => (timeOnly ? value && ctx.formatValue(value, { type: 'time', ...formatOptions?.time }) : value && ctx.formatValue(value, { type: 'dateTime', ...formatOptions?.dateTime })) ?? '---';
 
     const display =
-        (inline && `${displayDate(value?.[0])}\n÷\n${displayDate(value?.[1])}`) ||
-        (!value?.[0] && !value?.[1] && 'Select period') ||
-        (displayFrom && displayFrom === value?.[0] && displayTo && displayTo === value?.[1] && displayText) ||
+        (inline && `${displayDate(startValue)}\n÷\n${displayDate(endValue)}`) ||
+        (!startValue && !endValue && 'Select period') ||
+        (displayFrom && displayFrom?.getTime() === startValueTime && displayTo && displayTo?.getTime() === endValueTime && displayText) ||
         'Custom period';
 
-    const setRelative = ({from: relativeTimeValue, display: newDisplay}) => {
-        const [, interval, unit] = relativeTimeValue.match(/-(\d+)(m|h|d|M|y)$/);
+    const setRelative = React.useCallback(({from: relativeTimeValue, display: newDisplay}) => {
+        const [, interval, unit] = relativeTimeValue.match(relativeRE);
         const newTo = timeOnly ? new Date(0) : new Date();
         const newFrom = timeOnly ? new Date(0) : new Date();
         if (['d', 'M', 'y'].includes(unit)) newFrom.setHours(0, 0, 0, 0);
@@ -93,41 +102,47 @@ const DateRange = React.forwardRef<object, Props>(function DateRange({
                 newFrom.setFullYear(newFrom.getFullYear() - interval);
                 break;
         }
-        if (['d', 'M', 'y'].includes(unit)) {
-            if (exclusive) newTo.setHours(23, 59, 59, 999); else newTo.setHours(24, 0, 0, 0);
-        }
+        if (exclusive) newTo.setHours(23, 59, 59, 999); else newTo.setHours(24, 0, 0, 0);
         setDateFrom(newFrom);
         setDateTo(newTo);
         setDisplay([newDisplay, newFrom, newTo]);
         onChange({value: [newFrom, newTo]});
-    };
+    }, [exclusive, onChange, timeOnly]);
 
     const applyTimeRange = event => {
         panel.current?.toggle(event);
         onChange?.({value: [dateFrom, dateTo]});
     };
 
-    const handleOptionChange = event => {
+    const handleOptionChange = React.useCallback(event => {
         if (event.value) {
             setOption(event.value);
             setRelative(event.value);
         }
         panel.current?.toggle(event);
-    };
+    }, [setRelative]);
+
+    React.useEffect(() => {
+        if (typeof value === 'string' && !value.startsWith('[') && relativeRE.test(value)) {
+            const option = options.find(item => item.display === value || item.from === value) || {from: value};
+            setOption(option);
+            setRelative(option);
+        }
+    }, [setRelative, value]);
 
     return <>
         <Button
             {...!inline && {
-                tooltip: (value?.[0] || value?.[1]) ? `${displayDate(value?.[0])}\n÷\n${displayDate(value?.[1])}` : undefined,
+                tooltip: (startValue || endValue) ? `${displayDate(startValue)}\n÷\n${displayDate(endValue)}` : undefined,
                 tooltipOptions
             }}
             {...props}
             onClick={React.useCallback(event => {
                 panel.current?.toggle(event);
-                setDateFrom(value?.[0]);
-                setDateTo(value?.[1]);
-                if (!(displayFrom && displayFrom === value?.[0] && displayTo && displayTo === value?.[1])) setOption(null);
-            }, [value, displayFrom, displayTo])}
+                setDateFrom(startValueTime && new Date(startValueTime));
+                setDateTo(endValueTime && new Date(endValueTime));
+                if (!(displayFrom && displayFrom.getTime() === startValueTime && displayTo && displayTo.getTime() === endValueTime)) setOption(null);
+            }, [startValueTime, endValueTime, displayFrom, displayTo])}
         >
             {display}
         </Button>
@@ -155,6 +170,7 @@ const DateRange = React.forwardRef<object, Props>(function DateRange({
                         <label htmlFor="toDate"><Text>To</Text></label><br />
                         <Calendar
                             id="toDate"
+                            eod={exclusive}
                             value={dateTo}
                             minDate={dateFrom}
                             onChange={event => {

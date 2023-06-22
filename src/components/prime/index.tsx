@@ -68,9 +68,9 @@ function dateRange(timeOnly) {
     return [today, new Date(today.getTime() + (timeOnly ? 0 : 86400000))];
 }
 
-function date() {
+function date(eod) {
     const today = new Date();
-    today.setHours(0, 0, 0, 0);
+    if (eod) today.setHours(23, 59, 59, 999); else today.setHours(0, 0, 0, 0);
     return today;
 }
 
@@ -104,9 +104,9 @@ export const DateRange = React.forwardRef<HTMLInputElement, CalendarProps>(funct
     />;
 });
 
-export const Calendar = React.forwardRef<HTMLInputElement, CalendarProps>(function Calendar(props, ref) {
+export const Calendar = React.forwardRef<HTMLInputElement, CalendarProps & {eod?: boolean}>(function Calendar(props, ref) {
     const [visible, setVisible] = React.useState(false);
-    const value = React.useMemo(() => (visible && !props.value) ? date() : props.value, [visible, props.value]);
+    const value = React.useMemo(() => (visible && !props.value) ? date(props.eod) : props.value, [visible, props.value, props.eod]);
     const handleShow = React.useCallback(() => setVisible(true), [setVisible]);
     const handleHide = React.useCallback(() => setVisible(false), [setVisible]);
     const translatedTooltip = useText({ text: props.tooltip });
@@ -127,7 +127,8 @@ export const Card = ({title, permission, ...props}: CardProps & Partial<Permissi
 };
 
 export type ButtonProps = PrimeButtonProps & Partial<Pick<Parameters<typeof Permission>[0], 'permission'>> & {confirm?: string}
-export const Button = ({children, permission, confirm, onClick, tooltip, tooltipOptions = {}, ...props}: ButtonProps) => {
+const empty = {};
+export const Button = ({children, permission, confirm, onClick, tooltip, tooltipOptions = empty, ...props}: ButtonProps) => {
     const handleClick = React.useCallback(event => confirm ? confirmPopup({
         target: event.currentTarget,
         message: confirm,

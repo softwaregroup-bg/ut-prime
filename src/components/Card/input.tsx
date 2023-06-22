@@ -61,7 +61,7 @@ const Clear = ({showClear, field}) =>
         </div>
         : null;
 
-function input(
+function useInput(
     label,
     error,
     field: {
@@ -96,6 +96,23 @@ function input(
     context
 ) {
     const widgetType = type || defaultWidgetType || schema?.format || getType(schema?.type);
+    const fieldChange = field.onChange;
+    const onChange = React.useMemo(() => {
+        switch (widgetType) {
+            case 'autocomplete': return event => fieldChange?.({...event, value: {value: event.value || null}});
+            case 'boolean': return event => fieldChange?.({...event, value: event.checked});
+            case 'chips': return event => fieldChange?.({...event, value: event.value.length ? event.value.join(' ') : null});
+            case 'date': return event => {
+                if (event.value instanceof Date) event.value = new Date(event.value.getTime() - event.value.getTimezoneOffset() * 60 * 1000);
+                fieldChange(event);
+            };
+            case 'dateRange': return event => fieldChange?.(event);
+            case 'multiSelectPanel':
+            case 'select': return event => fieldChange?.({...event, value: props?.split ? event.value.join(props.split) || null : event.value});
+            case 'multiSelectTree': return event => fieldChange?.({...event, value: Object.keys(event.value)});
+            default: return event => fieldChange?.({...event, value: event.target.value || null});
+        }
+    }, [widgetType, fieldChange, props?.split]);
     if (loading) {
         if (loading === 'loading' && ['button', 'submit'].includes(widgetType)) return <ActionButton className={inputClass ?? 'mr-2'} {...props} disabled/>;
         if (loading === 'loading') return <>{label}<div className={inputClass}><Skeleton className='p-inputtext'/></div></>;
@@ -129,7 +146,7 @@ function input(
             <Chips
                 {...field}
                 value={field.value?.split(' ').filter(Boolean) || []}
-                onChange={e => field.onChange?.({...e, value: e.value.length ? e.value.join(' ') : null})}
+                onChange={onChange}
                 {...props}
             />
             <Clear field={field} showClear={clear}/>
@@ -137,7 +154,7 @@ function input(
         case 'text': return <Field {...{label, error, inputClass}}>
             <InputTextarea
                 {...field}
-                onChange={e => field.onChange?.({...e, value: e.target.value || null})}
+                onChange={onChange}
                 value={field.value || ''}
                 {...props}
             />
@@ -180,7 +197,7 @@ function input(
             <Checkbox
                 {...field}
                 inputRef={field.ref}
-                onChange={e => field.onChange?.({...e, value: e.checked})}
+                onChange={onChange}
                 checked={field.value}
                 inputId={props.id}
                 {...testid(props.id)}
@@ -229,7 +246,7 @@ function input(
                     methods={methods}
                     value={field.value?.value}
                     onSelect={handleSelect}
-                    onChange={event => field.onChange?.({...event, value: {value: event.value || null}})}
+                    onChange={onChange}
                     onClear={handleClear}
                     itemTemplate={itemTemplate}
                     selectedItemTemplate={template}
@@ -259,7 +276,7 @@ function input(
                 {...field}
                 options={dropdowns?.[dropdown]?.filter(filterBy) || []}
                 value={props?.split ? field.value?.split(props.split).filter(Boolean) : field.value}
-                onChange={event => field.onChange?.({...event, value: props?.split ? event.value.join(props.split) || null : event.value})}
+                onChange={onChange}
                 {...testid(props.id)}
                 {...props}
             />
@@ -271,9 +288,7 @@ function input(
                 display='chip'
                 selectionMode='multiple'
                 metaKeySelection={false}
-                onChange={e => {
-                    field.onChange?.({...e, value: Object.keys(e.value)});
-                }}
+                onChange={onChange}
                 {...testid(field.name)}
                 value={field.value?.map && Object.fromEntries(field.value?.map(value => [value, true]))}
                 {...props}
@@ -283,7 +298,7 @@ function input(
             <MultiSelect
                 {...field}
                 value={props?.split ? field.value?.split(props.split).filter(Boolean) : field.value}
-                onChange={event => field.onChange?.({...event, value: props?.split ? event.value.join(props.split) || null : event.value})}
+                onChange={onChange}
                 options={dropdowns?.[dropdown]?.filter(filterBy) || []}
                 {...testid(props.id)}
                 inline
@@ -424,12 +439,7 @@ function input(
                         ? new Date(new Date(field.value).getTime() + new Date(field.value).getTimezoneOffset() * 60 * 1000)
                         : field.value
                 }
-                onChange={
-                    event => {
-                        if (event.value instanceof Date) event.value = new Date(event.value.getTime() - event.value.getTimezoneOffset() * 60 * 1000);
-                        field.onChange(event);
-                    }
-                }
+                onChange={onChange}
                 inputId={props.id}
                 {...props}
             />
@@ -438,16 +448,11 @@ function input(
             return <Field {...{label, error, inputClass}}>
                 <DateRange
                     {...field}
-                    value={field.value
-                        ? field.value.map(v => typeof v === 'string' ? new Date(v) : v)
+                    value={Array.isArray(field.value)
+                        ? JSON.stringify(field.value)
                         : field.value}
                     {...props}
-                    onChange={event => {
-                        if (event?.value?.[1]) {
-                            event.value[1].setHours(23, 59, 59, 999);
-                        }
-                        field.onChange(event);
-                    }}
+                    onChange={onChange}
                 />
             </Field>;
         case 'number': return <Field {...{label, error, inputClass}}>
@@ -529,7 +534,7 @@ function input(
             <Password
                 {...field}
                 value={field.value || ''}
-                onChange={e => field.onChange?.({...e, value: e.target.value || null})}
+                onChange={onChange}
                 role='textbox'
                 feedback={false}
                 inputClassName='w-full'
@@ -586,7 +591,7 @@ function input(
             <InputText
                 {...field}
                 value={field.value || ''}
-                onChange={e => field.onChange?.({...e, value: e.target.value || null})}
+                onChange={onChange}
                 {...props}
             />
             <Clear field={field} showClear={clear}/>
@@ -642,7 +647,7 @@ export default function Input({
         const parentWatch = parent && formApi?.watch?.(parent);
         const fieldName = field.name;
         const fieldChange = field.onChange;
-        return input(
+        return useInput(
             Label && <Label name={propertyName} className={labelClass} label={widget.label} isRequired={isPropertyRequired(propertyName)}/>,
             ErrorLabel && <ErrorLabel name={propertyName} className={labelClass} />,
             {
