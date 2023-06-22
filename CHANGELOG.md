@@ -1,3 +1,17 @@
+# [2.78.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.77.2...v2.78.0) (2023-06-22)
+
+
+### Bug Fixes
+
+* input rerendering ([2f360ab](https://github.com/softwaregroup-bg/ut-prime/commit/2f360abecc249099278ff750a0faf6e8e86a2a8a))
+
+
+### Features
+
+* explorer column fit ([a86eda7](https://github.com/softwaregroup-bg/ut-prime/commit/a86eda75921729555bd21c1c1be25dc1ff4c5dfb))
+
+
+
 ## [2.77.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.77.1...v2.77.2) (2023-06-21)
 
 
