@@ -1,3 +1,12 @@
+## [2.78.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.78.0...v2.78.1) (2023-06-27)
+
+
+### Bug Fixes
+
+* improve explorer links ([bcb04b4](https://github.com/softwaregroup-bg/ut-prime/commit/bcb04b4aa64e0bfa6395494ebeb7c6f9a8b58d3b))
+
+
+
 # [2.78.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.77.2...v2.78.0) (2023-06-22)
 
 
