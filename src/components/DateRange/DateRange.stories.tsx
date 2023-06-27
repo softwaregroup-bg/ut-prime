@@ -22,7 +22,7 @@ export const Basic: React.FC = () => {
         <div className='m-5'>
             <div>Default</div>
             <DateRange
-                value={dateRange}
+                value={JSON.stringify(dateRange)}
                 onChange={({value}) => setDateRange(value)}
             />
         </div>
@@ -30,7 +30,7 @@ export const Basic: React.FC = () => {
             <div>Inline</div>
             <DateRange
                 inline
-                value={dateRange}
+                value={JSON.stringify(dateRange)}
                 onChange={({value}) => setDateRange(value)}
             />
         </div>
@@ -38,7 +38,7 @@ export const Basic: React.FC = () => {
             <div>Time only</div>
             <DateRange
                 timeOnly
-                value={dateRange}
+                value={JSON.stringify(dateRange)}
                 onChange={({value}) => setDateRange(value)}
             />
         </div>
@@ -47,7 +47,7 @@ export const Basic: React.FC = () => {
             <DateRange
                 timeOnly
                 inline
-                value={dateRange}
+                value={JSON.stringify(dateRange)}
                 onChange={({value}) => setDateRange(value)}
             />
         </div>

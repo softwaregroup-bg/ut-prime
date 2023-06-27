@@ -166,7 +166,7 @@ export interface ActionItem extends MenuItem {
 export type WidgetReference = string | {
     name?: string,
     id?: string,
-    icon: string,
+    icon?: string,
     label?: string,
     title?: string,
     type?: PropertyEditor['type'],

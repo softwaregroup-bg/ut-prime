@@ -464,9 +464,10 @@ const Explorer: ComponentProps = ({
                         ...formProps
                     })}
                     {...action && {
-                        body: row => <ActionButton
+                        body: row => row[field] ? <ActionButton
                             {...testid(`${resultSet || 'filterBy'}.${field}Item/${row && row[keyField]}`)}
                             label={row[field]}
+                            disabled={widget.enabled ? !row[widget.enabled] : widget.disabled ? !!row[widget.disabled] : undefined}
                             className='p-button-link p-0'
                             action={action}
                             submit={submit}
@@ -477,7 +478,7 @@ const Explorer: ComponentProps = ({
                                 current: row,
                                 selected: [row]
                             })}
-                        />
+                        /> : null
                     }}
                 />
             );
