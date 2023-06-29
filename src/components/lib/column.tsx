@@ -54,6 +54,12 @@ function timeOrZero(value) {
     return new Date(value);
 }
 
+function range(value) {
+    return Array.isArray(value)
+        ? JSON.stringify(value)
+        : value;
+}
+
 export default function columnProps({
     resultSet,
     name,
@@ -230,7 +236,7 @@ export default function columnProps({
             break;
         case 'date':
             filterElement = filterBy && <DateRange
-                value={tableFilter?.filters?.[fieldName]?.value}
+                value={range(tableFilter?.filters?.[fieldName]?.value)}
                 onChange={filterBy(fieldName, 'value')}
                 {...testid(filterId)}
                 {...props}
@@ -247,7 +253,7 @@ export default function columnProps({
             break;
         case 'time':
             filterElement = filterBy && <DateRange
-                value={tableFilter?.filters?.[fieldName]?.value}
+                value={range(tableFilter?.filters?.[fieldName]?.value)}
                 onChange={filterBy(fieldName, 'value')}
                 timeOnly
                 {...testid(filterId)}
@@ -263,7 +269,7 @@ export default function columnProps({
             break;
         case 'date-time':
             filterElement = filterBy && <DateRange
-                value={tableFilter?.filters?.[fieldName]?.value}
+                value={range(tableFilter?.filters?.[fieldName]?.value)}
                 onChange={filterBy(fieldName, 'value')}
                 {...testid(filterId)}
                 {...props}
