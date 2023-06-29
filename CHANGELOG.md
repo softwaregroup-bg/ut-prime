@@ -1,3 +1,12 @@
+## [2.78.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.78.1...v2.78.2) (2023-06-29)
+
+
+### Bug Fixes
+
+* date/time column filter ([f40166b](https://github.com/softwaregroup-bg/ut-prime/commit/f40166bee185f9d63fe6e4bbf4ce4b7c27dce51a))
+
+
+
 ## [2.78.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.78.0...v2.78.1) (2023-06-27)
 
 
