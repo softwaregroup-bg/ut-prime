@@ -1,36 +1,26 @@
-import React from 'react';
 import { Tooltip } from 'react-tooltip';
 import useText from './useText';
 
 export interface HookParams {
     tooltip?: string,
-    tooltipOptions?: Omit<Parameters<typeof Tooltip>[0], 'children'> | boolean,
-    id?: string,
-    testId?: string
+    tooltipOptions?: Omit<Parameters<typeof Tooltip>[0], 'children'> | boolean
 }
 
 interface HookResult {
-    tooltip?: React.ReactNode,
+    tooltipParams?: object, //todo: data-tooltip attributes
     translatedTooltip?: string
 }
 
-export default function useAllow({tooltip: text, tooltipOptions, id, testId}: HookParams): HookResult {
+export default function useTooltip({tooltip: text, tooltipOptions}: HookParams): HookResult {
     const type = typeof tooltipOptions;
     const translatedTooltip = useText({ text });
-    const anchorSelect = React.useMemo(() => {
-        if (testId) {
-            return `[data-testid='${testId}']`;
-        } else if (id) {
-            return `#${id}`;
-        }
-    }, [id, testId]);
-    const tooltip = type !== 'undefined' && translatedTooltip && anchorSelect && <Tooltip
-        className="z-2" // because table header has z-index: 1
-        anchorSelect={anchorSelect}
-        content={translatedTooltip}
-        place={'bottom'}
-        {...type === 'object' && tooltipOptions as object}
-    />;
 
-    return { tooltip, translatedTooltip };
+    const tooltipParams = {
+        'data-tooltip-id': 'utPrime-react-tooltip',
+        'data-tooltip-content': translatedTooltip,
+        'data-tooltip-place': 'bottom',
+        ...type === 'object' && tooltipOptions as object
+    };
+
+    return { tooltipParams, translatedTooltip };
 }

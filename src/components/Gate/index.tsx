@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { connect, useSelector } from 'react-redux';
 import { useParams, Redirect } from 'react-router-dom';
 import merge from 'ut-function.merge';
+import { Tooltip } from 'react-tooltip';
 
 import { cookieCheck } from '../Login/actions';
 import Loader from '../Loader';
@@ -95,6 +96,10 @@ const Gate: ComponentProps = ({ children, cookieCheck, corePortalGet, loginPage 
                 {loaded ? <Context.Provider value={loaded}>
                     <ConfirmPopup />
                     <ConfirmDialog />
+                    <Tooltip
+                        id="utPrime-react-tooltip"
+                        className="z-2" // because table header has z-index: 1
+                    />
                     <Permission>
                         {children}
                     </Permission>

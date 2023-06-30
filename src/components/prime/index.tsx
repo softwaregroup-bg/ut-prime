@@ -110,22 +110,20 @@ export const Calendar = React.forwardRef<HTMLInputElement, CalendarProps & {eod?
     const value = React.useMemo(() => (visible && !props.value) ? date(props.eod) : props.value, [visible, props.value, props.eod]);
     const handleShow = React.useCallback(() => setVisible(true), [setVisible]);
     const handleHide = React.useCallback(() => setVisible(false), [setVisible]);
-    const { tooltip, translatedTooltip } = useTooltip({tooltip: props.tooltip, tooltipOptions: reactTooltip, id: props.id, testId: props['data-testid']});
-    return <>
-        <PrimeCalendar
-            tooltipOptions={{ disabled: true }}
-            {...props}
-            {...!reactTooltip && {
-                tooltip: translatedTooltip,
-                tooltipOptions: { position: 'bottom', ...props.tooltipOptions }
-            }}
-            value={value}
-            onShow={handleShow}
-            onHide={handleHide}
-            tooltip={translatedTooltip}
-        />
-        {tooltip}
-    </>;
+    const { translatedTooltip, tooltipParams } = useTooltip({tooltip: props.tooltip, tooltipOptions: reactTooltip, id: props.id, testId: props['data-testid']});
+    return <PrimeCalendar
+        tooltipOptions={{ disabled: true }}
+        {...props}
+        {...!reactTooltip && {
+            tooltip: translatedTooltip,
+            tooltipOptions: { position: 'bottom', ...props.tooltipOptions }
+        }}
+        {...reactTooltip && tooltipParams}
+        value={value}
+        onShow={handleShow}
+        onHide={handleHide}
+        tooltip={translatedTooltip}
+    />;
 });
 
 export const Card = ({title, permission, ...props}: CardProps & Partial<PermissionProps>) => {
@@ -142,26 +140,22 @@ export const Button = ({children, permission, confirm, onClick, tooltip, tooltip
         reject: () => {},
         accept: () => onClick(event)
     }) : onClick(event), [onClick, confirm]);
-    const { tooltip: t, translatedTooltip } = useTooltip({tooltip, tooltipOptions: reactTooltip, id: props.id, testId: props['data-testid']});
-    const button = (
-        <>
-            <PrimeButton
-                {...props}
-                {...!reactTooltip && {
-                    tooltip: translatedTooltip,
-                    tooltipOptions: { position: 'bottom', ...tooltipOptions }
-                }}
-                onClick={handleClick}
-            >
-                {children && (
-                    <span className="p-button-label p-c">
-                        <Text>{children}</Text>
-                    </span>
-                )}
-            </PrimeButton>
-            {t}
-        </>
-    );
+    const { translatedTooltip, tooltipParams } = useTooltip({tooltip, tooltipOptions: reactTooltip});
+    const button = <PrimeButton
+        {...props}
+        {...!reactTooltip && {
+            tooltip: translatedTooltip,
+            tooltipOptions: { position: 'bottom', ...tooltipOptions }
+        }}
+        {...reactTooltip && tooltipParams}
+        onClick={handleClick}
+    >
+        {children && (
+            <span className="p-button-label p-c">
+                <Text>{children}</Text>
+            </span>
+        )}
+    </PrimeButton>;
     return (permission == null) ? button : <Permission permission={permission}>{button}</Permission>;
 };
 export const DataTable = ({emptyMessage = 'No results found', value, ...props}: DataTableProps) =>
