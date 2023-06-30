@@ -103,7 +103,7 @@ const translations = {
         Reject=Откажи
         Approve=Приеми
         Granded=Осигурен достъп
-        Search=Потърси
+        Refresh/Search=Обнови/Потърси
         Details=Детайли
 
         Monday=Понеделник
@@ -163,7 +163,7 @@ const translations = {
         Help=مساعدة
         Profile=ملف تعريفي للمستخدم
         Logout=تسجيل خروج
-        Search=يبحث
+        Refresh/Search=إعادة تحديث/بحث
         Details=مرفوض
 
         Reproduction=تكاثر

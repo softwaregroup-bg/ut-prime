@@ -6,11 +6,12 @@ import type { CalendarProps } from 'primereact/calendar';
 import type { DataTableProps as PrimeDataTableProps} from 'primereact/datatable';
 import type { DataViewProps } from 'primereact/dataview';
 import type { FileUploadProps } from 'primereact/fileupload';
+import type { HookParams as TooltipParams } from '../hooks/useTooltip';
 import { DataTable as PrimeDataTable } from 'primereact/datatable';
 import React from 'react';
 import Component from '../Component';
 import Text from '../Text';
-import useText from '../hooks/useText';
+import useTooltip from '../hooks/useTooltip';
 import Permission from '../Permission';
 import {Props as PermissionProps} from '../Permission/Permission.types';
 import {confirmPopup as confirmPopupPrime} from 'primereact/confirmpopup';
@@ -104,21 +105,23 @@ export const DateRange = React.forwardRef<HTMLInputElement, CalendarProps>(funct
     />;
 });
 
-export const Calendar = React.forwardRef<HTMLInputElement, CalendarProps & {eod?: boolean}>(function Calendar(props, ref) {
+export const Calendar = React.forwardRef<HTMLInputElement, Omit<CalendarProps, 'tooltipOptions'> & {eod?: boolean, tooltipOptions?: Pick<TooltipParams, 'tooltipOptions'>}>(function Calendar(props, ref) {
     const [visible, setVisible] = React.useState(false);
     const value = React.useMemo(() => (visible && !props.value) ? date(props.eod) : props.value, [visible, props.value, props.eod]);
     const handleShow = React.useCallback(() => setVisible(true), [setVisible]);
     const handleHide = React.useCallback(() => setVisible(false), [setVisible]);
-    const translatedTooltip = useText({ text: props.tooltip });
-    return <PrimeCalendar
-        {...props}
-        value={value}
-        onShow={handleShow}
-        onHide={handleHide}
-        inputRef={ref}
-        tooltip={translatedTooltip}
-        tooltipOptions={translatedTooltip && { position: 'bottom', ...props.tooltipOptions }}
-    />;
+    const { tooltipId, tooltip } = useTooltip({tooltip: props.tooltip, tooltipOptions: props.tooltipOptions});
+    return <>
+        <PrimeCalendar
+            {...props}
+            {...tooltipId && {'data-tooltip-id': tooltipId}}
+            tooltipOptions={{disabled: true}}
+            value={value}
+            onShow={handleShow}
+            onHide={handleHide}
+        />
+        {tooltip}
+    </>;
 });
 
 export const Card = ({title, permission, ...props}: CardProps & Partial<PermissionProps>) => {
@@ -126,9 +129,8 @@ export const Card = ({title, permission, ...props}: CardProps & Partial<Permissi
     return permission == null ? card : <Permission permission={permission}>{card}</Permission>;
 };
 
-export type ButtonProps = PrimeButtonProps & Partial<Pick<Parameters<typeof Permission>[0], 'permission'>> & {confirm?: string}
-const empty = {};
-export const Button = ({children, permission, confirm, onClick, tooltip, tooltipOptions = empty, ...props}: ButtonProps) => {
+export type ButtonProps = Omit<PrimeButtonProps, 'tooltipOptions'> & Partial<Pick<Parameters<typeof Permission>[0], 'permission'>> & {confirm?: string, tooltipOptions?: Pick<TooltipParams, 'tooltipOptions'>}
+export const Button = ({children, permission, confirm, onClick, tooltip, tooltipOptions, ...props}: ButtonProps) => {
     const handleClick = React.useCallback(event => confirm ? confirmPopup({
         target: event.currentTarget,
         message: confirm,
@@ -136,20 +138,22 @@ export const Button = ({children, permission, confirm, onClick, tooltip, tooltip
         reject: () => {},
         accept: () => onClick(event)
     }) : onClick(event), [onClick, confirm]);
-    const translatedTooltip = useText({ text: tooltip });
+    const { tooltipId, tooltip: t } = useTooltip({tooltip, tooltipOptions});
     const button = (
-        <PrimeButton
-            {...props}
-            onClick={handleClick}
-            tooltip={translatedTooltip}
-            tooltipOptions={translatedTooltip && { position: 'bottom', ...tooltipOptions }}
-        >
-            {children && (
-                <span className="p-button-label p-c">
-                    <Text>{children}</Text>
-                </span>
-            )}
-        </PrimeButton>
+        <>
+            <PrimeButton
+                {...props}
+                {...tooltipId && {'data-tooltip-id': tooltipId}}
+                onClick={handleClick}
+            >
+                {children && (
+                    <span className="p-button-label p-c">
+                        <Text>{children}</Text>
+                    </span>
+                )}
+            </PrimeButton>
+            {t}
+        </>
     );
     return (permission == null) ? button : <Permission permission={permission}>{button}</Permission>;
 };
