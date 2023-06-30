@@ -105,14 +105,13 @@ export const DateRange = React.forwardRef<HTMLInputElement, CalendarProps>(funct
     />;
 });
 
-export const Calendar = React.forwardRef<HTMLInputElement, CalendarProps & {eod?: boolean, reactTooltip?: TooltipParams['reactTooltip']}>(function Calendar({reactTooltip, ...props}, ref) {
+export const Calendar = React.forwardRef<HTMLInputElement, CalendarProps & {eod?: boolean, reactTooltip?: TooltipParams['reactTooltip']}>(function Calendar({tooltip, tooltipOptions, reactTooltip, ...props}, ref) {
     const [visible, setVisible] = React.useState(false);
     const value = React.useMemo(() => (visible && !props.value) ? date(props.eod) : props.value, [visible, props.value, props.eod]);
     const handleShow = React.useCallback(() => setVisible(true), [setVisible]);
     const handleHide = React.useCallback(() => setVisible(false), [setVisible]);
-    const tooltipProps = useTooltip({tooltip: props.tooltip, tooltipOptions: props.tooltipOptions, reactTooltip});
+    const tooltipProps = useTooltip({tooltip, tooltipOptions, reactTooltip});
     return <PrimeCalendar
-        tooltipOptions={{ disabled: true }}
         {...props}
         {...tooltipProps}
         value={value}
