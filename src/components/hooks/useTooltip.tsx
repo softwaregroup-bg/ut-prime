@@ -24,7 +24,7 @@ export default function useAllow({tooltip: text, tooltipOptions, id, testId}: Ho
             return `#${id}`;
         }
     }, [id, testId]);
-    const tooltip = translatedTooltip && anchorSelect && <Tooltip
+    const tooltip = type !== 'undefined' && translatedTooltip && anchorSelect && <Tooltip
         className="z-2" // because table header has z-index: 1
         anchorSelect={anchorSelect}
         content={translatedTooltip}
