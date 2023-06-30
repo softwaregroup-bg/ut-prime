@@ -1,5 +1,5 @@
 import { PlacesType, VariantType, WrapperType, PositionStrategy } from 'react-tooltip';
-import TooltipOptions from 'primereact/tooltip/tooltipoptions';
+import type TooltipOptions from 'primereact/tooltip/tooltipoptions';
 import useText from './useText';
 
 interface DataAttributes {
