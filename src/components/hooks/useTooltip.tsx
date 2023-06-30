@@ -24,14 +24,14 @@ export interface HookParams {
 }
 
 export default function useTooltip({ tooltip: text, tooltipOptions, reactTooltip }: HookParams): DataAttributes & TooltipOptions {
-    const type = typeof tooltipOptions;
+    const type = typeof reactTooltip;
     const translatedTooltip = useText({ text });
 
-    const reactTooltipProps = reactTooltip ? {
+    const reactTooltipProps = (type === 'object' || reactTooltip) ? {
         'data-tooltip-id': 'utPrime-react-tooltip',
         'data-tooltip-content': translatedTooltip,
         'data-tooltip-place': 'bottom',
-        ...(type === 'object' && (tooltipOptions as object))
+        ...(type === 'object' && (reactTooltip as object))
     } as DataAttributes : {};
 
     const tooltipProps = !reactTooltip ? {
