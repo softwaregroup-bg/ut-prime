@@ -98,7 +98,7 @@ const Gate: ComponentProps = ({ children, cookieCheck, corePortalGet, loginPage 
                     <ConfirmDialog />
                     <Tooltip
                         id="utPrime-react-tooltip"
-                        className="z-2" // because table header has z-index: 1
+                        className="p-component z-2" // because table header has z-index: 1
                     />
                     <Permission>
                         {children}
