@@ -4,30 +4,33 @@ import useText from './useText';
 
 export interface HookParams {
     tooltip?: string,
-    tooltipOptions?: Omit<Parameters<typeof Tooltip>[0], 'children'> | boolean
+    tooltipOptions?: Omit<Parameters<typeof Tooltip>[0], 'children'> | boolean,
+    id?: string,
+    testId?: string
 }
 
 interface HookResult {
-    tooltipId?: string,
     tooltip?: React.ReactNode,
     translatedTooltip?: string
 }
 
-export default function useAllow({tooltip: text, tooltipOptions}: HookParams): HookResult {
+export default function useAllow({tooltip: text, tooltipOptions, id, testId}: HookParams): HookResult {
     const type = typeof tooltipOptions;
     const translatedTooltip = useText({ text });
-    const tooltipId = React.useMemo(() => {
-        if (type !== 'undefined' && translatedTooltip) {
-            return String(Math.floor(100000000 + Math.random() * 900000000));
+    const anchorSelect = React.useMemo(() => {
+        if (testId) {
+            return `[data-testid='${testId}']`;
+        } else if (id) {
+            return `#${id}`;
         }
-    }, [type, translatedTooltip]);
-    const tooltip = tooltipId && <Tooltip
+    }, [id, testId]);
+    const tooltip = translatedTooltip && anchorSelect && <Tooltip
         className="z-2" // because table header has z-index: 1
-        id={tooltipId}
+        anchorSelect={anchorSelect}
         content={translatedTooltip}
         place={'bottom'}
         {...type === 'object' && tooltipOptions as object}
     />;
 
-    return { tooltipId, tooltip, translatedTooltip };
+    return { tooltip, translatedTooltip };
 }

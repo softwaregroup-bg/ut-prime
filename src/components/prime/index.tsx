@@ -110,12 +110,11 @@ export const Calendar = React.forwardRef<HTMLInputElement, CalendarProps & {eod?
     const value = React.useMemo(() => (visible && !props.value) ? date(props.eod) : props.value, [visible, props.value, props.eod]);
     const handleShow = React.useCallback(() => setVisible(true), [setVisible]);
     const handleHide = React.useCallback(() => setVisible(false), [setVisible]);
-    const { tooltipId, tooltip, translatedTooltip } = useTooltip({tooltip: props.tooltip, tooltipOptions: reactTooltip});
+    const { tooltip, translatedTooltip } = useTooltip({tooltip: props.tooltip, tooltipOptions: reactTooltip, id: props.id, testId: props['data-testid']});
     return <>
         <PrimeCalendar
             tooltipOptions={{ disabled: true }}
             {...props}
-            {...tooltip && {'data-tooltip-id': tooltipId}}
             {...!reactTooltip && {
                 tooltip: translatedTooltip,
                 tooltipOptions: { position: 'bottom', ...props.tooltipOptions }
@@ -143,12 +142,11 @@ export const Button = ({children, permission, confirm, onClick, tooltip, tooltip
         reject: () => {},
         accept: () => onClick(event)
     }) : onClick(event), [onClick, confirm]);
-    const { tooltipId, tooltip: t, translatedTooltip } = useTooltip({tooltip, tooltipOptions: reactTooltip});
+    const { tooltip: t, translatedTooltip } = useTooltip({tooltip, tooltipOptions: reactTooltip, id: props.id, testId: props['data-testid']});
     const button = (
         <>
             <PrimeButton
                 {...props}
-                {...t && {'data-tooltip-id': tooltipId}}
                 {...!reactTooltip && {
                     tooltip: translatedTooltip,
                     tooltipOptions: { position: 'bottom', ...tooltipOptions }
