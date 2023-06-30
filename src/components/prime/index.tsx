@@ -105,18 +105,18 @@ export const DateRange = React.forwardRef<HTMLInputElement, CalendarProps>(funct
     />;
 });
 
-export const Calendar = React.forwardRef<HTMLInputElement, CalendarProps & {eod?: boolean, betterTooltipOptions?: TooltipParams['tooltipOptions']}>(function Calendar({betterTooltipOptions, ...props}, ref) {
+export const Calendar = React.forwardRef<HTMLInputElement, CalendarProps & {eod?: boolean, reactTooltip?: TooltipParams['tooltipOptions']}>(function Calendar({reactTooltip, ...props}, ref) {
     const [visible, setVisible] = React.useState(false);
     const value = React.useMemo(() => (visible && !props.value) ? date(props.eod) : props.value, [visible, props.value, props.eod]);
     const handleShow = React.useCallback(() => setVisible(true), [setVisible]);
     const handleHide = React.useCallback(() => setVisible(false), [setVisible]);
-    const { tooltipId, tooltip, translatedTooltip } = useTooltip({tooltip: props.tooltip, tooltipOptions: betterTooltipOptions});
+    const { tooltipId, tooltip, translatedTooltip } = useTooltip({tooltip: props.tooltip, tooltipOptions: reactTooltip});
     return <>
         <PrimeCalendar
             tooltipOptions={{ disabled: true }}
             {...props}
             {...tooltip && {'data-tooltip-id': tooltipId}}
-            {...!betterTooltipOptions && {
+            {...!reactTooltip && {
                 tooltip: translatedTooltip,
                 tooltipOptions: { position: 'bottom', ...props.tooltipOptions }
             }}
@@ -134,8 +134,8 @@ export const Card = ({title, permission, ...props}: CardProps & Partial<Permissi
     return permission == null ? card : <Permission permission={permission}>{card}</Permission>;
 };
 const empty = {};
-export type ButtonProps = PrimeButtonProps & Partial<Pick<Parameters<typeof Permission>[0], 'permission'>> & {confirm?: string, betterTooltipOptions?: TooltipParams['tooltipOptions']}
-export const Button = ({children, permission, confirm, onClick, tooltip, tooltipOptions = empty, betterTooltipOptions, ...props}: ButtonProps) => {
+export type ButtonProps = PrimeButtonProps & Partial<Pick<Parameters<typeof Permission>[0], 'permission'>> & {confirm?: string, reactTooltip?: TooltipParams['tooltipOptions']}
+export const Button = ({children, permission, confirm, onClick, tooltip, tooltipOptions = empty, reactTooltip, ...props}: ButtonProps) => {
     const handleClick = React.useCallback(event => confirm ? confirmPopup({
         target: event.currentTarget,
         message: confirm,
@@ -143,13 +143,13 @@ export const Button = ({children, permission, confirm, onClick, tooltip, tooltip
         reject: () => {},
         accept: () => onClick(event)
     }) : onClick(event), [onClick, confirm]);
-    const { tooltipId, tooltip: t, translatedTooltip } = useTooltip({tooltip, tooltipOptions: betterTooltipOptions});
+    const { tooltipId, tooltip: t, translatedTooltip } = useTooltip({tooltip, tooltipOptions: reactTooltip});
     const button = (
         <>
             <PrimeButton
                 {...props}
                 {...t && {'data-tooltip-id': tooltipId}}
-                {...!betterTooltipOptions && {
+                {...!reactTooltip && {
                     tooltip: translatedTooltip,
                     tooltipOptions: { position: 'bottom', ...tooltipOptions }
                 }}

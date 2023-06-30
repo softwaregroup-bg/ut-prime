@@ -42,7 +42,7 @@ export default function useButtons({
                 successHint,
                 tooltip,
                 tooltipOptions,
-                betterTooltipOptions
+                reactTooltip
             } = typeof widget === 'string' ? properties[widget].widget : widget;
 
             const check = (criteria) => {
@@ -82,7 +82,7 @@ export default function useButtons({
                     icon={icon}
                     tooltip={tooltip}
                     tooltipOptions={tooltipOptions}
-                    betterTooltipOptions={betterTooltipOptions}
+                    reactTooltip={reactTooltip}
                 >
                     {title}
                 </ActionButton>
