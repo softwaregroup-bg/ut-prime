@@ -110,20 +110,20 @@ export const Calendar = React.forwardRef<HTMLInputElement, CalendarProps & {eod?
     const value = React.useMemo(() => (visible && !props.value) ? date(props.eod) : props.value, [visible, props.value, props.eod]);
     const handleShow = React.useCallback(() => setVisible(true), [setVisible]);
     const handleHide = React.useCallback(() => setVisible(false), [setVisible]);
-    const { tooltipId, tooltip, tooltipText } = useTooltip({tooltip: props.tooltip, tooltipOptions: betterTooltipOptions});
+    const { tooltipId, tooltip, translatedTooltip } = useTooltip({tooltip: props.tooltip, tooltipOptions: betterTooltipOptions});
     return <>
         <PrimeCalendar
             tooltipOptions={{ disabled: true }}
             {...props}
             {...tooltip && {'data-tooltip-id': tooltipId}}
             {...!betterTooltipOptions && {
-                tooltip: tooltipText,
+                tooltip: translatedTooltip,
                 tooltipOptions: { position: 'bottom', ...props.tooltipOptions }
             }}
             value={value}
             onShow={handleShow}
             onHide={handleHide}
-            tooltip={tooltipText}
+            tooltip={translatedTooltip}
         />
         {tooltip}
     </>;
@@ -143,14 +143,14 @@ export const Button = ({children, permission, confirm, onClick, tooltip, tooltip
         reject: () => {},
         accept: () => onClick(event)
     }) : onClick(event), [onClick, confirm]);
-    const { tooltipId, tooltip: t, tooltipText } = useTooltip({tooltip, tooltipOptions: betterTooltipOptions});
+    const { tooltipId, tooltip: t, translatedTooltip } = useTooltip({tooltip, tooltipOptions: betterTooltipOptions});
     const button = (
         <>
             <PrimeButton
                 {...props}
                 {...t && {'data-tooltip-id': tooltipId}}
                 {...!betterTooltipOptions && {
-                    tooltip: tooltipText,
+                    tooltip: translatedTooltip,
                     tooltipOptions: { position: 'bottom', ...tooltipOptions }
                 }}
                 onClick={handleClick}

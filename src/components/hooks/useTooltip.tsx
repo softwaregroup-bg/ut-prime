@@ -10,7 +10,7 @@ export interface HookParams {
 interface HookResult {
     tooltipId?: string,
     tooltip?: React.ReactNode,
-    tooltipText?: string
+    translatedTooltip?: string
 }
 
 export default function useAllow({tooltip: text, tooltipOptions}: HookParams): HookResult {
@@ -29,5 +29,5 @@ export default function useAllow({tooltip: text, tooltipOptions}: HookParams): H
         {...type === 'object' && tooltipOptions as object}
     />;
 
-    return { tooltipId, tooltip, tooltipText: translatedTooltip };
+    return { tooltipId, tooltip, translatedTooltip };
 }
