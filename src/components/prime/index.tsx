@@ -115,6 +115,7 @@ export const Calendar = React.forwardRef<HTMLInputElement, CalendarProps & {eod?
         tooltipOptions={{ disabled: true }}
         {...props}
         {...tooltipProps}
+        inputRef={ref}
         value={value}
         onShow={handleShow}
         onHide={handleHide}
@@ -125,8 +126,9 @@ export const Card = ({title, permission, ...props}: CardProps & Partial<Permissi
     const card = <PrimeCard title={title && <Text>{title}</Text>} {...props}/>;
     return permission == null ? card : <Permission permission={permission}>{card}</Permission>;
 };
-const empty = {};
+
 export type ButtonProps = PrimeButtonProps & Partial<Pick<Parameters<typeof Permission>[0], 'permission'>> & {confirm?: string, reactTooltip?: TooltipParams['reactTooltip']}
+const empty = {};
 export const Button = ({children, permission, confirm, onClick, tooltip, tooltipOptions = empty, reactTooltip, ...props}: ButtonProps) => {
     const handleClick = React.useCallback(event => confirm ? confirmPopup({
         target: event.currentTarget,
@@ -136,17 +138,19 @@ export const Button = ({children, permission, confirm, onClick, tooltip, tooltip
         accept: () => onClick(event)
     }) : onClick(event), [onClick, confirm]);
     const tooltipProps = useTooltip({tooltip, tooltipOptions, reactTooltip});
-    const button = <PrimeButton
-        {...props}
-        {...tooltipProps}
-        onClick={handleClick}
-    >
-        {children && (
-            <span className="p-button-label p-c">
-                <Text>{children}</Text>
-            </span>
-        )}
-    </PrimeButton>;
+    const button = (
+        <PrimeButton
+            {...props}
+            {...tooltipProps}
+            onClick={handleClick}
+        >
+            {children && (
+                <span className="p-button-label p-c">
+                    <Text>{children}</Text>
+                </span>
+            )}
+        </PrimeButton>
+    );
     return (permission == null) ? button : <Permission permission={permission}>{button}</Permission>;
 };
 export const DataTable = ({emptyMessage = 'No results found', value, ...props}: DataTableProps) =>
