@@ -168,6 +168,7 @@ exports[`<Report /> render equals snapshot 1`] = `
         <button
           class="p-button p-component mr-2 ml-2 p-button-icon-only"
           data-testid="result-widthButton"
+          data-tooltip-id="383511365"
         >
           <span
             class="p-button-icon p-c pi pi-arrows-h"
@@ -181,6 +182,7 @@ exports[`<Report /> render equals snapshot 1`] = `
         <button
           class="p-button p-component mr-2 p-button-icon-only"
           data-testid="result-refreshButton"
+          data-tooltip-id="873952868"
         >
           <span
             class="p-button-icon p-c pi pi-search"
