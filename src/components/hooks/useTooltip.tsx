@@ -27,14 +27,14 @@ export default function useTooltip({ tooltip: text, tooltipOptions, reactTooltip
     const type = typeof reactTooltip;
     const translatedTooltip = useText({ text });
 
-    const reactTooltipProps = (type === 'object' || reactTooltip) ? {
+    const reactTooltipProps = translatedTooltip && (type === 'object' || reactTooltip) ? {
         'data-tooltip-id': 'utPrime-react-tooltip',
         'data-tooltip-content': translatedTooltip,
         'data-tooltip-place': 'bottom',
         ...(type === 'object' && (reactTooltip as object))
     } as DataAttributes : {};
 
-    const tooltipProps = !reactTooltip ? {
+    const tooltipProps = translatedTooltip && !reactTooltip ? {
         tooltip: translatedTooltip,
         tooltipOptions: { position: 'bottom', ...tooltipOptions }
     } : {};

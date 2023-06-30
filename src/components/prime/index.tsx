@@ -115,10 +115,10 @@ export const Calendar = React.forwardRef<HTMLInputElement, CalendarProps & {eod?
         tooltipOptions={{ disabled: true }}
         {...props}
         {...tooltipProps}
-        inputRef={ref}
         value={value}
         onShow={handleShow}
         onHide={handleHide}
+        inputRef={ref}
     />;
 });
 
