@@ -1,26 +1,43 @@
-import { Tooltip } from 'react-tooltip';
+import { PlacesType, VariantType, WrapperType, PositionStrategy } from 'react-tooltip';
+import TooltipOptions from 'primereact/tooltip/tooltipoptions';
 import useText from './useText';
 
+interface DataAttributes {
+    'data-tooltip-id'?: string;
+    'data-tooltip-place'?: PlacesType;
+    'data-tooltip-content'?: string;
+    'data-tooltip-html'?: string;
+    'data-tooltip-variant'?: VariantType;
+    'data-tooltip-offset'?: number;
+    'data-tooltip-wrapper'?: WrapperType;
+    'data-tooltip-position-strategy'?: PositionStrategy;
+    'data-tooltip-delay-show'?: number;
+    'data-tooltip-delay-hide'?: number;
+    'data-tooltip-float'?: boolean;
+    'data-tooltip-hidden'?: boolean;
+}
+
 export interface HookParams {
-    tooltip?: string,
-    tooltipOptions?: Omit<Parameters<typeof Tooltip>[0], 'children'> | boolean
+    tooltip?: string;
+    reactTooltip?: boolean | DataAttributes;
+    tooltipOptions?: TooltipOptions;
 }
 
-interface HookResult {
-    tooltipParams?: object, //todo: data-tooltip attributes
-    translatedTooltip?: string
-}
-
-export default function useTooltip({tooltip: text, tooltipOptions}: HookParams): HookResult {
+export default function useTooltip({ tooltip: text, tooltipOptions, reactTooltip }: HookParams): DataAttributes & TooltipOptions {
     const type = typeof tooltipOptions;
     const translatedTooltip = useText({ text });
 
-    const tooltipParams = {
+    const reactTooltipProps = reactTooltip ? {
         'data-tooltip-id': 'utPrime-react-tooltip',
         'data-tooltip-content': translatedTooltip,
         'data-tooltip-place': 'bottom',
-        ...type === 'object' && tooltipOptions as object
-    };
+        ...(type === 'object' && (tooltipOptions as object))
+    } as DataAttributes : {};
 
-    return { tooltipParams, translatedTooltip };
+    const tooltipProps = !reactTooltip ? {
+        tooltip: translatedTooltip,
+        tooltipOptions: { position: 'bottom', ...tooltipOptions }
+    } : {};
+
+    return { ...reactTooltipProps, ...tooltipProps };
 }
