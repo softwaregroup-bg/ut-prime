@@ -1,6 +1,6 @@
 import React from 'react';
 import { Tooltip } from 'react-tooltip';
-import useText from 'ut-prime/src/components/hooks/useText';
+import useText from './useText';
 
 export interface HookParams {
     tooltip?: string,
