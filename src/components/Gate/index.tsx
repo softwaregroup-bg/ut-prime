@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect, useSelector } from 'react-redux';
 import { useParams, Redirect } from 'react-router-dom';
-import merge from 'ut-function.merge';
 import { Tooltip } from 'react-tooltip';
 
 import { cookieCheck } from '../Login/actions';
@@ -14,7 +13,7 @@ import parse from '../lib/parseDictionaryMap';
 import Permission from './Permission';
 import { ComponentProps } from './Gate.types';
 import { State } from '../Store/Store.types';
-import { fnMap, defaultFormatOptions } from './formatValue';
+import formatValue from './formatValue';
 
 const corePortalGet: ((params: unknown) => unknown) = params => ({
     type: 'core.portal.get',
@@ -60,10 +59,7 @@ const Gate: ComponentProps = ({ children, cookieCheck, corePortalGet, loginPage 
                 joiMessages: dictionary?.joi !== 'joi' && parse(dictionary?.joi),
                 translate: (id, text, language) => (id && dictionary?.[id]) || dictionary?.[text] || text,
                 getScale: (currency) => formattedCurrencies?.[currency],
-                formatValue: (value, {type, ...opts}) => {
-                    const {fn, ...options} = merge({}, defaultFormatOptions[type], customFormatOptions?.[type], opts);
-                    return value && fnMap[fn]?.(value, options);
-                }
+                formatValue: formatValue({languageCode, ...customFormatOptions})
             });
         }
 
