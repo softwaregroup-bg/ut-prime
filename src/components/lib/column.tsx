@@ -133,6 +133,15 @@ export default function columnProps({
 
     switch (widgetType) {
         case 'currency':
+            if (ctx?.formatValue) {
+                body = function body(rowData) {
+                    const result = rowData[fieldName];
+                    return (typeof result === 'number') ? ctx.formatValue(result, {type: 'currency'}) : result;
+                };
+            }
+            alignHeader = 'right';
+            bodyClassName = 'text-right';
+            break;
         case 'integer':
         case 'number':
             alignHeader = 'right';
