@@ -1,3 +1,12 @@
+# [2.79.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.78.2...v2.79.0) (2023-07-03)
+
+
+### Features
+
+* react-tooltip ([23c251e](https://github.com/softwaregroup-bg/ut-prime/commit/23c251e35754340879bfe75c0349290aa6e8bc4f))
+
+
+
 ## [2.78.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.78.1...v2.78.2) (2023-06-29)
 
 
