@@ -10,7 +10,10 @@ const defaultFormatOptions = {
 
 export default function fnMap({languageCode, ...formatOptions}) {
     const base = {
-        datefns: baseOptions => (value, options) => format(value, {...baseOptions, ...options}),
+        datefns: baseOptions => (value, options) => {
+            const { format: formatString = 'yyyy-MM-dd HH:mm:ss', ...opts} = {...baseOptions, ...options};
+            return format(value, formatString, opts);
+        },
         'intl.date': format => {
             const dateFormat = new Intl.DateTimeFormat(languageCode, format);
             return (value: Date) => dateFormat.format(value);
