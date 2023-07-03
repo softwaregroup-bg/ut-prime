@@ -1,3 +1,12 @@
+## [2.79.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.79.0...v2.79.1) (2023-07-03)
+
+
+### Bug Fixes
+
+* format currency columns ([#66](https://github.com/softwaregroup-bg/ut-prime/issues/66)) ([443011c](https://github.com/softwaregroup-bg/ut-prime/commit/443011c30f181e4df637ac6f5de3f23b85eaf8d2)), closes [#UTCORE-121](https://github.com/softwaregroup-bg/ut-prime/issues/UTCORE-121)
+
+
+
 # [2.79.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.78.2...v2.79.0) (2023-07-03)
 
 
