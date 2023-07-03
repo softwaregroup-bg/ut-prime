@@ -181,6 +181,7 @@ export type WidgetReference = string | {
     successHint?: React.ReactNode,
     tooltip?: Parameters<typeof ActionButton>[0]['tooltip'],
     tooltipOptions?: Parameters<typeof ActionButton>[0]['tooltipOptions'],
+    reactTooltip?: Parameters<typeof ActionButton>[0]['reactTooltip'],
     params?: object | string,
     page?: string,
     selectionPath?: string,

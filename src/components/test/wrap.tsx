@@ -2,6 +2,7 @@ import React from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import merge from 'ut-function.merge';
+import { Tooltip } from 'react-tooltip';
 
 import { ConfirmPopup, ConfirmDialog } from '../prime';
 import Context from '../Context';
@@ -54,6 +55,10 @@ function Wrap({
                             {children}
                             <Error />
                             <Hint />
+                            <Tooltip
+                                id="utPrime-react-tooltip"
+                                className="p-component z-2" // because table header has z-index: 1
+                            />
                         </Translate>
                     </Context.Provider>
                 </ThemeProvider>

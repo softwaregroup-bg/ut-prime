@@ -527,10 +527,10 @@ const Explorer: ComponentProps = ({
         {buttons}
     </>;
     const right = <>
-        {layout?.length ? null : <Button icon="pi pi-arrows-h" className="mr-2 ml-2" onClick={fitToggle} {...testid(`${resultSet}.widthButton`)} tooltip="Fit width" />}
-        <Button icon="pi pi-search" className="mr-2" disabled={!!loading} onClick={trigger || load} {...testid(`${resultSet}.refreshButton`)} tooltip="Search" />
+        {layout?.length ? null : <Button icon="pi pi-arrows-h" className="mr-2 ml-2" onClick={fitToggle} {...testid(`${resultSet}.widthButton`)} tooltip="Fit width" reactTooltip />}
+        <Button icon="pi pi-search" className="mr-2" disabled={!!loading} onClick={trigger || load} {...testid(`${resultSet}.refreshButton`)} tooltip="Refresh/Search" reactTooltip />
         {paramsLayout ? buttons : null}
-        {details && <Button {...testid(`${resultSet}.details.toggleButton`)} icon="pi pi-bars" className="mr-2" onClick={detailsToggle} tooltip="Details" />}
+        {details && <Button {...testid(`${resultSet}.details.toggleButton`)} icon="pi pi-bars" className="mr-2" onClick={detailsToggle} tooltip="Details" reactTooltip />}
         {customizationToolbar}
     </>;
     const layoutState = useLayout(mergedSchema, mergedCards, layout, editors, keyField, layoutFields);

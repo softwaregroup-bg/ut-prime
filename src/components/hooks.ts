@@ -10,3 +10,4 @@ export {default as useToggle} from './hooks/useToggle';
 export {default as useWindowSize} from './hooks/useWindowSize';
 export {default as useScroll} from './hooks/useScroll';
 export {default as useText} from './hooks/useText';
+export {default as useTooltip} from './hooks/useTooltip';
