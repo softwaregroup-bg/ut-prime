@@ -223,7 +223,7 @@ export default React.forwardRef<object, TableProps>(function Table({
                 else changed[id][key] = event.newData[key];
             }
         }
-        if (currentRef.current?.[KEY] === key) currentRef.current = event.newData;
+        if (key != null && currentRef.current?.[KEY] === key) currentRef.current = event.newData;
         if (originalIndex != null) {
             changed[originalIndex] = values;
             onChange({...event, value: changed});
