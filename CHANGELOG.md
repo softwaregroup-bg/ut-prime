@@ -1,3 +1,12 @@
+## [2.79.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.79.1...v2.79.2) (2023-07-04)
+
+
+### Bug Fixes
+
+* current row handling ([06a36fd](https://github.com/softwaregroup-bg/ut-prime/commit/06a36fd42caa9d2b61f2f8505f53c68c165f5aba))
+
+
+
 ## [2.79.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.79.0...v2.79.1) (2023-07-03)
 
 
