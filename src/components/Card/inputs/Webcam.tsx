@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 import React from 'react';
 import ReactWebcam, { type WebcamProps } from 'react-webcam';
 import merge from 'ut-function.merge';
@@ -42,7 +41,7 @@ function Webcam({ className, value, onChange, basePath, videoConstraints: vcProp
     const [edit, setEdit] = React.useState(false);
     const [preview, setPreview] = React.useState(null);
     const webcamRef = React.useRef(null);
-    const videoConstraints = React.useRef(merge(defaultVideoConstraints, vcProps));
+    const videoConstraints = React.useRef(merge({}, defaultVideoConstraints, vcProps));
     React.useEffect(() => {
         if (!value) return;
         if (typeof value[0] === 'string') {
@@ -52,7 +51,7 @@ function Webcam({ className, value, onChange, basePath, videoConstraints: vcProp
         fileToDataUrl(value[0]).then(setPreview).catch();
     }, [value, basePath]);
     React.useEffect(() => {
-        videoConstraints.current = merge(defaultVideoConstraints, vcProps);
+        videoConstraints.current = merge({}, defaultVideoConstraints, vcProps);
     }, [vcProps]);
     const capture = React.useCallback(async() => {
         const src = webcamRef.current.getScreenshot();
