@@ -210,6 +210,11 @@ const properties: Properties = {
             type: 'ocr'
         }
     },
+    webamera: {
+        widget: {
+            type: 'webcamera'
+        }
+    },
     password: {
         widget: {
             type: 'password'
@@ -343,6 +348,7 @@ export const input: {
                 'input.imageUpload',
                 'input.file',
                 'input.ocr',
+                'input.webamera',
                 'input.dropdown',
                 'input.dropdownTree',
                 'input.multiSelect',

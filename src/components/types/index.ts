@@ -31,6 +31,7 @@ export interface PropertyEditor {
         'icon' |
         'image' |
         'imageUpload' |
+        'webcamera' |
         'integer' |
         'jsonView' |
         'json' |
