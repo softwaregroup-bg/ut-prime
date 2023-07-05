@@ -120,7 +120,7 @@ const tree: {schema: Schema, cards: Cards} = {
             widgets: ['tree.treeName', 'tree.treeDescription', 'tree.treeType']
         },
         files: {
-            widgets: ['tree.treeName', 'tree.treeDescription', 'tree.ocr', 'tree.picture', 'tree.camera', 'tree.icon', 'tree.documents']
+            widgets: ['tree.treeName', 'tree.treeDescription', 'tree.ocr', 'tree.picture', 'tree.webcamera', 'tree.icon', 'tree.documents']
         },
         reproduction: {
             label: 'Reproduction',
