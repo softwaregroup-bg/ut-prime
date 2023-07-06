@@ -36,7 +36,7 @@ const defaultVideoConstraints = {
     facingMode: { ideal: 'environment' }
 };
 
-function Webcam({ className, value, onChange, basePath, videoConstraints: vcProps, disabled, ...props }: Props) {
+const Webcam = React.forwardRef<HTMLDivElement, Props>(function Webcam({ className, value, onChange, basePath, videoConstraints: vcProps, disabled, children, ...props }, ref) {
     const [images, setImages] = React.useState([]);
     const [edit, setEdit] = React.useState(false);
     const [preview, setPreview] = React.useState(null);
@@ -69,7 +69,7 @@ function Webcam({ className, value, onChange, basePath, videoConstraints: vcProp
         setEdit(false);
     };
     return (
-        <div className={className}>
+        <div className={className} ref={ref}>
             <div className="p-3 border-1 border-solid surface-border border-round-top surface-ground flex justify-content-between">
                 <Button
                     disabled={disabled}
@@ -127,6 +127,6 @@ function Webcam({ className, value, onChange, basePath, videoConstraints: vcProp
             )}
         </div>
     );
-}
+});
 
 export default Webcam;
