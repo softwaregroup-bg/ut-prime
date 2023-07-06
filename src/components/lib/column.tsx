@@ -160,7 +160,7 @@ export default function columnProps({
             body = function body(rowData) {
                 const value = rowData[property?.body || fieldName];
                 if (value == null) return null;
-                return <i className={`pi ${value ? 'pi-check' : 'pi-times'}`}></i>;
+                return <i className={`pi ${value ? 'pi-check text-green-500' : 'pi-times text-red-500'}`}></i>;
             };
             break;
         case 'dropdown':

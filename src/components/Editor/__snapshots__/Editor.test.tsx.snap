@@ -17287,7 +17287,7 @@ exports[`<Editor /> Pivot BG render equals snapshot 1`] = `
                                         </span>
                                       </span>
                                       <i
-                                        class="pi pi-check"
+                                        class="pi pi-check text-green-500"
                                       />
                                     </td>
                                     <td
@@ -17304,7 +17304,7 @@ exports[`<Editor /> Pivot BG render equals snapshot 1`] = `
                                         </span>
                                       </span>
                                       <i
-                                        class="pi pi-check"
+                                        class="pi pi-check text-green-500"
                                       />
                                     </td>
                                     <td
@@ -17379,7 +17379,7 @@ exports[`<Editor /> Pivot BG render equals snapshot 1`] = `
                                         </span>
                                       </span>
                                       <i
-                                        class="pi pi-check"
+                                        class="pi pi-check text-green-500"
                                       />
                                     </td>
                                     <td
@@ -17482,7 +17482,7 @@ exports[`<Editor /> Pivot BG render equals snapshot 1`] = `
                                         </span>
                                       </span>
                                       <i
-                                        class="pi pi-check"
+                                        class="pi pi-check text-green-500"
                                       />
                                     </td>
                                     <td
@@ -17499,7 +17499,7 @@ exports[`<Editor /> Pivot BG render equals snapshot 1`] = `
                                         </span>
                                       </span>
                                       <i
-                                        class="pi pi-check"
+                                        class="pi pi-check text-green-500"
                                       />
                                     </td>
                                     <td
@@ -17516,7 +17516,7 @@ exports[`<Editor /> Pivot BG render equals snapshot 1`] = `
                                         </span>
                                       </span>
                                       <i
-                                        class="pi pi-check"
+                                        class="pi pi-check text-green-500"
                                       />
                                     </td>
                                     <td
@@ -17533,7 +17533,7 @@ exports[`<Editor /> Pivot BG render equals snapshot 1`] = `
                                         </span>
                                       </span>
                                       <i
-                                        class="pi pi-check"
+                                        class="pi pi-check text-green-500"
                                       />
                                     </td>
                                     <td
@@ -18723,7 +18723,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                         </span>
                                       </span>
                                       <i
-                                        class="pi pi-check"
+                                        class="pi pi-check text-green-500"
                                       />
                                     </td>
                                     <td
@@ -18740,7 +18740,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                         </span>
                                       </span>
                                       <i
-                                        class="pi pi-check"
+                                        class="pi pi-check text-green-500"
                                       />
                                     </td>
                                     <td
@@ -18815,7 +18815,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                         </span>
                                       </span>
                                       <i
-                                        class="pi pi-check"
+                                        class="pi pi-check text-green-500"
                                       />
                                     </td>
                                     <td
@@ -18918,7 +18918,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                         </span>
                                       </span>
                                       <i
-                                        class="pi pi-check"
+                                        class="pi pi-check text-green-500"
                                       />
                                     </td>
                                     <td
@@ -18935,7 +18935,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                         </span>
                                       </span>
                                       <i
-                                        class="pi pi-check"
+                                        class="pi pi-check text-green-500"
                                       />
                                     </td>
                                     <td
@@ -18952,7 +18952,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                         </span>
                                       </span>
                                       <i
-                                        class="pi pi-check"
+                                        class="pi pi-check text-green-500"
                                       />
                                     </td>
                                     <td
@@ -18969,7 +18969,7 @@ exports[`<Editor /> Pivot render equals snapshot 1`] = `
                                         </span>
                                       </span>
                                       <i
-                                        class="pi pi-check"
+                                        class="pi pi-check text-green-500"
                                       />
                                     </td>
                                     <td
