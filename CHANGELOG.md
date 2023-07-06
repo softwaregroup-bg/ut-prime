@@ -1,3 +1,12 @@
+## [2.79.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.79.2...v2.79.3) (2023-07-06)
+
+
+### Bug Fixes
+
+* colors for boolean columns ([7c82829](https://github.com/softwaregroup-bg/ut-prime/commit/7c82829fc0c54de35935893674b57ad7bb03ba61))
+
+
+
 ## [2.79.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.79.1...v2.79.2) (2023-07-04)
 
 
