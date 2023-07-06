@@ -702,6 +702,46 @@ exports[`<Form /> InputAR render equals snapshot 1`] = `
                   >
                     <label
                       class="col-12 md:col-4"
+                      for="input-webamera"
+                    >
+                      Webamera
+                    </label>
+                    <div
+                      class="flex align-items-center relative col-12 md:col-8"
+                    >
+                      <div
+                        class="w-full"
+                      >
+                        <div
+                          class="p-3 border-1 border-solid surface-border border-round-top surface-ground flex justify-content-between"
+                        >
+                          <button
+                            class="p-button p-component"
+                          >
+                            <span
+                              class="p-button-label p-c"
+                            >
+                              يحرر
+                            </span>
+                          </button>
+                        </div>
+                        <div
+                          class="p-3 border-1 border-solid border-top-none surface-border border-round-bottom"
+                        >
+                          <div
+                            class="py-3"
+                          >
+                            No picture...
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="field grid"
+                  >
+                    <label
+                      class="col-12 md:col-4"
                       for="input-dropdown"
                     >
                       اسقاط

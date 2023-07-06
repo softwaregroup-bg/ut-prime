@@ -43,7 +43,7 @@ const getIndex = (properties: Properties, editors: Editors, fields: string[] = [
             }
             return prev;
         }, {}),
-        files: Object.entries(index).map(([name, property]) => ['file', 'imageUpload', 'ocr'].includes(propertyType(property)) && name).filter(name =>
+        files: Object.entries(index).map(([name, property]) => ['file', 'imageUpload', 'ocr', 'webcamera'].includes(propertyType(property)) && name).filter(name =>
             fields.some(item => item === name || index[item]?.widget?.widgets?.map?.(col => item + '.' + col).includes(name))
         ),
         tables: Object.entries(index).map(([name, property]) => fields.includes(name) && (propertyType(property) === 'table') && name).filter(Boolean)

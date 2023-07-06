@@ -78,6 +78,9 @@ const tree: {schema: Schema, cards: Cards} = {
                     ocr: {
                         widget: {type: 'ocr'}
                     },
+                    webcamera: {
+                        widget: {type: 'webcamera'}
+                    },
                     icon: {
                         widget: {type: 'file'}
                     },
@@ -117,7 +120,7 @@ const tree: {schema: Schema, cards: Cards} = {
             widgets: ['tree.treeName', 'tree.treeDescription', 'tree.treeType']
         },
         files: {
-            widgets: ['tree.treeName', 'tree.treeDescription', 'tree.ocr', 'tree.picture', 'tree.icon', 'tree.documents']
+            widgets: ['tree.treeName', 'tree.treeDescription', 'tree.ocr', 'tree.picture', 'tree.webcamera', 'tree.icon', 'tree.documents']
         },
         reproduction: {
             label: 'Reproduction',

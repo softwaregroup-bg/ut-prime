@@ -31,6 +31,7 @@ import getType from '../lib/getType';
 import testid from '../lib/testid';
 import Table from './inputs/Table';
 import Ocr from './inputs/Ocr';
+import Webcam from './inputs/Webcam';
 import ActionButton from '../ActionButton';
 import DateRange from '../DateRange';
 import Json from '../Json';
@@ -566,6 +567,14 @@ function useInput(
                     onSelect={e => {
                         onChange?.({...e, value: {file: e.files?.[0], text: e.text}});
                     }}
+                    {...props}
+                />
+            </Field>;
+        }
+        case 'webcamera': {
+            return <Field {...{label, error, inputClass}}>
+                <Webcam
+                    {...field}
                     {...props}
                 />
             </Field>;
