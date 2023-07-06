@@ -1,3 +1,12 @@
+# [2.80.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.79.3...v2.80.0) (2023-07-06)
+
+
+### Features
+
+* web camera widget ([6e931b4](https://github.com/softwaregroup-bg/ut-prime/commit/6e931b44ab3a0de7042dac2bc9625d74287475b3))
+
+
+
 ## [2.79.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.79.2...v2.79.3) (2023-07-06)
 
 
