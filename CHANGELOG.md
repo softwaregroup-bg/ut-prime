@@ -1,3 +1,12 @@
+## [2.80.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.80.0...v2.80.1) (2023-07-13)
+
+
+### Bug Fixes
+
+* **CBI-3023:** handle webcam errors ([#68](https://github.com/softwaregroup-bg/ut-prime/issues/68)) ([87e0455](https://github.com/softwaregroup-bg/ut-prime/commit/87e0455850af7cc23fe5c1f95203cb70648f90dc))
+
+
+
 # [2.80.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.79.3...v2.80.0) (2023-07-06)
 
 
