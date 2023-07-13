@@ -713,7 +713,7 @@ exports[`<Form /> InputAR render equals snapshot 1`] = `
                         class="w-full"
                       >
                         <div
-                          class="p-3 border-1 border-solid surface-border border-round-top surface-ground flex justify-content-between"
+                          class="p-3 border-1 border-solid surface-border border-round-top surface-ground flex justify-content-start"
                         >
                           <button
                             class="p-button p-component"
