@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactWebcam, { type WebcamProps } from 'react-webcam';
 import merge from 'ut-function.merge';
+import clsx from 'clsx';
 
 import { Image, Button } from '../../prime';
 import Text from '../../Text';
@@ -39,6 +40,7 @@ const defaultVideoConstraints = {
 const Webcam = React.forwardRef<HTMLDivElement, Props>(function Webcam({ className, value, onChange, basePath, videoConstraints: vcProps, disabled, children, ...props }, ref) {
     const [images, setImages] = React.useState([]);
     const [edit, setEdit] = React.useState(false);
+    const [error, setError] = React.useState(null);
     const [preview, setPreview] = React.useState(null);
     const webcamRef = React.useRef(null);
     const videoConstraints = React.useRef(merge({}, defaultVideoConstraints, vcProps));
@@ -68,15 +70,24 @@ const Webcam = React.forwardRef<HTMLDivElement, Props>(function Webcam({ classNa
         onChange({ ...e, value: [file] });
         setEdit(false);
     };
+    const handleWebcamError = (err) => {
+        setError(err?.toString?.());
+    };
     return (
         <div className={className} ref={ref}>
-            <div className="p-3 border-1 border-solid surface-border border-round-top surface-ground flex justify-content-between">
-                <Button
-                    disabled={disabled}
-                    onClick={handleEdit}
-                >
-                    Edit
-                </Button>
+            <div className={clsx('p-3 border-1 border-solid surface-border border-round-top surface-ground flex', {
+                'justify-content-start': !edit,
+                'justify-content-end': edit
+            })}
+            >
+                {!edit ? (
+                    <Button
+                        disabled={disabled}
+                        onClick={handleEdit}
+                    >
+                        Edit
+                    </Button>
+                ) : null}
                 {edit ? (
                     <Button
                         onClick={handleClose}
@@ -87,32 +98,37 @@ const Webcam = React.forwardRef<HTMLDivElement, Props>(function Webcam({ classNa
             </div>
             {edit && !disabled ? (
                 <div className="p-3 border-1 border-solid border-top-none surface-border border-round-bottom">
-                    <ReactWebcam
-                        audio={false}
-                        ref={webcamRef}
-                        minScreenshotHeight={videoConstraints.current.height}
-                        minScreenshotWidth={videoConstraints.current.width}
-                        screenshotFormat="image/png"
-                        className="w-full"
-                        videoConstraints={videoConstraints.current}
-                        {...props}
-                    />
-                    <Button className="mt-3" onClick={capture}>
-                        Capture photo
-                    </Button>
-                    <div className="grid mt-3">
-                        {images.map(({ file, src }, i) => (
-                            <div className="col-12 md:col-4 relative" key={i}>
-                                <Image imageClassName="w-full" preview src={src} />
-                                <Button
-                                    className="absolute bottom-0 right-0"
-                                    icon="pi pi-check"
-                                    tooltip="Choose"
-                                    onClick={handleChoose(file)}
-                                />
+                    {!error ? (
+                        <>
+                            <ReactWebcam
+                                audio={false}
+                                ref={webcamRef}
+                                minScreenshotHeight={videoConstraints.current.height}
+                                minScreenshotWidth={videoConstraints.current.width}
+                                screenshotFormat="image/png"
+                                className="w-full"
+                                videoConstraints={videoConstraints.current}
+                                onUserMediaError={handleWebcamError}
+                                {...props}
+                            />
+                            <Button className="mt-3" onClick={capture}>
+                                Capture photo
+                            </Button>
+                            <div className="grid mt-3">
+                                {images.map(({ file, src }, i) => (
+                                    <div className="col-12 md:col-4 relative" key={i}>
+                                        <Image imageClassName="w-full" preview src={src} />
+                                        <Button
+                                            className="absolute bottom-0 right-0"
+                                            icon="pi pi-check"
+                                            tooltip="Choose"
+                                            onClick={handleChoose(file)}
+                                        />
+                                    </div>
+                                ))}
                             </div>
-                        ))}
-                    </div>
+                        </>
+                    ) : <div className="py-3"><Text>{error}</Text></div>}
                 </div>
             ) : (
                 <div className="p-3 border-1 border-solid border-top-none surface-border border-round-bottom">
