@@ -40,6 +40,7 @@ const defaultVideoConstraints = {
 const Webcam = React.forwardRef<HTMLDivElement, Props>(function Webcam({ className, value, onChange, basePath, videoConstraints: vcProps, disabled, children, ...props }, ref) {
     const [images, setImages] = React.useState([]);
     const [edit, setEdit] = React.useState(false);
+    const [canCapture, setCanCapture] = React.useState(false);
     const [error, setError] = React.useState(null);
     const [preview, setPreview] = React.useState(null);
     const webcamRef = React.useRef(null);
@@ -56,15 +57,17 @@ const Webcam = React.forwardRef<HTMLDivElement, Props>(function Webcam({ classNa
         videoConstraints.current = merge({}, defaultVideoConstraints, vcProps);
     }, [vcProps]);
     const capture = React.useCallback(async() => {
+        if (!canCapture) return;
         const src = webcamRef.current.getScreenshot();
         const file = await dataUrlToFile(src, 'webcam-image.png');
         setImages((prev) => [{ file, src }, ...prev.slice(0, 2)]);
-    }, [webcamRef]);
+    }, [webcamRef, canCapture]);
     const handleEdit = () => {
         setEdit(true);
     };
     const handleClose = () => {
         setEdit(false);
+        setCanCapture(false);
     };
     const handleChoose = (file) => (e) => {
         onChange({ ...e, value: [file] });
@@ -72,6 +75,9 @@ const Webcam = React.forwardRef<HTMLDivElement, Props>(function Webcam({ classNa
     };
     const handleWebcamError = (err) => {
         setError(err?.toString?.());
+    };
+    const handleUserMediaCb = () => {
+        setCanCapture(true);
     };
     return (
         <div className={className} ref={ref}>
@@ -108,10 +114,11 @@ const Webcam = React.forwardRef<HTMLDivElement, Props>(function Webcam({ classNa
                                 screenshotFormat="image/png"
                                 className="w-full"
                                 videoConstraints={videoConstraints.current}
+                                onUserMedia={handleUserMediaCb}
                                 onUserMediaError={handleWebcamError}
                                 {...props}
                             />
-                            <Button className="mt-3" onClick={capture}>
+                            <Button className="mt-3" onClick={capture} disabled={!canCapture}>
                                 Capture photo
                             </Button>
                             <div className="grid mt-3">
