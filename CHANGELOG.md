@@ -1,3 +1,12 @@
+## [2.80.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.80.1...v2.80.2) (2023-07-20)
+
+
+### Bug Fixes
+
+* **CBI-3227:** allow capture when stream is available ([#69](https://github.com/softwaregroup-bg/ut-prime/issues/69)) ([3bac051](https://github.com/softwaregroup-bg/ut-prime/commit/3bac051cfc4a4cee5812c77d6b96046617aadb83))
+
+
+
 ## [2.80.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.80.0...v2.80.1) (2023-07-13)
 
 
