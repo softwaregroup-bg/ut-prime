@@ -1,3 +1,12 @@
+## [2.80.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.80.2...v2.80.3) (2023-07-21)
+
+
+### Bug Fixes
+
+* template csp ([de72a86](https://github.com/softwaregroup-bg/ut-prime/commit/de72a8662608dbe9a7c29eed67b8846a2c6bb3be))
+
+
+
 ## [2.80.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.80.1...v2.80.2) (2023-07-20)
 
 
