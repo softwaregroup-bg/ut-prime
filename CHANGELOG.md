@@ -1,3 +1,12 @@
+## [2.80.4](https://github.com/softwaregroup-bg/ut-prime/compare/v2.80.3...v2.80.4) (2023-08-01)
+
+
+### Bug Fixes
+
+* template csp optional chaining ([c72dd34](https://github.com/softwaregroup-bg/ut-prime/commit/c72dd3497f2fba2ebd5dcc325c90c55dda242d97))
+
+
+
 ## [2.80.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.80.2...v2.80.3) (2023-07-21)
 
 
