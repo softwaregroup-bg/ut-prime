@@ -13,6 +13,7 @@ import Card from '../Card';
 import type {UtError} from '../types';
 
 import { usePermissionCheck } from '../hooks';
+import Text from '../Text';
 
 const useStyles = createUseStyles({
     form: {
@@ -182,7 +183,7 @@ const Form: ComponentProps = ({
     const errorList =
         !!Object.keys(errors).length &&
         errorFields
-            .map(name => !layoutState.visibleProperties.includes(name) && <><small className="p-error">{get(errors, name)?.message}</small><br /></>)
+            .map(name => !layoutState.visibleProperties.includes(name) && get(errors, name)?.message && <><small className="p-error"><Text>{get(errors, name)?.message}</Text></small><br /></>)
             .filter(Boolean);
 
     const permissionCheck = usePermissionCheck();
