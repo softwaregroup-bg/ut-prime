@@ -183,7 +183,12 @@ const Form: ComponentProps = ({
     const errorList =
         !!Object.keys(errors).length &&
         errorFields
-            .map(name => !layoutState.visibleProperties.includes(name) && get(errors, name)?.message && <><small className="p-error"><Text>{get(errors, name)?.message}</Text></small><br /></>)
+            .map(name => {
+                const errorMessage = get(errors, name)?.message;
+                if (!layoutState.visibleProperties.includes(name) && errorMessage) {
+                    return (<><small className="p-error"><Text>{errorMessage}</Text></small><br /></>);
+                }
+            })
             .filter(Boolean);
 
     const permissionCheck = usePermissionCheck();
