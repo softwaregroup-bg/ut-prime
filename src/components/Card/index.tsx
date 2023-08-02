@@ -112,9 +112,23 @@ const Card: ComponentProps = ({
     const formErrors = Object.keys(formApi?.formState?.errors || {}).length && formApi?.formState?.errors;
     const ErrorLabel = React.useCallback(({name, className = 'md:col-4'}) => {
         const error = formErrors && get(formErrors, name);
-        return error
-            ? error.message && <><small className={clsx('col-12', className)}/><small className='col p-error'><Text>{error.message}</Text></small></>
-            : null;
+        function displayError(error) {
+            return error
+                ? error.message && <><small className={clsx('col-12', className)}/><small className='col p-error'><Text>{error.message}</Text></small></>
+                : null;
+        }
+
+        if (!error?.message && error?.length > 0) {
+            const singleItemErrors = [];
+            Object.values(error.flat()[0]).forEach(value => singleItemErrors.push(value));
+            return (<>
+                {singleItemErrors.forEach(function(er) {
+                    return displayError(er);
+                })}
+            </>);
+        } else {
+            displayError(error);
+        }
     }, [formErrors]);
 
     const field = (length: number, flex: string, cardName: string, classes: CardType['classes'], init = {}) => function field(widget, ind: number) {

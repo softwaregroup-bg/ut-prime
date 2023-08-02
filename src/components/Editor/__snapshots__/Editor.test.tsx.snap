@@ -24696,11 +24696,11 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
               class="p-component p-panelmenu-header p-highlight"
             >
               <a
-                aria-controls="pr_id_19_content"
+                aria-controls="pr_id_4_content"
                 aria-expanded="true"
                 class="p-panelmenu-header-link"
                 href="#"
-                id="pr_id_19_header"
+                id="pr_id_4_header"
               >
                 <span
                   class="p-panelmenu-icon pi  pi-chevron-down"
@@ -24713,9 +24713,9 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
               </a>
             </div>
             <div
-              aria-labelledby="pr_id_19_header"
+              aria-labelledby="pr_id_4_header"
               class="p-toggleable-content p-toggleable-content-enter-done"
-              id="pr_id_19_content"
+              id="pr_id_4_content"
               role="region"
             >
               <div
@@ -24770,11 +24770,11 @@ exports[`<Editor /> ThumbIndexLayout render equals snapshot 1`] = `
               class="p-component p-panelmenu-header"
             >
               <a
-                aria-controls="pr_id_19_content"
+                aria-controls="pr_id_4_content"
                 aria-expanded="false"
                 class="p-panelmenu-header-link"
                 href="#"
-                id="pr_id_19_header"
+                id="pr_id_4_header"
               >
                 <span
                   class="p-panelmenu-icon pi pi-chevron-right"
