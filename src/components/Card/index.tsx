@@ -127,7 +127,7 @@ const Card: ComponentProps = ({
                 })}
             </>);
         } else {
-            displayError(error);
+            return displayError(error);
         }
     }, [formErrors]);
 
