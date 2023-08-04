@@ -69,7 +69,7 @@ export default React.forwardRef<object, Props>(function LeafletMap(props, ref) {
     const [selectedPosition, setSelectedPosition] = React.useState(value);
     const { configuration: { 'portal.utPrime.LMap': coreConfig = {} } = {} } = React.useContext(Context);
 
-    const {key, region, language, ...mapOptions} = React.useMemo(() => {
+    const mapOptions = React.useMemo(() => {
         return merge(
             [
                 {},
