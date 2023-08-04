@@ -38,6 +38,7 @@ import Json from '../Json';
 import Component from '../Component';
 import {CHANGE} from './const';
 import Controller from '../Controller';
+import LeafletMap from './inputs/LeafletMap';
 
 const getFieldClass = (index, classes, name, className) =>
     name === '' ? className : clsx(
@@ -594,7 +595,7 @@ function useInput(
         case 'label': return (field?.name || title) ? <Field label={label} inputClass={widgetClassName}>{field?.name ? field?.value : title}</Field> : null;
         case 'icon': return (field?.name || title) ? <i className={clsx('pi', field?.name ? field?.value : title, widgetClassName)}/> : null;
         case 'gps': return <Field {...{label, error, inputClass}}>
-            <GMap {...field} {...props} />
+            {props.mapType === 'leaflet' ? <LeafletMap {...field} {...props} /> : <GMap {...field} {...props} />}
         </Field>;
         default: return <Field {...{label, error, inputClass}}>
             <InputText

@@ -77,6 +77,7 @@ export interface PropertyEditor {
     fieldClass?: string,
     labelClass?: string,
     translation?: boolean,
+    mapType?: 'leaflet' | 'google'
     [editorProperties: string]: unknown
 }
 
