@@ -1,3 +1,12 @@
+# [2.81.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.80.5...v2.81.0) (2023-08-07)
+
+
+### Features
+
+* async menuItem action ([e4bcc78](https://github.com/softwaregroup-bg/ut-prime/commit/e4bcc78a0f1150f61f190db6b4447b041c74d157))
+
+
+
 ## [2.80.5](https://github.com/softwaregroup-bg/ut-prime/compare/v2.80.4...v2.80.5) (2023-08-01)
 
 
