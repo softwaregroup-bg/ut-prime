@@ -59,7 +59,10 @@ const Portal: ComponentProps = ({ children }) => {
         if (item.component || item.tab) {
             dispatch({type: 'front.tab.show', ...item});
         } else if (item.action) {
-            dispatch(item.action());
+            Promise.resolve({})
+                .then(() => item.action())
+                .then(action => action && dispatch(action))
+                .catch(error => dispatch({type: 'front.error.open', error}));
         }
     }, [dispatch]);
     const found = tabs.findIndex(tab => tab.path === (location.pathname + location.search));
