@@ -60,11 +60,11 @@ const Portal: ComponentProps = ({ children }) => {
             dispatch({type: 'front.tab.show', ...item});
         } else if (item.action) {
             Promise.resolve({})
-                .then(() => item.action())
+                .then(() => item.action({login}))
                 .then(action => action && dispatch(action))
                 .catch(error => dispatch({type: 'front.error.open', error}));
         }
-    }, [dispatch]);
+    }, [dispatch, login]);
     const found = tabs.findIndex(tab => tab.path === (location.pathname + location.search));
     const tabIndex = found >= 0 ? found : undefined;
     const handleTabSelect = React.useCallback(event => {
