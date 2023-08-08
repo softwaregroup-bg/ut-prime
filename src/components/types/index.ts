@@ -7,6 +7,7 @@ import type { DataViewProps } from 'primereact/dataview';
 import type { ColumnProps } from 'primereact/column';
 import Joi from 'joi';
 import useForm from '../hooks/useForm';
+import useLayout from '../hooks/useLayout';
 import ActionButton from '../ActionButton';
 
 export type DataTable = Omit<DataTableProps, 'children'>;
@@ -94,21 +95,6 @@ export interface Dropdowns {
         data?: unknown;
     }[]
 }
-
-export interface Editor extends React.FC<{
-    name: string,
-    Input: React.FC<{name: string, className?: string}>,
-    Label: React.FC<{name: string, className?: string}>,
-    ErrorLabel: React.FC<{name: string, className?: string}>
-}> {
-    title?: string,
-    widget?: PropertyEditor,
-    properties: string[]
-}
-export interface Editors {
-    [name: string]: Editor
-}
-
 export interface Property extends JSONSchema7 {
     filter?: boolean;
     sort?: boolean;
@@ -138,10 +124,6 @@ export interface Schema extends JSONSchema7 {
     properties?: {
         [name: string]: Property
     }
-}
-
-export interface PropertyEditors {
-    [name: string]: Property | Editor
 }
 
 export type Selection = {
@@ -278,3 +260,42 @@ export interface UtError extends Error {
 export type LayoutMode = 'create' | 'edit' | 'view';
 
 export type FormApi = ReturnType<typeof useForm>;
+
+export type LayoutIndex = ReturnType<typeof useLayout>['index'];
+
+export type InputApi = {
+    index: LayoutIndex;
+    visibleProperties: string[];
+    onFieldChange: string;
+    formApi: FormApi;
+    isPropertyRequired: (propertyName: string) => boolean;
+    methods: object;
+    dropdowns: Dropdowns;
+    loading: string;
+    counter: unknown;
+    submit: (event: object) => void;
+    value: object;
+};
+
+export interface Editor extends React.FC<{
+    name: string,
+    Input: React.FC<{name: string, className?: string}>,
+    Label: React.FC<{name: string, className?: string}>,
+    ErrorLabel: React.FC<{name: string, className?: string}>,
+    propertyName: string,
+    widget: WidgetReference,
+    api: InputApi,
+    enabled: boolean,
+    disabled: boolean
+}> {
+    title?: string,
+    widget?: PropertyEditor,
+    properties: string[]
+}
+export interface Editors {
+    [name: string]: Editor
+}
+
+export interface PropertyEditors {
+    [name: string]: Property | Editor
+}
