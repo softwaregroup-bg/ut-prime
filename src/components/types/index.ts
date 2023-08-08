@@ -282,7 +282,6 @@ export interface Editor extends React.FC<{
     Input: React.FC<{name: string, className?: string}>,
     Label: React.FC<{name: string, className?: string}>,
     ErrorLabel: React.FC<{name: string, className?: string}>,
-    propertyName: string,
     widget: WidgetReference,
     api: InputApi,
     enabled: boolean,

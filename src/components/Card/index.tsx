@@ -134,7 +134,6 @@ const Card: ComponentProps = ({
             if (typeof property === 'function') {
                 return property({
                     name,
-                    propertyName,
                     Input: name.startsWith('$.edit.') ? InputWrapEdit : InputWrap,
                     Label,
                     ErrorLabel,
