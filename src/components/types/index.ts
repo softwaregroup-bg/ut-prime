@@ -277,16 +277,15 @@ export type InputApi = {
     value: object;
 };
 
-export interface Editor extends React.FC<{
+export type Editor = React.FC<{
     name: string,
     Input: React.FC<{name: string, className?: string}>,
     Label: React.FC<{name: string, className?: string}>,
     ErrorLabel: React.FC<{name: string, className?: string}>,
-    widget: WidgetReference,
     api: InputApi,
     enabled: boolean,
     disabled: boolean
-}> {
+}> & WidgetReference & {
     title?: string,
     widget?: PropertyEditor,
     properties: string[]
