@@ -1,3 +1,12 @@
+## [2.81.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.81.1...v2.81.2) (2023-08-09)
+
+
+### Bug Fixes
+
+* **CBI-3393:** pass more props to custom form editor ([#73](https://github.com/softwaregroup-bg/ut-prime/issues/73)) ([bd89a3a](https://github.com/softwaregroup-bg/ut-prime/commit/bd89a3a555535c99bd68ea88fbb0b359ca1f62bb))
+
+
+
 ## [2.81.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.81.0...v2.81.1) (2023-08-07)
 
 
