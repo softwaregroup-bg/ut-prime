@@ -136,7 +136,10 @@ const Card: ComponentProps = ({
                     name,
                     Input: name.startsWith('$.edit.') ? InputWrapEdit : InputWrap,
                     Label,
-                    ErrorLabel
+                    ErrorLabel,
+                    ...widget as object,
+                    ...allow(widget),
+                    api
                 });
             }
             return (
