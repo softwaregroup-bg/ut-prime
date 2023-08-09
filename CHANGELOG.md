@@ -1,3 +1,12 @@
+## [2.81.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.81.2...v2.81.3) (2023-08-09)
+
+
+### Bug Fixes
+
+* table with errors - component returns nothing error ([#74](https://github.com/softwaregroup-bg/ut-prime/issues/74)) ([92b1825](https://github.com/softwaregroup-bg/ut-prime/commit/92b1825c8c99f77ba1ade2345228ea114846fc1b))
+
+
+
 ## [2.81.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.81.1...v2.81.2) (2023-08-09)
 
 
