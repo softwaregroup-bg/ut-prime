@@ -113,9 +113,8 @@ const Card: ComponentProps = ({
     const ErrorLabel = React.useCallback(({name, className = 'md:col-4'}) => {
         const error = formErrors && get(formErrors, name);
         function displayError(error) {
-            return error
-                ? error.message && <><small className={clsx('col-12', className)}/><small className='col p-error'><Text>{error.message}</Text></small></>
-                : null;
+            if (!error?.message) return null;
+            return <><small className={clsx('col-12', className)}/><small className='col p-error'><Text>{error.message}</Text></small></>;
         }
 
         if (!error?.message && error?.length > 0) {
@@ -150,7 +149,10 @@ const Card: ComponentProps = ({
                     name,
                     Input: name.startsWith('$.edit.') ? InputWrapEdit : InputWrap,
                     Label,
-                    ErrorLabel
+                    ErrorLabel,
+                    ...widget as object,
+                    ...allow(widget),
+                    api
                 });
             }
             return (

@@ -1,3 +1,34 @@
+## [2.81.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.81.2...v2.81.3) (2023-08-09)
+
+
+### Bug Fixes
+
+* table with errors - component returns nothing error ([#74](https://github.com/softwaregroup-bg/ut-prime/issues/74)) ([92b1825](https://github.com/softwaregroup-bg/ut-prime/commit/92b1825c8c99f77ba1ade2345228ea114846fc1b))
+
+
+
+## [2.81.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.81.1...v2.81.2) (2023-08-09)
+
+
+### Bug Fixes
+
+* **CBI-3393:** pass more props to custom form editor ([#73](https://github.com/softwaregroup-bg/ut-prime/issues/73)) ([bd89a3a](https://github.com/softwaregroup-bg/ut-prime/commit/bd89a3a555535c99bd68ea88fbb0b359ca1f62bb))
+
+
+
+## [2.81.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.81.0...v2.81.1) (2023-08-07)
+
+
+
+# [2.81.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.80.5...v2.81.0) (2023-08-07)
+
+
+### Features
+
+* async menuItem action ([e4bcc78](https://github.com/softwaregroup-bg/ut-prime/commit/e4bcc78a0f1150f61f190db6b4447b041c74d157))
+
+
+
 ## [2.80.5](https://github.com/softwaregroup-bg/ut-prime/compare/v2.80.4...v2.80.5) (2023-08-01)
 
 
