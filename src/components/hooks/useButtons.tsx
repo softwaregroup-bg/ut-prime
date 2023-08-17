@@ -28,6 +28,7 @@ export default function useButtons({
     const buttons = React.useMemo(() =>
         toolbar && toolbar.length ? toolbar.map((widget, index) => {
             const {
+                id,
                 title,
                 icon,
                 action,
@@ -67,7 +68,7 @@ export default function useButtons({
                 <ActionButton
                     key={index}
                     permission={permission}
-                    {...testid(`${permission ? permission + 'Button' : 'button' + index}`)}
+                    {...testid(`${id || (permission ? permission + 'Button' : 'button' + index)}`)}
                     submit={paramsLayout ? trigger : submit}
                     action={action}
                     method={method}
