@@ -58,7 +58,8 @@ const Card: ComponentProps = ({
     onInspect,
     onFieldChange,
     isPropertyRequired = notRequired,
-    classNames
+    classNames,
+    trigger
 }) => {
     const classes = useStyles();
     const {ut} = useTheme<Theme>();
@@ -74,7 +75,8 @@ const Card: ComponentProps = ({
         formApi,
         onFieldChange,
         value,
-        isPropertyRequired
+        isPropertyRequired,
+        trigger
     }), [
         layoutState.index,
         layoutState.visibleProperties,
@@ -85,7 +87,8 @@ const Card: ComponentProps = ({
         formApi,
         onFieldChange,
         value,
-        isPropertyRequired
+        isPropertyRequired,
+        trigger
     ]);
     if (typeof cardName === 'object') cardName = cardName.name;
     const allow = useAllow(cards[cardName], formApi, {disabled, enabled});

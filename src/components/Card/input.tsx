@@ -626,7 +626,8 @@ export default function Input({
         loading,
         counter,
         submit,
-        value
+        value,
+        trigger
     },
     ...widget
 }) {
@@ -648,6 +649,7 @@ export default function Input({
     if ('visible' in inputWidget && !inputWidget.visible) return null;
     if (typeof inputWidget.enabled === 'string') inputWidget.disabled = !formApi?.watch?.(inputWidget.enabled);
     if (typeof inputWidget.disabled === 'string') inputWidget.disabled = !!formApi?.watch?.(inputWidget.disabled);
+    if (typeof inputWidget.disabledOnTrigger === 'boolean') inputWidget.disabled = !!trigger === inputWidget.disabledOnTrigger;
     if (!inputWidget.className) {
         const inputClassName = classes?.default?.input || classes?.[name]?.input;
         if (inputClassName) inputWidget.className = inputClassName;

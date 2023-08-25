@@ -31,7 +31,8 @@ export interface Props {
     ) => void,
     toolbar?: boolean,
     classNames?: object,
-    isPropertyRequired?: (propertyName: string) => boolean
+    isPropertyRequired?: (propertyName: string) => boolean,
+    trigger?: (event: object) => void
 }
 
 export type ComponentProps = React.FC<Props>
