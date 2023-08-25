@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect, useSelector } from 'react-redux';
-import { useParams, Redirect } from 'react-router-dom';
+import { useParams, useLocation, Redirect, matchPath } from 'react-router-dom';
 import { Tooltip } from 'react-tooltip';
 
 import { cookieCheck } from '../Login/actions';
@@ -25,7 +25,9 @@ const Gate: ComponentProps = ({ children, cookieCheck, corePortalGet, loginPage 
     const [loaded, setLoaded] = useState(null);
     const [cookieChecked, setCookieChecked] = useState(false);
     const login = useSelector((state: State) => state.login);
+    const publicRoutes = useSelector((state: State) => state?.portal?.publicRoutes || []);
     const {appId} = useParams();
+    const location = useLocation();
     const loginHash = !loginPage || loginPage.startsWith('#');
     const {setLanguage} = React.useContext(AppContext);
 
@@ -105,6 +107,25 @@ const Gate: ComponentProps = ({ children, cookieCheck, corePortalGet, loginPage 
     } else if (!loginHash) {
         return <Loader open message='Redirecting to the login page...' />;
     } else {
+        if (publicRoutes.some(({path, exact = true, strict = true, component, ...rest}) => {
+            const match = matchPath(location.pathname, {
+                path,
+                exact,
+                strict,
+                ...rest
+            });
+            return !!match;
+        })) {
+            return <>
+                <ConfirmPopup />
+                <ConfirmDialog />
+                <Tooltip
+                    id="utPrime-react-tooltip"
+                    className="p-component z-2"
+                />
+                {children}
+            </>;
+        }
         return <Redirect to={loginPage?.substr?.(1) || '/login'} />;
     }
 };

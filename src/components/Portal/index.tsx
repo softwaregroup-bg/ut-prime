@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useLocation, useHistory } from 'react-router-dom';
+import { useLocation, useHistory, matchPath } from 'react-router-dom';
 import clsx from 'clsx';
 import { useTheme } from 'react-jss';
 import {ErrorBoundary} from 'react-error-boundary';
@@ -38,7 +38,9 @@ const Portal: ComponentProps = ({ children }) => {
         menuClass = 'menuGrow',
         rightMenu,
         rightMenuClass = 'rightMenu',
-        rightMenuItems
+        rightMenuItems,
+        page,
+        publicRoutes
     } = useSelector(({portal}: State) => portal || {
         tabs: undefined,
         menu: undefined,
@@ -46,7 +48,9 @@ const Portal: ComponentProps = ({ children }) => {
         hideTabs: undefined,
         rightMenu: undefined,
         rightMenuClass: undefined,
-        rightMenuItems: undefined
+        rightMenuItems: undefined,
+        page: undefined,
+        publicRoutes: []
     });
     const login = useSelector(({login}: State) => login);
     const initials = login?.profile?.initials || 'N/A';
@@ -67,6 +71,15 @@ const Portal: ComponentProps = ({ children }) => {
     }, [dispatch, login]);
     const found = tabs.findIndex(tab => tab.path === (location.pathname + location.search));
     const tabIndex = found >= 0 ? found : undefined;
+    const publicRoute = publicRoutes.find(({path, exact = true, strict = true, component, ...rest}) => {
+        const match = matchPath(location.pathname, {
+            path,
+            exact,
+            strict,
+            ...rest
+        });
+        return !!match;
+    });
     const handleTabSelect = React.useCallback(event => {
         if (event?.originalEvent?.target?.classList?.contains('pi-times')) {
             dispatch({
@@ -94,15 +107,16 @@ const Portal: ComponentProps = ({ children }) => {
         ]
     }]), [permissions, command, rightMenu, initials, rightMenuItems]);
 
-    if (location.pathname !== '/' && !tabs.find(tab => tab.path === location.pathname + location.search)) {
+    if ((publicRoute?.path === '/' || location.pathname !== '/') && !tabs.find(tab => tab.path === location.pathname + location.search) && (!page || (page.path !== location.pathname))) {
         dispatch({
             type: 'portal.route.find',
-            path: location.pathname + location.search
+            path: location.pathname + location.search,
+            route: publicRoute
         });
     }
     return (
         <div className='flex flex-column h-screen'>
-            <div className={classes.headerContainer}>
+            {!publicRoute ? <div className={classes.headerContainer}>
                 <div className='flex align-items-center justify-content-center'>
                     <div className={clsx('hidden p-component lg:block', classes.headerLogo, ut?.classes?.headerLogo)}></div>
                     <div className={clsx('hidden p-component text-lg lg:block', classes.headerTitle)}>
@@ -113,9 +127,9 @@ const Portal: ComponentProps = ({ children }) => {
                     {Switch ? <Switch /> : null}
                     <Menubar model={rightEnabled} className={classes[rightMenuClass]} style={backgroundNone}/>
                 </div>
-            </div>
-            {(hideTabs)
-                ? (({Component}) => <Component />)(tabs[tabIndex || 0] || {Component() { return null; }})
+            </div> : null}
+            {(hideTabs || publicRoute)
+                ? (({Component}) => <Component />)(page || tabs[tabIndex || 0] || {Component() { return null; }})
                 : <TabView activeIndex={tabIndex} onTabChange={handleTabSelect} className={classes.tabs} renderActiveOnly={false}>
                     {tabs.map(({title, path, Component}, index) =>
                         <TabPanel key={path} header={<span {...testid(`portal.tab${path}`)}><Text>{title}</Text>&nbsp;&nbsp;<i className='pi pi-times vertical-align-bottom' {...testid(`portal.tab.close${path}`)}></i></span>}>

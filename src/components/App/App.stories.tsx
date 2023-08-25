@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react';
 import merge from 'ut-function.merge';
+import { Link } from 'react-router-dom';
 
 import page from './README.mdx';
 import App from './index';
@@ -25,6 +26,47 @@ function RegisterComponent(action) {
 const componentMiddleware = _store => next => action => (action.type === 'portal.component.get')
     ? Promise.resolve(action.page === 'some.provided.component' ? ExtraTitleComponent : RegisterComponent(action))
     : next(action);
+
+const route = _store => next => action => {
+    if (action.type !== 'portal.route.find') return next(action);
+    const {pathname: path, searchParams} = new URL('ut-portal:' + action.path);
+    if (typeof path !== 'string' || !path.includes('/')) return next(action);
+    const [, method, ...rest] = path.split('/');
+    if (!method && !action?.route?.path) return next(action);
+    next({
+        type: action?.route?.component ? 'front.page.show' : 'front.tab.show',
+        tab: () => ({
+            title: action?.route?.component,
+            component: (params) => {
+                if (action?.route?.component === 'some.home.page') {
+                    return function HomePage(props) {
+                        return <div>
+                            <div><Text>Home Page</Text></div>
+                            {params.id && <div><Text>Id: {params.id}</Text></div>}
+                            <Link clsasName="mr-2" to={'/public'}>Public</Link>
+                            <Link to={'/public/1'}>Public 1</Link>
+                        </div>;
+                    };
+                }
+                return function PublicPage(props) {
+                    const id = params.id ? Number(params.id) + 1 : 1;
+                    return <div>
+                        <div><Text>Public Page</Text></div>
+                        {params.id && <div><Text>Id: {params.id}</Text></div>}
+                        <Link clsasName="mr-2" to={'/'}>Home</Link>
+                        <Link to={`/public/${id}`}>Public {id}</Link>
+                    </div>;
+                };
+            }
+        }),
+        params: {
+            ...Object.fromEntries(searchParams.entries()),
+            ...rest.length > 0 && {id: rest.join('/')}
+        },
+        title: method,
+        path: action.path
+    });
+};
 
 const meta: Meta = {
     title: 'App',
@@ -72,7 +114,7 @@ const Template: Story<Props & {dir?: 'rtl' | 'ltr', theme}> = ({dir: storyDir, t
                 type: theme
             }
         }}
-        middleware={[middleware, componentMiddleware]}
+        middleware={[middleware, componentMiddleware, route]}
         {...props}
     />;
 };
@@ -137,4 +179,28 @@ RegisterWithTitleAR.args = {
     ...RegisterWithTitle.args,
     lang: 'ar',
     dir: 'rtl'
+};
+
+export const PublicPage = Template.bind({});
+PublicPage.args = {
+    state: merge({}, state, {
+        login: null,
+        portal: {
+            tabs: [],
+            publicRoutes: [
+                {
+                    path: '/',
+                    component: 'some.home.page'
+                },
+                {
+                    path: '/public',
+                    component: 'some.public.page'
+                },
+                {
+                    path: '/public/:id',
+                    component: 'some.other.page'
+                }
+            ]
+        }
+    })
 };

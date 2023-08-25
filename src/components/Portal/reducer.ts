@@ -21,6 +21,18 @@ const handlers = {
             }]
         };
     },
+    'front.page.show'(state, {title, path, Component, params}) {
+        if (state.page && state.page.path === path) return state;
+        return {
+            ...state,
+            page: {
+                title,
+                path,
+                Component,
+                params
+            }
+        };
+    },
     'front.tab.close'({tabs = [], ...state}, action) {
         const index = tabs.indexOf(action.data);
         if (index < 0) return {tabs, ...state};

@@ -65,7 +65,20 @@ export interface State {
         menuClass?: 'menu' | 'menuGrow';
         rightMenu?: MenuItem[];
         rightMenuClass?: 'menu' | 'menuGrow' | 'rightMenu';
-        rightMenuItems?: MenuItem[]
+        rightMenuItems?: MenuItem[],
+        publicRoutes: {
+            path: string;
+            component: string | (() => unknown);
+            exact?: boolean;
+            strict?: boolean;
+            [key: string]: unknown;
+        }[];
+        page: {
+            title: string;
+            path: string;
+            Component: React.FC<{hidden?: boolean}>;
+            params?: object
+        };
     };
 }
 
