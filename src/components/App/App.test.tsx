@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '../test';
+import { render, act } from '../test';
 
 import {
     Basic,
@@ -12,7 +12,8 @@ import {
     RegisterAR,
     RegisterWithTitle,
     RegisterWithTitleBG,
-    RegisterWithTitleAR
+    RegisterWithTitleAR,
+    PublicPage
 } from './App.stories';
 
 describe('<App />', () => {
@@ -58,6 +59,12 @@ describe('<App />', () => {
     });
     it('RegisterWithTitleAR equals snapshot', async() => {
         const { findByTestId } = render(<RegisterWithTitleAR {...RegisterWithTitleAR.args} />);
+        expect(await findByTestId('ut-front-test')).toMatchSnapshot();
+    });
+    it('PublicPage equals snapshot', async() => {
+        const { findByTestId, container } = render(<PublicPage {...PublicPage.args} />);
+        await act(() => PublicPage.play({canvasElement: container}));
+        await act(() => new Promise(resolve => setTimeout(resolve, 500)));
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
 });

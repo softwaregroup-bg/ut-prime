@@ -1,7 +1,8 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react';
+import { userEvent, within } from '@storybook/testing-library';
 import merge from 'ut-function.merge';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import page from './README.mdx';
 import App from './index';
@@ -40,21 +41,33 @@ const route = _store => next => action => {
             component: (params) => {
                 if (action?.route?.component === 'some.home.page') {
                     return function HomePage(props) {
+                        const location = useLocation();
                         return <div>
                             <div><Text>Home Page</Text></div>
                             {params.id && <div><Text>Id: {params.id}</Text></div>}
-                            <Link clsasName="mr-2" to={'/public'}>Public</Link>
-                            <Link to={'/public/1'}>Public 1</Link>
+                            <Link data-testid='public' className="mr-2" to={'/public'}>Public</Link>
+                            <Link data-testid='next' to={'/public/1'}>Public 1</Link>
+                            <div>
+                                <pre>
+                                    {JSON.stringify(location)}
+                                </pre>
+                            </div>
                         </div>;
                     };
                 }
                 return function PublicPage(props) {
                     const id = params.id ? Number(params.id) + 1 : 1;
+                    const location = useLocation();
                     return <div>
                         <div><Text>Public Page</Text></div>
                         {params.id && <div><Text>Id: {params.id}</Text></div>}
-                        <Link clsasName="mr-2" to={'/'}>Home</Link>
-                        <Link to={`/public/${id}`}>Public {id}</Link>
+                        <Link data-testid='home' className="mr-2" to={'/'}>Home</Link>
+                        <Link data-testid="next" to={`/public/${id}`}>Public {id}</Link>
+                        <div>
+                            <pre>
+                                {JSON.stringify(location)}
+                            </pre>
+                        </div>
                     </div>;
                 };
             }
@@ -64,7 +77,8 @@ const route = _store => next => action => {
             ...rest.length > 0 && {id: rest.join('/')}
         },
         title: method,
-        path: action.path
+        path: action.path,
+        location: _store.getState()?.router?.location
     });
 };
 
@@ -203,4 +217,9 @@ PublicPage.args = {
             ]
         }
     })
+};
+
+PublicPage.play = async({canvasElement}) => {
+    const canvas = within(canvasElement);
+    userEvent.click(await canvas.findByTestId('public'));
 };

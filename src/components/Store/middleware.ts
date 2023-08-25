@@ -32,7 +32,7 @@ export default store => next => async action => {
                 action.path = path || ('/' + action.tab.name.split('/').pop()) + ((id != null) ? '/' + id : '') + query;
             }
             const result = next({...action, title, Component: await component(action?.params || {})});
-            next(push(action.path));
+            if (action?.location?.pathname !== action.path) next(push(action.path));
             return result;
         }
         case 'front.tab.close': {
