@@ -50,7 +50,7 @@ const Portal: ComponentProps = ({ children }) => {
         rightMenuClass: undefined,
         rightMenuItems: undefined,
         page: undefined,
-        publicRoutes: []
+        publicRoutes: undefined
     });
     const login = useSelector(({login}: State) => login);
     const initials = login?.profile?.initials || 'N/A';
@@ -71,7 +71,7 @@ const Portal: ComponentProps = ({ children }) => {
     }, [dispatch, login]);
     const found = tabs.findIndex(tab => tab.path === (location.pathname + location.search));
     const tabIndex = found >= 0 ? found : undefined;
-    const publicRoute = publicRoutes.find(({path, exact = true, strict = true, component, ...rest}) => {
+    const publicRoute = publicRoutes?.find?.(({path, exact = true, strict = true, component, ...rest}) => {
         const match = matchPath(location.pathname, {
             path,
             exact,
