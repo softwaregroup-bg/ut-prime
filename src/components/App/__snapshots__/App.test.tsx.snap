@@ -1831,6 +1831,45 @@ exports[`<App /> BasicWithExtraTitleComponentBG equals snapshot 1`] = `
 </div>
 `;
 
+exports[`<App /> PublicPage equals snapshot 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  <div
+    class="border-noround surface-0 h-full"
+  >
+    <div
+      class="flex flex-column h-screen"
+    >
+      <div>
+        <div>
+          Public Page
+        </div>
+        <a
+          class="mr-2"
+          data-testid="home"
+          href="#/"
+        >
+          Home
+        </a>
+        <a
+          data-testid="next"
+          href="#/public/1"
+        >
+          Public 
+          1
+        </a>
+        <div>
+          <pre>
+            {"pathname":"/public","search":"","hash":""}
+          </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`<App /> Register equals snapshot 1`] = `
 <div
   data-testid="ut-front-test"
