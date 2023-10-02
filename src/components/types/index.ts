@@ -179,7 +179,8 @@ export type WidgetReference = string | {
     filter?: object,
     parent?: string | string[],
     disabled?: string | boolean | Joi.Schema,
-    enabled?: string | boolean | Joi.Schema
+    enabled?: string | boolean | Joi.Schema,
+    disabledWhenModified?: boolean
 }
 export interface Card {
     label?: string;
