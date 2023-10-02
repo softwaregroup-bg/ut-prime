@@ -123,6 +123,7 @@ export default function columnProps({
         value={tableFilter?.filters?.[fieldName]?.value ?? ''}
         onChange={filterBy(fieldName, 'target.value')}
         name={filterId}
+        disabled={false}
     />;
     body = function body(rowData) {
         const value = rowData[property?.body || fieldName];
