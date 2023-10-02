@@ -190,6 +190,12 @@ const properties: Properties = {
             type: 'gps'
         }
     },
+    gpsLeaflet: {
+        widget: {
+            type: 'gps',
+            mapType: 'leaflet'
+        }
+    },
     image: {
         widget: {
             type: 'image'
@@ -344,6 +350,7 @@ export const input: {
             className: 'xl:col-4',
             widgets: [
                 'input.gps',
+                'input.gpsLeaflet',
                 'input.image',
                 'input.imageUpload',
                 'input.file',
