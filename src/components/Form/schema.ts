@@ -121,7 +121,8 @@ export default function getValidation(
                         : {
                             $: Joi.any().strip(),
                             $key: Joi.any().strip(),
-                            ...(filter?.includes('$original') && { $original: Joi.any() })
+                            ...(filter?.includes('$original') && { $original: Joi.any() }),
+                            ...(filter?.includes('$modified') && { $modified: Joi.any() })
                         }
                 )),
                 []
