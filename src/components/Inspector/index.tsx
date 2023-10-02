@@ -270,7 +270,7 @@ const Inspector: ComponentProps = ({
     onChange
 }) => {
     const classes = useStyles();
-    const handleChange = React.useCallback(({$original, $trigger, ...value}) => {
+    const handleChange = React.useCallback(({$original, $modified, ...value}) => {
         onChange((prev = {}) => ({
             ...prev,
             [where]: {...lodashSet(prev[where], property, value)}
