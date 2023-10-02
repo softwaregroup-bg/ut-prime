@@ -128,12 +128,15 @@ const Form: ComponentProps = ({
     const canSetTrigger = ((dirtyFields && Object.keys(dirtyFields).length > 0) || triggerNotDirty) && !isSubmitting;
 
     React.useEffect(() => {
-        if (setTrigger) setTrigger(canSetTrigger ? () => submit : undefined);
-    }, [setTrigger, submit, isDirty, canSetTrigger]);
+        if (setTrigger) {
+            setTrigger(canSetTrigger ? () => submit : undefined);
+            formApi.setValue('$trigger', canSetTrigger);
+        }
+    }, [setTrigger, submit, isDirty, canSetTrigger, formApi]);
 
     React.useEffect(() => {
         const {$original, ...formValue} = value || {};
-        const newValue = {...formValue, $original: clonedeep(formValue)};
+        const newValue = {...formValue, $original: clonedeep(formValue), $trigger: false};
         if (onLoad && value) {
             onLoad(newValue).then(load => {
                 reset(load ?? newValue);

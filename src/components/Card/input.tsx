@@ -638,7 +638,6 @@ export default function Input({
         fieldClass = null,
         labelClass = defaultLabelClass,
         onChange = onFieldChange,
-        disabledWhenModified = undefined,
         ...inputWidget
     } = {
         id: name.replace(/\./g, '-') || widget.label,
@@ -650,11 +649,6 @@ export default function Input({
     if ('visible' in inputWidget && !inputWidget.visible) return null;
     if (typeof inputWidget.enabled === 'string') inputWidget.disabled = !formApi?.watch?.(inputWidget.enabled);
     if (typeof inputWidget.disabled === 'string') inputWidget.disabled = !!formApi?.watch?.(inputWidget.disabled);
-    // disabledWhenModified cases
-    // undefined - enabled always
-    // false - disabled when not modified
-    // true - disabled when modified
-    if (typeof disabledWhenModified === 'boolean') inputWidget.disabled = !!trigger === disabledWhenModified;
     if (!inputWidget.className) {
         const inputClassName = classes?.default?.input || classes?.[name]?.input;
         if (inputClassName) inputWidget.className = inputClassName;
