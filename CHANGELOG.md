@@ -1,3 +1,12 @@
+## [2.81.6](https://github.com/softwaregroup-bg/ut-prime/compare/v2.81.5...v2.81.6) (2023-10-02)
+
+
+### Bug Fixes
+
+* **CBI-3445:** disable widgets based on form trigger value ([#75](https://github.com/softwaregroup-bg/ut-prime/issues/75)) ([2419fec](https://github.com/softwaregroup-bg/ut-prime/commit/2419feca1b50a8790a9ab62f1943a407d18e7435))
+
+
+
 ## [2.81.5](https://github.com/softwaregroup-bg/ut-prime/compare/v2.81.4...v2.81.5) (2023-10-02)
 
 
