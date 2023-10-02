@@ -1,3 +1,12 @@
+## [2.81.5](https://github.com/softwaregroup-bg/ut-prime/compare/v2.81.4...v2.81.5) (2023-10-02)
+
+
+### Bug Fixes
+
+* **CBI-3941:** do not disable explorer/table filterElement based on schema ([#76](https://github.com/softwaregroup-bg/ut-prime/issues/76)) ([188132a](https://github.com/softwaregroup-bg/ut-prime/commit/188132a6f1b15c823e891440c0731ae7ba70737b))
+
+
+
 ## [2.81.4](https://github.com/softwaregroup-bg/ut-prime/compare/v2.81.3...v2.81.4) (2023-08-17)
 
 
