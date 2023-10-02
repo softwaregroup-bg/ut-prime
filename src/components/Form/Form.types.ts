@@ -30,7 +30,6 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     onInspect?: (data: object) => void;
     onFieldChange?: string;
     setTrigger?: (trigger: (event: object) => void) => void;
-    trigger?: (event: object) => void;
     triggerNotDirty?: boolean;
     autoSubmit?: boolean;
     toolbarRef?: React.MutableRefObject<HTMLDivElement>;

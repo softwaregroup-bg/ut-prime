@@ -261,7 +261,6 @@ const Editor: ComponentProps = ({
                         disabled={disabled}
                         enabled={enabled}
                         setTrigger={setTrigger}
-                        trigger={trigger}
                         toolbarRef={toolbarRef}
                         layoutFields={layoutFields}
                         formApi={formApi}

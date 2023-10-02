@@ -626,8 +626,7 @@ export default function Input({
         loading,
         counter,
         submit,
-        value,
-        trigger
+        value
     },
     ...widget
 }) {

@@ -59,7 +59,6 @@ const Form: ComponentProps = ({
     onLoaded,
     onFieldChange,
     setTrigger,
-    trigger,
     triggerNotDirty,
     autoSubmit,
     toolbarRef,
@@ -181,7 +180,6 @@ const Form: ComponentProps = ({
             onInspect={onInspect}
             onFieldChange={onFieldChange}
             toolbar
-            trigger={trigger}
         />, toolbarRef.current);
     }
 
@@ -238,7 +236,6 @@ const Form: ComponentProps = ({
                         onInspect={onInspect}
                         onFieldChange={onFieldChange}
                         isPropertyRequired={isPropertyRequired}
-                        trigger={trigger}
                     />
                 );
 
