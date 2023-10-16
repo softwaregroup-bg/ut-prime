@@ -1,6 +1,5 @@
 import React from 'react';
-import {set as lodashSet} from 'lodash-es';
-import {get as lodashGet} from 'lodash-es';
+import {set as lodashSet, get as lodashGet} from 'lodash-es';
 
 import { Dialog, Button, Tree, InputText } from '../prime';
 import type {Schema} from '../types';

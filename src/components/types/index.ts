@@ -213,7 +213,7 @@ interface IndexItem extends MenuItem {
     items?: IndexItem[];
     widgets?: (string | string[] | MenuItem)[];
     onMount?: string;
-    validation?: Joi.Schema | ((value: any) => Joi.ValidationResult);
+    validation?: Joi.Schema | ((value: unknown) => Joi.ValidationResult);
 }
 
 interface IndexItemId extends IndexItem {
