@@ -1,8 +1,8 @@
 import React from 'react';
 import clsx from 'clsx';
 import {createUseStyles} from 'react-jss';
-import lodashSet from 'lodash.set';
-import lodashGet from 'lodash.get';
+import {set as lodashSet} from 'lodash-es';
+import {get as lodashGet} from 'lodash-es';
 import type {ComponentProps} from './Inspector.types';
 
 import type {Props as EditorProps} from '../Editor/Editor.types';

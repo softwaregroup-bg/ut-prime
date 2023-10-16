@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import lodashGet from 'lodash.get';
+import {get as lodashGet} from 'lodash-es';
 import React from 'react';
 import merge from 'ut-function.merge';
 

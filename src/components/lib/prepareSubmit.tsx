@@ -1,5 +1,4 @@
-import get from 'lodash.get';
-import set from 'lodash.set';
+import {get, set} from 'lodash-es';
 import template from 'ut-function.template';
 
 const query = (value: unknown, path: string | string[], name?: string | number, nested?: boolean) => {

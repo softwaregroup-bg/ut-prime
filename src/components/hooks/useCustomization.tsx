@@ -1,8 +1,7 @@
 import React from 'react';
 import merge from 'ut-function.merge';
 import clsx from 'clsx';
-import lodashGet from 'lodash.get';
-import lodashSet from 'lodash.set';
+import {get as lodashGet, set as lodashSet} from 'lodash-es';
 import { joiResolver } from '@hookform/resolvers/joi';
 import getValidation from '../Form/schema';
 import fieldNames from '../lib/fields';

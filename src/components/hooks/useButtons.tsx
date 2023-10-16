@@ -1,5 +1,5 @@
 import React from 'react';
-import lodashGet from 'lodash.get';
+import {get as lodashGet} from 'lodash-es';
 import ActionButton from '../ActionButton';
 import testid from '../lib/testid';
 import type {WidgetReference} from '../types';

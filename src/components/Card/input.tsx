@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import clsx from 'clsx';
 import { RefCallBack } from 'react-hook-form';
-import get from 'lodash.get';
+import {get} from 'lodash-es';
 
 import {
     AutoComplete,

@@ -1,5 +1,5 @@
 import React from 'react';
-import lodashGet from 'lodash.get';
+import {get as lodashGet} from 'lodash-es';
 
 import getType from '../lib/getType';
 import type { Cards, Editors, Layout, Properties, PropertyEditors, Schema } from '../types';

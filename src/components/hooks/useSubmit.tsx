@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import {Toast} from '../prime';
 import errorMessage from '../Error/errorMessage';
-import debounce from 'lodash.debounce';
+import {debounce} from 'lodash-es';
 
 function call(submit, dispatch, toast, success) {
     return async(...params) => {

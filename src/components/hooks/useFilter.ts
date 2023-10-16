@@ -1,5 +1,5 @@
 import React from 'react';
-import lodashGet from 'lodash.get';
+import {get as lodashGet} from 'lodash-es';
 import {TableFilter} from '../lib/column';
 import type {DataTableProps} from '../prime';
 import type {WidgetReference} from '../types';

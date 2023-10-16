@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import clsx from 'clsx';
-import get from 'lodash.get';
-import clonedeep from 'lodash.clonedeep';
+import {get, cloneDeep} from 'lodash-es';
 import { DevTool } from '@hookform/devtools';
 import {createUseStyles} from 'react-jss';
 
@@ -135,7 +134,7 @@ const Form: ComponentProps = ({
 
     React.useEffect(() => {
         const {$original, ...formValue} = value || {};
-        const newValue = {...formValue, $original: clonedeep(formValue), $modified: false};
+        const newValue = {...formValue, $original: cloneDeep(formValue), $modified: false};
         if (onLoad && value) {
             onLoad(newValue).then(load => {
                 reset(load ?? newValue);

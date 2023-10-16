@@ -8,6 +8,17 @@
     "url": "git@github.com:softwaregroup-bg/ut-prime.git"
   },
   "main": "./core/index.js",
+  "exports": {
+    ".": "./src/components/index.ts",
+    "./core/hooks/useForm": "./src/components/hooks/useForm.ts",
+    "./core/prime": "./src/components/prime/index.tsx",
+    "./core/App": "./src/components/App/index.tsx",
+    "./core/Controller": "./src/components/Controller/index.ts",
+    "./core/Navigator": "./src/components/Navigator/index.tsx",
+    "./core/Report": "./src/components/Report/index.tsx",
+    "./core/Explorer": "./src/components/Explorer/index.tsx",
+    "./core/Editor": "./src/components/Editor/index.tsx"
+  },
   "types": "./core/index.d.ts",
   "sideEffects": [
     "*.css",
@@ -67,6 +78,7 @@
     "date-fns": "^2.28.0",
     "history": "^4.10.1",
     "joi": "17.4.2",
+    "lodash-es": "4.17.21",
     "primeflex": "^3.2.1",
     "primeicons": "^5.0.0",
     "primereact": "8.7.3",
@@ -128,10 +140,7 @@
     "jest-canvas-mock": "^2.4.0",
     "jest-cli": "^27.5.1",
     "joi": "17.4.2",
-    "lodash.clonedeep": "4.5.0",
-    "lodash.debounce": "4.0.8",
-    "lodash.get": "4.4.2",
-    "lodash.set": "4.3.2",
+    "lodash-es": "4.17.21",
     "primeflex": "^3.3.0",
     "primeicons": "^6.0.1",
     "primereact": "8.7.3",

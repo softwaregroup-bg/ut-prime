@@ -1,4 +1,4 @@
-import lodashGet from 'lodash.get';
+import {get as lodashGet} from 'lodash-es';
 
 import getValidation from '../Form/schema';
 import type Joi from 'joi';

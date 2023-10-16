@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import get from 'lodash.get';
+import {get} from 'lodash-es';
 import {createUseStyles, useTheme} from 'react-jss';
 
 import type { ComponentProps } from './Card.types';
