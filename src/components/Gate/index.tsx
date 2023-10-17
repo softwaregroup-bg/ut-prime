@@ -21,7 +21,7 @@ const corePortalGet: ((params: unknown) => unknown) = params => ({
     params
 });
 
-const Gate: ComponentProps = ({ children, cookieCheck, corePortalGet, loginPage = '#/login' }) => {
+const Gate: ComponentProps = ({ children, cookieCheck, corePortalGet, loginPage = '#/login', homePage }) => {
     const [loaded, setLoaded] = useState(null);
     const [cookieChecked, setCookieChecked] = useState(false);
     const login = useSelector((state: State) => state.login);
@@ -104,6 +104,8 @@ const Gate: ComponentProps = ({ children, cookieCheck, corePortalGet, loginPage 
         );
     } else if (!loginHash) {
         return <Loader open message='Redirecting to the login page...' />;
+    } else if (homePage) {
+        return <Redirect to={`/p/${homePage}`} />;
     } else {
         return <Redirect to={loginPage?.substr?.(1) || '/login'} />;
     }

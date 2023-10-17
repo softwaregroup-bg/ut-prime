@@ -64,6 +64,11 @@ const defaultState: State = {
                 return 'page 3 component';
             }
         }, {
+            id: '/page4',
+            title: 'Page 4',
+            component: 'some.page.component',
+            params: {id: 1, name: 'value'}
+        }, {
             title: 'Granted',
             permission: 'granted',
             path: '/granted',

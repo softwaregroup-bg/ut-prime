@@ -9,6 +9,7 @@ export type FormatOptions = {
 
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     loginPage?: string;
+    homePage?: string;
     cookieCheck?: ({ appId }) => Promise<{ result?: {language?: {iso2Code: string}}; error?: object }>;
     corePortalGet?: (params: {
         languageId: string | number;

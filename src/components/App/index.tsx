@@ -14,7 +14,7 @@ import Component from '../Component';
 import { ComponentProps } from './App.types';
 import PageNotFound from './PageNotFound';
 
-const App: ComponentProps = ({middleware, reducers, theme: defaultTheme, devTool, portalName, extraTitleComponent, loginTitleComponent, customization, state, onDispatcher, loginPage, registrationPage}) => {
+const App: ComponentProps = ({middleware, reducers, theme: defaultTheme, devTool, portalName, extraTitleComponent, loginTitleComponent, customization, state, onDispatcher, loginPage, registrationPage, homePage}) => {
     const [theme, setTheme] = React.useState(defaultTheme);
     const setLanguage = React.useCallback(language => setTheme(prev => ({
         ...prev,
@@ -26,6 +26,23 @@ const App: ComponentProps = ({middleware, reducers, theme: defaultTheme, devTool
         locale(theme?.language || 'en');
         theme?.languages && Object.entries(theme.languages).forEach(([language, options]) => addLocale(language, options));
     }, [theme?.language, theme?.languages]);
+
+    const page = React.useMemo(
+        () => function pageComponent({match: {params: {path}}, location: {search}}) {
+            const {pathname, searchParams} = new URL('ut-portal:' + path + search);
+            const [page, ...rest] = pathname.split('/');
+            return <Component
+                page={page}
+                params={{
+                    ...Object.fromEntries(searchParams.entries()),
+                    ...rest.length > 0 && {id: rest.join('/')}
+
+                }}
+                language={theme?.language}
+            />;
+        },
+        [theme?.language]
+    );
 
     return (
         <DndProvider backend={HTML5Backend}>
@@ -42,8 +59,9 @@ const App: ComponentProps = ({middleware, reducers, theme: defaultTheme, devTool
                             <Route path='/register'>
                                 <Component page={registrationPage} language={theme?.language}/>
                             </Route>
+                            <Route path='/p/:path*' render={page}/>
                             <Route>
-                                <Main loginPage={loginPage}/>
+                                <Main loginPage={loginPage} homePage={homePage}/>
                             </Route>
                             <Route path='*' component={PageNotFound} />
                         </Switch>

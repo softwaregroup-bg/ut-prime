@@ -1,21 +1,25 @@
 import { push } from 'connected-react-router';
 import flatten from 'ut-function.flatten';
 
+const query = params => {
+    if (params && Object.keys(params).length) {
+        const {id, ...rest} = params;
+        const query = new URLSearchParams(flatten(rest, 5));
+        query.sort();
+        return ((id != null) ? '/' + id : '') + '?' + query.toString();
+    } else return '';
+};
+
 export default store => next => async action => {
     switch (action.type) {
         case 'front.tab.show': {
             const {title: tabTitle, component} = action.tab ? await action.tab({}) : action;
-            const {id, title = tabTitle, ...params} = action?.params || {};
+            const {title = tabTitle, ...params} = action.params || {};
+            if (typeof component === 'string') return next(push('/p/' + action.component + query(action.params)));
             if (!action.path) {
-                let query;
-                if (Object.keys(params).length) {
-                    query = new URLSearchParams(flatten(params, 5));
-                    query.sort();
-                    query = '?' + query.toString();
-                } else query = '';
-                action.path = '/' + action.tab.name.split('/').pop() + ((id != null) ? '/' + id : '') + query;
+                action.path = '/' + action.tab.name.split('/').pop() + query(params);
             }
-            const result = next({...action, title, Component: await component(action?.params || {})});
+            const result = next({...action, title, Component: await component(action.params || {})});
             next(push(action.path));
             return result;
         }

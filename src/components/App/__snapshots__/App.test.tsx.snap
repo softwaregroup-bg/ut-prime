@@ -148,6 +148,26 @@ exports[`<App /> Basic equals snapshot 1`] = `
                 </li>
                 <li
                   class="p-menuitem"
+                  id="/page4"
+                  role="none"
+                >
+                  <a
+                    aria-haspopup="false"
+                    class="p-menuitem-link"
+                    data-testid="portal-menu_page4"
+                    href="#"
+                    role="menuitem"
+                  >
+                    <span
+                      class="p-menuitem-text"
+                      data-testid="portal-menu-label_page4"
+                    >
+                      Page 4
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="p-menuitem"
                   role="none"
                 >
                   <a
@@ -506,6 +526,26 @@ exports[`<App /> BasicAR equals snapshot 1`] = `
                       data-testid="portal-menu-label_page3"
                     >
                       الصفحة 3
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="p-menuitem"
+                  id="/page4"
+                  role="none"
+                >
+                  <a
+                    aria-haspopup="false"
+                    class="p-menuitem-link"
+                    data-testid="portal-menu_page4"
+                    href="#"
+                    role="menuitem"
+                  >
+                    <span
+                      class="p-menuitem-text"
+                      data-testid="portal-menu-label_page4"
+                    >
+                      الصفحة 4
                     </span>
                   </a>
                 </li>
@@ -874,6 +914,26 @@ exports[`<App /> BasicBG equals snapshot 1`] = `
                 </li>
                 <li
                   class="p-menuitem"
+                  id="/page4"
+                  role="none"
+                >
+                  <a
+                    aria-haspopup="false"
+                    class="p-menuitem-link"
+                    data-testid="portal-menu_page4"
+                    href="#"
+                    role="menuitem"
+                  >
+                    <span
+                      class="p-menuitem-text"
+                      data-testid="portal-menu-label_page4"
+                    >
+                      Страница 4
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="p-menuitem"
                   role="none"
                 >
                   <a
@@ -1237,6 +1297,26 @@ exports[`<App /> BasicWithExtraTitleComponentAR equals snapshot 1`] = `
                 </li>
                 <li
                   class="p-menuitem"
+                  id="/page4"
+                  role="none"
+                >
+                  <a
+                    aria-haspopup="false"
+                    class="p-menuitem-link"
+                    data-testid="portal-menu_page4"
+                    href="#"
+                    role="menuitem"
+                  >
+                    <span
+                      class="p-menuitem-text"
+                      data-testid="portal-menu-label_page4"
+                    >
+                      الصفحة 4
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="p-menuitem"
                   role="none"
                 >
                   <a
@@ -1256,7 +1336,9 @@ exports[`<App /> BasicWithExtraTitleComponentAR equals snapshot 1`] = `
                 </li>
               </ul>
             </div>
-            <div>
+            <div
+              class="p-component"
+            >
               <div>
                 خط 1
               </div>
@@ -1608,6 +1690,26 @@ exports[`<App /> BasicWithExtraTitleComponentBG equals snapshot 1`] = `
                 </li>
                 <li
                   class="p-menuitem"
+                  id="/page4"
+                  role="none"
+                >
+                  <a
+                    aria-haspopup="false"
+                    class="p-menuitem-link"
+                    data-testid="portal-menu_page4"
+                    href="#"
+                    role="menuitem"
+                  >
+                    <span
+                      class="p-menuitem-text"
+                      data-testid="portal-menu-label_page4"
+                    >
+                      Страница 4
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="p-menuitem"
                   role="none"
                 >
                   <a
@@ -1627,7 +1729,9 @@ exports[`<App /> BasicWithExtraTitleComponentBG equals snapshot 1`] = `
                 </li>
               </ul>
             </div>
-            <div>
+            <div
+              class="p-component"
+            >
               <div>
                 Линия 1
               </div>
@@ -1826,6 +1930,83 @@ exports[`<App /> BasicWithExtraTitleComponentBG equals snapshot 1`] = `
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<App /> Page equals snapshot 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  <div
+    class="p-component"
+  >
+    <div>
+      Component page
+      : 
+      some.page.component
+    </div>
+    <div>
+      Parameters
+      : 
+      {"name":"value","id":"1"}
+    </div>
+    <div>
+      Language
+      : 
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<App /> PageAR equals snapshot 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  <div
+    class="p-component"
+  >
+    <div>
+      صفحة
+      : 
+      some.page.component
+    </div>
+    <div>
+      حدود
+      : 
+      {"name":"value","id":"1"}
+    </div>
+    <div>
+      لغة
+      : 
+      ar
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<App /> PageBG equals snapshot 1`] = `
+<div
+  data-testid="ut-front-test"
+>
+  <div
+    class="p-component"
+  >
+    <div>
+      Страница
+      : 
+      some.page.component
+    </div>
+    <div>
+      Параметри
+      : 
+      {"name":"value","id":"1"}
+    </div>
+    <div>
+      Език
+      : 
+      bg
     </div>
   </div>
 </div>
@@ -2180,7 +2361,9 @@ exports[`<App /> RegisterWithTitle equals snapshot 1`] = `
   <div
     class="p-component loginContainer-0-2-17"
   >
-    <div>
+    <div
+      class="p-component"
+    >
       <div>
         Line 1
       </div>
@@ -2302,7 +2485,9 @@ exports[`<App /> RegisterWithTitleAR equals snapshot 1`] = `
   <div
     class="p-component loginContainer-0-2-17"
   >
-    <div>
+    <div
+      class="p-component"
+    >
       <div>
         خط 1
       </div>
@@ -2424,7 +2609,9 @@ exports[`<App /> RegisterWithTitleBG equals snapshot 1`] = `
   <div
     class="p-component loginContainer-0-2-17"
   >
-    <div>
+    <div
+      class="p-component"
+    >
       <div>
         Линия 1
       </div>

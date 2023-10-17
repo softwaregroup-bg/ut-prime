@@ -148,6 +148,26 @@ exports[`<Main /> render equals snapshot 1`] = `
                 </li>
                 <li
                   class="p-menuitem"
+                  id="/page4"
+                  role="none"
+                >
+                  <a
+                    aria-haspopup="false"
+                    class="p-menuitem-link"
+                    data-testid="portal-menu_page4"
+                    href="#"
+                    role="menuitem"
+                  >
+                    <span
+                      class="p-menuitem-text"
+                      data-testid="portal-menu-label_page4"
+                    >
+                      Page 4
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="p-menuitem"
                   role="none"
                 >
                   <a

@@ -12,6 +12,7 @@ export interface Props extends StoreProps, React.HTMLAttributes<HTMLDivElement> 
     extraTitleComponent?: string,
     loginTitleComponent?: string,
     devTool?: boolean,
+    homePage?: string,
     loginPage?: string,
     registrationPage?: string
 }

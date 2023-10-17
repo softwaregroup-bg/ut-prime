@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '../test';
+import { render, act } from '../test';
 
 import {
     Basic,
@@ -12,7 +12,10 @@ import {
     RegisterAR,
     RegisterWithTitle,
     RegisterWithTitleBG,
-    RegisterWithTitleAR
+    RegisterWithTitleAR,
+    Page,
+    PageBG,
+    PageAR
 } from './App.stories';
 
 describe('<App />', () => {
@@ -58,6 +61,24 @@ describe('<App />', () => {
     });
     it('RegisterWithTitleAR equals snapshot', async() => {
         const { findByTestId } = render(<RegisterWithTitleAR {...RegisterWithTitleAR.args} />);
+        expect(await findByTestId('ut-front-test')).toMatchSnapshot();
+    });
+    it('Page equals snapshot', async() => {
+        const { findByTestId, container } = render(<Page {...Page.args} />);
+        await act(() => Page.play({canvasElement: container}));
+        await act(() => new Promise(resolve => setTimeout(resolve, 500)));
+        expect(await findByTestId('ut-front-test')).toMatchSnapshot();
+    });
+    it('PageBG equals snapshot', async() => {
+        const { findByTestId, container } = render(<PageBG {...PageBG.args} />);
+        await act(() => PageBG.play({canvasElement: container}));
+        await act(() => new Promise(resolve => setTimeout(resolve, 500)));
+        expect(await findByTestId('ut-front-test')).toMatchSnapshot();
+    });
+    it('PageAR equals snapshot', async() => {
+        const { findByTestId, container } = render(<PageAR {...PageAR.args} />);
+        await act(() => PageAR.play({canvasElement: container}));
+        await act(() => new Promise(resolve => setTimeout(resolve, 500)));
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });
 });

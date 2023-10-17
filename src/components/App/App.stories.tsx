@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react';
+import { userEvent, within } from '@storybook/testing-library';
 import merge from 'ut-function.merge';
 
 import page from './README.mdx';
@@ -10,7 +11,7 @@ import state from '../test/state';
 import {middleware} from '../Text/Text.mock';
 
 function ExtraTitleComponent() {
-    return <div>
+    return <div className='p-component'>
         <div><Text>Line 1</Text></div>
         <div><Text>Line 2</Text></div>
     </div>;
@@ -18,7 +19,11 @@ function ExtraTitleComponent() {
 
 function RegisterComponent(action) {
     return function RegisterComponent({language}) {
-        return <div className='p-component'><Text lang={language}>Registration page</Text>: {action.page}</div>;
+        return <div className='p-component'>
+            <div><Text lang={language}>Component page</Text>: {action.page}</div>
+            <div><Text lang={language}>Parameters</Text>: {JSON.stringify(action.params)}</div>
+            <div><Text lang={language}>Language</Text>: {language}</div>
+        </div>;
     };
 }
 
@@ -50,7 +55,9 @@ const Template: Story<Props & {dir?: 'rtl' | 'ltr', theme}> = ({dir: storyDir, t
                     Login: 'تسجيل الدخول',
                     'Login with password': 'تسجيل الدخول بكلمة مرور',
                     Register: 'يسجل',
-                    'Registration page': 'صفحة التسجيل',
+                    'Component page': 'صفحة',
+                    Language: 'لغة',
+                    Parameters: 'حدود',
                     Username: 'اسم المستخدم',
                     Password: 'كلمة المرور',
                     'Line 1': 'خط 1',
@@ -61,7 +68,9 @@ const Template: Story<Props & {dir?: 'rtl' | 'ltr', theme}> = ({dir: storyDir, t
                     Login: 'Вход',
                     'Login with password': 'Вход с парола',
                     Register: 'Регистрация',
-                    'Registration page': 'Страница за регистрация',
+                    'Component page': 'Страница',
+                    Language: 'Език',
+                    Parameters: 'Параметри',
                     Username: 'Потребител',
                     Password: 'Парола',
                     'Line 1': 'Линия 1',
@@ -138,3 +147,29 @@ RegisterWithTitleAR.args = {
     lang: 'ar',
     dir: 'rtl'
 };
+
+export const Home = Template.bind({});
+Home.args = {
+    state: {...state, login: null},
+    homePage: 'some.home.page'
+};
+
+export const Page = Template.bind({});
+Page.args = {};
+Page.play = async({canvasElement}) => {
+    const canvas = within(canvasElement);
+    userEvent.click(await canvas.findByTestId('portal-menu_page4'));
+};
+
+export const PageBG = Template.bind({});
+PageBG.args = {
+    lang: 'bg'
+};
+PageBG.play = Page.play;
+
+export const PageAR = Template.bind({});
+PageAR.args = {
+    dir: 'rtl',
+    lang: 'ar'
+};
+PageAR.play = Page.play;

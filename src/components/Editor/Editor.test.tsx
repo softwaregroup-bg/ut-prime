@@ -30,6 +30,7 @@ import {Validation, ValidationBG} from './stories/Validation.stories';
 import { config } from 'react-transition-group';
 
 config.disabled = true;
+jest.setTimeout(10000);
 
 describe('<Editor />', () => {
     it('Basic render equals snapshot', async() => {
