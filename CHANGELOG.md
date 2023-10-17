@@ -1,3 +1,12 @@
+# [2.82.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.81.7...v2.82.0) (2023-10-17)
+
+
+### Features
+
+* pages outside the portal ([4817d79](https://github.com/softwaregroup-bg/ut-prime/commit/4817d791fc24d65864c09569f89b2e1c7966d39b))
+
+
+
 ## [2.81.7](https://github.com/softwaregroup-bg/ut-prime/compare/v2.81.6...v2.81.7) (2023-10-16)
 
 
