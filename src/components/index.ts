@@ -1,8 +1,8 @@
-import * as prime from './prime';
+import * as Prime from './prime';
 import * as hooks from './hooks';
-import router from 'react-router-dom';
+import Router from 'react-router-dom';
 
-export { hooks, prime, router };
+export { hooks, Prime, Router };
 
 export { default as ActionButton } from './ActionButton';
 export { default as App } from './App';
