@@ -5,22 +5,18 @@ exports[`<Gate /> render equals snapshot: Loading 1`] = `
   data-testid="ut-front-test"
 >
   <div
-    class="h-full"
+    class="loaderContainer-0-2-2"
   >
     <div
-      class="loaderContainer-0-2-2"
+      class="overlay-0-2-3"
+    />
+    <div
+      class="loader-0-2-4"
+    />
+    <div
+      class="message-0-2-5"
     >
-      <div
-        class="overlay-0-2-3"
-      />
-      <div
-        class="loader-0-2-4"
-      />
-      <div
-        class="message-0-2-5"
-      >
-        Loading...
-      </div>
+      Loading...
     </div>
   </div>
 </div>
@@ -30,10 +26,6 @@ exports[`<Gate /> render equals snapshot: Ready 1`] = `
 <div
   data-testid="ut-front-test"
 >
-  <div
-    class="h-full"
-  >
-    ready
-  </div>
+  ready
 </div>
 `;

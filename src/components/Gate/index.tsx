@@ -1,19 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { connect, useSelector } from 'react-redux';
 import { useParams, Redirect } from 'react-router-dom';
-import { Tooltip } from 'react-tooltip';
+import {Route, Switch} from 'react-router';
 
 import { cookieCheck } from '../Login/actions';
 import Loader from '../Loader';
-import Context from '../Text/context';
 import AppContext from '../Context';
-import { ConfirmPopup, ConfirmDialog } from '../prime';
 import parse from '../lib/parseDictionaryMap';
+import Context, {ContextType} from '../Text/context';
 
-import Permission from './Permission';
 import { ComponentProps } from './Gate.types';
 import { State } from '../Store/Store.types';
 import formatValue from './formatValue';
+
+const defaultContext: ContextType = {
+    language: '',
+    languageCode: '',
+    joiMessages: {},
+    configuration: {},
+    formatValue: formatValue({languageCode: 'en'})
+};
 
 const corePortalGet: ((params: unknown) => unknown) = params => ({
     type: 'core.portal.get',
@@ -87,27 +93,24 @@ const Gate: ComponentProps = ({ children, cookieCheck, corePortalGet, loginPage 
     if (!cookieChecked && !login) {
         return <Loader />;
     } else if (login) {
-        return (
-            <div className='h-full'>
-                {loaded ? <Context.Provider value={loaded}>
-                    <ConfirmPopup />
-                    <ConfirmDialog />
-                    <Tooltip
-                        id="utPrime-react-tooltip"
-                        className="p-component z-2" // because table header has z-index: 1
-                    />
-                    <Permission>
-                        {children}
-                    </Permission>
-                </Context.Provider> : <Loader />}
-            </div>
-        );
-    } else if (!loginHash) {
-        return <Loader open message='Redirecting to the login page...' />;
-    } else if (homePage) {
-        return <Redirect to={`/p/${homePage}`} />;
+        return loaded ? <Context.Provider value={loaded}>
+            {children}
+        </Context.Provider> : <Loader open/>;
     } else {
-        return <Redirect to={loginPage?.substr?.(1) || '/login'} />;
+        return <Switch>
+            <Route path='/p/:path*'>
+                <Context.Provider value={defaultContext}>
+                    {children}
+                </Context.Provider>
+            </Route>
+            <Route>{
+                homePage
+                    ? <Redirect to={`/p/${homePage}`} />
+                    : !loginHash
+                        ? <Loader open message='Redirecting to the login page...' />
+                        : <Redirect to={loginPage?.substring?.(1) || '/login'} />
+            }</Route>
+        </Switch>;
     }
 };
 

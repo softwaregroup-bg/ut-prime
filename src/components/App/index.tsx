@@ -27,23 +27,6 @@ const App: ComponentProps = ({middleware, reducers, theme: defaultTheme, devTool
         theme?.languages && Object.entries(theme.languages).forEach(([language, options]) => addLocale(language, options));
     }, [theme?.language, theme?.languages]);
 
-    const page = React.useMemo(
-        () => function pageComponent({match: {params: {path}}, location: {search}}) {
-            const {pathname, searchParams} = new URL('ut-portal:' + path + search);
-            const [page, ...rest] = pathname.split('/');
-            return <Component
-                page={page}
-                params={{
-                    ...Object.fromEntries(searchParams.entries()),
-                    ...rest.length > 0 && {id: rest.join('/')}
-
-                }}
-                language={theme?.language}
-            />;
-        },
-        [theme?.language]
-    );
-
     return (
         <DndProvider backend={HTML5Backend}>
             <Store {...{middleware, reducers, state, onDispatcher}}>
@@ -59,7 +42,6 @@ const App: ComponentProps = ({middleware, reducers, theme: defaultTheme, devTool
                             <Route path='/register'>
                                 <Component page={registrationPage} language={theme?.language}/>
                             </Route>
-                            <Route path='/p/:path*' render={page}/>
                             <Route>
                                 <Main loginPage={loginPage} homePage={homePage}/>
                             </Route>
