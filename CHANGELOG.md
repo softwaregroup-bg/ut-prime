@@ -1,3 +1,12 @@
+## [2.82.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.82.1...v2.82.2) (2023-10-18)
+
+
+### Bug Fixes
+
+* move pages inside the gate ([f3e5afc](https://github.com/softwaregroup-bg/ut-prime/commit/f3e5afca42f68304b978829bd3773814cbde9422))
+
+
+
 ## [2.82.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.82.0...v2.82.1) (2023-10-17)
 
 
