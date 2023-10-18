@@ -1,13 +1,13 @@
 import { push } from 'connected-react-router';
 import flatten from 'ut-function.flatten';
 
-const query = params => {
-    if (params && Object.keys(params).length) {
-        const {id, ...rest} = params;
+const query = ({id, ...rest}) => {
+    id = (id != null) ? '/' + id : '';
+    if (Object.keys(rest).length) {
         const query = new URLSearchParams(flatten(rest, 5));
         query.sort();
-        return ((id != null) ? '/' + id : '') + '?' + query.toString();
-    } else return '';
+        return id + '?' + query.toString();
+    } else return id;
 };
 
 export default store => next => async action => {
@@ -15,7 +15,7 @@ export default store => next => async action => {
         case 'front.tab.show': {
             const {title: tabTitle, component} = action.tab ? await action.tab({}) : action;
             const {title = tabTitle, ...params} = action.params || {};
-            if (typeof component === 'string') return next(push('/p/' + action.component + query(action.params)));
+            if (typeof component === 'string') return next(push('/p/' + action.component + query(params)));
             if (!action.path) {
                 action.path = '/' + action.tab.name.split('/').pop() + query(params);
             }
