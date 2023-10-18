@@ -1,3 +1,12 @@
+# [2.83.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.82.2...v2.83.0) (2023-10-18)
+
+
+### Features
+
+* allow Editor children ([d8219e1](https://github.com/softwaregroup-bg/ut-prime/commit/d8219e1f532c841f771eb1ddb7664c77ec5cf1d3))
+
+
+
 ## [2.82.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.82.1...v2.82.2) (2023-10-18)
 
 
