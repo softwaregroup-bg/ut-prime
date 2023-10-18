@@ -1,3 +1,12 @@
+## [2.83.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.83.0...v2.83.1) (2023-10-18)
+
+
+### Bug Fixes
+
+* action path ([37a3d2a](https://github.com/softwaregroup-bg/ut-prime/commit/37a3d2a883353607d2288a3eaca0eeb0511df7d4))
+
+
+
 # [2.83.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.82.2...v2.83.0) (2023-10-18)
 
 
