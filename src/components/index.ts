@@ -2,10 +2,11 @@ import * as Prime from './prime';
 import * as hooks from './hooks';
 import Router from 'react-router';
 import RouterDom from 'react-router-dom';
+import HookForm from 'react-hook-form';
 import redux from 'react-redux';
 import jss from 'react-jss';
 
-export { hooks, Prime, Router, RouterDom, redux, jss };
+export { hooks, Prime, Router, RouterDom, redux, jss, HookForm };
 
 export { default as ActionButton } from './ActionButton';
 export { default as App } from './App';

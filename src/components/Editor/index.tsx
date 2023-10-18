@@ -42,6 +42,7 @@ function getDefault(schema: Schema) {
 }
 
 const Editor: ComponentProps = ({
+    children,
     object,
     id,
     value: initValue,
@@ -69,6 +70,7 @@ const Editor: ComponentProps = ({
     onGet,
     onEdit,
     onChange,
+    setTrigger: setTriggerExternal,
     onFieldChange,
     onLoad,
     onLoaded,
@@ -81,7 +83,11 @@ const Editor: ComponentProps = ({
     const [keyValue, setKeyValue] = React.useState(id);
     const schema = (schemaCreate && keyValue == null) ? schemaCreate : schemaEdit;
 
-    const [trigger, setTrigger] = React.useState();
+    const [trigger, setTriggerInternal] = React.useState();
+    const setTrigger = React.useCallback((value) => {
+        setTriggerExternal?.(value);
+        return setTriggerInternal(value);
+    }, [setTriggerExternal]);
     const [didSubmit, setDidSubmit] = React.useState(false);
     const [dropdowns, setDropdown] = React.useState<Parameters<typeof Form>[0]['dropdowns']>();
     const [[value, mode, layoutName, loadedValue], setValueMode] = React.useState([null, id == null ? 'create' : 'edit' as 'create' | 'edit', editorLayoutName, undefined]);
@@ -266,7 +272,7 @@ const Editor: ComponentProps = ({
                         formApi={formApi}
                         isPropertyRequired={isPropertyRequired}
                         {...formProps}
-                    />
+                    >{children}</Form>
                     {inspector}
                 </ScrollBox>
             </div>

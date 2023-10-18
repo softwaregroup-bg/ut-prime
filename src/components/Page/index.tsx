@@ -4,6 +4,14 @@ import { useTheme } from 'react-jss';
 
 import type { Theme } from '../Theme';
 
+function integer(value) {
+    if (typeof value === 'string') {
+        const number = Number(value);
+        if (Number.isSafeInteger(number) && String(number) === value) return number;
+    }
+    return value;
+}
+
 const Page = ({match: {params: {path}}, location: {search}}) => {
     const {pathname, searchParams} = new URL('ut-portal:' + path + search);
     const [page, ...rest] = pathname.split('/');
@@ -12,7 +20,7 @@ const Page = ({match: {params: {path}}, location: {search}}) => {
         page={page}
         params={{
             ...Object.fromEntries(searchParams.entries()),
-            ...rest.length > 0 && {id: rest.join('/')}
+            ...rest.length > 0 && {id: integer(rest.join('/'))}
 
         }}
         language={language}

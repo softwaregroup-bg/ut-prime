@@ -35,6 +35,7 @@ export interface Props {
     methods?: {
         [key: string]: (params: unknown) => Promise<unknown>
     },
+    setTrigger?: (trigger: (event: object) => void) => void;
     onDropdown?: (params: string[]) => Promise<Dropdowns>,
     onInit?: (params: object) => Promise<object>,
     onAdd?: (params: object) => Promise<object>,

@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import {get, cloneDeep} from 'lodash-es';
 import { DevTool } from '@hookform/devtools';
 import {createUseStyles} from 'react-jss';
+import { FormProvider } from 'react-hook-form';
 
 import { ComponentProps } from './Form.types';
 import { ConfigCard} from './DragDrop';
@@ -35,6 +36,7 @@ const flat = (e: Errors, path = '') => Object.entries(e).map(
 const outline = {outline: '1px dotted #ffff0030'};
 
 const Form: ComponentProps = ({
+    children,
     move,
     className,
     schema = {},
@@ -195,9 +197,10 @@ const Form: ComponentProps = ({
 
     const permissionCheck = usePermissionCheck();
 
-    return (<>
+    return (<FormProvider {...formApi}>
         {devTool ? <DevTool control={control} placement="top-right" /> : null}
         {toolbarElement}
+        {children}
         <div {...rest} className={clsx('grid col align-self-start', classes.form, className)}>
             {!!errorList.length && <div className='col-12'>{errorList}</div>}
             {layoutState.visibleCards.map((id1, level1) => {
@@ -270,7 +273,7 @@ const Form: ComponentProps = ({
                 />
             </div>}
         </div>
-    </>);
+    </FormProvider>);
 };
 
 export default Form;

@@ -1930,7 +1930,7 @@ exports[`<App /> Page equals snapshot 1`] = `
     <div>
       Parameters
       : 
-      {"name":"value","id":"1"}
+      {"name":"value","id":1}
     </div>
     <div>
       Language
@@ -1955,7 +1955,7 @@ exports[`<App /> PageAR equals snapshot 1`] = `
     <div>
       حدود
       : 
-      {"name":"value","id":"1"}
+      {"name":"value","id":1}
     </div>
     <div>
       لغة
@@ -1981,7 +1981,7 @@ exports[`<App /> PageBG equals snapshot 1`] = `
     <div>
       Параметри
       : 
-      {"name":"value","id":"1"}
+      {"name":"value","id":1}
     </div>
     <div>
       Език
