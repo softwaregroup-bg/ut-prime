@@ -16,6 +16,7 @@
     "./core/Controller": "./src/components/Controller/index.ts",
     "./core/Navigator": "./src/components/Navigator/index.tsx",
     "./core/Report": "./src/components/Report/index.tsx",
+    "./core/Text": "./src/components/Text/index.tsx",
     "./core/Explorer": "./src/components/Explorer/index.tsx",
     "./core/Editor": "./src/components/Editor/index.tsx"
   },

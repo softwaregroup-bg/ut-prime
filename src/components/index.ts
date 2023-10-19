@@ -1,9 +1,9 @@
 import * as Prime from './prime';
 import * as hooks from './hooks';
-import Router from 'react-router';
-import RouterDom from 'react-router-dom';
-import HookForm from 'react-hook-form';
-import redux from 'react-redux';
+import * as Router from 'react-router';
+import * as RouterDom from 'react-router-dom';
+import * as HookForm from 'react-hook-form';
+import * as redux from 'react-redux';
 import jss from 'react-jss';
 
 export { hooks, Prime, Router, RouterDom, redux, jss, HookForm };
