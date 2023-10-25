@@ -24,7 +24,7 @@ import {
     TreeSelect,
     TreeTable
 } from '../prime';
-import {PropertyEditor, FormApi} from '../types';
+import {Property, PropertyEditor, FormApi} from '../types';
 import Context from '../Text/context';
 
 import getType from '../lib/getType';
@@ -85,7 +85,7 @@ function useInput(
         clear,
         ...props
     }: PropertyEditor = {id: field?.name},
-    schema,
+    schema: Property,
     dropdowns,
     parentValue,
     loading: string,
@@ -157,6 +157,8 @@ function useInput(
                 {...field}
                 onChange={onChange}
                 value={field.value || ''}
+                {...'maxLength' in schema && {maxLength: schema.maxLength}}
+                {...'minLength' in schema && {minLength: schema.minLength}}
                 {...props}
             />
             <Clear field={field} showClear={clear}/>
@@ -601,6 +603,10 @@ function useInput(
                 {...field}
                 value={field.value || ''}
                 onChange={onChange}
+                {...'maxLength' in schema && {maxLength: schema.maxLength}}
+                {...'minLength' in schema && {minLength: schema.minLength}}
+                {...'maximum' in schema && {max: schema.maximum}}
+                {...'minimum' in schema && {max: schema.minimum}}
                 {...props}
             />
             <Clear field={field} showClear={clear}/>
