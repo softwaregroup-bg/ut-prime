@@ -1,3 +1,12 @@
+## [2.83.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.83.2...v2.83.3) (2023-10-25)
+
+
+### Bug Fixes
+
+* pass schema min/max to inputs ([72dcdb1](https://github.com/softwaregroup-bg/ut-prime/commit/72dcdb1027b44e89378d0635069f20404915c735))
+
+
+
 ## [2.83.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.83.1...v2.83.2) (2023-10-19)
 
 
