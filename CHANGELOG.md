@@ -1,3 +1,12 @@
+## [2.83.4](https://github.com/softwaregroup-bg/ut-prime/compare/v2.83.3...v2.83.4) (2023-11-02)
+
+
+### Bug Fixes
+
+* improve schema validation handling ([5d62c40](https://github.com/softwaregroup-bg/ut-prime/commit/5d62c40580ab707b27634751d6eae32c3a6b097d))
+
+
+
 ## [2.83.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.83.2...v2.83.3) (2023-10-25)
 
 
