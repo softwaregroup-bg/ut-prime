@@ -99,7 +99,8 @@ export default function getValidation(
     filter?: string[], path = '', propertyName = ''
 ) : [Joi.Schema, string[]] {
     const strip = (schema && 'strip' in schema && schema.strip) ? joi => joi.strip() : joi => joi;
-    if (schema?.type === 'object' || (!schema?.type && schema?.properties)) {
+    const schemaType = getType(schema?.type);
+    if (schemaType === 'object' || (!schema?.type && schema?.properties)) {
         return Object.entries(schema?.properties || {}).reduce(
             ([prevSchema, prevRequired], [name, field]) => {
                 const [nextSchema, required] = getValidation(field, translate, filter, path ? path + '.' + name : name, name);
@@ -138,7 +139,7 @@ export default function getValidation(
         );
     }
     if (filter && !filter?.includes(path)) return [null, []];
-    if (schema?.type === 'array' || (!schema?.type && schema?.items)) {
+    if (schemaType === 'array' || (!schema?.type && schema?.items)) {
         const [validation, required] = schema?.items ? getValidation(schema.items as Schema, translate, filter, path, propertyName) : [null, []];
         return [schema?.items ? strip(array(schema, translate, filter, path, propertyName).sparse().items(validation)) : strip(array(schema, translate, filter, path, propertyName)), required];
     } else if (schema?.oneOf) {
