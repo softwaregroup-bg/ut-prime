@@ -297,9 +297,9 @@ const Explorer: ComponentProps = ({
         if (system?.fetch) setFilters(prev => merge({}, prev, system.fetch));
     }, [methods, getValues, setFilters]);
 
-    const handleSubmit = React.useCallback(params => {
+    const handleSubmit = React.useCallback(async params => {
         if (params?.[2]?.method) {
-            submit(params[2], params[0]);
+            await submit(params[2], params[0]);
         } else {
             submitParams(params);
         }
