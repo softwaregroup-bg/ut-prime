@@ -1,3 +1,12 @@
+## [2.83.5](https://github.com/softwaregroup-bg/ut-prime/compare/v2.83.4...v2.83.5) (2023-11-20)
+
+
+### Bug Fixes
+
+* Explorer submit error handling ([f7f3f95](https://github.com/softwaregroup-bg/ut-prime/commit/f7f3f9510c173477964c051f7da7cac782a63f42))
+
+
+
 ## [2.83.4](https://github.com/softwaregroup-bg/ut-prime/compare/v2.83.3...v2.83.4) (2023-11-02)
 
 
