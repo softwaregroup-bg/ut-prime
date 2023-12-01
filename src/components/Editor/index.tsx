@@ -91,7 +91,8 @@ const Editor: ComponentProps = ({
     const [didSubmit, setDidSubmit] = React.useState(false);
     const [dropdowns, setDropdown] = React.useState<Parameters<typeof Form>[0]['dropdowns']>();
     const [[value, mode, layoutName, loadedValue], setValueMode] = React.useState([null, id == null ? 'create' : 'edit' as 'create' | 'edit', editorLayoutName, undefined]);
-    const [loading, setLoading] = React.useState(loadingValue);
+    const [_loading, setLoading] = React.useState(loadingValue);
+    const loading = _loading || (dropdowns ? _loading : 'dropdowns');
     const {
         customizationToolbar,
         mergedSchema,
@@ -223,7 +224,7 @@ const Editor: ComponentProps = ({
                 style={backgroundNone}
                 left={<>
                     {save === false ? null : <ActionButton
-                        icon={loading === 'submit' ? 'pi pi-spin pi-spinner' : (didSubmit && !trigger) ? 'pi pi-check' : 'pi pi-save'}
+                        icon={['submit', 'dropdowns'].includes(loading) ? 'pi pi-spin pi-spinner' : (didSubmit && !trigger) ? 'pi pi-check' : 'pi pi-save'}
                         onClick={trigger}
                         disabled={!trigger || !!loading}
                         aria-label='save'
