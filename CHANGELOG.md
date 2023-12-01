@@ -1,3 +1,12 @@
+## [2.83.6](https://github.com/softwaregroup-bg/ut-prime/compare/v2.83.5...v2.83.6) (2023-12-01)
+
+
+### Bug Fixes
+
+* mind the loading dropdowns ([28f0af8](https://github.com/softwaregroup-bg/ut-prime/commit/28f0af83ffcbbf7aced9340bcb0e5640fbbd4d74))
+
+
+
 ## [2.83.5](https://github.com/softwaregroup-bg/ut-prime/compare/v2.83.4...v2.83.5) (2023-11-20)
 
 
