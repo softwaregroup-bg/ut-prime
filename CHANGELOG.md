@@ -1,3 +1,12 @@
+# [2.84.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.83.6...v2.84.0) (2024-01-22)
+
+
+### Features
+
+* **CBI-999:** hook for interacting with regula device ([#77](https://github.com/softwaregroup-bg/ut-prime/issues/77)) ([3352ff1](https://github.com/softwaregroup-bg/ut-prime/commit/3352ff1cb5a83f6fb8bbf5c1b891ec4d355d6ac7))
+
+
+
 ## [2.83.6](https://github.com/softwaregroup-bg/ut-prime/compare/v2.83.5...v2.83.6) (2023-12-01)
 
 
