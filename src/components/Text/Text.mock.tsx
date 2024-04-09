@@ -147,6 +147,8 @@ const translations = {
         User Type=Тип потребител
         Username=Потребителско име
         Documents=Документи
+
+        Browse=Разгледай
     `),
     ar: parse(`
         Dashboard=لوحة القيادة
@@ -252,6 +254,8 @@ const translations = {
         User Type=نوع المستخدم
         Username=اسم المستخدم
         Documents=وثائق
+
+        Browse=تصفح
     `)
 };
 /* spell-checker: enable */

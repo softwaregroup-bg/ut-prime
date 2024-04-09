@@ -11,6 +11,7 @@ import type { Props } from './Editor.types';
 import tree from '../test/tree';
 import document from '../test/document';
 import decorators from '../test/decorator';
+import {middleware} from '../Text/Text.mock';
 import useToast from '../hooks/useToast';
 import unauthenticated from '../test/unauthenticated';
 import type {UtError} from '../types';
@@ -23,7 +24,8 @@ const meta: Meta = {
     decorators,
     excludeStories: ['Template'],
     args: {
-        state: {}
+        state: {},
+        middleware: [middleware]
     }
 };
 export default meta;
@@ -469,4 +471,10 @@ Toolbar.args = {
             }]
         }
     }
+};
+
+export const ToolbarBG: StoryTemplate = Template.bind({});
+ToolbarBG.args = {
+    ...Toolbar.args,
+    lang: 'bg'
 };

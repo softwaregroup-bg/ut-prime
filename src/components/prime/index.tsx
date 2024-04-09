@@ -12,6 +12,7 @@ import React from 'react';
 import Component from '../Component';
 import Text from '../Text';
 import useTooltip from '../hooks/useTooltip';
+import useText from '../hooks/useText';
 import Permission from '../Permission';
 import {Props as PermissionProps} from '../Permission/Permission.types';
 import {confirmPopup as confirmPopupPrime} from 'primereact/confirmpopup';
@@ -137,11 +138,13 @@ export const Button = ({children, permission, confirm, onClick, tooltip, tooltip
         accept: () => onClick(event)
     }) : onClick(event), [onClick, confirm]);
     const tooltipProps = useTooltip({tooltip, tooltipOptions, reactTooltip});
+    const label = useText({text: props.label});
     const button = (
         <PrimeButton
             {...props}
             {...tooltipProps}
             onClick={handleClick}
+            label={label}
         >
             {children && (
                 <span className="p-button-label p-c">
