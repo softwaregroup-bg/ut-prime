@@ -639,17 +639,21 @@ export default function Input({
     const ctx = useContext(Context);
     widget.parent = widget.parent || name.match(/^\$\.edit\.[^.]+/)?.[0].replace('.edit.', '.selected.') || widget?.selectionPath;
     const parent = widget.parent || index.properties[propertyName]?.widget?.parent;
-    const {
-        fieldClass = null,
-        labelClass = defaultLabelClass,
-        onChange = onFieldChange,
-        ...inputWidget
-    } = {
+    const mergedWidget = {
         id: name.replace(/\./g, '-') || widget.label,
         ...index.properties[propertyName]?.widget,
         ...widget,
         parent
     };
+    const {
+        fieldClass = null,
+        labelClass = defaultLabelClass,
+        onChange = onFieldChange,
+        ...inputWidget
+    } = mergedWidget;
+    if ([null, false].includes(mergedWidget.onChange)) {
+        inputWidget.onChange = null;
+    }
     if (typeof inputWidget.visible === 'string' && !formApi?.watch?.(inputWidget.visible)) return null;
     if ('visible' in inputWidget && !inputWidget.visible) return null;
     if (typeof inputWidget.enabled === 'string') inputWidget.disabled = !formApi?.watch?.(inputWidget.enabled);
