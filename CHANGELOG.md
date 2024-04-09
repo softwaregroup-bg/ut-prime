@@ -1,3 +1,12 @@
+## [2.84.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.84.0...v2.84.1) (2024-04-09)
+
+
+### Bug Fixes
+
+* **CBI-4829:** embedded explorer in form to skip onChange ([221c48a](https://github.com/softwaregroup-bg/ut-prime/commit/221c48adbd183140b0892cff8ebf80536ad5c5c0))
+
+
+
 # [2.84.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.83.6...v2.84.0) (2024-01-22)
 
 
