@@ -1,3 +1,12 @@
+## [2.84.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.84.1...v2.84.2) (2024-04-17)
+
+
+### Bug Fixes
+
+* **CBI-4799:** allow btn label to be translated in editor toolbar ([5807cf7](https://github.com/softwaregroup-bg/ut-prime/commit/5807cf7c09b751f4789d24c45c458fa2ee6d6607))
+
+
+
 ## [2.84.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.84.0...v2.84.1) (2024-04-09)
 
 
