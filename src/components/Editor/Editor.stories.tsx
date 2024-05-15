@@ -124,7 +124,8 @@ Tabs.args = {
                 id: 'general',
                 icon: 'pi pi-user',
                 label: 'General',
-                widgets: ['edit', 'habitat']
+                widgets: ['edit', 'habitat'],
+                permission: 'some.view.permission'
             }, {
                 id: 'details',
                 label: 'Details',
@@ -289,7 +290,8 @@ Steps.args = {
                         habitat: joi.array().min(1)
                     }).unknown()
                 }).unknown(),
-                widgets: ['edit', 'habitat']
+                widgets: ['edit', 'habitat'],
+                permission: 'some.view.permission'
             }, {
                 id: 'details',
                 label: 'Details',
