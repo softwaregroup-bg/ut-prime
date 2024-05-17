@@ -6,6 +6,7 @@ import {
     Loading,
     Design,
     Tabs,
+    TabsPermissions,
     Submit,
     Files,
     FilesInTab,
@@ -50,6 +51,11 @@ describe('<Editor />', () => {
     });
     it('Tabs render equals snapshot', async() => {
         const { findByTestId } = render(<Tabs {...Tabs.args} />);
+        await act(() => new Promise(resolve => setTimeout(resolve, 1000)));
+        expect(await findByTestId('ut-front-test')).toMatchSnapshot();
+    });
+    it('TabsPermissions render equals snapshot', async() => {
+        const { findByTestId } = render(<TabsPermissions {...TabsPermissions.args} />);
         await act(() => new Promise(resolve => setTimeout(resolve, 1000)));
         expect(await findByTestId('ut-front-test')).toMatchSnapshot();
     });

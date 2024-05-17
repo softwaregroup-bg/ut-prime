@@ -124,13 +124,38 @@ Tabs.args = {
                 id: 'general',
                 icon: 'pi pi-user',
                 label: 'General',
-                widgets: ['edit', 'habitat'],
-                permission: 'some.view.permission'
+                widgets: ['edit', 'habitat']
             }, {
                 id: 'details',
                 label: 'Details',
                 icon: 'pi pi-book',
                 widgets: ['taxonomy', 'morphology']
+            }, {
+                id: 'history',
+                icon: 'pi pi-clock',
+                widgets: ['history']
+            }]
+        }
+    }
+};
+
+export const TabsPermissions: StoryTemplate = Template.bind({});
+TabsPermissions.args = {
+    ...Basic.args,
+    layouts: {
+        edit: {
+            orientation: 'top',
+            items: [{
+                id: 'general',
+                icon: 'pi pi-user',
+                label: 'General',
+                widgets: ['edit', 'habitat']
+            }, {
+                id: 'details',
+                label: 'Details',
+                icon: 'pi pi-book',
+                widgets: ['taxonomy', 'morphology'],
+                permission: 'some.view.permission'
             }, {
                 id: 'history',
                 icon: 'pi pi-clock',
@@ -290,8 +315,7 @@ Steps.args = {
                         habitat: joi.array().min(1)
                     }).unknown()
                 }).unknown(),
-                widgets: ['edit', 'habitat'],
-                permission: 'some.view.permission'
+                widgets: ['edit', 'habitat']
             }, {
                 id: 'details',
                 label: 'Details',
