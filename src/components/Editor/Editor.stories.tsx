@@ -139,6 +139,32 @@ Tabs.args = {
     }
 };
 
+export const TabsPermissions: StoryTemplate = Template.bind({});
+TabsPermissions.args = {
+    ...Basic.args,
+    layouts: {
+        edit: {
+            orientation: 'top',
+            items: [{
+                id: 'general',
+                icon: 'pi pi-user',
+                label: 'General',
+                widgets: ['edit', 'habitat']
+            }, {
+                id: 'details',
+                label: 'Details',
+                icon: 'pi pi-book',
+                widgets: ['taxonomy', 'morphology'],
+                permission: 'some.view.permission'
+            }, {
+                id: 'history',
+                icon: 'pi pi-clock',
+                widgets: ['history']
+            }]
+        }
+    }
+};
+
 export const EditorWithExplorer: StoryTemplate = Template.bind({});
 EditorWithExplorer.args = {
     ...Basic.args,
