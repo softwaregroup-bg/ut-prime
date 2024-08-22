@@ -130,13 +130,13 @@ export const Card = ({title, permission, ...props}: CardProps & Partial<Permissi
 export type ButtonProps = PrimeButtonProps & Partial<Pick<Parameters<typeof Permission>[0], 'permission'>> & {confirm?: string, reactTooltip?: TooltipParams['reactTooltip']}
 const empty = {};
 export const Button = ({children, permission, confirm, onClick, tooltip, tooltipOptions = empty, reactTooltip, ...props}: ButtonProps) => {
-    const handleClick = React.useCallback(event => onClick ? (confirm ? confirmPopup({
+    const handleClick = React.useCallback(event => confirm ? confirmPopup({
         target: event.currentTarget,
         message: confirm,
         icon: 'pi pi-exclamation-triangle',
         reject: () => {},
-        accept: () => onClick(event)
-    }) : onClick(event)) : () => {}, [onClick, confirm]);
+        accept: () => onClick?.(event)
+    }) : onClick?.(event), [onClick, confirm]);
     const tooltipProps = useTooltip({tooltip, tooltipOptions, reactTooltip});
     const label = useText({text: props.label});
     const button = (
