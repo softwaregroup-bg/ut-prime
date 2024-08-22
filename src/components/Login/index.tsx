@@ -284,7 +284,7 @@ const Login: ComponentProps = ({
                             </div>
                         ).filter(Boolean)}
                         <div className='field col-12 p-2 mb-0'>
-                            <Button aria-label={buttonLabel} type='submit' onClick={() => {}} className='w-full'>{buttonLabel}</Button>
+                            <Button aria-label={buttonLabel} type='submit' className='w-full'>{buttonLabel}</Button>
                         </div>
                     </form>
                 </div>

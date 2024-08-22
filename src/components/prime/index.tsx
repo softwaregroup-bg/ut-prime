@@ -136,7 +136,7 @@ export const Button = ({children, permission, confirm, onClick, tooltip, tooltip
         icon: 'pi pi-exclamation-triangle',
         reject: () => {},
         accept: () => onClick(event)
-    }) : onClick(event), [onClick, confirm]);
+    }) : onClick && onClick(event), [onClick, confirm]);
     const tooltipProps = useTooltip({tooltip, tooltipOptions, reactTooltip});
     const label = useText({text: props.label});
     const button = (
