@@ -177,7 +177,8 @@ export default function columnProps({
                 name={filterId}
             />;
             body = function body(rowData) {
-                return rowData[property?.body || fieldName];
+                const item = dropdowns?.[dropdown]?.find(({value}) => value === rowData[fieldName]);
+                return item?.label || rowData[fieldName];
             };
             break;
         case 'multiSelect':
