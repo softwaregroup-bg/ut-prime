@@ -1,3 +1,12 @@
+## [2.84.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.84.2...v2.84.3) (2024-08-23)
+
+
+### Bug Fixes
+
+* **CBI-5396:** add check ([7481e33](https://github.com/softwaregroup-bg/ut-prime/commit/7481e33e6ce3198488943794f48e7fd3ddf20118))
+
+
+
 ## [2.84.2](https://github.com/softwaregroup-bg/ut-prime/compare/v2.84.1...v2.84.2) (2024-04-17)
 
 
