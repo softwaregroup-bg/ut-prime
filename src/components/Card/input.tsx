@@ -1,8 +1,17 @@
-import React, { useContext } from 'react';
 import clsx from 'clsx';
-import { RefCallBack } from 'react-hook-form';
 import {get} from 'lodash-es';
+import React, { useContext } from 'react';
+import { RefCallBack } from 'react-hook-form';
 
+import ActionButton from '../ActionButton';
+import Component from '../Component';
+import Controller from '../Controller';
+import DateRange from '../DateRange';
+import Json from '../Json';
+import Context from '../Text/context';
+import { dateIn, dateOut } from '../lib/dates';
+import getType from '../lib/getType';
+import testid from '../lib/testid';
 import {
     AutoComplete,
     Calendar,
@@ -24,20 +33,11 @@ import {
     TreeSelect,
     TreeTable
 } from '../prime';
-import {Property, PropertyEditor, FormApi} from '../types';
-import Context from '../Text/context';
-
-import getType from '../lib/getType';
-import testid from '../lib/testid';
-import Table from './inputs/Table';
-import Ocr from './inputs/Ocr';
-import Webcam from './inputs/Webcam';
-import ActionButton from '../ActionButton';
-import DateRange from '../DateRange';
-import Json from '../Json';
-import Component from '../Component';
+import {FormApi, Property, PropertyEditor} from '../types';
 import {CHANGE} from './const';
-import Controller from '../Controller';
+import Ocr from './inputs/Ocr';
+import Table from './inputs/Table';
+import Webcam from './inputs/Webcam';
 
 const getFieldClass = (index, classes, name, className) =>
     name === '' ? className : clsx(
@@ -104,7 +104,7 @@ function useInput(
             case 'boolean': return event => fieldChange?.({...event, value: event.checked});
             case 'chips': return event => fieldChange?.({...event, value: event.value.length ? event.value.join(' ') : null});
             case 'date': return event => {
-                if (event.value instanceof Date) event.value = new Date(event.value.getTime() - event.value.getTimezoneOffset() * 60 * 1000);
+                if (event.value instanceof Date) event.value = dateOut(event.value);
                 fieldChange(event);
             };
             case 'dateRange': return event => fieldChange?.(event);
@@ -437,11 +437,9 @@ function useInput(
             <Calendar
                 {...field}
                 showIcon
-                value={
-                    field.value != null
-                        ? new Date(new Date(field.value).getTime() + new Date(field.value).getTimezoneOffset() * 60 * 1000)
-                        : field.value
-                }
+                value={field.value != null
+                    ? dateIn(field.value)
+                    : field.value}
                 onChange={onChange}
                 inputId={props.id}
                 {...props}
