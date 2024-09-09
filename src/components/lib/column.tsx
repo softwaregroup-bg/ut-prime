@@ -1,4 +1,15 @@
+import clsx from 'clsx';
+import type Joi from 'joi';
+import { TooltipProps } from 'primereact/tooltip';
 import React from 'react';
+
+import {CHANGE, INDEX, KEY} from '../Card/const';
+import DateRange from '../DateRange';
+import {ConfigField} from '../Form/DragDrop';
+import type { FormatOptions } from '../Gate/Gate.types';
+import Json from '../Json';
+import Text from '../Text';
+import type { ContextType } from '../Text/context';
 import {
     Calendar,
     Checkbox,
@@ -14,20 +25,11 @@ import {
     SelectButton,
     TriStateCheckbox
 } from '../prime';
-import DateRange from '../DateRange';
-import Json from '../Json';
 import type { Property, PropertyEditor } from '../types';
-import titleCase from './titleCase';
+import { dateIn, dateOut } from './dates';
 import getType from './getType';
-import {KEY, INDEX, CHANGE} from '../Card/const';
-import testid from '../lib/testid';
-import {ConfigField} from '../Form/DragDrop';
-import Text from '../Text';
-import clsx from 'clsx';
-import type Joi from 'joi';
-import { TooltipProps } from 'primereact/tooltip';
-import type { ContextType } from '../Text/context';
-import type { FormatOptions } from '../Gate/Gate.types';
+import testid from './testid';
+import titleCase from './titleCase';
 
 export interface TableFilter {
     filters?: {
@@ -257,8 +259,8 @@ export default function columnProps({
             body = function body(rowData) {
                 let value = rowData[fieldName];
                 if (value == null) return null;
-                value = new Date(value);
-                return ctx?.formatValue?.(new Date(value.getTime() + value.getTimezoneOffset() * 60 * 1000), { type: 'date', ...(formatOptions as FormatOptions)?.date });
+                value = dateIn(value);
+                return ctx?.formatValue?.(value, { type: 'date', ...(formatOptions as FormatOptions)?.date });
             };
             break;
         case 'time':
@@ -493,11 +495,11 @@ export default function columnProps({
                         value={(() => {
                             const value = dataValue(inlineEdit, fieldName);
                             return value != null
-                                ? new Date(new Date(value).getTime() + new Date(value).getTimezoneOffset() * 60 * 1000)
+                                ? dateIn(value)
                                 : value;
                         })()}
                         onChange={event => {
-                            if (event.value instanceof Date) event.value = new Date(event.value.getTime() - event.value.getTimezoneOffset() * 60 * 1000);
+                            if (event.value instanceof Date) event.value = dateOut(event.value);
                             onEdit(inlineEdit, event, event.value);
                         }}
                         showIcon
