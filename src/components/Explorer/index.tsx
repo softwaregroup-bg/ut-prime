@@ -9,11 +9,7 @@ import Card from '../Card';
 import { Button, DataTable, DataView, Column, Toolbar, Splitter, SplitterPanel } from '../prime';
 import ActionButton from '../ActionButton';
 import Component from '../Component';
-import useToggle from '../hooks/useToggle';
-import {useDebounce as useSubmit} from '../hooks/useSubmit';
-import useLayout from '../hooks/useLayout';
-import useLoad from '../hooks/useLoad';
-import useWindowSize from '../hooks/useWindowSize';
+import { usePermissionCheck, useToggle, useDebounce as useSubmit, useLayout, useLoad, useWindowSize } from '../hooks';
 import Editor from '../Editor';
 import Form from '../Form';
 import getValidation from '../Form/schema';
@@ -163,6 +159,7 @@ const Explorer: ComponentProps = ({
     methods,
     fetchValidation
 }) => {
+    const permissionCheck = usePermissionCheck();
     const [trigger, setTrigger] = React.useState<() => Promise<void>>();
     const [paramValues, submitParams] = React.useState<[Record<string, unknown>] | [Record<string, unknown>, {files: []}]>([params]);
     const [filter, index] = React.useMemo(() => [
@@ -203,7 +200,8 @@ const Explorer: ComponentProps = ({
         methods,
         name,
         loading,
-        editors
+        editors,
+        permissionCheck
     });
     const columnsCard = ('columns' in layoutProps) ? layoutProps.columns : 'browse';
     const toolbarCard = ('toolbar' in layoutProps) ? layoutProps.toolbar : 'toolbarBrowse';
