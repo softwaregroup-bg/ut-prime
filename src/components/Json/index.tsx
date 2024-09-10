@@ -36,6 +36,72 @@ const convert = keyValue => {
     };
 };
 
+const flatten = (properties, root = '') => Object.entries(properties || {}).reduce(
+    (map, [name, property]) => {
+        return ('properties' in property) ? {
+            ...map,
+            [root + name]: property,
+            ...flatten(property.properties, root + name + '.')
+        } : ('items' in property) ? {
+            ...map,
+            [root + name]: property,
+            ...flatten(property.items.properties, root + name + '.')
+        } : {
+            ...map,
+            [root + name]: property
+        };
+    },
+    {}
+);
+
+const filterBySchema = (obj, schema) => {
+    if (!schema) {
+        return obj;
+    }
+    const schemaMap = flatten(schema);
+    const convertType = (value, {type = 'string'}) => {
+        switch (Array.isArray(type) ? type.shift() : type) {
+            case 'number':
+                return parseInt(value);
+            case 'string':
+                return value?.toString();
+            default:
+                return value;
+        }
+    };
+    const filter = (obj, objPath = '') => {
+        return obj && Object.entries(obj).reduce(
+            (map, [name, property]) => {
+                const properties = schemaMap[objPath ? `${objPath}.${name}` : name];
+                if (!properties) {
+                    return map;
+                }
+                if (Array.isArray(property)) {
+                    return {
+                        ...map,
+                        [properties.title || name]: property.map(p =>
+                            filter(p, objPath ? `${objPath}.${name}` : name)
+                        )
+                    };
+                } else if (typeof property === 'object' && property) {
+                    return {
+                        ...map,
+                        [properties.title || name]: filter(
+                            property,
+                            objPath ? `${objPath}.${name}` : name
+                        )
+                    };
+                }
+                return {
+                    ...map,
+                    [properties.title || name]: convertType(property, properties)
+                };
+            }, {}
+        );
+    };
+    return filter(obj);
+};
+
 const arrow = <span className='ml-2 pi pi-arrow-right' />;
 const Json: ComponentProps = ({
     showUnchangedValues = true,
@@ -43,9 +109,12 @@ const Json: ComponentProps = ({
     previous = value,
     keyValue,
     className,
+    schema,
     ...props
 }) => {
     const classes = useStyles();
+    value = filterBySchema(value, schema?.properties);
+    previous = filterBySchema(previous, schema?.properties);
     const diff = keyValue ? convert(value) : compare(value, previous);
 
     const lineClass = line =>
