@@ -1,3 +1,13 @@
+## [2.84.4](https://github.com/softwaregroup-bg/ut-prime/compare/v2.84.3...v2.84.4) (2024-09-10)
+
+
+### Bug Fixes
+
+* **CBI-5660&&CBI-5794:** date alignment ([8f574b6](https://github.com/softwaregroup-bg/ut-prime/commit/8f574b6beced6927714a9416f92c767e2338e1c5))
+* **CBI-5660&&CBI-5794:** date alignment generic ([da525ce](https://github.com/softwaregroup-bg/ut-prime/commit/da525cee71703f813589b30a4076c7d89eae2894))
+
+
+
 ## [2.84.3](https://github.com/softwaregroup-bg/ut-prime/compare/v2.84.2...v2.84.3) (2024-08-23)
 
 
