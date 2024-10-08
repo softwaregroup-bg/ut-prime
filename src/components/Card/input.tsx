@@ -645,7 +645,7 @@ export default function Input({
         ...widget,
         parent
     };
-    const allow = (inputWidget) => {
+    const allow = (inputWidget: PropertyEditor): PropertyEditor => {
         const result = {
             ...inputWidget
         };
