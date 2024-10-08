@@ -94,7 +94,8 @@ function useInput(
     methods,
     submit,
     defaultWidgetType,
-    context
+    context,
+    allow
 ) {
     const widgetType = type || defaultWidgetType || schema?.format || getType(schema?.type);
     const fieldChange = field.onChange;
@@ -217,6 +218,7 @@ function useInput(
                         {...field}
                         parent={parentValue}
                         properties={schema?.items?.properties}
+                        allow={allow}
                         dropdowns={dropdowns}
                         getValues={formApi.getValues}
                         methods={methods}
@@ -643,19 +645,25 @@ export default function Input({
         ...widget,
         parent
     };
+    const allow = (inputWidget) => {
+        const result = {
+            ...inputWidget
+        };
+        if (typeof result.visible === 'string' && !formApi?.watch?.(result.visible)) return null;
+        if ('visible' in result && !result.visible) return null;
+        if (typeof result.enabled === 'string') result.disabled = !formApi?.watch?.(result.enabled);
+        if (typeof result.disabled === 'string') result.disabled = !!formApi?.watch?.(result.disabled);
+        return result;
+    };
     const {
         fieldClass = null,
         labelClass = defaultLabelClass,
         onChange = onFieldChange,
         ...inputWidget
-    } = mergedWidget;
+    } = allow(mergedWidget);
     if ([null, false].includes(mergedWidget.onChange)) {
         inputWidget.onChange = null;
     }
-    if (typeof inputWidget.visible === 'string' && !formApi?.watch?.(inputWidget.visible)) return null;
-    if ('visible' in inputWidget && !inputWidget.visible) return null;
-    if (typeof inputWidget.enabled === 'string') inputWidget.disabled = !formApi?.watch?.(inputWidget.enabled);
-    if (typeof inputWidget.disabled === 'string') inputWidget.disabled = !!formApi?.watch?.(inputWidget.disabled);
     if (!inputWidget.className) {
         const inputClassName = classes?.default?.input || classes?.[name]?.input;
         if (inputClassName) inputWidget.className = inputClassName;
@@ -740,7 +748,8 @@ export default function Input({
             methods,
             submit,
             !formApi?.getValues && 'label',
-            ctx
+            ctx,
+            allow
         );
     };
     return (name && formApi?.control) ? <Controller

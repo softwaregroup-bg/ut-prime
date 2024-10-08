@@ -430,7 +430,7 @@ export default React.forwardRef<object, TableProps>(function Table({
                 {
                     (widgets || []).map((column, index) => {
                         const isString = typeof column === 'string';
-                        const {name, ...widget} = isString ? {name: column} : column;
+                        const {name, ...widget} = props.allow(isString ? {name: column} : column);
                         return (<Column
                             key={name}
                             filter={!!properties?.[name]?.filter}
@@ -441,7 +441,10 @@ export default React.forwardRef<object, TableProps>(function Table({
                                 index,
                                 name,
                                 widget: !isString && widget as PropertyEditor,
-                                property: properties?.[name],
+                                property: {
+                                    ...properties?.[name],
+                                    ...properties?.[name] && 'widget' in properties[name] && { widget: props.allow(properties[name].widget) }
+                                },
                                 dropdowns,
                                 editable: true,
                                 filterBy,
