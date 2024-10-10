@@ -436,7 +436,7 @@ export default React.forwardRef<object, TableProps>(function Table({
                         const property = {
                             ...properties?.[name],
                             ...properties?.[name] && 'widget' in properties[name] && { widget: allow(properties[name].widget) }
-                        }
+                        };
                         if (property?.widget && 'visible' in property?.widget && !property.widget.visible) return null;
                         return (<Column
                             key={name}
