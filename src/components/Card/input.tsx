@@ -649,6 +649,7 @@ export default function Input({
         const result = {
             ...inputWidget
         };
+        if ('visible' in result && typeof result.visible === 'string') result.visible = formApi?.watch?.(result.visible);
         if (typeof result.enabled === 'string') result.disabled = !formApi?.watch?.(result.enabled);
         if (typeof result.disabled === 'string') result.disabled = !!formApi?.watch?.(result.disabled);
         return result;
@@ -662,7 +663,6 @@ export default function Input({
     if ([null, false].includes(mergedWidget.onChange)) {
         inputWidget.onChange = null;
     }
-    if (typeof inputWidget.visible === 'string' && !formApi?.watch?.(inputWidget.visible)) return null;
     if ('visible' in inputWidget && !inputWidget.visible) return null;
     if (!inputWidget.className) {
         const inputClassName = classes?.default?.input || classes?.[name]?.input;
