@@ -336,7 +336,6 @@ export default function columnProps({
             } else return oldBody ? oldBody({[fieldName]: value0}) : value0;
         };
     }
-    if (typeof property?.readOnly === 'string') property.readOnly = !!getValues?.(property.readOnly);
     if (!property?.readOnly && editable) {
         editor = function editor(p) {
             const widget = p.rowData?.$pivot?.[fieldName]?.widget || p.rowData?.$pivot?.widget;
