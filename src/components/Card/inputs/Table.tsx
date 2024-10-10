@@ -119,6 +119,7 @@ interface TableProps extends Omit<DataTableProps, 'onChange'> {
         allowSelect?: boolean;
     };
     toolbar?: false | WidgetReference[];
+    allow?: (input: PropertyEditor) => PropertyEditor
 }
 
 export default React.forwardRef<object, TableProps>(function Table({
@@ -156,6 +157,7 @@ export default React.forwardRef<object, TableProps>(function Table({
     } = {},
     toolbar,
     formApi,
+    allow = (widget) => widget,
     ...props
 }, ref) {
     if (typeof ref === 'function') ref({});
@@ -431,6 +433,11 @@ export default React.forwardRef<object, TableProps>(function Table({
                     (widgets || []).map((column, index) => {
                         const isString = typeof column === 'string';
                         const {name, ...widget} = isString ? {name: column} : column;
+                        const property = {
+                            ...properties?.[name],
+                            ...properties?.[name] && 'widget' in properties[name] && { widget: allow(properties[name].widget) }
+                        };
+                        if (property?.widget && 'visible' in property?.widget && !property.widget.visible) return null;
                         return (<Column
                             key={name}
                             filter={!!properties?.[name]?.filter}
@@ -441,7 +448,7 @@ export default React.forwardRef<object, TableProps>(function Table({
                                 index,
                                 name,
                                 widget: !isString && widget as PropertyEditor,
-                                property: properties?.[name],
+                                property,
                                 dropdowns,
                                 editable: true,
                                 filterBy,
