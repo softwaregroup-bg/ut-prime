@@ -1,3 +1,12 @@
+## [2.84.6](https://github.com/softwaregroup-bg/ut-prime/compare/v2.84.5...v2.84.6) (2024-10-15)
+
+
+### Bug Fixes
+
+* **LS-92:** do not remove lines if its single line ([#86](https://github.com/softwaregroup-bg/ut-prime/issues/86)) ([1ee7cc8](https://github.com/softwaregroup-bg/ut-prime/commit/1ee7cc841445f3aed0f2d8643368f453f1e851a1))
+
+
+
 ## [2.84.5](https://github.com/softwaregroup-bg/ut-prime/compare/v2.84.4...v2.84.5) (2024-10-15)
 
 
