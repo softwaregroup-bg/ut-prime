@@ -177,6 +177,7 @@ export default function compare(current, previous) {
     }
     compareInner(current, previous);
     function removeConsecutiveEmptyLines(la) {
+        if (la.length === 1) return la;
         const lines = [];
         for (let i = 0; i < la.length - 1; i++) {
             if (la[i].empty && la[i + 1].empty) {

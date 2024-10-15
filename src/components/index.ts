@@ -32,3 +32,4 @@ export { default as ScrollBox } from './ScrollBox';
 export { default as Store } from './Store';
 export { default as Text } from './Text';
 export { default as ThumbIndex } from './ThumbIndex';
+export { default as Json } from './Json';
