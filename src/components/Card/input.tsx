@@ -88,6 +88,7 @@ function useInput(
     schema: Property,
     dropdowns,
     parentValue,
+    filterSchema,
     loading: string,
     formApi: FormApi,
     counter,
@@ -176,6 +177,7 @@ function useInput(
             <Json
                 {...field}
                 value={field.value || ''}
+                schema={filterSchema || ''}
                 {...parentField && {previous: parentValue}}
                 {...props}
             />
