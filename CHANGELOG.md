@@ -1,3 +1,12 @@
+## [2.84.5](https://github.com/softwaregroup-bg/ut-prime/compare/v2.84.4...v2.84.5) (2024-10-15)
+
+
+### Bug Fixes
+
+* **CBI-5296:** allow disabling columns in table ([#85](https://github.com/softwaregroup-bg/ut-prime/issues/85)) ([89374d6](https://github.com/softwaregroup-bg/ut-prime/commit/89374d618f819ba76553e22e647198620885af8e))
+
+
+
 ## [2.84.4](https://github.com/softwaregroup-bg/ut-prime/compare/v2.84.3...v2.84.4) (2024-09-10)
 
 
