@@ -181,7 +181,7 @@ export default function columnProps({
                     return rowData[property?.body];
                 }
                 const item = dropdowns?.[dropdown]?.find(({value}) => value === rowData[fieldName]);
-                return item?.label || rowData[fieldName]
+                return item?.label || rowData[fieldName];
             };
             break;
         case 'multiSelect':
