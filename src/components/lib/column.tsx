@@ -178,10 +178,10 @@ export default function columnProps({
             />;
             body = function body(rowData) {
                 if (rowData[property?.body]) {
-                    return rowData[property?.body || fieldName];
-                } else {
+                    return rowData[property?.body];
+                }
                 const item = dropdowns?.[dropdown]?.find(({value}) => value === rowData[fieldName]);
-                    return item?.label || rowData[fieldName] }
+                    return item?.label || rowData[fieldName]
             };
             break;
         case 'multiSelect':
