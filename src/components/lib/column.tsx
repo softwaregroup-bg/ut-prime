@@ -177,11 +177,11 @@ export default function columnProps({
                 name={filterId}
             />;
             body = function body(rowData) {
-                if (lookup) {
-                const item = dropdowns?.[dropdown]?.find(({value}) => value === rowData[fieldName]);
-                return item?.label || rowData[fieldName] } else if (property?.body) {
+                if (property?.body) {
                 return rowData[property?.body || fieldName];
-                }
+                } else {
+                const item = dropdowns?.[dropdown]?.find(({value}) => value === rowData[fieldName]);
+                return item?.label || rowData[fieldName] }
             };
             break;
         case 'multiSelect':
