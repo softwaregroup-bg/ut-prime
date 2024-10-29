@@ -1,3 +1,12 @@
+## [2.84.7](https://github.com/softwaregroup-bg/ut-prime/compare/v2.84.6...v2.84.7) (2024-10-29)
+
+
+### Bug Fixes
+
+* label update ([#82](https://github.com/softwaregroup-bg/ut-prime/issues/82)) ([fe7e635](https://github.com/softwaregroup-bg/ut-prime/commit/fe7e635db779aed8a2c4a914ba190d9f589e3103))
+
+
+
 ## [2.84.6](https://github.com/softwaregroup-bg/ut-prime/compare/v2.84.5...v2.84.6) (2024-10-15)
 
 
