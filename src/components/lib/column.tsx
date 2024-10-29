@@ -177,7 +177,7 @@ export default function columnProps({
                 name={filterId}
             />;
             body = function body(rowData) {
-                if (rowData[property?.body]) {
+                if (property?.body) {
                     return rowData[property?.body];
                 }
                 const item = dropdowns?.[dropdown]?.find(({value}) => value === rowData[fieldName]);
