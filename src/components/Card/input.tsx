@@ -99,7 +99,10 @@ function useInput(
 ) {
     const widgetType = type || defaultWidgetType || schema?.format || getType(schema?.type);
     const fieldChange = field.onChange;
+    props.disabled ??= schema?.readOnly || (parentField && !parentValue);
+    if (loading) props.disabled = true;
     const onChange = React.useMemo(() => {
+        if (props?.disabled) return () => {};
         switch (widgetType) {
             case 'autocomplete': return event => fieldChange?.({...event, value: {value: event.value || null}});
             case 'boolean': return event => fieldChange?.({...event, value: event.checked});
@@ -114,13 +117,11 @@ function useInput(
             case 'multiSelectTree': return event => fieldChange?.({...event, value: Object.keys(event.value)});
             default: return event => fieldChange?.({...event, value: event.target.value || null});
         }
-    }, [widgetType, fieldChange, props?.split]);
+    }, [widgetType, fieldChange, props?.split, props?.disabled]);
     if (loading) {
         if (loading === 'loading' && ['button', 'submit'].includes(widgetType)) return <ActionButton className={inputClass ?? 'mr-2'} {...props} disabled/>;
         if (loading === 'loading') return <>{label}<div className={inputClass}><Skeleton className='p-inputtext'/></div></>;
     }
-    props.disabled ??= schema?.readOnly || (parentField && !parentValue);
-    if (loading) props.disabled = true;
     const filterBy = item => (!parentField && !optionsFilter) || Object.entries({...optionsFilter, parent: parentValue}).every(([name, value]) => String(item[name]) === String(value));
 
     switch (widgetType) {
