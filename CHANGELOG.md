@@ -1,3 +1,12 @@
+## [2.84.8](https://github.com/softwaregroup-bg/ut-prime/compare/v2.84.7...v2.84.8) (2025-02-12)
+
+
+### Bug Fixes
+
+* **SDCBI-226:** do not execute onchange when field is disabled ([b1155f7](https://github.com/softwaregroup-bg/ut-prime/commit/b1155f71530c85a0da9d8fc9371ca4fd6e0daf20))
+
+
+
 ## [2.84.7](https://github.com/softwaregroup-bg/ut-prime/compare/v2.84.6...v2.84.7) (2024-10-29)
 
 
