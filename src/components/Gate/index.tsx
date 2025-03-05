@@ -65,9 +65,9 @@ const Gate: ComponentProps = ({ children, cookieCheck, corePortalGet, loginPage 
     const [loaded, setLoaded] = useState(null);
     const [cookieChecked, setCookieChecked] = useState(false);
     const login = useSelector((state: State) => state.login);
-    const { appId } = useParams();
+    const {appId} = useParams();
     const loginHash = !loginPage || loginPage.startsWith('#');
-    const { setLanguage } = React.useContext(AppContext);
+    const {setLanguage} = React.useContext(AppContext);
 
     useEffect(() => {
         async function check() {
