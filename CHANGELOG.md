@@ -1,3 +1,17 @@
+# [2.85.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.84.8...v2.85.0) (2025-03-05)
+
+
+### Bug Fixes
+
+* revert unnecessary changes ([53b0abb](https://github.com/softwaregroup-bg/ut-prime/commit/53b0abb473fac32ba20b871c20d03a2823c14950))
+
+
+### Features
+
+* allow for change language, recompute i18n setup ([7ae955d](https://github.com/softwaregroup-bg/ut-prime/commit/7ae955d6dc31060b71f49b86684df6c74737a1b5))
+
+
+
 ## [2.84.8](https://github.com/softwaregroup-bg/ut-prime/compare/v2.84.7...v2.84.8) (2025-02-12)
 
 
