@@ -214,6 +214,7 @@ interface IndexItem extends MenuItem {
     widgets?: (string | string[] | MenuItem)[];
     onMount?: string;
     validation?: Joi.Schema | ((value: unknown) => Joi.ValidationResult);
+    permission?: Permission;
 }
 
 interface IndexItemId extends IndexItem {

@@ -13,7 +13,7 @@ import { Toolbar } from '../prime';
 import ActionButton from '../ActionButton';
 import type {Schema} from '../types';
 import { ComponentProps } from './Editor.types';
-import {useSubmit} from '../hooks/useSubmit';
+import {useSubmit, usePermissionCheck} from '../hooks';
 
 const backgroundNone = {background: 'none'};
 
@@ -80,6 +80,7 @@ const Editor: ComponentProps = ({
     } = {},
     toolbar = !!(onAdd || onEdit || onGet)
 }) => {
+    const permissionCheck = usePermissionCheck();
     const [keyValue, setKeyValue] = React.useState(id);
     const schema = (schemaCreate && keyValue == null) ? schemaCreate : schemaEdit;
 
@@ -125,7 +126,8 @@ const Editor: ComponentProps = ({
         name,
         loading,
         trigger,
-        editors
+        editors,
+        permissionCheck
     });
     name = name ? name + '.' : '';
     const {properties = empty} = mergedSchema;
