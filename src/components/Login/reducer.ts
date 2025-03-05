@@ -1,7 +1,8 @@
 import {
     LOGIN,
     COOKIE_CHECK,
-    LOGOUT
+    LOGOUT,
+    CHANGE_LANGUAGE
 } from './actions';
 
 const initials = ({
@@ -38,6 +39,11 @@ export default (state = null, action: {
                     }
                 } : false;
             } else return state;
+        case CHANGE_LANGUAGE:
+            return {
+                ...state,
+                language: action.result.language
+            };
         case LOGOUT:
             if (action.methodRequestState === 'finished') {
                 return false;

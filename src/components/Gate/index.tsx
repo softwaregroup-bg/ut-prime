@@ -9,7 +9,7 @@ import AppContext from '../Context';
 import parse from '../lib/parseDictionaryMap';
 import Context, {ContextType} from '../Text/context';
 
-import { ComponentProps } from './Gate.types';
+import { ComponentProps, Props } from './Gate.types';
 import { State } from '../Store/Store.types';
 import formatValue from './formatValue';
 
@@ -27,48 +27,49 @@ const corePortalGet: ((params: unknown) => unknown) = params => ({
     params
 });
 
+async function load(login: State['login'], setLoaded: React.Dispatch<unknown>, corePortalGet: Props['corePortalGet']) {
+    const language = login?.language?.languageId;
+    const languageCode = login?.language?.iso2Code;
+    const { result = {} } = await corePortalGet({
+        languageId: language,
+        dictName: ['text', 'actionConfirmation', 'error']
+    });
+    const { translations, configuration, currencies } = result;
+    const dictionary = translations?.reduce(
+        (prev, { dictionaryKey, translatedValue }) =>
+            dictionaryKey === translatedValue ? prev : { ...prev, [dictionaryKey]: translatedValue },
+        { joi: undefined }
+    );
+
+    const formattedCurrencies = currencies?.reduce((prev, { currencyId, code, scale }) => {
+        prev[currencyId] = scale;
+        prev[code] = scale;
+        return prev;
+    }, {});
+
+    const fmtOpts = configuration?.['portal.utPrime.formatOptions'];
+    const customFormatOptions = typeof fmtOpts === 'string' ? JSON.parse(fmtOpts) : fmtOpts;
+
+    setLoaded({
+        language,
+        languageCode,
+        configuration,
+        joiMessages: dictionary?.joi !== 'joi' && parse(dictionary?.joi),
+        translate: (id, text, language) => (id && dictionary?.[id]) || dictionary?.[text] || text,
+        getScale: (currency) => formattedCurrencies?.[currency],
+        formatValue: formatValue({ languageCode, ...customFormatOptions })
+    });
+}
+
 const Gate: ComponentProps = ({ children, cookieCheck, corePortalGet, loginPage = '#/login', homePage }) => {
     const [loaded, setLoaded] = useState(null);
     const [cookieChecked, setCookieChecked] = useState(false);
     const login = useSelector((state: State) => state.login);
-    const {appId} = useParams();
+    const { appId } = useParams();
     const loginHash = !loginPage || loginPage.startsWith('#');
-    const {setLanguage} = React.useContext(AppContext);
+    const { setLanguage } = React.useContext(AppContext);
 
     useEffect(() => {
-        async function load() {
-            const language = login?.language?.languageId;
-            const languageCode = login?.language?.iso2Code;
-            const { result = {} } = await corePortalGet({
-                languageId: language,
-                dictName: ['text', 'actionConfirmation', 'error']
-            });
-            const { translations, configuration, currencies } = result;
-            const dictionary = translations?.reduce(
-                (prev, {dictionaryKey, translatedValue}) => dictionaryKey === translatedValue ? prev : {...prev, [dictionaryKey]: translatedValue},
-                {joi: undefined}
-            );
-
-            const formattedCurrencies = currencies?.reduce((prev, {currencyId, code, scale}) => {
-                prev[currencyId] = scale;
-                prev[code] = scale;
-                return prev;
-            }, {});
-
-            const fmtOpts = configuration?.['portal.utPrime.formatOptions'];
-            const customFormatOptions = typeof fmtOpts === 'string' ? JSON.parse(fmtOpts) : fmtOpts;
-
-            setLoaded({
-                language,
-                languageCode,
-                configuration,
-                joiMessages: dictionary?.joi !== 'joi' && parse(dictionary?.joi),
-                translate: (id, text, language) => (id && dictionary?.[id]) || dictionary?.[text] || text,
-                getScale: (currency) => formattedCurrencies?.[currency],
-                formatValue: formatValue({languageCode, ...customFormatOptions})
-            });
-        }
-
         async function check() {
             const result = await cookieCheck({ appId });
             setCookieChecked(true);
@@ -78,7 +79,7 @@ const Gate: ComponentProps = ({ children, cookieCheck, corePortalGet, loginPage 
         if (!cookieChecked && !login) {
             check();
         } else if (!loaded && login) {
-            load();
+            load(login, setLoaded, corePortalGet);
         } else if (!loginHash && !login) {
             if (loginPage.startsWith('http://') || loginPage.startsWith('https://')) {
                 window.location.href = loginPage;
@@ -90,6 +91,11 @@ const Gate: ComponentProps = ({ children, cookieCheck, corePortalGet, loginPage 
         }
     }, [cookieChecked, login, loaded, corePortalGet, cookieCheck, appId, loginPage, loginHash, setLanguage]);
 
+    useEffect(() => {
+        if (!login?.language?.iso2Code || !loaded || login.language.iso2Code === loaded.languageCode) return;
+        setLanguage(login.language.iso2Code);
+        load(login, setLoaded, corePortalGet);
+    }, [login?.language?.iso2Code, login?.language?.languageId, setLoaded, setLanguage, login, loaded, corePortalGet]);
     if (!cookieChecked && !login) {
         return <Loader />;
     } else if (login) {

@@ -2,6 +2,7 @@ export const LOGIN = Symbol('LOGIN');
 export const BIO_LOGIN = Symbol('BIO_LOGIN');
 export const COOKIE_CHECK = Symbol('COOKIE_CHECK');
 export const LOGOUT = Symbol('LOGOUT');
+export const CHANGE_LANGUAGE = Symbol('CHANGE_LANGUAGE');
 
 const getTimezone = () => {
     const offset = (new Date()).getTimezoneOffset();
