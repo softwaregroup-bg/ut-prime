@@ -15,6 +15,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
         languageId: string | number;
         dictName: string[];
     }) => Promise<{ result?: { translations?: []; configuration?: PortalConfiguration, currencies?: [], formatOptions?: FormatOptions } }>;
+    coreLicenseCheck?: (params: {}) => Promise<{ result?: { expired: boolean, daysLeft: number } }>;
 }
 
 export type ComponentProps = React.FC<Props>;
