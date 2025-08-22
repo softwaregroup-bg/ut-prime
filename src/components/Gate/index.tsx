@@ -12,7 +12,6 @@ import Context, {ContextType} from '../Text/context';
 import { ComponentProps, Props } from './Gate.types';
 import { State } from '../Store/Store.types';
 import formatValue from './formatValue';
-import Text from '../Text';
 
 const defaultContext: ContextType = {
     language: '',
@@ -123,8 +122,5 @@ const Gate: ComponentProps = ({ children, cookieCheck, corePortalGet, loginPage 
 
 export default connect(
     null,
-    {
-        cookieCheck,
-        corePortalGet
-    }
+    { cookieCheck, corePortalGet }
 )(Gate);
