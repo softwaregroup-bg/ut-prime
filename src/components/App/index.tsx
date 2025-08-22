@@ -16,7 +16,7 @@ import Text from '../Text';
 import { ComponentProps } from './App.types';
 import PageNotFound from './PageNotFound';
 
-const coreLicenseCheck: ((params: {}) => unknown) = params => ({
+const coreLicenseCheck: ((params: unknown) => unknown) = params => ({
     type: 'core.license.check',
     method: 'core.license.check',
     params,
@@ -91,7 +91,7 @@ const LicenseWarning = () => {
                     backgroundColor: 'red',
                     fontWeight: 'bold',
                     textAlign: 'center',
-                    padding: '8px 24px 8px 8px',
+                    padding: '8px 24px 8px 8px'
                 }}
             >
                 <Text>
@@ -109,7 +109,7 @@ const LicenseWarning = () => {
                     fontWeight: 'bold',
                     textAlign: 'center',
                     position: 'relative',
-                    padding: '8px 24px 8px 8px',
+                    padding: '8px 24px 8px 8px'
                 }}
             >
                 <button
@@ -124,7 +124,7 @@ const LicenseWarning = () => {
                         color: 'white',
                         fontSize: '16px',
                         cursor: 'pointer',
-                        fontWeight: 'bold',
+                        fontWeight: 'bold'
                     }}
                     title='Dismiss'
                 >
