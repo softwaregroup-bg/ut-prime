@@ -28,12 +28,6 @@ const corePortalGet: ((params: unknown) => unknown) = params => ({
     params
 });
 
-const coreLicenseCheck: ((params: unknown) => unknown) = params => ({
-    type: 'core.license.check',
-    method: 'core.license.check',
-    params
-});
-
 async function load(login: State['login'], setLoaded: React.Dispatch<unknown>, corePortalGet: Props['corePortalGet']) {
     const language = login?.language?.languageId;
     const languageCode = login?.language?.iso2Code;
@@ -68,10 +62,9 @@ async function load(login: State['login'], setLoaded: React.Dispatch<unknown>, c
     });
 }
 
-const Gate: ComponentProps = ({ children, cookieCheck, corePortalGet, coreLicenseCheck, loginPage = '#/login', homePage }) => {
+const Gate: ComponentProps = ({ children, cookieCheck, corePortalGet, loginPage = '#/login', homePage }) => {
     const [loaded, setLoaded] = useState(null);
     const [cookieChecked, setCookieChecked] = useState(false);
-    const [licenseInfo, setLicenseInfo] = useState<Awaited<ReturnType<typeof coreLicenseCheck>>['result'] | null>(null);
     const login = useSelector((state: State) => state.login);
     const {appId} = useParams();
     const loginHash = !loginPage || loginPage.startsWith('#');
@@ -84,18 +77,8 @@ const Gate: ComponentProps = ({ children, cookieCheck, corePortalGet, coreLicens
             if (result?.result?.language?.iso2Code) setLanguage(result.result.language.iso2Code);
         }
 
-        async function licenseCheck() {
-            try {
-                const result = await coreLicenseCheck({});
-                if (result?.result) {
-                    setLicenseInfo(result.result);
-                }
-            } catch (e) {}
-        }
-
         if (!cookieChecked && !login) {
             check();
-            licenseCheck();
         } else if (!loaded && login) {
             load(login, setLoaded, corePortalGet);
         } else if (!loginHash && !login) {
@@ -107,7 +90,7 @@ const Gate: ComponentProps = ({ children, cookieCheck, corePortalGet, coreLicens
         } else if (loaded && !login) {
             setLoaded(false);
         }
-    }, [cookieChecked, login, loaded, corePortalGet, cookieCheck, appId, loginPage, loginHash, setLanguage, coreLicenseCheck]);
+    }, [cookieChecked, login, loaded, corePortalGet, cookieCheck, appId, loginPage, loginHash, setLanguage]);
 
     useEffect(() => {
         if (!login?.language?.iso2Code || !loaded || login.language.iso2Code === loaded.languageCode) return;
@@ -118,22 +101,12 @@ const Gate: ComponentProps = ({ children, cookieCheck, corePortalGet, coreLicens
         return <Loader />;
     } else if (login) {
         return loaded ? <Context.Provider value={loaded}>
-            <LicenseWarning
-                checked={!!licenseInfo}
-                expired={licenseInfo?.expired}
-                daysLeft={licenseInfo?.daysLeft}
-            />
             {children}
         </Context.Provider> : <Loader open/>;
     } else {
         return <Switch>
             <Route path='/p/:path*'>
                 <Context.Provider value={defaultContext}>
-                    <LicenseWarning
-                        checked={!!licenseInfo}
-                        expired={licenseInfo?.expired}
-                        daysLeft={licenseInfo?.daysLeft}
-                    />
                     {children}
                 </Context.Provider>
             </Route>
@@ -152,63 +125,6 @@ export default connect(
     null,
     {
         cookieCheck,
-        corePortalGet,
-        coreLicenseCheck
+        corePortalGet
     }
 )(Gate);
-
-const LicenseWarning = ({ checked = false, expired = false, daysLeft = 180 }) => {
-    const [dismissed, setDismissed] = React.useState(false);
-
-    if (expired) {
-        return (
-            <div
-                style={{
-                    color: 'red',
-                    fontWeight: 'bold',
-                    textAlign: 'center',
-                }}
-            >
-                <Text>
-                    Your license has expired. Please contact your administrator.
-                </Text>
-            </div>
-        );
-    } else if (checked && daysLeft < 30 && !dismissed) {
-        return (
-            <div
-                style={{
-                    color: 'orange',
-                    fontWeight: 'bold',
-                    textAlign: 'center',
-                    position: 'relative',
-                    padding: '8px 24px 8px 8px',
-                }}
-            >
-                <button
-                    onClick={() => setDismissed(true)}
-                    style={{
-                        position: 'absolute',
-                        right: '8px',
-                        top: '50%',
-                        transform: 'translateY(-50%)',
-                        background: 'none',
-                        border: 'none',
-                        color: 'orange',
-                        fontSize: '16px',
-                        cursor: 'pointer',
-                        fontWeight: 'bold',
-                    }}
-                    title='Dismiss'
-                >
-                    ×
-                </button>
-                <Text>
-                    Your license will expire in {daysLeft} days. Please contact
-                    your administrator.
-                </Text>
-            </div>
-        );
-    }
-    return null;
-};
