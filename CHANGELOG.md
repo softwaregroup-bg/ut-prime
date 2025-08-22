@@ -1,3 +1,19 @@
+# [2.86.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.85.0...v2.86.0) (2025-08-22)
+
+
+### Bug Fixes
+
+* **DI-236:** align App ([a0efb31](https://github.com/softwaregroup-bg/ut-prime/commit/a0efb31b330b591fdb129bb99afa99ebcd7367f4))
+* **DI-236:** move check from Gate to App ([df4e3c1](https://github.com/softwaregroup-bg/ut-prime/commit/df4e3c17d4f2cb1d89e0555b3fbbc1a7432d7acd))
+* **DI-236:** revert changes in Gate ([9aa7efb](https://github.com/softwaregroup-bg/ut-prime/commit/9aa7efb1606f7e4b65ce954a3d5f31a8cbf15bc6))
+
+
+### Features
+
+* **DI-237:** Create license warings in the portals ([d0eab39](https://github.com/softwaregroup-bg/ut-prime/commit/d0eab39a5a22444d215f8d85bbc6fdd40b815306))
+
+
+
 # [2.85.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.84.8...v2.85.0) (2025-03-05)
 
 
