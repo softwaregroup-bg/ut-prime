@@ -66,16 +66,18 @@ const App: ComponentProps = ({middleware, reducers, theme: defaultTheme, devTool
 
 export default App;
 
+type LicenseCheck = { expired: boolean, daysLeft: number };
+
 const LicenseWarning = () => {
     const [dismissed, setDismissed] = React.useState(false);
-    
-    const [licenseInfo, setLicenseInfo] = React.useState<{ expired: boolean, daysLeft: number } | null>(null);
+
+    const [licenseInfo, setLicenseInfo] = React.useState<LicenseCheck | null>(null);
     const dispatch = useDispatch();
     React.useEffect(() => {
         async function licenseCheck() {
-            const result = await dispatch(coreLicenseCheck({})) as { result?: { expired: boolean, daysLeft: number } };
-            if (result?.result) {
-                setLicenseInfo(result.result);
+            const response = await dispatch(coreLicenseCheck({})) as { result?: LicenseCheck };
+            if (response?.result) {
+                setLicenseInfo(response.result);
             }
         }
         licenseCheck();
