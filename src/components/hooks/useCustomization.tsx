@@ -23,7 +23,7 @@ import type {Cards, Layouts, LayoutMode} from '../types';
 
 const capital = (string: string) => string.charAt(0).toUpperCase() + string.slice(1);
 
-function getLayout(cards: Cards, layouts: Layouts, mode: LayoutMode, name = '') {
+function getLayout(cards: Cards, layouts: Layouts, mode: LayoutMode, name = '', permissionCheck) {
     let layoutName = mode + capital(name);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let items: any = layouts?.[layoutName];
@@ -43,6 +43,7 @@ function getLayout(cards: Cards, layouts: Layouts, mode: LayoutMode, name = '') 
         layout = items;
         items = false;
     } else layout = !items && [layoutName];
+    if (items) items = items.filter(({permission}) => !permission || permissionCheck(permission));
     let toolbar = `toolbar${capital(mode)}${capital(name)}`;
     if (!cards[toolbar]) toolbar = `toolbar${capital(name)}`;
     if (!cards[toolbar]) toolbar = `toolbar${capital(mode)}`;
@@ -90,7 +91,8 @@ export default function useCustomization({
     name,
     loading,
     trigger = undefined,
-    editors
+    editors,
+    permissionCheck = (permission: any) => true
 }) {
     const [inspected, onInspect] = React.useState(null);
     const {customization: customizationEnabled} = React.useContext(Context);
@@ -103,8 +105,8 @@ export default function useCustomization({
     const [addField, setAddField] = React.useState(null);
     const [addCard, setAddCard] = React.useState(null);
     const [items, currentLayout, indexType, orientation, toolbar, currentLayoutName, disableBack, hideBack, disabled, enabled] = React.useMemo(
-        () => getLayout(mergedCards, mergedLayouts, mode, layoutName),
-        [mergedCards, mergedLayouts, mode, layoutName]
+        () => getLayout(mergedCards, mergedLayouts, mode, layoutName, permissionCheck),
+        [mergedCards, mergedLayouts, mode, layoutName, permissionCheck]
     );
     const usedLayout = layout || currentLayout;
     const [[filter, filterIndex], setFilter] = React.useState([items?.[0]?.items?.[0] || items?.[0], 0]);
@@ -403,11 +405,11 @@ export default function useCustomization({
     }, [mergedCards, editors, items, layoutItems, mergedSchema, translate]);
 
     const getLayoutValue = React.useCallback((mode, layoutState, value) => {
-        const [items, layout] = getLayout(mergedCards, mergedLayouts, mode, layoutState);
+        const [items, layout] = getLayout(mergedCards, mergedLayouts, mode, layoutState, permissionCheck);
         const layoutItems = items ? false : layout;
         const {fields} = fieldNames(indexCards(items) || layoutItems || [], mergedCards, mergedSchema, editors, translate);
         return getFieldsValue(fields, value);
-    }, [editors, mergedCards, mergedLayouts, mergedSchema, translate]);
+    }, [editors, mergedCards, mergedLayouts, mergedSchema, translate, permissionCheck]);
 
     const [resolver, isPropertyRequired] = React.useMemo(() => {
         const [validationSchema, requiredProperties] = getValidation(mergedSchema, translate);
