@@ -30,7 +30,7 @@ exports[`<Report /> render equals snapshot 1`] = `
           class="flex align-items-center w-full"
         >
           <div
-            class="grid col align-self-start form-0-2-3 p-0 m-0 flex-grow-1"
+            class="grid col align-self-start max-w-screen form-0-2-3 p-0 m-0 flex-grow-1"
           >
             <div
               class="col-12 m-0 p-0"

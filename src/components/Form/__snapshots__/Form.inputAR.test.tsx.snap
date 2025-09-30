@@ -9,7 +9,7 @@ exports[`<Form /> InputAR render equals snapshot 1`] = `
     style="overflow-x: hidden; width: 100%;"
   >
     <div
-      class="grid col align-self-start form-0-2-1"
+      class="grid col align-self-start max-w-screen form-0-2-1"
       dir="rtl"
       lang="ar"
     >

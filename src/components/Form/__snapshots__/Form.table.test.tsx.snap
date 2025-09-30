@@ -9,7 +9,7 @@ exports[`<Form /> Table render equals snapshot 1`] = `
     style="overflow-x: hidden; width: 100%;"
   >
     <div
-      class="grid col align-self-start form-0-2-1"
+      class="grid col align-self-start max-w-screen form-0-2-1"
     >
       <div
         class="col-12 xl:col-12"
@@ -1917,7 +1917,7 @@ exports[`<Form /> TableAR render equals snapshot 1`] = `
     style="overflow-x: hidden; width: 100%;"
   >
     <div
-      class="grid col align-self-start form-0-2-1"
+      class="grid col align-self-start max-w-screen form-0-2-1"
       dir="rtl"
       lang="ar"
     >
@@ -3827,7 +3827,7 @@ exports[`<Form /> TableBG render equals snapshot 1`] = `
     style="overflow-x: hidden; width: 100%;"
   >
     <div
-      class="grid col align-self-start form-0-2-1"
+      class="grid col align-self-start max-w-screen form-0-2-1"
       lang="bg"
     >
       <div
