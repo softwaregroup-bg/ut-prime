@@ -4,7 +4,7 @@ import type { Meta } from '@storybook/react';
 // import page from './README.mdx';
 import Json from '.';
 import decorators from '../test/decorator';
-import {previous, current} from '../test/diff';
+import {previous, current, schema} from '../test/diff';
 
 const meta: Meta = {
     title: 'Json',
@@ -21,6 +21,7 @@ export const Diff: React.FC = () =>
     <Json
         value={current}
         previous={previous}
+        schema={schema}
     />;
 
 export const View: React.FC = () =>
