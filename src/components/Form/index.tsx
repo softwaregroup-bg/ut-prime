@@ -201,7 +201,7 @@ const Form: ComponentProps = ({
         {devTool ? <DevTool control={control} placement="top-right" /> : null}
         {toolbarElement}
         {children}
-        <div {...rest} className={clsx('grid col align-self-start', classes.form, className)}>
+        <div {...rest} className={clsx('grid col align-self-start max-w-screen', classes.form, className)}>
             {!!errorList.length && <div className='col-12'>{errorList}</div>}
             {layoutState.visibleCards.map((id1, level1) => {
                 const nested = [].concat(id1).filter(widget => {
