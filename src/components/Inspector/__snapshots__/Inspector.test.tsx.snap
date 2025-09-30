@@ -14,7 +14,7 @@ exports[`<Inspector /> Basic render equals snapshot 1`] = `
         class="flex flex-grow-1"
       >
         <div
-          class="grid col align-self-start form-0-2-2"
+          class="grid col align-self-start max-w-screen form-0-2-2"
         >
           <div
             class="col-12 w-full p-0"
