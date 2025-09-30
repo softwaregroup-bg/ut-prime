@@ -1,3 +1,13 @@
+## [2.86.1](https://github.com/softwaregroup-bg/ut-prime/compare/v2.86.0...v2.86.1) (2025-09-30)
+
+
+### Bug Fixes
+
+* **CBI-6656:** selecting all options from multiselect breaks ui ([cc92585](https://github.com/softwaregroup-bg/ut-prime/commit/cc925854a545f4294e5a2cbe8c0e0cf4bf67b188))
+* **CBI-999:** update test snapshots ([6a10902](https://github.com/softwaregroup-bg/ut-prime/commit/6a10902fa5d9103e186b74dde4e2c25e129cbb5d))
+
+
+
 # [2.86.0](https://github.com/softwaregroup-bg/ut-prime/compare/v2.85.0...v2.86.0) (2025-08-22)
 
 
